@@ -1,0 +1,111 @@
+{strip}
+    {if $theme_settings.test_settings}
+        {if $wa->cookie("font")}
+            {$theme_settings.font = $wa->cookie("font")}
+        {/if}
+    {/if}
+
+    {$is_ruble_arial = true}
+    {$font_name = "sans-serif"}
+    {if $theme_settings.font == "opensans"}
+        {$font_name = "'Open Sans', sans-serif"}
+    {elseif $theme_settings.font == "ubuntu"}
+        {$font_name = "'Ubuntu', sans-serif"}
+    {elseif $theme_settings.font == "exo2"}
+        {$font_name = "'Exo 2', sans-serif"}
+        {$is_ruble_arial = false}
+    {elseif $theme_settings.font == "arial"}
+        {$font_name = "'Arial', sans-serif"}
+    {elseif $theme_settings.font == "roboto"}
+        {$font_name = "'Roboto', sans-serif"}
+        {$is_ruble_arial = false}
+    {elseif $theme_settings.font == "firasans"}
+        {$font_name = "'Fira Sans', sans-serif"}
+        {$is_ruble_arial = false}
+    {elseif $theme_settings.font == "montserrat"}
+        {$font_name = "'Montserrat', sans-serif"}
+        {$is_ruble_arial = false}
+    {elseif $theme_settings.font == "helvetica"}
+        {$font_name = "'Helvetica', sans-serif"}
+    {elseif $theme_settings.font == "ptsans"}
+        {$font_name = "'PT Sans', sans-serif"}
+        {$is_ruble_arial = false}
+    {elseif $theme_settings.font == "play"}
+        {$font_name = "'Play', sans-serif"}
+        {$is_ruble_arial = false}
+    {/if}
+
+    <style>
+         body{
+            font-family: {$font_name};
+        }
+
+        {if $is_ruble_arial}
+            .ruble{
+                font-family: 'Arial', sans-serif;
+            }
+        {/if}
+
+        {if $theme_settings.bg_color_navogation} .bg-bs-color.header-nav-block-outer{  background: {$theme_settings.bg_color_navogation}; } {/if}
+
+        {$width_logo = (int)$theme_settings.logo_width}
+        {$width_logo_950 = (int)$theme_settings.logo_width_max_950}
+        {if $width_logo > 0} @media (min-width: 950px) {  .footer_logo img, .header_logo img{  max-width: {$width_logo}px; } } {/if}
+        {if $width_logo_950 > 0} @media (max-width: 950px) { .footer_logo img, .header_logo img{  max-width: {$width_logo_950}px; } }  {/if}
+
+        {if $theme_settings.info_head_background}
+            .info-massage{
+                background-color: {$theme_settings.info_head_background};
+            }
+        {/if}
+
+        {if $theme_settings.info_head_color}
+            .info-massage,
+            .info-massage__text a{
+                color: {$theme_settings.info_head_color};
+            }
+        {/if}
+
+        {if $theme_settings.color_sticker_hit} .badge.bestseller{  background: {$theme_settings.color_sticker_hit}; } {/if}
+        {if $theme_settings.color_sticker_new} .badge.new{  background: {$theme_settings.color_sticker_new}; } {/if}
+        {if $theme_settings.color_sticker_discount} .badge.low-price{  background: {$theme_settings.color_sticker_discount}; } {/if}
+
+        {if $wa_app != 'shop'}
+            {$product_tile_name_height = 40}
+            {$product_tile_desc_height = false}
+        {else}
+            {if !$wa->isMobile()}
+                {$product_tile_name_height = $theme_settings.tile_preview_name_height}
+                {$product_tile_desc_height = $theme_settings.tile_preview_description_height}
+            {else}
+                {$product_tile_name_height = $theme_settings.tile_mobile_preview_name_height}
+                {$product_tile_desc_height = $theme_settings.tile_mobile_preview_description_height}
+            {/if}
+        {/if}
+         {if $product_tile_desc_height}
+            .product-tile_description{
+                height: {$product_tile_desc_height}px;
+            }
+        {/if}
+        {if $product_tile_name_height}
+            .product-tile_name{
+                height: {$product_tile_name_height}px;
+            }
+        {/if}
+
+        {if $theme_settings.max_elements_plugins_sidebar && (int)$theme_settings.max_elements_plugins_sidebar > 0}
+            .aside-wrap--plugin .menu-v li:nth-child({$theme_settings.max_elements_plugins_sidebar}) ~ li{ldelim}
+                display: none;
+            {rdelim}
+        {/if}
+
+        {if $theme_settings.color_badge_discount} .product-discount{  color: {$theme_settings.color_badge_discount}; } {/if}
+
+        {if $theme_settings.color_badge_saving_font}
+            .product-saving{
+                {if $theme_settings.color_badge_saving_font} background: {$theme_settings.color_badge_saving_font}; {/if}
+            }
+        {/if}
+    </style>
+{/strip}
+

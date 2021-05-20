@@ -1,0 +1,32 @@
+{strip}
+{if $category.subcategories}
+    {$default_image = "`$wa_theme_url`img/dummy48.png"}
+    {if !empty($theme_settings.default_image)}
+        {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+    {/if}
+    {$is_retina = $theme_settings.categories_list_images_retina && !empty($skImages)}
+    {$is_lazy = $theme_settings.categories_list_images_lazy}
+    <ul class="js-categories-list category-subcat-icon ul-block" data-retina="{$is_retina}" data-lazy="{$is_lazy}">
+        {foreach $category.subcategories as $sc}
+            <li class="category-subcat-icon_item">
+                <div class="category-subcat-icon_img">
+                    {if isset($Wmimages[$sc.id].icon)}
+                        {$sc.params.icon = $Wmimages[$sc.id].icon}
+                    {/if}
+                    {if isset($skImages[$sc.id].icon)}
+                        {$sc.params.icon = $skImages[$sc.id].icon}
+                    {/if}
+                    {if $theme_settings.categories_list_images_lazy}
+                        <img class="js-categories-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else}{$default_image}{/if}" alt="{$sc.name}" />
+                    {else}
+                        <img class="js-categories-item-image" src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else}{$default_image}{/if}" alt="{$sc.name}">
+                    {/if}
+                </div>
+                <div class="category-subcat-icon_name">
+                    <a href="{$sc.url}" class="js-category-link">{$sc.name|escape}</a> {if $theme_settings.show_count_products_in_subs}<span class="hint">({$sc.count})</span>{/if}
+                </div>
+            </li>
+        {/foreach}
+    </ul>
+{/if}
+{/strip}

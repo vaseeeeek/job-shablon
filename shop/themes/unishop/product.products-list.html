@@ -1,0 +1,14 @@
+{strip}
+{if !empty($products)}
+    <section>
+        <div class="product_related-title__outer">
+            <h3 class="product_related-title">{$product_list_title}</h3>
+        </div>
+        {if $wa->isMobile()  && !($wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version)}
+            {include file="list-thumbs-mini.html" products=$products ulclass=""}
+        {else}
+            {include file="list-thumbs.html" products=$products ulclass=""}
+        {/if}
+    </section>
+{/if}
+{/strip}

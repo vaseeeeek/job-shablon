@@ -1,0 +1,11 @@
+{if $theme_settings.plugins_shop_js_footer}
+    <!-- plugin hook: 'frontend_head' -->
+    {* @event frontend_head.%plugin_id% *}
+    {foreach $frontend_head as $_}{$_}{/foreach}
+{/if}
+<!-- js -->
+{if $theme_settings.min_script_off}
+    <script src="{$wa_active_theme_url}unishop.shop.js?v{$wa_theme_version}"></script>
+{else}
+    <script src="{$wa_active_theme_url}unishop.shop.min.js?v{$wa_theme_version}"></script>
+{/if}

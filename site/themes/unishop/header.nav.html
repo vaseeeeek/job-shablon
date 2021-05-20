@@ -1,0 +1,87 @@
+{strip}
+{if $wa->shop}
+    <div class="header-nav-block-outer bg-bs-color js-content-move">
+        <div class="header-nav-block l-wrapper">
+            <div class=" display-table">
+                <div class="header-nav-categories js-drop-down-outer">
+                    <div data-id="header-nav-categories" class="js-btn-drop-down header-nav-categories-btn bg-sd-color icon-before{if $wa->currentUrl() == $wa_app_url && $wa_app == 'shop'} cursor-default{/if}">[`Catalog`]</div>
+                </div>
+                <div class="header-nav-search js-header-search">
+                    <i class="btn header-nav-search_btn-show icon-before js-show-header-nav-search"></i>
+                    {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
+                        <div class="js-header-nav-search header-nav-search_form">
+                            {shopSearchproPluginViewHelper::field()}
+                        </div>
+                    {else}
+                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}" class="js-header-nav-search header-nav-search_form">
+                            <div class="search-input">
+                                <input class="header-nav-search-input{if $theme_settings.search_auto} js-search-auto{/if}"
+                                    {if $theme_settings.search_auto} autocomplete="off"{/if} type="text" name="query" value="{$wa->get('query')|escape}" placeholder="[`Search in catalog`]" />
+                                {if $theme_settings.search_auto}
+                                    <div class="search-auto-result js-search-auto-result"></div>
+                                {/if}
+                                <i class="fa fa-search btn bs-color js-submit-form"></i>
+                            </div>
+                        </form>
+                    {/if}
+                </div>
+                <div class="header-nav-custom-pr">
+                    {if $theme_settings.favorites_products}
+                        {$count_favorites = 0}
+                        {$favorites_list = $wa->cookie('favorites_list')}
+                        {if $favorites_list && $favorites_list != 'null'}
+                            {$count_favorites = count(","|explode:$favorites_list)}
+                        {/if}
+                        <div class="js-preview-favorite custom-pr">
+                            <a class="js-products-list-link" href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
+                                <div class="custom-pr_icon bs-color">
+                                    <i class="fa fa-heart icon"></i>
+                                    <span class="js-products-list-count custom-pr_short-count bg-sd-color">{$count_favorites}</span>
+                                </div>
+                                <div class="custom-pr_content">
+                                    <span class="link custom-pr_title">[`Favorites`]</span>
+                                </div>
+                            </a>
+                            <div class="action-msg-wrap js-action-msg">
+                                <div class="action-msg br-top-sd-color shadow">
+                                    [`The product has been added to favorites`]
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+
+                    {if $theme_settings.compare_products}
+                        {$in_comparison = $wa->shop->inComparison()}
+                        {$url = $wa->getUrl('shop/frontend/compare', ['id' => implode(',', $in_comparison)])}
+
+                        {if $wa->cookie('shop_compare') == 'null' || !count($in_comparison)}
+                            {$in_comparison = []}
+                            {$url = $wa->getUrl('shop/frontend/compare')}
+                        {/if}
+                        <div class="js-preview-compare custom-pr">
+                            <a class="js-products-list-link" href="{$url}">
+                                <div class="custom-pr_icon bs-color">
+                                    <i class="fa fa-files-o icon "></i>
+                                    <span class="js-products-list-count custom-pr_short-count bg-sd-color">{count($in_comparison)}</span>
+                                </div>
+                                <div class="custom-pr_content">
+                                    <span class="link custom-pr_title">[`Compare`]</span>
+                                </div>
+                            </a>
+                            <div class="action-msg-wrap js-action-msg">
+                                <div class="action-msg br-top-sd-color shadow" >
+                                    [`Product is added to compare`]
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+                </div>
+            </div>
+
+            {if !$theme_settings.show_sidebar_mainpage || $wa_app != 'shop' || $wa->currentUrl() != $wa_app_url}
+                {include file="header.categories.html"}
+            {/if}
+        </div>
+    </div>
+{/if}
+{/strip}

@@ -1,0 +1,154 @@
+{strip}
+{$selected_category=null}
+{$open_categories = []}
+{if isset($category)}
+    {$selected_category=$category.id}
+{elseif isset($product)}
+    {$selected_category=$product.category_id}
+{/if}
+
+{if $selected_category}
+    {$open_categories[] = $root_category_id}
+    {if isset($category) && $category.parent_id > 0 &&  $category.parent_id != $root_category_id}
+        {$open_categories[] = $category.parent_id}
+    {/if}
+{/if}
+
+{$categories = []}
+{if $theme_settings.sidebar_categories_content == 'app-menu' && $wa->menu && (int)$theme_settings.sidebar_categories_id_app_menu > 0}
+    {$id_menu = $theme_settings.sidebar_categories_id_app_menu}
+    {$categories = $wa->menu->get($id_menu)}
+{else if $theme_settings.sidebar_categories_content == 'catalog'}
+    {$categories = $wa->shop->categories(0, null, true, true)}
+
+    {if class_exists('shopSkcatimagePlugin')}
+        {$skImages = shopSkcatimageHelper::getImages()}
+    {elseif class_exists('shopWmimageincatPlugin')}
+        {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+    {/if}
+{/if}
+
+{* add links from pages *}
+{if $theme_settings.sidebar_categories_menu_add_links}
+    {$add_links = []}
+    {$add_links_res = []}
+    {if $theme_settings.sidebar_categories_menu_add_links == 'app-menu' && $theme_settings.sidebar_categories_content != 'app-menu' && $wa->menu && (int)$theme_settings.sidebar_categories_id_app_menu > 0}
+        {$id_menu = $theme_settings.sidebar_categories_id_app_menu}
+        {$add_links_res = $wa->menu->get($id_menu)}
+    {else}
+        {if $theme_settings.sidebar_categories_menu_add_links == 'site-pages'}
+            {if $wa->site}{$add_links = $wa->site->pages()}{/if}
+        {elseif $theme_settings.sidebar_categories_menu_add_links == 'shop-pages'}
+            {if $wa->shop}{$add_links = $wa->shop->pages()}{/if}
+        {elseif $theme_settings.sidebar_categories_menu_add_links == 'blog-pages'}
+            {if $wa->blog}{$add_links = $wa->blog->pages()}{/if}
+        {elseif $theme_settings.sidebar_categories_menu_add_links == 'photos-pages'}
+            {if $wa->photos}{$add_links = $wa->photos->pages()}{/if}
+        {elseif $theme_settings.sidebar_categories_menu_add_links == 'hub-pages'}
+            {if $wa->hub}{$add_links = $wa->hub->pages()}{/if}
+        {/if}
+
+        {$ids = ","|explode:$theme_settings.sidebar_categories_menu_add_links_ids}
+        {if count($add_links) > 0 && count($ids) > 0}
+            {foreach $add_links as $p}
+                {if in_array($p.id, $ids)}
+                    {$pId = "add`$p.id`"}
+                    {$add_link = ['name' => $p.title, 'url' => $p.url, 'childs' => [], 'id' => $pId, 'page'=>1]}
+                    {if isset($p.childs) && $p.childs && count($p.childs)}
+                        {$add_link['childs'] = $p.childs}
+                        {foreach $add_link.childs as $key => $child}
+                            {if !isset($add_link.childs[$key]['childs'])}{$add_link.childs[$key]['childs'] = []}{/if}
+                        {/foreach}
+                    {/if}
+                    {if isset($p.icon)}
+                        {$add_link['params'] = ['icon' => $p.icon]}
+                    {/if}
+                    {if strlen($p.url)>1 && $wa->currentUrl() == $p.url}
+                        {$selected_category=$pId}
+                    {/if}
+                    {$add_links_res[] = $add_link}
+                {/if}
+            {/foreach}
+        {/if}
+    {/if}
+    {if count($add_links_res) > 0}
+        {if $theme_settings.sidebar_categories_menu_add_links_end}
+            {$categories = $categories|@array_merge:$add_links_res}
+        {else}
+            {$categories = $add_links_res|@array_merge:$categories}
+        {/if}
+    {/if}
+{/if}
+
+{function name=getSubcategories subcategories=[] parent=[]}
+    {if count($subcategories) > 0}
+        <ul class="sidebar-subcats{if $selected_category != $parent.id && !in_array($parent.id, $open_categories) && !isset($parent.params.sidebar_open)} hide{/if} js-subcat">
+            {foreach $subcategories as $key => $subcategory}
+                {if !isset($subcategory.params.menu_hide)}
+                    {$is_has_childs = false}
+                    {if !empty($subcategory.childs)}
+                        {foreach $subcategory.childs as $child}
+                            {if !isset($child.params.menu_hide)}
+                                {$is_has_childs = true}
+                            {/if}
+                        {/foreach}
+                    {/if}
+                    <li class="sidebar-subcats_el{if $selected_category == $subcategory.id} selected{/if}"{if $selected_category == $subcategory.id} data-is-open="1"{/if}>
+                        {if $is_has_childs && count($subcategory.childs)}
+                            <span class="sidebar-subcats_el-open sd-color js-subcat-open{if $selected_category == $subcategory.id || isset($subcategory.params.sidebar_open)} selected{/if}"></span>
+                        {/if}
+                        <a href="{$subcategory.url}">{$subcategory.name}</a>
+                        {if $is_has_childs}{getSubcategories subcategories=$subcategory.childs parent=$subcategory}{/if}
+                    </li>
+                {/if}
+            {/foreach}
+        </ul>
+    {/if}
+{/function}
+
+{if !empty($categories)}
+    <div class="aside-wrap sidebar-categories">
+        <ul class="js-sidebar-cats sidebar-cats" data-retina="{$theme_settings.categories_menu_images_retina && !empty($skImages)}" data-lazy="{$theme_settings.categories_menu_images_lazy}">
+            {foreach $categories as $cat}
+                {$is_has_childs = false}
+                {if !empty($cat.childs)}
+                    {foreach $cat.childs as $child}
+                        {if !isset($child.params.menu_hide)}
+                            {$is_has_childs = true}
+                        {/if}
+                    {/foreach}
+                {/if}
+
+                {if !isset($cat.params.menu_hide)}
+                    <li class="sidebar-cats_el{if $selected_category == $cat.id} selected{/if}">
+                        {if $is_has_childs}<i class="sidebar-cats_el-open sd-color js-subcat-open icon-after{if $selected_category == $cat.id  || isset($cat.params.sidebar_open)} selected{/if}"></i>{/if}
+                        <a class="sidebar-cats_link" href="{$cat.url}">
+                            {if $theme_settings.icon_sidebar_subcategories}
+                                {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
+                                    {$cat.params.icon = $Wmimages[$cat.id].icon}
+                                {/if}
+                                {if isset($skImages[$cat.id].icon) && !isset($cat.page)}
+                                    {$cat.params.icon = $skImages[$cat.id].icon}
+                                {/if}
+                                {if isset($cat.params.icon)}
+                                    <div class="sidebar-cats_icon">
+                                        {if $theme_settings.categories_menu_images_lazy}
+                                            <img class="js-sidebar-cat-image" src="{$wa_theme_url}img/lazy-image.png" alt="{$cat.name}" data-src="{$cat.params.icon}" />
+                                        {else}
+                                            <img class="js-sidebar-cat-image" alt="{$cat.name}" src="{$cat.params.icon}" />
+                                        {/if}
+                                    </div>
+                                {/if}
+                            {/if}
+                            <div class="sidebar-cats_title">
+                                {$cat.name}
+                            </div>
+                        </a>
+                        {if $is_has_childs}{getSubcategories subcategories=$cat.childs parent=$cat}{/if}
+                    </li>
+                {/if}
+            {/foreach}
+        </ul>
+    </div>
+{/if}
+{/strip}

@@ -1,0 +1,183 @@
+{strip}
+
+{$is_smartfilters_hide_options = !empty($smartfilters.hideDisabled)}
+<div class="aside-wrap filters js-filters{if $wa->isMobile()} mobile-filter{/if}{if !empty($theme_settings.ajax_filters)} js-ajax{/if}"{if $is_smartfilters_hide_options} data-smartfilters-hide-option="1"{/if}>
+    <div class="aside-wrap_head aside-wrap_head--icon bs-color">
+        <i class="aside-wrap_btn icon-after sd-color js-nav-btn" data-id="filter-body"></i>
+
+        <i class="fa fa-filter icon"></i>
+        <div class="aside-wrap_title">[`Selection by parameters`]</div>
+    </div>
+
+    <form id="filter-body" class="filters-body js-filter-body" method="get" action="{$wa->currentUrl(0,1)}">
+        {$indexFilter = 0}
+        {foreach $filters as $fid => $filter}
+            {if $fid == 'price'}{$filter.code = 'price'}{/if}
+            {$is_close = false}
+            {if $theme_settings.filter_count_show_options && $indexFilter >= $theme_settings.filter_count_show_options && !count((array)$wa->get($filter.code, array()))}
+                {$is_close = true}
+            {/if}
+            <div data-code="{$filter.code}" class="js-filter-item filter-item{if $is_close} close{/if}">
+                <div class="filter-item_title icon-after js-filter-title">
+                    {if $fid == 'price'}
+                        {$c = $wa->shop->currency(true)}
+                        [`Price`], <span class="filter-item__unit">{$c.sign}</span>
+                    {else}
+                        {$filter.name|escape}{if !empty($filter.unit)}, <span class="filter-item__unit">{$filter.unit.title}</span>{/if}
+                    {/if}
+                </div>
+
+                <div class="filter-item_opts js-filter-options">
+                    {if $fid == 'price'}
+                        <div{if empty($theme_settings.filters_slider_off)} class="js-filter-range"{/if}>
+                            <div class="filter-range">
+                                <input type="text" class="js-number filter-range_el js-min" name="price_min" {if $wa->get('price_min')}value="{(int)$wa->get('price_min')}"{/if} placeholder="{floor($filter.min)}">
+                                &mdash;
+                                <input type="text" class="js-number filter-range_el js-max" name="price_max" {if $wa->get('price_max')}value="{(int)$wa->get('price_max')}"{/if} placeholder="{ceil($filter.max)}">
+                            </div>
+                        </div>
+                    {else}
+                        {if $filter.type == 'boolean'}
+                            {$value = ""}
+                            {if $wa->get($filter.code) || $wa->get($filter.code) === '0'}
+                                {$value = $wa->get($filter.code)}
+                                {if is_array($value) && isset($value[0])} {$value = $value[0]} {/if}
+                            {/if}
+                            <div class="filter-item_opts-el">
+                                <label>
+                                    <span class="js-radio-styler radio-styler{if $value} checked{/if}">
+                                        <input class="js-radio-styler-input" type="radio" name="{$filter.code}" value="1"{if $value} checked="checked"{/if}>
+                                    </span>
+                                    {$radio_filter_url = ''}
+                                    {if class_exists('shopSeofilterViewHelper')}
+                                        {$radio_filter_url = shopSeofilterViewHelper::getFilterUrl($filter.id, "1", $filter.code)}
+                                    {/if}
+                                    {if $radio_filter_url}
+                                        <a class="filter-link" href="{$radio_filter_url}">[`Yes`]</a>
+                                        {else}
+                                    [`Yes`]
+                                    {/if}
+                                </label>
+                            </div>
+                            <div class="filter-item_opts-el">
+                                <label>
+                                    <span class="js-radio-styler radio-styler{if $value === '0'} checked{/if}">
+                                        <input class="js-radio-styler-input" type="radio" name="{$filter.code}" value="0"{if $value === '0'} checked="checked"{/if}>
+                                    </span>
+                                    {$radio_filter_url = ''}
+                                    {if class_exists('shopSeofilterViewHelper')}
+                                        {$radio_filter_url = shopSeofilterViewHelper::getFilterUrl($filter.id, "0", $filter.code)}
+                                    {/if}
+                                    {if $radio_filter_url}
+                                        <a class="filter-link" href="{$radio_filter_url}">[`No`]</a>
+                                    {else}
+                                        [`No`]
+                                    {/if}
+                                </label>
+                            </div>
+                            <div class="filter-item_opts-el">
+                                <label>
+                                    <span class="js-radio-styler radio-styler{if $wa->get($filter.code, '') === ''} checked{/if}">
+                                        <input class="js-radio-styler-input" type="radio" name="{$filter.code}" value=""{if $wa->get($filter.code, '') === ''} checked="checked"{/if}>
+                                    </span>
+                                    [`Any`]
+                                </label>
+                            </div>
+                        {elseif isset($filter.min)}
+                            {$_v = $wa->get($filter.code)}
+                            <div{if empty($theme_settings.filters_slider_off)} class="js-filter-range"{/if}>
+                                <div class="filter-range">
+                                    <input type="text" class="js-number js-min filter-range_el" name="{$filter.code}[min]" placeholder="{$filter.min}" {if !empty($_v.min)}value="{(float)$_v.min}"{/if}>
+                                    &mdash;
+                                    <input type="text" class="js-number js-max filter-range_el" name="{$filter.code}[max]" placeholder="{$filter.max}" {if !empty($_v.max)}value="{(float)$_v.max}"{/if}>
+                                    {if !empty($filter.unit)}
+                                    {if $filter.unit.value != $filter.base_unit.value}
+                                    <input type="hidden" name="{$filter.code}[unit]" value="{$filter.unit.value}">
+                                    {/if}
+                                    {/if}
+                                </div>
+                            </div>
+                        {else}
+                            {$index = 0}
+                            {$is_select_opt = false}
+                            {if count((array)$wa->get($filter.code, array()))}
+                                {$is_select_opt = true}
+                            {/if}
+                            {$is_hideshow_el = false}
+                            {if $filter.type == 'color'}
+                                <div class="filter-item_opts-el">
+                                    {if $theme_settings.is_filter_asort_values}{$filter_values_tmp = asort($filter.values)}{/if}
+                                    {$count_show_variants = $theme_settings.filter_count_show_variants_color}
+                                    {foreach $filter.values as $v_id => $v}
+                                        {if $count_show_variants && $index >= $count_show_variants}
+                                            {$is_hideshow_el = true}
+                                        {/if}
+                                        <label class="opt-color_outer{if $is_hideshow_el} js-filter-options-el {/if}{if $is_hideshow_el && !$is_select_opt} hide{/if} {if empty($theme_settings.is_filter_color_text)} _without-text{/if}">
+                                            <span class="filter-opt-color{if in_array($v_id, (array)$wa->get($filter.code, array()))} checked{/if}" style="{$v->style}">
+                                                <span class="js-checkbox-styler checkbox-styler{if in_array($v_id, (array)$wa->get($filter.code, array()))} checked{/if}">
+                                                    <input class="js-checkbox-styler-input" type="checkbox" name="{$filter.code}[]" {if in_array($v_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$v_id}">
+                                                </span>
+                                            </span>
+                                            <span class="opt-color_text">
+                                                {$filter_url = ''}
+                                                {if class_exists('shopSeofilterViewHelper')}
+                                                    {$filter_url = shopSeofilterViewHelper::getFilterUrl($filter.id, $v_id, $filter.code)}
+                                                {/if}
+                                                {if $filter_url}
+                                                    <a class="filter-link" href="{$filter_url}">{$v|strip_tags|trim}</a>
+                                                {else}
+                                                    {$v|strip_tags|trim}
+                                                {/if}
+                                            </span>
+                                        </label>
+                                        {$index = $index+1}
+                                    {/foreach}
+                                </div>
+                            {else}
+                                {if $theme_settings.is_filter_asort_values}{$filter_values_tmp = asort($filter.values)}{/if}
+                                {$count_show_variants = $theme_settings.filter_count_show_variants}
+                                {foreach $filter.values as $v_id => $v}
+                                    {if $count_show_variants && $index >= $count_show_variants}
+                                        {$is_hideshow_el = true}
+                                    {/if}
+                                    <label class="filter-item_opts-el {if $is_hideshow_el} js-filter-options-el {/if}filter-opt_el{if $is_hideshow_el && !$is_select_opt} hide{/if}">
+                                        <span class="js-checkbox-styler checkbox-styler{if in_array($v_id, (array)$wa->get($filter.code, array()))} checked{/if}">
+                                            <input class="js-checkbox-styler-input" type="checkbox" name="{$filter.code}[]" {if in_array($v_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$v_id}">
+                                        </span>
+                                        {$filter_url = ''}
+                                        {if class_exists('shopSeofilterViewHelper')}
+                                            {$filter_url = shopSeofilterViewHelper::getFilterUrl($filter.id, $v_id, $filter.code)}
+                                        {/if}
+                                        {if $filter_url}
+                                            <a class="filter-link" href="{$filter_url}">{$v|strip_tags|trim}</a>
+                                        {else}
+                                            {$v|strip_tags|trim}
+                                        {/if}
+                                    </label>
+                                    {$index = $index+1}
+                                {/foreach}
+                            {/if}
+                            {if $is_hideshow_el}
+                                <div data-max-show-params="{$count_show_variants}" class="filter-item_opts-el filter-opt-show-btn js-filter-options-show-all sd-color{if $is_select_opt} open{/if}">
+                                    <span class="link-half link-half--act">[`Show all`]</span>
+                                </div>
+                            {/if}
+                        {/if}
+                    {/if}
+                </div>
+            </div>
+            {$indexFilter = $indexFilter+1}
+        {/foreach}
+        {if $wa->get('sort')}<input type="hidden" name="sort" value="{$wa->get('sort')|escape}">{/if}
+        {if $wa->get('order')}<input type="hidden" name="order" value="{$wa->get('order')|escape}">{/if}
+        <div class="filter-item filter-item--btns">
+            <input type="submit" class="bg-bs-color" value="[`Filter products`]">
+            {$reset_link = $wa->currentUrl(0,1)}
+            {if isset($category) && class_exists('shopSeofilterViewHelper')}
+                {$reset_link = $wa->shop->categoryUrl($category)}
+            {/if}
+            <a class="filter-reset icon-before" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
+        </div>
+    </form>
+</div>
+{/strip}

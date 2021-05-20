@@ -1,0 +1,64 @@
+{strip}
+{$video = $product->video}
+{$isPopup = empty($theme_settings.product_popup_gallery_off)}
+{$isPopupThumbs = $theme_settings.product_popup_gallery_thumbs}
+{$isBlackBg = $theme_settings.product_popup_gallery_black}
+{$isZoom = $theme_settings.product_gallery_zoom && !$wa->isMobile()}
+{$isPhotoSwipe = !empty($wa->isMobile())}
+{$popup_class="js-product-image-popup-swipebox"}{if $isPhotoSwipe}{$popup_class="js-product-image-popup-photoswipe"}{/if}
+{include file="product.gallery.previews.html" inline}
+
+{$default_image = "`$wa_theme_url`img/dummy200.png"}
+{if !empty($theme_settings.default_image)}
+    {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+{/if}
+
+
+<div class="product_main-left">
+    {$wa->shop->badgeHtml($product.badge)}
+    {if isset($product.autobadge) && !empty($product.autobadge)}{$product.autobadge}{/if}
+    <div class="product_gallery js-product-gallery"{if !empty($isPopupThumbs)} data-thumbs="true"{/if}{if !empty($isBlackBg)} data-black-bg="true"{/if} data-zoom="{$isZoom}"  data-popup="{$isPopup}">
+        <!-- main image -->
+        <div data-position="fixed" class="js-product-cart-preview" id="product-core-image">
+            <div class="js-product-gallery-main product_gallery-main owl-carousel">
+                {if $product.images || $video}
+                    {$position = 0}
+                    {if $product.images}
+                        {foreach $product.images as $image}
+                            <span class="product_gallery-main-el-outer">
+                                <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-main-el js-product-gallery-main-el{if $isPopup} {$popup_class}{/if}{if !$isPopup} cursor-default{/if}" href="{$wa->shop->imgUrl($image, '970')}" data-position="{$position}">
+                                    {if $image@first}
+                                        {$image_description = $image.description}
+                                        {$wa->shop->imgHtml($image, '650', ['class' => 'product_gallery-main-img'])}
+                                    {else}
+                                        {$wa->shop->imgHtml($image, '650', ['class' => 'owl-lazy product_gallery-main-img'])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                                    {/if}
+                                </a>
+                            </span>
+
+                            {$position = $position + 1}
+                            {if $theme_settings.preload_image_product && $image@first}
+                                {$first_image = $wa->shop->imgUrl($image, '650')}
+                                {$wa->globals('preload_image', $first_image)}
+                            {/if}
+                        {/foreach}
+                    {/if}
+                    {if $video}
+                        <div data-id="video" data-video-url="{$video.url}" data-video-width="{$video.width}" data-video-height="{$video.height}" class="product_gallery-main-el js-product-gallery-main-el" data-position="{$position}">
+                            {if $position == 0}
+                                <iframe src="{$video.url}" width="{$video.width}" height="{$video.height}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            {/if}
+                        </div>
+                        {$position = $position + 1}
+                    {/if}
+                {else}
+                    <img src="{$default_image}" alt="{$product.name|escape}"/>
+                {/if}
+            </div>
+        </div>
+
+        {if $theme_settings.product_gallery_display_description && $product.images}<div class="product_gallery-title js-product-gallery-title">{if !empty($image_description)}{$image_description}{/if}</div>{/if}
+    </div>
+    {if $isPhotoSwipe}{include file="photoswipe.html" inline}{/if}
+</div>
+{/strip}

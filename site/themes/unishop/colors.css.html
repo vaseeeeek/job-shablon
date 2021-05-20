@@ -1,0 +1,466 @@
+{strip}
+{$selectColors = []}
+
+{if $wa->globals("color_scheme")}{$theme_settings.color_scheme = $wa->globals("color_scheme")}{/if}
+{if $theme_settings.test_settings && !empty($wa->cookie('color_scheme')) && $wa->cookie('color_scheme') != 'null'}{$theme_settings.color_scheme = $wa->cookie('color_scheme')}{/if}
+{$_color_scheme = str_replace('img/themesettings/','',str_replace('.png','',$theme_settings.color_scheme))}
+
+{$colors['orange.green']['bsColor'] = '#ff7420'}
+{$colors['orange.green']['panelBgColor'] = '#ff7420'}
+{$colors['orange.green']['scColor'] = '#009999'}
+
+{$colors['green.brown']['bsColor'] = '#31b3b3'}
+{$colors['green.brown']['panelBgColor'] = '#31b3b3'}
+{$colors['green.brown']['scColor'] = '#a53f1e'}
+
+{$colors['yellow.green']['bsColor'] = '#FFBA00'}
+{$colors['yellow.green']['panelBgColor'] = '#FFBA00'}
+{$colors['yellow.green']['scColor'] = '#008459'}
+
+{$colors['red2.blue2']['bsColor'] = '#EF4605'}
+{$colors['red2.blue2']['panelBgColor'] = '#EF4605'}
+{$colors['red2.blue2']['scColor'] = '#46A7C8'}
+
+{$colors['black.green']['bsColor'] = '#333333'}
+{$colors['black.green']['panelBgColor'] = '#333333'}
+{$colors['black.green']['scColor'] = '#A8CD1B'}
+
+{$colors['yellow.brown']['bsColor'] = '#EEAB16'}
+{$colors['yellow.brown']['panelBgColor'] = '#EEAB16'}
+{$colors['yellow.brown']['scColor'] = '#4A433B'}
+
+{$colors['green.pink']['bsColor'] = '#FE5260'}
+{$colors['green.pink']['panelBgColor'] = '#2fb79f'}
+{$colors['green.pink']['scColor'] = '#198a76'}
+
+{$colors['red.black']['bsColor'] = '#cf0028'}
+{$colors['red.black']['panelBgColor'] = '#cf0028'}
+{$colors['red.black']['scColor'] = '#333333'}
+
+{$colors['pink.black']['bsColor'] = '#FF5A60'}
+{$colors['pink.black']['panelBgColor'] = '#FF5A60'}
+{$colors['pink.black']['scColor'] = '#1D1E20'}
+
+{$colors['orange.black']['bsColor'] = '#F15C22'}
+{$colors['orange.black']['panelBgColor'] = '#F15C22'}
+{$colors['orange.black']['scColor'] = '#262626'}
+
+{$colors['pink.green']['bsColor'] = '#FF787F'}
+{$colors['pink.green']['panelBgColor'] = '#FF787F'}
+{$colors['pink.green']['scColor'] = '#3acf96'}
+
+{$colors['blue.red']['bsColor'] = '#054f86'}
+{$colors['blue.red']['panelBgColor'] = '#054f86'}
+{$colors['blue.red']['scColor'] = '#e95930'}
+
+{$colors['bluelight.blue']['bsColor'] = '#323079'}
+{$colors['bluelight.blue']['panelBgColor'] = '#323079'}
+{$colors['bluelight.blue']['scColor'] = '#009be3'}
+
+{$colors['brown.green']['bsColor'] = '#484042'}
+{$colors['brown.green']['panelBgColor'] = '#484042'}
+{$colors['brown.green']['scColor'] = '#63bea3'}
+
+{$colors['red.blue']['bsColor'] = '#a32b21'}
+{$colors['red.blue']['panelBgColor'] = '#a32b21'}
+{$colors['red.blue']['scColor'] = '#009be3'}
+
+{$colors['purple.pink']['bsColor'] = '#554E90'}
+{$colors['purple.pink']['panelBgColor'] = '#554E90'}
+{$colors['purple.pink']['scColor'] = '#CC72A0'}
+
+{$colors['brown.beige']['bsColor'] = '#EBAC77'}
+{$colors['brown.beige']['panelBgColor'] = '#EBAC77'}
+{$colors['brown.beige']['scColor'] = '#91613B'}
+
+{$colors['bluelight.blue.pink']['bsColor'] = '#CA287D'}
+{$colors['bluelight.blue.pink']['panelBgColor'] = '#323079'}
+{$colors['bluelight.blue.pink']['scColor'] = '#009BE3'}
+
+{$colors['bluelight.blue2']['bsColor'] = '#A0C5E8'}
+{$colors['bluelight.blue2']['panelBgColor'] = '#A0C5E8'}
+{$colors['bluelight.blue2']['scColor'] = '#2A4C80'}
+
+{$colors['red.yellow.green']['bsColor'] = '#1D7E2B'}
+{$colors['red.yellow.green']['panelBgColor'] = '#f7be10'}
+{$colors['red.yellow.green']['scColor'] = '#A32B21'}
+
+{$colors['green.greenlight.blue']['bsColor'] = '#175FA4'}
+{$colors['green.greenlight.blue']['panelBgColor'] = '#6AAA4E'}
+{$colors['green.greenlight.blue']['scColor'] = '#1D7E2B'}
+
+{$colors['orange.purple']['bsColor'] = '#E3A200'}
+{$colors['orange.purple']['panelBgColor'] = '#E3A200'}
+{$colors['orange.purple']['scColor'] = '#B52563'}
+
+{$colors['greenlight.green.purple']['bsColor'] = '#CA287D'}
+{$colors['greenlight.green.purple']['panelBgColor'] = '#70b054'}
+{$colors['greenlight.green.purple']['scColor'] = '#009032'}
+
+{$selectColors = $colors[$_color_scheme]}
+
+{if !empty($theme_settings.base_color)}
+    {$selectColors['bsColor'] = $theme_settings.base_color}
+{/if}
+{if !empty($theme_settings.bg_color_navogation)}
+    {$selectColors['panelBgColor'] = $theme_settings.bg_color_navogation}
+{/if}
+{if !empty($theme_settings.second_color)}
+    {$selectColors['scColor'] = $theme_settings.second_color}
+{/if}
+
+{$bsColor=$selectColors.bsColor}
+{$scColor=$selectColors.scColor}
+{$panelBgColor=$selectColors.panelBgColor}
+
+<style>
+    .bs-color,
+    .bs-color > a,
+    .bs-color > a:hover,
+    a.bs-color:hover,
+    .star,
+    .star-empty,
+    .star-hover,
+    .star-half,
+    .categories-item_subs > li:after,
+    .category-subcat_item:after,
+    .categories-item_subs li:before,
+    ul.menu-v > li ul li:before,
+    .owl-prev:hover,
+    .owl-next:hover,
+    .bx-next:hover,
+    .bx-prev:hover,
+    .owl-prev,
+    .owl-next,
+    .mainpage-products-more,
+    .bx-next,
+    .bx-prev
+    {
+        color: {$bsColor};
+    }
+
+
+    .bg-bs-color.header-nav-block-outer{
+        background: {$panelBgColor};
+    }
+
+    .call-b-header{
+        background: {$bsColor} !important;
+    }
+
+    .bg-bs-color,
+    input[type="button"].bg-bs-color,
+    input[type="submit"].bg-bs-color,
+    .bx-pager-item>a.active,
+    .owl-dot.active>span{
+        background: {$bsColor};
+    }
+
+    a.inline-link,
+    .inline-link,
+    .select-list li.selected a,
+    .select-list li.selected,
+    a:hover,
+    .link:hover,
+    a.selected,
+    .selected > a,
+    .link.selected,
+    .sd-color,
+    .sd-color > a,
+    .select-list,
+    .select-list a,
+    .sd-color > a:hover,
+    a.sd-color:hover,
+    .jq-selectbox,
+    .select-list,
+    .jq-selectbox__dropdown li:hover,
+    .reviews-branch .reviews-branch .review:before,
+    .comments ul ul:before,
+    .checkbox-styler.checked:before,
+    .jq-checkbox.checked:before,
+    .radio-styler.checked:before,
+    .jq-radio.checked:before,
+    a.filter-opt-color:before,
+    .filter-item_title:after,
+    .category-views__el.selected,
+    .button-link,
+    button.button-link,
+    input[type=button].button-link,
+    input[type=submit].button-link,
+    .sidebar-cats_el a:hover,
+    .sidebar-cats li.selected > a,
+    .checkout-options li.selected h3
+    {
+        color: {$scColor};
+    }
+
+    .bg-sd-color,
+    .button, .button.disabled:hover,
+    button, button.disabled:hover,
+    input[type=button], input[type=button].disabled:hover,
+    input[type=submit], input[type=submit].disabled:hover,
+    .filters .ui-widget-header,
+    .filters .ui-state-default,
+    .filters .ui-state-hover,
+    .filters .ui-widget-content .ui-state-default,
+    .filters .ui-widget-content .ui-state-hover,
+    .compare-diff-all li.selected{
+        background: {$scColor};
+    }
+
+    .call-b-input input[type="submit"]{
+        background: {$scColor} !important;
+    }
+
+    .br-sd-color,
+    .product_image-preview.selected
+    {
+        border-color: {$scColor};
+    }
+
+    .br-bs-color,
+    .product-tile_action .pr-action.active,
+    .tags.cloud a, .tags.tile a,
+    .bx-pager-item>a,
+    .owl-dot>span{
+        border-color: {$bsColor};
+    }
+
+    .br-top-bs-color,
+    ul.br-top-bs-color{
+        border-top-color: {$bsColor};
+    }
+
+    .br-top-sd-color,
+    ul.br-top-sd-color{
+        border-top-color: {$scColor} !important;
+    }
+
+    input[type="text"],
+    input[type="search"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    textarea,
+    select,
+    .jq-selectbox
+    {
+        border: 1px solid #d1d1d1;
+    }
+
+    .select-list,
+    .cart-coupon-form input{
+        border: 1px solid {$scColor};
+    }
+
+    .jq-selectbox__trigger-arrow{
+        border-top: 5px solid {$scColor};
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+    }
+
+    .jq-selectbox__dropdown,
+    .select-list__items{
+        border: 1px solid {$scColor};
+    }
+
+    .select-list .select-list_toggle a{
+        border-right: 1px solid {$scColor};
+    }
+
+    .header_nav-sub > ul:before{
+        border-bottom: 5px solid {$bsColor};
+    }
+
+    input[type="button"].bg-bs-color:hover,
+    input[type="submit"].bg-bs-color:hover{
+        background: {$bsColor};
+    }
+
+    .pagination li.selected{
+        border-color: {$scColor};
+    }
+
+    .link-btn{
+        border-color: {$scColor};
+        color: {$scColor};
+    }
+
+    .action-msg:after,
+    .drop-down-wrap:after
+    {
+        border: 5px solid transparent;
+        border-bottom: 5px solid {$scColor};
+    }
+
+    .add-to-favorite.active,
+    .add-to-compare.active{
+        color: {$bsColor} !important;
+    }
+
+    .tabs_el.selected{
+        border-top-color: {$scColor};
+    }
+
+    .step-header.current{
+        color: {$scColor};
+    }
+
+    .step-header.is-done,
+    .step-header.is-done:hover{
+        color: #FFF;
+        background: {$scColor};
+    }
+
+    .step-header, .step-header.current
+    {
+        border-color:  {$scColor};
+        background: #FFF;
+    }
+
+    .storequickorder-button,
+    .button-fastorder__sk-oneclick{
+        color: {$bsColor} !important;
+        border-color: {$bsColor} !important;
+    }
+
+    .wa-signup-form-wrapper input:focus,
+    .wa-signup-form-wrapper select:focus,
+    .wa-signup-form-wrapper textarea:focus,
+    .wa-login-form-wrapper input:focus,
+    .wa-login-form-wrapper select:focus,
+    .wa-login-form-wrapper textarea:focus{
+        border-color: {$scColor} !important;
+    }
+
+    .radio-styler.checked:before,
+    .jq-radio.checked:before{
+        background: {$scColor};
+    }
+
+    .cat-menu__el:hover > .cat-menu__el-caret,
+    .subcat-menu__el:hover > .cat-menu__el-caret{
+        color: {$scColor};
+    }
+
+    .carousel-vertical .bx-prev:after,
+    .carousel-vertical .bx-next:after{
+        color: {$scColor};
+    }
+
+    .slider-wrap--products .owl-next,
+    .slider-wrap--products .owl-prev{
+        color: {$bsColor} !important;
+    }
+
+    .shop-push-modal__btn_blue{
+        background: {$bsColor} !important;
+        border-color: {$bsColor} !important;
+    }
+
+    .shop-push-subscribe,
+    button.shop-push-subscribe{
+        color: {$bsColor} ;
+    }
+
+    .shop-sk-callback-block .mfp-close:hover {
+        color: {$scColor};
+    }
+
+    .shop-sk-callback__slider .ui-slider-range{
+        background: {$scColor};
+    }
+
+    .shop-sk-callback__slider .ui-slider-handle{
+        color: {$scColor};
+    }
+
+    .tile-gallery._tile-active .tile-gallery__item:hover:before {
+        background: {$scColor} !important;
+    }
+
+    .product_options .inline-select a{
+        border: 1px solid {$bsColor};
+        color: {$bsColor};
+    }
+
+    .product_options .inline-select a.selected{
+        background: {$bsColor};
+    }
+
+    .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant{
+        border: 1px solid {$bsColor} !important;
+        color: {$bsColor} !important;
+    }
+    .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant.selected{
+        background: {$bsColor} !important;
+    }
+
+    .brands-mainpage button.owl-prev:not(.disabled):hover,
+    .brands-mainpage button.owl-next:not(.disabled):hover{
+        color: {$scColor};
+    }
+
+    .product_image-preview--video a{
+        color: {$scColor};
+    }
+
+
+    .swipebox-thumbs_el.active{
+        border: 2px solid {$scColor};
+    }
+
+    .swipebox-thumbs_el--icon{
+        color: {$scColor};
+    }
+
+    .protilegallery_wrapper .protilegallery_tiles .protilegallery_tile:hover:before{
+        background: {$scColor} !important;
+    }
+
+    input.cartOS__couponButton,
+    .cartOS__button{
+        background: {$scColor} !important;
+    }
+
+    .onestep-cart input[name="use_affiliate"]{
+        color: {$scColor};
+    }
+
+    .wa-order-form-wrapper .wa-step-region-section .wa-required,
+    .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section button.wa-button.transparent,
+    .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section input.wa-button.transparent,
+    .wa-delivery-types-section .wa-types-list .wa-type-wrapper.is-active .wa-name:before,
+    .wa-step-payment-section .wa-methods-list.wide .wa-method-wrapper.is-active .wa-payment-name:before{
+        color: {$scColor} !important;
+    }
+
+    .wa-order-cart-wrapper .wa-cart-details .wa-price-section .wa-price-discount{
+        color: {$bsColor} !important;
+    }
+
+    html:not(.with-touch) .wa-quantity-box .wa-button:not(.is-disabled):hover{
+        color: {$scColor} !important;
+    }
+
+    .wa-input:not(:disabled):focus,
+    .wa-textarea:not(:disabled):focus,
+    .wa-dropdown.is-opened > .wa-dropdown-toggle{
+        border-color: {$scColor} !important;
+    }
+
+    .timeline > li > a{
+        background: {$bsColor};
+    }
+
+    .timeline ul li:before{
+        border-left: 1px solid {$bsColor};
+    }
+
+    .timeline ul li:after{
+        border-top: 1px solid {$bsColor};
+    }
+
+</style>
+
+{/strip}

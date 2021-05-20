@@ -1,0 +1,38 @@
+{strip}
+{if $wa->blog}
+    {if !isset($blog_id) || empty($blog_id)}
+        {$blog_id = null}
+    {/if}
+    {$blog_posts = $wa->blog->posts($blog_id,3)}
+    {if !empty($blog_posts) && count($blog_posts)}
+        <div class="aside-wrap sidebar-news">
+            <div class="aside-wrap_head bs-color">
+                [s`Blog`]
+            </div>
+            <div class="aside-wrap_content">
+                <ul class="news-sidebar ul-block">
+                    {foreach $blog_posts as $post}
+                    <li class="news-sidebar_el">
+                        <div class="news-sidebar_el-date">{$post.datetime|wa_datetime:"humandate"}</div>
+                        <div class="news-sidebar_el-name">
+                            <a href="{$post.link}">{$post.title}</a>
+                        </div>
+                        <div class="news-sidebar_el-more sd-color">
+                            <a href="{$post.link}">[`Read more`]</a> &rarr;
+                        </div>
+                    </li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="aside-wrap_bottom sd-color">
+                {$link = $wa->getUrl('blog/frontend')}
+                {if isset($blog_id) && !empty($blog_id)}
+                    {$blog = $wa->blog->blog($blog_id)}
+                    {$link = $blog['link']}
+                {/if}
+                <a href="{$link}">[`Reed all`]</a> &rarr;
+            </div>
+        </div>
+    {/if}
+{/if}
+{/strip}

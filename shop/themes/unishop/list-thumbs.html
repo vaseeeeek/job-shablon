@@ -1,0 +1,230 @@
+{strip}
+{if !isset($isSwitchView)}{$isSwitchView = 0}{/if}
+{if !isset($ulclass)}{$ulclass = ''}{/if}
+{if !isset($isNoPaginate)}{$isNoPaginate = 0}{/if}
+
+<!-- products thumbnail list view -->
+{if !isset($CategoryProductsView) || empty($CategoryProductsView)}
+    {$CategoryProductsView = 'tile'}
+{/if}
+{$count_views = 0}
+{$is_view_tile = false}
+{$is_view_list = false}
+{$is_view_tbl = false}
+
+{if $isSwitchView}
+    {if (!$wa->isMobile() && !empty($theme_settings.preview_product_tile)) || ($wa->isMobile() && !empty($theme_settings.preview_product_tile_mobile))}
+        {$count_views = $count_views+1}
+        {$is_view_tile = true}
+        {if !$wa->isMobile()}
+            {if $theme_settings.product_preview_type_default == 'tile'}{$CategoryProductsView = 'tile'}{/if}
+        {else}
+            {if $theme_settings.product_preview_type_default_mobile == 'tile'}{$CategoryProductsView = 'tile'}{/if}
+        {/if}
+    {/if}
+    {if (!$wa->isMobile() && !empty($theme_settings.preview_product_list)) || ($wa->isMobile() && !empty($theme_settings.preview_product_list_mobile))}
+        {$count_views = $count_views+1}
+        {$is_view_list = true}
+        {if !$wa->isMobile()}
+            {if $theme_settings.product_preview_type_default == 'list'}{$CategoryProductsView = 'list'}{/if}
+        {else}
+            {if $theme_settings.product_preview_type_default_mobile == 'list'}{$CategoryProductsView = 'list'}{/if}
+        {/if}
+    {/if}
+
+    {if (!$wa->isMobile() && !empty($theme_settings.preview_product_tbl)) || ($wa->isMobile() && !empty($theme_settings.preview_product_tbl_mobile))}
+        {$count_views = $count_views+1}
+        {$is_view_tbl = true}
+        {if !$wa->isMobile()}
+            {if $theme_settings.product_preview_type_default == 'tbl'}{$CategoryProductsView = 'tbl'}{/if}
+        {else}
+            {if $theme_settings.product_preview_type_default_mobile == 'tbl'}{$CategoryProductsView = 'tbl'}{/if}
+        {/if}
+    {/if}
+
+    {$cookiePrView = $wa->cookie('CategoryProductsView')}
+    {if ($cookiePrView == 'tile' && $is_view_tile)
+     || ($cookiePrView == 'tbl' && $is_view_tbl)
+     || ($cookiePrView == 'list' && $is_view_list)}
+         {$CategoryProductsView = $wa->cookie('CategoryProductsView')}
+    {/if}
+{/if}
+
+{* selected filters *}
+{if $theme_settings.filter_selected}{include file="category.select-filters.html"}{/if}
+
+{if !empty($sorting) || ($isSwitchView &&  $count_views > 1)}
+    <div class="category-panel">
+        <div class="display-table">
+            {if $theme_settings.pagination != 'lazyloading'  && empty($isNoPaginate) && !$wa->isMobile()}
+                <div class="category-onpage">
+                    <span class="category-onpage-title">[`Display`]:</span>
+                    <select id="set-per-page" class="category-onpage_select">
+                        {$current_per_page = $wa->cookie('products_per_page')}
+                        {foreach [24,48,64] as $count}
+                        <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
+                        {/foreach}
+                    </select>
+                </div>
+            {/if}
+
+            {if !empty($sorting)}
+                <!-- sorting -->
+                {$sort_fields = [
+                    'name' => '[`Name`]',
+                    'price' => '[`Price`]',
+                    'total_sales' => '[`Bestsellers`]',
+                    'rating' => '[`Customer rating`]',
+                    'create_datetime'=>'[`Date added`]',
+                    'stock' => '[`In stock`]']}
+                {if !isset($active_sort)}
+                    {$active_sort = $wa->get('sort', 'create_datetime')}
+                {/if}
+
+                {$default_sort = false}
+                {if isset($category.sort_products) && !empty($category.sort_products)}
+                    {$default_sort = " "|explode:$category.sort_products}
+                {/if}
+                <div class="category-sort">
+                    {if !$wa->isMobile()}
+                        <span class="category-sort-title">[`Sort by`]:</span>
+                    {/if}
+                    <div class="select-list js-select-list category-sort_select">
+                        <div class="js-select-toggle select-list_toggle">
+                            {if !$active_sort || !isset($sort_fields[$active_sort])}
+                                <a href="{$wa->currentUrl(0, 1)}">[`New & Popular`]</a>
+                            {else}
+                                {foreach $sort_fields as $sort => $name}
+                                    {if $active_sort == $sort}
+                                        {if class_exists('shopSeofilterViewHelper')}
+                                            {shopSeofilterViewHelper::sortUrl($sort, $name, $active_sort)}
+                                        {else}
+                                            {$wa->shop->sortUrl($sort, $name, $active_sort)}
+                                        {/if}
+                                    {/if}
+                                {/foreach}
+                            {/if}
+                            <div class="jq-selectbox__trigger-arrow"></div>
+                        </div>
+                        <ul class="js-select-items select-list__items">
+                            {if !empty($category) && !isset($sort_fields[$default_sort[0]])}
+                                <li{if !$active_sort} class="selected"{/if}><a href="{$wa->currentUrl(0, 1)}">[`New & Popular`]</a></li>
+                            {/if}
+                            {foreach $sort_fields as $sort => $name}
+                                <li{if $active_sort == $sort} class="selected"{/if}>
+                                    {if class_exists('shopSeofilterViewHelper')}
+                                        {shopSeofilterViewHelper::sortUrl($sort, $name, $active_sort)}
+                                    {else}
+                                        {$wa->shop->sortUrl($sort, $name, $active_sort)}
+                                    {/if}
+                                </li>
+                                {if $wa->get('sort') == $sort}{$wa->title( $wa->title()|cat:' — '|cat:$name)}{/if}
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+            {/if}
+
+            {if $count_views > 1}
+                <div class="category-views">
+                    {if !$wa->isMobile()}
+                        <span class="category-views-title">[`View`]:</span>
+                    {/if}
+                    {if $is_view_tile == true}
+                        <i data-view="tile" class="js-switch-pr-view category-views__el fa fa-th-large{if $CategoryProductsView == 'tile'} selected{/if}" aria-hidden="true"></i>
+                    {/if}
+                    {if $is_view_list == true}
+                        <i data-view="list"  class="js-switch-pr-view category-views__el fa fa-th-list{if $CategoryProductsView == 'list'} selected{/if}" aria-hidden="true"></i>
+                    {/if}
+                    {if $is_view_tbl == true}
+                        <i data-view="tbl"  class="js-switch-pr-view category-views__el fa fa-align-justify{if $CategoryProductsView == 'tbl'} selected{/if}" aria-hidden="true"></i>
+                    {/if}
+                </div>
+            {/if}
+        </div>
+    </div>
+{/if}
+
+{if $wa->shop->cart->total() > 0}{$add2cart_label = '[`Add to cart`]'}{else}{$add2cart_label = '[`Buy`]'}{/if}
+{if !isset($isCategoryProductsViewList)}{$isCategoryProductsViewList = 0}{/if}
+
+{$isProductPreviewTileGallery = (($theme_settings.product_preview_tile_gallerytile && $CategoryProductsView == 'tile') || ($theme_settings.product_preview_list_gallerytile && $CategoryProductsView == 'list')) && $products && !$wa->isMobile()}
+
+{if $isProductPreviewTileGallery}
+    {$products_ids = ""}
+    {foreach $products as $p}
+        {if $p.id}{$products_ids[] = $p.id}{/if}
+    {/foreach}
+    {$size_image = '0x340'} {if $CategoryProductsView == 'list'}{$size_image = '180'}{/if}
+    {$products_images = $wa->shop->images($products_ids, $size_image)}
+{/if}
+
+{$is_preview_tile_mini = $wa->isMobile() && $CategoryProductsView == 'tile' && $theme_settings.preview_product_tile_mobile == 'mini_tile'}
+<div class="products-{$CategoryProductsView}-outer">
+    <div data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.preview_product_images_lazy}" class="js-preview-products products-{$CategoryProductsView} {if $is_preview_tile_mini} products-{$CategoryProductsView}--mini{/if} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
+        {$features = []}
+        {$is_product_list_features = !empty($theme_settings.show_product_list_features) && $CategoryProductsView == 'list'}
+        {if !$wa->isMobile()}
+            {$is_product_tile_features = !empty($theme_settings.show_product_tile_features) && $CategoryProductsView == 'tile'}
+        {else}
+            {$is_product_tile_features = !empty($theme_settings.show_product_tile_mobile_features) && $CategoryProductsView == 'tile'}
+        {/if}
+
+        {if $is_product_list_features || $is_product_tile_features}
+            {$features = $wa->shop->features($products)}
+        {/if}
+
+        {$favorites = $wa->cookie('favorites_list')}
+        {if $favorites}
+            {$favorites_list = ","|explode:$favorites}
+        {else}
+            {$favorites_list = []}
+        {/if}
+
+        {if ($theme_settings.show_product_tile_sku && $CategoryProductsView == 'tile')
+         || ($theme_settings.show_product_list_sku && $CategoryProductsView == 'list')
+         || ($theme_settings.show_product_tbl_sku && $CategoryProductsView == 'tbl')}
+            {$all_skus = $wa->shop->skus(array_keys($products))}
+        {/if}
+
+        {foreach $products as $p}
+            {if isset($all_skus) && !empty($all_skus) && isset($all_skus[$p.id])}
+                {$skus = $all_skus[$p.id]}
+                {$p.skus_list = reset($skus)}
+            {/if}
+
+            {if $CategoryProductsView == 'list'}
+                {include file="product-preview-line.html" product=$p features=$features favorites=$favorites_list}
+            {else if $CategoryProductsView == 'tbl'}
+                {include file="product-preview-tbl.html" product=$p favorites=$favorites_list}
+            {else}
+                {include file="product-preview-tile.html" product=$p favorites=$favorites_list}
+            {/if}
+        {/foreach}
+
+        {if $isProductPreviewTileGallery}
+            <script>
+                $(function(){
+                    new productTileGallery();
+                });
+            </script>
+        {/if}
+    </div>
+</div>
+
+
+
+
+<div class="{if $theme_settings.pagination == 'lazyloading'}lazyloading-paging{else}category-pag-offset{/if}"  data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
+    {if isset($pages_count) && $pages_count > 1  && !$isNoPaginate}
+        {if class_exists('shopSeofilterViewHelper')}
+            {capture assign=pagination}
+                {wa_pagination total=$pages_count attrs=['class' => "pagination"]}
+            {/capture}
+            {shopSeofilterViewHelper::paginationDecorate($pagination)}
+        {else}
+            {wa_pagination total=$pages_count attrs=['class' => "pagination"]}
+        {/if}
+    {/if}
+</div>
+{/strip}

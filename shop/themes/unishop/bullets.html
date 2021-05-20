@@ -1,0 +1,121 @@
+{strip}
+{if $theme_settings.bullets_mainpage}
+
+    {$count_bullets = 0}
+    {if !empty($theme_settings.homepage_bullet_title_1)}
+    {$count_bullets = $count_bullets+1}
+    {/if}
+    {if !empty($theme_settings.homepage_bullet_title_2)}
+    {$count_bullets = $count_bullets+1}
+    {/if}
+    {if !empty($theme_settings.homepage_bullet_title_3)}
+    {$count_bullets = $count_bullets+1}
+    {/if}
+    {if !empty($theme_settings.homepage_bullet_title_4)}
+    {$count_bullets = $count_bullets+1}
+    {/if}
+
+    {if $count_bullets > 0}
+    <ul class="infoblocks ul-block infoblocks-cols-{$count_bullets}">
+        {if !empty($theme_settings.homepage_bullet_title_1)}
+
+            <li class="infoblocks_item">
+                {if !empty($theme_settings.homepage_bullet_icon_1) || !empty($theme_settings.homepage_bullet_image_1)}
+                    <div class="infoblocks_item-icon">
+                        {if $theme_settings.homepage_bullet_link_1}<a {if $theme_settings.homepage_bullet_link_1_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_1}">{/if}
+                            {if !empty($theme_settings.homepage_bullet_icon_1)}
+                                <i class="{$theme_settings.homepage_bullet_icon_1} icon bs-color"></i>
+                            {elseif $theme_settings.homepage_bullet_image_1}
+                                <img alt="{$theme_settings.homepage_bullet_title_1}" class="infoblocks_item-image" src="{$wa_parent_theme_url|cat:$theme_settings.homepage_bullet_image_1}" />
+                            {/if}
+                        {if $theme_settings.homepage_bullet_link_1}</a>{/if}
+                    </div>
+                {/if}
+
+                <div class="infoblocks_item-content">
+                    <div class="infoblocks_item-title">
+                        {if $theme_settings.homepage_bullet_link_1}<a {if $theme_settings.homepage_bullet_link_1_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_1}">{/if}
+                            {$theme_settings.homepage_bullet_title_1}
+                        {if $theme_settings.homepage_bullet_link_1}</a>{/if}
+                    </div>
+                    <div class="infoblocks_item-text">{$theme_settings.homepage_bullet_body_1}</div>
+                </div>
+            </li>
+        {/if}
+
+        {if !empty($theme_settings.homepage_bullet_title_2)}
+            <li class="infoblocks_item">
+                {if !empty($theme_settings.homepage_bullet_icon_2) || !empty($theme_settings.homepage_bullet_image_2)}
+                    <div class="infoblocks_item-icon">
+                        {if $theme_settings.homepage_bullet_link_2}<a{if $theme_settings.homepage_bullet_link_2_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_2}">{/if}
+                            {if !empty($theme_settings.homepage_bullet_icon_2)}
+                                <i class="{$theme_settings.homepage_bullet_icon_2} icon bs-color"></i>
+                            {elseif $theme_settings.homepage_bullet_image_2}
+                                <img alt="{$theme_settings.homepage_bullet_title_2}" class="infoblocks_item-image" src="{$wa_parent_theme_url|cat:$theme_settings.homepage_bullet_image_2}" />
+                            {/if}
+                        {if $theme_settings.homepage_bullet_link_2}</a>{/if}
+                    </div>
+                {/if}
+                <div class="infoblocks_item-content">
+                    <div class="infoblocks_item-title">
+                        {if $theme_settings.homepage_bullet_link_2}<a{if $theme_settings.homepage_bullet_link_2_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_2}">{/if}
+                            {$theme_settings.homepage_bullet_title_2}
+                        {if $theme_settings.homepage_bullet_link_2}</a>{/if}
+                    </div>
+                    <div class="infoblocks_item-text">{$theme_settings.homepage_bullet_body_2}</div>
+                </div>
+            </li>
+        {/if}
+
+        {if !empty($theme_settings.homepage_bullet_title_3)}
+        <li class="infoblocks_item">
+            {if !empty($theme_settings.homepage_bullet_icon_3) || !empty($theme_settings.homepage_bullet_image_3)}
+                <div class="infoblocks_item-icon">
+                    {if $theme_settings.homepage_bullet_link_3}<a{if $theme_settings.homepage_bullet_link_3_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_3}">{/if}
+                        {if !empty($theme_settings.homepage_bullet_icon_3)}
+                             <i class="{$theme_settings.homepage_bullet_icon_3} icon bs-color"></i>
+                        {elseif $theme_settings.homepage_bullet_image_3}
+                             <img alt="{$theme_settings.homepage_bullet_title_3}" class="infoblocks_item-image" src="{$wa_parent_theme_url|cat:$theme_settings.homepage_bullet_image_3}" />
+                        {/if}
+                    {if $theme_settings.homepage_bullet_link_3}</a>{/if}
+                </div>
+            {/if}
+            <div class="infoblocks_item-content">
+                <div class="infoblocks_item-title">
+                    {if $theme_settings.homepage_bullet_link_3}<a{if $theme_settings.homepage_bullet_link_3_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_3}">{/if}
+                        {$theme_settings.homepage_bullet_title_3}
+                    {if $theme_settings.homepage_bullet_link_3}</a>{/if}
+                </div>
+                <div class="infoblocks_item-text">{$theme_settings.homepage_bullet_body_3}</div>
+            </div>
+        </li>
+        {/if}
+
+        {if !empty($theme_settings.homepage_bullet_title_4)}
+        <li class="infoblocks_item">
+            {if !empty($theme_settings.homepage_bullet_icon_4) || !empty($theme_settings.homepage_bullet_image_4)}
+                <div class="infoblocks_item-icon">
+                    {if $theme_settings.homepage_bullet_link_4}<a{if $theme_settings.homepage_bullet_link_4_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_4}">{/if}
+                        {if !empty($theme_settings.homepage_bullet_icon_4)}
+                            <i class="{$theme_settings.homepage_bullet_icon_4} icon bs-color"></i>
+                        {elseif $theme_settings.homepage_bullet_image_4}
+                            <img alt="{$theme_settings.homepage_bullet_title_4}" class="infoblocks_item-image" src="{$wa_parent_theme_url|cat:$theme_settings.homepage_bullet_image_4}" />
+                        {/if}
+                    {if $theme_settings.homepage_bullet_link_4}</a>{/if}
+                </div>
+            {/if}
+            <div class="infoblocks_item-content">
+                <div class="infoblocks_item-title">
+                    {if $theme_settings.homepage_bullet_link_4}<a{if $theme_settings.homepage_bullet_link_4_popup} class="js-page-popup"{/if} href="{$theme_settings.homepage_bullet_link_4}">{/if}
+                        {$theme_settings.homepage_bullet_title_4}
+                    {if $theme_settings.homepage_bullet_link_4}</a>{/if}
+                </div>
+                <div class="infoblocks_item-text">{$theme_settings.homepage_bullet_body_4}</div>
+            </div>
+        </li>
+        {/if}
+    </ul>
+    {/if}
+{/if}
+{/strip}
+

@@ -1,0 +1,45 @@
+{strip}
+{function name=menu_tree id="" level=1 pages=[] class="" }
+    {if count($pages)}
+        <ul {if $id}id="{$id}"{/if} {if $class}class="{$class}"{/if}>
+            {foreach $pages as $p}
+                {if !isset($p.sidebar_menu_hide)}
+                    {$is_sub_pages = false}
+                    {if isset($p.childs) && $p.childs && count($p.childs)}
+                        {foreach $p.childs as $p_child}
+                            {if !isset($p_child.left_menu_hide)}
+                                {$is_sub_pages = true}
+                                {break}
+                            {/if}
+                        {/foreach}
+                    {/if}
+                    <li class="menu-v__item level-{$level}">
+                        {$selected = strlen($p.url)>1 && $wa->currentUrl() == $p.url}
+                        {if $is_sub_pages}
+                            <i class="js-menu-v-open menu-v__caret{if $selected} selected{/if}" aria-hidden="true"></i>
+                        {/if}
+                        <a{if $selected} class="selected"{/if} href="{$p.url}">{$p.name}</a>
+                        {if $is_sub_pages}
+                            {$class = "js-menu-v-submenu menu-v__subs level-`$level+1`"}
+                            {if !$selected}{$class = "`$class` hide"}{/if}
+                            {menu_tree pages=$p.childs  level=$level+1 class=$class}
+                        {/if}
+                    </li>
+                {/if}
+            {/foreach}
+        </ul>
+    {/if}
+{/function}
+
+{$pages = $wa->site->pages(0, true, true)}
+
+{if count($pages)}
+    <nav class="aside-wrap aside-wrap--pages js-sidebar-menu">
+        <div class="aside-wrap_head bg-sd-color">
+            [`Information`]
+            <i data-id="sidebar-nav" class="js-nav-btn aside-wrap_btn icon-after"></i>
+        </div>
+        {menu_tree pages=$pages id="sidebar-nav" class="menu-v"}
+    </nav>
+{/if}
+{/strip}

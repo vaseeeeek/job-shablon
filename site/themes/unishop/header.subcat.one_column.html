@@ -1,0 +1,34 @@
+{strip}
+<div class="subcat-menu js-submenu">
+    {foreach $cat.childs as $keyCatlvl2 => $catlvl2}
+        {if !isset($catlvl2.params.menu_hide)}
+            {$is_subcat_lvl2 = false}
+            {if count($catlvl2.childs) && $theme_settings.count_categories_levels > 2}
+                {foreach $catlvl2.childs as $catlvl3}
+                    {if !isset($catlvl3.params.menu_hide)}
+                        {$is_subcat_lvl2 = true}
+                    {/if}
+                {/foreach}
+            {/if}
+            <div class="{if $is_subcat_lvl2}js-subcatmenu-el has-subs{/if} subcat-menu__el{if $theme_settings.categories_menu_dropdown_relative == "parent"} position-relative {/if}">
+                {if $is_subcat_lvl2}
+                    <i class="js-catmenu-el-caret cat-menu__el-caret fa"></i>
+                {/if}
+
+                <a href="{$catlvl2.url}">{$catlvl2.name}</a>
+                {if $is_subcat_lvl2}
+                    <div class="subcat-menu js-submenu">
+                        {foreach $catlvl2.childs as $catlvl3}
+                            {if !isset($catlvl3.params.menu_hide)}
+                                <div class="subcat-menu__el">
+                                    <a href="{$catlvl3.url}">{$catlvl3.name}</a>
+                                </div>
+                            {/if}
+                        {/foreach}
+                    </div>
+                {/if}
+            </div>
+        {/if}
+    {/foreach}
+</div>
+{/strip}

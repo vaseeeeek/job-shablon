@@ -1,0 +1,80 @@
+{strip}
+
+{$class = ''}
+{if $action == 'onestep' && $theme_settings.onestep_custom_css}
+    {$class = ' custom-onestep'}
+{/if}
+{if $action == 'checkoutone' && $theme_settings.cartonestep_custom_css}
+    {$class = ' custom-cartonestep'}
+{/if}
+{if $action == 'brands'}
+    {$class = ' brand-list'}
+{/if}
+
+{include file="`$wa_active_theme_path`/breadcrumbs.html"}
+
+<!-- plugin hook: 'frontend_header' -->
+{* @event frontend_header.%plugin_id% *}
+{if count($frontend_header) > 0}
+    {foreach $frontend_header as $_}{$_}{/foreach}
+{/if}
+{if $wa->currentUrl(false, true) != $wa_app_url
+     && $action != 'category'
+     && $action != 'product'
+     && $action != 'cart'
+     && $action != 'checkout'
+     && $action != 'order'
+     && $action != 'compare'
+     && $action != 'productReviews'
+}
+
+    {$cols = 1} {$is_sidebar_left = 0} {$is_sidebar_right = 0}
+    {if $action == "brand" || $action == "brands" || $action == "brandPage"}
+        {if $theme_settings.brand_sidebar_left && !$wa->isMobile()}
+            {$cols = $cols + 1}
+            {$is_sidebar_left = 1}
+        {/if}
+        {if $theme_settings.brand_sidebar_right && !$wa->isMobile()}
+            {$cols = $cols + 1}
+            {$is_sidebar_right = 1}
+        {/if}
+    {else if $action == 'search' || $wa->globals('isSearchProPage')}
+        {if $theme_settings.search_sidebar_left && !$wa->isMobile()}
+            {$cols = $cols + 1}
+            {$is_sidebar_left = 1}
+        {/if}
+        {if $theme_settings.search_sidebar_right && !$wa->isMobile()}
+            {$cols = $cols + 1}
+            {$is_sidebar_right = 1}
+        {/if}
+    {else}
+        {if $theme_settings.other_page_sidebar_left && !$wa->isMobile()}
+            {$cols = $cols + 1}
+            {$is_sidebar_left = 1}
+        {/if}
+        {if $theme_settings.other_page_sidebar_right && !$wa->isMobile()}
+            {$cols = $cols + 1}
+            {$is_sidebar_right = 1}
+        {/if}
+    {/if}
+
+    <div class="cols-{$cols}">
+        <div class="sidebars-outer">
+            {if $is_sidebar_left}
+                {include file="`$wa_active_theme_path`/sidebar-left.html"}
+            {/if}
+            {if $is_sidebar_right}
+                {include file="`$wa_active_theme_path`/sidebar-right.html"}
+            {/if}
+        </div>
+
+        {if $wa->globals('isSearchProPage') && isset($filters) && !empty($filters)}{$class = "`$class` searchpro-page-with-sidebar"}{/if}
+        {$is_search_products_template = $wa->globals('isSearchPage') && ($action == 'search' || $action == 'brand' || $action == 'tag')}
+        <div class="js-content content{if !$is_search_products_template} content-block{/if} {if $is_sidebar_left} with-left-sidebar{/if} {if $is_sidebar_right} with-right-sidebar{/if} {$class}">
+            {$content}
+        </div>
+    </div>
+{else}
+    {$content}
+{/if}
+{/strip}

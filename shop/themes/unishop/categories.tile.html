@@ -1,0 +1,39 @@
+{strip}
+{if isset($categories) && count($categories)}
+    {$default_image = "`$wa_theme_url`img/dummy200.png"}
+    {if !empty($theme_settings.default_image)}
+        {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+    {/if}
+
+    {$is_retina = $theme_settings.categories_list_images_retina && !empty($skImages)}
+    {$is_lazy = $theme_settings.categories_list_images_lazy}
+    <ul class="js-categories-list categories categories-tile-list" data-retina="{$is_retina}" data-lazy="{$is_lazy}">
+        {foreach $categories as $cat}
+            {if (isset($show_is_selected) && !empty($show_is_selected) && isset($cat.params.show_in_list_mainpage))
+             || !isset($show_is_selected)
+             || empty($show_is_selected)}
+                <li class="categories-tile">
+                    <a href="{$cat.url}" class="js-category-link">
+                        <div class="categories-tile_image">
+                            {if isset($Wmimages[$cat.id].image)}
+                                {$cat.params.image = $Wmimages[$cat.id].image}
+                            {/if}
+                            {if isset($skImages[$cat.id].image)}
+                                {$cat.params.image = $skImages[$cat.id].image}
+                            {/if}
+                            {if $is_lazy}
+                                <img class="js-categories-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($cat.params.image)}{$cat.params.image}{else}{$default_image}{/if}" alt="{$cat.name}" />
+                            {else}
+                                <img class="js-categories-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else}{$default_image}{/if}" alt="{$cat.name}" />
+                            {/if}
+                        </div>
+                        <div class="categories-tile_title sd-color">
+                            {$cat.name}
+                        </div>
+                    </a>
+                </li>
+            {/if}
+        {/foreach}
+    </ul>
+{/if}
+{/strip}

@@ -1,0 +1,82 @@
+{strip}
+{$currentPageName = ""}
+
+{if $action == 'page' && isset($page)}{$currentPageName = $page.name}{/if}
+{if $action == 'category' && isset($category)}{$currentPageName = $category.name}{/if}
+{if $action == 'product' && isset($product)}{$currentPageName = $product.name}{/if}
+{if $action == 'brands'}{$currentPageName = '[`Brands`]'}{/if}
+
+{if  $action == 'brandPage' && $theme_settings.plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
+    {if !isset($breadcrumbs)}{$breadcrumbs = []}{/if}
+    {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
+    {if isset($brand)}{$currentPageName = $brand.name}{/if}
+{else if $action == 'brand' && $theme_settings.plugin_brands == 'brands' && class_exists('shopProductbrandsPlugin')}
+    {if !isset($breadcrumbs)}{$breadcrumbs = []}{/if}
+    {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
+    {if isset($brand)}{$currentPageName = $brand.name}{/if}
+{/if}
+
+
+{if $theme_settings.breadcrumbs_subcategories && ($action == "category" || $action == "product") && isset($breadcrumbs) && $breadcrumbs|count > 0}
+    {if !isset($categories)}
+        {$categories = $wa->shop->categories(0, null, true, true)}
+    {/if}
+    {if !empty($categories)}
+        {$categoriesCurrent = $categories}
+        {foreach $breadcrumbs as $key=>$bread}
+            {if isset($bread.url) && !empty($bread.url)}
+                {if empty($categoriesCurrent)}{break}{/if}
+                {foreach $categoriesCurrent as $item}
+                    {if $item.url == $bread.url}
+                        {if !empty($item.childs) && $item.childs|count > 1}
+                            {foreach $item.childs as $child}
+                                {$breadcrumbs[$key].subs[] = ['url' => $child.url, 'name' => $child.name]}
+                            {/foreach}
+                            {$categoriesCurrent = $item.childs}
+                        {else}
+                            {$categoriesCurrent = []}
+                        {/if}
+                        {break}
+                    {/if}
+                {/foreach}
+            {/if}
+        {/foreach}
+    {/if}
+{/if}
+
+
+<!-- internal navigation breadcrumbs -->
+{$position = 1}
+{if $wa->currentUrl(false, true) != $wa_app_url}
+    <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="{$wa_url}"><span itemprop="name">[`Home`]</span></a>
+            {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($currentPageName)} <span class="rarr">&rarr;</span> {/if}
+            <meta itemprop="position" content="{$position}" />
+        </li>
+        {if (isset($breadcrumbs) && $breadcrumbs)}
+            {foreach $breadcrumbs as $breadcrumb}
+                {if $breadcrumb}
+                    {$position = $position + 1}
+                    <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> &rarr;
+                        <meta itemprop="position" content="{$position}" />
+                        {if !$wa->isMobile() && isset($breadcrumb.subs) && !empty($breadcrumb.subs)}
+                            <div class="breadcrumbs__subs">
+                                <div class="breadcrumbs__subs-wrap">
+                                    {foreach $breadcrumb.subs as $sub}
+                                        <a class="breadcrumbs__subs-link" href="{$sub.url}">{$sub.name}</a>
+                                    {/foreach}
+                                </div>
+                            </div>
+                        {/if}
+                    </li>
+                {/if}
+            {/foreach}
+        {/if}
+        {if !empty($currentPageName)}
+            <li>{$currentPageName|escape}</li>
+        {/if}
+    </ul>
+{/if}
+

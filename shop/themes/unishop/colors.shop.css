@@ -1,0 +1,9 @@
+.product_options .inline-select a {
+    border: 1px solid #ff7420;
+    color: #ff7420;
+}
+
+.product_options .inline-select a.selected{
+    background: #ff7420;
+}
+

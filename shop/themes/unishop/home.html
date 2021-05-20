@@ -1,0 +1,252 @@
+{strip}
+{if $theme_settings.test_settings}
+    {foreach from=$theme_settings key=name item=setting}
+        {$cookieSettings = $wa->cookie($name)}
+        {if $cookieSettings && $cookieSettings != 'null'}
+            {$theme_settings.$name = $cookieSettings}
+        {/if}
+    {/foreach}
+{/if}
+{$promocards = $wa->shop->promos()|array_values}
+<div class="l-wrapper clearfix">
+    {if $theme_settings.show_sidebar_mainpage}
+        <div class="left-sidebar mainpage-sidebar">
+            {if $theme_settings.show_sidebar_mainpage}
+                {include file="`$wa_parent_theme_path`/header.categories.html"}
+            {/if}
+        </div>
+
+        <div class="with-left-sidebar cols-2">
+    {/if}
+
+    {include file="slider.html"}
+    {if !$theme_settings.show_sidebar_mainpage}
+        </div> <!-- .l-wrapper clearfix -->
+    {/if}
+    {if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "promos"}
+        </div> <!-- .with-left-sidebar -->
+    </div> <!-- .l-wrapper clearfix -->
+    {/if}
+
+    {if $theme_settings.is_homepage_promos}
+        <div class="l-wrapper">{include file="promos.html"}</div>
+    {/if}
+    {if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "categories"}
+        </div> <!-- .with-left-sidebar -->
+    </div> <!-- .l-wrapper clearfix -->
+    {/if}
+
+    {if $theme_settings.categories_mainpage}
+        {$categories = $wa->shop->categories(0, null, true, true)}
+        {if count($categories) > 0}
+            <div class="l-wrapper">
+                <div class="wrap-white mainpage-categories">
+                    {if class_exists('shopSkcatimagePlugin')}
+                        {$skImages = shopSkcatimageHelper::getImages()}
+                    {elseif class_exists('shopWmimageincatPlugin')}
+                        {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+                    {/if}
+
+                    {if $theme_settings.max_numbers_subcat_mainpage}
+                        {include file="categories.disclosed.html" categories=$categories show_is_selected=$theme_settings.categories_mainpage_selected}
+                    {else}
+                        {include file="categories.tile.html" categories=$categories show_is_selected=$theme_settings.categories_mainpage_selected}
+                    {/if}
+                </div>
+            </div>
+        {/if}
+    {/if}
+    {if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "product_list_1"}
+        </div> <!-- .with-left-sidebar -->
+    </div> <!-- .l-wrapper clearfix -->
+    {/if}
+
+{$is_with_sidebar_list_1 = false}
+{$is_with_sidebar_list_2 = false}
+{$is_with_sidebar_list_3 = false}
+{if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "product_list_2"}
+    {$is_with_sidebar_list_1 = true}
+{/if}
+
+{if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "product_list_3"}
+    {$is_with_sidebar_list_1 = true}
+    {$is_with_sidebar_list_2 = true}
+{/if}
+
+{if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "bullets"}
+    {$is_with_sidebar_list_1 = true}
+    {$is_with_sidebar_list_2 = true}
+    {$is_with_sidebar_list_3 = true}
+{/if}
+
+{$product_list_file = "home.products-list.html"}{if $theme_settings.homepage_product_view == "carousel"}{$product_list_file = "home.products-carousel.html"}{/if}
+
+<!-- product list#1 -->
+{include file=$product_list_file list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title list_head_color=$theme_settings.homepage_product_list_1_head_color is_with_sidebar_list=$is_with_sidebar_list_1 is_two_line=$theme_settings.homepage_product_list_1_line}
+{if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "product_list_2"}
+    </div> <!-- .with-left-sidebar -->
+</div> <!-- .l-wrapper clearfix -->
+{/if}
+
+<!-- product list#2 -->
+{include file=$product_list_file list_id=$theme_settings.homepage_product_list_2 list_title=$theme_settings.homepage_product_list_2_title list_head_color=$theme_settings.homepage_product_list_2_head_color is_with_sidebar_list=$is_with_sidebar_list_2 is_two_line=$theme_settings.homepage_product_list_2_line}
+{if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "product_list_3"}
+    </div> <!-- .with-left-sidebar -->
+</div> <!-- .l-wrapper clearfix -->
+{/if}
+
+<!-- product list#3 -->
+{include file=$product_list_file list_id=$theme_settings.homepage_product_list_3 list_title=$theme_settings.homepage_product_list_3_title list_head_color=$theme_settings.homepage_product_list_3_head_color is_with_sidebar_list=$is_with_sidebar_list_3 is_two_line=$theme_settings.homepage_product_list_3_line}
+{if $theme_settings.show_sidebar_mainpage && $theme_settings.sidebar_end == "bullets"}
+    </div> <!-- .with-left-sidebar -->
+</div> <!-- .l-wrapper clearfix -->
+{/if}
+
+<div class="l-wrapper">
+    {include file="bullets.html"}
+
+    {if $theme_settings.plugin_brands == 'brands_pro'}
+        {include file="home.brand-pro.html"}
+    {else if $theme_settings.plugin_brands == 'brands'}
+        {include file="home.brands.html"}
+    {/if}
+
+    <!-- plugin hook: 'frontend_homepage' -->
+    {* @event frontend_homepage.%plugin_id% *}
+    {foreach $frontend_homepage as $_}<div class="content content-block">{$_}</div>{/foreach}
+</div>
+
+{$is_news = false}
+{if ($theme_settings.homepage_blogposts && $wa->blog)}
+    {$blog_id = (int)$theme_settings.homepage_blog_id}
+    {if empty($blog_id)}{$blog_id = null}{/if}
+    {$blog_posts = $wa->blog->posts($blog_id,3)}
+    {if !empty($blog_posts) && count($blog_posts)}
+        {$is_news = true}
+    {/if}
+{/if}
+
+{$countWidgets = 0}
+{if $theme_settings.widget_code_1 || $theme_settings.widget_code_2}
+    {$countWidgets = 1}
+    {if $theme_settings.widget_code_1 && $theme_settings.widget_code_2}
+        {$countWidgets = 2}
+    {/if}
+{/if}
+
+
+
+{if !empty($theme_settings.homepage_welcome_head) || !empty($theme_settings.homepage_welcome_note) || !empty($is_news) || $countWidgets > 0}
+    <div class="mainpage-text-outer">
+        {if !empty($theme_settings.homepage_welcome_head) || !empty($theme_settings.homepage_welcome_note) || $countWidgets > 0}
+            <div class="mainpage-text ">
+                <div class="l-wrapper clearfix">
+                    {if $countWidgets > 0}
+                        <div class="mainpage-social">
+                            {if !empty($theme_settings.widget_code_1)}
+                                <div class="mainpage-social_el">
+                                    {$theme_settings.widget_code_1}
+                                </div>
+                            {/if}
+                            {if !empty($theme_settings.widget_code_2)}
+                                <div class="mainpage-social_el">
+                                    {$theme_settings.widget_code_2}
+                                </div>
+                            {/if}
+                        </div>
+                    {/if}
+                    {if !empty($theme_settings.homepage_welcome_head)}
+                    <h1>{$theme_settings.homepage_welcome_head}</h1>
+                    {/if}
+                    {$theme_settings.homepage_welcome_note}
+                </div>
+            </div>
+        {/if}
+        {if $is_news}
+            {if class_exists('blogSkimagePlugin')}
+                {$sk_blog_images = blogSkimageHelper::getImages()}
+            {/if}
+            <div class="l-wrapper">
+                <ul class="news-preview ul-block">
+                    {foreach $blog_posts as $post}
+                        <li class="news-preview_el">
+                            {$image = ""}
+                            {if isset($post.image_small) && !empty($post.image_small)}
+                                {$image = $post.image_small}
+                            {/if}
+                            {if empty($image) && isset($post.image) && !empty($post.image)}
+                                {$image = $post.image}
+                            {/if}
+                            {if isset($sk_blog_images[$post.id]['widget']) && !empty($sk_blog_images[$post.id]['widget'])}
+                                {$image = $sk_blog_images[$post.id]['widget']}
+                            {/if}
+                            {if !empty($image)}
+                                <a href="{$post.link}" class="news-preview_el-image">
+                                    {if $theme_settings.homepage_blog_images_lazy}
+                                        <img class="js-image-lazy" src="{$wa_theme_url}img/lazy-image.png" data-src="{$image}" alt="{$post.title}">
+                                    {else}
+                                        <img src="{$image}" alt="{$post.title}">
+                                    {/if}
+                                </a>
+                            {/if}
+                            <div class="news-preview_el-info">
+                                <div class="news-preview_el-name">
+                                    <span class="news-preview_el-date">{$post.datetime|wa_datetime:"humandate"}</span>
+                                    <a href="{$post.link}">{$post.title}</a>
+                                </div>
+                                <div class="news-preview_el-text">
+                                    {strip_tags($post.text)|truncate:128}
+                                </div>
+
+                                <div class="news-preview_el-more sd-color">
+                                    <a href="{$post.link}">[`Read more`]</a> &rarr;
+                                </div>
+                            </div>
+                        </li>
+                    {/foreach}
+                </ul>
+            </div>
+        {/if}
+
+        {if $wa->mailer && $wa->getUrl('mailer/frontend/subscribe') && $theme_settings.display_form_subscription}
+            {if !$theme_settings.form_subscription_id}
+                {$theme_settings.form_subscription_id = 1}
+            {/if}
+            <div class="mailer-subs-form">
+                <div class="l-wrapper">
+                    <div class="mailer-subscribe">
+                        <i class="fa fa-envelope mailer-subscribe-icon sd-color" aria-hidden="true"></i>
+                        <form action="{$wa->getUrl('mailer/frontend/subscribe')}" method="post" id="mailer-subscribe-form" target="mailer-subscribe-iframe">
+                            <input type="hidden" name="form_id" value="{$theme_settings.form_subscription_id}">
+                            <div class="mailer-subscribe-head">[`Subscribe newsleter`]</div>
+                            <div class="js-subscribe-inputs">
+                                <div class="subscribe-input">
+                                    <input type="text" name="username" placeholder="[`Enter your e-mail`]">
+                                    <span class="js-submit-form icon-before subscribe-send bs-color"></span>
+                                    <i class="js-subscribe-load icon16 loading"></i>
+                                </div>
+                                {if $theme_settings.display_consent_subscription}
+                                <div class="subscribe-agree js-subscribe-agree">
+                                    <label>
+                                        <span class="js-checkbox-styler checkbox-styler">
+                                            <input class="js-checkbox-styler-input" type="checkbox" name="agree" value="1" />
+                                        </span>
+                                        [`I agree`] <a href="{$theme_settings.link_rules_personal}">[`with the policy of processing personal data`]</a>
+                                    </label>
+                                </div>
+                                {/if}
+                            </div>
+                            <span class="subscribe-thankyou" id="mailer-subscribe-thankyou">[s`Thank you! We’ll keep you posted.`]</span>
+                            <span class="subscribe-error" id="mailer-subscribe-error">[`Form submission error`]</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {/if}
+    </div>
+{/if}
+
+<div class="l-wrapper">
+    {include file="home.reviews.html"}
+</div>
+{/strip}

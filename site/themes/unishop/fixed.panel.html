@@ -1,0 +1,84 @@
+{strip}
+    <div class="fixed-panel br-top-bs-color js-fixed">
+        {if $theme_settings.favorites_products}
+        {$count_favorites = 0}
+        {$favorites_list = $wa->cookie('favorites_list')}
+        {if $favorites_list && $favorites_list != 'null'}
+        {$count_favorites = count(","|explode:$favorites_list)}
+        {/if}
+        <div class="js-preview-favorite custom-pr">
+            <a class="js-products-list-link" href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
+                <div class="custom-pr_icon bs-color">
+                    <i class="fa fa-heart icon"></i>
+                    <span class="js-products-list-count custom-pr_short-count bg-sd-color">{$count_favorites}</span>
+                </div>
+                <div class="custom-pr_content">
+                    <span class="link custom-pr_title">[`Favorites`]</span>
+                </div>
+            </a>
+            <div class="action-msg-wrap js-action-msg">
+                <div class="action-msg br-top-sd-color shadow">
+                    [`The product has been added to favorites`]
+                </div>
+            </div>
+        </div>
+        {/if}
+
+        {if $theme_settings.compare_products}
+        {$in_comparison = $wa->shop->inComparison()}
+        {$url = $wa->getUrl('shop/frontend/compare', ['id' => implode(',', $in_comparison)])}
+
+        {if $wa->cookie('shop_compare') == 'null' || !count($in_comparison)}
+        {$in_comparison = []}
+        {$url = $wa->getUrl('shop/frontend/compare')}
+        {/if}
+        <div class="js-preview-compare custom-pr">
+            <a class="js-products-list-link" href="{$url}">
+                <div class="custom-pr_icon bs-color">
+                    <i class="fa fa-files-o icon "></i>
+                    <span class="js-products-list-count custom-pr_short-count bg-sd-color">{count($in_comparison)}</span>
+                </div>
+                <div class="custom-pr_content">
+                    <span class="link custom-pr_title">[`Compare`]</span>
+                </div>
+            </a>
+            <div class="action-msg-wrap js-action-msg">
+                <div class="action-msg br-top-sd-color shadow" >
+                    [`Product is added to compare`]
+                </div>
+            </div>
+        </div>
+        {/if}
+
+        {if method_exists($wa->shop, 'checkout')}
+            {$cartUrl = $wa->shop->checkout()->cartUrl()}
+        {else}
+            {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+        {/if}
+        {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
+        {if $is_use_cartonestep_cart_and_order}
+            {$cartonestepUrl = $wa->getUrl('shop/frontend/checkoutone')}
+            {if !empty($cartonestepUrl) && $cartonestepUrl != '/my/'}
+                {$cartUrl = $cartonestepUrl}
+            {/if}
+        {/if}
+        <div class="js-preview-cart preview-cart custom-pr" data-url="{$cartUrl}">
+            <a href="{$cartUrl}">
+                {$cart_count = $wa->shop->cart->count()}
+                <div class="custom-pr_icon bs-color">
+                    <i class="ion-android-cart icon"></i>
+                    <span class="custom-pr_short-count bg-sd-color js-cart-preview-count">{$cart_count}</span>
+                </div>
+                <div class="custom-pr_content">
+                    <span class="link custom-pr_title ">[`Cart`]</span>
+                    <div class="js-cart-preview-total custom-pr_total">{wa_currency_html($wa->shop->cart->total(), $wa->shop->currency())}</div>
+                </div>
+            </a>
+            <div class="action-msg-wrap action-msg-wrap--cart js-action-msg">
+                <div class="action-msg br-top-sd-color shadow">
+                    [`Product added to cart!`]
+                </div>
+            </div>
+        </div>
+    </div>
+{strip}

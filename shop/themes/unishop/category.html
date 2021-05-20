@@ -1,0 +1,90 @@
+{strip}
+{if !isset($filters)}
+    {$filters = []}
+{/if}
+
+{$cols = 3} {$is_sidebar_left = 1} {$is_sidebar_right = 1}
+{if !$theme_settings.category_sidebar_left || ($wa->isMobile() && !($wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version)) || (!$theme_settings.category_sidebar_left_without_product && !$products && !$filters)}
+    {$cols = $cols - 1}
+    {$is_sidebar_left = 0}
+{/if}
+{if !$theme_settings.category_sidebar_right || ($wa->isMobile() && !($wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version)) || (!$theme_settings.category_sidebar_right_without_product && !$products && !$filters)}
+    {$cols = $cols - 1}
+    {$is_sidebar_right = 0}
+{/if}
+
+
+<div class="cols-{$cols}">
+    <div class="sidebars-outer">
+        {if $is_sidebar_right}
+            {include file='sidebar-right.html' filter=$filters}
+        {/if}
+        {if $is_sidebar_left}
+            {include file='sidebar-left.html' filter=$filters}
+        {/if}
+    </div>
+
+    <div class="js-content content  {if $is_sidebar_left} with-left-sidebar{/if} {if $is_sidebar_right} with-right-sidebar{/if}">
+        <div class="category-content">
+            <h1 class="category-name">{$category.name|escape}</h1>
+
+            <!-- plugin hook: 'frontend_category' -->
+            {* @event frontend_category.%plugin_id% *}
+            {foreach $frontend_category as $_}{$_}{/foreach}
+
+            {if class_exists('shopSkcatimagePlugin')}
+                {$category_banner = shopSkcatimageHelper::getImages($category.id, 'banner')}
+                {if !empty($category_banner)}{$category.params.banner = $category_banner}{/if}
+            {elseif class_exists('shopWmimageincatPlugin')}
+                {$category_banner = shopWmimageincatPlugin::getCategoryImage($category.id, 'banner')}
+                {if !empty($category_banner)}{$category.params.banner = $category_banner}{/if}
+            {/if}
+
+            {if isset($category.params.banner) && !empty($category.params.banner)}
+                <img class="category-banner" src="{$category.params.banner}" alt="{$category.name|escape}" />
+            {/if}
+
+            <!-- description -->
+            {if !$theme_settings.is_category_desc_bottom}
+                {include file="category.description.html"}
+            {/if}
+
+            <!-- subcategories -->
+            {include file="category.subs.html"}
+
+            {if $theme_settings.category_tageditor_plugin && class_exists('shopTageditorPlugin')}
+                {shopTageditorPlugin::cloud()}
+            {/if}
+
+        </div>
+
+        {if $wa->isMobile() && !($wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version)}
+            {include file="sidebar-mobile.html"}
+        {/if}
+        <div class="js-product-list-ajax">
+            {if !$products}
+                {* selected filters *}
+                {if $theme_settings.filter_selected}{include file="category.select-filters.html"}{/if}
+                <div class="content-block">
+                    {if !empty($filters)}
+                        [`No products were found.`]
+                    {else if !$category.subcategories}
+                        [`This category does not contain any products.`]
+                    {/if}
+                </div>
+            {else}
+                {include file='list-thumbs.html' sorting=!empty($category.params.enable_sorting) isSwitchView=true ulclass="js-category-list products--category"}
+            {/if}
+        </div>
+        <div class="js-product-list-ajax-loader display_none content-block"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
+
+        {if $theme_settings.is_category_desc_bottom}
+            <div class="content-block">
+                {include file="category.description.html"}
+            </div>
+        {/if}
+    </div>
+
+
+</div>
+{/strip}

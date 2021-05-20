@@ -1,0 +1,407 @@
+{strip}
+<!-- Спросить о настройке -->
+{if $theme_settings.test_settings} 
+    {foreach from=$theme_settings key=name item=setting}
+        {$cookieSettings = $wa->cookie($name)}
+        {if $cookieSettings && $cookieSettings != 'null'}
+            {$theme_settings.$name = $cookieSettings}
+        {/if}
+    {/foreach}
+{/if}
+{if (!isset($wa_parent_theme_path) || !$wa_parent_theme_path)}
+    {$parent_theme_path = $wa_active_theme_path}
+{else}
+    {$parent_theme_path = $wa_parent_theme_path}
+{/if}
+<!-- Спросить о настройке -->
+{$is_icon_font_swap = !empty($theme_settings.load_icon_font_display_swap)}
+{$is_icon_font_include_footer = !empty($theme_settings.load_icon_font_footer)}
+{$is_icons_hidden = ($is_icon_font_include_footer || $is_icon_font_swap)}
+<!DOCTYPE html>
+<html lang="ru">
+<head prefix="og: http://ogp.me/ns#{if  isset($action) &&  $action == 'product'} product: http://ogp.me/ns/product#{/if}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- Спросить о настройке -->
+    {if $wa->isMobile() && $wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version}
+        <meta name="viewport" content="width=1280" />
+    {else}
+        <meta name="viewport" content="width=device-width, initial-scale=1{if $wa->isMobile()}, maximum-scale=1, user-scalable=0{/if}" />
+    {/if}
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$wa->title()|escape}</title>
+    <meta name="Keywords" content="{$wa->meta('keywords')|escape}" />
+    <meta name="Description" content="{$wa->meta('description')|escape}" />
+
+    {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    {if $wa->blog}
+        {$rss=$wa->blog->rssUrl()}
+        {if $rss}<link rel="alternate" type="application/rss+xml" title="{$wa->accountName()}" href="{$rss}">{/if}
+    {/if}
+
+    {if !empty($wa->globals('preload_image'))}
+        <link rel="preload" as="image" href="{$wa->globals('preload_image')}">
+    {/if}
+    {if !empty($wa->globals('preload_image_2'))}
+        <link rel="preload" as="image" href="{$wa->globals('preload_image_2')}">
+    {/if}
+
+    {if !$is_icon_font_include_footer}
+        {include file="`$parent_theme_path`/font-icons.css.html"}
+    {/if}
+
+    {include file="`$parent_theme_path`/global-var.js.html"}
+
+    <!-- css -->
+    {include file="colors.css.html"}
+    {if $theme_settings.generation_style_off}
+        <link href="{$wa_theme_url}vendor.min.css?v{$wa_theme_version}" rel="stylesheet"/>
+        <link href="{$wa_theme_url}unishop.css?v{$wa_theme_version}" rel="stylesheet"/>
+    {else if !in_array($wa_app, ['shop', 'blog', 'photos', 'helpdesk', 'hub'])}
+        <link href="{$wa_theme_url}unishop.min.css?v{$wa_theme_version}" rel="stylesheet"/>
+    {/if}
+
+    {include file="`$parent_theme_path`/add.css.html"}
+
+    {if !$theme_settings.load_text_font_footer}
+        {include file="`$parent_theme_path`/fonts.html"}
+    {/if}
+
+    <script src="{$wa_theme_url}jquery.min.js?v{$wa_theme_version}"></script>
+
+    {if !$theme_settings.plugins_js_footer}
+        {$wa->js()} {* links active plugins JS *}
+    {/if}
+
+    {include file="`$wa_active_theme_path`/head.html"}
+
+    {$wa->head()}
+    {if $theme_settings.load_custom_styles == 'top'}
+		<link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
+    {/if}
+    {$wa->block("custom_styles")}
+
+    {if $theme_settings.load_custom_js == 'top'}
+        <script src="{$wa_theme_url}unishop.custom.js?v{$wa_theme_version}"></script>
+    {/if}
+    {if method_exists($wa->shop, 'checkout')}
+        {$cartUrl = $wa->shop->checkout()->cartUrl()}
+    {else}
+        {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+    {/if}
+    {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
+</head>
+<body class="no-touch{if !empty($is_icons_hidden)} icons-hidden{/if} {$theme_settings.body_bg}">
+    {if $wa->isMobile() && $theme_settings.switch_version && !$wa->cookie("is_hide_link_version_site")}
+        <div class="switch-version js-switch-version">
+            <a class="switch-version__link js-switch-version-link" href="#">
+                {if $wa->cookie("is_desktop_for_mobile") == 1}
+                    [`Mobile version of the site`]
+                {else}
+                    [`Full version of site`]
+                {/if}
+                <i class="fa fa-angle-right switch-version__icon" aria-hidden="true"></i>
+            </a>
+            <i class="fa fa-times switch-version__remove js-switch-version-remove" aria-hidden="true"></i>
+        </div>
+    {/if}
+
+    {include file="info.message.html"}
+
+    {include file="header.top.html"}
+    <header class="header">
+        <div class="l-wrapper">
+            <div class="header_left">
+                {$is_logo = $theme_settings.logo}
+                <a class="header_logo bs-color{if !$is_logo} header_logo--text{/if}" href="{$wa_url}">
+                    {if $is_logo}
+                        <img{if $theme_settings.logo_2x} class="js-logo-retina" data-at2x="{$wa_theme_url}{$theme_settings.logo_2x}"{/if} src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo" />
+                    {else}
+                        {$wa->accountName()}
+                    {/if}
+                    {if $theme_settings.logo_text}
+                        <span class="header_logo-text">{$theme_settings.logo_text}</span>
+                    {/if}
+                </a>
+            </div>
+            <div class="header_right">
+                {$wa->block("header_address")}
+                {$wa->block("header_contacts")}
+
+                {if $wa->isAuthEnabled()}
+                    <div class="header_auth">
+                        {if $wa->user()->isAuth()}
+                            {if $wa->myUrl()}
+                                <div class="header_auth-icon">
+                                    <i class="userpic" style="background-image: url('{$wa->user()->getPhoto2x(32)}');"></i>
+                                </div>
+                                <div class="header_auth-content">
+                                    <div class="header_auth__profile">
+                                        <a href="{$wa->myUrl()}" {if $wa->globals('isMyAccount')}class="selected"{/if}>{$wa->user('firstname')|default:'[`My account`]'}</a>
+                                    </div>
+                                    <div class="header_auth-logout">
+                                        <i class="fa fa-sign-out icon" aria-hidden="true"></i>
+                                        <a href="?logout">[s`Log out`]</a>
+                                    </div>
+                                </div>
+                            {else}
+                                <div class="header_auth-icon">
+                                    <i class="fa fa-user icon bs-color"></i>
+                                </div>
+                                <div class="header_auth-content">
+                                    {$wa->user('firstname')|default:'[`My account`]'}
+                                    <div class="header_auth-logout">
+                                        <i class="fa fa-sign-out icon" aria-hidden="true"></i>
+                                        <a href="?logout">[s`Log out`]</a>
+                                    </div>
+                                </div>
+                            {/if}
+                        {else}
+                            <div class="header_auth-icon">
+                                <i class="fa fa-user icon bs-color"></i>
+                            </div>
+                            <div class="header_auth-content">
+                                <div class="header_auth-sign">
+                                    <i class="fa fa-sign-in icon" aria-hidden="true"></i>
+                                    <a class="js-login{if $theme_settings.login_popup} js-form-popup{/if}" href="{$wa->loginUrl()}">[s`Log in`]</a>
+                                </div>
+                                <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
+                            </div>
+                        {/if}
+                    </div>
+                {/if}
+
+                {$cartPopupUrl = $wa->getUrl('shop/frontend/cart')}
+                {if $is_use_cartonestep_cart_and_order}
+                    {$cartonestepUrl = $wa->getUrl('shop/frontend/checkoutone')}
+                    {if !empty($cartonestepUrl) && $cartonestepUrl != '/my/'}
+                        {$cartUrl = $cartonestepUrl}
+                        {$cartPopupUrl = $cartonestepUrl}
+                    {/if}
+                {/if}
+                <div class="header_cart js-preview-cart js-header-cart"  data-url="{$cartPopupUrl}">
+                    <a href="{$cartUrl}">
+                        <div class="header_cart-icon">
+                            <i class="icon ion-android-cart sd-color"></i>
+                            <span class="js-cart-preview-count header_cart-count bg-bs-color">{$wa->shop->cart->count()}</span>
+                        </div>
+                        <div class="header_cart-content">
+                            <span class="link">[s`Cart`]</span>
+                            <div class="header_cart-total js-cart-preview-total">
+                                {wa_currency_html($wa->shop->cart->total(), $wa->shop->currency())}
+                            </div>
+                        </div>
+                    </a>
+                    <div class="action-msg-wrap action-msg-wrap--cart js-action-msg">
+                        <div class="action-msg br-top-sd-color shadow">
+                            [`Product added to cart!`]
+                        </div>
+                    </div>
+                    {if !$is_use_cartonestep_cart_and_order && (!isset($action) || (isset($action) && $action != 'cart' && $action != 'checkout' && $action != 'checkoutone'))}
+                        {if $theme_settings.popup_cart && !$wa->isMobile()}<div class="js-cart-popup cart-popup"></div>{/if}
+                    {/if}
+                </div>
+            </div>
+
+            {if class_exists(shopPushHelper)}
+                {shopPushHelper::getButton()}
+            {/if}
+        </div>
+    </header>
+    {include file="header.nav.html"}
+
+    {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
+       <div class="wrapper-inner clearfix">
+            <div class="l-wrapper">
+    {/if}
+
+    {if $wa->globals('isMyAccount')}
+        {$wa->myNav('pages')}
+    {else}
+        {include file="`$wa_active_theme_path`/header.html" inline}
+    {/if}
+
+    <main id="main-content">
+        {include file="`$wa_active_theme_path`/main.html" inline}
+    </main>
+
+                {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
+            </div> <!-- .l-wrapper -->
+        </div> <!-- .wrapper-inner.clearfix -->
+    {/if}
+
+    <!-- FOOTER -->
+    <footer class="footer" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="{$wa->shop->settings('name')}">
+        <div class="footer-content l-wrapper">
+            <div class="clearfix">
+                <div class="footer-content_col">
+                    {if $theme_settings.logo_footer}
+                        <div class="footer_logo">
+                            <a href="{$wa_url}">
+                                <img{if $theme_settings.logo_footer_2x} class="js-logo-retina"{/if} src="{$wa_theme_url}{$theme_settings.logo_footer}" alt="{$wa->shop->settings('name')}" />
+                                {if $theme_settings.logo_text}
+                                    <span class="footer_logo-text">{$theme_settings.logo_text}</span>
+                                {/if}
+                            </a>
+                        </div>
+                    {/if}
+                    <div class="footer-social">
+                        {if !empty($theme_settings.facebook)}
+                            <a target="_blank" class="footer-social_el" href="{$theme_settings.facebook}"><i class="fa fa-facebook-square sd-color" aria-hidden="true"></i></a>
+                        {/if}
+                        {if !empty($theme_settings.twitter)}
+                            <a target="_blank" class="footer-social_el" href="{$theme_settings.twitter}"><i class="fa fa-twitter-square sd-color" aria-hidden="true"></i></a>
+                        {/if}
+                        {if !empty($theme_settings.vk)}
+                            <a target="_blank" class="footer-social_el" href="{$theme_settings.vk}"><i class="fa fa-vk sd-color" aria-hidden="true"></i></a>
+                        {/if}
+                        {if !empty($theme_settings.odnoclassniki)}
+                        <a target="_blank" class="footer-social_el" href="{$theme_settings.odnoclassniki}"><i class="fa fa-odnoklassniki sd-color" aria-hidden="true"></i></a>
+                        {/if}
+                        {if !empty($theme_settings.instagram)}
+                            <a target="_blank" class="footer-social_el" href="{$theme_settings.instagram}"><i class="fa fa-instagram sd-color" aria-hidden="true"></i></a>
+                        {/if}
+                        {if !empty($theme_settings.youtube)}
+                            <a target="_blank" class="footer-social_el" href="{$theme_settings.youtube}"><i class="fa fa-youtube-square sd-color" aria-hidden="true"></i></a>
+                        {/if}
+                        {if $wa->blog && $rss && $theme_settings.rss}
+                            <a target="_blank" class="footer-social_el" href="{$rss}"><i class="fa fa-rss-square sd-color" aria-hidden="true"></i></a>
+                        {/if}
+                    </div>
+                </div>
+
+                <div class="footer-content_col">
+                    {$wa->block("footer_links_company")}
+                </div>
+                <div class="footer-content_col">
+                    {$wa->block("footer_links_sections")}
+                </div>
+                <div class="footer-content_col">
+                    {$wa->block("footer_contacts")}
+                </div>
+            </div>
+            <div class="footer-text">
+                {$wa->block("footer_text")}
+            </div>
+            {include file="`$wa_active_theme_path`/footer.html" inline}
+        </div>
+        <div class="footer-bottom">
+            <div class="l-wrapper clearfix">
+                <div class="footer-bottom_text">
+                    <div class="copyright">{$wa->block("copyright")}</div>
+                </div>
+                {if !empty($theme_settings.dislay_payment_footer)}
+                    <div class="footer-payments">
+                        {$availabe_options = $wa->shop->payment()}
+                        {$_cnt = 0}
+                        {foreach $availabe_options as $option name=options}
+                            {if $_cnt == 8}{break}{/if}
+                            {if $option.logo}
+                                <img src="{$option.logo}" alt="{$option.name}">
+                                {$_cnt = $_cnt + 1}
+                            {/if}
+                        {foreachelse}
+                        &nbsp;
+                        {/foreach}
+                    </div>
+                {/if}
+            </div>
+        </div>
+    </footer>
+
+    {if $theme_settings.button_to_top}<span class="btn-top icon-before sd-color" id="move-to-top"></span>{/if}
+
+    {if $theme_settings.fixed_panel || $wa->isMobile()}{include file="fixed.panel.html" inline}{/if}
+
+    {if $theme_settings.widget_popup_advert_active && $theme_settings.widget_popup_advert_block_id}
+        {include file="popup.advert.html" inline}
+    {/if}
+
+    {if $theme_settings.quicklinks_show && $wa->user()->isAuth() && !$wa->isMobile()}
+        {$quick_access = false}
+        {if $wa->user()->isAdmin()}
+            {$quick_access = true}
+        {else}
+            {if $theme_settings.quicklinks_ids}
+                {$ids = ","|explode:$theme_settings.quicklinks_ids}
+                {if in_array($wa->userId(), $ids)}
+                    {$quick_access = true}
+                {/if}
+            {/if}
+        {/if}
+        {if $quick_access}
+            {include file="`$parent_theme_path`/quicklinks.html" inline}
+        {/if}
+    {/if}
+
+    {if $wa->shop && $theme_settings.plugin_callback && class_exists('shopCallbPlugin')}
+        {shopCallbPlugin::display()}
+    {/if}
+
+    {if $wa->shop && $theme_settings.plugin_callback && class_exists('shopSkcallbackHelper') && shopSkcallbackHelper::isActive()}
+        {include file="`$parent_theme_path`/skcallback.html" inline}
+    {/if}
+
+    {if $wa->shop && $theme_settings.fastorder == "skoneclick" && class_exists('shopSkoneclickHelper') && shopSkoneclickHelper::isActive()}
+        {include file="`$parent_theme_path`/skoneclick.html" inline}
+    {/if}
+
+    {$cart_add_action = $theme_settings.cart_add_action}
+    {if $wa->isMobile()}{$cart_add_action = $theme_settings.cart_add_action_mobile}{/if}
+
+    {if $cart_add_action == 'popup'}
+        {include file="`$parent_theme_path`/cart.add.popup.html" inline}
+    {/if}
+
+    {if !$is_use_cartonestep_cart_and_order && $cart_add_action == 'fixed'}
+        {if !isset($action) || (isset($action) && $action != 'cart' && $action != 'checkout' && $action != 'checkoutone')}
+            <div class="js-fixed-cart-outer" data-cart-url="{$wa->getUrl('shop/frontend/cart')}"></div>
+        {/if}
+    {/if}
+
+    {if $theme_settings.test_settings}
+        {include file="`$parent_theme_path`/settings.html" inline}
+    {/if}
+
+    {$wa->block("footer_codes")}
+
+    <script src="{$wa_theme_url}vendor.min.js?v{$wa_theme_version}"></script>
+
+
+    {$wa->css()}
+    {if $theme_settings.plugins_js_footer}
+        {$wa->js()} {* links active plugins JS *}
+    {/if}
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    {if $theme_settings.min_script_off}
+        <script src="{$wa_theme_url}unishop.js?v{$wa_theme_version}"></script>
+    {else}
+        <script src="{$wa_theme_url}unishop.min.js?v{$wa_theme_version}"></script>
+    {/if}
+
+    {include file="`$wa_active_theme_path`/sources.js.html" inline}
+
+    {if $theme_settings.load_custom_styles == 'bottom'}
+        <link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
+    {/if}
+    {if $theme_settings.load_custom_js == 'bottom'}
+        <script src="{$wa_theme_url}unishop.custom.js?v{$wa_theme_version}"></script>
+    {/if}
+
+    {if $theme_settings.load_text_font_footer}
+        {include file="`$parent_theme_path`/fonts.html"}
+    {/if}
+
+    {if $is_icon_font_include_footer}
+        {include file="`$parent_theme_path`/font-icons.css.html"}
+    {/if}
+</body>
+</html>
+{/strip}

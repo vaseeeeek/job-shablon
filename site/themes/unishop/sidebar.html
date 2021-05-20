@@ -1,0 +1,17 @@
+{strip}
+<aside class="left-sidebar js-left-sidebar">
+    {include file="sidebar.pages.html"}
+
+    {if $theme_settings.show_sidebar_pages_news}
+        {include file="sidebar.news.html" blog_id=(int)$theme_settings.sidebar_pages_news_id}
+    {/if}
+
+    {if $theme_settings.show_sidebar_pages_photos}
+        {include file="sidebar.photos.html"}
+    {/if}
+
+    {if $theme_settings.show_sidebar_pages_social}
+        {include file="sidebar.widgets.html"}
+    {/if}
+</aside>
+{/strip}

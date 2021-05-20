@@ -1,0 +1,3924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
+<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="1">
+  <name locale="en_US">Unishop</name>
+  <name locale="ru_RU">Unishop</name>
+  <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
+  <description locale="ru_RU">Современная, удобная, адаптивная тема дизайна, разработанная для приложений Сайт, Магазин, Блог, Фотогалерея</description>
+  <files>
+    <file path="index.html" custom="0">
+      <description locale="en_US">Core layout of Unishop theme family</description>
+      <description locale="ru_RU">Основной макет тем дизайна семейства «Unishop»</description>
+    </file>
+    <file path="unishop.css" custom="0">
+      <description locale="en_US">Core CSS of the Unishop theme family</description>
+      <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна «Unishop»</description>
+    </file>
+    <file path="unishop.js" custom="0">
+        </file>
+    <file path="unishop.min.js" custom="0">
+    </file>
+    <file path="unishop.custom.css" custom="0">
+      <description locale="ru_RU"/>
+    </file>
+    <file path="unishop.custom.js" custom="0">
+    </file>
+    <file path="add.css.html" custom="0">
+      <description locale="en_US">Add css-styles of settings theme</description>
+      <description locale="ru_RU">Дополнительные стили из настроек темы</description>
+    </file>
+    <file path="cart.add.popup.html" custom="0">
+      <description locale="en_US">Popup after adding to cart</description>
+      <description locale="ru_RU">Всплывающее окошко после добавление в корзину</description>
+    </file>
+    <file path="fonts.html" custom="0">
+      <description locale="en_US">Includes and font styles</description>
+      <description locale="ru_RU">Подключение и стили шрифтов</description>
+    </file>
+    <file path="font-icons.css.html" custom="0"/>
+    <file path="font-exo2.css.html" custom="0"/>
+    <file path="font-firasans.css.html" custom="0"/>
+    <file path="font-montserrat.css.html" custom="0"/>
+    <file path="font-opensans.css.html" custom="0"/>
+    <file path="font-play.css.html" custom="0"/>
+    <file path="font-ptsans.css.html" custom="0"/>
+    <file path="font-roboto.css.html" custom="0"/>
+    <file path="font-ubuntu.css.html" custom="0"/>
+    <file path="head.html" custom="0">
+      <description locale="en_US">Site app's &lt;head&gt; instructions</description>
+      <description locale="ru_RU">Блок &lt;head&gt; приложения «Сайт»</description>
+    </file>
+    <file path="info.message.html" custom="0">
+      <description locale="en_US">Info message</description>
+      <description locale="ru_RU">Информационное сообщение</description>
+    </file>
+    <file path="header.top.html" custom="0">
+      <description locale="en_US">Contents of the top menu, currency and language selection</description>
+      <description locale="ru_RU">Содержимое верхнего меню, выбора валюты и языка</description>
+    </file>
+    <file path="header.top.menu-desktop.html" custom="0">
+      <description locale="en_US">Contents of the top menu (desktop)</description>
+      <description locale="ru_RU">Содержимое верхнего меню (десктопная версия)</description>
+    </file>
+    <file path="header.top.menu-mobile.html" custom="0">
+      <description locale="en_US">Contents of the top menu (mobile)</description>
+      <description locale="ru_RU">Содержимое верхнего меню (мобильная версия)</description>
+    </file>
+    <file path="header.html" custom="0">
+      <description locale="en_US">App specific header content</description>
+      <description locale="ru_RU">Содержимое «шапки» приложения</description>
+    </file>
+    <file path="header.nav.html" custom="0">
+      <description locale="en_US">The contents of the navigation bar</description>
+      <description locale="ru_RU">Содержимое навигационной панели</description>
+    </file>
+    <file path="fixed.panel.html" custom="0">
+      <description locale="en_US">Fixed panel with custom product lists</description>
+      <description locale="ru_RU">Фиксированная панель с пользовательскими списками товаров</description>
+    </file>
+    <file path="header.categories.html" custom="0">
+      <description locale="en_US">The contents of drop-down categories menu</description>
+      <description locale="ru_RU">Меню категорий</description>
+    </file>
+    <file path="header.subcat.one_column.html" custom="0">
+      <description locale="en_US">The contents of the subcategories in one column menu categories</description>
+      <description locale="ru_RU">Содержимое подкатегорий в одну колонку выпадающего меню категорий</description>
+    </file>
+    <file path="header.subcat.columns.html" custom="0">
+      <description locale="en_US">The contents of the subcategories in columns menu categories</description>
+      <description locale="ru_RU">Содержимое подкатегорий в несколько колонок выпадающего меню категорий</description>
+    </file>
+    <file path="main.html" custom="0">
+      <description locale="en_US">Main layout for Site app content</description>
+      <description locale="ru_RU">Основной вывод приложения «Сайт»</description>
+    </file>
+    <file path="footer.html" custom="0">
+      <description locale="en_US">App specific footer content</description>
+      <description locale="ru_RU">Содержимое футера приложения</description>
+    </file>
+    <file path="sidebar.html" custom="0">
+      <description locale="en_US">Content of sidebar</description>
+      <description locale="ru_RU">Содержимое сайдбара</description>
+    </file>
+    <file path="sidebar.pages.html" custom="0">
+      <description locale="en_US">Contents of navigation in the sidebar</description>
+      <description locale="ru_RU">Содержимое навигации в сайдбаре</description>
+    </file>
+    <file path="sidebar.news.html" custom="0">
+      <description locale="en_US">Last news content in the sidebar</description>
+      <description locale="ru_RU">Содержимое последних новостей в сайдбаре</description>
+    </file>
+    <file path="sidebar.photos.html" custom="0">
+      <description locale="en_US">The content of the latest photos (from the Photogallery application) in the sidebar</description>
+      <description locale="ru_RU">Содержимое последних фотографий (из приложения Фотогалерея) в сайдбаре</description>
+    </file>
+    <file path="sidebar.widgets.html" custom="0">
+      <description locale="en_US">Social widget in sidebar</description>
+      <description locale="ru_RU">Виджет соц. сетей в сайдбаре</description>
+    </file>
+    <file path="page.html" custom="0">
+      <description locale="en_US">Static page content and navigation</description>
+      <description locale="ru_RU">Содержимое открытой страницы и навигация по страницам</description>
+    </file>
+    <file path="login.html" custom="0">
+      <description locale="en_US">Login page</description>
+      <description locale="ru_RU">Страница входа для пользователей</description>
+    </file>
+    <file path="signup.html" custom="0">
+      <description locale="en_US">Sign up page</description>
+      <description locale="ru_RU">Страница регистрации пользователей</description>
+    </file>
+    <file path="forgotpassword.html" custom="0">
+      <description locale="en_US">Forgot password page</description>
+      <description locale="ru_RU">Страница сброса пароля</description>
+    </file>
+    <file path="my.profile.html">
+      <description locale="en_US">My profile: contact info editing form</description>
+      <description locale="ru_RU">Личный кабинет: редактирование контактной информации</description>
+    </file>
+    <file path="my.nav.html">
+      <description locale="en_US">My profile navigation</description>
+      <description locale="ru_RU">Навигационное меню внутри личного кабинета</description>
+    </file>
+    <file path="error.html" custom="0">
+      <description locale="en_US">404 and other errors</description>
+      <description locale="ru_RU">404 и другие ошибки</description>
+    </file>
+    <file path="sources.js.html" custom="0">
+      <description locale="en_US">Includes js, css files</description>
+      <description locale="ru_RU">Js, css файлы</description>
+    </file>
+    <file path="quicklinks.html" custom="0">
+      <description locale="en_US">Quick links</description>
+      <description locale="ru_RU">Быстрые ссылки</description>
+    </file>
+    <file path="popup.advert.html" custom="0">
+      <description locale="en_US">Widget advert</description>
+      <description locale="ru_RU">Виджет акции</description>
+    </file>
+  </files>
+  <about locale="en_US">
+    Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.
+  </about>
+  <about locale="ru_RU">
+    Современная, удобная, адаптивная тема дизайна, разработанная для приложений Сайт, Магазин, Блог, Фотогалерея
+  </about>
+  <settings>
+    <setting var="divider_colors" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Decor</name>
+      <name locale="ru_RU">Оформление</name>
+    </setting>
+    <setting var="color_scheme" control_type="image_select">
+      <value>img/themesettings/orange.green.png</value>
+      <name locale="ru_RU">Цветовая схема</name>
+      <name locale="en_US">Сolor scheme</name>
+      <options>
+        <option value="img/themesettings/orange.green.png"/>
+        <option value="img/themesettings/yellow.green.png"/>
+        <option value="img/themesettings/green.brown.png"/>
+        <option value="img/themesettings/black.green.png"/>
+        <option value="img/themesettings/red2.blue2.png"/>
+        <option value="img/themesettings/yellow.brown.png"/>
+        <option value="img/themesettings/green.pink.png"/>
+        <option value="img/themesettings/red.black.png"/>
+        <option value="img/themesettings/pink.black.png"/>
+        <option value="img/themesettings/orange.black.png"/>
+        <option value="img/themesettings/pink.green.png"/>
+        <option value="img/themesettings/blue.red.png"/>
+        <option value="img/themesettings/bluelight.blue.png"/>
+        <option value="img/themesettings/brown.green.png"/>
+        <option value="img/themesettings/red.blue.png"/>
+        <option value="img/themesettings/brown.beige.png"/>
+        <option value="img/themesettings/purple.pink.png"/>
+        <option value="img/themesettings/bluelight.blue.pink.png"/>
+        <option value="img/themesettings/red.yellow.green.png"/>
+        <option value="img/themesettings/green.greenlight.blue.png"/>
+        <option value="img/themesettings/orange.purple.png"/>
+        <option value="img/themesettings/greenlight.green.purple.png"/>
+        <option value="img/themesettings/bluelight.blue2.png"/>
+      </options>
+    </setting>
+    <setting var="base_color" control_type="color">
+      <value/>
+      <name locale="ru_RU">Основной цвет</name>
+      <name locale="en_US">Base color</name>
+      <description locale="ru_RU">Цвет панели с поиском, иконок и тд</description>
+      <description locale="en_US">Color of panel width search, icons and other</description>
+    </setting>
+    <setting var="bg_color_navogation" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет панели с поиском</name>
+      <name locale="en_US">Color of panel width catalog button and search form</name>
+      <description locale="ru_RU">Если не выбран то цвет берется из настройки "Основной цвет"</description>
+      <description locale="en_US">If not selected, the color is taken from the "Base Color"</description>
+    </setting>
+    <setting var="second_color" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет кнопок, активных ссылок и др</name>
+      <name locale="en_US">Color of buttons and other</name>
+    </setting>
+    <setting var="body_bg" control_type="select">
+      <value>bg-lightgrey</value>
+      <name locale="en_US">Color backgtound</name>
+      <name locale="ru_RU">Цвет основного фона</name>
+      <options>
+        <option value="bg-grey">
+          <name locale="ru_RU">Серый</name>
+          <name locale="en_US">grey</name>
+        </option>
+        <option value="bg-lightgrey">
+          <name locale="ru_RU">Светло-серый</name>
+          <name locale="en_US">Light grey</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="font" control_type="select">
+      <value>ubuntu</value>
+      <name locale="ru_RU">Основной шрифт</name>
+      <options>
+        <option value="opensans">
+          <name locale="ru_RU">Open Sans</name>
+        </option>
+        <option value="roboto">
+          <name locale="ru_RU">Roboto</name>
+        </option>
+        <option value="exo2">
+          <name locale="ru_RU">Exo 2</name>
+        </option>
+        <option value="ubuntu">
+          <name locale="ru_RU">Ubuntu</name>
+        </option>
+        <option value="arial">
+          <name locale="ru_RU">Arial</name>
+        </option>
+        <option value="firasans">
+          <name locale="ru_RU">Fira Sans</name>
+        </option>
+        <option value="montserrat">
+          <name locale="ru_RU">Montserrat</name>
+        </option>
+        <option value="helvetica">
+          <name locale="ru_RU">Helvetica</name>
+        </option>
+        <option value="ptsans">
+          <name locale="ru_RU">PT Sans</name>
+        </option>
+        <option value="play">
+          <name locale="ru_RU">Play</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="divider_info_head" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Info message</name>
+      <name locale="ru_RU">Информационное сообщение</name>
+    </setting>
+    <setting var="info_head" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить информационное сообщение верхним баннером</name>
+      <name locale="en_US">Display informational message top banner</name>
+      <description locale="ru_RU">Можно использовать для показа сообщений о сборе cookie, неполадках на сайте и других важных сообщениях, которые увидят все пользователи</description>
+      <description locale="en_US">You can use it to show messages about collecting cookies, site problems and other important messages that all users will see.</description>
+    </setting>
+    <setting var="info_head_text" control_type="text">
+      <value locale="ru_RU">Мы используем файлы «cookie», чтобы запоминать сведения о пользователе и отображать подходящую ему рекламу и другие материалы. Получить более подробную информацию или изменить настройки можно &lt;a href="#"&gt;здесь&lt;/a&gt;.</value>
+      <value locale="en_US">We use cookies to remember user information and display ads and other relevant content. You can get more detailed information or change the settings. &lt;a href="#"&gt;здесь&lt;/a&gt;.</value>
+      <name locale="ru_RU">Текст информационного сообщения (можно использовать html)</name>
+      <name locale="en_US">The text of the information message (you can use html)</name>
+    </setting>
+    <setting var="info_head_background" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет фона информационного сообщения (необязательно)</name>
+      <name locale="en_US">Background message background color (optional)</name>
+    </setting>
+    <setting var="info_head_color" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет текста информационного сообщения (необязательно)</name>
+      <name locale="en_US">The text color of the informational message (optional)</name>
+    </setting>
+    <setting var="info_head_icon" control_type="image">
+      <value>img/info_massage.png?v1620210445</value>
+      <filename>img/info_massage.*</filename>
+      <name locale="ru_RU">Иконка сообщения (необязательно, выводится перед текстом)</name>
+      <name locale="en_US">Message icon (optional, displayed before the text)</name>
+    </setting>
+    <setting var="info_head_id" control_type="text">
+      <value>1</value>
+      <name locale="ru_RU">Идентификатор сообщения (Произвольное число)</name>
+      <name locale="en_US">Message ID (arbitrary number)</name>
+      <description locale="ru_RU">После смены идентификатора сообщение вновь отобразится у всех пользователей.</description>
+      <description locale="en_US">After changing the ID, the message will be displayed again to all users.</description>
+    </setting>
+    <setting var="divider_header" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Header</name>
+      <name locale="ru_RU">«Шапка» сайта</name>
+    </setting>
+    <setting var="logo" control_type="image">
+      <value>img/logo.png?v1554176901</value>
+      <filename>img/logo.*</filename>
+      <name locale="en_US">Logo</name>
+      <name locale="ru_RU">Логотип</name>
+    </setting>
+    <setting var="logo_2x" control_type="image">
+      <value>img/logo@2x.png?v1554176901</value>
+      <filename>img/logo@2x.*</filename>
+      <name locale="en_US">Logo for retina</name>
+      <name locale="ru_RU">Логотип для ретина дисплеев</name>
+      <description locale="ru_RU">Загрузите логотип размером в 2 раза больше</description>
+      <description locale="en_US">Upload a logo 2 times larger</description>
+    </setting>
+    <setting var="logo_width" control_type="text">
+      <value/>
+      <name locale="en_US">Width of logo, px</name>
+      <name locale="ru_RU">Ширина логотипа, px</name>
+    </setting>
+    <setting var="logo_width_max_950" control_type="text">
+      <value/>
+      <name locale="en_US">Logo width with screen size less than 950 pixels, px</name>
+      <name locale="ru_RU">Ширина логотипа при размере экрана менее 950 пикселей, px</name>
+    </setting>
+    <setting var="logo_text" control_type="text">
+      <value/>
+      <name locale="en_US">Text under logo</name>
+      <name locale="ru_RU">Текст под логотипом</name>
+    </setting>
+    <setting var="switch_version" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">The link from the mobile to the full version of the site</name>
+      <name locale="ru_RU">Ссылка перехода с мобильной на полную версию сайта</name>
+    </setting>
+    <setting var="language_toggle" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show language selector</name>
+      <name locale="ru_RU">Переключатель языка</name>
+    </setting>
+    <setting var="currency_toggle" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show currency selector</name>
+      <name locale="ru_RU">Переключатель валюты</name>
+    </setting>
+    <setting var="show_currency_flag" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show currency flags</name>
+      <name locale="ru_RU">Флаги в валютах</name>
+    </setting>
+    <setting var="header_links" control_type="select">
+      <value>shop-pages</value>
+      <name locale="ru_RU">Ссылки в верхнем меню</name>
+      <name locale="en_US">Header links</name>
+      <description locale="ru_RU">Ссылки верхнего меню навигации могут определяться либо основной структурой сайта (меню {$wa-&gt;apps()} настраивается в приложении «Сайт» в разделе «Настройки»), либо информационным страницами выбранного приложения</description>
+      <description locale="en_US">Top header menu links will be displayed according to the site core structure (as defined in the Site app &gt; Settings &gt; {$wa-&gt;apps()}) or the list of selected app info pages</description>
+      <options>
+        <option value="wa-apps">
+          <name locale="ru_RU">Приложение «Сайт» &gt; Настройки &gt; {$wa-&gt;apps()}</name>
+          <name locale="en_US">Site app &gt; Settings &gt; {$wa-&gt;apps()}</name>
+        </option>
+        <option value="site-pages">
+          <name locale="ru_RU">Страницы приложения «Сайт»</name>
+          <name locale="en_US">Site app pages</name>
+        </option>
+        <option value="shop-pages">
+          <name locale="ru_RU">Страницы приложения «Магазин»</name>
+          <name locale="en_US">Shop app pages</name>
+        </option>
+        <option value="blog-pages">
+          <name locale="ru_RU">Страницы приложения «Блог»</name>
+          <name locale="en_US">Blog app pages</name>
+        </option>
+        <option value="photos-pages">
+          <name locale="ru_RU">Страницы приложения «Фото»</name>
+          <name locale="en_US">Photos app pages</name>
+        </option>
+        <option value="app-menu">
+          <name locale="ru_RU">Из приложения меню</name>
+          <name locale="en_US">From app menu</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Не показывать</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="id_app_header_menu" control_type="text">
+      <value/>
+      <name locale="en_US">Identifier from applications Menu for output in the top menu</name>
+      <name locale="ru_RU">идентификатор из приложения Меню для вывода в верхнем меню</name>
+      <description locale="ru_RU">Опция доступна при выбранном варианте "Из приложения меню" для опции "Ссылки в верхнем меню"</description>
+      <description locale="en_US">The option is available when the option "From app menu" is selected for the option "Header links"</description>
+    </setting>
+    <setting var="display_header_menu_submenu" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display sub menu of header links</name>
+      <name locale="ru_RU">Выпадающие подпункты в верхнем меню</name>
+    </setting>
+    <setting var="header_menu_show_homepage" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show link on the top menu "Home"</name>
+      <name locale="ru_RU">Выводить в верхнем меню ссылку "Главная"</name>
+    </setting>
+    <setting var="login_popup" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Login in popup window</name>
+      <name locale="ru_RU">Авторизация в модальном окне</name>
+    </setting>
+    <setting var="plugin_callback" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display in the header the link "Request a call"</name>
+      <name locale="ru_RU">Вывести в шапке ссылку "Заказать звонок"</name>
+    </setting>
+    <setting var="iframe_link_map" control_type="text">
+      <value>https://yandex.ru/map-widget/v1/?um=constructor%3A351719cd50d888a5fdf3b9de0ca1b15b4c4e4a62df69fb39a809f22bd347dd25&amp;amp;source=constructor</value>
+      <name locale="en_US">Link to the map iframe</name>
+      <name locale="ru_RU">Ссылка на карту для iframe</name>
+    </setting>
+    <setting var="search_auto" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Включить автопоиск</name>
+      <name locale="en_US">Autosearch on</name>
+    </setting>
+    <setting var="plugin_search_pro" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Use the plugin Search Pro (Bodysite)</name>
+      <name locale="ru_RU">Используется плагин Поиск Pro (Bodysite)</name>
+    </setting>
+    <setting var="use_region_plugin" control_type="select">
+      <value/>
+      <name locale="ru_RU">Плагин выбора города</name>
+      <name locale="en_US">Plugin for select city</name>
+      <options>
+        <option value="seo_regions">
+          <name locale="ru_RU">SEO-регионы (Bodysite)</name>
+          <name locale="en_US">SEO-regions (Bodysite)</name>
+        </option>
+        <option value="cityselect">
+          <name locale="ru_RU">Автоопределение и выбор города (Echo)</name>
+          <name locale="en_US">Autodetect and select city (Echo)</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">No</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="divider_main_categories" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Dropdown categories menu</name>
+      <name locale="ru_RU">Выпадающее меню категорий</name>
+    </setting>
+    <setting var="count_categories_levels" control_type="select">
+      <value>3</value>
+      <name locale="en_US">Number of levels in the category menu in the header</name>
+      <name locale="ru_RU">Количество уровней в выпадающем меню категорий</name>
+      <options>
+        <option value="1">
+          <name locale="ru_RU">1</name>
+          <name locale="en_US">1</name>
+        </option>
+        <option value="2">
+          <name locale="ru_RU">2</name>
+          <name locale="en_US">2</name>
+        </option>
+        <option value="3">
+          <name locale="ru_RU">3</name>
+          <name locale="en_US">3</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="max_sidebar_dropdown_categories" control_type="text">
+      <value>8</value>
+      <name locale="ru_RU">Максимальное количество категорий в выпадающем меню категорий</name>
+      <name locale="en_US">Maximum number of categories in the drop-down list</name>
+      <description locale="ru_RU">Остальные категории скроются за пунктом "Еще". Если поле пустое, выводятся все категории.</description>
+      <description locale="en_US">Other categories will be hidden behind the "More". If the empty field displays all categories</description>
+    </setting>
+    <setting var="icon_dropdown_menu_subcategories" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Показывать иконки для первого уровня в выпадающем меню категорий</name>
+      <name locale="en_US">Show icons for the first level in the menu</name>
+      <description locale="ru_RU">Иконка для категории загружается через файл-менеджер и указывается в категории дополнительным параметром icon. Если установлен плагин "Иконка, изображение и баннер для категории", иконка выводится из плагина.</description>
+      <description locale="en_US">The icon for the category is downloaded via the file manager and is indicated in the category with the additional option icon. If the plugin "Icon, image and banner for category" is installed, the icon is displayed from the plugin. </description>
+    </setting>
+    <setting var="type_menu_subcategories" control_type="select">
+      <value>columns</value>
+      <name locale="ru_RU">Вид подменю категорий</name>
+      <name locale="en_US">View sub-categories</name>
+      <description locale="ru_RU">Для каждой категории первого уровня можно индивидуально настроить вид выпадающего подменю, указав Дополнительный параметр "submenu_columns" со значениями: "one_column" (1 колонка), "columns" (несколько колонок)</description>
+      <description locale="en_US">For each category of the first level, you can customize the appearance of the drop-down submenu by specifying an optional parameter "submenu_columns" with the values: "one_column", "columns" </description>
+      <options>
+        <option value="one_column">
+          <name locale="ru_RU">В одну колонку</name>
+          <name locale="en_US">One column</name>
+        </option>
+        <option value="columns">
+          <name locale="ru_RU">В несколько колонок</name>
+          <name locale="en_US">Columns</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="align_menu_subcategories" control_type="select">
+      <value>line</value>
+      <name locale="ru_RU">Выравнивание подменю категорий</name>
+      <name locale="en_US">Alignment sub-categories</name>
+      <description locale="ru_RU">Настройка доступна если для опции "Вид подменю категорий" выбрано "В несколько колонок"</description>
+      <description locale="en_US">The setting is available if "Columns" is selected for the "View sub-categories"</description>
+      <options>
+        <option value="line">
+          <name locale="ru_RU">По горизонтали (по строке)</name>
+          <name locale="en_US">Horizontally (per line)</name>
+        </option>
+        <option value="column">
+          <name locale="ru_RU">По вертикали (по колонке)</name>
+          <name locale="en_US">Vertical (column)</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="type_dropdown_menu_subcategories_image" control_type="select">
+      <value>icon</value>
+      <name locale="ru_RU">Изображения в подкатегориях выпадающего меню</name>
+      <name locale="en_US">The pictures in the subcategories drop down menu</name>
+      <description locale="ru_RU">Для каждой категории первого уровня можно индивидуально настроить тип выводимой картинки подкатегории, указав Дополнительный параметр "submenu_pic" со значениями: "image" (картинка), "icon" (иконка) и "" (пустое значение)(не выводить изображение)</description>
+      <description locale="en_US">For each category first level you can individually set the type of output image of the subcategory parameter "submenu_pic" with values "image" (picture) "icon" (icon) and "" (empty value)(do not display image)</description>
+      <options>
+        <option value="image">
+          <name locale="ru_RU">Картинки</name>
+          <name locale="en_US">Images</name>
+        </option>
+        <option value="icon">
+          <name locale="ru_RU">Иконки</name>
+          <name locale="en_US">Icons</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="categories_menu_dropdown_relative" control_type="select">
+      <value>parent</value>
+      <name locale="ru_RU">Вывод выпадающего списка подкатегорий</name>
+      <name locale="en_US">Output of a drop-down list of subcategories</name>
+      <description locale="ru_RU">Рекомендуется выбрать "Относительно родительской категории" если  первый уровень категорий очень длинный.</description>
+      <description locale="en_US">It is recommended that you select "Relative to the parent category" if in the first level of categories is very long.</description>
+      <options>
+        <option value="all">
+          <name locale="ru_RU">Относительно всего блока</name>
+          <name locale="en_US">Relatively the whole block</name>
+        </option>
+        <option value="parent">
+          <name locale="ru_RU">Относительно родительской категории</name>
+          <name locale="en_US">Relatively the parent category</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="categories_menu_dropdown_delay" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Hover delay to category</name>
+      <name locale="ru_RU">Задержка при наведении на категорию</name>
+    </setting>
+    <setting var="categories_hover_bg" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">When you hover over the category menu, darken the background</name>
+      <name locale="ru_RU">При наведение на меню категорий затемнять фон</name>
+    </setting>
+    <setting var="main_categories_content" control_type="select">
+      <value>catalog</value>
+      <name locale="ru_RU">Источник ссылок</name>
+      <name locale="en_US">Link Source</name>
+      <options>
+        <option value="catalog">
+          <name locale="ru_RU">Категории каталога</name>
+          <name locale="en_US">Categories</name>
+        </option>
+        <option value="app-menu">
+          <name locale="ru_RU">Из приложения Управление меню</name>
+          <name locale="en_US">From app menu</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="categories_menu_add_links" control_type="select">
+      <value/>
+      <name locale="ru_RU">Дополнительные пункты в меню категорий</name>
+      <name locale="en_US">Additional items in the category menu</name>
+      <options>
+        <option value="site-pages">
+          <name locale="ru_RU">Страницы из приложения «Сайт»</name>
+          <name locale="en_US">Site app pages</name>
+        </option>
+        <option value="shop-pages">
+          <name locale="ru_RU">Страницы из приложения «Магазин»</name>
+          <name locale="en_US">Shop app pages</name>
+        </option>
+        <option value="blog-pages">
+          <name locale="ru_RU">Страницы из приложения «Блог»</name>
+          <name locale="en_US">Blog app pages</name>
+        </option>
+        <option value="photos-pages">
+          <name locale="ru_RU">Страницы из приложения «Фото»</name>
+          <name locale="en_US">Photos app pages</name>
+        </option>
+        <option value="app-menu">
+          <name locale="ru_RU">Из приложения Управление меню</name>
+          <name locale="en_US">From app menu</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не показывать</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="categories_menu_id_app_menu" control_type="text">
+      <value/>
+      <name locale="en_US">Identifier from applications Menu</name>
+      <name locale="ru_RU">Идентификатор из приложения Управление меню</name>
+    </setting>
+    <setting var="categories_menu_add_links_ids" control_type="text">
+      <value/>
+      <name locale="en_US">Additional page IDs in the category menu</name>
+      <name locale="ru_RU">Идентификаторы дополнительных страниц в меню категорий</name>
+      <description locale="en_US">Indicate comma separated: 1,2,3,4</description>
+      <description locale="ru_RU">Укажите через запятую: 1,2,3,4</description>
+    </setting>
+    <setting var="categories_menu_add_links_end" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display additional category menu pages at the end</name>
+      <name locale="ru_RU">Выводить дополнительные страницы меню категорий в конце</name>
+    </setting>
+    <setting var="divider_mainpage" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Mainpage</name>
+      <name locale="ru_RU">Главная страница</name>
+    </setting>
+    <setting var="desc_mainpage_sidebar" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Sidebar</name>
+      <name locale="ru_RU">Сайдбар</name>
+    </setting>
+    <setting var="show_sidebar_mainpage" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display left sidebar with menu of categories</name>
+      <name locale="ru_RU">Показывать левый сайдбар с категориями</name>
+    </setting>
+    <setting var="max_sidebar_mainpage_categories" control_type="text">
+      <value>8</value>
+      <name locale="ru_RU">Максимальное количество категорий в сайдбаре на главной</name>
+      <name locale="en_US">Maximum number of categories in the sidebar on the main</name>
+      <description locale="ru_RU">
+        Остальные категории скроются за пунктом "Еще".
+        Если поле пустое, выводятся все категории.
+        Для вывода длинного списка, рекомендуется отрегулировать настройку "Длина сайдбара"
+      </description>
+      <description locale="en_US">
+        Other categories will be hidden behind the "More".
+        If the empty field displays all categories
+        To display a long list, we recommend that you adjust the "Sidebar Length"
+      </description>
+    </setting>
+    <setting var="sidebar_end" control_type="select">
+      <value>promos</value>
+      <name locale="ru_RU">Длина сайдбара</name>
+      <name locale="en_US">Length of sidebar</name>
+      <description locale="ru_RU">Должна быть активирована настройка "Показывать левый сайдбар с категориями"</description>
+      <description locale="en_US">The "Display left sidebar with menu of categories" setting should be enabled.</description>
+      <options>
+        <option value="promos">
+          <name locale="ru_RU">До списка промокарточек</name>
+          <name locale="en_US">To the list of promo cards</name>
+        </option>
+        <option value="categories">
+          <name locale="ru_RU">До списка категорий</name>
+          <name locale="en_US">To the list of categories</name>
+        </option>
+        <option value="product_list_1">
+          <name locale="ru_RU">До списка товаров #1</name>
+          <name locale="en_US">To the list of products #1</name>
+        </option>
+        <option value="product_list_2">
+          <name locale="ru_RU">До списка товаров #2</name>
+          <name locale="en_US">To the list of products #2</name>
+        </option>
+        <option value="product_list_3">
+          <name locale="ru_RU">До списка товаров #3</name>
+          <name locale="en_US">To the list of products #3</name>
+        </option>
+        <option value="bullets">
+          <name locale="ru_RU">До инфоблоков</name>
+          <name locale="en_US">To the list of infoblocks</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="desc_mainpage_slider" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Slider</name>
+      <name locale="ru_RU">Слайдер</name>
+    </setting>
+    <setting var="homepage_bxslider_mode" control_type="select">
+      <value>products</value>
+      <name locale="ru_RU">Слайдер</name>
+      <name locale="en_US">Slider</name>
+      <options>
+        <option value="promos">
+          <name locale="ru_RU">Промо</name>
+          <name locale="en_US">Promos</name>
+        </option>
+        <option value="products">
+          <name locale="ru_RU">Товары</name>
+          <name locale="en_US">Products</name>
+          <description locale="ru_RU">В слайдере будут показаны товары из списка, идентификатор которого задан настройкой ниже. Новые списки товаров создаются в разделе Товары &gt; Списки.</description>
+          <description locale="en_US">Slider will present products from a product set which ID is specified in the setting below. New product sets can be created in Products &gt; Sets.</description>
+        </option>
+        <option value="hidden">
+          <name locale="ru_RU">Не показывать слайдер</name>
+          <name locale="en_US">Don’t show the slider</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="slider_pause_auto" control_type="text">
+      <value/>
+      <name locale="en_US">Slider pause</name>
+      <name locale="ru_RU">Задержка слайдера</name>
+      <description locale="en_US">Specify the value in seconds. If the value is zero, the automatic sheet turns off</description>
+      <description locale="ru_RU">Указать значение в секундах. При нулевом значении, автоматическое перелистование отключается</description>
+    </setting>
+    <setting var="slider_height" control_type="text">
+      <value>416</value>
+      <name locale="en_US">Height of slider, px</name>
+      <name locale="ru_RU">Высота слайдера, px</name>
+      <description locale="ru_RU">Если оставить значение пустым, высота слайдера будет подстраиваться под контент каждого слайда</description>
+      <description locale="en_US">If you leave the value blank, the height of the slider will adjust to the content of each slide</description>
+    </setting>
+    <setting var="homepage_product_list_slider" control_type="text">
+      <value>bestsellers</value>
+      <name locale="en_US">Slider product set ID</name>
+      <name locale="ru_RU">Идентификатор списка товаров в слайдере</name>
+      <description locale="ru_RU">Идентификатор списка товаров в слайдере. Товары из этого списка будут показаны в слайдере, если так указано в настройке слайдера выше.</description>
+      <description locale="en_US">Products from this list will be shown in the storefront slider if it is setup that way in the setting above.</description>
+    </setting>
+    <setting var="slider_product_features" control_type="select">
+      <value>short</value>
+      <name locale="en_US">Characteristics of goods in the slider</name>
+      <name locale="ru_RU">Характеристики товаров в слайдер</name>
+      <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)".  Если выбран вариант "Первые характеристики", то необходимо заполнить опцию "Количество выводимых характеристик"</description>
+      <description locale="en_US">For short list necessary to fill out the setting "Codes of output characteristics in the lists of goods and in the product card (block on the right)". If you select the "First Characteristics" option, you must fill out the "Number of Output Characteristics"</description>
+      <options>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+        <option value="short">
+          <name locale="ru_RU">Краткий список</name>
+          <name locale="en_US">Short list</name>
+        </option>
+        <option value="full">
+          <name locale="ru_RU">Весь список</name>
+          <name locale="en_US">Full list</name>
+        </option>
+        <option value="first">
+          <name locale="ru_RU">Первые характеристики</name>
+          <name locale="en_US">First Characteristics</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="slider_product_features_count" control_type="text">
+      <value>5</value>
+      <name locale="ru_RU">Количество выводимых характеристик</name>
+      <name locale="en_US">Number of output characteristics</name>
+      <description locale="ru_RU">Доступно, если для опции "Характеристики товаров в слайдер" выбран вариант "Первые характеристики"</description>
+      <description locale="en_US">Available when "First Characteristics" is selected for the "Product characteristics in the slider" option</description>
+    </setting>
+    <setting var="nums_promos_slider" control_type="text">
+      <value>4,5,6</value>
+      <name locale="ru_RU">Промо-карточки в слайдере</name>
+      <name locale="en_US">Promo cards in slider</name>
+      <description locale="ru_RU">Укажите номера промокарточек, через запятую без пробелов. Номер карточки соответствует позиции в списке, начиная с нуля.</description>
+      <description locale="en_US">Specify the numbers of promo cards, separated by commas without spaces. The card number corresponds to position in the list starting with zero</description>
+    </setting>
+    <setting var="homepage_slider_rand" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Slider randomly</name>
+      <name locale="ru_RU">Слайды рандомно</name>
+    </setting>
+    <setting var="desc_mainpage_promos" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Promos</name>
+      <name locale="ru_RU">Промокарточки</name>
+    </setting>
+    <setting var="is_homepage_promos" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display promos list</name>
+      <name locale="ru_RU">Вывести промокарточки</name>
+    </setting>
+    <setting var="nums_promos_list" control_type="text">
+      <value>0,1,2,3</value>
+      <name locale="ru_RU">Промо-карточки в списке</name>
+      <name locale="en_US">Promo cards in list</name>
+      <description locale="ru_RU">Укажите номера промокарточек, через запятую без пробелов. Номер карточки соответствует позиции в списке, начиная с нуля.</description>
+      <description locale="en_US">Specify the numbers of promo cards, separated by commas without spaces. The card number corresponds to position in the list starting with zero</description>
+    </setting>
+    <setting var="promos_image_bg" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">The picture in promocart display background</name>
+      <name locale="ru_RU">Картинку в промокарточке выводить фоном</name>
+    </setting>
+    <setting var="homepage_promos_rand" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Promocards randomly</name>
+      <name locale="ru_RU">Промокарточки в рандомном порядке</name>
+      <description locale="ru_RU">.</description>
+      <description locale="en_US">.</description>
+    </setting>
+    <setting var="desc_mainpage_categories" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Categories list</name>
+      <name locale="ru_RU">Список категорий</name>
+    </setting>
+    <setting var="categories_mainpage" control_type="select">
+      <value>1</value>
+      <name locale="ru_RU">Выводить список категорий в контенте на главной</name>
+      <name locale="en_US">Show categories in content on mainpage</name>
+      <options>
+        <option value="1">
+          <name locale="ru_RU">Да</name>
+          <name locale="en_US">On</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">Off</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="categories_mainpage_selected" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display only the selected categories in the list on the mainpage</name>
+      <name locale="ru_RU">Выводить только выбранные категории в списке на главной</name>
+      <description locale="ru_RU">Если активна настройка, то в список выводятся категории с Дополнительным параметром "show_in_list_mainpage=1". Параметр действителен только для первого уровня категорий.</description>
+      <description locale="en_US">If the setting is active, then the categories with the Additional parameter "show_in_list_mainpage=1" are displayed in the list. The parameter is valid only for the first level of categories.</description>
+    </setting>
+    <setting var="max_numbers_subcat_mainpage" control_type="text">
+      <value/>
+      <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
+      <name locale="en_US">Maximum number of subcategories</name>
+    </setting>
+    <setting var="show_count_products_in_subs" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Output quantity of goods in subcategories</name>
+      <name locale="ru_RU">Выводить количество товаров в подкатегориях</name>
+      <description locale="ru_RU">Внимание! Рекомендуется выводить количество товаров, если у всех категорий НЕ активирована настройка "Включить товары из подкатегорий", так как в количество не подсчитываются товары из подкатегорий</description>
+      <description locale="en_US">Attention! It is recommended to display the quantity of goods if all categories DO NOT activate the "Include products from subcategories" setting, because the quantity does not count products from subcategories</description>
+    </setting>
+    <setting var="desc_mainpage_lists" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Products list</name>
+      <name locale="ru_RU">Списки товаров</name>
+    </setting>
+    <setting var="homepage_product_list_1_title" control_type="text">
+      <value>Лучшие предложения</value>
+      <name locale="en_US">Title above the product list #1 on mainpage</name>
+      <name locale="ru_RU">Заголовок над списком товаров #1 на главной</name>
+    </setting>
+    <setting var="homepage_product_list_1_head_color" control_type="color">
+      <value>#fc7f2a</value>
+      <name locale="ru_RU">Цвет оформления шапки списка #1</name>
+      <name locale="en_US">Design color head of list #1</name>
+    </setting>
+    <setting var="homepage_product_list_1" control_type="text">
+      <value>bestsellers</value>
+      <name locale="en_US">ID product list #1 on mainpage</name>
+      <name locale="ru_RU">Идентификатор списка #1 на главной</name>
+    </setting>
+    <setting var="homepage_product_list_1_line" control_type="checkbox">
+      <value/>
+      <name locale="en_US">By default, print 2 lines in the list #1</name>
+      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #1</name>
+      <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант "Списком"</description>
+      <description locale="en_US">The option is available if the option "List" is selected in the "View of lists on the main" option</description>
+    </setting>
+    <setting var="homepage_product_list_2_title" control_type="text">
+      <value>Новинки</value>
+      <name locale="en_US">Title above the product list #2 on mainpage</name>
+      <name locale="ru_RU">Заголовок над списком товаров #2 на главной</name>
+    </setting>
+    <setting var="homepage_product_list_2_head_color" control_type="color">
+      <value>#01d5ed</value>
+      <name locale="ru_RU">Цвет оформления шапки списка #2</name>
+      <name locale="en_US">Design color head of list #2</name>
+    </setting>
+    <setting var="homepage_product_list_2" control_type="text">
+      <value>new</value>
+      <name locale="en_US">ID product list #2 on mainpage</name>
+      <name locale="ru_RU">Идентификатор списка #2 на главной</name>
+    </setting>
+    <setting var="homepage_product_list_2_line" control_type="checkbox">
+      <value/>
+      <name locale="en_US">By default, print 2 lines in the list #2</name>
+      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #2</name>
+      <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант "Списком"</description>
+      <description locale="en_US">The option is available if the option "List" is selected in the "View of lists on the main" option</description>
+    </setting>
+    <setting var="homepage_product_list_3_title" control_type="text">
+      <value/>
+      <name locale="en_US">Title above the product list #3 on mainpage</name>
+      <name locale="ru_RU">Заголовок над списком товаров #3 на главной</name>
+    </setting>
+    <setting var="homepage_product_list_3_head_color" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет оформления шапки списка #3</name>
+      <name locale="en_US">Design color header of list #3</name>
+    </setting>
+    <setting var="homepage_product_list_3" control_type="text">
+      <value/>
+      <name locale="en_US">ID product list #3 on mainpage</name>
+      <name locale="ru_RU">Идентификатор списка #3 на главной</name>
+    </setting>
+    <setting var="homepage_product_list_3_line" control_type="checkbox">
+      <value/>
+      <name locale="en_US">By default, print 2 lines in the list #3</name>
+      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #3</name>
+      <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант "Списком"</description>
+      <description locale="en_US">The option is available if the option "List" is selected in the "View of lists on the main" option</description>
+    </setting>
+    <setting var="homepage_product_view" control_type="select">
+      <value>carousel</value>
+      <name locale="en_US">View of products lists on the main</name>
+      <name locale="ru_RU">Оформление списков товаров на главной</name>
+      <options>
+        <option value="carousel">
+          <name locale="ru_RU">Карусель</name>
+          <name locale="en_US">Carousel</name>
+        </option>
+        <option value="list">
+          <name locale="ru_RU">Списком</name>
+          <name locale="en_US">List</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="homepage_product_list_rand" control_type="checkbox">
+      <value/>
+      <name locale="en_US">List products randomly</name>
+      <name locale="ru_RU">Товары в списках рандомно</name>
+      <description locale="ru_RU">.</description>
+      <description locale="en_US">.</description>
+    </setting>
+    <setting var="desc_mainpage_infoblocks" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Infoblocks</name>
+      <name locale="ru_RU">Инфоблоки</name>
+    </setting>
+    <setting var="homepage_bullet_title_1" control_type="text">
+      <value>Доставка по всей России</value>
+      <name locale="en_US">Info block #1</name>
+      <name locale="ru_RU">Инфоблок №1</name>
+    </setting>
+    <setting var="homepage_bullet_link_1" control_type="text">
+      <value>#</value>
+      <name locale="en_US">Info block #1 link</name>
+      <name locale="ru_RU">Инфоблок №1 - ссылка</name>
+    </setting>
+    <setting var="homepage_bullet_link_1_popup" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="homepage_bullet_body_1" control_type="text">
+      <value>Доставим Ваш заказ в любую точку России курьером или службой доставки, так же есть возможность самовывоза </value>
+      <name locale="en_US">Info block #1 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №1</name>
+    </setting>
+    <setting var="homepage_bullet_icon_1" control_type="text">
+      <value>fa fa-truck</value>
+      <name locale="en_US">Info block #1 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №1</name>
+    </setting>
+    <setting var="homepage_bullet_image_1" control_type="image">
+      <value/>
+      <filename>img/bullet_image_1.*</filename>
+      <name locale="en_US">Info block #1 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №1</name>
+    </setting>
+    <setting var="homepage_bullet_title_2" control_type="text">
+      <value>Оплата онлайн</value>
+      <name locale="en_US">Info block #2</name>
+      <name locale="ru_RU">Инфоблок №2</name>
+    </setting>
+    <setting var="homepage_bullet_link_2" control_type="text">
+      <value>#</value>
+      <name locale="en_US">Info block #2 link</name>
+      <name locale="ru_RU">Инфоблок №2 - ссылка</name>
+    </setting>
+    <setting var="homepage_bullet_link_2_popup" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="homepage_bullet_body_2" control_type="text">
+      <value>Оплата заказ различными способами: наличными, банковской картой курьеру или онлайн через платежные сервисы</value>
+      <name locale="en_US">Info block #2 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №2</name>
+    </setting>
+    <setting var="homepage_bullet_icon_2" control_type="text">
+      <value>fa fa-credit-card</value>
+      <name locale="en_US">Info block #2 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №2</name>
+    </setting>
+    <setting var="homepage_bullet_image_2" control_type="image">
+      <value/>
+      <filename>img/bullet_image_2.*</filename>
+      <name locale="en_US">Info block #2 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №2</name>
+    </setting>
+    <setting var="homepage_bullet_title_3" control_type="text">
+      <value>Мы находимся в Москве</value>
+      <name locale="en_US">Info block #3</name>
+      <name locale="ru_RU">Инфоблок №3</name>
+    </setting>
+    <setting var="homepage_bullet_link_3" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #3 link</name>
+      <name locale="ru_RU">Инфоблок №3 - ссылка</name>
+    </setting>
+    <setting var="homepage_bullet_link_3_popup" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="homepage_bullet_body_3" control_type="text">
+      <value>По адресу улица Люсиновская, 93. Приходите мы всегда Вам рады!</value>
+      <name locale="en_US">Info block #3 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №3</name>
+    </setting>
+    <setting var="homepage_bullet_icon_3" control_type="text">
+      <value>fa fa-map-marker</value>
+      <name locale="en_US">Info block #3 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №3</name>
+    </setting>
+    <setting var="homepage_bullet_image_3" control_type="image">
+      <value/>
+      <filename>img/bullet_image_3.*</filename>
+      <name locale="en_US">Info block #3 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №3</name>
+    </setting>
+    <setting var="homepage_bullet_title_4" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #4</name>
+      <name locale="ru_RU">Инфоблок №4</name>
+    </setting>
+    <setting var="homepage_bullet_link_4" control_type="text">
+      <value>#</value>
+      <name locale="en_US">Info block #4 link</name>
+      <name locale="ru_RU">Инфоблок №4 - ссылка</name>
+    </setting>
+    <setting var="homepage_bullet_link_4_popup" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="homepage_bullet_body_4" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #4 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №4</name>
+    </setting>
+    <setting var="homepage_bullet_icon_4" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #4 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №4</name>
+    </setting>
+    <setting var="homepage_bullet_image_4" control_type="image">
+      <value/>
+      <filename>img/bullet_image_4.*</filename>
+      <name locale="en_US">Info block #4 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №4</name>
+    </setting>
+    <setting var="bullets_mainpage" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить Инфоблоки</name>
+      <name locale="en_US">Display Info block</name>
+    </setting>
+    <setting var="desc_mainpage_brands" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Brands</name>
+      <name locale="ru_RU">Бренды</name>
+    </setting>
+    <setting var="plugin_brands" control_type="select">
+      <value>brands</value>
+      <name locale="en_US">Plugin of Brands</name>
+      <name locale="ru_RU">Использование плагина Брендов</name>
+      <options>
+        <option value="brands_pro">
+          <name locale="ru_RU">Бренды PRO (Bodysite)</name>
+          <name locale="en_US">Brands Pro (Bodysite)</name>
+        </option>
+        <option value="brands">
+          <name locale="ru_RU">Бренды с картинками и описаниями (wa-apps)</name>
+          <name locale="en_US">Brands with images and descriptions (wa-apps)</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не используется</name>
+          <name locale="en_US">Not use</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="homepage_brands" control_type="select">
+      <value>all</value>
+      <name locale="en_US">Brands on homepage</name>
+      <name locale="ru_RU">Бренды на главной</name>
+      <options>
+        <option value="all">
+          <name locale="ru_RU">Выводить все</name>
+          <name locale="en_US">Display all</name>
+        </option>
+        <option value="param">
+          <name locale="ru_RU">Выводить только с параметром "home"</name>
+          <name locale="en_US">Only display with param "home"</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="brands_list_images_lazy" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Lazy images logos</name>
+      <name locale="ru_RU">Ленивая загрузка логотипов</name>
+    </setting>
+    <setting var="homepage_brands_type" control_type="select">
+      <value>with_header</value>
+      <name locale="en_US">A variant design of the brands at home</name>
+      <name locale="ru_RU">Вариант оформления брендов на главной</name>
+      <description locale="en_US">.</description>
+      <description locale="ru_RU">.</description>
+      <options>
+        <option value="only_brands">
+          <name locale="ru_RU">Без заголовка и ссылки на страницу брендов</name>
+          <name locale="en_US">No title and no link to brand page</name>
+        </option>
+        <option value="with_header">
+          <name locale="ru_RU">С заголовком и ссылкой на страницу брендов</name>
+          <name locale="en_US">With title and link to brand page</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="desc_mainpage_welcome" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Welcome text</name>
+      <name locale="ru_RU">Приветственный текст</name>
+    </setting>
+    <setting var="homepage_welcome_head" control_type="text">
+      <value>Добро пожаловать в интернет-магазин Unishop</value>
+      <name locale="en_US">Head welcome head</name>
+      <name locale="ru_RU">Заголовок приветствия</name>
+    </setting>
+    <setting var="homepage_welcome_note" control_type="text">
+      <value>&lt;p&gt;Интернет-магазин Unishop предоставляет широкий ассортимент товаров c более двухсот разделов и 2000 наименований. Мы работаем по всей России, а также по странам СНГ, выполняя самую быструю доставку в любой населенный пункт.&lt;/p&gt;  &lt;p&gt; За пять лет работы мы нарастили большую клиентскую базу.3000 клиентов, которые повторно обращаются за нашими услугами. &lt;/p&gt;  &lt;p&gt; У нас самые низкие цены на товары, Но если Вы найдете дешевле, мы обязательно снизим цену! Так же у нас постоянно проводятся акции и распродажи на разные группы товаров. &lt;/p&gt;</value>
+      <name locale="en_US">Welcome note (HTML)</name>
+      <name locale="ru_RU">Приветствие (HTML)</name>
+    </setting>
+    <setting var="widget_code_1" control_type="text">
+      <value/>
+      <name locale="en_US">Widget Plugin code #1</name>
+      <name locale="ru_RU">Виджет #1</name>
+      <description locale="en_US">Embed your Facebook page badge code here or any other social network</description>
+      <description locale="ru_RU">Поместите в это поле код виджета вашей страницы на Фейсбуке или другой соц. сети</description>
+    </setting>
+    <setting var="widget_code_2" control_type="text">
+      <value/>
+      <name locale="en_US">Widget Plugin code #2</name>
+      <name locale="ru_RU">Виджет #2</name>
+      <description locale="en_US">Embed your Facebook page badge code here or any other social network</description>
+      <description locale="ru_RU">Поместите в это поле код виджета вашей страницы на Фейсбуке или другой соц. сети</description>
+    </setting>
+    <setting var="desc_mainpage_blog" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Last news</name>
+      <name locale="ru_RU">Последние новости</name>
+    </setting>
+    <setting var="homepage_blogposts" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show latest blog posts on storefront homepage</name>
+      <name locale="ru_RU">Показывать последние посты блога на главной странице интернет-магазина</name>
+    </setting>
+    <setting var="homepage_blog_id" control_type="text">
+      <value/>
+      <name locale="en_US">ID Blog on homepage</name>
+      <name locale="ru_RU">идентификатор блога на главной</name>
+    </setting>
+    <setting var="homepage_blog_images_lazy" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Lazy images of categories in blog</name>
+      <name locale="ru_RU">Ленивая загрузка картинок в новостях</name>
+    </setting>
+    <setting var="display_form_subscription" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display the subscription form for the newsletter</name>
+      <name locale="ru_RU">Вывести форму подписки на рассылку</name>
+      <description locale="en_US">available if you have installed a Distribution</description>
+      <description locale="ru_RU">доступно если установлено приложение Рассылки</description>
+    </setting>
+    <setting var="form_subscription_id" control_type="text">
+      <value>1</value>
+      <name locale="en_US">Form identifications in the Newsletter application</name>
+      <name locale="ru_RU">Идентификатор формы в приложении Рассылки</name>
+      <description locale="en_US">You must create a form in the Newsletter application</description>
+      <description locale="ru_RU">Форму необходимо создать в приложении Рассылки</description>
+    </setting>
+    <setting var="display_consent_subscription" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display the consent in the subscription form </name>
+      <name locale="ru_RU">Вывести соглашение об обработке личных данных в форме подписки</name>
+      <description locale="en_US">If enabled, you must set the option "Link to rules for processing of personal data"</description>
+      <description locale="ru_RU">Если включено, необходимо настроить опцию "Ссылка на правила обработки персональных данных"</description>
+    </setting>
+    <setting var="link_rules_personal" control_type="text">
+      <value>/site/personal-data-processing-policies</value>
+      <name locale="en_US">Link to the rules for processing personal data</name>
+      <name locale="ru_RU">Ссылка на обработку персональных данных</name>
+      <description locale="en_US">.</description>
+      <description locale="ru_RU">.</description>
+    </setting>
+    <setting var="desc_mainpage_reviews" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Last reviews</name>
+      <name locale="ru_RU">Последние отзывы</name>
+    </setting>
+    <setting var="homepage_reviews" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show latest reviews</name>
+      <name locale="ru_RU">Показывать последние отзывы</name>
+    </setting>
+    <setting var="homepage_reviews_count" control_type="text">
+      <value>8</value>
+      <name locale="en_US">Number of recent reviews</name>
+      <name locale="ru_RU">Количество последних отзывов</name>
+    </setting>
+    <setting var="homepage_reviews_images_lazy" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Lazy images of categories in reviews</name>
+      <name locale="ru_RU">Ленивая загрузка картинок в отзывах</name>
+    </setting>
+    <setting var="divider_catalog" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Catalog</name>
+      <name locale="ru_RU">Каталог</name>
+    </setting>
+    <setting var="pagination" control_type="select">
+      <value>lazyloading</value>
+      <name locale="en_US">Long lists display</name>
+      <name locale="ru_RU">Длинные списки</name>
+      <options>
+        <option value="lazyloading">
+          <name locale="ru_RU">Lazy loading: автоматическая подгрузка при скролле</name>
+          <name locale="en_US">Lazy loading: auto load on scroll</name>
+        </option>
+        <option value="paging">
+          <name locale="ru_RU">1 2 3 4: Постраничная навигация</name>
+          <name locale="en_US">1 2 3 4: Paginated lists</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="compare_products" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Allow product comparison</name>
+      <name locale="ru_RU">Разрешить сравнение товаров</name>
+    </setting>
+    <setting var="favorites_products" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Allow to add products to Favorites</name>
+      <name locale="ru_RU">Разрешить добавление товаров в избранное</name>
+    </setting>
+    <setting var="viewed_products" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Activate the plugin "You've seen"</name>
+      <name locale="ru_RU">Включить плагин "Вы смотрели"</name>
+    </setting>
+    <setting var="product_preview_dialog" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Preview Dialog Item Card</name>
+      <name locale="ru_RU">Предпросмотр карточки товара</name>
+    </setting>
+    <setting var="product_addtocart_mini_dialog" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Minimum type of product option selection</name>
+      <name locale="ru_RU">Минимальный вид выбора опций товара</name>
+      <description locale="en_US">This means the output of a modal window with a choice of options when adding a product from the lists</description>
+      <description locale="ru_RU">Имеется в виду, вывод модального окна с выбором опций, при добавлении товара из списков</description>
+    </setting>
+    <setting var="color_sticker_hit" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет для стикера Хит!</name>
+      <name locale="en_US">Color of sticker Hit!</name>
+    </setting>
+    <setting var="color_sticker_new" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет для стикера New!</name>
+      <name locale="en_US">Color of sticker New!</name>
+    </setting>
+    <setting var="color_sticker_discount" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет для стикера Скидка!</name>
+      <name locale="en_US">Color of sticker Discount!</name>
+    </setting>
+    <setting var="show_product_discount" control_type="select">
+      <value>1</value>
+      <name locale="ru_RU">Стикер скидки, %</name>
+      <name locale="en_US">Badge of discount, %</name>
+      <options>
+        <option value="1">
+          <name locale="ru_RU">Да</name>
+          <name locale="en_US">Yes</name>
+        </option>
+        <option value="None">
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="color_badge_discount" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет для стикера скидки</name>
+      <name locale="en_US">Color of sticker discount</name>
+    </setting>
+    <setting var="show_product_discount_minimal" control_type="text">
+      <value>3</value>
+      <name locale="en_US">Minimum discount amount to display sticker with a discount</name>
+      <name locale="ru_RU">Минимальный размер скидки, для показа стикера со скидкой</name>
+    </setting>
+    <setting var="show_product_discount_round" control_type="select">
+      <value>round</value>
+      <name locale="en_US">Rounding discount</name>
+      <name locale="ru_RU">Округление скидки</name>
+      <options>
+        <option value="floor">
+          <name locale="ru_RU">В меньшую сторону</name>
+          <name locale="en_US">Down the road</name>
+        </option>
+        <option value="ceil">
+          <name locale="ru_RU">В большую сторону</name>
+          <name locale="en_US">In a big way</name>
+        </option>
+        <option value="round">
+          <name locale="ru_RU">В ближайшую сторону</name>
+          <name locale="en_US">In the near side</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="show_product_badge_saving" control_type="select">
+      <value>1</value>
+      <name locale="ru_RU">Стикер экономии</name>
+      <name locale="en_US">A badge of benefit</name>
+      <options>
+        <option value="1">
+          <name locale="ru_RU">Да</name>
+          <name locale="en_US">Yes</name>
+        </option>
+        <option value="None">
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="color_badge_saving_font" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет стикера экономии</name>
+      <name locale="en_US">Color of sticker benefit</name>
+      <description locale="ru_RU">.</description>
+      <description locale="en_US">.</description>
+    </setting>
+    <setting var="show_product_rates" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show rates products</name>
+      <name locale="ru_RU">Показывать рейтинги продуктов</name>
+    </setting>
+    <setting var="fastorder" control_type="select">
+      <value>skoneclick</value>
+      <name locale="en_US">Plugin fast order</name>
+      <name locale="ru_RU">Плагин Быстрого заказа</name>
+      <options>
+        <option value="skoneclick">
+          <name locale="ru_RU">Покупка в 1 клик (от Skilbe)</name>
+          <name locale="en_US">Buy in 1 click (from Skilbe)</name>
+        </option>
+        <option value="buy1click">
+          <name locale="ru_RU">Купить в 1 клик (от Bodysite)</name>
+          <name locale="en_US">Buy in 1 click (from Bodysite)</name>
+        </option>
+        <option value="storequickorder">
+          <name locale="ru_RU">Купить в один клик (от Easy IT)</name>
+          <name locale="en_US">Buy in one click (from Easy IT)</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Отключить</name>
+          <name locale="en_US">Off</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="plugin_oneclick_button_text" control_type="text">
+      <value locale="ru_RU">Купить в 1 клик</value>
+      <value locale="en_US">Fact order</value>
+      <name locale="ru_RU">Title on button Fast order (from Skilbe)</name>
+      <name locale="ru_RU">Текст на кнопке плагина "Покупка в 1 клик (от Skilbe)" </name>
+    </setting>
+    <setting var="text_price_zero" control_type="text">
+      <value locale="ru_RU">Цена по запросу</value>
+      <value locale="en_US">Price by request</value>
+      <name locale="ru_RU">Текст вместо нулевой цены</name>
+      <name locale="en_US">Text instead of zero price</name>
+    </setting>
+    <setting var="zero_price_off_add2cart" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Заблокировать добавление в корзину при нулевой цене товара</name>
+      <name locale="en_US">Disabled button to cart at zero price</name>
+    </setting>
+    <setting var="text_product_none_stock" control_type="text">
+      <value locale="ru_RU"/>
+      <value locale="en_US"/>
+      <name locale="ru_RU">Текст вместо надписи "Нет в наличии"</name>
+      <name locale="en_US">Text instead "Out of stock"</name>
+    </setting>
+    <setting var="text_product_preorder" control_type="text">
+      <value locale="ru_RU"/>
+      <value locale="en_US"/>
+      <name locale="ru_RU">Текст вместо надписи "Под заказ"</name>
+      <name locale="en_US">Text instead "Pre-order only"</name>
+    </setting>
+    <setting var="text_product_not_available" control_type="text">
+      <value locale="ru_RU"/>
+      <value locale="en_US"/>
+      <name locale="ru_RU">Текст вместо надписи "Товар с выбранным набором характеристик недоступен для покупки"</name>
+      <name locale="en_US">Text instead "Product with the selected option combination is not available for purchase"</name>
+    </setting>
+    <setting var="text_product_not_available_one_sku" control_type="text">
+      <value locale="ru_RU"/>
+      <value locale="en_US"/>
+      <name locale="ru_RU">Текст вместо надписи "Этот товар временно недоступен для заказа"</name>
+      <name locale="en_US">Text instead "This product is not available for purchase"</name>
+    </setting>
+    <setting var="breadcrumbs_subcategories" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выпадающие подкатегории в хлебных крошках</name>
+      <name locale="en_US">Dropdown subcategories in breadcrumbs</name>
+    </setting>
+    <setting var="list_features_codes" control_type="text">
+      <value>razmer,naznachenie,chislo_lyamok,obem,tip1,forma,brend,rostovki,uroven_kataniya,avtootvetchik,displey,spikerfon,akkumulyator,obem_operativnoy_pamyati1,slot_dlya_karty_pamyati,pamyat,standart,gromkaya_svyaz_spikerfon_,kolichestvo_yader_protsessora,obem_operativnoy_pamyati,izmeritelnye_datchiki,izmeritelnye_datchiki,tip2</value>
+      <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
+      <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the right)</name>
+      <description locale="ru_RU">Укажите коды характеристики через запятую, без пробелов. Узнать код: приложение Магазин - Настройки - Типы и характеристики товаров. Если полe пустое, выводятся все характеристики товара</description>
+      <description locale="en_US">Specify codes characteristics. separated by a comma, without spaces. Know code: the app Store - Configure - Types and characteristics of the goods. If empty, display all the characteristics of the product</description>
+    </setting>
+    <setting var="default_image" control_type="image">
+      <value/>
+      <filename>img/default_image.*</filename>
+      <name locale="ru_RU">Заглушка для товаров и категорий</name>
+      <name locale="en_US">Default images for product and categories</name>
+      <description locale="ru_RU">Рекомендуется размер 400px * 400px</description>
+      <description locale="en_US">Recommended size 400px * 400px</description>
+    </setting>
+    <setting var="categories_list_images_lazy" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Lazy images of categories in content</name>
+      <name locale="ru_RU">Ленивая загрузка картинок категорий в контенте</name>
+    </setting>
+    <setting var="categories_list_images_retina" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Retina of categories in content</name>
+      <name locale="ru_RU">Ретина картинок категорий в контенте</name>
+      <description locale="ru_RU">Досупно при использовании плагина "Изображения для категории" (от skilbe)</description>
+      <description locale="en_US">Available when using the "Images for category" plugin (from skilbe)</description>
+    </setting>
+    <setting var="categories_menu_images_lazy" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Lazy images of categories in menu</name>
+      <name locale="ru_RU">Ленивая загрузка картинок категорий в меню</name>
+    </setting>
+    <setting var="categories_menu_images_retina" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Retina images of categories in menu</name>
+      <name locale="ru_RU">Ретина картинок категорий в меню</name>
+      <description locale="ru_RU">Досупно при использовании плагина "Изображения для категории" (от skilbe)</description>
+      <description locale="en_US">Available when using the "Images for category" plugin (from skilbe)</description>
+    </setting>
+    <setting var="divider_product_preview" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Product preview</name>
+      <name locale="ru_RU">Превью товара</name>
+    </setting>
+    <setting var="preview_product_images_lazy" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Lazy images</name>
+      <name locale="ru_RU">Ленивая загрузка картинок</name>
+    </setting>
+    <setting var="preview_product_tile" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Tile preview product</name>
+      <name locale="ru_RU">Превью продуктов плиткой</name>
+    </setting>
+    <setting var="preview_product_tile_mobile" control_type="select">
+      <value>usually_tile</value>
+      <name locale="en_US">Tile preview product for mobile</name>
+      <name locale="ru_RU">Превью продуктов плиткой для моб.устройств</name>
+      <options>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+        <option value="usually_tile">
+          <name locale="ru_RU">Обычной плиткой</name>
+          <name locale="en_US">Usually tiled</name>
+        </option>
+        <option value="mini_tile">
+          <name locale="ru_RU">Мини-плиткой</name>
+          <name locale="en_US">Mini tiled</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="preview_product_list" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">List preview product</name>
+      <name locale="ru_RU">Превью продуктов списком</name>
+    </setting>
+    <setting var="preview_product_list_mobile" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">List preview product for mobile</name>
+      <name locale="ru_RU">Превью продуктов списком для моб.устройств</name>
+    </setting>
+    <setting var="preview_product_tbl" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Table preview product</name>
+      <name locale="ru_RU">Превью продуктов таблицей</name>
+    </setting>
+    <setting var="preview_product_tbl_mobile" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Table preview product for mobile</name>
+      <name locale="ru_RU">Превью продуктов таблицей для моб.устройств</name>
+    </setting>
+    <setting var="product_preview_type_default" control_type="select">
+      <value>list</value>
+      <name locale="en_US">Default type preview product</name>
+      <name locale="ru_RU">Вид превью товара по умолчанию</name>
+      <options>
+        <option value="list">
+          <name locale="ru_RU">Списком</name>
+          <name locale="en_US">List</name>
+        </option>
+        <option value="tile">
+          <name locale="ru_RU">Плиткой</name>
+          <name locale="en_US">tile</name>
+        </option>
+        <option value="tbl">
+          <name locale="ru_RU">Таблицей</name>
+          <name locale="en_US">table</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_preview_type_default_mobile" control_type="select">
+      <value>list</value>
+      <name locale="en_US">Default type preview product for mobile</name>
+      <name locale="ru_RU">Вид превью товара по умолчанию  для моб.устройств</name>
+      <options>
+        <option value="list">
+          <name locale="ru_RU">Списком</name>
+          <name locale="en_US">List</name>
+        </option>
+        <option value="tile">
+          <name locale="ru_RU">Плиткой</name>
+          <name locale="en_US">tile</name>
+        </option>
+        <option value="tbl">
+          <name locale="ru_RU">Таблицей</name>
+          <name locale="en_US">table</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_preview_features" control_type="select">
+      <value>short</value>
+      <name locale="en_US">Characteristics in product lists</name>
+      <name locale="ru_RU">Характеристики в списках товаров</name>
+      <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)".  Если выбран вариант "Первые характеристики", то необходимо заполнить опцию "Количество выводимых характеристик"</description>
+      <description locale="en_US">For short list necessary to fill out the setting "Codes of output characteristics in the lists of goods and in the product card (block on the right)". If you select the "First Characteristics" option, you must fill out the "Number of Output Characteristics"</description>
+      <options>
+        <option value="short">
+          <name locale="ru_RU">Краткий список</name>
+          <name locale="en_US">Short list</name>
+        </option>
+        <option value="full">
+          <name locale="ru_RU">Весь список</name>
+          <name locale="en_US">Full list</name>
+        </option>
+        <option value="first">
+          <name locale="ru_RU">Первые характеристики</name>
+          <name locale="en_US">First Characteristics</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_preview_features_count" control_type="text">
+      <value>5</value>
+      <name locale="ru_RU">Количество выводимых характеристик</name>
+      <name locale="en_US">Number of output characteristics</name>
+      <description locale="ru_RU">Доступно, если для опции "Характеристики в списках товаров (вид списком)" выбран вариант "Первые характеристики"</description>
+      <description locale="en_US">Available when "First Characteristics" is selected for the "Characteristics in product lists (view list)" option</description>
+    </setting>
+    <setting var="show_product_tile_features" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display in features in product preview "tile"</name>
+      <name locale="ru_RU">Показывать характеристики в превью товара вид "плиткой"</name>
+    </setting>
+    <setting var="tile_preview_name_height" control_type="text">
+      <value>40</value>
+      <name locale="en_US">The height of the block with the name (view tile)</name>
+      <name locale="ru_RU">Высота блока с наименованием в превью (вид плиткой)</name>
+      <description locale="ru_RU">В пикселях</description>
+      <description locale="en_US">Pixels</description>
+    </setting>
+    <setting var="tile_preview_description_height" control_type="text">
+      <value/>
+      <name locale="en_US">The height of the main block with the name and features (view tile)</name>
+      <name locale="ru_RU">Высота общего блока с наименованием и характеристиками в превью (вид плиткой)</name>
+      <description locale="ru_RU">В пикселях</description>
+      <description locale="en_US">Pixels</description>
+    </setting>
+    <setting var="show_product_tile_mobile_features" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display in features in product preview "tile" (mobile)</name>
+      <name locale="ru_RU">Показывать характеристики в превью товара вид "плиткой" (моб. версия)</name>
+    </setting>
+    <setting var="tile_mobile_preview_name_height" control_type="text">
+      <value>40</value>
+      <name locale="en_US">The height of the block with the name view tile (mobile)</name>
+      <name locale="ru_RU">Высота блока с наименованием в превью плиткой (моб. версия)</name>
+      <description locale="ru_RU">В пикселях</description>
+      <description locale="en_US">Pixels</description>
+    </setting>
+    <setting var="tile_mobile_preview_description_height" control_type="text">
+      <value/>
+      <name locale="en_US">The height of the main block with the name and features view tile (mobile)</name>
+      <name locale="ru_RU">Высота общего блока с наименованием и характеристиками в превью  плиткой (моб. версия)</name>
+      <description locale="ru_RU">В пикселях</description>
+      <description locale="en_US">Pixels</description>
+    </setting>
+    <setting var="show_product_list_features" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display in features in product preview "list"</name>
+      <name locale="ru_RU">Показывать характеристики в превью товара вид "списком"</name>
+    </setting>
+    <setting var="show_product_tile_sku" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Output article in the list of goods type "tile"</name>
+      <name locale="ru_RU">Показывать артикул в превью товара вид "плиткой"</name>
+    </setting>
+    <setting var="show_product_list_sku" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Output article in the list of goods type "tile"</name>
+      <name locale="ru_RU">Показывать артикул в превью товара вид "списком"</name>
+    </setting>
+    <setting var="show_product_tbl_sku" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Output article in the list of goods type "table"</name>
+      <name locale="ru_RU">Показывать артикул в превью товара вид "таблицей"</name>
+    </setting>
+    <setting var="show_product_list_count_cart" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show field for The quantity of goods for the basket, the kind of "list"</name>
+      <name locale="ru_RU">Показать поле количество для корзины в превью товара вид "списком"</name>
+    </setting>
+    <setting var="show_product_tbl_count_cart" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show field for The quantity of goods for the basket, the kind of "tbl"</name>
+      <name locale="ru_RU">Показать поле количество для корзины в превью товара вид "таблицей"</name>
+    </setting>
+    <setting var="show_product_list_fast_cart" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show field for The quantity of goods for the basket, the kind of "list"</name>
+      <name locale="ru_RU">Показывать кнопку "Купить в один клик", вид превью "списком"</name>
+    </setting>
+    <setting var="show_preview_stock" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить наличие на складе в превью</name>
+      <name locale="en_US">Display stock in the preview</name>
+    </setting>
+    <setting var="show_preview_stock_count" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Выводить количество товара на складе в превью</name>
+      <name locale="en_US">Display the number of goods in the warehouse in preview</name>
+    </setting>
+    <setting var="product_line_tilegallery" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Для превью товара вида "список" использовать плагин "Плиточная галерея"</name>
+      <name locale="en_US">Display the number of goods in the warehouse in preview</name>
+    </setting>
+    <setting var="product_list_price_range" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">В списках товара выводить диапазон цены</name>
+      <name locale="en_US">In the lists of goods display price range</name>
+    </setting>
+    <setting var="show_product_preview_video" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show button on popup-video</name>
+      <name locale="ru_RU">Показывать кнопку на попап-видео</name>
+    </setting>
+    <setting var="product_preview_tile_gallerytile" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Tiled gallery in the goods type "tile"</name>
+      <name locale="ru_RU">Плиточная галерея в товарах вида "плиткой"</name>
+    </setting>
+    <setting var="product_preview_list_gallerytile" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Tiled gallery in the goods type "list"</name>
+      <name locale="ru_RU">Плиточная галерея в товарах вида "списком"</name>
+    </setting>
+    <setting var="product_preview_gallerytile_count" control_type="text">
+      <value/>
+      <name locale="en_US">The maximum number of pictures in the tiled gallery</name>
+      <name locale="ru_RU">Максимальное количество картинок в плиточной галереи</name>
+    </setting>
+    <setting var="divider_catalog_sidebar" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Catalog sidebar </name>
+      <name locale="ru_RU">Сайдбар каталога</name>
+    </setting>
+    <setting var="show_category_sidebar" control_type="select">
+      <value>sidebar_left</value>
+      <name locale="ru_RU">Категории в сайдбаре</name>
+      <name locale="en_US">Categories in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="sidebar_categories_content" control_type="select">
+      <value>catalog</value>
+      <name locale="ru_RU">Источник ссылок</name>
+      <name locale="en_US">Link Source</name>
+      <options>
+        <option value="catalog">
+          <name locale="ru_RU">Категории каталога</name>
+          <name locale="en_US">Categories</name>
+        </option>
+        <option value="app-menu">
+          <name locale="ru_RU">Из приложения Управление меню</name>
+          <name locale="en_US">From app menu</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="sidebar_categories_menu_add_links" control_type="select">
+      <value/>
+      <name locale="ru_RU">Дополнительные пункты в меню категорий</name>
+      <name locale="en_US">Additional items in the category menu</name>
+      <options>
+        <option value="site-pages">
+          <name locale="ru_RU">Страницы из приложения «Сайт»</name>
+          <name locale="en_US">Site app pages</name>
+        </option>
+        <option value="shop-pages">
+          <name locale="ru_RU">Страницы из приложения «Магазин»</name>
+          <name locale="en_US">Shop app pages</name>
+        </option>
+        <option value="blog-pages">
+          <name locale="ru_RU">Страницы из приложения «Блог»</name>
+          <name locale="en_US">Blog app pages</name>
+        </option>
+        <option value="photos-pages">
+          <name locale="ru_RU">Страницы из приложения «Фото»</name>
+          <name locale="en_US">Photos app pages</name>
+        </option>
+        <option value="app-menu">
+          <name locale="ru_RU">Из приложения Управление меню</name>
+          <name locale="en_US">From app menu</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не показывать</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="sidebar_categories_id_app_menu" control_type="text">
+      <value/>
+      <name locale="en_US">Identifier from applications Menu</name>
+      <name locale="ru_RU">Идентификатор из приложения Управление меню</name>
+    </setting>
+    <setting var="sidebar_categories_menu_add_links_ids" control_type="text">
+      <value/>
+      <name locale="en_US">Additional page IDs in the category menu</name>
+      <name locale="ru_RU">Идентификаторы дополнительных страниц в меню категорий</name>
+      <description locale="en_US">Indicate comma separated: 1,2,3,4</description>
+      <description locale="ru_RU">Укажите через запятую: 1,2,3,4</description>
+    </setting>
+    <setting var="sidebar_categories_menu_add_links_end" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display additional category menu pages at the end</name>
+      <name locale="ru_RU">Выводить дополнительные страницы меню категорий в конце</name>
+    </setting>
+    <setting var="icon_sidebar_subcategories" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Показывать иконки для первого уровня в меню категорий</name>
+      <name locale="en_US">Show icons for the first level in the menu</name>
+      <description locale="ru_RU">Иконка для категории загружается через файл-менеджер и указывается в категории дополнительным параметром icon. Если установлен плагин "Иконка, изображение и баннер для категории", иконка выводится из плагина.</description>
+      <description locale="en_US">The icon for the category is downloaded via the file manager and is indicated in the category with the additional option icon. If the plugin "Icon, image and banner for category" is installed, the icon is displayed from the plugin. </description>
+    </setting>
+    <setting var="show_filter_sidebar" control_type="select">
+      <value>sidebar_right</value>
+      <name locale="ru_RU">Фильтр</name>
+      <name locale="en_US">Filter</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="block_1_sidebar" control_type="select">
+      <value>none</value>
+      <name locale="ru_RU">Баннер #1</name>
+      <name locale="en_US">Banner #1</name>
+      <description locale="ru_RU">Произвольный блок для вывода в сайдбаре. Например, баннера. В прилоджении Сайт создайте блок с id "unishop_sidebar_1". Подробнее в инструкции, раздел "Вывод произвольных блоков"</description>
+      <description locale="en_US">An arbitrary block for output in the sidebar. For example, a banner. In the site, create a block with id "unishop_sidebar_1". </description>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="block_2_sidebar" control_type="select">
+      <value>none</value>
+      <name locale="ru_RU">Баннер #2</name>
+      <name locale="en_US">Banner #2</name>
+      <description locale="ru_RU">Произвольный блок для вывода в сайдбаре (например, баннера). В прилоджении Сайт создайте блок с id "unishop_sidebar_2". Подробнее в инструкции, раздел "Вывод произвольных блоков"</description>
+      <description locale="en_US">An arbitrary block for output in the sidebar,  (For example, a banner). In the site, create a block with id "unishop_sidebar_2". </description>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="show_compare_sidebar" control_type="select">
+      <value>sidebar_right</value>
+      <name locale="ru_RU">Товары в сравнении в сайдбаре</name>
+      <name locale="en_US">Compare products in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="show_tags_sidebar" control_type="select">
+      <value>sidebar_right</value>
+      <name locale="ru_RU">Теги в сайдбаре</name>
+      <name locale="en_US">Tags in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="show_plugins_sidebar" control_type="select">
+      <value>sidebar_right</value>
+      <name locale="ru_RU">Блоки плагинов в сайдбаре</name>
+      <name locale="en_US">Blocks of plugins in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="max_elements_plugins_sidebar" control_type="text">
+      <value>12</value>
+      <name locale="ru_RU">Количество раскрытых элементов при выводе плагинов в сайдбаре</name>
+      <name locale="en_US">The number of disclosed elements in the derivation of plug-ins in the sidebar</name>
+    </setting>
+    <setting var="show_lastview_sidebar" control_type="select">
+      <value>sidebar_left</value>
+      <name locale="ru_RU">"Вы смотрели" в сайдбаре</name>
+      <name locale="en_US">"Last view" in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="categories_views_products_count" control_type="select">
+      <value>3</value>
+      <name locale="ru_RU">Количество выводимых просмотренных товаров</name>
+      <name locale="en_US">Number of output View products</name>
+      <options>
+        <option value="1">
+          <name locale="ru_RU">1</name>
+          <name locale="en_US">1</name>
+        </option>
+        <option value="2">
+          <name locale="ru_RU">2</name>
+          <name locale="en_US">2</name>
+        </option>
+        <option value="3">
+          <name locale="ru_RU">3</name>
+          <name locale="en_US">3</name>
+        </option>
+        <option value="4">
+          <name locale="ru_RU">4</name>
+          <name locale="en_US">4</name>
+        </option>
+        <option value="5">
+          <name locale="ru_RU">5</name>
+          <name locale="en_US">5</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="show_pages_sidebar" control_type="select">
+      <value/>
+      <name locale="ru_RU">Меню страниц магазина в сайдбаре</name>
+      <name locale="en_US">Show shop pages in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="show_news_sidebar" control_type="select">
+      <value>sidebar_left</value>
+      <name locale="ru_RU">Новости в сайдбаре</name>
+      <name locale="en_US">News in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="blog_id_sidebar" control_type="text">
+      <value/>
+      <name locale="en_US">ID Blog</name>
+      <name locale="ru_RU">идентификатор блога</name>
+    </setting>
+    <setting var="show_photos_sidebar" control_type="select">
+      <value/>
+      <name locale="ru_RU">Фотографии в сайдбаре</name>
+      <name locale="en_US">Photos in sidebar</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="show_social_sidebar" control_type="select">
+      <value/>
+      <name locale="ru_RU">Виджет соц.сетей</name>
+      <name locale="en_US">Social widget</name>
+      <options>
+        <option value="sidebar_left">
+          <name locale="ru_RU">В сайдбаре слева</name>
+          <name locale="en_US">In left sidebar</name>
+        </option>
+        <option value="sidebar_right">
+          <name locale="ru_RU">В сайдбаре справа</name>
+          <name locale="en_US">In right sidebar</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_sidebar_left" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show left sidebar on category page</name>
+      <name locale="ru_RU">Показывать левый сайдбар на странице категории</name>
+    </setting>
+    <setting var="category_sidebar_right" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show right sidebar on category page</name>
+      <name locale="ru_RU">Показывать правый сайдбар на странице категории</name>
+    </setting>
+    <setting var="category_sidebar_left_without_product" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show left sidebar on category page without products</name>
+      <name locale="ru_RU">Показывать левый сайдбар на странице категории без товаров</name>
+    </setting>
+    <setting var="category_sidebar_right_without_product" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show right sidebar on category page without products</name>
+      <name locale="ru_RU">Показывать правый сайдбар на странице категории без товаров</name>
+    </setting>
+    <setting var="brand_sidebar_left" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show left sidebar on brands page</name>
+      <name locale="ru_RU">Показывать левый сайдбар на странице брендов</name>
+    </setting>
+    <setting var="brand_sidebar_right" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show right sidebar on brands page</name>
+      <name locale="ru_RU">Показывать правый сайдбар на странице брендов</name>
+    </setting>
+    <setting var="search_sidebar_left" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show left sidebar on search page</name>
+      <name locale="ru_RU">Показывать левый сайдбар на странице поиска</name>
+    </setting>
+    <setting var="search_sidebar_right" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show right sidebar on search page</name>
+      <name locale="ru_RU">Показывать правый сайдбар на странице поиска</name>
+    </setting>
+    <setting var="product_sidebar_left" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show left sidebar on product page</name>
+      <name locale="ru_RU">Показывать левый сайдбар на странице продукта</name>
+    </setting>
+    <setting var="product_sidebar_right" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show right sidebar on product page</name>
+      <name locale="ru_RU">Показывать правый сайдбар на странице продукта</name>
+    </setting>
+    <setting var="cart_sidebar_left" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show left sidebar on cart page</name>
+      <name locale="ru_RU">Показывать левый сайдбар на странице корзины</name>
+      <description locale="ru_RU">Опция доступна с Пошаговым оформлением заказа</description>
+      <description locale="en_US">Option available with step by step ordering</description>
+    </setting>
+    <setting var="cart_sidebar_right" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show right sidebar on cart page</name>
+      <name locale="ru_RU">Показывать правый сайдбар на странице корзины</name>
+      <description locale="ru_RU">Опция доступна с Пошаговым оформлением заказа</description>
+      <description locale="en_US">Option available with step by step ordering</description>
+    </setting>
+    <setting var="checkout_sidebar_left" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show left sidebar on checkout page</name>
+      <name locale="ru_RU">Показывать левый сайдбар на странице оформления заказа</name>
+      <description locale="ru_RU">Опция доступна с Пошаговым оформлением заказа</description>
+      <description locale="en_US">Option available with step by step ordering</description>
+    </setting>
+    <setting var="checkout_sidebar_right" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show right sidebar on checkout page</name>
+      <name locale="ru_RU">Показывать правый сайдбар на странице оформления заказа</name>
+      <description locale="ru_RU">Опция доступна с Пошаговым оформлением заказа</description>
+      <description locale="en_US">Option available with step by step ordering</description>
+    </setting>
+    <setting var="other_page_sidebar_left" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show left sidebar on other pages</name>
+      <name locale="ru_RU">Показывать левый сайдбар на других страницах</name>
+    </setting>
+    <setting var="other_page_sidebar_right" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show right sidebar on other pages</name>
+      <name locale="ru_RU">Показывать правый сайдбар на других страницах</name>
+    </setting>
+    <setting var="divider_category" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Category page</name>
+      <name locale="ru_RU">Страница категории</name>
+    </setting>
+    <setting var="desc_category_description" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Description of category</name>
+      <name locale="ru_RU">Описание категории</name>
+    </setting>
+    <setting var="is_read_more_description" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show link Read more for category description</name>
+      <name locale="ru_RU">Показывать ссылку "Читать далее" в описании категории</name>
+    </setting>
+    <setting var="max_height_category_desc" control_type="text">
+      <value>60</value>
+      <name locale="en_US">Uncovered text height, px</name>
+      <name locale="ru_RU">Высота не скрытого текста, px</name>
+    </setting>
+    <setting var="is_category_desc_bottom" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Description below the products</name>
+      <name locale="ru_RU">Описание под списком товаров</name>
+      <description locale="ru_RU">.</description>
+      <description locale="en_US">.</description>
+    </setting>
+    <setting var="desc_category_filter" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Filter</name>
+      <name locale="ru_RU">Фильтр</name>
+    </setting>
+    <setting var="category_filter_subcategory_save" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Save filters and sorting in subcategories</name>
+      <name locale="ru_RU">Сохранять фильтрацию и сортировку в подкатегориях</name>
+    </setting>
+    <setting var="category_filter_aliases_subcategory_save" control_type="text">
+      <value/>
+      <name locale="en_US">Aliases ​​of synchronized filters</name>
+      <name locale="ru_RU">Алиасы сохраняемых фильтров</name>
+      <description locale="ru_RU">Доступно при включенной опцией "Сохранять фильтрацию и сортировку в подкатегориях". При пустом значении сохраняются все фильтры</description>
+      <description locale="en_US">Available with option enabled "Save filters and sorting in subcategories". If empty, all filters are saved</description>
+    </setting>
+    <setting var="ajax_filters" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">AJAX-enabled product by-feature filtering</name>
+      <name locale="ru_RU">AJAX-фильтры товаров по характеристикам</name>
+    </setting>
+    <setting var="filter_selected" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Selected filters</name>
+      <name locale="ru_RU">Выбранные фильтры</name>
+    </setting>
+    <setting var="filters_slider_off" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Disable sliders in the filter</name>
+      <name locale="ru_RU">Отключить ползунки в фильтре</name>
+    </setting>
+    <setting var="filter_count_show_options" control_type="text">
+      <value>5</value>
+      <name locale="ru_RU">Максимальное кол-во раскрытых характеристик</name>
+      <name locale="en_US">The maximum number of features disclosed in filter</name>
+    </setting>
+    <setting var="filter_count_show_variants" control_type="text">
+      <value>5</value>
+      <name locale="en_US">The maximum number of performance options displayed in the filter</name>
+      <name locale="ru_RU">Максимальное количество показываемых вариантов характеристик в фильтре</name>
+    </setting>
+    <setting var="filter_count_show_variants_color" control_type="text">
+      <value>12</value>
+      <name locale="en_US">The maximum number of performance options color type displayed in the filter</name>
+      <name locale="ru_RU">Максимальное количество показываемых вариантов характеристик типа "цвет" в фильтре</name>
+    </setting>
+    <setting var="is_filter_color_text" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Output the name of the color characteristics of the color in file</name>
+      <name locale="ru_RU">Выводить наименование цвета для характеристик типа "цвет" в фильтре</name>
+    </setting>
+    <setting var="is_filter_asort_values" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Sorting options</name>
+      <name locale="ru_RU">Сортировать опции</name>
+    </setting>
+    <setting var="desc_category_subcategories" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Subcategories</name>
+      <name locale="ru_RU">Подкатегории</name>
+    </setting>
+    <setting var="category_view_subs_empty_products" control_type="select">
+      <value>image</value>
+      <name locale="en_US">The list of subcategories if product list is empty</name>
+      <name locale="ru_RU">Вид подкатегорий в категории без товаров</name>
+      <description locale="ru_RU">Иконка, картинка для категории загружается через файл-менеджер и указывается в категории дополнительным параметром "icon","image". Для каждой категории можно индивидуально настроить вид подкатегорий, для этого в Дополнительных параметрах категории укажите свойство "sub_view" со значениями "icon" (вид "С Иконками"), "image" (вид "С картинками"), "no_image" (вид "Без картинок"). Если установлен плагин "Иконка, изображение и баннер для категории", иконка или картинка выводится из плагина.</description>
+      <description locale="en_US">The icon, image for the category is downloaded via the file manager and is indicated in the category with the additional option "icon","image". For each category, you can customize the appearance of the subcategories by selecting the "sub_view" property with the "icon" (view "With icon"), "image"  (view "With image"), "no_image" (view "Without pictures"). If the plugin "Icon, image and banner for category" is installed, the icon or picture is displayed from the plugin</description>
+      <options>
+        <option value="no_image">
+          <name locale="ru_RU">Без картинок</name>
+          <name locale="en_US">Without image</name>
+        </option>
+        <option value="icon">
+          <name locale="ru_RU">С иконками</name>
+          <name locale="en_US">Width icon</name>
+        </option>
+        <option value="image">
+          <name locale="ru_RU">С картинками</name>
+          <name locale="en_US">With image</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_view_subs_not_empty_products" control_type="select">
+      <value>no_image</value>
+      <name locale="en_US">The list of subcategories if product list is not empty</name>
+      <name locale="ru_RU">Вид подкатегорий в категориии с товарами</name>
+      <description locale="ru_RU">Иконка, картинка для категории загружается через файл-менеджер и указывается в категории дополнительным параметром  "icon","image". Для каждой категории можно индивидуально настроить вид подкатегорий, для этого в Дополнительных параметрах категории укажите свойство "sub_view" со значениями "icon" (вид "С Иконками"), "image" (вид "С картинками"), "no_image" (вид "Без картинок"). Если установлен плагин "Иконка, изображение и баннер для категории", иконка или картинка выводится из плагина.</description>
+      <description locale="en_US">The icon, image for the category is downloaded via the file manager and is indicated in the category with the additional option "icon","image". For each category, you can customize the appearance of the subcategories by selecting the "sub_view" property with the "icon" (view "With icon"), "image"  (view "With image"), "no_image" (view "Without pictures"). If the plugin "Icon, image and banner for category" is installed, the icon or picture is displayed from the plugin</description>
+      <options>
+        <option value="no_image">
+          <name locale="ru_RU">Без картинок</name>
+          <name locale="en_US">Without image</name>
+        </option>
+        <option value="icon">
+          <name locale="ru_RU">С иконками</name>
+          <name locale="en_US">Width icon</name>
+        </option>
+        <option value="image">
+          <name locale="ru_RU">С картинками</name>
+          <name locale="en_US">With image</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="desc_category_other" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Other</name>
+      <name locale="ru_RU">Другое</name>
+    </setting>
+    <setting var="count_tags_sidebar" control_type="text">
+      <value/>
+      <name locale="en_US">The maximum number of displayed tags in the sidebar</name>
+      <name locale="ru_RU">Максимальное количество показываемых тегов в сайдбаре</name>
+    </setting>
+    <setting var="category_tageditor_plugin" control_type="checkbox">
+      <value/>
+      <name locale="en_US">In the category content, output tags from the Tag Editor plugin.</name>
+      <name locale="ru_RU">В контенте категории вывести теги из плагина Редактор тегов</name>
+    </setting>
+    <setting var="divider_product" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Product page</name>
+      <name locale="ru_RU">Страница товара</name>
+    </setting>
+    <setting var="desc_product_infoblocks" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Infoblocks</name>
+      <name locale="ru_RU">Инфоблоки</name>
+    </setting>
+    <setting var="product_infoblocks" control_type="select">
+      <value>content_mainpage</value>
+      <name locale="ru_RU">Инфоблоки в карточке товара</name>
+      <name locale="en_US">Infoblocks in product card</name>
+      <options>
+        <option value="content_product">
+          <name locale="ru_RU">Контент из раздела "Страница продукта"</name>
+          <name locale="en_US">Content from section "Product Page"</name>
+        </option>
+        <option value="content_mainpage">
+          <name locale="ru_RU">Контент продублировать с главной страницы</name>
+          <name locale="en_US">Content duplicated from the main page</name>
+        </option>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_bullet_title_1" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #1</name>
+      <name locale="ru_RU">Инфоблок №1</name>
+    </setting>
+    <setting var="product_bullet_link_1" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #1 link</name>
+      <name locale="ru_RU">Инфоблок №1 - ссылка</name>
+    </setting>
+    <setting var="product_bullet_link_1_popup" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="product_bullet_body_1" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #1 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №1</name>
+    </setting>
+    <setting var="product_bullet_icon_1" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #1 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №1</name>
+    </setting>
+    <setting var="product_bullet_image_1" control_type="image">
+      <value/>
+      <filename>img/bullet_image_1.*</filename>
+      <name locale="en_US">Info block #1 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №1</name>
+    </setting>
+    <setting var="product_bullet_title_2" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #2</name>
+      <name locale="ru_RU">Инфоблок №2</name>
+    </setting>
+    <setting var="product_bullet_link_2" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #2 link</name>
+      <name locale="ru_RU">Инфоблок №2 - ссылка</name>
+    </setting>
+    <setting var="product_bullet_link_2_popup" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="product_bullet_body_2" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #2 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №2</name>
+    </setting>
+    <setting var="product_bullet_icon_2" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #2 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №2</name>
+    </setting>
+    <setting var="product_bullet_image_2" control_type="image">
+      <value/>
+      <filename>img/bullet_image_2.*</filename>
+      <name locale="en_US">Info block #2 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №2</name>
+    </setting>
+    <setting var="product_bullet_title_3" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #3</name>
+      <name locale="ru_RU">Инфоблок №3</name>
+    </setting>
+    <setting var="product_bullet_link_3" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #3 link</name>
+      <name locale="ru_RU">Инфоблок №3 - ссылка</name>
+    </setting>
+    <setting var="product_bullet_link_3_popup" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="product_bullet_body_3" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #3 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №3</name>
+    </setting>
+    <setting var="product_bullet_icon_3" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #3 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №3</name>
+    </setting>
+    <setting var="product_bullet_image_3" control_type="image">
+      <value/>
+      <filename>img/bullet_image_3.*</filename>
+      <name locale="en_US">Info block #3 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №3</name>
+    </setting>
+    <setting var="product_bullet_title_4" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #4</name>
+      <name locale="ru_RU">Инфоблок №4</name>
+    </setting>
+    <setting var="product_bullet_link_4" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #4 link</name>
+      <name locale="ru_RU">Инфоблок №4 - ссылка</name>
+    </setting>
+    <setting var="product_bullet_link_4_popup" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Open page in popup-window</name>
+      <name locale="ru_RU">Открыть страницу в попап-окне</name>
+      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
+      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
+    </setting>
+    <setting var="product_bullet_body_4" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #4 content</name>
+      <name locale="ru_RU">Текст в инфоблоке №4</name>
+    </setting>
+    <setting var="product_bullet_icon_4" control_type="text">
+      <value/>
+      <name locale="en_US">Info block #4 icon</name>
+      <name locale="ru_RU">Иконка в инфоблоке №4</name>
+    </setting>
+    <setting var="product_bullet_image_4" control_type="image">
+      <value/>
+      <filename>img/bullet_image_4.*</filename>
+      <name locale="en_US">Info block #4 image</name>
+      <name locale="ru_RU">Картинка в инфоблоке №4</name>
+      <description locale="ru_RU">.</description>
+      <description locale="en_US">.</description>
+    </setting>
+    <setting var="desc_product_gallery" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Gallery</name>
+      <name locale="ru_RU">Галерея</name>
+    </setting>
+    <setting var="product_popup_gallery_off" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Отключить popup галерею</name>
+      <name locale="en_US">Disable popup gallery</name>
+    </setting>
+    <setting var="product_popup_gallery_thumbs" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить превьюшки картинок в popup-окне галереи</name>
+      <name locale="en_US">Display thumbnails of images in the gallery</name>
+    </setting>
+    <setting var="product_popup_gallery_black" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Темный фон popup-окна в галерее</name>
+      <name locale="en_US">Dark background popup window in the gallery</name>
+    </setting>
+    <setting var="product_gallery_zoom" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Включить zoom для большой картинки</name>
+      <name locale="en_US">Zoom on for large image</name>
+    </setting>
+    <setting var="product_gallery_display_description" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Описание картинки</name>
+      <name locale="en_US">Description of product</name>
+    </setting>
+    <setting var="desc_product_right_block" control_type="paragraph">
+      <value/>
+      <name locale="ru_RU">Описание в правом блоке</name>
+      <name locale="en_US">Description in right block</name>
+    </setting>
+    <setting var="product_card_show_short_description" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Показывать краткое описание в блоке справа</name>
+      <name locale="en_US">Show short description in block of right</name>
+    </setting>
+    <setting var="product_card_right_block_features" control_type="select">
+      <value>short</value>
+      <name locale="en_US">Features in the right box</name>
+      <name locale="ru_RU">Характеристики в правом блоке</name>
+      <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)".  Если выбран вариант "Первые характеристики", то необходимо заполнить опцию "Количество выводимых характеристик"</description>
+      <description locale="en_US">For short list necessary to fill out the setting "Codes of output characteristics in the lists of goods and in the product card (block on the right)"</description>
+      <options>
+        <option value="">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">None</name>
+        </option>
+        <option value="short">
+          <name locale="ru_RU">Краткий список</name>
+          <name locale="en_US">Short list</name>
+        </option>
+        <option value="full">
+          <name locale="ru_RU">Весь список</name>
+          <name locale="en_US">Full list</name>
+        </option>
+        <option value="first">
+          <name locale="ru_RU">Первые характеристики</name>
+          <name locale="en_US">First Characteristics</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_card_right_block_features_count" control_type="text">
+      <value>5</value>
+      <name locale="ru_RU">Количество выводимых характеристик</name>
+      <name locale="en_US">Number of output characteristics</name>
+      <description locale="ru_RU">Доступно, если для опции "Характеристики в правом блоке" выбран вариант "Первые характеристики"</description>
+      <description locale="en_US">Available when "First Characteristics" is selected for the "Characteristics in the right block" option</description>
+    </setting>
+    <setting var="product_card_show_brand_right" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Показывать бренд в блоке справа</name>
+      <name locale="en_US">Show brand in block of right</name>
+      <description locale="ru_RU">Настройка доступна если установлен плагин "Бренды с картинками и описаниями"</description>
+      <description locale="en_US">Setting is available if the plugin "Brands with pictures and descriptions"</description>
+    </setting>
+    <setting var="product_share_script" control_type="text">
+      <value/>
+      <name locale="en_US">Script for buttons to share</name>
+      <name locale="ru_RU">Скрипт для кнопок поделиться</name>
+      <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
+      <description locale="en_US">You can generate the code on https://tech.yandex.ru/share/</description>
+    </setting>
+    <setting var="desc_product_main_content" control_type="paragraph">
+      <value/>
+      <name locale="ru_RU">Основное описание</name>
+      <name locale="en_US">Main description</name>
+    </setting>
+    <setting var="product_main_description_desktop" control_type="text">
+      <value>description,features,reviews,add,pages</value>
+      <name locale="ru_RU">Вывод основного описания в десктопной версии</name>
+      <name locale="en_US">Display main description in desktop</name>
+      <description locale="ru_RU">Укажите через запятую алиасы содержимого: &lt;br /&gt;
+        description - описание; &lt;br /&gt;
+        features - характеристики;;&lt;br /&gt;
+        reviews - отзывы; &lt;br /&gt;
+        comments_vk - виджет отзывов вконтакте; &lt;br /&gt;
+        comments_fb - виджет отзывов фейсбука; &lt;br /&gt;
+        add - дополнительная вкладка (создается в приложении Сайт - Блок); &lt;br /&gt;
+        pages - дополнительные страницы товара.
+      </description>
+      <description locale="en_US">Enter comma-separated content aliases: &lt;br /&gt;
+        description - description; &lt;br /&gt;
+        features - features;;&lt;br /&gt;
+        reviews - reviews; &lt;br /&gt;
+        comments_vk - widget reviews of vk; &lt;br /&gt;
+        comments_fb - widget reviews of facebook; &lt;br /&gt;
+        add - additional tab (create in app Site - Blocks); &lt;br /&gt;
+        pages - additional pages of product.
+      </description>
+    </setting>
+    <setting var="product_main_description_mobile" control_type="text">
+      <value>description,features,reviews,add,pages</value>
+      <name locale="ru_RU">Вывод основного описания в мобильной версии</name>
+      <name locale="en_US">Display main description in mobile</name>
+    </setting>
+    <setting var="product_card_show_brand_content" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Показывать бренд в блоке описания</name>
+      <name locale="en_US">Show brand in block of discription</name>
+      <description locale="ru_RU">Настройка доступна если установлен плагин "Бренды с картинками и описаниями"</description>
+      <description locale="en_US">Setting is available if the plugin "Brands with pictures and descriptions"</description>
+    </setting>
+    <setting var="feature_brand_code" control_type="text">
+      <value>brand</value>
+      <name locale="en_US">Feature brand code</name>
+      <name locale="ru_RU">Код характеристики бренд</name>
+      <description locale="ru_RU">Для микроразметки</description>
+      <description locale="en_US">For microdata</description>
+    </setting>
+    <setting var="product_card_plugin_hook_block" control_type="select">
+      <value>content</value>
+      <name locale="en_US">Display hook addition information</name>
+      <name locale="ru_RU">Вывод хука с дополнительной информацией</name>
+      <options>
+        <option value="content">
+          <name locale="ru_RU">В основной части описания товара</name>
+          <name locale="en_US">Main content</name>
+        </option>
+        <option value="right_block">
+          <name locale="ru_RU">В правой, боковой части описания товара</name>
+          <name locale="en_US">Right block</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_card_type_main_content_desktop" control_type="select">
+      <value>normal_tabs</value>
+      <name locale="ru_RU">Оформление основного содержимого товара в десктопной версии</name>
+      <name locale="en_US">Type view in main content of product in desktop version</name>
+      <options>
+        <option value="none_tabs">
+          <name locale="ru_RU">Без вкладок</name>
+          <name locale="en_US">Without tabs</name>
+        </option>
+        <option value="normal_tabs">
+          <name locale="ru_RU">Обычные вкладки</name>
+          <name locale="en_US">Normal tabs</name>
+        </option>
+        <option value="accordion_tabs">
+          <name locale="ru_RU">Вкладки аккардион</name>
+          <name locale="en_US">Normal tabs</name>
+        </option>
+        <option value="anchor_tabs">
+          <name locale="ru_RU">Якорные вкладки</name>
+          <name locale="en_US">Anchor tabs</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_card_type_main_content_mobile" control_type="select">
+      <value>accordion_tabs</value>
+      <name locale="ru_RU">Оформление основного содержимого товара в мобильной версии</name>
+      <name locale="en_US">Type view in main content of product in mobile version</name>
+      <options>
+        <option value="none_tabs">
+          <name locale="ru_RU">Без вкладок</name>
+          <name locale="en_US">Without tabs</name>
+        </option>
+        <option value="accordion_tabs">
+          <name locale="ru_RU">Вкладки аккардион</name>
+          <name locale="en_US">Normal tabs</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_title_tab_features" control_type="text">
+      <value/>
+      <name locale="en_US">Name of the characteristics tab</name>
+      <name locale="ru_RU">Наименование вкладки с характеристиками</name>
+    </setting>
+    <setting var="product_title_tab_reviews" control_type="text">
+      <value/>
+      <name locale="en_US">Name of the review tab</name>
+      <name locale="ru_RU">Наименование вкладки с отзывами</name>
+    </setting>
+    <setting var="product_title_tab_description" control_type="text">
+      <value/>
+      <name locale="en_US">Name of the description tab</name>
+      <name locale="ru_RU">Наименование вкладки с описанием</name>
+    </setting>
+    <setting var="product_add_info_title" control_type="text">
+      <value/>
+      <name locale="en_US">Additional tab name</name>
+      <name locale="ru_RU">Наименование дополнительной вкладки</name>
+      <description locale="ru_RU">Содержимое вкладки заполняется через Блоки в приложении Сайт. ID блока "product_addinfo"</description>
+      <description locale="en_US">The contents of the tab are filled in through the Blocks in the Site application. Unit ID of "product_addinfo"</description>
+    </setting>
+    <setting var="show_product_tags" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Теги в карточке товара</name>
+      <name locale="en_US">Tags in product card</name>
+    </setting>
+    <setting var="show_product_categories" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Доп. категории</name>
+      <name locale="en_US">Additional categories</name>
+    </setting>
+    <setting var="desc_product_options" control_type="paragraph">
+      <value/>
+      <name locale="ru_RU">Опции товара</name>
+      <name locale="en_US">Options of product</name>
+    </setting>
+    <setting var="is_product_option_color_text" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Output the name of the color option of the color in product card</name>
+      <name locale="ru_RU">Выводить наименование цвета для опции типа "цвет" в карточке</name>
+    </setting>
+    <setting var="show_product_multi_sku" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Показывать артикулы, если есть выбор опций</name>
+      <name locale="en_US">Show skus if there is a choice of options</name>
+    </setting>
+    <setting var="product_select_options" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Вид выбора опций продукта - селектом</name>
+      <name locale="en_US">View product selection options - Select</name>
+    </setting>
+    <setting var="product_select_options_aliases" control_type="text">
+      <value/>
+      <name locale="ru_RU">Алиасы опций, которые нужно вывести селектом</name>
+      <name locale="en_US">Aliases for options that need to be inferred</name>
+      <description locale="ru_RU">Недоступна при включенной опции "Вид выбора опций продукта - селектом". Укажите коды характеристики через запятую, без пробелов. Узнать код: приложение Магазин - Настройки - Типы и характеристики товаров</description>
+      <description locale="en_US">Not available when the option "View product selection options - Select" is enabled. Specify codes characteristics. separated by a comma, without spaces. Know code: the app Store - Configure - Types and characteristics of the goods</description>
+    </setting>
+    <setting var="desc_product_skus" control_type="paragraph">
+      <value/>
+      <name locale="ru_RU">Варианты покупок товаров</name>
+      <name locale="en_US">Shopping options of product</name>
+    </setting>
+    <setting var="product_select_skus" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Вид выбора артикулов продукта - селектом</name>
+      <name locale="en_US">View product selection skus - Select</name>
+    </setting>
+    <setting var="show_product_multi_radio_sku_separately" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок</name>
+      <name locale="en_US">Remove items separately from purchase options</name>
+    </setting>
+    <setting var="display_off_sku_no_available" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Hide shopping options not available for purchase</name>
+      <name locale="ru_RU">Скрыть варианты покупок недоступные для покупки</name>
+    </setting>
+    <setting var="product_count_max_skus" control_type="text">
+      <value/>
+      <name locale="ru_RU">Кол-во раскрытых Вариантов покупок</name>
+      <name locale="en_US">Number of Shopping Options Revealed</name>
+      <description locale="ru_RU">Доступно при отключенной опцией "Вид выбора артикулов продукта - селектом"</description>
+      <description locale="en_US">Available with disabled option "Type of product selection - select" is disabled.</description>
+    </setting>
+    <setting var="product_sku_url" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Параметр sku в адресной строке</name>
+      <name locale="en_US">Param sku in url</name>
+    </setting>
+    <setting var="desc_product_stock" control_type="paragraph">
+      <value/>
+      <name locale="ru_RU">Наличие на складе</name>
+      <name locale="en_US">Stock Availability</name>
+    </setting>
+    <setting var="show_product_stock" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить наличие на складе</name>
+      <name locale="en_US">Display stock</name>
+    </setting>
+    <setting var="show_product_stock_count" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Выводить количество товара на складе</name>
+      <name locale="en_US">Display the number of goods in the warehouse</name>
+    </setting>
+    <setting var="show_product_stock_count_critical" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить кол-во товара при критическом уровне</name>
+      <name locale="en_US">Output the quantity of goods at a critical level</name>
+      <description locale="ru_RU">.</description>
+      <description locale="en_US">.</description>
+    </setting>
+    <setting var="desc_product_products_list" control_type="paragraph">
+      <value/>
+      <name locale="ru_RU">Списки товаров</name>
+      <name locale="en_US">Products list</name>
+    </setting>
+    <setting var="product_card_views_products" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить просмотренные товары в карточке товара</name>
+      <name locale="en_US">Per viewed items in the product card</name>
+    </setting>
+    <setting var="crossselling_count" control_type="text">
+      <value/>
+      <name locale="en_US">Count crossselling products in card</name>
+      <name locale="ru_RU">Количество перекрестных товаров в карточке</name>
+    </setting>
+    <setting var="upselling_count" control_type="text">
+      <value/>
+      <name locale="en_US">Count recommended products in card</name>
+      <name locale="ru_RU">Количество рекомендуемых товаров в карточке</name>
+    </setting>
+    <setting var="product_card_list_view_type" control_type="select">
+      <value>tile-carousel</value>
+      <name locale="en_US">View of list products in product card</name>
+      <name locale="ru_RU">Вид списка товаров в карточке товара</name>
+      <description locale="ru_RU">Опция доступна для десктопной версии. Для рекомендуемых, перекресных и просмотренных списков товаров</description>
+      <description locale="en_US">Option available for desktop version. For recommended, cross-selling and viewed product lists</description>
+      <options>
+        <option value="tile">
+          <name locale="ru_RU">Плитками</name>
+          <name locale="en_US">Tile</name>
+        </option>
+        <option value="tile-carousel">
+          <name locale="ru_RU">Плитками, с каруселью</name>
+          <name locale="en_US">Tile, with carousel</name>
+        </option>
+        <option value="tbl">
+          <name locale="ru_RU">Таблицей</name>
+          <name locale="en_US">Table</name>
+        </option>
+        <option value="list">
+          <name locale="ru_RU">Списком</name>
+          <name locale="en_US">List</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="desc_product_comments_vk" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Widgets comments Vk</name>
+      <name locale="ru_RU">Виджет комментариев Vk</name>
+    </setting>
+    <setting var="product_info_comments_vk_title" control_type="text">
+      <value/>
+      <name locale="ru_RU">Наименование вкладки</name>
+      <name locale="en_US">Title of tab</name>
+    </setting>
+    <setting var="product_info_comments_vk_app_id" control_type="text">
+      <value>5477265</value>
+      <name locale="ru_RU">Идентификатор приложения</name>
+      <name locale="en_US">id off app</name>
+    </setting>
+    <setting var="product_info_comments_vk_count" control_type="text">
+      <value>20</value>
+      <name locale="ru_RU">Количество комментариев</name>
+      <name locale="en_US">Count comments</name>
+      <description locale="ru_RU">Минимум - 5, Максимум - 100</description>
+      <description locale="en_US">Minimum - 5, Maximum - 100</description>
+    </setting>
+    <setting var="product_info_comments_vk_photos" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Разрешить добавлять фотографии</name>
+      <name locale="en_US">Allow Promotional Photos</name>
+    </setting>
+    <setting var="product_info_comments_vk_link" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Разрешить добавлять ссылки</name>
+      <name locale="en_US">Allow adding links</name>
+      <description locale="ru_RU">.</description>
+      <description locale="en_US">.</description>
+    </setting>
+    <setting var="desc_product_comments_fb" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Widgets comments Facebook</name>
+      <name locale="ru_RU">Виджет комментариев Facebook</name>
+    </setting>
+    <setting var="product_info_comments_fb_title" control_type="text">
+      <value/>
+      <name locale="ru_RU">Наименование вкладки</name>
+      <name locale="en_US">Title of tab</name>
+    </setting>
+    <setting var="product_info_comments_fb_app_id" control_type="text">
+      <value>1196008783873070</value>
+      <name locale="ru_RU">Идентификатор приложения</name>
+      <name locale="en_US">Id of app</name>
+    </setting>
+    <setting var="product_info_comments_fb_count" control_type="text">
+      <value>15</value>
+      <name locale="ru_RU">Кол-во комментариев</name>
+      <name locale="en_US">Count of comments</name>
+    </setting>
+    <setting var="desc_product_reviews_form" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Feedback Submission Form</name>
+      <name locale="ru_RU">Форма отправки отзыва</name>
+    </setting>
+    <setting var="product_reviews_site_field_off" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Отключить поле "Сайт"</name>
+      <name locale="en_US">Disable the Site field</name>
+    </setting>
+    <setting var="divider_cart" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Cart</name>
+      <name locale="ru_RU">Корзина</name>
+    </setting>
+    <setting var="popup_cart" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Activate popup cart</name>
+      <name locale="ru_RU">Включить всплывающую корзину</name>
+    </setting>
+    <setting var="cart_add_action" control_type="select">
+      <value>move</value>
+      <name locale="en_US">Effect when added to cart (desktop)</name>
+      <name locale="ru_RU">Эффект при добавлении в корзину (десктоп)</name>
+      <options>
+        <option value="popup">
+          <name locale="ru_RU">Модальное окно с кнопкой на оформление заказа</name>
+          <name locale="en_US">Modal window with a button for placing an order</name>
+        </option>
+        <option value="move">
+          <name locale="ru_RU">Уплывание в корзину</name>
+          <name locale="en_US">Sailing to the basket</name>
+        </option>
+        <option value="fixed">
+          <name locale="ru_RU">Фиксированная панель справа</name>
+          <name locale="en_US">Fixed panel on right</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="cart_add_action_mobile" control_type="select">
+      <value>move</value>
+      <name locale="en_US">Effect when added to cart (mobile)</name>
+      <name locale="ru_RU">Эффект при добавлении в корзину (мобильная)</name>
+      <options>
+        <option value="popup">
+          <name locale="ru_RU">Модальное окно с кнопкой на оформление заказа</name>
+          <name locale="en_US">Modal window with a button for placing an order</name>
+        </option>
+        <option value="move">
+          <name locale="ru_RU">Уплывание в корзину</name>
+          <name locale="en_US">Sailing to the basket</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="cart_crossselling" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Cross-selling in cart</name>
+      <name locale="ru_RU">Рекомендуемые товары в корзине</name>
+    </setting>
+    <setting var="checkout_cart_items" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show items from the shopping cart on the checkout page</name>
+      <name locale="ru_RU">Показывать на странице оформления заказа товары из корзины</name>
+    </setting>
+    <setting var="onestep_custom_css" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Correction of layout for the plugin "Order on one page"</name>
+      <name locale="ru_RU">Корректировка верстки на странице плагина "Заказ на одной странице"</name>
+      <description locale="ru_RU">Использование кастомных стили для корректировки верстки на странице плагина "Заказ на одной странице". Если у вас уже скорректированна верстка на странице данного плагина, то рекомендуем отключить опцию.</description>
+      <description locale="en_US">Use custom styles to adjust the layout in the basket and order the plug-in "Order on one page". If you have already adjusted the layout on the page of this plug-in, we recommend that you disable the option.</description>
+    </setting>
+    <setting var="cartonestep_custom_css" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Correction of layout for the plugin "Cart in one step"</name>
+      <name locale="ru_RU">Корректировка верстки на странице плагина "Корзина в один шаг"</name>
+      <description locale="ru_RU">Использование кастомных стили для корректировки верстки на странице плагина "Корзина в один шаг". Если у вас уже скорректированна верстка на странице данного плагина, то рекомендуем отключить опцию.</description>
+      <description locale="en_US">Use custom styles to adjust the layout in the basket and order the plug-in "Cart in one step". If you have already adjusted the layout on the page of this plug-in, we recommend that you disable the option.</description>
+    </setting>
+    <setting var="buy1step_checkout_in_cart" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">The plugin "Order in 1 step" is used in the mode "Checkout to basket"</name>
+      <name locale="ru_RU">Используется плагин "Заказ в 1 шаг" в режиме "Оформление заказа в корзине"</name>
+      <description locale="ru_RU">от разработчика Bodysite</description>
+      <description locale="en_US">from developer Bodysite</description>
+    </setting>
+    <setting var="use_cartonestep_cart_and_order" control_type="checkbox">
+      <value/>
+      <name locale="en_US">The plugin "Cart + order in 1 step" is used with the option "checkout + cart"</name>
+      <name locale="ru_RU">Используется плагин "Корзина + заказ в 1 шаг" с вариантом вывода "оформление заказа + корзина"</name>
+    </setting>
+    <setting var="divider_sidebar_pages" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Sidebar of application "Site"</name>
+      <name locale="ru_RU">Сайдбар приложения "Сайт"</name>
+    </setting>
+    <setting var="show_sidebar_pages_news" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывести последние записи блога</name>
+      <name locale="en_US">Show last blog</name>
+    </setting>
+    <setting var="sidebar_pages_news_id" control_type="text">
+      <value/>
+      <name locale="en_US">ID Blog</name>
+      <name locale="ru_RU">идентификатор блога</name>
+    </setting>
+    <setting var="show_sidebar_pages_photos" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show latest photos</name>
+      <name locale="ru_RU">Показывать блок с последними фотографиями</name>
+    </setting>
+    <setting var="show_sidebar_pages_social" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Social groups</name>
+      <name locale="ru_RU">Группы соц.сетей</name>
+    </setting>
+    <setting var="divider_sidebar_blog" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Sidebar of application "Blog"</name>
+      <name locale="ru_RU">Сайдбар приложения "Блог"</name>
+    </setting>
+    <setting var="show_sidebar_blog_photos" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show latest photos</name>
+      <name locale="ru_RU">Показывать блок с последними фотографиями</name>
+    </setting>
+    <setting var="show_sidebar_blog_pages" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show pages of application "Blog"</name>
+      <name locale="ru_RU">Показывать страницы приложения Блог</name>
+    </setting>
+    <setting var="show_sidebar_blog_social" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Social groups</name>
+      <name locale="ru_RU">Группы соц.сетей</name>
+    </setting>
+    <setting var="blog_post_share_code" control_type="text">
+      <value>&lt;script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"&gt;&lt;/script&gt; &lt;script src="https://yastatic.net/share2/share.js"&gt;&lt;/script&gt; &lt;div class="ya-share2" data-services="collections,vkontakte,facebook,odnoklassniki,moimir"&gt;&lt;/div&gt;</value>
+      <name locale="en_US">Script for buttons to share in post</name>
+      <name locale="ru_RU">Скрипт для кнопок поделиться в посте</name>
+      <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
+      <description locale="en_US">You can generate the code on https://tech.yandex.ru/share/</description>
+    </setting>
+    <setting var="blog_post_products_list" control_type="text">
+      <value locale="en_US">Recommended</value>
+      <value locale="ru_RU">Рекомендуем</value>
+      <name locale="en_US">Title of products list</name>
+      <name locale="ru_RU">Заголовок для списка товаров</name>
+    </setting>
+    <setting var="divider_sidebar_app_photos" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Sidebar of application "Photo"</name>
+      <name locale="ru_RU">Сайдбар приложения "Фотогалерея"</name>
+    </setting>
+    <setting var="show_sidebar_app_photos" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Show sidebar</name>
+      <name locale="ru_RU">Показать сайдбар</name>
+    </setting>
+    <setting var="show_sidebar_app_photos_blog" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show latest blog posts</name>
+      <name locale="ru_RU">Вывести последние записи из блога</name>
+    </setting>
+    <setting var="sidebar_app_photos_blog_id" control_type="text">
+      <value/>
+      <name locale="en_US">ID Blog</name>
+      <name locale="ru_RU">идентификатор блога</name>
+    </setting>
+    <setting var="show_sidebar_photos_social" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Social groups</name>
+      <name locale="ru_RU">Группы соц.сетей</name>
+    </setting>
+    <setting var="divider_widget_popup_advert" control_type="group_divider">
+      <value/>
+      <name locale="ru_RU">Виджет акции во всплывающем окне</name>
+      <name locale="en_US">Widget promotion in popup</name>
+    </setting>
+    <setting var="widget_popup_advert_active" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Активировать виджет</name>
+      <name locale="en_US">Widget on</name>
+    </setting>
+    <setting var="widget_popup_advert_time" control_type="text">
+      <value>10</value>
+      <name locale="ru_RU">Задержка показа окна (в секундах)</name>
+      <name locale="en_US">Window Delay (in seconds)</name>
+    </setting>
+    <setting var="widget_popup_advert_tabu_days" control_type="text">
+      <value>10</value>
+      <name locale="ru_RU">Количество дней для повторного показа окна</name>
+      <name locale="en_US">The number of days to re-show the window</name>
+    </setting>
+    <setting var="widget_popup_advert_width" control_type="text">
+      <value>800</value>
+      <name locale="ru_RU">Максимальная ширина popup окна (в пикселях)</name>
+      <name locale="en_US">Maximum width of the popup window (in pixels)</name>
+    </setting>
+    <setting var="widget_popup_advert_title" control_type="text">
+      <value locale="ru_RU"/>
+      <value locale="en_US"/>
+      <name locale="ru_RU">Заголовок popup окна</name>
+      <name locale="en_US">Title popup window</name>
+    </setting>
+    <setting var="widget_popup_advert_block_id" control_type="text">
+      <value>unishop.popup.advert</value>
+      <name locale="ru_RU">Идентификатор блока для вывода (Сайт -&gt; Блоки)</name>
+      <name locale="en_US">ID of block for display (Site -&gt; Blocks)</name>
+    </setting>
+    <setting var="widget_popup_id" control_type="text">
+      <value>1</value>
+      <name locale="ru_RU">Идентификатор новой акции (Произвольное число)</name>
+      <name locale="en_US">ID new Promotion (arbitrary number)</name>
+      <description locale="ru_RU">После смены идентификатора акция вновь отобразится у всех пользователей</description>
+      <description locale="en_US">After changing the ID, the action will be displayed again for all users.</description>
+    </setting>
+    <setting var="divider_widget_social_groups" control_type="group_divider">
+      <value/>
+      <name locale="ru_RU">Виджет социальных групп</name>
+      <name locale="en_US">Widget of social groups</name>
+    </setting>
+    <setting var="widget_social_groups_vk" control_type="text">
+      <value>&lt;div id="vk_groups"&gt;&lt;/div&gt;&lt;script&gt; var js = document.createElement("script"); js.src = "//vk.com/js/api/openapi.js"; js.onload = js.onreadystatechange = function () { if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") { if (!this.executed) { this.executed = true; setTimeout(function () { VK.Widgets.Group("vk_groups", {mode: 0, width: "260", height: "300"}, 21415010); }, 100); } }}; document.documentElement.appendChild(js); &lt;/script&gt;</value>
+      <name locale="ru_RU">Код для виджета Вконтакте</name>
+      <name locale="en_US">Code for Vk</name>
+    </setting>
+    <setting var="widget_social_groups_fb" control_type="text">
+      <value>&lt;div id="fb-root"&gt;&lt;/div&gt;&lt;script&gt;(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.4&amp;appId=572170866151302";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));&lt;/script&gt;&lt;div class="fb-page" data-href="https://www.facebook.com/Webasyst.RU" data-width="260" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"&gt;&lt;div class="fb-xfbml-parse-ignore"&gt;&lt;blockquote cite="https://www.facebook.com/Webasyst.RU"&gt;&lt;a href="https://www.facebook.com/Webasyst.RU"&gt;Webasyst RU&lt;/a&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;/div&gt;</value>
+      <name locale="ru_RU">Код для виджета Facebook</name>
+      <name locale="en_US">Code for Facebook</name>
+    </setting>
+    <setting var="widget_social_groups_ok" control_type="text">
+      <value>&lt;div id="ok_group_widget"&gt;&lt;/div&gt;&lt;script&gt;!function (d, id, did, st) {var js = d.createElement("script");js.src = "https://connect.ok.ru/connect.js";js.onload = js.onreadystatechange = function () {if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {if (!this.executed) {this.executed = true;setTimeout(function () {OK.CONNECT.insertGroupWidget(id,did,st);}, 0);}}};d.documentElement.appendChild(js);}(document,"ok_group_widget","47805742579775","{width:260,height:300}");&lt;/script&gt;</value>
+      <name locale="ru_RU">Код для виджета Одноклассники</name>
+      <name locale="en_US">Code for Ok</name>
+    </setting>
+    <setting var="widget_social_groups_tw" control_type="text">
+      <value>&lt;a class="twitter-timeline" href="https://twitter.com/webasyst_ru" data-widget-id="624283167772528641" data-width="260" data-height="300"&gt;Tweets by @webasyst_ru&lt;/a&gt;&lt;script&gt;!function(d,s,id) { var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)) { js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs); } } (document,"script","twitter-wjs");&lt;/script&gt;</value>
+      <name locale="ru_RU">Код для виджета Twitter</name>
+      <name locale="en_US">Code for Twitter</name>
+    </setting>
+    <setting var="widget_social_groups_inst" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Формировать instagram виджет</name>
+      <name locale="en_US">Generate instagram widget</name>
+    </setting>
+    <setting var="widget_social_groups_inst_id" control_type="text">
+      <value>7210507536</value>
+      <name locale="ru_RU">Числовой идентификатор пользователя instagram для верификации</name>
+      <name locale="en_US">Instagram numeric user ID for verification</name>
+    </setting>
+    <setting var="widget_social_groups_inst_oath" control_type="text">
+      <value>7210507536.1677ed0.e97b010c6f644987be3b774e7feb470e</value>
+      <name locale="ru_RU">Валидный oAuth токен instagram</name>
+      <name locale="en_US">oAuth token instagram</name>
+    </setting>
+    <setting var="widget_social_groups_inst_out" control_type="text">
+      <value>7210507536</value>
+      <name locale="ru_RU">Числовой идентификатор пользователя instagram для вывода фото</name>
+      <name locale="en_US">Instagram numeric user id for photo output</name>
+      <description locale="ru_RU">При пустом значении вывод фото пользователя, указанного для верификации</description>
+      <description locale="en_US">If the value is empty, the photo output of the user specified for verification</description>
+    </setting>
+    <setting var="widget_social_groups_inst_limit" control_type="text">
+      <value>16</value>
+      <name locale="ru_RU">Лимит вывода фото для instagram</name>
+      <name locale="en_US">Photo output limit for instagram</name>
+    </setting>
+    <setting var="widget_social_shuffle" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Перемешивать виджеты</name>
+      <name locale="en_US">Shuffle Widgets</name>
+    </setting>
+    <setting var="widget_social_groups_auto" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Автоматическое переключение соцсетей</name>
+      <name locale="en_US">Automatic switching of social networks</name>
+    </setting>
+    <setting var="widget_social_groups_time" control_type="text">
+      <value>8</value>
+      <name locale="ru_RU">Время автоматического переключения (секунды)</name>
+      <name locale="en_US">Automatic switching time (seconds)</name>
+    </setting>
+    <setting var="widget_social_groups_load" control_type="select">
+      <value>switch</value>
+      <name locale="ru_RU">Предзагрузка виджетов</name>
+      <name locale="en_US">Preload widgets</name>
+      <options>
+        <option value="switch">
+          <name locale="ru_RU">Загружать при переключении</name>
+          <name locale="en_US">Load when switching</name>
+        </option>
+        <option value="just">
+          <name locale="ru_RU">Загружать сразу</name>
+          <name locale="en_US">Load immediately</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="divider_footer" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Footer</name>
+      <name locale="ru_RU">«Подвал» сайта</name>
+    </setting>
+    <setting var="hide_links_to_webasyst" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Remove links to webasyst</name>
+      <name locale="ru_RU">Убрать ссылки на webasyst</name>
+    </setting>
+    <setting var="dislay_payment_footer" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display icons payment</name>
+      <name locale="ru_RU">Выводить иконки оплаты</name>
+    </setting>
+    <setting var="footer_links_block_1" control_type="select">
+      <value>site-pages</value>
+      <name locale="ru_RU">Ссылки в подвале блок #1</name>
+      <name locale="en_US">Footer block #1 links</name>
+      <description locale="ru_RU">Выберите источник ссылок</description>
+      <description locale="en_US">Select a reference source</description>
+      <options>
+        <option value="wa-apps">
+          <name locale="ru_RU">Приложение «Сайт» &gt; Настройки &gt; {$wa-&gt;apps()}</name>
+          <name locale="en_US">Site app &gt; Settings &gt; {$wa-&gt;apps()}</name>
+        </option>
+        <option value="site-pages">
+          <name locale="ru_RU">Страницы приложения «Сайт»</name>
+          <name locale="en_US">Site app pages</name>
+        </option>
+        <option value="shop-pages">
+          <name locale="ru_RU">Страницы приложения «Магазин»</name>
+          <name locale="en_US">Shop app pages</name>
+        </option>
+        <option value="blog-pages">
+          <name locale="ru_RU">Страницы приложения «Блог»</name>
+          <name locale="en_US">Blog app pages</name>
+        </option>
+        <option value="photos-pages">
+          <name locale="ru_RU">Страницы приложения «Фото»</name>
+          <name locale="en_US">Photos app pages</name>
+        </option>
+        <option value="app-menu">
+          <name locale="ru_RU">Из приложения меню</name>
+          <name locale="en_US">From app menu</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Не показывать</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="id_app_footer_menu_block_1" control_type="text">
+      <value/>
+      <name locale="en_US">Identifier from the application Menu for output in the basement block # 1</name>
+      <name locale="ru_RU">идентификатор из приложения Меню для вывода в подвале блок #1</name>
+      <description locale="ru_RU">Опция доступна при выбранном варианте "Из приложения меню" для опции "Ссылки в подвале блок #1"</description>
+      <description locale="en_US">The option is available when the option "From app menu" is selected for the option "Footer block #1 links"</description>
+    </setting>
+    <setting var="footer_links_block_2" control_type="select">
+      <value>wa-apps</value>
+      <name locale="ru_RU">Ссылки в подвале блок #2</name>
+      <name locale="en_US">Footer block #2 links</name>
+      <description locale="ru_RU">Выберите источник ссылок</description>
+      <description locale="en_US">Select a reference source</description>
+      <options>
+        <option value="wa-apps">
+          <name locale="ru_RU">Приложение «Сайт» &gt; Настройки &gt; {$wa-&gt;apps()}</name>
+          <name locale="en_US">Site app &gt; Settings &gt; {$wa-&gt;apps()}</name>
+        </option>
+        <option value="site-pages">
+          <name locale="ru_RU">Страницы приложения «Сайт»</name>
+          <name locale="en_US">Site app pages</name>
+        </option>
+        <option value="shop-pages">
+          <name locale="ru_RU">Страницы приложения «Магазин»</name>
+          <name locale="en_US">Shop app pages</name>
+        </option>
+        <option value="blog-pages">
+          <name locale="ru_RU">Страницы приложения «Блог»</name>
+          <name locale="en_US">Blog app pages</name>
+        </option>
+        <option value="photos-pages">
+          <name locale="ru_RU">Страницы приложения «Фото»</name>
+          <name locale="en_US">Photos app pages</name>
+        </option>
+        <option value="app-menu">
+          <name locale="ru_RU">Из приложения меню</name>
+          <name locale="en_US">From app menu</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Не показывать</name>
+          <name locale="en_US">None</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="id_app_footer_menu_block_2" control_type="text">
+      <value/>
+      <name locale="en_US">Identifier from the application Menu for output in the basement block # 2</name>
+      <name locale="ru_RU">идентификатор из приложения Меню для вывода в подвале блок #2</name>
+      <description locale="ru_RU">Опция доступна при выбранном варианте "Из приложения меню" для опции "Ссылки в подвале блок #1"</description>
+      <description locale="en_US">The option is available when the option "From app menu" is selected for the option "Footer block #2 links"</description>
+    </setting>
+    <setting var="logo_footer" control_type="image">
+      <value>img/logo_footer.png</value>
+      <filename>img/logo_footer.*</filename>
+      <name locale="en_US">Logo</name>
+      <name locale="ru_RU">Логотип</name>
+    </setting>
+    <setting var="logo_footer_2x" control_type="image">
+      <value>img/logo_footer@2x.png</value>
+      <filename>img/logo_footer@2x.*</filename>
+      <name locale="en_US">Logo for retina</name>
+      <name locale="ru_RU">Логотип для ретина дисплеев</name>
+      <description locale="ru_RU">Загрузите логотип размером в 2 раза больше.</description>
+      <description locale="en_US">Upload a logo 2 times larger</description>
+    </setting>
+    <setting var="facebook" control_type="text">
+      <value locale="en_US">https://www.facebook.com/Webasyst</value>
+      <value locale="ru_RU">https://www.facebook.com/Webasyst.RU</value>
+      <name locale="en_US">Facebook page URL</name>
+      <name locale="ru_RU">Адрес страницы в Фейсбуке</name>
+    </setting>
+    <setting var="twitter" control_type="text">
+      <value locale="en_US">https://twitter.com/webasyst</value>
+      <value locale="ru_RU">https://twitter.com/webasyst_ru</value>
+      <name locale="en_US">Twitter URL</name>
+      <name locale="ru_RU">Адрес в Твиттере</name>
+    </setting>
+    <setting var="vk" control_type="text">
+      <value locale="en_US"/>
+      <value locale="ru_RU">https://vk.com/webasyst_ru</value>
+      <name locale="en_US">VK.com page URL</name>
+      <name locale="ru_RU">Адрес страницы или группы во Вконтакте</name>
+    </setting>
+    <setting var="odnoclassniki" control_type="text">
+      <value>#</value>
+      <name locale="en_US">Оdnoclassniki.ru page URL</name>
+      <name locale="ru_RU">Адрес страницы одноклассников</name>
+    </setting>
+    <setting var="instagram" control_type="text">
+      <value>#</value>
+      <name locale="en_US">Instagram feed URL</name>
+      <name locale="ru_RU">Адрес в Инстаграме</name>
+    </setting>
+    <setting var="youtube" control_type="text">
+      <value>#</value>
+      <name locale="en_US">Youtube channel URL</name>
+      <name locale="ru_RU">Адрес канала YouTube</name>
+    </setting>
+    <setting var="rss" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Link to rss</name>
+      <name locale="ru_RU">Ссылка на rss</name>
+    </setting>
+    <setting var="button_to_top" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Show button "To top"</name>
+      <name locale="ru_RU">Кнопка "Наверх"</name>
+    </setting>
+    <setting var="fixed_panel" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Fixed panel</name>
+      <name locale="ru_RU">Фиксированная панель</name>
+    </setting>
+    <setting var="divider_styles_scripts_fonts" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Optimization</name>
+      <name locale="ru_RU">Оптимизация</name>
+    </setting>
+    <setting var="desc_preload_critical_resources" control_type="paragraph">
+      <value/>
+      <name locale="en_US">&lt;br&gt;Preloading critical resources</name>
+      <name locale="ru_RU">&lt;br&gt;Предзагрузка критических ресурсов</name>
+    </setting>
+    <setting var="preload_image_homepage" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Preloading the first slide image on the main page</name>
+      <name locale="ru_RU">Предзагрузка картинки первого слайда на главной странице</name>
+      <description locale="en_US">Option is useful for quickly displaying the largest item on the home screen</description>
+      <description locale="ru_RU">Опция полезна для быстрого отображения самого большого элемента на главном экране</description>
+    </setting>
+    <setting var="preload_image_product" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Preloading the first image in the product card</name>
+      <name locale="ru_RU">Предзагрузка первой картинки в карточке товара</name>
+      <description locale="en_US">Option is useful for quickly displaying the largest item on the home screen</description>
+      <description locale="ru_RU">Опция полезна для быстрого отображения самого большого элемента на главном экране</description>
+    </setting>
+    <setting var="desc_plugin_scripts" control_type="paragraph">
+      <value/>
+      <name locale="en_US">&lt;br&gt;&lt;br&gt;Plugin scripts</name>
+      <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Скрипты плагинов</name>
+    </setting>
+    <setting var="plugins_js_footer" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Load {$wa-&gt;js()} at the bottom of the page</name>
+      <name locale="ru_RU">Загружать {$wa-&gt;js()} в нижней части страницы</name>
+      <description locale="en_US">The option is not compatible with all plugins</description>
+      <description locale="ru_RU">Опция совместима не со всеми плагинами</description>
+    </setting>
+    <setting var="plugins_shop_js_footer" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Load plugin hook frontend_head at the bottom of the page</name>
+      <name locale="ru_RU">Загружать plugin hook frontend_head в нижней части страницы</name>
+      <description locale="en_US">The option is not compatible with all plugins</description>
+      <description locale="ru_RU">Опция совместима не со всеми плагинами</description>
+    </setting>
+    <setting var="desc_styler_form" control_type="paragraph">
+      <value/>
+      <name locale="en_US">&lt;br&gt;&lt;br&gt;Styler form</name>
+      <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Стайлер форм</name>
+    </setting>
+    <setting var="form_styler_full" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Enable the form Styler for all pages</name>
+      <name locale="ru_RU">Включить стилизатор форм для всех страниц</name>
+      <description locale="en_US">This option is recommended only if the site interface contains non-stylized form elements (for example, from the plugin interface)</description>
+      <description locale="ru_RU">Опция рекомендуется только в том случае, если в интерфейсе сайта есть не стилизованные элементы формы (например, из интерфейсов плагинов)</description>
+    </setting>
+    <setting var="desc_text_font" control_type="paragraph">
+      <value/>
+      <name locale="en_US">&lt;br&gt;&lt;br&gt;Text font</name>
+      <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Текстовый шрифт</name>
+    </setting>
+    <setting var="load_text_font_footer" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Load text font style file at the bottom of the page</name>
+      <name locale="ru_RU">Загружать файл стилей текстового шрифта в нижней части страницы</name>
+    </setting>
+    <setting var="local_load_text_font" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Local load font</name>
+      <name locale="ru_RU">Локальная загрузка шрифта</name>
+    </setting>
+    <setting var="load_text_font_display_swap" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display text without waiting for the text font to load</name>
+      <name locale="ru_RU">Отображение текста без ожидания загрузки текстового шрифта</name>
+      <description locale="en_US">property font-display: swap</description>
+      <description locale="ru_RU">свойство font-display: swap</description>
+    </setting>
+    <setting var="desc_icon_font" control_type="paragraph">
+      <value/>
+      <name locale="en_US">&lt;br&gt;&lt;br&gt;Icon font</name>
+      <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Иконочный шрифт</name>
+    </setting>
+    <setting var="load_icon_font_footer" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Load icon font style file at the bottom of the page</name>
+      <name locale="ru_RU">Загружать файл стилей иконочного шрифта в нижней части страницы</name>
+    </setting>
+    <setting var="load_icon_font_display_swap" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display text without waiting for the icon font to load</name>
+      <name locale="ru_RU">Отображение текста без ожидания загрузки иконочного шрифта</name>
+      <description locale="en_US">property font-display: swap</description>
+      <description locale="ru_RU">свойство font-display: swap</description>
+    </setting>
+    <setting var="desc_custom_files" control_type="paragraph">
+      <value/>
+      <name locale="en_US">&lt;br&gt;&lt;br&gt;Customs files of styles and scripts</name>
+      <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Кастомные файлы стилей и скриптов</name>
+    </setting>
+    <setting var="load_custom_styles" control_type="select">
+      <value/>
+      <name locale="en_US">Load file custom styles</name>
+      <name locale="ru_RU">Загружать файл кастомных стилей</name>
+      <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks - Block custom_styles</description>
+      <description locale="ru_RU">Кастомные скрипты рекомендуется добавлять через прилоежние Сайт - Блоки - Блок с id custom_styles</description>
+      <options>
+        <option value="bottom">
+          <name locale="en_US">Download at the bottom of the page</name>
+          <name locale="ru_RU">Загружать в нижней части страницы</name>
+        </option>
+        <option value="top">
+          <name locale="en_US">Download at the top of the page</name>
+          <name locale="ru_RU">Загружать в верхней части страницы</name>
+        </option>
+        <option value="">
+          <name locale="en_US">Загружать сразу</name>
+          <name locale="ru_RU">Не загружать</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="load_custom_js" control_type="select">
+      <value/>
+      <name locale="en_US">Load file custom js scripts</name>
+      <name locale="ru_RU">Загружать файл кастомных js-скриптов</name>
+      <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks - Block footer_codes</description>
+      <description locale="ru_RU">Кастомные скрипты рекомендуется добавлять через прилоежние Сайт - Блоки - Блок с id footer_codes</description>
+      <options>
+        <option value="bottom">
+          <name locale="en_US">Download at the bottom of the page</name>
+          <name locale="ru_RU">Загружать в нижней части страницы</name>
+        </option>
+        <option value="top">
+          <name locale="en_US">Download at the top of the page</name>
+          <name locale="ru_RU">Загружать в верхней части страницы</name>
+        </option>
+        <option value="">
+          <name locale="en_US">Загружать сразу</name>
+          <name locale="ru_RU">Не загружать</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="desc_min_files" control_type="paragraph">
+      <value/>
+      <name locale="en_US">&lt;br&gt;&lt;br&gt;Min files of styles and scripts</name>
+      <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Основные файлы стилей и скриптов</name>
+    </setting>
+    <setting var="generation_style_off" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Отключить минимизированные файлы стилей</name>
+      <name locale="en_US">Disable the minimized style files</name>
+    </setting>
+    <setting var="min_script_off" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Отключить минимизированные файлы скриптов</name>
+      <name locale="en_US">Disable minimized script files</name>
+    </setting>
+    <setting var="divider_other" control_type="group_divider">
+      <value/>
+      <name locale="en_US">Other settings</name>
+      <name locale="ru_RU">Другие настройки</name>
+    </setting>
+    <setting var="test_settings" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Тестовые настройки</name>
+      <name locale="en_US">Test settings</name>
+    </setting>
+    <setting var="quicklinks_show" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить ссылки быстрого редактирования (для администратора сайта)</name>
+      <name locale="en_US">Display quick edit links (for site administrator)</name>
+    </setting>
+    <setting var="quicklinks_ids" control_type="text">
+      <value/>
+      <name locale="ru_RU">Список дополнительных менеджеров для вывода ссылок быстрого редактирования</name>
+      <name locale="en_US">List of additional managers to display quick edit links</name>
+      <description locale="ru_RU">Идентификаторы пользователей через запятую без пробелов</description>
+      <description locale="en_US">User IDs separated by commas without spaces</description>
+    </setting>
+  </settings>
+  <locales>
+    <locale>
+      <msgid>Follow us</msgid>
+      <msgstr locale="ru_RU">Подписаться на новости</msgstr>
+    </locale>
+    <locale>
+      <msgid>Subscribe to our email newsletter</msgid>
+      <msgstr locale="ru_RU">Подписаться на рассылку</msgstr>
+    </locale>
+    <locale>
+      <msgid>Or follow us on Facebook and Twitter</msgid>
+      <msgstr locale="ru_RU">Или подписывайтесь в соцсетях</msgstr>
+    </locale>
+    <locale>
+      <msgid>Currency</msgid>
+      <msgstr locale="ru_RU">Валюта</msgstr>
+    </locale>
+    <locale>
+      <msgid>Language</msgid>
+      <msgstr locale="ru_RU">Язык</msgstr>
+    </locale>
+    <locale>
+      <msgid>Else</msgid>
+      <msgstr locale="ru_RU">Еще</msgstr>
+    </locale>
+    <locale>
+      <msgid>Else categories</msgid>
+      <msgstr locale="ru_RU">Еще категории</msgstr>
+    </locale>
+    <locale>
+      <msgid>Search in catalog</msgid>
+      <msgstr locale="ru_RU">Поиск по каталогу</msgstr>
+    </locale>
+    <locale>
+      <msgid>Catalog</msgid>
+      <msgstr locale="ru_RU">Каталог товаров</msgstr>
+    </locale>
+    <locale>
+      <msgid>Brands</msgid>
+      <msgstr locale="ru_RU">Бренды</msgstr>
+    </locale>
+    <locale>
+      <msgid>Feedback</msgid>
+      <msgstr locale="ru_RU">Обратная связь</msgstr>
+    </locale>
+    <locale>
+      <msgid>Company</msgid>
+      <msgstr locale="ru_RU">Компания</msgstr>
+    </locale>
+    <locale>
+      <msgid>Sections</msgid>
+      <msgstr locale="ru_RU">Разделы</msgstr>
+    </locale>
+    <locale>
+      <msgid>Product of the day</msgid>
+      <msgstr locale="ru_RU">Товар дня</msgstr>
+    </locale>
+    <locale>
+      <msgid>All categories</msgid>
+      <msgstr locale="ru_RU">Все категории</msgstr>
+    </locale>
+    <locale>
+      <msgid>View all</msgid>
+      <msgstr locale="ru_RU">Смотреть все</msgstr>
+    </locale>
+    <locale>
+      <msgid>Photo gallery</msgid>
+      <msgstr locale="ru_RU">Фотогалерея</msgstr>
+    </locale>
+    <locale>
+      <msgid>Home</msgid>
+      <msgstr locale="ru_RU">Главная</msgstr>
+    </locale>
+    <locale>
+      <msgid>Information</msgid>
+      <msgstr locale="ru_RU">Информация</msgstr>
+    </locale>
+    <locale>
+      <msgid>Read more</msgid>
+      <msgstr locale="ru_RU">Читать далее</msgstr>
+    </locale>
+    <locale>
+      <msgid>Reed all</msgid>
+      <msgstr locale="ru_RU">Читать все</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to the photo gallery</msgid>
+      <msgstr locale="ru_RU">Перейти в фотогалерею</msgstr>
+    </locale>
+    <locale>
+      <msgid>Photo gallery</msgid>
+      <msgstr locale="ru_RU">Фотогалерея</msgstr>
+    </locale>
+    <locale>
+      <msgid>View</msgid>
+      <msgstr locale="ru_RU">Вид</msgstr>
+    </locale>
+    <locale>
+      <msgid>Display</msgid>
+      <msgstr locale="ru_RU">Показывать по</msgstr>
+    </locale>
+    <locale>
+      <msgid>Quick view</msgid>
+      <msgstr locale="ru_RU">Быстрый просмотр</msgstr>
+    </locale>
+    <locale>
+      <msgid>Products in comparison</msgid>
+      <msgstr locale="ru_RU">Товары в сравнении</msgstr>
+    </locale>
+    <locale>
+      <msgid>In comparison</msgid>
+      <msgstr locale="ru_RU">В сравнении</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to comparison</msgid>
+      <msgstr locale="ru_RU">Перейти к сравнению</msgstr>
+    </locale>
+    <locale>
+      <msgid>Products in compare no</msgid>
+      <msgstr locale="ru_RU">Товаров в сравнении нет</msgstr>
+    </locale>
+    <locale>
+      <msgid>Compare</msgid>
+      <msgstr locale="ru_RU">Сравнение</msgstr>
+    </locale>
+    <locale>
+      <msgid>Product added to cart!</msgid>
+      <msgstr locale="ru_RU">Товар добавлен в корзину!</msgstr>
+    </locale>
+    <locale>
+      <msgid>Product in cart!</msgid>
+      <msgstr locale="ru_RU">Товар в корзине!</msgstr>
+    </locale>
+    <locale>
+      <msgid>Cart</msgid>
+      <msgstr locale="ru_RU">Корзина</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to cart</msgid>
+      <msgstr locale="ru_RU">Перейти в корзину</msgstr>
+    </locale>
+    <locale>
+      <msgid>To cart</msgid>
+      <msgstr locale="ru_RU">В корзину</msgstr>
+    </locale>
+    <locale>
+      <msgid>Product is added to compare</msgid>
+      <msgstr locale="ru_RU">Товар добавлен в список сравнения</msgstr>
+    </locale>
+    <locale>
+      <msgid>Product in compare</msgid>
+      <msgstr locale="ru_RU">Товар в сравнении</msgstr>
+    </locale>
+    <locale>
+      <msgid>The product is removed from compare</msgid>
+      <msgstr locale="ru_RU">Товар удален из списка сравнения</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to compare</msgid>
+      <msgstr locale="ru_RU">Перейти в список сравнения</msgstr>
+    </locale>
+    <locale>
+      <msgid>To favorites</msgid>
+      <msgstr locale="ru_RU">В избранное</msgstr>
+    </locale>
+    <locale>
+      <msgid>The product has been added to favorites</msgid>
+      <msgstr locale="ru_RU">Товар добавлен в список избранных</msgstr>
+    </locale>
+    <locale>
+      <msgid>The product in favorites</msgid>
+      <msgstr locale="ru_RU">Товар в избранных</msgstr>
+    </locale>
+    <locale>
+      <msgid>The product is removed from favorites</msgid>
+      <msgstr locale="ru_RU">Товар удален из списка избранных</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to favorites</msgid>
+      <msgstr locale="ru_RU">Перейти в список избранных</msgstr>
+    </locale>
+    <locale>
+      <msgid>Favorites</msgid>
+      <msgstr locale="ru_RU">Избранные</msgstr>
+    </locale>
+    <locale>
+      <msgid>Favorites products</msgid>
+      <msgstr locale="ru_RU">Избранные товары</msgstr>
+    </locale>
+    <locale>
+      <msgid>Up</msgid>
+      <msgstr locale="ru_RU">Вверх</msgstr>
+    </locale>
+    <locale>
+      <msgid>Viewed products</msgid>
+      <msgstr locale="ru_RU">Просмотренные товары</msgstr>
+    </locale>
+    <locale>
+      <msgid>Viewed</msgid>
+      <msgstr locale="ru_RU">Просмотренные</msgstr>
+    </locale>
+    <locale>
+      <msgid>Review</msgid>
+      <msgstr locale="ru_RU">Обзор</msgstr>
+    </locale>
+    <locale>
+      <msgid>Characteristics</msgid>
+      <msgstr locale="ru_RU">Характеристики</msgstr>
+    </locale>
+    <locale>
+      <msgid>Selection by parameters</msgid>
+      <msgstr locale="ru_RU">Подбор по параметрам</msgstr>
+    </locale>
+    <locale>
+      <msgid>Clear</msgid>
+      <msgstr locale="ru_RU">Очистить</msgstr>
+    </locale>
+    <locale>
+      <msgid>Show all</msgid>
+      <msgstr locale="ru_RU">Показать все</msgstr>
+    </locale>
+    <locale>
+      <msgid>Detailed description</msgid>
+      <msgstr locale="ru_RU">Подробное описание</msgstr>
+    </locale>
+    <locale>
+      <msgid>Detailed specifications</msgid>
+      <msgstr locale="ru_RU">Подробные характеристики</msgstr>
+    </locale>
+    <locale>
+      <msgid>You watched</msgid>
+      <msgstr locale="ru_RU">Вы смотрели</msgstr>
+    </locale>
+    <locale>
+      <msgid>Delete</msgid>
+      <msgstr locale="ru_RU">Удалить</msgstr>
+    </locale>
+    <locale>
+      <msgid>Search by request</msgid>
+      <msgstr locale="ru_RU">Поиск по запросу</msgstr>
+    </locale>
+    <locale>
+      <msgid>Authorization</msgid>
+      <msgstr locale="ru_RU">Авторизация</msgstr>
+    </locale>
+    <locale>
+      <msgid>Product page</msgid>
+      <msgstr locale="ru_RU">Страница товара</msgstr>
+    </locale>
+    <locale>
+      <msgid>Order call</msgid>
+      <msgstr locale="ru_RU">Заказать звонок</msgstr>
+    </locale>
+    <locale>
+      <msgid>Is not filled</msgid>
+      <msgstr locale="ru_RU">Не заполнено</msgstr>
+    </locale>
+    <locale>
+      <msgid>d</msgid>
+      <msgstr locale="ru_RU">дн</msgstr>
+    </locale>
+    <locale>
+      <msgid>h</msgid>
+      <msgstr locale="ru_RU">час</msgstr>
+    </locale>
+    <locale>
+      <msgid>min</msgid>
+      <msgstr locale="ru_RU">мин</msgstr>
+    </locale>
+    <locale>
+      <msgid>sec</msgid>
+      <msgstr locale="ru_RU">сек</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to mainpage</msgid>
+      <msgstr locale="ru_RU">Перейти на главную</msgstr>
+    </locale>
+    <locale>
+      <msgid>Settings theme</msgid>
+      <msgstr locale="ru_RU">Настройки темы</msgstr>
+    </locale>
+    <locale>
+      <msgid>Reset settigs</msgid>
+      <msgstr locale="ru_RU">Сбросить настройки</msgstr>
+    </locale>
+    <locale>
+      <msgid>Buy theme</msgid>
+      <msgstr locale="ru_RU">Купить тему</msgstr>
+    </locale>
+    <locale>
+      <msgid>Select color</msgid>
+      <msgstr locale="ru_RU">Выбрать цвет</msgstr>
+    </locale>
+    <locale>
+      <msgid>Hide</msgid>
+      <msgstr locale="ru_RU">Скрыть</msgstr>
+    </locale>
+    <locale>
+      <msgid>Vendor code</msgid>
+      <msgstr locale="ru_RU">Артикул</msgstr>
+    </locale>
+    <locale>
+      <msgid>Phone</msgid>
+      <msgstr locale="ru_RU">Телефон</msgstr>
+    </locale>
+    <locale>
+      <msgid>Address</msgid>
+      <msgstr locale="ru_RU">Адрес</msgstr>
+    </locale>
+    <locale>
+      <msgid>Feedback</msgid>
+      <msgstr locale="ru_RU">Обратная связь</msgstr>
+    </locale>
+    <locale>
+      <msgid>Subscribe newsleter</msgid>
+      <msgstr locale="ru_RU">Подписка на новости</msgstr>
+    </locale>
+    <locale>
+      <msgid>I agree</msgid>
+      <msgstr locale="ru_RU">Я согласен(a)</msgstr>
+    </locale>
+    <locale>
+      <msgid>with the policy of processing personal data</msgid>
+      <msgstr locale="ru_RU">с политикой обработки персональных данных</msgstr>
+    </locale>
+    <locale>
+      <msgid>Enter your e-mail</msgid>
+      <msgstr locale="ru_RU">Введите вашy эл.почту</msgstr>
+    </locale>
+    <locale>
+      <msgid>Form submission error</msgid>
+      <msgstr locale="ru_RU">Ошибка отправки формы</msgstr>
+    </locale>
+    <locale>
+      <msgid>Last reviews</msgid>
+      <msgstr locale="ru_RU">Последние отзывы</msgstr>
+    </locale>
+    <locale>
+      <msgid>Contacts</msgid>
+      <msgstr locale="ru_RU">Контакты</msgstr>
+    </locale>
+    <locale>
+      <msgid>Mobile version of the site</msgid>
+      <msgstr locale="ru_RU">Мобильная версия сайта</msgstr>
+    </locale>
+    <locale>
+      <msgid>Full version of site</msgid>
+      <msgstr locale="ru_RU">Полная версия сайта</msgstr>
+    </locale>
+    <locale>
+      <msgid>No sku</msgid>
+      <msgstr locale="ru_RU">Нет артикула</msgstr>
+    </locale>
+    <locale>
+      <msgid>unit</msgid>
+      <msgstr locale="ru_RU">шт.</msgstr>
+    </locale>
+    <locale>
+      <msgid>There are very few items left</msgid>
+      <msgstr locale="ru_RU">Осталось очень мало</msgstr>
+    </locale>
+    <locale>
+      <msgid>Our brands</msgid>
+      <msgstr locale="ru_RU">Наши бренды</msgstr>
+    </locale>
+    <locale>
+      <msgid>All brands</msgid>
+      <msgstr locale="ru_RU">Все бренды</msgstr>
+    </locale>
+    <locale>
+      <msgid>Composition of order</msgid>
+      <msgstr locale="ru_RU">Состав заказа</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to cart</msgid>
+      <msgstr locale="ru_RU">Перейти в корзину</msgstr>
+    </locale>
+    <locale>
+      <msgid>Edit the order</msgid>
+      <msgstr locale="ru_RU">Изменить заказ</msgstr>
+    </locale>
+    <locale>
+      <msgid>Discussions</msgid>
+      <msgstr locale="ru_RU">Обсуждения</msgstr>
+    </locale>
+    <locale>
+      <msgid>Continue shopping</msgid>
+      <msgstr locale="ru_RU">Продолжить покупки</msgstr>
+    </locale>
+    <locale>
+      <msgid>Products in cart</msgid>
+      <msgstr locale="ru_RU">Товары в корзине</msgstr>
+    </locale>
+  </locales>
+</theme>

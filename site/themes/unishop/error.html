@@ -1,0 +1,13 @@
+{strip}
+    <div class="error-page">
+        <div class="error-page_icon shadow">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </div>
+        <h1>
+            {if $error_code}{$error_code}. {/if}
+            {if $error_message}{$error_message}{else}[s`Error`]{/if}
+        </h1>
+        <p>[s`The requested resource is not available.`]</p>
+        <a href="{$wa_url}">[`Go to mainpage`]</a> &rarr;
+    </div>
+{/strip}

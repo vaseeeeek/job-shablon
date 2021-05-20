@@ -1,0 +1,103 @@
+{strip}
+
+{$align_type = 'column'}
+{if isset($theme_settings.align_menu_subcategories)}
+    {$align_type = $theme_settings.align_menu_subcategories}
+{/if}
+
+{$countColumns = 4}
+{if count($cat.childs) <= $countColumns}
+    {$count_childs_in_col = 1}
+    {$countColumns = count($cat.childs)}
+{else}
+    {$count_childs_in_col = ceil(count($cat.childs) / $countColumns)}
+{/if}
+
+{$type_image_subcat = ""}
+{if isset($cat.params.submenu_pic) && !empty($cat.params.submenu_pic)}
+    {$type_image_subcat = $cat.params.submenu_pic}
+{else}
+    {$type_image_subcat = $theme_settings.type_dropdown_menu_subcategories_image}
+{/if}
+
+{$default_image = "`$wa_theme_url`img/dummy200.png"}
+{if !empty($theme_settings.default_image)}
+    {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+{/if}
+
+<div class="subcat-menu cols-{ceil(count($cat.childs) / $count_childs_in_col)} subcat-menu--disclosed js-submenu">
+    <div class="subcat_cols">
+        <div class="{if $align_type == 'column'}subcat_col{/if}">
+            {$index = 1}
+            {foreach $cat.childs as $keyCatlvl2 => $catlvl2}
+                {if !isset($catlvl2.params.menu_hide)}
+                    {$is_subcat_lvl2 = 0}
+                    {if count($catlvl2.childs) && $theme_settings.count_categories_levels > 2 && ($type_image_subcat != 'image' || $wa->isMobile())}
+                        {$is_subcat_lvl2 = 1}
+                    {/if}
+
+                    {if $index > $count_childs_in_col || $align_type != 'column'}
+                        {$index = 1}
+                        </div> <!--  .subcat_col -->
+                        <div class="subcat_col">
+                    {/if}
+                        <div class="subcat-disclosed__el{if $is_subcat_lvl2} js-subcatmenu-el has-subs{/if}{if $type_image_subcat == 'image'} align-center{/if}">
+                            {if $is_subcat_lvl2}
+                                <i class="js-catmenu-el-caret cat-menu__el-caret fa"></i>
+                            {/if}
+                            <div class="subcat-disclosed__el-name">
+                                <a  href="{$catlvl2.url}">{$catlvl2.name}</a>
+                            </div>
+                            {if !empty($type_image_subcat) && $type_image_subcat == 'image' && !$wa->isMobile()}
+                                {if isset($Wmimages[$catlvl2.id].image) && !isset($catlvl2.page)}
+                                    {$catlvl2.params.image = $Wmimages[$catlvl2.id].image}
+                                {/if}
+                                {if isset($skImages[$catlvl2.id].image)}
+                                    {$catlvl2.params.image = $skImages[$catlvl2.id].image}
+                                {/if}
+                                <a href="{$catlvl2.url}" class="subcat-disclosed__el-img">
+                                    {if $theme_settings.categories_menu_images_lazy}
+                                        <img class="js-cat-submenu-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($catlvl2.params.image)}{$catlvl2.params.image}{else}{$default_image}{/if}" alt="{$catlvl2.name}" />
+                                    {else}
+                                        <img class="js-cat-submenu-image" src="{if isset($catlvl2.params.image)}{$catlvl2.params.image}{else}{$default_image}{/if}" alt="{$catlvl2.name}" />
+                                    {/if}
+                                </a>
+                            {/if}
+                            {if !empty($type_image_subcat) && $type_image_subcat == 'icon' && !$wa->isMobile()}
+                                {if isset($Wmimages[$catlvl2.id].icon) && !isset($catlvl2.page)}
+                                    {$catlvl2.params.icon = $Wmimages[$catlvl2.id].icon}
+                                {/if}
+                                {if isset($skImages[$catlvl2.id].icon)}
+                                    {$catlvl2.params.icon = $skImages[$catlvl2.id].icon}
+                                {/if}
+                                {if isset($catlvl2.params.icon) && $catlvl2.params.icon}
+                                    <a href="{$catlvl2.url}" class="subcat-disclosed__el-icon">
+                                        {if $theme_settings.categories_menu_images_lazy}
+                                            <img class="js-cat-submenu-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{$catlvl2.params.icon}" alt="{$catlvl2.name}">
+                                        {else}
+                                            <img class="js-cat-submenu-image" src="{$catlvl2.params.icon}" alt="{$catlvl2.name}">
+                                        {/if}
+                                    </a>
+                                {/if}
+                            {/if}
+
+                            {if $is_subcat_lvl2}
+                                <div class="subcat-disclosed__subs js-submenu">
+                                    {foreach $catlvl2.childs as $catlvl3}
+                                        {if !isset($catlvl3.params.menu_hide)}
+                                            <div class="subcat-disclosed__sub">
+                                                <a href="{$catlvl3.url}">{$catlvl3.name}</a>
+                                            </div>
+                                        {/if}
+                                    {/foreach}
+                                </div>
+                            {/if}
+                        </div>
+                     {$index = $index + 1}
+                {/if}
+            {/foreach}
+        </div>
+    </div>
+</div>
+{/strip}
+

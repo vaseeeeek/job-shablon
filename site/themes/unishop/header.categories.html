@@ -1,0 +1,208 @@
+{strip}
+
+{$categories = []}
+{if $theme_settings.main_categories_content == 'app-menu' && $wa->menu && (int)$theme_settings.categories_menu_id_app_menu > 0}
+    {$id_menu = $theme_settings.categories_menu_id_app_menu}
+    {$categories = $wa->menu->get($id_menu)}
+{else if $theme_settings.main_categories_content == 'catalog'}
+    {$categories = $wa->shop->categories(0, null, true, true)}
+
+    {if class_exists('shopSkcatimagePlugin')}
+        {$skImages = shopSkcatimageHelper::getImages()}
+    {elseif class_exists('shopWmimageincatPlugin')}
+        {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+    {/if}
+{/if}
+
+{$res_categories = []}
+
+{if isset($category)}
+    {$selected_category=$category.id}
+{else}
+    {$selected_category=null}
+{/if}
+
+{$max_categories = 0}
+{if ($wa->currentUrl(false, true) == $wa_app_url && $wa_app == 'shop') && $theme_settings.show_sidebar_mainpage}
+    {$is_static_menu = true}
+    {if $theme_settings.max_sidebar_mainpage_categories}
+        {$max_categories = $theme_settings.max_sidebar_mainpage_categories}
+    {/if}
+{else}
+    {$is_static_menu = false}
+    {if $theme_settings.max_sidebar_dropdown_categories}
+        {$max_categories = $theme_settings.max_sidebar_dropdown_categories}
+    {/if}
+{/if}
+
+
+{* add links from pages *}
+{if $theme_settings.categories_menu_add_links}
+    {$add_links = []}
+    {$add_links_res = []}
+    {if $theme_settings.categories_menu_add_links == 'app-menu' && $theme_settings.main_categories_content != 'app-menu' && $wa->menu && (int)$theme_settings.categories_menu_id_app_menu > 0}
+        {$id_menu = $theme_settings.categories_menu_id_app_menu}
+        {$add_links_res = $wa->menu->get($id_menu)}
+    {else}
+        {if $theme_settings.categories_menu_add_links == 'site-pages'}
+            {if $wa->site}{$add_links = $wa->site->pages()}{/if}
+        {elseif $theme_settings.categories_menu_add_links == 'shop-pages'}
+            {if $wa->shop}{$add_links = $wa->shop->pages()}{/if}
+        {elseif $theme_settings.categories_menu_add_links == 'blog-pages'}
+            {if $wa->blog}{$add_links = $wa->blog->pages()}{/if}
+        {elseif $theme_settings.categories_menu_add_links == 'photos-pages'}
+            {if $wa->photos}{$add_links = $wa->photos->pages()}{/if}
+        {elseif $theme_settings.categories_menu_add_links == 'hub-pages'}
+            {if $wa->hub}{$add_links = $wa->hub->pages()}{/if}
+        {/if}
+
+        {$ids = ","|explode:$theme_settings.categories_menu_add_links_ids}
+        {if count($add_links) > 0 && count($ids) > 0}
+            {foreach $add_links as $p}
+                {if in_array($p.id, $ids)}
+                    {$pId = "add`$p.id`"}
+                    {$add_link = ['name' => $p.title, 'url' => $p.url, 'childs' => [], 'id' => $pId, 'page'=>1]}
+                    {if isset($p.childs) && $p.childs && count($p.childs)}
+                        {$add_link['childs'] = $p.childs}
+                        {foreach $add_link.childs as $key => $child}
+                            {$add_link.childs[$key]["page"] = 1}
+                            {if !isset($add_link.childs[$key]['childs'])}{$add_link.childs[$key]['childs'] = []}{/if}
+                            {if isset($add_link.childs[$key]['icon'])}
+                                {$add_link.childs[$key]['params']['icon'] = $add_link.childs[$key]['icon']}
+                            {/if}
+                            {if isset($add_link.childs[$key]['image'])}
+                                {$add_link.childs[$key]['params']['image'] = $add_link.childs[$key]['image']}
+                            {/if}
+                        {/foreach}
+                    {/if}
+                    {if isset($p.icon)}
+                        {$add_link['params']['icon'] = $p.icon}
+                    {/if}
+                    {if isset($p.submenu_columns)}
+                        {$add_link['params']['submenu_columns'] = $p.submenu_columns}
+                    {/if}
+                    {if isset($p.submenu_pic)}
+                        {$add_link['params']['submenu_pic'] = $p.submenu_pic}
+                    {/if}
+                    {if strlen($p.url)>1 && $wa->currentUrl() == $p.url}
+                        {$selected_category=$pId}
+                    {/if}
+                    {$add_links_res[] = $add_link}
+                {/if}
+            {/foreach}
+        {/if}
+    {/if}
+    {if count($add_links_res) > 0}
+        {if $theme_settings.categories_menu_add_links_end}
+            {$categories = $categories|@array_merge:$add_links_res}
+        {else}
+            {$categories = $add_links_res|@array_merge:$categories}
+        {/if}
+    {/if}
+{/if}
+
+
+{* hide lasted categories to ELSE link *}
+{$else_categories = []}
+{if !empty($max_categories) && (!$wa->isMobile() || ($wa->isMobile() && $wa->cookie("is_desktop_for_mobile") == 1))}
+    {$index = 0}
+    {foreach $categories as $cat}
+        {if !isset($cat.params.menu_hide)}
+            {$index = $index + 1}
+            {if $index <= $max_categories}
+                {$res_categories[] = $cat}
+            {else}
+                {$else_categories[] = $cat}
+            {/if}
+        {/if}
+    {/foreach}
+    {if !empty($else_categories)}
+        {$res_categories[] = ['name' => 'Else', 'id' => 'else', 'url' => '#', 'childs' => $else_categories]}
+    {/if}
+{else}
+    {$res_categories = $categories}
+{/if}
+
+{$is_retina = $theme_settings.categories_menu_images_retina && !empty($skImages)}
+<div id="header-nav-categories"{if $theme_settings.categories_menu_dropdown_delay} data-delay="1"{/if} class="header-nav-categories_wrap js-drop-down-wrap{if $is_static_menu} desktop-show{/if}" data-retina="{$is_retina}" data-lazy="{$theme_settings.categories_menu_images_lazy}">
+    {if !$is_static_menu && $theme_settings.categories_hover_bg}<div class="js-bg categories-nav-bg mfp-bg mfp-ready"></div>{/if}
+    <div class="drop-down-wrap">
+        <div class="cat-menu js-catmenu-wrap">
+            {foreach $res_categories as $cat}
+                {if !isset($cat.params.menu_hide)}
+                    {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
+                        {$type_view_subcat = $cat.params.submenu_columns}
+                    {else if $theme_settings.type_menu_subcategories}
+                        {$type_view_subcat = $theme_settings.type_menu_subcategories}
+                    {/if}
+                    {if !isset($type_view_subcat) || ($type_view_subcat != "columns")}
+                        {$type_view_subcat = "one_column"}
+                    {/if}
+
+
+
+                    {$is_subcat = 0}
+                    {if count($cat.childs) && $theme_settings.count_categories_levels > 1}
+                        {foreach $cat.childs as $child}
+                            {if !isset($child.params.menu_hide)}
+                                {$is_subcat = 1}
+                            {/if}
+                        {/foreach}
+                    {/if}
+                    {if $cat.id == 'else'}
+                        {$is_subcat = 1}
+                    {/if}
+                    <div class="{if $is_subcat}js-cat-subs-{if $type_view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__el{if $theme_settings.categories_menu_dropdown_relative == "parent"} position-relative {/if}">
+                        {if $is_subcat}
+                            <i class="js-catmenu-el-caret cat-menu__el-caret fa"></i>
+                        {/if}
+
+                        {if $cat.id == 'else'}
+                            <div class="cat-menu__el-link">
+                                <span class="cat-menu__el-title cat-menu__el-title--else bs-color">
+                                    [`Else categories`]
+                                </span>
+
+                            </div>
+                        {else}
+                            <a class="cat-menu__el-link" href="{$cat.url}">
+                                {if $theme_settings.icon_dropdown_menu_subcategories}
+                                    {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
+                                        {$cat.params.icon = $Wmimages[$cat.id].icon}
+                                    {/if}
+                                    {if isset($skImages[$cat.id].icon)}
+                                        {$cat.params.icon = $skImages[$cat.id].icon}
+                                    {/if}
+                                    {if isset($cat.params.icon)}
+                                        <div class="cat-menu__el-icon">
+                                            {if $theme_settings.categories_menu_images_lazy}
+                                                <img class="js-cat-menu-image" alt="{$cat.name}" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.icon}" />
+                                            {else}
+                                                <img class="js-cat-menu-image" alt="{$cat.name}" src="{$cat.params.icon}" />
+                                            {/if}
+                                        </div>
+                                    {/if}
+                                {/if}
+                                <div class="cat-menu__el-title">
+                                    {$cat.name}
+                                </div>
+                            </a>
+                        {/if}
+
+                        {if $is_subcat}
+                            {if isset($wa_parent_theme_path)}
+                                {$subcatFile = "`$wa_parent_theme_path`/header.subcat.`$type_view_subcat`.html"}
+                            {else}
+                                {$subcatFile = "header.subcat.`$type_view_subcat`.html"}
+                            {/if}
+
+                            {include file=$subcatFile}
+                        {/if}
+                    </div>
+                {/if}
+            {/foreach}
+        </div>
+    </div>
+</div>
+{if $is_static_menu && $theme_settings.categories_hover_bg && $theme_settings.count_categories_levels > 1}<div class="js-bg categories-nav-bg mfp-bg mfp-ready"></div>{/if}
+{/strip}

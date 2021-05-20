@@ -1,0 +1,43 @@
+{strip}
+{if count($category.subcategories) > 0}
+    {$is_subcategory_filter_save = $theme_settings.category_filter_subcategory_save}
+    {$subcategory_filter_aliases = $theme_settings.category_filter_aliases_subcategory_save}
+
+    <div class="js-category-subcategories"{if $is_subcategory_filter_save} data-save-filters="true"{if $subcategory_filter_aliases} data-save-filters-aliases="{$subcategory_filter_aliases}"{/if}{/if}>
+        {if isset($category.params.sub_view) && !empty($category.params.sub_view)}
+            {$sub_view = $category.params.sub_view}
+        {/if}
+
+        {if class_exists('shopSkcatimagePlugin')}
+            {$skImages = shopSkcatimageHelper::getImages()}
+        {elseif class_exists('shopWmimageincatPlugin')}
+            {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+        {/if}
+
+        {if !$products}
+            {if !isset($sub_view)}
+                {$sub_view = $theme_settings.category_view_subs_empty_products}
+            {/if}
+
+            {if $sub_view == 'image'}
+                {include file="categories.tile.html" categories=$category.subcategories}
+            {else if $sub_view == 'icon'}
+                {include file="category.subs.icons.html"}
+            {else}
+                {include file="category.subs.noimage.html"}
+            {/if}
+         {else}
+            {if !isset($sub_view)}
+                {$sub_view = $theme_settings.category_view_subs_not_empty_products}
+            {/if}
+            {if $sub_view == 'image'}
+                {include file="categories.tile.html" categories=$category.subcategories}
+            {else if $sub_view == 'icon'}
+                {include file="category.subs.icons.html"}
+            {else}
+                {include file="category.subs.noimage.html"}
+            {/if}
+        {/if}
+    </div>
+{/if}
+{/strip}

@@ -1,0 +1,270 @@
+{strip}
+{$short_features = []}
+{if isset($p.features) && !empty($p.features) && !empty($theme_settings.show_product_list_features)}
+    {if $theme_settings.product_preview_features == 'short'}
+        {if !empty($theme_settings.list_features_codes)}
+            {$aliases = ","|explode:$theme_settings.list_features_codes}
+            {foreach $p.features as $f_code => $f_value}
+                {if in_array($f_code, $aliases)}
+                    {$short_features[$f_code] = $f_value}
+                {/if}
+            {/foreach}
+        {/if}
+    {else if $theme_settings.product_preview_features == 'first'}
+        {$count_short_features = (int) $theme_settings.product_preview_features_count}
+        {if $count_short_features}
+            {foreach $p.features as $f_code => $f_value}
+                {if $f_value@iteration > $count_short_features}{break}{/if}
+                {$short_features[$f_code] = $f_value}
+            {/foreach}
+        {/if}
+    {else}
+        {$short_features = $product.features}
+    {/if}
+{/if}
+
+{$default_image = "`$wa_theme_url`img/dummy200.png"}
+{if !empty($theme_settings.default_image)}
+    {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+{/if}
+
+{$images = []}
+{if isset($products_images[$p.id]) && !empty($products_images[$p.id])}
+    {$images = array_values($products_images[$p.id])}
+{/if}
+
+{$cart_add_action = $theme_settings.cart_add_action}
+{if $wa->isMobile()}{$cart_add_action = $theme_settings.cart_add_action_mobile}{/if}
+
+{$is_storequickorder =  class_exists('shopStorequickorderPlugin') && $theme_settings.fastorder == "storequickorder" && $theme_settings.show_product_list_fast_cart}
+{$is_skoneclick = class_exists('shopSkoneclickHelper') && $theme_settings.fastorder == "skoneclick" && $theme_settings.show_product_list_fast_cart && shopSkoneclickHelper::isActive()}
+{$is_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click" && $theme_settings.show_product_list_fast_cart}
+
+{$is_price_range = $theme_settings.product_list_price_range}
+{$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
+
+{function getDiscountProductList price=null compare_price=null}
+    {if $theme_settings.show_product_discount == 1 && $compare_price > $price}
+        {$discount = (($compare_price-$price)/$compare_price)*100}
+        {if $theme_settings.show_product_discount_round == "ceil"}
+            {$discount = ceil($discount)}
+        {else if $theme_settings.show_product_discount_round == "floor"}
+            {$discount = floor($discount)}
+        {else}
+            {$discount = round($discount)}
+        {/if}
+        {if $discount >= (int)$theme_settings.show_product_discount_minimal && $price > 0}
+            <div class="product-discount">-{$discount}%</div>
+        {/if}
+    {/if}
+{/function}
+
+{$isProductListPreviewTileGallery = $theme_settings.product_preview_list_gallerytile && !$wa->isMobile()}
+{$preview_image = $wa->shop->productImgUrl($p, '60')}
+<div class="products-list_item js-product-line js-product-cart-preview{if $isProductListPreviewTileGallery} tile-gallery js-tile-gallery{/if}">
+    <div class="products-list_item-row products-list_item-top">
+        <div class="products-list_item-left">
+            {$badge_html = $wa->shop->badgeHtml($p.badge)}
+            {if $badge_html}{$badge_html}{/if}
+            {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
+            <a class="products-list_item-img js-tile-gallery-block" href="{$p.frontend_url}" title="{$p.name}">
+                {if class_exists('shopProtilegalleryPlugin') && $theme_settings.product_line_tilegallery}
+                    {$htmlProtilegallery = shopProtilegalleryPlugin::productItem($p)}
+                {/if}
+                {if isset($htmlProtilegallery) && !empty($htmlProtilegallery)}
+                    {$htmlProtilegallery}
+                {else}
+                    {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $default_image])}
+                    {if $theme_settings.preview_product_images_lazy && !empty($p.image_id)}
+                        {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                    {/if}
+                    {$image}
+                {/if}
+                {if $isProductListPreviewTileGallery}
+                    {$tile_length = count($images)}
+                    {if (int)$theme_settings.product_preview_gallerytile_count && count($images) > (int)$theme_settings.product_preview_gallerytile_count}
+                        {$tile_length = (int)$theme_settings.product_preview_gallerytile_count}
+                    {/if}
+                    <span class="tile-gallery__items js-tile-gallery-items">
+                        {if count($images) > 1}
+                            {for $iteration=1 to $tile_length}
+                                <span class="tile-gallery__item js-tile-gallery-item" data-img="{$images[$iteration-1].url_180}" style="width: calc(100%/{$tile_length});"></span>
+                            {/for}
+                        {/if}
+                    </span>
+                {/if}
+            </a>
+        </div>
+        <div class="products-list_item-center">
+            <div class="products-list_item-name">
+                <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}" href="{$p.frontend_url}">{$p.name}</a>
+                {if $theme_settings.show_product_preview_video && isset($p.video_url) && !empty($p.video_url)}
+                    <i data-href="{$p.video_url}" class="js-video-popup products-list_item-video ion-social-youtube-outline" aria-hidden="true"></i>
+                {/if}
+            </div>
+
+            {$is_badge_saving = ($theme_settings.show_product_badge_saving == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
+            {$is_badge_percent = ($theme_settings.show_product_discount == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
+            {$is_rating = ($p.rating > 0 && $theme_settings.show_product_rates)}
+            {if $is_rating || $is_badge_saving || $is_badge_percent}
+                <div>
+                    {if $is_badge_saving || $is_badge_percent}
+                        <div class="products-list_item-discounts">
+                            {if $is_badge_saving}
+                                {$product_saving = $product.price - $product.compare_price}
+                                <span class="product-saving">{shop_currency_html($product_saving)}</span>
+                            {/if}
+                            {getDiscountProductList price=$product.price compare_price=$product.compare_price}
+                        </div>
+                    {/if}
+
+                    {if $p.rating > 0 && $theme_settings.show_product_rates}
+                        <div class="products-list_item-rating">
+                            <span class="rating nowrap">{$wa->shop->ratingHtml($p.rating, 10)}</span>
+                        </div>
+                    {/if}
+                </div>
+            {/if}
+
+
+
+            {if $theme_settings.show_product_list_sku && isset($p.skus_list.sku) && !empty($p.skus_list.sku)}
+            <div class="product-list_item-sku hint">
+                [`Vendor code`]: {$p.skus_list.sku}
+            </div>
+            {/if}
+
+            {if $p.summary}
+            <div class="products-list_item-desc">
+                {strip_tags($p.summary)|truncate:300}
+            </div>
+            {/if}
+
+            {if count($short_features) > 0}
+                <table class="products-list-features product_features">
+                    {foreach $short_features as $f_code => $f_value}
+                        <tr class="product_features-item {if $features[$f_code].type == 'divider'} divider{/if}">
+                            <td class="product_features-title">
+                                <span>{$features[$f_code].name|escape}</span>
+                            </td>
+                            <td class="product_features-value">
+                                {if is_array($f_value)}
+                                    {if $features[$f_code].type == 'color'}
+                                        {implode('<br /> ', $f_value)}
+                                    {else}
+                                        {implode(', ', $f_value)}
+                                    {/if}
+                                {else}
+                                    {$f_value}
+                                {/if}
+                            </td>
+                        </tr>
+                    {/foreach}
+                </table>
+            {/if}
+        </div>
+        <div class="products-list_item-right">
+            <div class="products-list_item-price">
+                {if empty($p.price) && !empty($theme_settings.text_price_zero)}
+                    <span class="bold">{$theme_settings.text_price_zero}</span>
+                {elseif $is_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}
+                    <span class="small-price"><span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span class="nowrap">{shop_currency_html($p.max_price)}</span></span>
+                {else}
+                    <span class="price">{shop_currency_html($p.price)}</span>
+                    {if $p.compare_price > 0}<span class="old-price">{shop_currency_html($p.compare_price)}</span>{/if}
+                {/if}
+            </div>
+            {if $available}
+                {$is_hide_btn = empty($p.price) && !empty($theme_settings.zero_price_off_add2cart)}
+                {if !$is_hide_btn}
+                    <form {if $cart_add_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$cart_add_action}" class="js-add-to-cart products-list_item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
+
+                        {if $theme_settings.show_product_list_count_cart}
+                            <span class="js-qty cart-qty cart-qty--mini">
+                                <span data-type="-" class="js-qty-action cart-qty_act sd-color">-</span>
+                                <input type="text" name="quantity" value="1" class="js-number">
+                                <span data-type="+" class="js-qty-action cart-qty_act sd-color">+</span>
+                            </span>
+                        {/if}
+
+                        {if $p.sku_count > 1}
+                            <input type="hidden" name="product_id" value="{$p.id}">
+                            {if $theme_settings.show_product_list_count_cart}
+                                <span class="button js-product-card-dialog addtocart addtocart--mini  ion-android-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
+                            {else}
+                                <span class="button js-product-card-dialog addtocart addtocart--large ion-android-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2cart_label}</span>
+                            {/if}
+                        {else}
+                            <input type="hidden" name="product_id" value="{$p.id}">
+                            {if $theme_settings.show_product_list_count_cart}
+                                <span class="button js-submit-form addtocart addtocart--mini ion-android-cart"></span>
+                            {else}
+                                <span class="button js-submit-form addtocart addtocart--large ion-android-cart">{$add2cart_label}</span>
+                            {/if}
+                        {/if}
+
+                        {if $is_skoneclick}
+                            <span class="button-fastorder__sk-oneclick js-sk-oneclick-open _show" data-type="product" data-product-id="{$p.id}">{$theme_settings.plugin_oneclick_button_text}</span>
+                        {else if $is_buy1click}
+                            {shopBuy1clickViewHelper::getButton($p.id)}
+                        {else if $is_storequickorder}
+                            {shopStorequickorderPlugin::product_button()}
+                        {/if}
+                    </form>
+                {/if}
+                {if $theme_settings.show_preview_stock}
+                    <div class="pr-stock product-line-stock">
+                        {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
+                            <div class="pr-stock_el pr-stock_el-critical">
+                                {if !empty($theme_settings.text_product_preorder)}{$theme_settings.text_product_preorder}{else}[`Pre-order only`]{/if}
+                            </div>
+                        {else}
+                            <div class="pr-stock_el pr-stock_el-high">
+                                [`In stock`]
+                                {if $theme_settings.show_preview_stock_count && $p.count !== null}
+                                    : {$p.count} [`unit`]
+                                {/if}
+                            </div>
+                        {/if}
+                    </div>
+                {/if}
+            {else}
+                <div class="product-tile-stock-off nowrap">
+                    <div class="product-out-stock">
+                        {if !empty($theme_settings.text_product_none_stock)}{$theme_settings.text_product_none_stock}{else}[`Out of stock`]{/if}
+                    </div>
+                </div>
+            {/if}
+
+
+        </div>
+    </div>
+
+    <div class="products-list_item-row products-list_item-bottom">
+        <div class="products-list_item-left">
+            {if $theme_settings.product_preview_dialog}
+                <span class="js-product-card-dialog products-list_dialog link-action-icon icon-before" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">[`Quick view`]</span>
+            {/if}
+        </div>
+        <div class="products-list_item-center">
+            <div class="products-list_actions">
+                {if $theme_settings.favorites_products}
+                    <span data-product="{$p.id}" class="js-add-to-favorites pr-action add-to-favorite {if in_array($p.id, $favorites)} active{/if}">
+                        <i class="fa fa-heart"></i>
+                        <span class="pr-action-text">[`To favorites`]</span>
+                    </span>
+                {/if}
+                {if $theme_settings.compare_products}
+                    <span class="js-add-to-compare pr-action add-to-compare {if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                        <i class="fa fa-files-o"></i>
+                        <span class="pr-action-text">[`Compare`]</span>
+                    </span>
+                {/if}
+            </div>
+        </div>
+        <div class="products-list_item-right"></div>
+    </div>
+
+
+</div>
+{/strip}
