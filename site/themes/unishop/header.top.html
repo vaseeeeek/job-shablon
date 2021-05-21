@@ -1,24 +1,12 @@
 {strip}
-<!-- Спросить о настройке -->
 {$is_mobile = ($wa->isMobile() && ($wa->cookie("is_desktop_for_mobile") != 1 || !$theme_settings.switch_version))}
 
 {$isButtonSeoRegionsPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.use_region_plugin == 'seo_regions' && class_exists('shopRegionsViewHelper'))}
 {$isButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.use_region_plugin == 'cityselect' && class_exists('shopCityselectPlugin'))}
 
-<div class="header-top">
-    <div class="container">
-        
-
-        {if class_exists(shopPushHelper)}
-            {shopPushHelper::getButton()}
-        {/if}
-
-        {if $is_mobile}
-            {include file="header.top.menu-mobile.html"}
-        {else}
-            {include file="header.top.menu-desktop.html"}
-        {/if}
-        <div class="header-top__right">
+<div class="header_top">
+    <div class="clearfix l-wrapper">
+        <div class="float-right">
 
             {if $isButtonSeoRegionsPlugin}
                 <div class="header-top_region">{shopRegionsViewHelper::getWindow()}</div>
@@ -81,6 +69,16 @@
                 </div>
             {/if}
         </div>
+
+        {if class_exists(shopPushHelper)}
+            {shopPushHelper::getButton()}
+        {/if}
+
+        {if $is_mobile}
+            {include file="header.top.menu-mobile.html"}
+        {else}
+            {include file="header.top.menu-desktop.html"}
+        {/if}
     </div>
 </div>
 {/strip}

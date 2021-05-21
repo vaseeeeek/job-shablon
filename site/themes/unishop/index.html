@@ -1,6 +1,5 @@
 {strip}
-<!-- Спросить о настройке -->
-{if $theme_settings.test_settings} 
+{if $theme_settings.test_settings}
     {foreach from=$theme_settings key=name item=setting}
         {$cookieSettings = $wa->cookie($name)}
         {if $cookieSettings && $cookieSettings != 'null'}
@@ -8,12 +7,13 @@
         {/if}
     {/foreach}
 {/if}
+
 {if (!isset($wa_parent_theme_path) || !$wa_parent_theme_path)}
     {$parent_theme_path = $wa_active_theme_path}
 {else}
     {$parent_theme_path = $wa_parent_theme_path}
 {/if}
-<!-- Спросить о настройке -->
+
 {$is_icon_font_swap = !empty($theme_settings.load_icon_font_display_swap)}
 {$is_icon_font_include_footer = !empty($theme_settings.load_icon_font_footer)}
 {$is_icons_hidden = ($is_icon_font_include_footer || $is_icon_font_swap)}
@@ -21,7 +21,7 @@
 <html lang="ru">
 <head prefix="og: http://ogp.me/ns#{if  isset($action) &&  $action == 'product'} product: http://ogp.me/ns/product#{/if}">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <!-- Спросить о настройке -->
+
     {if $wa->isMobile() && $wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version}
         <meta name="viewport" content="width=1280" />
     {else}

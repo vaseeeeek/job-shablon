@@ -2317,7 +2317,7 @@ var infoMessage = {
         var _this = this,
             id = container.data('id');
 
-        if(!$.cookie("close_info_massage_" + id)){
+        if(!$.cookie("info_massage_close_" + id)){
             return true;
         }
 
@@ -2335,7 +2335,7 @@ var infoMessage = {
 
         close.on("click", function(){
             container.detach();
-            $.cookie("close_info_massage_" + id, 1, {path: '/', expires: 365});
+            $.cookie("info_massage_close_" + id, 1, {path: '/', expires: 365});
         });
     }
 };

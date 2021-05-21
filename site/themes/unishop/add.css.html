@@ -53,16 +53,16 @@
         {if $width_logo > 0} @media (min-width: 950px) {  .footer_logo img, .header_logo img{  max-width: {$width_logo}px; } } {/if}
         {if $width_logo_950 > 0} @media (max-width: 950px) { .footer_logo img, .header_logo img{  max-width: {$width_logo_950}px; } }  {/if}
 
-        {if $theme_settings.info_head_background}
+        {if $theme_settings.info_message_background}
             .info-massage{
-                background-color: {$theme_settings.info_head_background};
+                background-color: {$theme_settings.info_message_background};
             }
         {/if}
 
-        {if $theme_settings.info_head_color}
+        {if $theme_settings.info_message_color}
             .info-massage,
             .info-massage__text a{
-                color: {$theme_settings.info_head_color};
+                color: {$theme_settings.info_message_color};
             }
         {/if}
 

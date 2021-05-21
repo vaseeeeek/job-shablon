@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="1">
+<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="0">
   <name locale="en_US">Unishop</name>
   <name locale="ru_RU">Unishop</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
@@ -269,41 +269,41 @@
         </option>
       </options>
     </setting>
-    <setting var="divider_info_head" control_type="group_divider">
+    <setting var="divider_info_message" control_type="group_divider">
       <value/>
       <name locale="en_US">Info message</name>
       <name locale="ru_RU">Информационное сообщение</name>
     </setting>
-    <setting var="info_head" control_type="checkbox">
-      <value>1</value>
+    <setting var="info_message" control_type="checkbox">
+      <value/>
       <name locale="ru_RU">Выводить информационное сообщение верхним баннером</name>
       <name locale="en_US">Display informational message top banner</name>
       <description locale="ru_RU">Можно использовать для показа сообщений о сборе cookie, неполадках на сайте и других важных сообщениях, которые увидят все пользователи</description>
       <description locale="en_US">You can use it to show messages about collecting cookies, site problems and other important messages that all users will see.</description>
     </setting>
-    <setting var="info_head_text" control_type="text">
+    <setting var="info_message_text" control_type="text">
       <value locale="ru_RU">Мы используем файлы «cookie», чтобы запоминать сведения о пользователе и отображать подходящую ему рекламу и другие материалы. Получить более подробную информацию или изменить настройки можно &lt;a href="#"&gt;здесь&lt;/a&gt;.</value>
       <value locale="en_US">We use cookies to remember user information and display ads and other relevant content. You can get more detailed information or change the settings. &lt;a href="#"&gt;здесь&lt;/a&gt;.</value>
       <name locale="ru_RU">Текст информационного сообщения (можно использовать html)</name>
       <name locale="en_US">The text of the information message (you can use html)</name>
     </setting>
-    <setting var="info_head_background" control_type="color">
+    <setting var="info_message_background" control_type="color">
       <value/>
       <name locale="ru_RU">Цвет фона информационного сообщения (необязательно)</name>
       <name locale="en_US">Background message background color (optional)</name>
     </setting>
-    <setting var="info_head_color" control_type="color">
+    <setting var="info_message_color" control_type="color">
       <value/>
       <name locale="ru_RU">Цвет текста информационного сообщения (необязательно)</name>
       <name locale="en_US">The text color of the informational message (optional)</name>
     </setting>
-    <setting var="info_head_icon" control_type="image">
-      <value>img/info_massage.png?v1620210445</value>
+    <setting var="info_message_icon" control_type="image">
+      <value/>
       <filename>img/info_massage.*</filename>
       <name locale="ru_RU">Иконка сообщения (необязательно, выводится перед текстом)</name>
       <name locale="en_US">Message icon (optional, displayed before the text)</name>
     </setting>
-    <setting var="info_head_id" control_type="text">
+    <setting var="info_message_id" control_type="text">
       <value>1</value>
       <name locale="ru_RU">Идентификатор сообщения (Произвольное число)</name>
       <name locale="en_US">Message ID (arbitrary number)</name>
@@ -365,7 +365,7 @@
       <name locale="ru_RU">Флаги в валютах</name>
     </setting>
     <setting var="header_links" control_type="select">
-      <value>shop-pages</value>
+      <value>site-pages</value>
       <name locale="ru_RU">Ссылки в верхнем меню</name>
       <name locale="en_US">Header links</name>
       <description locale="ru_RU">Ссылки верхнего меню навигации могут определяться либо основной структурой сайта (меню {$wa-&gt;apps()} настраивается в приложении «Сайт» в разделе «Настройки»), либо информационным страницами выбранного приложения</description>
@@ -417,6 +417,13 @@
       <value/>
       <name locale="en_US">Show link on the top menu "Home"</name>
       <name locale="ru_RU">Выводить в верхнем меню ссылку "Главная"</name>
+    </setting>
+    <setting var="header_links_apps_items" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Add to header menu pages to apps</name>
+      <name locale="ru_RU">Дополнительно вывести в верхнем меню ссылки на приложения</name>
+      <description locale="ru_RU">Список выводимых приложений можно редактировать в приложении Сайт → Настройки</description>
+      <description locale="en_EN">The list of displayed applications can be edited in the application → Site → Settings</description>
     </setting>
     <setting var="login_popup" control_type="checkbox">
       <value>1</value>
@@ -3495,12 +3502,12 @@
       <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Основные файлы стилей и скриптов</name>
     </setting>
     <setting var="generation_style_off" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="ru_RU">Отключить минимизированные файлы стилей</name>
       <name locale="en_US">Disable the minimized style files</name>
     </setting>
     <setting var="min_script_off" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="ru_RU">Отключить минимизированные файлы скриптов</name>
       <name locale="en_US">Disable minimized script files</name>
     </setting>
