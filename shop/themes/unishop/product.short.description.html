@@ -7,42 +7,42 @@
 {$features_list = $features}
 {if !empty($sku_features)}{$features_list = $sku_features}{/if}
 
-{$product_features_list = $product.features}
-{if !empty($product.skus[$product.sku_id].features)}{$product_features_list = $product.skus[$product.sku_id].features}{/if}
+{$Product__features_list = $product.features}
+{if !empty($product.skus[$product.sku_id].features)}{$Product__features_list = $product.skus[$product.sku_id].features}{/if}
 
 {$short_features = []}
-{if !empty($product_features_list) && !empty($theme_settings.product_card_right_block_features)}
-    {if $theme_settings.product_card_right_block_features == 'short'}
-        {if !empty($theme_settings.list_features_codes)}
-            {$aliases = ","|explode:$theme_settings.list_features_codes}
-            {foreach $product_features_list as $f_code => $f_value}
+{if !empty($Product__features_list) && !empty($theme_settings.product_page_right_block_features)}
+    {if $theme_settings.product_page_right_block_features == 'short'}
+        {if !empty($theme_settings.codes_features_list)}
+            {$aliases = ","|explode:$theme_settings.codes_features_list}
+            {foreach $Product__features_list as $f_code => $f_value}
                 {if in_array($f_code, $aliases)}
                     {$short_features[$f_code] = $f_value}
                 {/if}
             {/foreach}
         {/if}
-    {else if $theme_settings.product_card_right_block_features == 'first'}
-        {$count_short_features = (int) $theme_settings.product_card_right_block_features_count}
+    {else if $theme_settings.product_page_right_block_features == 'first'}
+        {$count_short_features = (int) $theme_settings.product_page_right_block_features_count}
         {if $count_short_features}
-            {foreach $product_features_list as $f_code => $f_value}
+            {foreach $Product__features_list as $f_code => $f_value}
                 {if $f_value@iteration > $count_short_features}{break}{/if}
                 {$short_features[$f_code] = $f_value}
             {/foreach}
         {/if}
     {else}
-        {$short_features = $product_features_list}
+        {$short_features = $Product__features_list}
     {/if}
 {/if}
 
-{if $theme_settings.product_card_show_brand_right}
-    {if $theme_settings.plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
+{if $theme_settings.product_page_show_brand_right}
+    {if $theme_settings.brands_plugin == 'brands_pro' && class_exists('shopBrandViewHelper')}
         {$_brand_pro = shopBrandViewHelper::getProductBrand($product)}
-    {else if $theme_settings.plugin_brands == 'brands' && class_exists('shopProductbrandsPlugin')}
+    {else if $theme_settings.brands_plugin == 'brands' && class_exists('shopProductbrandsPlugin')}
         {$_brand = shopProductbrandsPlugin::productBrand($product.id)}
     {/if}
 {/if}
 
-{if count($short_features) > 0 || isset($_brand) || isset($_brand_pro) || ($product.summary && $theme_settings.product_card_show_short_description)}
+{if count($short_features) > 0 || isset($_brand) || isset($_brand_pro) || ($product.summary && $theme_settings.product_page_show_short_description)}
     <div class="product_cart-desc">
         {if isset($_brand_pro) && !empty($_brand_pro) && $_brand_pro.image_url}
             <div class="product_brand">
@@ -54,11 +54,11 @@
             </div>
         {/if}
 
-        {if $product.summary && $theme_settings.product_card_show_short_description}
+        {if $product.summary && $theme_settings.product_page_show_short_description}
             <div class="product_summary">
                 {$product.summary|truncate:512}
             </div>
-            {if $product.description  &&  !$wa->get('cart') && $is_show_description}
+            {if $product.description  &&  !$wa->get('cart') && $_show_description}
                 <div class="product_link-more js-move-to-tab" data-tab-content="product-description">
                     <a href="#">[`Detailed description`]</a>
                     <i class="fa fa-arrow-circle-o-down icon" aria-hidden="true"></i>
@@ -67,18 +67,18 @@
         {/if}
 
         {if count($short_features) > 0}
-            <table data-type="{$theme_settings.product_card_right_block_features}" class="js-product-features product_features">
+            <table data-type="{$theme_settings.product_page_right_block_features}" class="js-product-features Product__features">
                 {foreach $short_features as $f_code => $f_value}
                     {if !isset($features_list[$f_code]) && isset($features_list["`$f_code`.0"])}
                         {$features_list[$f_code] = $features_list["`$f_code`.0"]}
                         {$features_list[$f_code].name = $features_list[$f_code].name|replace:'.0':''}
                     {/if}
                     {if !empty($features_list[$f_code])}
-                        <tr class="product_features-item {if $features_list[$f_code].type == 'divider'} divider{/if}">
-                            <td class="product_features-title">
+                        <tr class="Product__features-item {if $features_list[$f_code].type == 'divider'} divider{/if}">
+                            <td class="Product__features-title">
                                 <span>{$features_list[$f_code].name|escape}</span>
                             </td>
-                            <td class="product_features-value">
+                            <td class="Product__features-value">
                                 {if $features_list[$f_code].type != 'divider'}
                                     {if is_array($f_value)}
                                         {if $features_list[$f_code].type == 'color'}
@@ -96,7 +96,7 @@
                 {/foreach}
             </table>
 
-            {if count($product_features_list) > count($short_features) &&  !$wa->get('cart') && $is_show_features}
+            {if count($Product__features_list) > count($short_features) &&  !$wa->get('cart') && $_show_features}
                 <div class="product_link-more js-move-to-tab" data-tab-content="product-options">
                     <a href="#">[`Detailed specifications`]</a>
                     <i class="fa fa-arrow-circle-o-down icon" aria-hidden="true"></i>

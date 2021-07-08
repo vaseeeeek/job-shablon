@@ -1,8 +1,8 @@
 {strip}
 {if $theme_settings.compare_products}
-    {$default_image = "`$wa_theme_url`img/dummy96.png"}
-    {if !empty($theme_settings.default_image)}
-        {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+    {$default_img = "`$wa_theme_url`img/dummy96.png"}
+    {if !empty($theme_settings.default_img)}
+        {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
     {/if}
 
     {$in_comparison = $wa->shop->inComparison()}
@@ -13,19 +13,19 @@
         {$url = $wa->getUrl('/frontend/compare')}
     {/if}
 
-    <div class="aside-wrap compare-products">
-        <div class="aside-wrap_head aside-wrap_head--icon bs-color">
+    <div class="sb-wrap compare-products">
+        <div class="sb-wrap_head sb-wrap_head--icon maincolor">
             <i class="fa fa-files-o icon"></i>
-            <div class="aside-wrap_title">[`Products in comparison`]</div>
+            <div class="sb-wrap_title">[`Products in comparison`]</div>
         </div>
 
         <div class="js-compare-products-full{if count($in_comparison) == 0} display_none{/if}">
-            <div class="js-compare-products-list aside-wrap_content">
+            <div class="js-compare-Products-list sb-wrap_content">
                 <div class="js-compare-template sidebar-product display_none">
                     <a class="sidebar-product_img js-compare-img" href=""></a>
                     <div class="sidebar-product_content ">
                         <a class="sidebar-product_name js-compare-name" href=""></a>
-                        <div><span class="js-add-to-compare active sidebar-product_remove icon-before">[`Delete`]</span></div>
+                        <div><span class="js-compare-add active sidebar-product_remove fa-icon-before">[`Delete`]</span></div>
                     </div>
                 </div>
                 {if count($in_comparison) > 0}
@@ -33,22 +33,22 @@
                     {foreach $products as $p}
                         <div data-product="{$p.id}" class="js-compare-product sidebar-product">
                             <a class="sidebar-product_img" href="{$p.frontend_url}" title="{$p.name}">
-                                {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $default_image])}
+                                {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $default_img])}
                             </a>
                             <div class="sidebar-product_content">
                                 <a class="sidebar-product_name" href="{$p.frontend_url}">{$p.name}</a>
-                                <div><span data-product="{$p.id}" class="js-add-to-compare active sidebar-product_remove icon-before">[`Delete`]</span></div>
+                                <div><span data-product="{$p.id}" class="js-compare-add active sidebar-product_remove fa-icon-before">[`Delete`]</span></div>
                             </div>
                         </div>
                     {/foreach}
                 {/if}
             </div>
-            <div class="aside-wrap_bottom sd-color">
+            <div class="sb-wrap_bottom sdColor">
                 <a class="js-sidebar-compare-link" href="{$url}">[`Go to comparison`]</a> &rarr;
             </div>
         </div>
 
-        <div class="js-compare-products-empty aside-wrap_content{if count($in_comparison) > 0} display_none{/if}">
+        <div class="js-compare-products-empty sb-wrap_content{if count($in_comparison) > 0} display_none{/if}">
             [`Products in compare no`]
         </div>
     </div>

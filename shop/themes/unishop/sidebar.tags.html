@@ -1,24 +1,24 @@
 {strip}
 
 {if class_exists('shopTageditorPlugin')}
-    {$tagcloud = shopTageditorPlugin::tags($wa->shop->tags())}
+    {$tagrepository = shopTageditorPlugin::tags($wa->shop->tags())}
 {else}
-    {$tagcloud = $wa->shop->tags()}
+    {$tagrepository = $wa->shop->tags()}
 {/if}
 
-{if $tagcloud}
+{if $tagrepository}
     <div class="js-tags tags tags--sidebar cloud">
         {$exist_hide_tags = false}
         {$index = 0}
-        {foreach $tagcloud as $key => $tag}
-            {if (int)$theme_settings.count_tags_sidebar > 0 && $index >= (int)$theme_settings.count_tags_sidebar}
+        {foreach $tagrepository as $key => $tag}
+            {if (int)$theme_settings.max_tags_sidebar > 0 && $index >= (int)$theme_settings.max_tags_sidebar}
                 {$exist_hide_tags = true}
             {/if}
-            <a class="bs-color {if $exist_hide_tags}js-tag hide{/if}" href="{$wa_app_url}tag/{$tag.uri_name}/">{$tag.name|escape}</a>
+            <a class="maincolor {if $exist_hide_tags}js-tag hide{/if}" href="{$wa_app_url}tag/{$tag.uri_name}/">{$tag.name|escape}</a>
             {$index = $index+1}
         {/foreach}
         {if $exist_hide_tags}
-            <div class="js-show-tags tags_all sd-color icon-before"><span class="link-half link-half--act">[`Show all`]</span></div>
+            <div class="js-open-tags tags_all sdColor fa-icon-before"><span class="link-half link-half--act">[`Show all`]</span></div>
         {/if}
     </div>
 {/if}

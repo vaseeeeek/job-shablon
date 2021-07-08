@@ -1,40 +1,40 @@
 {strip}
-{$currentPageName = ""}
+{$nameCurrentPage = ""}
 
-{if $action == 'page' && isset($page)}{$currentPageName = $page.name}{/if}
-{if $action == 'category' && isset($category)}{$currentPageName = $category.name}{/if}
-{if $action == 'product' && isset($product)}{$currentPageName = $product.name}{/if}
-{if $action == 'brands'}{$currentPageName = '[`Brands`]'}{/if}
+{if $action == 'page' && isset($page)}{$nameCurrentPage = $page.name}{/if}
+{if $action == 'category' && isset($category)}{$nameCurrentPage = $category.name}{/if}
+{if $action == 'product' && isset($product)}{$nameCurrentPage = $product.name}{/if}
+{if $action == 'brands'}{$nameCurrentPage = '[`Brands`]'}{/if}
 
-{if  $action == 'brandPage' && $theme_settings.plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
+{if  $action == 'brandPage' && $theme_settings.brands_plugin == 'brands_pro' && class_exists('shopBrandViewHelper')}
     {if !isset($breadcrumbs)}{$breadcrumbs = []}{/if}
     {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
-    {if isset($brand)}{$currentPageName = $brand.name}{/if}
-{else if $action == 'brand' && $theme_settings.plugin_brands == 'brands' && class_exists('shopProductbrandsPlugin')}
+    {if isset($brand)}{$nameCurrentPage = $brand.name}{/if}
+{else if $action == 'brand' && $theme_settings.brands_plugin == 'brands' && class_exists('shopProductbrandsPlugin')}
     {if !isset($breadcrumbs)}{$breadcrumbs = []}{/if}
     {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
-    {if isset($brand)}{$currentPageName = $brand.name}{/if}
+    {if isset($brand)}{$nameCurrentPage = $brand.name}{/if}
 {/if}
 
 
-{if $theme_settings.breadcrumbs_subcategories && ($action == "category" || $action == "product") && isset($breadcrumbs) && $breadcrumbs|count > 0}
+{if $theme_settings.breadcrumbs_subcat && ($action == "category" || $action == "product") && isset($breadcrumbs) && $breadcrumbs|count > 0}
     {if !isset($categories)}
         {$categories = $wa->shop->categories(0, null, true, true)}
     {/if}
     {if !empty($categories)}
-        {$categoriesCurrent = $categories}
-        {foreach $breadcrumbs as $key=>$bread}
-            {if isset($bread.url) && !empty($bread.url)}
-                {if empty($categoriesCurrent)}{break}{/if}
-                {foreach $categoriesCurrent as $item}
-                    {if $item.url == $bread.url}
+        {$currentCategories = $categories}
+        {foreach $breadcrumbs as $key=>$breadcrumb}
+            {if isset($breadcrumb.url) && !empty($breadcrumb.url)}
+                {if empty($currentCategories)}{break}{/if}
+                {foreach $currentCategories as $item}
+                    {if $item.url == $breadcrumb.url}
                         {if !empty($item.childs) && $item.childs|count > 1}
                             {foreach $item.childs as $child}
                                 {$breadcrumbs[$key].subs[] = ['url' => $child.url, 'name' => $child.name]}
                             {/foreach}
-                            {$categoriesCurrent = $item.childs}
+                            {$currentCategories = $item.childs}
                         {else}
-                            {$categoriesCurrent = []}
+                            {$currentCategories = []}
                         {/if}
                         {break}
                     {/if}
@@ -51,7 +51,7 @@
     <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
         <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
             <a itemprop="item" href="{$wa_url}"><span itemprop="name">[`Home`]</span></a>
-            {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($currentPageName)} <span class="rarr">&rarr;</span> {/if}
+            {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
             <meta itemprop="position" content="{$position}" />
         </li>
         {if (isset($breadcrumbs) && $breadcrumbs)}
@@ -62,10 +62,10 @@
                         <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> &rarr;
                         <meta itemprop="position" content="{$position}" />
                         {if !$wa->isMobile() && isset($breadcrumb.subs) && !empty($breadcrumb.subs)}
-                            <div class="breadcrumbs__subs">
-                                <div class="breadcrumbs__subs-wrap">
+                            <div class="breadcrumbs__subs__cat">
+                                <div class="breadcrumbs__subs__cat-wrap">
                                     {foreach $breadcrumb.subs as $sub}
-                                        <a class="breadcrumbs__subs-link" href="{$sub.url}">{$sub.name}</a>
+                                        <a class="breadcrumbs__subs__cat-link" href="{$sub.url}">{$sub.name}</a>
                                     {/foreach}
                                 </div>
                             </div>
@@ -74,8 +74,8 @@
                 {/if}
             {/foreach}
         {/if}
-        {if !empty($currentPageName)}
-            <li>{$currentPageName|escape}</li>
+        {if !empty($nameCurrentPage)}
+            <li>{$nameCurrentPage|escape}</li>
         {/if}
     </ul>
 {/if}

@@ -179,7 +179,7 @@
 
                     if (data.formatted_price) {
                         that.$price.html(data.formatted_price);
-                        $(".js-cart-preview-total").html(data.formatted_price);
+                        $(".js-cart-total-price").html(data.formatted_price);
                         $(".js-cart-preview-count").html(data.count);
 
                         toggle(data.price > 0);

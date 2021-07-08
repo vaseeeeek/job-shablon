@@ -13,7 +13,7 @@
 
 {if isset($cart.count) && $cart.count > 0}
     <div class="js-fixed-cart fixed-cart">
-        <span class="fixed-cart__close js-cart-fixed-close bs-color">&times;</span>
+        <span class="fixed-cart__close js-cart-fixed-close maincolor">&times;</span>
         <div class="fixed-cart__head bs-bg">
             [`Products in cart`]
             {if $cartUrl != $checkoutUrl}
@@ -27,16 +27,16 @@
                 <div class="js-cart-product fixed-cart__item" data-product-id="{$item.product_id}" data-id="{$item.id}">
                     <div class="fixed-cart__img">
                         <a href="{$wa->shop->productUrl($item.product)}" title="{$item.product.name|escape}">
-                            {$wa->shop->productImgHtml($item.product, '50', ['default' => $default_image])}
+                            {$wa->shop->productImgHtml($item.product, '50', ['default' => $default_img])}
                         </a>
                     </div>
                     <div class="fixed-cart__info">
                         <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a>
                         <div class="fixed-cart__price js-cart-product-price">
-                            <span class="fixed-cart__qty js-qty cart-qty--mini cart-qty{if !empty($item.error)} error{/if}">
-                                <span data-type="-" class="js-qty-action cart-qty_act">-</span>
+                            <span class="fixed-cart__qty js-qty Cart__Qty--mini Cart__Qty{if !empty($item.error)} error{/if}">
+                                <span data-type="-" class="js-qty-button Cart__Qty_act">-</span>
                                 <input type="text" name="quantity[{$item.id}]" value="{$item.quantity}" class="js-number qty">
-                                <span data-type="+" class="js-qty-action cart-qty_act">+</span>
+                                <span data-type="+" class="js-qty-button Cart__Qty_act">+</span>
                             </span>
 
                             {$text_zero_price = $theme_settings.text_price_zero}

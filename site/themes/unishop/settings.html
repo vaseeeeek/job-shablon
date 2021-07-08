@@ -75,7 +75,7 @@
                             {elseif $setting.control_type == 'color'}
                                 <div class="settings__el">
                                     <input class="js-color settings__el-color" type="color" id="setting_{$name}" name="{$name}" value="{if empty($theme_settings[$name])}#ffffff{else}{$theme_settings[$name]}{/if}" />
-                                    <span data-id="setting_{$name}" class="js-color-select filter-reset icon-before">[`Clear`]</span>
+                                    <span data-id="setting_{$name}" class="js-color-select filter-reset fa-icon-before">[`Clear`]</span>
                                 </div>
                             {elseif $setting.control_type == 'image_select'}
                                 {foreach from=$setting.options key=key item=option}

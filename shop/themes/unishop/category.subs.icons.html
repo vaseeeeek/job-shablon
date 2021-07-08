@@ -1,8 +1,8 @@
 {strip}
 {if $category.subcategories}
-    {$default_image = "`$wa_theme_url`img/dummy48.png"}
-    {if !empty($theme_settings.default_image)}
-        {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+    {$default_img = "`$wa_theme_url`img/dummy48.png"}
+    {if !empty($theme_settings.default_img)}
+        {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
     {/if}
     {$is_retina = $theme_settings.categories_list_images_retina && !empty($skImages)}
     {$is_lazy = $theme_settings.categories_list_images_lazy}
@@ -17,9 +17,9 @@
                         {$sc.params.icon = $skImages[$sc.id].icon}
                     {/if}
                     {if $theme_settings.categories_list_images_lazy}
-                        <img class="js-categories-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else}{$default_image}{/if}" alt="{$sc.name}" />
+                        <img class="js-categories-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else}{$default_img}{/if}" alt="{$sc.name}" />
                     {else}
-                        <img class="js-categories-item-image" src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else}{$default_image}{/if}" alt="{$sc.name}">
+                        <img class="js-categories-item-image" src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else}{$default_img}{/if}" alt="{$sc.name}">
                     {/if}
                 </div>
                 <div class="category-subcat-icon_name">

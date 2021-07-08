@@ -1,9 +1,9 @@
 {strip}
 <script src="{$wa_theme_url}cart.js"></script>
 
-{$default_image = "`$wa_theme_url`img/dummy48.png"}
-{if !empty($theme_settings.default_image)}
-    {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+{$default_img = "`$wa_theme_url`img/dummy48.png"}
+{if !empty($theme_settings.default_img)}
+    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
 {/if}
 
 {if $wa->get('ajax')}
@@ -11,10 +11,10 @@
 {else if $wa->get('fixed')}
     {include file="fixed.cart.html" inline}
 {else}
-    {$cols = 1} {$is_sidebar_left = 0} {$is_sidebar_right = 0}
+    {$cols = 1} {$sb_left = 0} {$is_sidebar_right = 0}
     {if $theme_settings.cart_sidebar_left && !$wa->isMobile()}
         {$cols = $cols + 1}
-        {$is_sidebar_left = 1}
+        {$sb_left = 1}
     {/if}
     {if $theme_settings.cart_sidebar_right && !$wa->isMobile()}
         {$cols = $cols + 1}
@@ -22,15 +22,15 @@
     {/if}
 
     <div class="cols-{$cols}">
-        <div class="sidebars-outer">
-            {if $is_sidebar_left}
+        <div class="out_sidebars">
+            {if $sb_left}
                 {include file='sidebar-left.html'}
             {/if}
             {if $is_sidebar_right}
                 {include file='sidebar-right.html'}
             {/if}
         </div>
-        <div class="js-content content {if $is_sidebar_left} with-left-sidebar{/if} {if $is_sidebar_right} with-right-sidebar{/if}">
+        <div class="js-content content {if $sb_left} with-sidebar{/if} ">
             <div class="content-block">
                 {if !$cart.count}
                     <div class="cart your-cart-is-empty">
@@ -49,13 +49,13 @@
                                 <div class="row" data-id="{$item.id}">
                                     <div class="col cart-item_thumb">
                                         <a href="{$wa->shop->productUrl($item.product)}" title="{$item.product.name|escape}">
-                                            {$wa->shop->productImgHtml($item.product, '70', ['default' => $default_image])}
+                                            {$wa->shop->productImgHtml($item.product, '70', ['default' => $default_img])}
                                         </a>&nbsp;
                                     </div>
                                     <div class="col cart-item_desc">
                                         <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a>
                                         {if isset($item.sku_name) && strlen($item.sku_name) && $item.sku_name != $item.product.name}
-                                            <span class="cart-item_sku bg-sd-color">{$item.sku_name|escape}</span>
+                                            <span class="cart-item_sku bg-sdColor">{$item.sku_name|escape}</span>
                                         {/if}
 
                                         {if !empty($item.services)}
@@ -82,10 +82,10 @@
 
                                     <div class="col cart-item_right">
                                         <div class="col nowrap cart-item_qty">
-                                            <span class="js-qty cart-qty align-center nowrap">
-                                                <span data-type="-" class="js-qty-action cart-qty_act sd-color">-</span>
+                                            <span class="js-qty Cart__Qty align-center nowrap">
+                                                <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
                                                 <input type="text" name="quantity[{$item.id}]" value="{$item.quantity}" class="js-number qty{if !empty($item.error)} error{/if}">
-                                                <span data-type="+" class="js-qty-action cart-qty_act sd-color">+</span>
+                                                <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
                                             </span>
                                         </div>
 
@@ -113,7 +113,7 @@
                                         <div {if !$coupon_code}style="display: none;"{/if} class="cart-coupon-form" id="apply-coupon-code">
 
                                             <input placeholder="[`Coupon code`]" type="text" name="coupon_code" value="{$coupon_code|escape}">
-                                            <span class="cart-coupon-btn fa fa-check js-submit-form sd-color"></span>
+                                            <span class="cart-coupon-btn fa fa-check js-submit-form sdColor"></span>
                                             {if $coupon_code && empty($coupon_discount) && empty($coupon_free_shipping)}
                                                 <div class="errormsg">[`Invalid coupon code`]</div>
                                             {/if}
@@ -154,14 +154,14 @@
                                     {* @event frontend_cart.%plugin_id% *}
                                     {foreach $frontend_cart as $_}{$_}{/foreach}
 
-                                    {$is_storequickorder =  class_exists('shopStorequickorderPlugin') && $theme_settings.fastorder == "storequickorder"}
-                                    {$is_skoneclick = class_exists('shopSkoneclickHelper') && $theme_settings.fastorder == "skoneclick" && shopSkoneclickHelper::isActive()}
-                                    {$is_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click"}
-                                    {if $is_skoneclick}
+                                    {$_storequickorder =  class_exists('shopStorequickorderPlugin') && $theme_settings.fastorder == "storequickorder"}
+                                    {$_skoneclick = class_exists('shopSkoneclickHelper') && $theme_settings.fastorder == "skoneclick" && shopSkoneclickHelper::isActive()}
+                                    {$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click"}
+                                    {if $_skoneclick}
                                         <span class="button-fastorder__sk-oneclick js-sk-oneclick-open-cart _show" data-type="cart" data-app-url="/">{$theme_settings.plugin_oneclick_button_text}</span>
-                                    {else if $is_buy1click}
+                                    {else if $_buy1click}
                                         {shopBuy1clickViewHelper::getCartButton()}
-                                    {else if $is_storequickorder}
+                                    {else if $_storequickorder}
                                          {shopStorequickorderPlugin::cart_button()}
                                     {/if}
 

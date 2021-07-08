@@ -13,10 +13,10 @@
         {/foreach}
         {$products_views = $wa->shop->products($viewed_list_arr_lasted)}
 
-        <div class="aside-wrap sidebar-views">
-            <div class="aside-wrap_head bs-color">[`You watched`]</div>
+        <div class="sb-wrap sidebar-views">
+            <div class="sb-wrap_head maincolor">[`You watched`]</div>
             {include file="`$wa_active_theme_path`/list-thumbs-mini.html" products=$products_views}
-            <div class="aside-wrap_bottom sd-color">
+            <div class="sb-wrap_bottom sdColor">
                 <a href="{$wa->getUrl('shop/frontend/search')}?list=viewed">[`View all`]</a> &rarr;
             </div>
         </div>

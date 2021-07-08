@@ -17,7 +17,7 @@ var filter = {
         var title = $('.js-filter-title');
 
         title.on("click", function (){
-            var filterItem = $(this).closest('.js-filter-item'),
+            var filterItem = $(this).closest('.js-filter-el'),
                 options = filterItem.find('.js-filter-options');
 
             if(!options.is(':visible')){
@@ -145,7 +145,7 @@ var filter = {
                         var thisBtn = $(this),
                             isOpenAllParams = thisBtn.hasClass('open'),
                             maxParams = parseInt(thisBtn.data('max-show-params')),
-                            params = thisBtn.closest('.js-filter-item').find('label'),
+                            params = thisBtn.closest('.js-filter-el').find('label'),
                             indexVisibleParam = 0;
 
                         if(maxParams){
@@ -179,7 +179,7 @@ var filter = {
     clearSelectedFilter: function (){
         var _this = this;
 
-        $('body').on("click", ".js-filter-selected-remove", function (){
+        $('body').on("click", ".js-filter-checked-remove", function (){
             var code = $(this).data('code');
 
             if($('.js-filters').length){
@@ -192,7 +192,7 @@ var filter = {
     clearFilterItem: function (code){
         var _this = this;
 
-        var item = $('.js-filters').find(".js-filter-item[data-code='"+code+"']");
+        var item = $('.js-filters').find(".js-filter-el[data-code='"+code+"']");
         item.find('input[type="checkbox"], input[type="radio"]').prop( "checked", false ).trigger('refresh');
         item.find('input[type="text"]').val("");
 
@@ -202,7 +202,7 @@ var filter = {
     },
     addFilterSubcategory: function(fields){
         var _this = this,
-            subcategoriesWrap = $('.js-category-subcategories'),
+            subcategoriesWrap = $('.js-cat_sub'),
             isSaveFilters = subcategoriesWrap.data('save-filters'),
             saveFiltersAliases = subcategoriesWrap.data('save-filters-aliases'),
             saveFields = fields,
@@ -276,14 +276,14 @@ var productList = {
     switchProductListView: function(){
         var _this = this,
             cookieOptions = {expires: 7, path: '/'},
-            switchBtn = $('.js-switch-pr-view');
+            switchBtn = $('.js-switch-product-view');
 
-        $('body').on('click', '.js-switch-pr-view', function(){
+        $('body').on('click', '.js-switch-product-view', function(){
             var $this = $(this),
                 type = $this.data('view');
 
             if(type){
-                $.cookie('CategoryProductsView', type, cookieOptions);
+                $.cookie('CategoryViewProducts', type, cookieOptions);
             }
 
             var form = $('.js-filters.js-ajax form');
@@ -321,8 +321,8 @@ var productList = {
 
     ajaxUpdateList: function(url, $isPushState){
         var _this = this;
-        var productList = $('.js-product-list-ajax');
-        var loader = $('.js-product-list-ajax-loader');
+        var productList = $('.js-product-ajax-list');
+        var loader = $('.js-product-ajax-list-loader');
 
         $(window).lazyLoad && $(window).lazyLoad('sleep');
         productList.html("");
@@ -331,7 +331,7 @@ var productList = {
         getUrl += '&_=_'+ (new Date().getTime()) + Math.random();
         $.get(getUrl, function(html) {
             var tmp = $('<div></div>').html(html);
-            productList.html(tmp.find('.js-product-list-ajax').html());
+            productList.html(tmp.find('.js-product-ajax-list').html());
             productsPreviewList.images(productList.find('.js-preview-products'));
             loader.hide();
             if (!!(history.pushState && history.state !== undefined) && $isPushState) {
@@ -386,7 +386,7 @@ var lazyloadingPagination = {
             var next = current.next();
             if (next.length) {
                 win.lazyLoad({
-                    container: '.js-product-list-ajax .js-category-list',
+                    container: '.js-product-ajax-list .js-cat-list',
                     load: function () {
                         win.lazyLoad('sleep');
 
@@ -400,13 +400,13 @@ var lazyloadingPagination = {
                             win.lazyLoad('stop');
                             return;
                         }
-                        var product_list = $('.js-product-list-ajax .js-category-list');
-                        var loading = $('<div class="lazyloading-paging-loader"><i class="icon16 loading"></i>'+loading_str+'</div>').insertAfter('.js-product-list-ajax');
+                        var product_list = $('.js-product-ajax-list .js-cat-list');
+                        var loading = $('<div class="lazyloading-paging-loader"><i class="icon16 loading"></i>'+loading_str+'</div>').insertAfter('.js-product-ajax-list');
 
                         $.get(url, function (html) {
                             var tmp = $('<div></div>').html(html);
                             productsPreviewList.images(tmp.find('.js-preview-products'));
-                            product_list.append(tmp.find('.js-product-list-ajax .js-category-list').children());
+                            product_list.append(tmp.find('.js-product-ajax-list .js-cat-list').children());
                             var tmp_paging = tmp.find('.lazyloading-paging').hide();
                             paging.replaceWith(tmp_paging);
                             paging = tmp_paging;
@@ -643,10 +643,10 @@ var categories = {
 
 var categoryText = {
     readMore: function (){
-        var wrapOuter = $(".js-category-text-wrap"),
+        var wrapOuter = $(".js-category-desc-wrap"),
             maxHeight = wrapOuter.data("max-height"),
-            wrap = $(".js-category-text"),
-            linkMore = $('.js-category-text-more-wrap');
+            wrap = $(".js-category-desc"),
+            linkMore = $('.js-category-desc-more-wrap');
 
         linkMore.remove();
         wrapOuter.removeClass("close");
@@ -658,9 +658,9 @@ var categoryText = {
                 textHide = wrapOuter.data("text-hide");
 
             wrapOuter.addClass("close");
-            wrapOuter.after("<div class='js-category-text-more-wrap category-text-more-wrap'><span class='js-category-text-more category-text-more sd-color link-half'>"+textMore+"</span></div>");
+            wrapOuter.after("<div class='js-category-desc-more-wrap category-desc-more-wrap'><span class='js-category-desc-more category-desc-more sdColor link-half'>"+textMore+"</span></div>");
 
-            $('.js-category-text-more').on("click", function(){
+            $('.js-category-desc-more').on("click", function(){
                 var $this = $(this);
 
                 if($this.hasClass("open")){

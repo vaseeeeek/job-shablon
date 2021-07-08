@@ -15,14 +15,14 @@ var main = {
         setTimeout(_this.contentHeight, 2000);
     },
     retinaLogo: function(){
-        var logo = $('.js-logo-retina');
+        var logo = $('.js-retina-logo');
 
         if(logo.length){
             logo.retina({ force_original_dimensions: false });
         }
     },
     moveTop: function () {
-        var linkMove = $('#move-to-top'), contentTop = $('.js-content-move');
+        var linkMove = $('#move-to-top'), contentTop = $('.js-moved-content');
 
         if(contentTop.length && linkMove.length){
             $(window).scroll(function() {
@@ -59,14 +59,14 @@ var main = {
         });
     },
     searchAuto: function (){
-        var input = $('.js-search-auto');
+        var input = $('.js-auto-search');
 
         input.on("keyup", function(){
             var $this = $(this),
                 value = $this.val(),
                 form = $this.closest('form'),
                 url = form.attr("action"),
-                resultWrap = form.find('.js-search-auto-result');
+                resultWrap = form.find('.js-auto-search-result');
 
             if(value.length > 3){
                 $.get(url + '?query='+value+'&ajax=1', function(data) {
@@ -84,15 +84,15 @@ var main = {
         });
 
         $('body').click(function (e) {
-            var popup = $(".js-search-auto-result");
-            if (!$('.js-search-auto').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
+            var popup = $(".js-auto-search-result");
+            if (!$('.js-auto-search').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
                 popup.hide();
             }
         });
     },
     previewCart: function(){
         var _this = this,
-            preview = $('.js-preview-cart');
+            preview = $('.js-header-preview-cart');
 
         preview.each(function(){
             var $this = $(this),
@@ -128,7 +128,7 @@ var main = {
     },
     contentHeight: function (){
         var content = $('.js-content'),
-            left = $('.js-left-sidebar'),
+            left = $('.js-left-sd'),
             right = $('.js-right-sidebar'),
             contentPadding = parseInt(content.css('padding-top')) + parseInt(content.css('padding-bottom'));
 
@@ -320,10 +320,10 @@ var form = {
     formStyler: function (){
         $('body').on('change', 'input[type="checkbox"]', function() {
             if ($(this).is(':checked')) {
-                $(this).closest('.jq-checkbox, .js-checkbox-styler').addClass('checked');
+                $(this).closest('.jq-checkbox, .js-check-styler').addClass('checked');
                 $(this).closest('label').addClass('checked');
             } else {
-                $(this).closest('.jq-checkbox, label, .js-checkbox-styler').removeClass('checked');
+                $(this).closest('.jq-checkbox, label, .js-check-styler').removeClass('checked');
                 $(this).closest('label').removeClass('checked');
             }
         });
@@ -333,10 +333,10 @@ var form = {
             inputs.each(function(){
                 var input = $(this);
                 if (input.is(':checked')) {
-                    input.closest('.jq-radio, .js-radio-styler').addClass('checked');
+                    input.closest('.jq-radio, .js-toggle-styler').addClass('checked');
                     input.closest('label').addClass('checked');
                 }else{
-                    input.closest('.jq-radio, .js-radio-styler').removeClass('checked');
+                    input.closest('.jq-radio, .js-toggle-styler').removeClass('checked');
                     input.closest('label').removeClass('checked');
                 }
             });
@@ -346,7 +346,7 @@ var form = {
             return false;
         }
 
-        var inputStyler = $('input[type="checkbox"]:not(.js-checkbox-styler-input):not(.js-none-styler):not(.shop-sk-callback__checkbox), input[type="radio"]:not(.js-radio-styler-input):not(.buy1step-auth__variant):not(.js-none-styler), .js-select');
+        var inputStyler = $('input[type="checkbox"]:not(.js-check-styler-input):not(.js-none-styler):not(.shop-sk-callback__checkbox), input[type="radio"]:not(.js-toggle-styler-input):not(.buy1step-auth__variant):not(.js-none-styler), .js-select');
         if(!inputStyler.length){
             return false;
         }
@@ -370,8 +370,8 @@ var selectList = {
     init: function (){
         var _this = this;
 
-        $('body').on("click", '.js-select-toggle', function(){
-            var items = $(this).closest('.js-select-list').find('.js-select-items');
+        $('body').on("click", '.js-checked-toggle', function(){
+            var items = $(this).closest('.js-selecList').find('.js-select-items');
 
            if(items.is(':visible')){
                items.hide();
@@ -380,7 +380,7 @@ var selectList = {
            }
         });
 
-        $('body').on("click", '.js-select-toggle a', function(event){
+        $('body').on("click", '.js-checked-toggle a', function(event){
             event.preventDefault();
         });
 
@@ -397,7 +397,7 @@ var menu = {
         _this.sidebar();
     },
     responsiveMenu: function(){
-        var _this = this, items = $(".js-resp-nav");
+        var _this = this, items = $(".js-resp-nav-top");
 
         if(!items.length){
             return false;
@@ -408,7 +408,7 @@ var menu = {
         });
     },
     resizeMenu: function(){
-        var _this = this, items = $(".js-resp-nav");
+        var _this = this, items = $(".js-resp-nav-top");
 
         if(!items.length){
             return false;
@@ -421,8 +421,8 @@ var menu = {
     responsived: function(menu){
         var _this = this,
             menuWidth = menu.width(),
-            menuItems = menu.children('.js-resp-nav-el'),
-            ItemElse = menu.find('.js-resp-nav-else'),
+            menuItems = menu.children('.js-resp-nav-top-el'),
+            ItemElse = menu.find('.js-resp-nav-top-else'),
             ItemElseWidth = parseFloat(ItemElse.removeClass('hide').outerWidth(true)),
             submenuElse = ItemElse.find('.js-resp-subnav-else'),
             allItemsWidth = 0;
@@ -445,8 +445,8 @@ var menu = {
     },
     headerMenuHover: function (){
         var headerMenu = $('#header-nav'),
-            mobileBtnShowHideMenu = $('.js-nav-btn[data-id="'+headerMenu.attr("id")+'"]'),
-            item = $('.js-header-nav-el');
+            mobileBtnShowHideMenu = $('.js-nav-button[data-id="'+headerMenu.attr("id")+'"]'),
+            item = $('.js-header-top-nav-el');
 
         if(!mobileBtnShowHideMenu.is(':visible')){
             item.hover(function(){
@@ -637,7 +637,7 @@ var modalForm = {
     init: function (){
         var _this = this;
 
-        _this.loadContentForm('a.js-form-popup');
+        _this.loadContentForm('a.js-form-login-popupp');
         _this.loadContentForm('.js-ajax-form a[href="/login/"]');
         _this.loadContentForm('.js-ajax-form a[href="/forgotpassword/"]');
         _this.submitForm();
@@ -713,9 +713,9 @@ var dropDownWrap = {
     init: function (){
         var _this = this;
 
-        var selectorButton = '.js-btn-drop-down',
-            selectorWrap = '.js-drop-down-wrap',
-            selectorOuter = '.js-drop-down-outer';
+        var selectorButton = '.js-btnDrop-down',
+            selectorWrap = '.js-dd-wrap',
+            selectorOuter = '.js-dd-outer';
 
         $(document).click(function(event) {
             if((!$(event.target).closest(selectorWrap).length && !$(event.target).closest(selectorOuter).length) || $(event.target).hasClass('js-bg')) {
@@ -771,29 +771,29 @@ var categoriesMainMenu = {
         var _this = this;
 
         var item = $(".js-cat-subs-disclosed"),
-            headerCategoriesMenu = $('#header-nav-categories'),
+            headerCategoriesMenu = $('#nav-cat'),
             isHoverDelay = headerCategoriesMenu.data("delay"),
             isLazyImages = headerCategoriesMenu.data("lazy"),
             isRetinaImages = headerCategoriesMenu.data("retina");
 
         item.hover(function(){
             var $this = $(this),
-                submenu = $this.find('.js-submenu').first(),
+                submenu = $this.find('.js-subcategorymenu').first(),
                 isSubmenuAbsolute = submenu.css("position") == 'absolute',
                 isCategoriesPositionAbsolute = headerCategoriesMenu.css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-catmenu-wrap');
+                catMenuWrap = $this.closest('.js-category-menu-wrap');
 
             if(isLazyImages){
-                categoriesImages.lazyImages(submenu.find('.js-cat-submenu-image'), isRetinaImages);
+                categoriesImages.lazyImages(submenu.find('.js-submenu-category-image'), isRetinaImages);
             }else if(isRetinaImages){
-                categoriesImages.retinaImages(submenu.find('.js-cat-submenu-image'));
+                categoriesImages.retinaImages(submenu.find('.js-submenu-category-image'));
             }
             if(isSubmenuAbsolute){
                 if(submenu.length > 0){
                     if(isHoverDelay){
                         submenu.stop(true).delay(150).fadeIn(1, function (){
                             var submenuWidth = submenu.outerWidth(true);
-                            if(!item.hasClass("position-relative")){
+                            if(!item.hasClass("pos-rel")){
                                 catMenuWrap.css("padding-right", submenuWidth + "px");
                                 if(isCategoriesPositionAbsolute){
                                     _this.calcHeight(catMenuWrap, submenu);
@@ -803,7 +803,7 @@ var categoriesMainMenu = {
                     }else{
                         submenu.show();
                         var submenuWidth = submenu.outerWidth(true);
-                        if(!item.hasClass("position-relative")){
+                        if(!item.hasClass("pos-rel")){
                             catMenuWrap.css("padding-right", submenuWidth + "px");
                             if(isCategoriesPositionAbsolute){
                                 _this.calcHeight(catMenuWrap, submenu);
@@ -814,9 +814,9 @@ var categoriesMainMenu = {
             }
         }, function(){
             var $this = $(this),
-                submenu = $this.find('.js-submenu').first(),
+                submenu = $this.find('.js-subcategorymenu').first(),
                 isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-catmenu-wrap');
+                catMenuWrap = $this.closest('.js-category-menu-wrap');
 
             if(isSubmenuAbsolute){
                 if(isHoverDelay){
@@ -835,14 +835,14 @@ var categoriesMainMenu = {
         var _this = this;
 
         var item = $(".js-cat-subs-dropdown"),
-            isHoverDelay = $('#header-nav-categories').data("delay");
+            isHoverDelay = $('#nav-cat').data("delay");
 
         item.hover(function(){
             var $this = $(this),
-                submenu = $this.find('.js-submenu').first(),
+                submenu = $this.find('.js-subcategorymenu').first(),
                 isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                isCategoriesPositionAbsolute = $('#header-nav-categories').css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-catmenu-wrap'),
+                isCategoriesPositionAbsolute = $('#nav-cat').css("position") == 'absolute',
+                catMenuWrap = $this.closest('.js-category-menu-wrap'),
                 catMenuMarginRight = 0;
 
             if(isSubmenuAbsolute){
@@ -854,7 +854,7 @@ var categoriesMainMenu = {
                         submenu.show();
                     }
                 }
-                if(!item.hasClass("position-relative")) {
+                if(!item.hasClass("pos-rel")) {
                     catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
                     if(isCategoriesPositionAbsolute){
                         _this.calcHeight(catMenuWrap, submenu);
@@ -863,9 +863,9 @@ var categoriesMainMenu = {
             }
         }, function(){
             var $this = $(this),
-                submenu = $this.find('.js-submenu'),
+                submenu = $this.find('.js-subcategorymenu'),
                 isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-catmenu-wrap');
+                catMenuWrap = $this.closest('.js-category-menu-wrap');
 
             if(isSubmenuAbsolute){
                 if(isHoverDelay){
@@ -882,16 +882,16 @@ var categoriesMainMenu = {
         var itemSub = $('.js-subcatmenu-el');
         itemSub.hover(function(){
             var $this = $(this),
-                submenu = $this.find('.js-submenu').first(),
+                submenu = $this.find('.js-subcategorymenu').first(),
                 isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                isCategoriesPositionAbsolute = $('#header-nav-categories').css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-catmenu-wrap'),
+                isCategoriesPositionAbsolute = $('#nav-cat').css("position") == 'absolute',
+                catMenuWrap = $this.closest('.js-category-menu-wrap'),
                 catMenuMarginRight = 518;
 
             if(isSubmenuAbsolute){
                 if(isHoverDelay){
                     submenu.stop(true).delay(150).fadeIn(1, function (){
-                        if (!itemSub.hasClass("position-relative")){
+                        if (!itemSub.hasClass("pos-rel")){
                             catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
                             if(isCategoriesPositionAbsolute){
                                 _this.calcHeight(catMenuWrap, submenu);
@@ -900,7 +900,7 @@ var categoriesMainMenu = {
                     });
                 }else{
                     submenu.show();
-                    if (!itemSub.hasClass("position-relative")){
+                    if (!itemSub.hasClass("pos-rel")){
                         catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
                         if(isCategoriesPositionAbsolute){
                             _this.calcHeight(catMenuWrap, submenu);
@@ -910,9 +910,9 @@ var categoriesMainMenu = {
             }
         }, function(){
             var $this = $(this),
-                submenu = $this.find('.js-submenu').first(),
+                submenu = $this.find('.js-subcategorymenu').first(),
                 isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-catmenu-wrap'),
+                catMenuWrap = $this.closest('.js-category-menu-wrap'),
                 catMenuMarginRight = 258,
                 parent = $this.closest('.js-cat-subs-dropdown');
 
@@ -920,13 +920,13 @@ var categoriesMainMenu = {
             if(isSubmenuAbsolute){
                 if(isHoverDelay){
                     submenu.stop(true).delay(150).fadeOut(1, function (){
-                        if (!itemSub.hasClass("position-relative")) {
+                        if (!itemSub.hasClass("pos-rel")) {
                             catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
                         }
                     });
                 }else{
                     submenu.hide();
-                    if (!itemSub.hasClass("position-relative")) {
+                    if (!itemSub.hasClass("pos-rel")) {
                         catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
                     }
                 }
@@ -942,12 +942,12 @@ var categoriesMainMenu = {
         }
     },
     mobileShowSubmenu: function (){
-        var caret = $('.js-catmenu-el-caret');
+        var caret = $('.js-cat-el-caret');
 
         caret.on("click", function(){
             var $this =  $(this),
                 parent = $this.closest('.js-cat-subs-disclosed, .js-cat-subs-dropdown, .js-subcatmenu-el'),
-                submenu = $(parent.find('.js-submenu').first()),
+                submenu = $(parent.find('.js-subcategorymenu').first()),
                 isSubmenuStatic = (submenu.css('position') != 'absolute');
 
             if(isSubmenuStatic){
@@ -962,9 +962,9 @@ var categoriesMainMenu = {
         });
     },
     showBg: function() {
-        var menuWrap = $('#header-nav-categories.desktop-show'),
-            bg = $('#header-nav-categories.desktop-show ~ .js-bg');
-            isHoverDelay = $('#header-nav-categories').data("delay");
+        var menuWrap = $('#nav-cat.desktop-show'),
+            bg = $('#nav-cat.desktop-show ~ .js-bg');
+            isHoverDelay = $('#nav-cat').data("delay");
 
         if(isHoverDelay){
             menuWrap.hover(function () {
@@ -981,14 +981,14 @@ var categoriesMainMenu = {
         }
     },
     headerCategoriesImages: function (){
-        var headerCategoriesMenu = $('#header-nav-categories'),
+        var headerCategoriesMenu = $('#nav-cat'),
             isLazyImages = headerCategoriesMenu.data("lazy"),
             isRetinaImages = headerCategoriesMenu.data("retina");
 
         if(isLazyImages){
-            categoriesImages.lazyImages(headerCategoriesMenu.find('.js-cat-menu-image'), isRetinaImages);
+            categoriesImages.lazyImages(headerCategoriesMenu.find('.js-category-menu-image'), isRetinaImages);
         }else if(isRetinaImages){
-            categoriesImages.retinaImages(headerCategoriesMenu.find('.js-cat-menu-image'));
+            categoriesImages.retinaImages(headerCategoriesMenu.find('.js-category-menu-image'));
         }
     }
 };
@@ -1002,7 +1002,7 @@ var mobileMenu = {
     },
     hideShow: function(){
         var _this = this,
-            btnMenuOpen = $(".js-nav-btn");
+            btnMenuOpen = $(".js-nav-button");
 
         btnMenuOpen.on("click", function(){
             var $this = $(this),
@@ -1019,10 +1019,10 @@ var mobileMenu = {
     },
     showSubmenu: function (){
         var _this = this,
-            btn = $('.js-nav-caret');
+            btn = $('.js-top-nav-caret');
 
         btn.on("click", function(){
-            var item = $(this).closest('.js-header-nav-el');
+            var item = $(this).closest('.js-header-top-nav-el');
 
             if(item.hasClass('open')){
                 item.removeClass('open');
@@ -1037,8 +1037,8 @@ var mobileMenu = {
 
 var mobileSearch = {
     init: function (){
-        var btn = $('.js-show-header-nav-search'),
-            form = $('.js-header-nav-search');
+        var btn = $('.js-show-Nav-search'),
+            form = $('.js-Nav-search');
 
         btn.on("click", function (){
             if(form.is(":visible")){
@@ -1204,7 +1204,7 @@ var tags = {
     },
     showAll: function (){
         var _this = this,
-            btn = $('.js-show-tags');
+            btn = $('.js-open-tags');
 
         btn.on("click", function (){
             var $this = $(this),
@@ -1502,7 +1502,7 @@ var cart = {
     cartDialog: function(){
         var _this = this;
 
-        $('body').on( "click", ".js-product-card-dialog", function (){
+        $('body').on( "click", ".js-card-dialog", function (){
             $.magnificPopup.open({
                 items: {
                     src: $(this).data('href')
@@ -1527,7 +1527,7 @@ var cart = {
                             productGallery.productImageZoom(this.content.find(".js-product-gallery-main"));
                         }
                         productGallery.swipeLargePhoto(this.content.find('.js-product-gallery-main'));
-                        productGallery.previewsBxSlider = productGallery.previewsCarouselInit(this.content.find('.js-product-gallery-previews'));
+                        productGallery.previewsBxSlider = productGallery.previewsCarouselInit(this.content.find('.js-previews-gallery'));
                     },
                     open: function() {
                         $.magnificPopup.instance._onFocusIn = function(e) {
@@ -1551,7 +1551,7 @@ var cart = {
                 url = $this.attr('action'),
                 data = $this.serialize(),
                 previewCartCount = $('.js-cart-preview-count'),
-                previewCartTotal = $('.js-cart-preview-total'),
+                previewCartTotal = $('.js-cart-total-price'),
                 cartDialog = $('#cart-form-dialog'),
                 btn = $this.find(".js-submit-form");
 
@@ -1565,7 +1565,7 @@ var cart = {
                     previewCartCount.html(response.data.count);
                     previewCartTotal.html(response.data.total);
 
-                    productListCustom.showAddedMsg($('.js-preview-cart'));
+                    productListCustom.showAddedMsg($('.js-header-preview-cart'));
                     if(cartDialog.length > 0){
                         $.magnificPopup.close();
                     }
@@ -1584,15 +1584,15 @@ var cart = {
         });
     },
     animationMoveToCart: function (form){
-        var productBlock = form.closest('.js-product').find('.js-product-cart-preview');
+        var productBlock = form.closest('.js-product').find('.js-cart-preview-product');
         if(productBlock.length == 0){
-            productBlock = form.closest('.js-product-cart-preview');
+            productBlock = form.closest('.js-cart-preview-product');
         }
         var position = productBlock.data('position');
         var productBlockCopy = $('<div></div>').append(productBlock.html());
-        var cart_preview = $('.js-fixed .js-preview-cart');
+        var cart_preview = $('.js-fixed .js-header-preview-cart');
         if(!cart_preview.length || !cart_preview.is(':visible')){
-            cart_preview = $('.js-header-cart');
+            cart_preview = $('.js-cart-header');
         }
         productBlockCopy.css({
             'z-index': 100,
@@ -1612,7 +1612,7 @@ var cart = {
         }, 650, function() {
             productBlockCopy.remove();
 
-            productListCustom.showAddedMsg($('.js-preview-cart'));
+            productListCustom.showAddedMsg($('.js-header-preview-cart'));
         });
     },
     popupAddCart: function (form){
@@ -1678,7 +1678,7 @@ var cart = {
         });
     },
     countQty: function (){
-        $('body').on("click", ".js-qty-action", function(){
+        $('body').on("click", ".js-qty-button", function(){
             var $this = $(this),
                 wrapOut = $this.closest('.js-qty'),
                 action = $this.data('type'),
@@ -1773,12 +1773,12 @@ var specialProducts = {
 
 var productTile = {
     init: function (){
-        var product = $('.no-touch .js-product-tile'), timeOut;
+        var product = $('.no-touch .js-Product-grid'), timeOut;
 
         product.hover(function(){
             var $this = $(this),
                 prevProduct = $this.prev(),
-                btnActions = $this.find('.js-action'),
+                btnActions = $this.find('.js-button'),
                 dialog = $this.find('.js-dialog');
 
             btnActions.css({marginTop: "15px", opacity: 0});
@@ -1803,7 +1803,7 @@ var productTile = {
         }, function (){
             var $this = $(this),
                 prevProduct = $this.prev(),
-                btnActions = $this.find('.js-action'),
+                btnActions = $this.find('.js-button'),
                 dialog = $this.find('.js-dialog');
 
             clearTimeout(timeOut);
@@ -1844,7 +1844,7 @@ var productListCustom = {
         _this.list(
             'shop_compare',
             $(".js-preview-compare"),
-            '.js-add-to-compare',
+            '.js-compare-add',
             compareProductSidebar.list
         );
     },
@@ -1853,8 +1853,8 @@ var productListCustom = {
 
         _this.list(
             'favorites_list',
-            $(".js-preview-favorite"),
-            '.js-add-to-favorites'
+            $(".js-favorites-preview"),
+            '.js-favorites-add'
         );
     },
     list: function (listName, listPreviewWrap, elAddToListBtn, callbackFunction){
@@ -1865,8 +1865,8 @@ var productListCustom = {
             var $this = $(this),
                 countInList = 0,
                 isAdded = true,
-                countPreviewView = listPreviewWrap.find('.js-products-list-count'),
-                linPreviewView = listPreviewWrap.find('.js-products-list-link'),
+                countPreviewView = listPreviewWrap.find('.js-products-count'),
+                linPreviewView = listPreviewWrap.find('.js-products-link'),
                 productId = $(this).data('product');
 
             if (!$this.hasClass('active')) {
@@ -1990,7 +1990,7 @@ var compareProductSidebar = {
                 var addedProduct = template.clone();
                 addedProduct.removeClass('js-compare-template').addClass('js-compare-product');
                 addedProduct.attr("data-product", productId);
-                addedProduct.find('.js-add-to-compare').attr("data-product", productId).addClass('active');
+                addedProduct.find('.js-compare-add').attr("data-product", productId).addClass('active');
                 addedProduct.find('.js-compare-name').text($this.data('name'));
                 addedProduct.find('.js-compare-name').attr("href", $this.data('url'));
                 addedProduct.find('.js-compare-img').attr("href", $this.data('url'));
@@ -2031,7 +2031,7 @@ var productsHome = {
         productsList.parent().find('.js-mainpage-products-more').remove();
         productsList.after('<span class="mainpage-products-more js-mainpage-products-more"></span>');
 
-        var products = productsList.find('.js-product-tile');
+        var products = productsList.find('.js-Product-grid');
         products.removeClass('hide');
         if(products.length){
             var firstProduct = products.first(),
@@ -2070,8 +2070,8 @@ var productsHome = {
         var btnShowMore = productsList.parent().find('.js-mainpage-products-more');
 
         btnShowMore.on("click", function(){
-            var products = productsList.find('.js-product-tile');
-            var productsHide = productsList.find('.js-product-tile.hide');
+            var products = productsList.find('.js-Product-grid');
+            var productsHide = productsList.find('.js-Product-grid.hide');
 
             var index = 0;
             productsHide.each(function(){
@@ -2085,7 +2085,7 @@ var productsHome = {
                 index++;
             });
 
-            var currentProductsHide = productsList.find('.js-product-tile.hide');
+            var currentProductsHide = productsList.find('.js-Product-grid.hide');
             if(currentProductsHide.length){
                 productsList.addClass("active");
             }else{
@@ -2128,7 +2128,7 @@ var productsCarousel = {
         _this.carouselProductsWrap.each(function (){
             var carousel = $(this).find('.owl-carousel'),
                 carouselWidth = carousel.outerWidth(),
-                itemCarousel = $(this).find(".js-product-tile"),
+                itemCarousel = $(this).find(".js-Product-grid"),
                 countItems = itemCarousel.length,
                 widthItem = itemCarousel.first().outerWidth(true),
                 widthAllItems = widthItem * countItems,
@@ -2744,12 +2744,12 @@ if (!window.productTileGallery) {
             },
             runGallery: function() {
                 var that = this;
-                var elements = $('.js-tile-gallery');
+                var elements = $('.js-grid-gallery');
                 elements.each(function (){
                     var element = $(this),
-                        block = element.find(".js-tile-gallery-block"),
+                        block = element.find(".js-grid-block-gallery"),
                         image = element.find(".js-product-preview-img"),
-                        length = element.find('.js-tile-gallery-item').length;
+                        length = element.find('.js-grid-gallery-item').length;
 
                     if(!image.data("src")){
                         image.attr("data-src", image.attr("src"))
@@ -2771,7 +2771,7 @@ if (!window.productTileGallery) {
                         });
                     }
 
-                    element.find(".js-tile-gallery-item").on("mouseenter", function(){
+                    element.find(".js-grid-gallery-item").on("mouseenter", function(){
                         var src = $(this).data("img");
                         $('<img>').attr('src', src).load(function () {
                             image.attr("src", src);
@@ -2833,7 +2833,7 @@ var categoriesImages = {
                 var fileExtensionWithGet = imgUrl.substring(imgUrl.lastIndexOf('.') + 1),
                     imgUrl2x = imgUrl.replace("." + fileExtensionWithGet, "@2x." + fileExtensionWithGet);
 
-                $this.attr("data-at2x", imgUrl2x);
+                $this.attr("data-atretina", imgUrl2x);
             }
         }).promise().done(function(){
             images.retina();
@@ -3131,12 +3131,12 @@ var productGallery = {
         var _this = this,
             $ = jQuery;
 
-        productGallery.previewsBxSlider = _this.previewsCarouselInit($('.js-product-gallery-previews'));
+        productGallery.previewsBxSlider = _this.previewsCarouselInit($('.js-previews-gallery'));
         productGallery.swipeLargePhoto($('.js-product-gallery-main'));
         productGallery.popupPhotoswipe();
         productGallery.popupSwipebox();
 
-        $("body").on("click", ".js-gallery-preview a", function (event) {
+        $("body").on("click", ".js-id-preview-gallery a", function (event) {
             event.preventDefault();
 
             productGallery.changeLargeImage($(this), false);
@@ -3172,7 +3172,7 @@ var productGallery = {
             position = 0;
 
         if(mainGallery.length && !mainGallery.hasClass('owl-loaded')){
-            var currentPreview = mainGallery.closest('.js-product').find('.js-gallery-preview.selected');
+            var currentPreview = mainGallery.closest('.js-product').find('.js-id-preview-gallery.selected');
             if(currentPreview.length){
                 if(currentPreview.data("position") != "0"){
                     position = parseInt(currentPreview.data("position"));
@@ -3216,7 +3216,7 @@ var productGallery = {
                     }
 
                     if(currentItemId){
-                        var previews = gallery.closest('.js-product').find('.js-gallery-preview');
+                        var previews = gallery.closest('.js-product').find('.js-id-preview-gallery');
 
                         previews.removeClass("selected");
                         var currentPreview = previews.filter("[data-id='" + currentItemId + "']");
@@ -3227,7 +3227,7 @@ var productGallery = {
                     var gallery = $(event.currentTarget);
 
                     if(gallery.length){
-                        var previews = gallery.closest('.js-product').find('.js-gallery-preview'),
+                        var previews = gallery.closest('.js-product').find('.js-id-preview-gallery'),
                             previousPreview = previews.filter('.selected'),
                             image_id = $(gallery).find(".owl-item.active .js-product-gallery-main-el").data("id");
 
@@ -3335,11 +3335,11 @@ var productGallery = {
         }
     },
     popupSwipebox: function (){
-        $('body').on("click", ".js-product-image-popup-swipebox", function(e) {
+        $('body').on("click", ".js-image-popup-swipebox", function(e) {
             e.preventDefault();
 
             var productGalley = $(this).closest('.js-product').find(".js-product-gallery"),
-                previews = $(this).closest('.js-product').find('.js-gallery-preview'),
+                previews = $(this).closest('.js-product').find('.js-id-preview-gallery'),
                 images = [],
                 position = 0;
 
@@ -3423,11 +3423,11 @@ var productGallery = {
             event.preventDefault();
         });
 
-        $('body').on("click", ".js-product-image-popup-photoswipe", function (e) {
+        $('body').on("click", ".js-image-popup-photoswipe", function (e) {
             e.preventDefault();
 
             var mainGallery = $(this).closest('.js-product').find('.js-product-gallery'),
-                previews = $(this).closest('.js-product').find('.js-gallery-preview'),
+                previews = $(this).closest('.js-product').find('.js-id-preview-gallery'),
                 mainPhoto = $(this).closest('.js-product').find('.js-product-gallery-main-el'),
                 pswpElement = document.querySelectorAll('.pswp')[0],
                 position = 0,
@@ -3481,8 +3481,8 @@ function Product(form, options) {
     this.add2cart = this.form.find(".js-add2cart");
     this.button = this.add2cart.find(".js-submit-form");
     this.skFastButton = this.form.find(".js-sk-oneclick-open");
-    this.discount = this.form.closest('.js-product-card').find(".js-product-discount");
-    this.savedWrap = this.form.closest('.js-product-card').find(".js-product-saving");
+    this.discount = this.form.closest('.js-product-page').find(".js-product-discount");
+    this.savedWrap = this.form.closest('.js-product-page').find(".js-product-saving");
     this.isSkuUrl = this.form.data("sku-url");
     for (var k in options) {
         this[k] = options[k];
@@ -3678,10 +3678,10 @@ Product.prototype.updateSkuServices = function (sku_id) {
         var v = this.services[sku_id][service_id];
         if (v === false) {
             this.form.find(".service-" + service_id).hide().find('input,select').attr('disabled', 'disabled').removeAttr('checked').trigger('refresh');
-            this.form.find(".service-" + service_id).find(".js-checkbox-styler, label").addClass("disabled");
+            this.form.find(".service-" + service_id).find(".js-check-styler, label").addClass("disabled");
         } else {
             this.form.find(".service-" + service_id).show().find('input').removeAttr('disabled').trigger('refresh');
-            this.form.find(".service-" + service_id).find(".js-checkbox-styler, label").removeClass("disabled");
+            this.form.find(".service-" + service_id).find(".js-check-styler, label").removeClass("disabled");
             if (typeof (v) == 'string' || typeof (v) == 'number') {
                 this.form.find(".service-" + service_id + ' .service-price').html(this.currencyFormat(v));
                 this.form.find(".service-" + service_id + ' input').data('price', v);
@@ -3896,15 +3896,15 @@ Product.prototype.updateFeaturesList = function(sku_id) {
                 if(typeFeatures == 'short' && featuresAliasesList.length && $.inArray(f_code, featuresAliasesList) === -1){
                     continue;
                 }
-                var itemFeaturesClass = "product_features-item";
+                var itemFeaturesClass = "Product__features-item";
                 if(isDivider){
                     itemFeaturesClass += " " +"divider";
                 }
                 htmlTableTrFeature = '<tr class="'+ itemFeaturesClass +'">';
-                htmlTableTrFeature += "<td class=\"product_features-title\">";
+                htmlTableTrFeature += "<td class=\"Product__features-title\">";
                 htmlTableTrFeature += "<span>" + featuresList[f_code].name + "</span>";
                 htmlTableTrFeature += "</td>";
-                htmlTableTrFeature += "<td class=\"product_features-value\">";
+                htmlTableTrFeature += "<td class=\"Product__features-value\">";
                 if(!isDivider){
                     htmlTableTrFeature += f_value;
                 }
@@ -3948,7 +3948,7 @@ $(function(){
     videoPopup.init();
     lazyImages.init();
     productsPreviewList.init();
-    infoMessage.init($('.js-info-massage'));
+    infoMessage.init($('.js-head-info-massage'));
     popupAdvert.init($('.js-popup-advert'));
     categoriesImages.init();
     customGalleryPopup.init();

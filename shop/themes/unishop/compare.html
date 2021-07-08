@@ -1,13 +1,13 @@
 {strip}
-{$default_image = "`$wa_theme_url`img/dummy96.png"}
-{if !empty($theme_settings.default_image)}
-    {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+{$default_img = "`$wa_theme_url`img/dummy96.png"}
+{if !empty($theme_settings.default_img)}
+    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
 {/if}
 <div class="js-content content content-block">
     <div class="compare-header">
         <ul class="compare-diff-all ul-block">
-            <li class="selected br-sd-color sd-color"><a id="compare-all" href="#">[`All features`]</a></li>
-            <li class="br-sd-color sd-color"><a id="compare-diff" href="#">[`Different`]</a></li>
+            <li class="selected br-sdColor sdColor"><a id="compare-all" href="#">[`All features`]</a></li>
+            <li class="br-sdColor sdColor"><a id="compare-diff" href="#">[`Different`]</a></li>
         </ul>
 
         <h1>[`Compare products`]</h1>
@@ -67,7 +67,7 @@
                         {foreach $products as $p name=product_names}
                             <td class="align-center" width="{$td_width}%">
                                 <a href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">
-                                    {$wa->shop->productImgHtml($p, '70', ['itemprop' => 'image', 'id' => 'product-image', 'default' => $default_image, 'title' => $p.name|cat:' ':strip_tags($p.summary)|escape])}
+                                    {$wa->shop->productImgHtml($p, '70', ['itemprop' => 'image', 'id' => 'product-image', 'default' => $default_img, 'title' => $p.name|cat:' ':strip_tags($p.summary)|escape])}
                                 </a>
                                 <div class="name-wrapper">
                                     <a class="name-link" href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">{$p.name}</a>

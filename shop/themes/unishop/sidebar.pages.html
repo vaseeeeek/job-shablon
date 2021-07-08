@@ -18,10 +18,10 @@
 
 {$pages = $wa->shop->pages()}
 {if count($pages)}
-    <nav class="aside-wrap aside-wrap--pages">
-        <div class="aside-wrap_head bg-sd-color">
+    <nav class="sb-wrap sb-wrap--pages">
+        <div class="sb-wrap_head bg-sdColor">
             [`Information`]
-            <i data-id="sidebar-nav" class="js-nav-btn aside-wrap_btn icon-after"></i>
+            <i data-id="sidebar-nav" class="js-nav-button sb-wrap_btn fa-icon-after"></i>
         </div>
         {menu_tree pages=$pages id="sidebar-nav" class="menu-v"}
     </nav>

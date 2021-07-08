@@ -1,32 +1,54 @@
 {strip}
 {$video = $product->video}
-{$isPopup = empty($theme_settings.product_popup_gallery_off)}
-{$isPopupThumbs = $theme_settings.product_popup_gallery_thumbs}
-{$isBlackBg = $theme_settings.product_popup_gallery_black}
-{$isZoom = $theme_settings.product_gallery_zoom && !$wa->isMobile()}
-{$isPhotoSwipe = !empty($wa->isMobile())}
-{$popup_class="js-product-image-popup-swipebox"}{if $isPhotoSwipe}{$popup_class="js-product-image-popup-photoswipe"}{/if}
-{include file="product.gallery.previews.html" inline}
-
-{$default_image = "`$wa_theme_url`img/dummy200.png"}
-{if !empty($theme_settings.default_image)}
-    {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+{$_popupOn = empty($theme_settings.disable_popup_gallery)}
+{$_popupOnThumbs = $theme_settings.view_preview_popup_thumbs}
+{$_zoomOn = $theme_settings.zoom_gallery__product && !$wa->isMobile()}
+{$_photoSwipeOn = !empty($wa->isMobile())}
+{$class_popup="js-image-popup-swipebox"}{if $_photoSwipeOn}{$class_popup="js-image-popup-photoswipe"}{/if}
+{if count($product.images) > 1 || (count($product.images) === 1 && $video)}
+    {$_carouselOn = count($product.images) > 6 && !$wa->isMobile()}
+    <div id="product-gallery" class="previews_gallery{if $_carouselOn} carousel-vertical{/if}">
+        <div {if $_carouselOn}data-min-items="6" {/if}class="image-preview-list{if $_carouselOn} js-previews-gallery{/if}">
+            {$position = 0}
+            {foreach $product.images as $image}
+                <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
+                    <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, '970')}">
+                        {$wa->shop->imgHtml($image, '70')}
+                    </a>
+                </div>
+                {$position = $position + 1}
+            {/foreach}
+            {if $video}
+                <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                    <a href="{$video.url}">
+                        <i class="fa fa-video-camera" aria-hidden="true"></i>
+                    </a>
+                </div>
+                {$position = $position + 1}
+            {/if}
+        </div>
+    </div>
 {/if}
 
+{$default_img = "`$wa_theme_url`img/dummy200.png"}
+{if !empty($theme_settings.default_img)}
+    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{/if}
 
-<div class="product_main-left">
+{*остановился*}
+<div class="product-page_main-left">
     {$wa->shop->badgeHtml($product.badge)}
     {if isset($product.autobadge) && !empty($product.autobadge)}{$product.autobadge}{/if}
-    <div class="product_gallery js-product-gallery"{if !empty($isPopupThumbs)} data-thumbs="true"{/if}{if !empty($isBlackBg)} data-black-bg="true"{/if} data-zoom="{$isZoom}"  data-popup="{$isPopup}">
+    <div class="product_gallery js-product-gallery"{if !empty($_popupOnThumbs)} data-thumbs="true"{/if} data-zoom="{$_zoomOn}"  data-popup="{$_popupOn}">
         <!-- main image -->
-        <div data-position="fixed" class="js-product-cart-preview" id="product-core-image">
+        <div data-position="fixed" class="js-cart-preview-product" id="product-core-image">
             <div class="js-product-gallery-main product_gallery-main owl-carousel">
                 {if $product.images || $video}
                     {$position = 0}
                     {if $product.images}
                         {foreach $product.images as $image}
                             <span class="product_gallery-main-el-outer">
-                                <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-main-el js-product-gallery-main-el{if $isPopup} {$popup_class}{/if}{if !$isPopup} cursor-default{/if}" href="{$wa->shop->imgUrl($image, '970')}" data-position="{$position}">
+                                <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-main-el js-product-gallery-main-el{if $_popupOn} {$class_popup}{/if}{if !$_popupOn} cursor-default{/if}" href="{$wa->shop->imgUrl($image, '970')}" data-position="{$position}">
                                     {if $image@first}
                                         {$image_description = $image.description}
                                         {$wa->shop->imgHtml($image, '650', ['class' => 'product_gallery-main-img'])}
@@ -52,13 +74,13 @@
                         {$position = $position + 1}
                     {/if}
                 {else}
-                    <img src="{$default_image}" alt="{$product.name|escape}"/>
+                    <img src="{$default_img}" alt="{$product.name|escape}"/>
                 {/if}
             </div>
         </div>
 
         {if $theme_settings.product_gallery_display_description && $product.images}<div class="product_gallery-title js-product-gallery-title">{if !empty($image_description)}{$image_description}{/if}</div>{/if}
     </div>
-    {if $isPhotoSwipe}{include file="photoswipe.html" inline}{/if}
+    {if $_photoSwipeOn}{include file="photoswipe.html" inline}{/if}
 </div>
 {/strip}

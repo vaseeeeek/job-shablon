@@ -4,12 +4,12 @@
         {include file='sidebar.cart.html'}
     {/if}
 
-    {if $theme_settings.show_filter_sidebar == 'sidebar_right' && !empty($filters)}
+    {if $theme_settings.show_sb_filter == 'sidebar_right' && !empty($filters)}
         {if !isset($filters)}{$filters = []}{/if}
         {include file="`$wa_active_theme_path`/sidebar.filter.html" filter=$filters}
     {/if}
 
-    {if $theme_settings.show_category_sidebar == 'sidebar_right'}
+    {if $theme_settings.show_sb_category == 'sidebar_right'}
         {include file="`$wa_active_theme_path`/sidebar.categories.html"}
     {/if}
 
@@ -25,15 +25,15 @@
         {include file="`$wa_active_theme_path`/sidebar.products.compare.html"}
     {/if}
 
-    {if $theme_settings.show_plugins_sidebar == 'sidebar_right'}
+    {if $theme_settings.show_plugins_sb == 'sidebar_right'}
         {include file="`$wa_active_theme_path`/sidebar.plugins.html"}
     {/if}
 
-    {if $theme_settings.show_tags_sidebar == 'sidebar_right'}
+    {if $theme_settings.show_tags_sb == 'sidebar_right'}
         {include file="`$wa_active_theme_path`/sidebar.tags.html"}
     {/if}
 
-    {if $theme_settings.show_lastview_sidebar == 'sidebar_right'}
+    {if $theme_settings.show_lastview_sb == 'sidebar_right'}
         {include file="`$wa_active_theme_path`/sidebar.lastview.html"}
     {/if}
 

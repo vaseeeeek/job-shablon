@@ -6,12 +6,12 @@
     {else}
         {$favorites_list = []}
     {/if}
-    {if (!$wa->isMobile() && !empty($theme_settings.show_product_tile_features)) || ($wa->isMobile() && !empty($theme_settings.show_product_tile_mobile_features))}
+    {if (!$wa->isMobile() && !empty($theme_settings.product_show_tile_features)) || ($wa->isMobile() && !empty($theme_settings.product_show_tile_mobile_features))}
         {$features = $wa->shop->features($products)}
     {/if}
 
-    {$isProductPreviewTileGallery = ($theme_settings.product_preview_tile_gallerytile && !$wa->isMobile())}
-    {if $isProductPreviewTileGallery}
+    {$isPreviewProductGalleryTile = ($theme_settings.product_preview_tile_gallerytile && !$wa->isMobile())}
+    {if $isPreviewProductGalleryTile}
         {$products_ids = ""}
         {foreach $products as $p}
             {if $p.id}{$products_ids[] = $p.id}{/if}
@@ -25,7 +25,7 @@
             <h3 class="product_related-title">{$product_list_title}</h3>
         </div>
         <div class="products-tile-outer">
-            {$is_preview_tile_mini = $wa->isMobile() && $theme_settings.preview_product_tile_mobile == 'mini_tile'}
+            {$is_preview_tile_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
             <div data-retina="{$wa->shop->config('enable_2x')}" class="js-preview-products products-tile{if $is_preview_tile_mini} products-tile--mini{/if}">
                 <div class="owl-carousel owl-theme"{if $is_preview_tile_mini} data-type-mobile-preview="mini"{/if}>
                     {foreach $products as $p}

@@ -47,7 +47,7 @@ $(function () {
             row.hide();
             updateCart(response.data);
             $('.js-cart-preview-count').html(response.data.count);
-            $('.js-cart-preview-total').html(response.data.total);
+            $('.js-cart-total-price').html(response.data.total);
         }, "json");
     });
 

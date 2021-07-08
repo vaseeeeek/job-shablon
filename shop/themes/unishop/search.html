@@ -2,14 +2,14 @@
 {if $wa->get('ajax')}{* ajax request, for autosearch *}
     {if $products}
         <div>
-            <div class="js-auto-search auto-search br-top-sd-color">
+            <div class="js-auto-search auto-search br-top-sdColor">
                 {include file='list-thumbs-mini.html' class="products-mini--search" limit=8 }
                 <div class="auto-search-all"><a class="link" href="{$wa->getUrl('shop/frontend/search')}?query={$wa->get('query')}">[`View all`]</a> ({$products_count}) &rarr; </div>
             </div>
         </div>
     {/if}
 {else}
-    {$class_product_list = "js-category-list products--category"}
+    {$class_product_list = "js-cat-list products--category"}
     {$isNoPaginate = 0}
 	{$sorting=true}
     {$isSearchPro = $theme_settings.plugin_search_pro && strpos($wa->currentUrl(false, true), '/search/' ) === 0 && class_exists('shopSearchproPluginViewHelper') && !$wa->get('list')}
@@ -73,8 +73,8 @@
     {if !$products}
         <div class="content-block">[`No products were found.`]</div>
     {else}
-        <div class="js-product-list-ajax-loader display_none content-block"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
-        <div class="js-product-list-ajax">
+        <div class="js-product-ajax-list-loader display_none content-block"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
+        <div class="js-product-ajax-list">
             {include file='list-thumbs.html' sorting=$sorting isSwitchView=true ulclass=$class_product_list}
         </div>
     {/if}

@@ -4,13 +4,13 @@
 {if !isset($class)}{$class = ""}{/if}
 {$index = 0}
 
-{$default_image = "`$wa_theme_url`img/dummy96.png"}
-{if !empty($theme_settings.default_image)}
-    {$default_image = "`$wa_parent_theme_url``$theme_settings.default_image`"}
+{$default_img = "`$wa_theme_url`img/dummy96.png"}
+{if !empty($theme_settings.default_img)}
+    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
 {/if}
 
-{$is_price_range = $theme_settings.product_list_price_range}
-<div class="aside-wrap_content">
+{$_price_range = $theme_settings.price_range_in_product_list}
+<div class="sb-wrap_content">
 {foreach $products as $p}
     {if $limit && $index >= $limit}
         {break}
@@ -19,7 +19,7 @@
 
     <div class="sidebar-product">
         <a class="sidebar-product_img" href="{$p.frontend_url}" title="{$p.name}">
-            {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $default_image])}
+            {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $default_img])}
         </a>
         <div class="sidebar-product_content">
             <a class="sidebar-product_name" href="{$p.frontend_url}">{$p.name}</a>
@@ -29,7 +29,7 @@
             <div class="sidebar-product_price nowrap">
                 {if empty($p.price) && !empty($theme_settings.text_price_zero)}
                     <span class="price">{$theme_settings.text_price_zero}</span>
-                {elseif $is_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}
+                {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}
                     <span class="price"><span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span class="nowrap">{shop_currency_html($p.max_price)}</span></span>
                 {else}
                     <span class="price">{shop_currency_html($p.price)}</span>

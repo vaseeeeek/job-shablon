@@ -1,53 +1,43 @@
 {strip}
-<div class="header_menu-m">
-    <div data-id="header-nav" class="header_menu-m-btn  icon-before js-nav-btn"></div>
+<div class="MobileMenu">
+    <div data-id="header_menu-nav" class="MobileMenu-btn  fa-icon js-nav-button"></div>
+    {*остановился*}
     {$_links = []}
-    {if $theme_settings.header_links == 'site-pages'}
+
+    {if $theme_settings.header_top_links == 'site-pages'}
         {if $wa->site}{$_links = $wa->site->pages()}{/if}
-    {elseif $theme_settings.header_links == 'shop-pages'}
+    {elseif $theme_settings.header_top_links == 'shop-pages'}
         {if $wa->shop}{$_links = $wa->shop->pages()}{/if}
-    {elseif $theme_settings.header_links == 'blog-pages'}
+    {elseif $theme_settings.header_top_links == 'blog-pages'}
         {if $wa->blog}{$_links = $wa->blog->pages()}{/if}
-    {elseif $theme_settings.header_links == 'photos-pages'}
+    {elseif $theme_settings.header_top_links == 'photos-pages'}
         {if $wa->photos}{$_links = $wa->photos->pages()}{/if}
-    {elseif $theme_settings.header_links == 'hub-pages'}
+    {elseif $theme_settings.header_top_links == 'hub-pages'}
         {if $wa->hub}{$_links = $wa->hub->pages()}{/if}
-    {elseif $theme_settings.header_links == 'app-menu'}
-        {if $wa->menu && !empty($theme_settings.id_app_header_menu) && (int)$theme_settings.id_app_header_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header_menu)}{/if}
-    {elseif $theme_settings.header_links != 'none'}
+    {elseif $theme_settings.header_top_links == 'app-menu'}
+        {if $wa->menu && !empty($theme_settings.id_app_header-top_menu) && (int)$theme_settings.id_app_header-top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header-top_menu)}{/if}
+    {elseif $theme_settings.header_top_links != 'none'}
         {$_links = $wa->apps()}
     {/if}
 
-    {if $theme_settings.header_links_apps_items}
-        {$apps_pages = $wa->apps()}
-        {foreach $apps_pages as $p}
-            {$_links[] = $p}
-        {/foreach}
-    {/if}
-
     {if count($_links) > 0}
-        <nav id="header-nav" class="header_nav-m">
+        <nav id="header_menu-nav" class="MobileMenu_nav-m">
             <ul>
-                {if $theme_settings.header_menu_show_homepage}
-                    <li class="js-header-nav-el">
-                        <a {if $wa->currentUrl() == $wa_url} class="selected"{/if} href="{$wa_url}">[`Home`]</a>
-                    </li>
-                {/if}
-                {foreach $_links as $a}
-                    {if !($a.url == $wa_url && $a.name == $wa->accountName()) && !isset($a.top_menu_hide)}
-                        {$is_select = strlen($a.url)>1 && $wa->currentUrl() == $a.url}
-                        {$is_open = $a.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($a.url)>1 && $wa->currentUrl()|strstr:$a.url}
-                        <li class="js-header-nav-el">
-                            <a{if isset($a.target)} target="{$a.target}"{/if}{if $is_select} class="selected"{/if} href="{$a.url}">
-                                {$a.name}
+                {foreach $_links as $link}
+                    {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
+                        {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
+                        {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
+                        <li class="js-header-top-nav-el">
+                            <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
+                                {$link.name}
                             </a>
-                            {if isset($a.childs) && $a.childs && count($a.childs) && $theme_settings.display_header_menu_submenu}
-                                <i class="js-nav-caret nav-caret icon-before"></i>
-                                <div class="header_nav-m-sub">
-                                    <ul class="br-top-bs-color">
-                                        {foreach $a.childs as $subp}
-                                            {if !isset($subp.top_menu_hide)}
-                                                <li><a{if isset($subp.target)} target="{$subp.target}"{/if} {if strlen($subp.url)>1 && $wa->currentUrl() == $subp.url} class="selected"{/if} href="{$subp.url}">{$subp.name}</a></li>
+                            {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
+                                <i class="js-top-nav-caret nav-caret fa-icon"></i>
+                                <div class="MobileMenu_nav-m-sub">
+                                    <ul class="top-border-color">
+                                        {foreach $link.childs as $child}
+                                            {if !isset($child.top_menu_hide)}
+                                                <li><a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if} href="{$child.url}">{$child.name}</a></li>
                                             {/if}
                                         {/foreach}
                                     </ul>

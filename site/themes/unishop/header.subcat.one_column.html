@@ -1,27 +1,27 @@
 {strip}
-<div class="subcat-menu js-submenu">
-    {foreach $cat.childs as $keyCatlvl2 => $catlvl2}
-        {if !isset($catlvl2.params.menu_hide)}
+<div class="menu-subcategory js-subcategorymenu">
+    {foreach $cat.childs as $keyCatChild => $catChild_2}
+        {if !isset($catChild_2.params.menu_hide)}
             {$is_subcat_lvl2 = false}
-            {if count($catlvl2.childs) && $theme_settings.count_categories_levels > 2}
-                {foreach $catlvl2.childs as $catlvl3}
-                    {if !isset($catlvl3.params.menu_hide)}
+            {if count($catChild_2.childs) && $theme_settings.max_cat_lvl > 2}
+                {foreach $catChild_2.childs as $catChild_3}
+                    {if !isset($catChild_3.params.menu_hide)}
                         {$is_subcat_lvl2 = true}
                     {/if}
                 {/foreach}
             {/if}
-            <div class="{if $is_subcat_lvl2}js-subcatmenu-el has-subs{/if} subcat-menu__el{if $theme_settings.categories_menu_dropdown_relative == "parent"} position-relative {/if}">
+            <div class="{if $is_subcat_lvl2}js-subcatmenu-el has-subs{/if} subcat-menu__el{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
                 {if $is_subcat_lvl2}
-                    <i class="js-catmenu-el-caret cat-menu__el-caret fa"></i>
+                    <i class="js-cat-el-caret cat-menu__el-caret fa"></i>
                 {/if}
 
-                <a href="{$catlvl2.url}">{$catlvl2.name}</a>
+                <a href="{$catChild_2.url}">{$catChild_2.name}</a>
                 {if $is_subcat_lvl2}
-                    <div class="subcat-menu js-submenu">
-                        {foreach $catlvl2.childs as $catlvl3}
-                            {if !isset($catlvl3.params.menu_hide)}
+                    <div class="menu-subcategory js-subcategorymenu">
+                        {foreach $catChild_2.childs as $catChild_3}
+                            {if !isset($catChild_3.params.menu_hide)}
                                 <div class="subcat-menu__el">
-                                    <a href="{$catlvl3.url}">{$catlvl3.name}</a>
+                                    <a href="{$catChild_3.url}">{$catChild_3.name}</a>
                                 </div>
                             {/if}
                         {/foreach}

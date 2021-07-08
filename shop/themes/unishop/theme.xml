@@ -246,7 +246,7 @@
       <description locale="en_US">Content of last reviews about products on mainpage</description>
       <description locale="ru_RU">Содержимое последних отзывов о товарах на главной</description>
     </file>
-    <file path="home.products-list.html">
+    <file path="home.Products-list.html">
       <description locale="en_US">Product list on homepage</description>
       <description locale="ru_RU">Список товаров на главной</description>
     </file>

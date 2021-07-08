@@ -1,10 +1,6 @@
 {strip}
 <!-- shop app css -->
-{if $theme_settings.generation_style_off}
-    <link href="{$wa_active_theme_url}unishop.shop.css?v{$wa_theme_version}" rel="stylesheet"/>
-{else}
-    <link href="{$wa_active_theme_url}unishop.shop.min.css?v{$wa_theme_version}" rel="stylesheet"/>
-{/if}
+<link href="{$wa_active_theme_url}unishop.shop.min.css?v{$wa_theme_version}" rel="stylesheet"/>
 
 {if !empty($nofollow)}
     <!-- "nofollow" for pages not to be indexed, e.g. customer account -->

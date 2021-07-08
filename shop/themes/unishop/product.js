@@ -3,8 +3,8 @@ function Product(form, options) {
     this.add2cart = this.form.find(".js-add2cart");
     this.button = this.add2cart.find(".js-submit-form");
     this.skFastButton = this.form.find(".js-sk-oneclick-open");
-    this.discount = this.form.closest('.js-product-card').find(".js-product-discount");
-    this.savedWrap = this.form.closest('.js-product-card').find(".js-product-saving");
+    this.discount = this.form.closest('.js-product-page').find(".js-product-discount");
+    this.savedWrap = this.form.closest('.js-product-page').find(".js-product-saving");
     this.isSkuUrl = this.form.data("sku-url");
     for (var k in options) {
         this[k] = options[k];
@@ -416,15 +416,15 @@ Product.prototype.updateFeaturesList = function(sku_id) {
                 if(typeFeatures == 'short' && featuresAliasesList.length && $.inArray(f_code, featuresAliasesList) === -1){
                     continue;
                 }
-                var itemFeaturesClass = "product_features-item";
+                var itemFeaturesClass = "Product__features-item";
                 if(isDivider){
                     itemFeaturesClass += " " +"divider";
                 }
                 htmlTableTrFeature = '<tr class="'+ itemFeaturesClass +'">';
-                htmlTableTrFeature += "<td class=\"product_features-title\">";
+                htmlTableTrFeature += "<td class=\"Product__features-title\">";
                 htmlTableTrFeature += "<span>" + featuresList[f_code].name + "</span>";
                 htmlTableTrFeature += "</td>";
-                htmlTableTrFeature += "<td class=\"product_features-value\">";
+                htmlTableTrFeature += "<td class=\"Product__features-value\">";
                 if(!isDivider){
                     htmlTableTrFeature += f_value;
                 }
@@ -449,7 +449,7 @@ $(function () {
     var $ = jQuery,
         $productGallery = $('.js-product-gallery'),
         $coreWrapper = $("#product-core-image"),
-        $coreImages = $coreWrapper.find(".js-product-image-popup");
+        $coreImages = $coreWrapper.find(".js-image-popup");
 
     displayImageTitle($coreWrapper.find('.js-product-gallery-main'));
 
@@ -461,13 +461,13 @@ $(function () {
         }
     }
 
-    $(".js-gallery-preview a").on("click", function (event) {
+    $(".js-id-preview-gallery a").on("click", function (event) {
         event.preventDefault();
 
         changeLargeImage($(this));
     });
 
-    $(".js-product-image-popup").on("click", function (event) {
+    $(".js-image-popup").on("click", function (event) {
         event.preventDefault();
     });
 });
@@ -477,7 +477,7 @@ function productMainImageCarousel(previewsBxSlider){
         position = 0;
 
     if(mainGallery.length){
-        var currenrPreview = mainGallery.closest('.js-product').find('.js-gallery-preview.selected');
+        var currenrPreview = mainGallery.closest('.js-product').find('.js-id-preview-gallery.selected');
         if(currenrPreview.length){
             if(currenrPreview.data("position") != "0"){
                 position = parseInt(currenrPreview.data("position"));
@@ -508,7 +508,7 @@ function productMainImageCarousel(previewsBxSlider){
                 var gallery = $(event.currentTarget);
 
                 if(gallery.length){
-                    var previews = gallery.closest('.js-product').find('.js-gallery-preview'),
+                    var previews = gallery.closest('.js-product').find('.js-id-preview-gallery'),
                         previousPreview = previews.filter('.selected'),
                         image_id = $(gallery).find(".owl-item.active .js-product-gallery-main-el").data("id");
 
@@ -556,7 +556,7 @@ function changeLargeImage(previewImage){
 }
 
 function imagesPreviewCarusel(){
-    var images = $('.js-product-gallery-previews');
+    var images = $('.js-previews-gallery');
 
     if(images.length){
         images.bxSlider({
@@ -607,7 +607,7 @@ function popupSwipebox($productGallery, $coreWrapper, $coreImages){
         $coreImages.on("click", function(e) {
             e.preventDefault();
 
-            var previews = $(this).closest('.js-product').find('.js-gallery-preview'),
+            var previews = $(this).closest('.js-product').find('.js-id-preview-gallery'),
                 images = [],
                 position = 0;
 
@@ -698,7 +698,7 @@ function popupPhotoswipe($coreImages){
         $coreImages.on("click", function (e) {
             e.preventDefault();
 
-            var previews = $(this).closest('.js-product').find('.js-gallery-preview'),
+            var previews = $(this).closest('.js-product').find('.js-id-preview-gallery'),
                 mainPhoto = $(this).closest('.js-product').find('.js-product-gallery-main-el'),
                 pswpElement = document.querySelectorAll('.pswp')[0],
                 position = 0,
@@ -755,7 +755,7 @@ function productImageNav(){
         btnNav.on("click", function(){
             var $this = $(this),
                 action = $this.data("action"),
-                currentActive = $('.js-gallery-preview.selected');
+                currentActive = $('.js-id-preview-gallery.selected');
 
             if(action == 'next'){
                 var newImage = currentActive.next();

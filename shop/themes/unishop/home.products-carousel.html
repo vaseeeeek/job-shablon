@@ -8,12 +8,12 @@
         {else}
             {$favorites_list = []}
         {/if}
-        {if (!$wa->isMobile() && !empty($theme_settings.show_product_tile_features)) || ($wa->isMobile() && !empty($theme_settings.show_product_tile_mobile_features))}
+        {if (!$wa->isMobile() && !empty($theme_settings.product_show_tile_features)) || ($wa->isMobile() && !empty($theme_settings.product_show_tile_mobile_features))}
             {$features = $wa->shop->features($list)}
         {/if}
 
-        {$isProductPreviewTileGallery = ($theme_settings.product_preview_tile_gallerytile && !$wa->isMobile())}
-        {if $isProductPreviewTileGallery}
+        {$isPreviewProductGalleryTile = ($theme_settings.product_preview_tile_gallerytile && !$wa->isMobile())}
+        {if $isPreviewProductGalleryTile}
             {$products_ids = ""}
             {foreach $list as $p}
                 {if $p.id}{$products_ids[] = $p.id}{/if}
@@ -26,7 +26,7 @@
         <div class="mainpage-products mainpage-products--carousel js-product-owl-carousel">
             {if $list_title}
                 <div class="mainpage-products_head-outer"{if empty($is_with_sidebar_list) && $list_head_color} style="background: {$list_head_color}"{/if}>
-                    <div class="l-wrapper">
+                    <div class="container">
                         <div  class="mainpage-products_head">
                             <div class="mainpage-products__direction js-carousel-direction"></div>
                             <div class="mainpage-products__title">{$list_title}</div>
@@ -34,9 +34,9 @@
                     </div>
                 </div>
             {/if}
-            <div class="l-wrapper">
+            <div class="container">
                 <div class="products-tile-outer">
-                    {$is_preview_tile_mini = $wa->isMobile() && $theme_settings.preview_product_tile_mobile == 'mini_tile'}
+                    {$is_preview_tile_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
                     <div data-retina="{$wa->shop->config('enable_2x')}" class="js-preview-products products-tile{if $is_preview_tile_mini} products-tile--mini{/if}">
                         <div class="owl-carousel owl-theme owl-loaded"{if $is_preview_tile_mini} data-type-mobile-preview="mini"{/if}>
                             {foreach $list as $p}

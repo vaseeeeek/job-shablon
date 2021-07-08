@@ -34,10 +34,10 @@
 {$pages = $wa->site->pages(0, true, true)}
 
 {if count($pages)}
-    <nav class="aside-wrap aside-wrap--pages js-sidebar-menu">
-        <div class="aside-wrap_head bg-sd-color">
+    <nav class="sb-wrap sb-wrap--pages js-sidebar-menu">
+        <div class="sb-wrap_head bg-sdСolor">
             [`Information`]
-            <i data-id="sidebar-nav" class="js-nav-btn aside-wrap_btn icon-after"></i>
+            <i data-id="sidebar-nav" class="js-nav-button sb-wrap_btn fa-icon-after"></i>
         </div>
         {menu_tree pages=$pages id="sidebar-nav" class="menu-v"}
     </nav>

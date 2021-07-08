@@ -1,6 +1,6 @@
 {strip}
 <div class="header_menu">
-    <div data-id="header-nav" class="header_menu-btn icon-before js-nav-btn"></div>
+    <div data-id="header-nav" class="header_menu-btn fa-icon-before js-nav-button"></div>
     {$_links = []}
     {if $theme_settings.header_links == 'site-pages'}
         {if $wa->site}{$_links = $wa->site->pages()}{/if}
@@ -26,25 +26,20 @@
     {/if}
 
     {if count($_links) > 0}
-        <nav id="header-nav" class="header_nav">
-            <ul class="js-resp-nav">
-                {if $theme_settings.header_menu_show_homepage}
-                    <li class="js-resp-nav-el js-header-nav-el">
-                        <a {if $wa->currentUrl() == $wa_url} class="selected"{/if} href="{$wa_url}">[`Home`]</a>
-                    </li>
-                {/if}
+        <nav id="header-nav" class="header-top_nav">
+            <ul class="js-resp-nav-top">
                 {foreach $_links as $a}
                     {if !($a.url == $wa_url && $a.name == $wa->accountName()) && !isset($a.top_menu_hide)}
                         {$is_select = strlen($a.url)>1 && $wa->currentUrl() == $a.url}
                         {$is_open = $a.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($a.url)>1 && $wa->currentUrl()|strstr:$a.url}
-                        <li class="js-resp-nav-el js-header-nav-el">
+                        <li class="js-resp-nav-top-el js-header-top-nav-el">
                             <a{if isset($a.target)} target="{$a.target}"{/if}{if $is_select} class="selected"{/if} href="{$a.url}">
                                 {$a.name}
                             </a>
-                            {if isset($a.childs) && $a.childs && count($a.childs) && $theme_settings.display_header_menu_submenu}
-                                <i class="js-nav-caret nav-caret icon-before"></i>
-                                <div class="js-header-nav-sub header_nav-sub">
-                                    <ul class="br-top-bs-color">
+                            {if isset($a.childs) && $a.childs && count($a.childs) && $theme_settings.display_header_top_menu_submenu}
+                                <i class="js-top-nav-caret nav-caret fa-icon-before"></i>
+                                <div class="js-header-nav-sub header-top_nav-sub">
+                                    <ul class="border-top-color">
                                         {foreach $a.childs as $subp}
                                             {if !isset($subp.top_menu_hide)}
                                                 <li><a{if isset($subp.target)} target="{$subp.target}"{/if} {if strlen($subp.url)>1 && $wa->currentUrl() == $subp.url} class="selected"{/if} href="{$subp.url}">{$subp.name}</a></li>
@@ -56,9 +51,9 @@
                         </li>
                     {/if}
                 {/foreach}
-                <li class="js-resp-nav-else js-header-nav-el header_nav-else hide">
+                <li class="js-resp-nav-top-else js-header-top-nav-el header-top_nav-else hide">
                     <span class="link">[`Else`]</span> <i class="fa fa-caret-down"></i>
-                    <div class="header_nav-sub js-header-nav-sub"><ul class="js-resp-subnav-else br-top-bs-color"></ul></div>
+                    <div class="header-top_nav-sub js-header-nav-sub"><ul class="js-resp-subnav-else border-top-color"></ul></div>
                 </li>
             </ul>
         </nav>

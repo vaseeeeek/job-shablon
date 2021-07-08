@@ -1,52 +1,20 @@
 {strip}
-<aside class="left-sidebar js-left-sidebar">
-    {if $theme_settings.show_filter_sidebar == 'sidebar_left' && !empty($filters)}
-        {if !isset($filters)}{$filters = []}{/if}
-        {include file="`$wa_active_theme_path`/sidebar.filter.html" filter=$filters}
-    {/if}
+    <aside class="left-sidebar js-left-sd">
+        {if $theme_settings.show_sb_filter == 'sidebar_left' && !empty($filters)}
+            {if !isset($filters)}{$filters = []}{/if}
+            {include file="`$wa_active_theme_path`/sidebar.filter.html" filter=$filters}
+        {/if}
 
-    {if $theme_settings.show_category_sidebar == 'sidebar_left'}
-        {include file="`$wa_active_theme_path`/sidebar.categories.html"}
-    {/if}
+        {if $theme_settings.show_sb_category == 'sidebar_left'}
+            {include file="`$wa_active_theme_path`/sidebar.categories.html"}
+        {/if}
 
-    {if $theme_settings.block_1_sidebar == 'sidebar_left'}
-        {$wa->block("unishop_sidebar_1")}
-    {/if}
+        {if $theme_settings.show_plugins_sb == 'sidebar_left'}
+            {include file="`$wa_active_theme_path`/sidebar.plugins.html"}
+        {/if}
 
-    {if $theme_settings.block_2_sidebar == 'sidebar_left'}
-        {$wa->block("unishop_sidebar_2")}
-    {/if}
-
-    {if $theme_settings.show_compare_sidebar == 'sidebar_left'}
-        {include file="`$wa_active_theme_path`/sidebar.products.compare.html"}
-    {/if}
-
-    {if $theme_settings.show_plugins_sidebar == 'sidebar_left'}
-        {include file="`$wa_active_theme_path`/sidebar.plugins.html"}
-    {/if}
-
-    {if $theme_settings.show_tags_sidebar == 'sidebar_left'}
-        {include file="`$wa_active_theme_path`/sidebar.tags.html"}
-    {/if}
-
-    {if $theme_settings.show_lastview_sidebar == 'sidebar_left'}
-        {include file="`$wa_active_theme_path`/sidebar.lastview.html"}
-    {/if}
-
-    {if $theme_settings.show_pages_sidebar == 'sidebar_left'}
-        {include file="`$wa_active_theme_path`/sidebar.pages.html"}
-    {/if}
-
-    {if $theme_settings.show_news_sidebar == 'sidebar_left'}
-        {include file="`$wa_parent_theme_path`/sidebar.news.html" blog_id=(int)$theme_settings.blog_id_sidebar}
-    {/if}
-
-    {if $theme_settings.show_photos_sidebar == 'sidebar_left'}
-        {include file="`$wa_parent_theme_path`/sidebar.photos.html"}
-    {/if}
-
-    {if $theme_settings.show_social_sidebar == 'sidebar_left'}
-        {include file="`$wa_parent_theme_path`/sidebar.widgets.html"}
-    {/if}
-</aside>
+        {if $theme_settings.show_tags_sb == 'sidebar_left'}
+            {include file="`$wa_active_theme_path`/sidebar.tags.html"}
+        {/if}
+    </aside>
 {/strip}

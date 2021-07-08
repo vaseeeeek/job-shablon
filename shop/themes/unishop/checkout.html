@@ -9,10 +9,10 @@
     header .auth { display: none; }
 </style>
 
-{$cols = 1} {$is_sidebar_left = 0} {$is_sidebar_right = 0}{$is_cart_items = 0}
+{$cols = 1} {$sb_left = 0} {$is_sidebar_right = 0}{$is_cart_items = 0}
 {if $theme_settings.checkout_sidebar_left && !$wa->isMobile()}
     {$cols = $cols + 1}
-    {$is_sidebar_left = 1}
+    {$sb_left = 1}
 {/if}
 {if $theme_settings.checkout_sidebar_right && !$wa->isMobile()}
     {$cols = $cols + 1}
@@ -24,8 +24,8 @@
 {/if}
 
 <div class="cols-{$cols}">
-    <div class="sidebars-outer">
-        {if $is_sidebar_left}
+    <div class="out_sidebars">
+        {if $sb_left}
             {include file='sidebar-left.html'}
         {/if}
         {if $is_sidebar_right}
@@ -37,16 +37,16 @@
             </aside>
         {/if}
     </div>
-    <div class="js-content content{if $is_sidebar_left} with-left-sidebar{/if} {if $is_sidebar_right || $is_cart_items} with-right-sidebar{/if}">
+    <div class="js-content content{if $sb_left} with-sidebar{/if} {if $is_sidebar_right || $is_cart_items} with-right-sidebar{/if}">
         <div class="checkout">
             {if isset($checkout_steps)}
                 {$current_step_index = array_search($checkout_current_step, array_keys($checkout_steps)) + 1}
-                <div class="checkout-head sd-color">
+                <div class="checkout-head sdColor">
                     {$widthStep = floor(100/count($checkout_steps))}
                     {foreach $checkout_steps as $step_id => $s}
                         <a id="step-header-{$step_id}" style="width: {$widthStep}%" class="js-step-header step-header{if isset($_upcoming_flag)} upcoming{/if}{if $step_id == $checkout_current_step} current{/if}" data-step="{$step_id}" href="#">
                             <div class="step-header_icon">
-                                <i class="icon-after step-header_icon-{$step_id}"></i>
+                                <i class="fa-icon-after step-header_icon-{$step_id}"></i>
                             </div>
                             <span class="step-header_title">{$s.name}</span>
                         </a>
