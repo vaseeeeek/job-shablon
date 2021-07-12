@@ -1524,9 +1524,9 @@ var cart = {
                         }
 
                         if(!is_touch_device()){
-                            productGallery.productImageZoom(this.content.find(".js-product-gallery-main"));
+                            productGallery.productImageZoom(this.content.find(".js-product_gallery-images-main"));
                         }
-                        productGallery.swipeLargePhoto(this.content.find('.js-product-gallery-main'));
+                        productGallery.swipeLargePhoto(this.content.find('.js-product_gallery-images-main'));
                         productGallery.previewsBxSlider = productGallery.previewsCarouselInit(this.content.find('.js-previews-gallery'));
                     },
                     open: function() {
@@ -1584,9 +1584,9 @@ var cart = {
         });
     },
     animationMoveToCart: function (form){
-        var productBlock = form.closest('.js-product').find('.js-cart-preview-product');
+        var productBlock = form.closest('.js-product').find('.js-preview-cart');
         if(productBlock.length == 0){
-            productBlock = form.closest('.js-cart-preview-product');
+            productBlock = form.closest('.js-preview-cart');
         }
         var position = productBlock.data('position');
         var productBlockCopy = $('<div></div>').append(productBlock.html());
@@ -3132,7 +3132,7 @@ var productGallery = {
             $ = jQuery;
 
         productGallery.previewsBxSlider = _this.previewsCarouselInit($('.js-previews-gallery'));
-        productGallery.swipeLargePhoto($('.js-product-gallery-main'));
+        productGallery.swipeLargePhoto($('.js-product_gallery-images-main'));
         productGallery.popupPhotoswipe();
         productGallery.popupSwipebox();
 
@@ -3143,7 +3143,7 @@ var productGallery = {
         });
 
         if(!is_touch_device()){
-            _this.productImageZoom($('.js-product-gallery-main'));
+            _this.productImageZoom($('.js-product_gallery-images-main'));
         }
     },
     previewsCarouselInit: function (images){
@@ -3203,7 +3203,7 @@ var productGallery = {
                 onChanged: function (event){
                     var gallery = $(event.currentTarget),
                         currentItemIndex = event.item.index,
-                        currentItem = gallery.find('.js-product-gallery-main-el[data-position="'+currentItemIndex+'"]'),
+                        currentItem = gallery.find('.js-product_gallery-images-main-el[data-position="'+currentItemIndex+'"]'),
                         currentItemId = currentItem.data("id"),
                         is_video = (currentItem.data("id") == "video");
 
@@ -3229,7 +3229,7 @@ var productGallery = {
                     if(gallery.length){
                         var previews = gallery.closest('.js-product').find('.js-id-preview-gallery'),
                             previousPreview = previews.filter('.selected'),
-                            image_id = $(gallery).find(".owl-item.active .js-product-gallery-main-el").data("id");
+                            image_id = $(gallery).find(".owl-item.active .js-product_gallery-images-main-el").data("id");
 
 
                         if(image_id){
@@ -3268,7 +3268,7 @@ var productGallery = {
                 allowPageScroll:"auto",
                 threshold: 20,
                 swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-                    var mainGallery = $(event.target).closest('.js-product').find('.js-product-gallery-main');
+                    var mainGallery = $(event.target).closest('.js-product').find('.js-product_gallery-images-main');
 
                     if(direction == 'left'){
                         productGallery.mainCarouselInit(mainGallery, "prev");
@@ -3283,8 +3283,8 @@ var productGallery = {
         var _this = this,
             preview =  previewImage.parent(),
             image_id = preview.data("id"),
-            mainGallery = previewImage.closest('.js-product').find('.js-product-gallery-main'),
-            mainGalleryItems = mainGallery.find('.js-product-gallery-main-el');
+            mainGallery = previewImage.closest('.js-product').find('.js-product_gallery-images-main'),
+            mainGalleryItems = mainGallery.find('.js-product_gallery-images-main-el');
 
         if(!mainGallery.hasClass('owl-loaded')){
             _this.mainCarouselInit(mainGallery);
@@ -3306,7 +3306,7 @@ var productGallery = {
         }
     },
     displayImageTitle: function (gallery){
-        var titleWrap = gallery.closest('.js-product').find('.js-product-gallery-title'),
+        var titleWrap = gallery.closest('.js-product').find('.js-product_gallery-images-title'),
             currentImage = gallery.find(".owl-item.active");
 
         titleWrap.text("");
@@ -3318,8 +3318,8 @@ var productGallery = {
         }
     },
     productImageZoom: function (mainGallery){
-        if(mainGallery.length && mainGallery.closest('.js-product-gallery').data("zoom")){
-            var currentImage = mainGallery.find(".js-product-gallery-main-el");
+        if(mainGallery.length && mainGallery.closest('.js-product_gallery-images').data("zoom")){
+            var currentImage = mainGallery.find(".js-product_gallery-images-main-el");
 
             currentImage.each(function(){
                 $(this).zoom({
@@ -3338,7 +3338,7 @@ var productGallery = {
         $('body').on("click", ".js-image-popup-swipebox", function(e) {
             e.preventDefault();
 
-            var productGalley = $(this).closest('.js-product').find(".js-product-gallery"),
+            var productGalley = $(this).closest('.js-product').find(".js-product_gallery-images"),
                 previews = $(this).closest('.js-product').find('.js-id-preview-gallery'),
                 images = [],
                 position = 0;
@@ -3426,9 +3426,9 @@ var productGallery = {
         $('body').on("click", ".js-image-popup-photoswipe", function (e) {
             e.preventDefault();
 
-            var mainGallery = $(this).closest('.js-product').find('.js-product-gallery'),
+            var mainGallery = $(this).closest('.js-product').find('.js-product_gallery-images'),
                 previews = $(this).closest('.js-product').find('.js-id-preview-gallery'),
-                mainPhoto = $(this).closest('.js-product').find('.js-product-gallery-main-el'),
+                mainPhoto = $(this).closest('.js-product').find('.js-product_gallery-images-main-el'),
                 pswpElement = document.querySelectorAll('.pswp')[0],
                 position = 0,
                 items = [];

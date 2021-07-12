@@ -34,7 +34,7 @@ $(function () {
         return false;
     });
 
-    $(".js-cart-preview-product-delete").on("click", function(){
+    $(".js-preview-cart-delete").on("click", function(){
         var row = $(this).closest('.js-cart-product'),
             cartWrap = $(this).closest('.js-cart-ajax'),
             url = cartWrap.data("url");

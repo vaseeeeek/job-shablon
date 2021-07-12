@@ -87,8 +87,8 @@
     {/if}
 {else if $theme_settings.homepage_bxslider_mode == 'products'}
 
-    {$cart_add_action = $theme_settings.cart_add_action}
-    {if $wa->isMobile()}{$cart_add_action = $theme_settings.action_add_cart_mobile}{/if}
+    {$add_order_action = $theme_settings.add_order_action}
+    {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
 
     {$_price_range = $theme_settings.price_range_in_product_list}
     {$promoproducts = $wa->shop->productSet( $theme_settings.homepage_product_list_slider )}
@@ -125,7 +125,7 @@
 
     {if count($promoproducts) > 0}
         {if $theme_settings.homepage_slider_rand}{$shuffle = $promoproducts|shuffle}{/if}
-        <div class="js-cart-preview-product slider-wrap slider-wrap--products js-slider-wrap">
+        <div class="js-preview-cart slider-wrap slider-wrap--products js-slider-wrap">
             <article class="js-main-slider owl-carousel main-slider" data-pause="{$theme_settings.slider_pause_auto}" data-type="product">
                 {foreach $promoproducts as $p}
 
@@ -237,7 +237,7 @@
                                             <span class="button main-slider_el-btn js-card-dialog addtocart ion-android-cart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
                                         {else}
                                             {$preview_image = $wa->shop->productImgUrl($p, '60')}
-                                            <form {if $cart_add_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$cart_add_action}" class="js-add-to-cart main-slider_el-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
+                                            <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart main-slider_el-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                                                 <input type="hidden" name="product_id" value="{$p.id}">
                                                 <span class="button main-slider_el-btn js-submit-form addtocart ion-android-cart addtocart--large">{$add2label_cart}</span>
                                             </form>

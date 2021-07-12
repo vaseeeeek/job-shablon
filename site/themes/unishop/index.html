@@ -311,14 +311,14 @@
         {include file="`$parent_theme_path`/skoneclick.html" inline}
     {/if}
 
-    {$cart_add_action = $theme_settings.cart_add_action}
-    {if $wa->isMobile()}{$cart_add_action = $theme_settings.action_add_cart_mobile}{/if}
+    {$add_order_action = $theme_settings.add_order_action}
+    {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
 
-    {if $cart_add_action == 'popup'}
+    {if $add_order_action == 'popup'}
         {include file="`$parent_theme_path`/cart.add.popup.html" inline}
     {/if}
 
-    {if !$is_use_cartonestep_cart_and_order && $cart_add_action == 'fixed'}
+    {if !$is_use_cartonestep_cart_and_order && $add_order_action == 'fixed'}
         {if !isset($action) || (isset($action) && $action != 'cart' && $action != 'checkout' && $action != 'checkoutone')}
             <div class="js-fixed-cart-outer" data-cart-url="{$wa->getUrl('shop/frontend/cart')}"></div>
         {/if}

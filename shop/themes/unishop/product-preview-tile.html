@@ -5,7 +5,7 @@
 
 {if !isset($text_in_stock)}{$text_in_stock = "[`In stock`]"}{/if}
 {if !isset($text_unit)}{$text_unit = "[`unit`]"}{/if}
-{if !isset($text_preorder_only)}{$text_preorder_only = "[`Pre-order only`]"}{/if}
+{if !isset($text_product_preorder_only)}{$text_product_preorder_only = "[`Pre-order only`]"}{/if}
 {if !isset($text_out_stock)}{$text_out_stock = "[`Out of stock`]"}{/if}
 {if !isset($text_art_code)}{$text_art_code = "[`Vendor code`]"}{/if}
 
@@ -48,8 +48,8 @@
 {$isProductTilePreviewTileGallery = $theme_settings.product_preview_tile_gallerytile && !$wa->isMobile()}
 {$preview_image = $wa->shop->productImgUrl($p, '60')}
 <!-- Спросить о настройке -->
-{$cart_add_action = $theme_settings.cart_add_action}
-{if $wa->isMobile()}{$cart_add_action = $theme_settings.action_add_cart_mobile}{/if}
+{$add_order_action = $theme_settings.add_order_action}
+{if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
 
 {function getDiscountProductTile price=null compare_price=null}
     {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
@@ -67,7 +67,7 @@
     {/if}
 {/function}
 
-<div class="Product-grid js-Product-grid js-cart-preview-product{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if}" data-product-id="{$p.id}">
+<div class="Product-grid js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if}" data-product-id="{$p.id}">
     {$badge_html = $wa->shop->badgeHtml($p.badge)}
     {if $badge_html}
         {$badge_html}
@@ -138,7 +138,7 @@
             </div>
         {/if}
     </a>
-    <form{if $cart_add_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$cart_add_action}" class="js-add-to-cart" method="post" action="{$wa->getUrl('shop/frontendCart/add')}">
+    <form{if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart" method="post" action="{$wa->getUrl('shop/frontendCart/add')}">
         <input type="hidden" name="product_id" value="{$p.id}">
         <div class="Product-grid_content">
             <div class="Product-grid_stock">
@@ -146,7 +146,7 @@
                     <div class="Product-stock nowrap">
                         {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
                             <div class="Product-stock_item Product-stock_item-critical">
-                                {if !empty($theme_settings.text_preorder)}{$theme_settings.text_preorder}{else}{$text_preorder_only}{/if}
+                                {if !empty($theme_settings.text_product_preorder)}{$theme_settings.text_product_preorder}{else}{$text_product_preorder_only}{/if}
                             </div>
                         {else}
                             <div class="Product-stock_item Product-stock_item-high">
@@ -239,7 +239,7 @@
                         {/if}
                     {else}
                         <div class="Product-stock-out nowrap">
-                            {if !empty($theme_settings.text_none_stock)}{$theme_settings.text_none_stock}{else}{$text_out_stock}{/if}
+                            {if !empty($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible}{else}{$text_out_stock}{/if}
                         </div>
                     {/if}
                 </div>

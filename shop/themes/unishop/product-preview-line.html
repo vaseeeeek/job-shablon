@@ -33,8 +33,8 @@
     {$images = array_values($products_images[$p.id])}
 {/if}
 
-{$cart_add_action = $theme_settings.cart_add_action}
-{if $wa->isMobile()}{$cart_add_action = $theme_settings.action_add_cart_mobile}{/if}
+{$add_order_action = $theme_settings.add_order_action}
+{if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
     {* проверить работу плагина *}
 {$_storequickorder =  class_exists('shopStorequickorderPlugin') && $theme_settings.fastorder == "storequickorder" && $theme_settings.product_show_list_fast_cart}
 {$_skoneclick = class_exists('shopSkoneclickHelper') && $theme_settings.fastorder == "skoneclick" && $theme_settings.product_show_list_fast_cart && shopSkoneclickHelper::isActive()}
@@ -61,7 +61,7 @@
 
 {$_tileGelleryProductListPreviewy = $theme_settings.preview_product_list_gallerytile && !$wa->isMobile()}
 {$preview_image = $wa->shop->productImgUrl($p, '60')}
-<div class="Product__Item js-product-line js-cart-preview-product{if $_tileGelleryProductListPreviewy} grid-gallery js-grid-gallery{/if}">
+<div class="Product__Item js-product-line js-preview-cart{if $_tileGelleryProductListPreviewy} grid-gallery js-grid-gallery{/if}">
     <div class="Product__Item-row Product__Item-top">
         <div class="Product__Item-left">
             {$badge_html = $wa->shop->badgeHtml($p.badge)}
@@ -181,7 +181,7 @@
                 <!-- Спросить о настройке -->
                 {$_hide_btn = empty($p.price) && !empty($theme_settings.zero_price_off_add2cart)}
                 {if !$_hide_btn}
-                    <form {if $cart_add_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$cart_add_action}" class="js-add-to-cart Product__Item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
+                    <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart Product__Item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
 
                         {if $theme_settings.show_number_item_add_in_list}
                             <span class="js-qty Cart__Qty Cart__Qty--mini">
@@ -220,7 +220,7 @@
                     <div class="Product-stock product-line-stock">
                         {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
                             <div class="Product-stock_item Product-stock_item-critical">
-                                {if !empty($theme_settings.text_preorder)}{$theme_settings.text_preorder}{else}[`Pre-order only`]{/if}
+                                {if !empty($theme_settings.text_product_preorder)}{$theme_settings.text_product_preorder}{else}[`Pre-order only`]{/if}
                             </div>
                         {else}
                             <div class="Product-stock_item Product-stock_item-high">
@@ -235,7 +235,7 @@
             {else}
                 <div class="Product-grid-stock-off nowrap">
                     <div class="Product-stock-out">
-                        {if !empty($theme_settings.text_none_stock)}{$theme_settings.text_none_stock}{else}[`Out of stock`]{/if}
+                        {if !empty($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible}{else}[`Out of stock`]{/if}
                     </div>
                 </div>
             {/if}

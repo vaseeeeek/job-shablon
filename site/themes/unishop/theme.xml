@@ -200,21 +200,21 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#5d5d64</value>
+      <value/>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Base color</name>
       <description locale="ru_RU">Цвет панели с поиском, иконок и тд</description>
       <description locale="en_US">Color of panel width search, icons and other</description>
     </setting>
     <setting var="bg_color_navogation" control_type="color">
-      <value>#f5f5f6</value>
+      <value/>
       <name locale="ru_RU">Цвет панели с поиском</name>
       <name locale="en_US">Color of panel width catalog button and search form</name>
       <description locale="ru_RU">Если не выбран то цвет берется из настройки "Основной цвет"</description>
       <description locale="en_US">If not selected, the color is taken from the "Base Color"</description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#fe7200</value>
+      <value/>
       <name locale="ru_RU">Цвет кнопок, активных ссылок и др</name>
       <name locale="en_US">Color of buttons and other</name>
     </setting>
@@ -1412,9 +1412,8 @@
       <name locale="ru_RU">Заблокировать добавление в корзину при нулевой цене товара</name>
       <name locale="en_US">Disabled button to cart at zero price</name>
     </setting>
-    <setting var="text_product_none_stock" control_type="text">
-      <value locale="ru_RU"/>
-      <value locale="en_US"/>
+    <setting var="text_product_not_available" control_type="text">
+      <value><![CDATA[нет нихуя идите в другой магазин]]></value>
       <name locale="ru_RU">Текст вместо надписи "Нет в наличии"</name>
       <name locale="en_US">Text instead "Out of stock"</name>
     </setting>
@@ -1424,13 +1423,13 @@
       <name locale="ru_RU">Текст вместо надписи "Под заказ"</name>
       <name locale="en_US">Text instead "Pre-order only"</name>
     </setting>
-    <setting var="text_product_not_available" control_type="text">
+    <setting var="text_product_not_available_option" control_type="text">
       <value locale="ru_RU"/>
       <value locale="en_US"/>
       <name locale="ru_RU">Текст вместо надписи "Товар с выбранным набором характеристик недоступен для покупки"</name>
       <name locale="en_US">Text instead "Product with the selected option combination is not available for purchase"</name>
     </setting>
-    <setting var="text_product_not_available_one_sku" control_type="text">
+    <setting var="text_product_not_available_option_one_sku" control_type="text">
       <value locale="ru_RU"/>
       <value locale="en_US"/>
       <name locale="ru_RU">Текст вместо надписи "Этот товар временно недоступен для заказа"</name>
@@ -2316,7 +2315,7 @@
       <name locale="ru_RU">Основное описание</name>
       <name locale="en_US">Main description</name>
     </setting>
-    <setting var="product-page_main_description_desktop" control_type="text">
+    <setting var="product_page_main_description_desktop" control_type="text">
       <value>description,features,reviews,add,pages</value>
       <name locale="ru_RU">Вывод основного описания в десктопной версии</name>
       <name locale="en_US">Display main description in desktop</name>
@@ -2339,7 +2338,7 @@
         pages - additional pages of product.
       </description>
     </setting>
-    <setting var="product-page_main_description_mobile" control_type="text">
+    <setting var="product_page_main_description_mobile" control_type="text">
       <value>description,features,reviews,add,pages</value>
       <name locale="ru_RU">Вывод основного описания в мобильной версии</name>
       <name locale="en_US">Display main description in mobile</name>
@@ -2643,7 +2642,7 @@
       <name locale="en_US">Activate popup cart</name>
       <name locale="ru_RU">Включить всплывающую корзину</name>
     </setting>
-    <setting var="cart_add_action" control_type="select">
+    <setting var="add_order_action" control_type="select">
       <value>move</value>
       <name locale="en_US">Effect when added to cart (desktop)</name>
       <name locale="ru_RU">Эффект при добавлении в корзину (десктоп)</name>
@@ -2666,7 +2665,7 @@
         </option>
       </options>
     </setting>
-    <setting var="action_add_cart_mobile" control_type="select">
+    <setting var="add_order_action_mobile" control_type="select">
       <value>move</value>
       <name locale="en_US">Effect when added to cart (mobile)</name>
       <name locale="ru_RU">Эффект при добавлении в корзину (мобильная)</name>
@@ -2696,21 +2695,21 @@
       <name locale="ru_RU">Показывать на странице оформления заказа товары из корзины</name>
     </setting>
     <setting var="onepage_order_custom_css" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Correction of layout for the plugin "Order on one page"</name>
       <name locale="ru_RU">Корректировка верстки на странице плагина "Заказ на одной странице"</name>
       <description locale="ru_RU">Использование кастомных стили для корректировки верстки на странице плагина "Заказ на одной странице". Если у вас уже скорректированна верстка на странице данного плагина, то рекомендуем отключить опцию.</description>
       <description locale="en_US">Use custom styles to adjust the layout in the basket and order the plug-in "Order on one page". If you have already adjusted the layout on the page of this plug-in, we recommend that you disable the option.</description>
     </setting>
     <setting var="cart_onepage_order_custom_css" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Correction of layout for the plugin "Cart in one step"</name>
       <name locale="ru_RU">Корректировка верстки на странице плагина "Корзина в один шаг"</name>
       <description locale="ru_RU">Использование кастомных стили для корректировки верстки на странице плагина "Корзина в один шаг". Если у вас уже скорректированна верстка на странице данного плагина, то рекомендуем отключить опцию.</description>
       <description locale="en_US">Use custom styles to adjust the layout in the basket and order the plug-in "Cart in one step". If you have already adjusted the layout on the page of this plug-in, we recommend that you disable the option.</description>
     </setting>
     <setting var="buy1step_checkout_in_cart" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">The plugin "Order in 1 step" is used in the mode "Checkout to basket"</name>
       <name locale="ru_RU">Используется плагин "Заказ в 1 шаг" в режиме "Оформление заказа в корзине"</name>
       <description locale="ru_RU">от разработчика Bodysite</description>
@@ -2853,22 +2852,22 @@
       <name locale="en_US">Widget of social groups</name>
     </setting>
     <setting var="widget_social_groups_vk" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Код для виджета Вконтакте</name>
       <name locale="en_US">Code for Vk</name>
     </setting>
     <setting var="widget_social_groups_fb" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Код для виджета Facebook</name>
       <name locale="en_US">Code for Facebook</name>
     </setting>
     <setting var="widget_social_groups_ok" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Код для виджета Одноклассники</name>
       <name locale="en_US">Code for Ok</name>
     </setting>
     <setting var="widget_social_groups_tw" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Код для виджета Twitter</name>
       <name locale="en_US">Code for Twitter</name>
     </setting>
@@ -2878,17 +2877,17 @@
       <name locale="en_US">Generate instagram widget</name>
     </setting>
     <setting var="widget_social_groups_inst_id" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Числовой идентификатор пользователя instagram для верификации</name>
       <name locale="en_US">Instagram numeric user ID for verification</name>
     </setting>
     <setting var="widget_social_groups_inst_oath" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Валидный oAuth токен instagram</name>
       <name locale="en_US">oAuth token instagram</name>
     </setting>
     <setting var="widget_social_groups_inst_out" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Числовой идентификатор пользователя instagram для вывода фото</name>
       <name locale="en_US">Instagram numeric user id for photo output</name>
       <description locale="ru_RU">При пустом значении вывод фото пользователя, указанного для верификации</description>
@@ -3111,7 +3110,7 @@
       <description locale="en_US">Option is useful for quickly displaying the largest item on the home screen</description>
       <description locale="ru_RU">Опция полезна для быстрого отображения самого большого элемента на главном экране</description>
     </setting>
-    <setting var="preload_image_product" control_type="checkbox">
+    <setting var="product_preload_image" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Preloading the first image in the product card</name>
       <name locale="ru_RU">Предзагрузка первой картинки в карточке товара</name>

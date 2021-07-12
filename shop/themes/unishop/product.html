@@ -6,9 +6,9 @@
 {/if}
 
 {if $wa->isMobile()}
-    {$product_alias_str = $theme_settings.product-page_main_description_mobile}
+    {$product_alias_str = $theme_settings.product_page_main_description_mobile}
 {else}
-    {$product_alias_str = $theme_settings.product-page_main_description_desktop}
+    {$product_alias_str = $theme_settings.product_page_main_description_desktop}
 {/if}
 {$_show_description = strpos($product_alias_str, 'description') !== false && $product.description}
 {$_show_features =  strpos($product_alias_str, 'features') !== false && $product.features}

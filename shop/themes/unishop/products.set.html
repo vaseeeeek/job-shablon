@@ -2,7 +2,7 @@
 {if isset($list_id) && !empty($list_id)}
     {$current_lang = $wa->locale()}
     {if !isset($theme_settings.product_show_tile_features)}{$theme_settings.product_show_tile_features = false}{/if}
-    {if !isset($theme_settings.cart_add_action )}{$theme_settings.cart_add_action  = 'move'}{/if}
+    {if !isset($theme_settings.add_order_action )}{$theme_settings.add_order_action  = 'move'}{/if}
     {if !isset($theme_settings.product_show_tile_mobile_features)}{$theme_settings.product_show_tile_mobile_features = false}{/if}
     {if !isset($theme_settings.price_range_in_product_list)}{$theme_settings.price_range_in_product_list = false}{/if}
     {if !isset($theme_settings.favorites)}{$theme_settings.favorites = true}{/if}
@@ -10,7 +10,7 @@
     {if $wa_app != 'shop' || !isset($theme_settings.product_preview_dialog)}{$theme_settings.product_preview_dialog = ($wa_app == 'shop')}{/if}
     {if !isset($theme_settings.preview_stock)}{$theme_settings.preview_stock  = true}{/if}
     {if !isset($theme_settings.preview_stock_count)}{$theme_settings.preview_stock_count  = false}{/if}
-    {if !isset($theme_settings.text_preorder)}{$theme_settings.text_preorder = false}{/if}
+    {if !isset($theme_settings.text_product_preorder)}{$theme_settings.text_product_preorder = false}{/if}
     {if !isset($theme_settings.product_ratings)}{$theme_settings.product_ratings = true}{/if}
     {if !isset($theme_settings.badge_saving)}{$theme_settings.badge_saving = false}{/if}
     {if !isset($theme_settings.product_discount_percentage)}{$theme_settings.product_discount_percentage = false}{/if}
@@ -25,7 +25,7 @@
             {$theme_settings.text_price_zero = "Цена по запросу"}
         {/if}
     {/if}
-    {if !isset($theme_settings.text_none_stock)}{$theme_settings.text_none_stock = false}{/if}
+    {if !isset($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible = false}{/if}
 
     {if !isset($favorites)}
         {$favorites = $wa->cookie('favorites_list')}
@@ -35,7 +35,7 @@
     {if $wa_app != 'shop' && $current_lang == 'ru_RU'}
         {$text_in_stock = "В наличии"}
         {$text_unit = "шт."}
-        {$text_preorder_only = "Под заказ"}
+        {$text_product_preorder_only = "Под заказ"}
         {$text_out_stock = "Нет на складе"}
         {$text_art_code = "Артикул"}
     {/if}

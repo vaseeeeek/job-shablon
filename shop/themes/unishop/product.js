@@ -447,11 +447,11 @@ $(function () {
     /*productImageNav();*/
 
     var $ = jQuery,
-        $productGallery = $('.js-product-gallery'),
+        $productGallery = $('.js-product_gallery-images'),
         $coreWrapper = $("#product-core-image"),
         $coreImages = $coreWrapper.find(".js-image-popup");
 
-    displayImageTitle($coreWrapper.find('.js-product-gallery-main'));
+    displayImageTitle($coreWrapper.find('.js-product_gallery-images-main'));
 
     if ($productGallery.data('popup')){
         if ($productGallery.data('photoswipe')){
@@ -473,7 +473,7 @@ $(function () {
 });
 
 function productMainImageCarousel(previewsBxSlider){
-    var mainGallery = $('.js-product-gallery-main'),
+    var mainGallery = $('.js-product_gallery-images-main'),
         position = 0;
 
     if(mainGallery.length){
@@ -510,7 +510,7 @@ function productMainImageCarousel(previewsBxSlider){
                 if(gallery.length){
                     var previews = gallery.closest('.js-product').find('.js-id-preview-gallery'),
                         previousPreview = previews.filter('.selected'),
-                        image_id = $(gallery).find(".owl-item.active .js-product-gallery-main-el").data("id");
+                        image_id = $(gallery).find(".owl-item.active .js-product_gallery-images-main-el").data("id");
 
 
                     if(image_id){
@@ -540,8 +540,8 @@ function productMainImageCarousel(previewsBxSlider){
 function changeLargeImage(previewImage){
     var preview =  previewImage.parent(),
         image_id = preview.data("id"),
-        mainGallery = previewImage.closest('.js-product').find('.js-product-gallery-main'),
-        mainGalleryItems = mainGallery.find('.js-product-gallery-main-el');
+        mainGallery = previewImage.closest('.js-product').find('.js-product_gallery-images-main'),
+        mainGalleryItems = mainGallery.find('.js-product_gallery-images-main-el');
 
     preview.addClass('selected').siblings().removeClass('selected');
 
@@ -580,7 +580,7 @@ function imagesPreviewCarusel(){
 }
 
 function displayImageTitle(gallery){
-    var titleWrap = gallery.closest('.js-product').find('.js-product-gallery-title'),
+    var titleWrap = gallery.closest('.js-product').find('.js-product_gallery-images-title'),
         currentImage = gallery.find(".owl-item.active");
 
     titleWrap.text("");
@@ -593,8 +593,8 @@ function displayImageTitle(gallery){
 }
 
 function productImageZoom(mainGallery){
-    if(mainGallery.length && mainGallery.closest('.js-product-gallery').data("zoom")){
-        var currentImage = mainGallery.find(".js-product-gallery-main-el");
+    if(mainGallery.length && mainGallery.closest('.js-product_gallery-images').data("zoom")){
+        var currentImage = mainGallery.find(".js-product_gallery-images-main-el");
 
         currentImage.each(function(){
             $(this).zoom({url: $(this).attr('href')});
@@ -699,7 +699,7 @@ function popupPhotoswipe($coreImages){
             e.preventDefault();
 
             var previews = $(this).closest('.js-product').find('.js-id-preview-gallery'),
-                mainPhoto = $(this).closest('.js-product').find('.js-product-gallery-main-el'),
+                mainPhoto = $(this).closest('.js-product').find('.js-product_gallery-images-main-el'),
                 pswpElement = document.querySelectorAll('.pswp')[0],
                 position = 0,
                 items = [];
