@@ -25,7 +25,7 @@
 {$image_preview = $wa->shop->productImgUrl($product, '60')}
 {$add_order_action = $theme_settings.add_order_action}
 {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
-
+{*остановился*}
 {if $_is_dialog}<div class='js-popup-content popup-content popup-content--dialog{if $_is_dialog_select_options} popup-content--dialog-options{/if}'>{/if}
 <form id="cart-form{if $_is_dialog}-dialog{/if}" class="js-add-to-cart add2cart {if $_is_dialog}product_cart-dialog js-product js-product-page{/if}" method="post" action="{$wa->getUrl('/frontendCart/add')}" {if $add_order_action == 'popup'} data-image="{$image_preview}" data-name="{$product.name|escape}" data-price="{shop_currency_html($product.price)|escape}"{/if} data-after-action="{$add_order_action}" data-sku-url="{!$_is_dialog && !empty($theme_settings.product_sku_url)}">
     {if $_is_dialog && !$_is_dialog_select_options}
