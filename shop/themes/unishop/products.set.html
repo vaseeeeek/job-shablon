@@ -15,14 +15,14 @@
     {if !isset($theme_settings.badge_saving)}{$theme_settings.badge_saving = false}{/if}
     {if !isset($theme_settings.product_discount_percentage)}{$theme_settings.product_discount_percentage = false}{/if}
     {if !isset($theme_settings.show_grid_sku)}{$theme_settings.show_grid_sku = false}{/if}
-    {if !isset($theme_settings.zero_price_off_add2cart)}{$theme_settings.zero_price_off_add2cart = false}{/if}
+    {if !isset($theme_settings.disabled_button_cart_zero_price)}{$theme_settings.disabled_button_cart_zero_price = false}{/if}
     {if !isset($theme_settings.product_show_preview_video)}{$theme_settings.product_show_preview_video = true}{/if}
     {if $wa_app != 'shop' || !isset($theme_settings.product_preview_tile_gallerytile)}{$theme_settings.product_preview_tile_gallerytile = false}{/if}
     {if $wa_app != 'shop' || !isset($theme_settings.product_preview_images_lazy)}{$theme_settings.product_preview_images_lazy = false}{/if}
-    {if !isset($theme_settings.text_price_zero)}
-        {$theme_settings.text_price_zero = "Price on request"}
+    {if !isset($theme_settings.text_zero_price)}
+        {$theme_settings.text_zero_price = "Price on request"}
         {if $current_lang == 'ru_RU'}
-            {$theme_settings.text_price_zero = "Цена по запросу"}
+            {$theme_settings.text_zero_price = "Цена по запросу"}
         {/if}
     {/if}
     {if !isset($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible = false}{/if}

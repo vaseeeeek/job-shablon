@@ -133,7 +133,7 @@ var ReviewImagesSection = ( function($) {
         }
 
         function dropToggle(show) {
-            var active_class = "is-highlighted";
+            var active_class = "is-box-highlighted";
 
             if (show) {
                 that.$wrapper.addClass(active_class);

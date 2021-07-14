@@ -86,8 +86,8 @@
                     {foreach $products as $p}
                         <td width="{$td_width}%">
                             <span class="price nowrap">
-                                {if empty($p.price) && !empty($theme_settings.text_price_zero)}
-                                    {$theme_settings.text_price_zero}
+                                {if empty($p.price) && !empty($theme_settings.text_zero_price)}
+                                    {$theme_settings.text_zero_price}
                                 {else}
                                     {shop_currency_html($p.price)}
                                 {/if}

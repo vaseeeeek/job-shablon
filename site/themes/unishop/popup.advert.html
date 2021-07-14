@@ -6,7 +6,7 @@
         {$max_width = (int)$theme_settings.widget_popup_advert_width}
     {/if}
 
-    <div class="popup-content popup-content__advert mfp-hide js-popup-advert" data-id="{$theme_settings.widget_popup_id}" data-time="{$theme_settings.widget_popup_advert_time}" data-tabu="{$theme_settings.widget_popup_advert_tabu_days}" style="max-width: {$max_width}px">
+    <div class="modal-content modal-content__advert mfp-hide js-popup-advert" data-id="{$theme_settings.widget_popup_id}" data-time="{$theme_settings.widget_popup_advert_time}" data-tabu="{$theme_settings.widget_popup_advert_tabu_days}" style="max-width: {$max_width}px">
         {if $theme_settings.widget_popup_advert_title}
             <div class="h1">
                 {if !empty($theme_settings.static_var_smarty)}
@@ -16,7 +16,7 @@
                 {/if}
             </div>
         {/if}
-        <div class="popup-content__inside">
+        <div class="modal-content__inside">
             {$wa->block($theme_settings.widget_popup_advert_block_id)}
         </div>
     </div>

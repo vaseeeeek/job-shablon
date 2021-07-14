@@ -1,9 +1,9 @@
-.product_options .inline-select a {
+.product_options .select-v-inline a {
     border: 1px solid #ff7420;
     color: #ff7420;
 }
 
-.product_options .inline-select a.selected{
+.product_options .select-v-inline a.selected{
     background: #ff7420;
 }
 

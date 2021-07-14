@@ -4,7 +4,7 @@ function Product(form, options) {
     this.button = this.add2cart.find(".js-submit-form");
     this.skFastButton = this.form.find(".js-sk-oneclick-open");
     this.discount = this.form.closest('.js-product-page').find(".js-product-discount");
-    this.savedWrap = this.form.closest('.js-product-page').find(".js-product-saving");
+    this.savedWrap = this.form.closest('.js-product-page').find(".js-product-discounts");
     this.isSkuUrl = this.form.data("sku-url");
     for (var k in options) {
         this[k] = options[k];
@@ -12,7 +12,7 @@ function Product(form, options) {
     var self = this;
     // add to cart block: services
     this.form.find(".services input[type=checkbox]").change(function () {
-        var obj = $('select[name="service_variant[' + $(this).val() + ']"]');
+        var obj = $('select[name="service-choice[' + $(this).val() + ']"]');
         if (obj.length) {
             if ($(this).is(':checked')) {
                 obj.removeAttr('disabled');
@@ -24,16 +24,16 @@ function Product(form, options) {
         self.updatePrice();
     });
 
-    this.form.find(".services .service-variants").on('change', function () {
+    this.form.find(".services .service-choice").on('change', function () {
         self.cartButtonVisibility(true);
         self.updatePrice();
     });
 
-    this.form.find('.inline-select a').click(function () {
-        var d = $(this).closest('.inline-select');
+    this.form.find('.select-v-inline a').click(function () {
+        var d = $(this).closest('.select-v-inline');
         d.find('a.selected').removeClass('selected');
         $(this).addClass('selected');
-        d.find('select.js-sku-feature, input.js-sku-feature').val($(this).data('value')).change();
+        d.find('select.js-feature-sku, input.js-feature-sku').val($(this).data('value')).change();
         return false;
     });
 
@@ -83,9 +83,9 @@ function Product(form, options) {
         changeLargeImage($("#product-image-" + $initial_cb.data("image-id")));
     }
 
-    this.form.find("select.js-sku-feature, input.js-sku-feature").change(function () {
+    this.form.find("select.js-feature-sku, input.js-feature-sku").change(function () {
         var key = "";
-        self.form.find("select.js-sku-feature, input.js-sku-feature").each(function () {
+        self.form.find("select.js-feature-sku, input.js-feature-sku").each(function () {
             key += $(this).data('feature-id') + ':' + $(this).val() + ';';
         });
         var sku = self.features[key];
@@ -122,7 +122,7 @@ function Product(form, options) {
         self.cartButtonVisibility(true);
 
     });
-    this.form.find("select.js-sku-feature:first, input.js-sku-feature:first").change();
+    this.form.find("select.js-feature-sku:first, input.js-feature-sku:first").change();
 
     if (!this.form.find(".skus input:radio:checked").length) {
         this.form.find(".skus input:radio:enabled:first").attr('checked', 'checked');
@@ -189,9 +189,9 @@ Product.prototype.serviceVariantHtml= function (id, name, price) {
 };
 
 Product.prototype.updateSkuServices = function (sku_id) {
-    if(this.form.find(".js-product-code").length > 0){
-        this.form.find(".js-product-code").hide();
-        this.form.find(".sku-" + sku_id + "-product-code").show();
+    if(this.form.find(".js-pd-code").length > 0){
+        this.form.find(".js-pd-code").hide();
+        this.form.find(".sku-" + sku_id + "-pd-code").show();
     }
 
     this.form.find("div.stocks div").hide();
@@ -206,7 +206,7 @@ Product.prototype.updateSkuServices = function (sku_id) {
                 this.form.find(".service-" + service_id + ' .service-price').html(this.currencyFormat(v));
                 this.form.find(".service-" + service_id + ' input').data('price', v);
             } else {
-                var select = this.form.find(".service-" + service_id + ' .service-variants');
+                var select = this.form.find(".service-" + service_id + ' .service-choice');
                 var selected_variant_id = select.val();
                 for (var variant_id in v) {
                     var obj = select.find('option[value=' + variant_id + ']');
@@ -223,9 +223,9 @@ Product.prototype.updateSkuServices = function (sku_id) {
                     }
                 }
                 if(!selected_variant_id){
-                    selected_variant_id = this.form.find(".service-" + service_id + ' .service-variants').find("option:not(.disable):first").attr("value");
+                    selected_variant_id = this.form.find(".service-" + service_id + ' .service-choice').find("option:not(.disable):first").attr("value");
                 }
-                this.form.find(".service-" + service_id + ' .service-variants').val(selected_variant_id);
+                this.form.find(".service-" + service_id + ' .service-choice').val(selected_variant_id);
             }
         }
     }
@@ -253,8 +253,8 @@ Product.prototype.updatePrice = function (price, compare_price) {
     var self = this;
     this.form.find(".services input:checked").each(function () {
         var s = $(this).val();
-        if (self.form.find('.service-' + s + '  .service-variants').length) {
-            price += parseFloat(self.form.find('.service-' + s + '  .service-variants :selected').data('price'));
+        if (self.form.find('.service-' + s + '  .service-choice').length) {
+            price += parseFloat(self.form.find('.service-' + s + '  .service-choice :selected').data('price'));
         } else {
             price += parseFloat($(this).data('price'));
         }
@@ -264,7 +264,7 @@ Product.prototype.updatePrice = function (price, compare_price) {
     var priceFormat = this.currencyFormat(price);
     var textZeroPrice = $priceWrap.data("zero-text");
     if (price == 0 && textZeroPrice){
-        $priceWrap.html('<span class="product_zero-price">' + textZeroPrice + '</span>');
+        $priceWrap.html('<span class="product_nul-price">' + textZeroPrice + '</span>');
     }else{
         $priceWrap.html(priceFormat);
     }
@@ -389,9 +389,9 @@ Product.prototype.updateURLSku = function(sku_id) {
 Product.prototype.updateFeaturesList = function(sku_id) {
     var featuresTables = $('.js-product-features');
 
-    if(typeof this.sku_features != 'undefined' && typeof this.product_skus_features[sku_id] != 'undefined' && featuresTables.length){
+    if(typeof this.sku_features != 'undefined' && typeof this.skus_features[sku_id] != 'undefined' && featuresTables.length){
         var featuresList = this.sku_features,
-            productFeaturesList = this.product_skus_features[sku_id],
+            productFeaturesList = this.skus_features[sku_id],
             featuresCount = parseInt(this.short_features_count),
             featuresAliasesList = this.short_features_codes ? this.short_features_codes.split(',') : [];
 

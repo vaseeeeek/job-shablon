@@ -39,7 +39,7 @@
                                 <span data-type="+" class="js-qty-button Cart__Qty_act">+</span>
                             </span>
 
-                            {$text_zero_price = $theme_settings.text_price_zero}
+                            {$text_zero_price = $theme_settings.text_zero_price}
                             <span{if $text_zero_price} data-zero-text="{$text_zero_price}"{/if} class="js-item-total fixed-cart__price">
                                 {if $text_zero_price && $item.full_price == 0}
                                     {$text_zero_price}

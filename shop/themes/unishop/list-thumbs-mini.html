@@ -27,8 +27,8 @@
                 <span class="rating nowrap">{$wa->shop->ratingHtml($p.rating)}</span>
             {/if}
             <div class="sidebar-product_price nowrap">
-                {if empty($p.price) && !empty($theme_settings.text_price_zero)}
-                    <span class="price">{$theme_settings.text_price_zero}</span>
+                {if empty($p.price) && !empty($theme_settings.text_zero_price)}
+                    <span class="price">{$theme_settings.text_zero_price}</span>
                 {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}
                     <span class="price"><span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span class="nowrap">{shop_currency_html($p.max_price)}</span></span>
                 {else}

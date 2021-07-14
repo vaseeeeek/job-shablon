@@ -66,13 +66,13 @@
                                                             <input {if !empty($s.id)}checked{/if} type="checkbox" name="services[{$item.id}][]" value="{$service_id}"> {$s.name|escape} {if $s.price && !isset($s.variants)}(<span>+{shop_currency_html($s.price, $s.currency)}</span>){/if}
                                                         </label>
                                                         {if isset($s.variants)}
-                                                            <select name="service_variant[{$item.id}][{$service_id}]" {if empty($s.id)}disabled{/if}>
+                                                            <select name="service-choice[{$item.id}][{$service_id}]" {if empty($s.id)}disabled{/if}>
                                                                 {foreach $s.variants as $variant_id => $v}
                                                                     <option {if $s.variant_id == $variant_id}selected{/if} value="{$variant_id}">{$v.name|escape} (+{shop_currency($v.price, $s.currency)})</option>
                                                                 {/foreach}
                                                             </select>
                                                         {else}
-                                                            <input type="hidden" name="service_variant[{$item.id}][{$service_id}]" value="{$s.variant_id}">
+                                                            <input type="hidden" name="service-choice[{$item.id}][{$service_id}]" value="{$s.variant_id}">
                                                         {/if}
                                                     </div>
                                                 {/foreach}
@@ -89,9 +89,9 @@
                                             </span>
                                         </div>
 
-                                        <div data-zero-text="{$theme_settings.text_price_zero}" class="col js-item-total cart-item_price nowrap">
-                                            {if empty($item.full_price) && !empty($theme_settings.text_price_zero)}
-                                                {$theme_settings.text_price_zero}
+                                        <div data-zero-text="{$theme_settings.text_zero_price}" class="col js-item-total cart-item_price nowrap">
+                                            {if empty($item.full_price) && !empty($theme_settings.text_zero_price)}
+                                                {$theme_settings.text_zero_price}
                                             {else}
                                                 {shop_currency_html($item.full_price, true)}
                                             {/if}
@@ -146,7 +146,7 @@
                             {/if}
 
                             <!-- TOTAL -->
-                            <div class="cart-total-wrap highlighted">
+                            <div class="cart-total-wrap box-highlighted">
                                 <span class="cart-total-text">[`Total`]</span>
                                 <span class="cart-total nowrap price">{shop_currency_html($cart.total, true)}</span>
                                 <div class="cart-total-btn">

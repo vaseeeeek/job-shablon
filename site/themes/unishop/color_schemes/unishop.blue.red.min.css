@@ -4038,7 +4038,7 @@ button.owl-dot {
     margin: 0
 }
 
-.product-saving {
+.product-price-saving {
     background: #ea0010;
     color: #fff;
     line-height: 21px;
@@ -4046,7 +4046,7 @@ button.owl-dot {
     border-radius: 2px
 }
 
-.product-discount, .product-saving {
+.product-discount, .product-price-saving {
     font-size: 12px;
     display: inline-block;
     height: 21px;
@@ -6190,7 +6190,7 @@ input.settings__el-color {
     cursor: pointer
 }
 
-.popup-content {
+.modal-content {
     background: #fff;
     padding: 40px;
     max-width: 500px;
@@ -6201,15 +6201,15 @@ input.settings__el-color {
     box-sizing: border-box
 }
 
-.popup-content--page {
+.modal-content--page {
     max-width: 900px
 }
 
-.popup-content .wa-form {
+.modal-content .wa-form {
     max-width: 420px
 }
 
-.popup-content--custom {
+.modal-content--custom {
     max-width: 900px
 }
 
@@ -6219,11 +6219,11 @@ input.settings__el-color {
 }
 
 @media (max-width: 500px) {
-    .popup-content {
+    .modal-content {
         padding: 20px
     }
 
-    .popup-content .h1, .popup-content h1 {
+    .modal-content .h1, .modal-content h1 {
         font-size: 28px;
         line-height: 30px
     }
@@ -6250,12 +6250,12 @@ button.mfp-arrow:hover, button.mfp-close:hover {
     content: "\f110"
 }
 
-.checkout-options li.selected, .comment-form, .highlighted, .review-form-fields, blockquote {
+.checkout-options li.selected, .comment-form, .box-highlighted, .review-form-fields, blockquote {
     background: #f6f6f6;
     border: 1px solid #ebebeb
 }
 
-.popup-content--settings {
+.modal-content--settings {
     max-width: 800px;
     padding: 30px
 }
@@ -6963,7 +6963,7 @@ button.shop-push-subscribe:hover {
     margin-bottom: 4px
 }
 
-.sk-popup-content {
+.sk-modal-content {
     background: #fff;
     padding: 20px 24px;
     max-width: 500px;
@@ -6974,12 +6974,12 @@ button.shop-push-subscribe:hover {
     box-sizing: border-box
 }
 
-.sk-popup-content__custom {
+.sk-modal-content__custom {
     max-width: 800px;
     padding: 30px
 }
 
-.sk-popup-content__custom .mfp-close {
+.sk-modal-content__custom .mfp-close {
     font-size: 20px;
     position: absolute;
     right: 15px;
@@ -6997,20 +6997,20 @@ button.shop-push-subscribe:hover {
     margin: 0
 }
 
-.sk-popup-content__custom .sk-popup__title {
+.sk-modal-content__custom .sk-popup__title {
     font-weight: 400
 }
 
-.sk-popup-content__custom .mfp-close:hover {
+.sk-modal-content__custom .mfp-close:hover {
     color: #3172b9
 }
 
-.sk-popup-content__settings {
+.sk-modal-content__settings {
     max-width: 800px;
     padding: 30px
 }
 
-.sk-popup-content__settings .mfp-close {
+.sk-modal-content__settings .mfp-close {
     right: 4px;
     top: 4px
 }
@@ -7019,12 +7019,12 @@ button.shop-push-subscribe:hover {
     text-align: center
 }
 
-.sk-popup-content__advert {
+.sk-modal-content__advert {
     padding: 30px 40px;
     max-width: 600px
 }
 
-.sk-popup-content__advert .mfp-close {
+.sk-modal-content__advert .mfp-close {
     font-size: 20px;
     position: absolute;
     right: 15px;
@@ -7042,30 +7042,30 @@ button.shop-push-subscribe:hover {
     margin: 0
 }
 
-.sk-popup-content__advert .sk-popup__title {
+.sk-modal-content__advert .sk-popup__title {
     font-weight: 400
 }
 
-.sk-popup-content__advert .mfp-close:hover {
+.sk-modal-content__advert .mfp-close:hover {
     color: #3172b9
 }
 
 @media only screen and (max-width: 728px) {
-    .sk-popup-content__advert {
+    .sk-modal-content__advert {
         padding: 20px
     }
 }
 
-.sk-popup-content_dialog {
+.sk-modal-content_dialog {
     padding: 24px 24px 24px 28px;
     max-width: 1300px
 }
 
-.sk-popup-content_dialog .sk-product-general {
+.sk-modal-content_dialog .sk-product-general {
     margin-bottom: 0
 }
 
-.sk-popup-content iframe, .sk-popup-content img {
+.sk-modal-content iframe, .sk-modal-content img {
     max-width: 100%
 }
 
@@ -7094,7 +7094,7 @@ button.shop-push-subscribe:hover {
         margin: 0
     }
 
-    .sk-popup-content_dialog {
+    .sk-modal-content_dialog {
         padding: 20px 10px
     }
 }
@@ -7113,7 +7113,7 @@ button.shop-push-subscribe:hover {
     background-color: #fff !important
 }
 
-.v-popup-content_oneclick {
+.v-modal-content_oneclick {
     max-width: 600px;
     padding: 35px 50px 36px;
     box-sizing: content-box

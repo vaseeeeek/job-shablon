@@ -142,10 +142,10 @@
                                 {/foreach}
                             {/if}
                         {else if $theme_settings.slider_Product__features == 'first'}
-                            {$count_short_features = (int) $theme_settings.slider_Product__features_count}
-                            {if $count_short_features}
+                            {$count_output_short_features = (int) $theme_settings.slider_Product__features_count}
+                            {if $count_output_short_features}
                                 {foreach $p.features as $f_code => $f_value}
-                                    {if $f_value@iteration > $count_short_features}{break}{/if}
+                                    {if $f_value@iteration > $count_output_short_features}{break}{/if}
                                     {$short_features[$f_code] = $f_value}
                                 {/foreach}
                             {/if}
@@ -179,8 +179,8 @@
                                 {if $_badge_saving || $_badge_percent}
                                     <div class="main-slider_el_discounts">
                                         {if $_badge_saving}
-                                            {$product_saving = $p.price - $p.compare_price}
-                                            <span class="product-saving">{shop_currency_html($product_saving)}</span>
+                                            {$product_price_saving = $p.price - $p.compare_price}
+                                            <span class="product-price-saving">{shop_currency_html($product_price_saving)}</span>
                                         {/if}
                                         {getDiscountProductSlider price=$p.price compare_price=$p.compare_price}
                                     </div>
@@ -216,8 +216,8 @@
                             </div>
                             <div class="main-slider_el-prs">
                                 <span class="main-slider_el-pr">
-                                    {if empty($p.price) && !empty($theme_settings.text_price_zero)}
-                                        <span class="main-slider_el-price-zero">{$theme_settings.text_price_zero}</span>
+                                    {if empty($p.price) && !empty($theme_settings.text_zero_price)}
+                                        <span class="main-slider_el-price-zero">{$theme_settings.text_zero_price}</span>
                                     {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}
                                         <span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span class="nowrap">{shop_currency_html($p.max_price)}</span>
                                     {else}
@@ -228,7 +228,7 @@
                                     <span class="main-slider_el-oldpr old-price">{shop_currency_html($p.compare_price)}</span>
                                 {/if}
 
-                                {$_hide_btn = empty($p.price) && !empty($theme_settings.zero_price_off_add2cart)}
+                                {$_hide_btn = empty($p.price) && !empty($theme_settings.disabled_button_cart_zero_price)}
                                 {if !$_hide_btn}
                                     {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
                                     {if $available}

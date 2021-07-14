@@ -22,8 +22,8 @@
                     <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a>
                     <div class="cart-mini__product-price">
                         {$product_price = (int) $item.price}
-                        {if empty($product_price) && !empty($theme_settings.text_price_zero)}
-                            {$theme_settings.text_price_zero}
+                        {if empty($product_price) && !empty($theme_settings.text_zero_price)}
+                            {$theme_settings.text_zero_price}
                         {else}
                             {shop_currency_html($item.price, true)}
                         {/if}

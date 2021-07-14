@@ -1373,21 +1373,13 @@
       <name locale="ru_RU">Показывать рейтинги продуктов</name>
     </setting>
     <setting var="fastorder" control_type="select">
-      <value>skoneclick</value>
+      <value>buy1click</value>
       <name locale="en_US">Plugin fast order</name>
       <name locale="ru_RU">Плагин Быстрого заказа</name>
       <options>
-        <option value="skoneclick">
-          <name locale="ru_RU">Покупка в 1 клик (от Skilbe)</name>
-          <name locale="en_US">Buy in 1 click (from Skilbe)</name>
-        </option>
         <option value="buy1click">
           <name locale="ru_RU">Купить в 1 клик (от Bodysite)</name>
           <name locale="en_US">Buy in 1 click (from Bodysite)</name>
-        </option>
-        <option value="storequickorder">
-          <name locale="ru_RU">Купить в один клик (от Easy IT)</name>
-          <name locale="en_US">Buy in one click (from Easy IT)</name>
         </option>
         <option value="">
           <name locale="ru_RU">Отключить</name>
@@ -1401,19 +1393,19 @@
       <name locale="ru_RU">Title on button Fast order (from Skilbe)</name>
       <name locale="ru_RU">Текст на кнопке плагина "Покупка в 1 клик (от Skilbe)" </name>
     </setting>
-    <setting var="text_price_zero" control_type="text">
+    <setting var="text_zero_price" control_type="text">
       <value locale="ru_RU">Цена по запросу</value>
       <value locale="en_US">Price by request</value>
       <name locale="ru_RU">Текст вместо нулевой цены</name>
       <name locale="en_US">Text instead of zero price</name>
     </setting>
-    <setting var="zero_price_off_add2cart" control_type="checkbox">
-      <value/>
+    <setting var="disabled_button_cart_zero_price" control_type="checkbox">
+      <value>1</value>
       <name locale="ru_RU">Заблокировать добавление в корзину при нулевой цене товара</name>
       <name locale="en_US">Disabled button to cart at zero price</name>
     </setting>
     <setting var="text_product_not_available" control_type="text">
-      <value><![CDATA[нет нихуя идите в другой магазин]]></value>
+      <value>нет нихуя идите в другой магазин</value>
       <name locale="ru_RU">Текст вместо надписи "Нет в наличии"</name>
       <name locale="en_US">Text instead "Out of stock"</name>
     </setting>
@@ -2076,159 +2068,6 @@
       <name locale="en_US">Infoblocks</name>
       <name locale="ru_RU">Инфоблоки</name>
     </setting>
-    <setting var="product_infoblocks" control_type="select">
-      <value>content_mainpage</value>
-      <name locale="ru_RU">Инфоблоки в карточке товара</name>
-      <name locale="en_US">Infoblocks in product card</name>
-      <options>
-        <option value="content_product">
-          <name locale="ru_RU">Контент из раздела "Страница продукта"</name>
-          <name locale="en_US">Content from section "Product Page"</name>
-        </option>
-        <option value="content_mainpage">
-          <name locale="ru_RU">Контент продублировать с главной страницы</name>
-          <name locale="en_US">Content duplicated from the main page</name>
-        </option>
-        <option value="">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="product_bullet_title_1" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #1</name>
-      <name locale="ru_RU">Инфоблок №1</name>
-    </setting>
-    <setting var="product_bullet_link_1" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #1 link</name>
-      <name locale="ru_RU">Инфоблок №1 - ссылка</name>
-    </setting>
-    <setting var="product_bullet_link_1_popup" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="product_bullet_body_1" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #1 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №1</name>
-    </setting>
-    <setting var="product_bullet_icon_1" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #1 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №1</name>
-    </setting>
-    <setting var="product_bullet_image_1" control_type="image">
-      <value/>
-      <filename>img/bullet_image_1.*</filename>
-      <name locale="en_US">Info block #1 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №1</name>
-    </setting>
-    <setting var="product_bullet_title_2" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #2</name>
-      <name locale="ru_RU">Инфоблок №2</name>
-    </setting>
-    <setting var="product_bullet_link_2" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #2 link</name>
-      <name locale="ru_RU">Инфоблок №2 - ссылка</name>
-    </setting>
-    <setting var="product_bullet_link_2_popup" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="product_bullet_body_2" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #2 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №2</name>
-    </setting>
-    <setting var="product_bullet_icon_2" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #2 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №2</name>
-    </setting>
-    <setting var="product_bullet_image_2" control_type="image">
-      <value/>
-      <filename>img/bullet_image_2.*</filename>
-      <name locale="en_US">Info block #2 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №2</name>
-    </setting>
-    <setting var="product_bullet_title_3" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #3</name>
-      <name locale="ru_RU">Инфоблок №3</name>
-    </setting>
-    <setting var="product_bullet_link_3" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #3 link</name>
-      <name locale="ru_RU">Инфоблок №3 - ссылка</name>
-    </setting>
-    <setting var="product_bullet_link_3_popup" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="product_bullet_body_3" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #3 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №3</name>
-    </setting>
-    <setting var="product_bullet_icon_3" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #3 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №3</name>
-    </setting>
-    <setting var="product_bullet_image_3" control_type="image">
-      <value/>
-      <filename>img/bullet_image_3.*</filename>
-      <name locale="en_US">Info block #3 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №3</name>
-    </setting>
-    <setting var="product_bullet_title_4" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #4</name>
-      <name locale="ru_RU">Инфоблок №4</name>
-    </setting>
-    <setting var="product_bullet_link_4" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #4 link</name>
-      <name locale="ru_RU">Инфоблок №4 - ссылка</name>
-    </setting>
-    <setting var="product_bullet_link_4_popup" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="product_bullet_body_4" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #4 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №4</name>
-    </setting>
-    <setting var="product_bullet_icon_4" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #4 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №4</name>
-    </setting>
-    <setting var="product_bullet_image_4" control_type="image">
-      <value/>
-      <filename>img/bullet_image_4.*</filename>
-      <name locale="en_US">Info block #4 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №4</name>
-      <description locale="ru_RU">.</description>
-      <description locale="en_US">.</description>
-    </setting>
     <setting var="desc_product_gallery" control_type="paragraph">
       <value/>
       <name locale="en_US">Gallery</name>
@@ -2265,7 +2104,7 @@
       <name locale="en_US">Show short description in block of right</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>short</value>
+      <value>first</value>
       <name locale="en_US">Features in the right box</name>
       <name locale="ru_RU">Характеристики в правом блоке</name>
       <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)".  Если выбран вариант "Первые характеристики", то необходимо заполнить опцию "Количество выводимых характеристик"</description>
@@ -2289,7 +2128,7 @@
         </option>
       </options>
     </setting>
-    <setting var="product_page_right_block_features_count" control_type="text">
+    <setting var="count_output_features_right_block" control_type="text">
       <value>5</value>
       <name locale="ru_RU">Количество выводимых характеристик</name>
       <name locale="en_US">Number of output characteristics</name>
@@ -2303,8 +2142,8 @@
       <description locale="ru_RU">Настройка доступна если установлен плагин "Бренды с картинками и описаниями"</description>
       <description locale="en_US">Setting is available if the plugin "Brands with pictures and descriptions"</description>
     </setting>
-    <setting var="product_share_script" control_type="text">
-      <value/>
+    <setting var="pd_share_script" control_type="text">
+      <value>123</value>
       <name locale="en_US">Script for buttons to share</name>
       <name locale="ru_RU">Скрипт для кнопок поделиться</name>
       <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
@@ -2372,7 +2211,7 @@
         </option>
       </options>
     </setting>
-    <setting var="product_page_type_main_content_desktop" control_type="select">
+    <setting var="type_view_main_content_product_desktop" control_type="select">
       <value>normal_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в десктопной версии</name>
       <name locale="en_US">Type view in main content of product in desktop version</name>
@@ -2395,7 +2234,7 @@
         </option>
       </options>
     </setting>
-    <setting var="product_page_type_main_content_mobile" control_type="select">
+    <setting var="type_view_main_content_product_mobile" control_type="select">
       <value>accordion_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в мобильной версии</name>
       <name locale="en_US">Type view in main content of product in mobile version</name>
@@ -2410,18 +2249,18 @@
         </option>
       </options>
     </setting>
-    <setting var="product_title_tab_features" control_type="text">
-      <value/>
+    <setting var="name_tab_features" control_type="text">
+      <value>чхарастэристик</value>
       <name locale="en_US">Name of the characteristics tab</name>
       <name locale="ru_RU">Наименование вкладки с характеристиками</name>
     </setting>
-    <setting var="product_title_tab_reviews" control_type="text">
-      <value/>
+    <setting var="name_tab_reviews" control_type="text">
+      <value>ревиювзс</value>
       <name locale="en_US">Name of the review tab</name>
       <name locale="ru_RU">Наименование вкладки с отзывами</name>
     </setting>
-    <setting var="product_title_tab_description" control_type="text">
-      <value/>
+    <setting var="name_tab_description" control_type="text">
+      <value>дескриптион</value>
       <name locale="en_US">Name of the description tab</name>
       <name locale="ru_RU">Наименование вкладки с описанием</name>
     </setting>
@@ -2457,17 +2296,10 @@
       <name locale="ru_RU">Показывать артикулы, если есть выбор опций</name>
       <name locale="en_US">Show skus if there is a choice of options</name>
     </setting>
-    <setting var="product_select_options" control_type="checkbox">
+    <setting var="product_type_options_select" control_type="checkbox">
       <value/>
       <name locale="ru_RU">Вид выбора опций продукта - селектом</name>
       <name locale="en_US">View product selection options - Select</name>
-    </setting>
-    <setting var="product_select_options_aliases" control_type="text">
-      <value/>
-      <name locale="ru_RU">Алиасы опций, которые нужно вывести селектом</name>
-      <name locale="en_US">Aliases for options that need to be inferred</name>
-      <description locale="ru_RU">Недоступна при включенной опции "Вид выбора опций продукта - селектом". Укажите коды характеристики через запятую, без пробелов. Узнать код: приложение Магазин - Настройки - Типы и характеристики товаров</description>
-      <description locale="en_US">Not available when the option "View product selection options - Select" is enabled. Specify codes characteristics. separated by a comma, without spaces. Know code: the app Store - Configure - Types and characteristics of the goods</description>
     </setting>
     <setting var="desc_product_skus" control_type="paragraph">
       <value/>
@@ -2484,12 +2316,12 @@
       <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок</name>
       <name locale="en_US">Remove items separately from purchase options</name>
     </setting>
-    <setting var="display_off_sku_no_available" control_type="checkbox">
+    <setting var="hide_option_not_available" control_type="checkbox">
       <value/>
       <name locale="en_US">Hide shopping options not available for purchase</name>
       <name locale="ru_RU">Скрыть варианты покупок недоступные для покупки</name>
     </setting>
-    <setting var="product_count_max_skus" control_type="text">
+    <setting var="many_skus_count_max" control_type="text">
       <value/>
       <name locale="ru_RU">Кол-во раскрытых Вариантов покупок</name>
       <name locale="en_US">Number of Shopping Options Revealed</name>

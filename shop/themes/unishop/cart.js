@@ -91,7 +91,7 @@ $(function () {
     }
 
     $(".js-cart-services input:checkbox").change(function () {
-        var obj = $('select[name="service_variant[' + $(this).closest('div.row').data('id') + '][' + $(this).val() + ']"]');
+        var obj = $('select[name="service-choice[' + $(this).closest('div.row').data('id') + '][' + $(this).val() + ']"]');
         if (obj.length) {
             if ($(this).is(':checked')) {
                 obj.removeAttr('disabled');
@@ -105,9 +105,9 @@ $(function () {
         if ($(this).is(':checked')) {
            var parent_id = row.data('id')
            var data = {html: 1, parent_id: parent_id, service_id: $(this).val()};
-           var $variants = $('[name="service_variant[' + parent_id + '][' + $(this).val() + ']"]');
+           var $variants = $('[name="service-choice[' + parent_id + '][' + $(this).val() + ']"]');
            if ($variants.length) {
-               data['service_variant_id'] = $variants.val();
+               data['service-choice_id'] = $variants.val();
            }
            $.post('add/', data, function(response) {
                div.data('id', response.data.id);
@@ -125,7 +125,7 @@ $(function () {
 
     $(".js-cart-services select").change(function () {
         var row = $(this).closest('div.row');
-        $.post('save/', {html: 1, id: $(this).closest('div').data('id'), 'service_variant_id': $(this).val()}, function (response) {
+        $.post('save/', {html: 1, id: $(this).closest('div').data('id'), 'service-choice_id': $(this).val()}, function (response) {
             row.find('.js-item-total').html(response.data.item_total);
             updateCart(response.data);
         }, "json");

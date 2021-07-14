@@ -25,8 +25,8 @@
                 {$discount = round($discount)}
             {/if}
         {/if}
-        {$isDiscount = isset($discount) && $discount >= (int)$theme_settings.product_discount_percentage_minimal && $price > 0}
-        <div data-round="{$theme_settings.product_discount_percentage_round}" data-minimal="{$theme_settings.product_discount_percentage_minimal}" class="js-product-discount product-discount product-card__discount{if !$isDiscount} display_none{/if}">{if $isDiscount}-{$discount}%{/if}</div>
+        {$productDiscount = isset($discount) && $discount >= (int)$theme_settings.product_discount_percentage_minimal && $price > 0}
+        <div data-round="{$theme_settings.product_discount_percentage_round}" data-minimal="{$theme_settings.product_discount_percentage_minimal}" class="js-product-discount product-discount product-card__discount{if !$productDiscount} display_none{/if}">{if $productDiscount}-{$discount}%{/if}</div>
     {/if}
 {/function}
 
@@ -71,18 +71,18 @@
                         {if $_badge_saving || $_badge_percent}
                             <div class="product-card_discounts">
                                 {if $_badge_saving}
-                                    {$product_saving = 0}
+                                    {$product_price_saving = 0}
                                     {if $product.compare_price > $product.price  &&  $product.price != 0}
-                                        {$product_saving = $product.price - $product.compare_price}
+                                        {$product_price_saving = $product.price - $product.compare_price}
                                     {/if}
-                                    <span class="js-product-saving product-saving{if empty($product_saving)} display_none{/if}">{shop_currency_html($product_saving)}</span>
+                                    <span class="js-product-discounts product-price-saving{if empty($product_price_saving)} display_none{/if}">{shop_currency_html($product_price_saving)}</span>
                                 {/if}
                                 {getDiscountCard price=$product.price compare_price=$product.compare_price}
                             </div>
                         {/if}
 
                         {if $theme_settings.favorites || $theme_settings.compare_products}
-                            <div class="product_cart-actions">
+                            <div class="product_action-actions">
                                 {if $theme_settings.favorites}
                                 {$favorites = $wa->cookie('favorites_list')}
                                 {if $favorites}
@@ -135,56 +135,51 @@
                 </div>
             </div>
 
-            {if $theme_settings.product_infoblocks}
-                {include file="product.bullets.html"}
-            {/if}
-
             {$list_product_alias_arr = []}
             {if !empty($product_alias_str)}{$list_product_alias_arr = ","|explode:$product_alias_str}{/if}
 
             {if $wa->isMobile()}
-                {$type_tabs = $theme_settings.product_page_type_main_content_mobile}
+                {$view_tabs_type = $theme_settings.type_view_main_content_product_mobile}
             {else}
-                {$type_tabs = $theme_settings.product_page_type_main_content_desktop}
+                {$view_tabs_type = $theme_settings.type_view_main_content_product_desktop}
             {/if}
 
-            {$is_normal_tabs = ($type_tabs == "normal_tabs")}
-            {$is_anchor_tabs = ($type_tabs == "anchor_tabs")}
-            {$is_none_tabs = ($type_tabs == "none_tabs")}
-            {$is_accordion_tabs = $type_tabs == "accordion_tabs"}
+            {$_tabs_normal = ($view_tabs_type == "normal_tabs")}
+            {$_tabs_anchor = ($view_tabs_type == "anchor_tabs")}
+            {$_tabs_none = ($view_tabs_type == "none_tabs")}
+            {$_tabs_accordion = $view_tabs_type == "accordion_tabs"}
 
-            {$product_title_tab_features = "[`Characteristics`]"}
-            {if $theme_settings.product_title_tab_features}{$product_title_tab_features = $theme_settings.product_title_tab_features}{/if}
-            {$product_title_tab_reviews = "[`Reviews`]"}
-            {if $theme_settings.product_title_tab_reviews}{$product_title_tab_reviews = $theme_settings.product_title_tab_reviews}{/if}
-            {$product_title_tab_description = "[`Overview`]"}
-            {if $theme_settings.product_title_tab_description}{$product_title_tab_description = $theme_settings.product_title_tab_description}{/if}
+            {if $theme_settings.name_tab_features}{$name_tab_features = $theme_settings.name_tab_features}{else}{$name_tab_features = "[`Characteristics`]"}{/if}
+
+            {if $theme_settings.name_tab_reviews}{$name_tab_reviews = $theme_settings.name_tab_reviews}{else}{$name_tab_reviews = "[`Reviews`]"}{/if}
+
+            {if $theme_settings.name_tab_description}{$name_tab_description = $theme_settings.name_tab_description}{else}{$name_tab_description = "[`Overview`]"}{/if}
             <div class="content">
-                {if ($is_normal_tabs || $is_anchor_tabs) && count($list_product_alias_arr) > 0}
+                {if ($_tabs_normal || $_tabs_anchor) && count($list_product_alias_arr) > 0}
                     <ul class="tabs js-tabs ul-block">
-                        {foreach $list_product_alias_arr as $content_alias}
-                            {if $content_alias == 'description' && $product.description}
-                                <li class="{if $is_normal_tabs}js-tab {/if}{if $is_anchor_tabs}js-move-to-tab {/if}tabs_el" data-tab-content="product-description">{$product_title_tab_description}</li>
-                            {else if $content_alias == 'features' && $product.features}
-                                <li class="{if $is_normal_tabs}js-tab {/if}{if $is_anchor_tabs}js-move-to-tab {/if} tabs_el" data-tab-content="product-options">{$product_title_tab_features}</li>
-                            {else if $content_alias == 'reviews'}
-                                <li class="{if $is_normal_tabs}js-tab {/if}{if $is_anchor_tabs}js-move-to-tab {/if} tabs_el" data-tab-content="product-reviews">{$product_title_tab_reviews} <span class="hint">({$reviews_total_count})</span></li>
-                            {else if $content_alias == 'comments_vk' && $theme_settings.product_info_comments_vk_app_id}
-                                <li class="{if $is_normal_tabs}js-tab {/if}{if $is_anchor_tabs}js-move-to-tab {/if} tabs_el" data-tab-content="comments-vk">
+                        {foreach $list_product_alias_arr as $item_alias_content}
+                            {if $item_alias_content == 'description' && $product.description}
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if}tabs_el" data-tab-content="product-description">{$name_tab_description}</li>
+                            {else if $item_alias_content == 'features' && $product.features}
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-options">{$name_tab_features}</li>
+                            {else if $item_alias_content == 'reviews'}
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-reviews">{$name_tab_reviews} <span class="hint">({$reviews_total_count})</span></li>
+                            {else if $item_alias_content == 'comments_vk' && $theme_settings.product_info_comments_vk_app_id}
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="comments-vk">
                                     {if $theme_settings.product_info_comments_vk_title}{$theme_settings.product_info_comments_vk_title}{else}[`Discussions`]{/if}
                                     <i class="fa fa-vk tabs_el-vk" aria-hidden="true"></i>
                                 </li>
-                            {else if $content_alias == 'comments_fb' && $theme_settings.product_info_comments_fb_app_id}
-                                <li class="{if $is_normal_tabs}js-tab {/if}{if $is_anchor_tabs}js-move-to-tab {/if} tabs_el" data-tab-content="comments-fb">
+                            {else if $item_alias_content == 'comments_fb' && $theme_settings.product_info_comments_fb_app_id}
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="comments-fb">
                                     {if $theme_settings.product_info_comments_fb_title}{$theme_settings.product_info_comments_fb_title}{else}[`Discussions`]{/if}</span>
                                     <i class="fa fa-facebook-f tabs_el-fb"></i>
                                 </li>
-                            {else if $content_alias == 'pages' && count($product.pages) > 0}
+                            {else if $item_alias_content == 'pages' && count($product.pages) > 0}
                                 {foreach $product.pages as $page}
-                                    <li class="{if $is_normal_tabs}js-tab {/if}{if $is_anchor_tabs}js-move-to-tab {/if} tabs_el" data-tab-content="product-page-{$page.id}">{$page.name|escape}</li>
+                                    <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-page-{$page.id}">{$page.name|escape}</li>
                                 {/foreach}
-                            {else if $content_alias == 'add' && $theme_settings.product_add_info_title}
-                                <li class="{if $is_normal_tabs}js-tab {/if}{if $is_anchor_tabs}js-move-to-tab {/if} tabs_el" data-tab-content="product-page-addinfo">{$theme_settings.product_add_info_title|escape}</li>
+                            {else if $item_alias_content == 'add' && $theme_settings.product_add_info_title}
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-page-addinfo">{$theme_settings.product_add_info_title|escape}</li>
                             {/if}
                         {/foreach}
                     </ul>
@@ -192,11 +187,11 @@
 
                 {$product_content_outer_class = "product-content"}
                 {$product_content_class = "product-content__el"}
-                {if $is_normal_tabs}
+                {if $_tabs_normal}
                     {$product_content_outer_class = "tab-contents js-tabs-outer"}
                     {$product_content_class = "js-tab-content tab-content_el"}
                 {/if}
-                {if $is_accordion_tabs}
+                {if $_tabs_accordion}
                     {$product_content_outer_class = "tab-accordion-contents js-accordion-tabs-outer"}
                     {$product_content_class = "js-accordion-tab-content accordion-tab-content_el"}
                 {/if}
@@ -204,64 +199,64 @@
                 
                 {if count($list_product_alias_arr) > 0}
                     <div class="{$product_content_outer_class}">
-                        {foreach $list_product_alias_arr as $content_alias}
-                            {if $content_alias == 'description' && $product.description}
-                                {if $is_accordion_tabs}
+                        {foreach $list_product_alias_arr as $item_alias_content}
+                            {if $item_alias_content == 'description' && $product.description}
+                                {if $_tabs_accordion}
                                     <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-description">
                                         <span class="accordion-tabs-caret">
                                             <span class="accordion-tabs-caret__icon maincolor"></span>
                                         </span>
-                                        <div class="accordion-tabs-title">{$product_title_tab_description}</div>
+                                        <div class="accordion-tabs-title">{$name_tab_description}</div>
                                     </div>
                                 {/if}
                                 <div id="product-description" class="product_description {$product_content_class}">
-                                    {if !$is_normal_tabs && !$is_accordion_tabs}
-                                        <div class="product-tab_head"><h2>{$product_title_tab_description}</h2></div>
+                                    {if !$_tabs_normal && !$_tabs_accordion}
+                                        <div class="product-tab_head"><h2>{$name_tab_description}</h2></div>
                                     {/if}
                                     {if $theme_settings.product_page_show_brand_content && $theme_settings.brands_plugin == 'brands_pro' && class_exists('shopBrandViewHelper')}
                                         {$_brand_pro = shopBrandViewHelper::getProductBrand($product)}
                                         {if !empty($_brand_pro) && $_brand_pro.image_url}
                                             <div class="product_desc-brand">
-                                                <a class="product_brand-img" href="{$_brand_pro.frontend_url}"><img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}"></a>
+                                                <a class="brand_product-img" href="{$_brand_pro.frontend_url}"><img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}"></a>
                                             </div>
                                         {/if}
                                     {else if $theme_settings.product_page_show_brand_content && $theme_settings.brands_plugin == 'brands' && class_exists('shopProductbrandsPlugin')}
                                         {$_b = shopProductbrandsPlugin::productBrand($product.id)}
                                         {if !empty($_b) && $_b.image}
                                             <div class="product_desc-brand">
-                                                <a class="product_brand-img" href="{$_b.url}"><img alt="{$_b.name|escape}" src="{$wa_url}wa-data/public/shop/brands/{$_b.id}/{$_b.id}.200{$_b.image}"></a>
+                                                <a class="brand_product-img" href="{$_b.url}"><img alt="{$_b.name|escape}" src="{$wa_url}wa-data/public/shop/brands/{$_b.id}/{$_b.id}.200{$_b.image}"></a>
                                             </div>
                                         {/if}
                                     {/if}
                                     <div itemprop="description">{$product.description}</div>
                                 </div>
-                            {else if $content_alias == 'features' && $product.features}
-                                {if $is_accordion_tabs}
+                            {else if $item_alias_content == 'features' && $product.features}
+                                {if $_tabs_accordion}
                                     <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-options">
                                         <span class="accordion-tabs-caret">
                                             <span class="accordion-tabs-caret__icon maincolor"></span>
                                         </span>
-                                        <div class="accordion-tabs-title">{$product_title_tab_features}</div>
+                                        <div class="accordion-tabs-title">{$name_tab_features}</div>
                                     </div>
                                 {/if}
                                 <div id="product-options" class="product_options {$product_content_class}">
-                                    {if !$is_normal_tabs && !$is_accordion_tabs}
-                                        <div class="product-tab_head"><h2>{$product_title_tab_features}</h2></div>
+                                    {if !$_tabs_normal && !$_tabs_accordion}
+                                        <div class="product-tab_head"><h2>{$name_tab_features}</h2></div>
                                     {/if}
                                     <table class="js-product-features Product__features">
                                         {$features_list = $features}
                                         {if !empty($sku_features)}{$features_list = $sku_features}{/if}
 
-                                        {$Product__features_list = $product.features}
-                                        {if !empty($product.skus[$product.sku_id].features)}{$Product__features_list = $product.skus[$product.sku_id].features}{/if}
+                                        {$product_features_list = $product.features}
+                                        {if !empty($product.skus[$product.sku_id].features)}{$product_features_list = $product.skus[$product.sku_id].features}{/if}
 
                                         {if class_exists('shopGroupattrPlugin')}
-                                            {$Product__features_list = shopGroupattrPlugin::process($product, $features_list)}
+                                            {$product_features_list = shopGroupattrPlugin::process($product, $features_list)}
                                         {/if}
                                         {if class_exists('shopSeofilterViewHelper')}
-                                            {$Product__features_list = shopSeofilterViewHelper::wrapFeatureValues($Product__features_list)}
+                                            {$product_features_list = shopSeofilterViewHelper::wrapFeatureValues($product_features_list)}
                                         {/if}
-                                        {foreach $Product__features_list as $f_code => $f_value}
+                                        {foreach $product_features_list as $f_code => $f_value}
                                             {if !empty($features_list[$f_code])}
                                                 <tr class="Product__features-item {if $features_list[$f_code].type == 'divider'} divider{/if}">
                                                     <td class="Product__features-title">
@@ -293,13 +288,13 @@
                                         {/foreach}
                                     </table>
                                 </div>
-                            {else if $content_alias == 'reviews'}
-                                {if $is_accordion_tabs}
+                            {else if $item_alias_content == 'reviews'}
+                                {if $_tabs_accordion}
                                     <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-reviews">
                                         <span class="accordion-tabs-caret">
                                             <span class="accordion-tabs-caret__icon maincolor"></span>
                                         </span>
-                                        <div class="accordion-tabs-title">{$product_title_tab_reviews} <span class="product-reviews__count maincolor">{$reviews_total_count}</span></div>
+                                        <div class="accordion-tabs-title">{$name_tab_reviews} <span class="product-reviews__count maincolor">{$reviews_total_count}</span></div>
                                     </div>
                                 {/if}
                                 <section id="product-reviews" class="product_reviews {$product_content_class}">
@@ -346,8 +341,8 @@
                                         {/if}
                                     </div>
                                 </section>
-                            {else if $content_alias == 'comments_vk' && $theme_settings.product_info_comments_vk_app_id}
-                                {if $is_accordion_tabs}
+                            {else if $item_alias_content == 'comments_vk' && $theme_settings.product_info_comments_vk_app_id}
+                                {if $_tabs_accordion}
                                     <div class="js-accordion-tab accordion-tabs-el" data-tab-content="comments-vk">
                                         <span class="accordion-tabs-caret">
                                             <span class="accordion-tabs-caret__icon maincolor"></span>
@@ -361,8 +356,8 @@
                                 <div id="comments-vk" class="product_vk {$product_content_class}">
                                     {include file="`$wa_active_theme_path`/product.comments.vk.html"}
                                 </div>
-                            {else if $content_alias == 'comments_fb' && $theme_settings.product_info_comments_fb_app_id}
-                                {if $is_accordion_tabs}
+                            {else if $item_alias_content == 'comments_fb' && $theme_settings.product_info_comments_fb_app_id}
+                                {if $_tabs_accordion}
                                     <div class="js-accordion-tab accordion-tabs-el" data-tab-content="comments-fb">
                                         <span class="accordion-tabs-caret">
                                             <span class="accordion-tabs-caret__icon maincolor"></span>
@@ -376,9 +371,9 @@
                                 <div id="comments-fb" class="product_fb {$product_content_class}">
                                     {include file="`$wa_active_theme_path`/product.comments.fb.html"}
                                 </div>
-                            {else if $content_alias == 'pages' && count($product.pages) > 0}
+                            {else if $item_alias_content == 'pages' && count($product.pages) > 0}
                                 {foreach $product.pages as $page}
-                                    {if $is_accordion_tabs}
+                                    {if $_tabs_accordion}
                                         <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-page-{$page.id}">
                                             <span class="accordion-tabs-caret">
                                                 <span class="accordion-tabs-caret__icon maincolor"></span>
@@ -387,14 +382,14 @@
                                         </div>
                                     {/if}
                                     <div id="product-page-{$page.id}" class="product_page {$product_content_class}">
-                                        {if !$is_normal_tabs && !$is_accordion_tabs}
+                                        {if !$_tabs_normal && !$_tabs_accordion}
                                             <div class="product-tab_head"><h2>{$page.name|escape}</h2></div>
                                         {/if}
                                         {eval var=$page.content}
                                     </div>
                                 {/foreach}
-                            {else if $content_alias == 'add' && $theme_settings.product_add_info_title}
-                                {if $is_accordion_tabs}
+                            {else if $item_alias_content == 'add' && $theme_settings.product_add_info_title}
+                                {if $_tabs_accordion}
                                     <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-page-addinfo">
                                         <span class="accordion-tabs-caret">
                                             <span class="accordion-tabs-caret__icon maincolor"></span>
@@ -405,7 +400,7 @@
                                     </div>
                                 {/if}
                                 <div id="product-page-addinfo" class="product_addinfo {$product_content_class}">
-                                    {if !$is_normal_tabs && !$is_accordion_tabs}
+                                    {if !$_tabs_normal && !$_tabs_accordion}
                                         <div class="product-tab_head"><h2>{$theme_settings.product_add_info_title}</h2></div>
                                     {/if}
                                     {$wa->block("product_addinfo")}

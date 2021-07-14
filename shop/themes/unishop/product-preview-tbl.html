@@ -72,8 +72,8 @@
 
     <div class="Product-table-buy{if $_price_range} width-large{/if}">
         <span class="Product-table-price price">
-            {if empty($p.price) && !empty($theme_settings.text_price_zero)}
-                <span class="bold">{$theme_settings.text_price_zero}</span>
+            {if empty($p.price) && !empty($theme_settings.text_zero_price)}
+                <span class="bold">{$theme_settings.text_zero_price}</span>
             {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}
                 <span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span class="nowrap">{shop_currency_html($p.max_price)}</span>
             {else}
@@ -82,7 +82,7 @@
             {/if}
         </span>
         {if $available}
-            {$_hide_btn = empty($p.price) && !empty($theme_settings.zero_price_off_add2cart)}
+            {$_hide_btn = empty($p.price) && !empty($theme_settings.disabled_button_cart_zero_price)}
             {if !$_hide_btn}
                 <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart Product-table-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                     {if $theme_settings.product_show_tbl_count_cart}

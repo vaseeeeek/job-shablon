@@ -27,8 +27,8 @@
                         <div class="cart-mini__product-info">
                             <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a> <span class="hint nowrap">(&times; {$item.quantity})</span>
                             <div class="cart-mini__product-price js-cart-product-price">
-                                {if empty($item.full_price) && !empty($theme_settings.text_price_zero)}
-                                    {$theme_settings.text_price_zero}
+                                {if empty($item.full_price) && !empty($theme_settings.text_zero_price)}
+                                    {$theme_settings.text_zero_price}
                                 {else}
                                     {shop_currency_html($item.full_price, true)}
                                 {/if}
