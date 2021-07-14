@@ -193,7 +193,7 @@ var tabs = {
         });
     },
     moveToTabContent: function (){
-        var btnMoveToTab = $('.js-move-to-tab'),
+        var btnMoveToTab = $('.js-motion-to-tab'),
             content = $('.js-tab-content');
 
         btnMoveToTab.on("click", function(event){
@@ -240,7 +240,7 @@ var tabs = {
     }
 };
 
-var accordionTabs = {
+var accTabs = {
     init: function (){
         var _this = this;
 
@@ -249,12 +249,12 @@ var accordionTabs = {
         _this.moveToTabContent();
     },
     selectTab: function (){
-        var button = $('.js-accordion-tab');
+        var button = $('.js-acc-tab');
 
         button.on("click", function(){
             var $this = $(this),
                 contentWrapId = $this.data('tab-content'),
-                currentContent = button.closest('.js-accordion-tabs-outer').find('#' + contentWrapId);
+                currentContent = button.closest('.js-tabs-acc-wrap').find('#' + contentWrapId);
 
             if(currentContent.is(':visible')){
                 $this.removeClass('selected');
@@ -266,15 +266,15 @@ var accordionTabs = {
         });
     },
     moveToTabContent: function (){
-        var btnMoveToTab = $('.js-move-to-tab');
+        var btnMoveToTab = $('.js-motion-to-tab');
 
         btnMoveToTab.on("click", function(event){
             event.preventDefault();
 
             var $this = $(this),
                 currentTabContent = $('#' + $this.data('tab-content')),
-                tabsOuterWrap = currentTabContent.closest(".js-accordion-tabs-outer"),
-                thisTfb = tabsOuterWrap.find('.js-accordion-tab[data-tab-content="'+$this.data('tab-content')+'"]');
+                tabsOuterWrap = currentTabContent.closest(".js-tabs-acc-wrap"),
+                thisTfb = tabsOuterWrap.find('.js-acc-tab[data-tab-content="'+$this.data('tab-content')+'"]');
 
             thisTfb.addClass('selected');
             currentTabContent.addClass('selected');
@@ -286,15 +286,15 @@ var accordionTabs = {
         });
     },
     initSelectTab: function (){
-        var tabsWrapOuter = $('.js-accordion-tabs-outer');
+        var tabsWrapOuter = $('.js-tabs-acc-wrap');
 
         if(tabsWrapOuter.length){
             tabsWrapOuter.each(function (){
                 var $this = $(this),
-                    selectedTab = $this.find('.js-accordion-tab.selected');
+                    selectedTab = $this.find('.js-acc-tab.selected');
 
                 if(!selectedTab.length){
-                    selectedTab = $this.find('.js-accordion-tab:first');
+                    selectedTab = $this.find('.js-acc-tab:first');
 
                     if(selectedTab.length){
                         var tabContent = tabsWrapOuter.find('#' + selectedTab.data('tab-content'));
@@ -3921,7 +3921,7 @@ Product.prototype.updateFeaturesList = function(sku_id) {
 $(function(){
     main.init();
     tabs.init();
-    accordionTabs.init();
+    accTabs.init();
     form.init();
     selectList.init();
     menu.init();

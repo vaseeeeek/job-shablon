@@ -126,7 +126,7 @@
                             {foreach $frontend_product as $_}{$_.menu}{/foreach}
 
 
-                            {if $theme_settings.product_page_plugin_hook_block == 'right_block'}
+                            {if $theme_settings.plugin_hook_block_in_product == 'right_block'}
                                 <!-- plugin hook: 'frontend_product.block' -->
                                 {* @event frontend_product.%plugin_id%.block *}
                                 {foreach $frontend_product as $_}{$_.block}{/foreach}
@@ -147,71 +147,70 @@
             {$_tabs_normal = ($view_tabs_type == "normal_tabs")}
             {$_tabs_anchor = ($view_tabs_type == "anchor_tabs")}
             {$_tabs_none = ($view_tabs_type == "none_tabs")}
-            {$_tabs_accordion = $view_tabs_type == "accordion_tabs"}
+            {$_tabs_acc = $view_tabs_type == "acc_tabs"}
 
             {if $theme_settings.name_tab_features}{$name_tab_features = $theme_settings.name_tab_features}{else}{$name_tab_features = "[`Characteristics`]"}{/if}
-
             {if $theme_settings.name_tab_reviews}{$name_tab_reviews = $theme_settings.name_tab_reviews}{else}{$name_tab_reviews = "[`Reviews`]"}{/if}
-
             {if $theme_settings.name_tab_description}{$name_tab_description = $theme_settings.name_tab_description}{else}{$name_tab_description = "[`Overview`]"}{/if}
+            <!-- Спросить о настройке -->
             <div class="content">
                 {if ($_tabs_normal || $_tabs_anchor) && count($list_product_alias_arr) > 0}
-                    <ul class="tabs js-tabs ul-block">
+                    <ul class="tabs js-tabs list-reset">
                         {foreach $list_product_alias_arr as $item_alias_content}
                             {if $item_alias_content == 'description' && $product.description}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if}tabs_el" data-tab-content="product-description">{$name_tab_description}</li>
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-description">{$name_tab_description}</li>
                             {else if $item_alias_content == 'features' && $product.features}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-options">{$name_tab_features}</li>
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-options">{$name_tab_features}</li>
                             {else if $item_alias_content == 'reviews'}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-reviews">{$name_tab_reviews} <span class="hint">({$reviews_total_count})</span></li>
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-reviews">{$name_tab_reviews} <span class="hint">({$reviews_total_count})</span></li>
                             {else if $item_alias_content == 'comments_vk' && $theme_settings.product_info_comments_vk_app_id}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="comments-vk">
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="comments-vk">
                                     {if $theme_settings.product_info_comments_vk_title}{$theme_settings.product_info_comments_vk_title}{else}[`Discussions`]{/if}
-                                    <i class="fa fa-vk tabs_el-vk" aria-hidden="true"></i>
+                                    <i class="fa fa-vk tabs_item-vk" aria-hidden="true"></i>
                                 </li>
                             {else if $item_alias_content == 'comments_fb' && $theme_settings.product_info_comments_fb_app_id}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="comments-fb">
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="comments-fb">
                                     {if $theme_settings.product_info_comments_fb_title}{$theme_settings.product_info_comments_fb_title}{else}[`Discussions`]{/if}</span>
-                                    <i class="fa fa-facebook-f tabs_el-fb"></i>
+                                    <i class="fa fa-facebook-f tabs_item-fb"></i>
                                 </li>
                             {else if $item_alias_content == 'pages' && count($product.pages) > 0}
                                 {foreach $product.pages as $page}
-                                    <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-page-{$page.id}">{$page.name|escape}</li>
+                                    <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-{$page.id}">{$page.name|escape}</li>
                                 {/foreach}
                             {else if $item_alias_content == 'add' && $theme_settings.product_add_info_title}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-move-to-tab {/if} tabs_el" data-tab-content="product-page-addinfo">{$theme_settings.product_add_info_title|escape}</li>
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-addinfo">{$theme_settings.product_add_info_title|escape}</li>
                             {/if}
                         {/foreach}
                     </ul>
                 {/if}
 
-                {$product_content_outer_class = "product-content"}
-                {$product_content_class = "product-content__el"}
+                {$class_product_wrap_content = "product-wrap-content"}
+                {$class_product_content = "product-content__el"}
                 {if $_tabs_normal}
-                    {$product_content_outer_class = "tab-contents js-tabs-outer"}
-                    {$product_content_class = "js-tab-content tab-content_el"}
+                    {$class_product_wrap_content = "tab-contents js-tabs-wrap"}
+                    {$class_product_content = "js-tab-content tab-content_el"}
                 {/if}
-                {if $_tabs_accordion}
-                    {$product_content_outer_class = "tab-accordion-contents js-accordion-tabs-outer"}
-                    {$product_content_class = "js-accordion-tab-content accordion-tab-content_el"}
+                {if $_tabs_acc}
+                    {$class_product_wrap_content = "tab-acc-wrap js-tabs-acc-wrap"}
+                    {$class_product_content = "js-acc-tab-content acc-tab-content_item"}
                 {/if}
 
                 
                 {if count($list_product_alias_arr) > 0}
-                    <div class="{$product_content_outer_class}">
+                    <div class="{$class_product_wrap_content}">
                         {foreach $list_product_alias_arr as $item_alias_content}
                             {if $item_alias_content == 'description' && $product.description}
-                                {if $_tabs_accordion}
-                                    <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-description">
-                                        <span class="accordion-tabs-caret">
-                                            <span class="accordion-tabs-caret__icon maincolor"></span>
+                                {if $_tabs_acc}
+                                    <div class="js-acc-tab acc-tabs-el" data-tab-content="product-description">
+                                        <span class="acc-tabs-caret">
+                                            <span class="acc-tabs-caret__icon maincolor"></span>
                                         </span>
-                                        <div class="accordion-tabs-title">{$name_tab_description}</div>
+                                        <div class="acc-tabs-title">{$name_tab_description}</div>
                                     </div>
                                 {/if}
-                                <div id="product-description" class="product_description {$product_content_class}">
-                                    {if !$_tabs_normal && !$_tabs_accordion}
-                                        <div class="product-tab_head"><h2>{$name_tab_description}</h2></div>
+                                <div id="product-description" class="product_description {$class_product_content}">
+                                    {if !$_tabs_normal && !$_tabs_acc}
+                                        <div class="product-tab_title"><h2>{$name_tab_description}</h2></div>
                                     {/if}
                                     {if $theme_settings.product_page_show_brand_content && $theme_settings.brands_plugin == 'brands_pro' && class_exists('shopBrandViewHelper')}
                                         {$_brand_pro = shopBrandViewHelper::getProductBrand($product)}
@@ -231,49 +230,56 @@
                                     <div itemprop="description">{$product.description}</div>
                                 </div>
                             {else if $item_alias_content == 'features' && $product.features}
-                                {if $_tabs_accordion}
-                                    <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-options">
-                                        <span class="accordion-tabs-caret">
-                                            <span class="accordion-tabs-caret__icon maincolor"></span>
+                                {if $_tabs_acc}
+                                    <div class="js-acc-tab acc-tabs-el" data-tab-content="product-options">
+                                        <span class="acc-tabs-caret">
+                                            <span class="acc-tabs-caret__icon maincolor"></span>
                                         </span>
-                                        <div class="accordion-tabs-title">{$name_tab_features}</div>
+                                        <div class="acc-tabs-title">{$name_tab_features}</div>
                                     </div>
                                 {/if}
-                                <div id="product-options" class="product_options {$product_content_class}">
-                                    {if !$_tabs_normal && !$_tabs_accordion}
-                                        <div class="product-tab_head"><h2>{$name_tab_features}</h2></div>
+                                <div id="product-options" class="product_options {$class_product_content}">
+                                    {if !$_tabs_normal && !$_tabs_acc}
+                                        <div class="product-tab_title"><h2>{$name_tab_features}</h2></div>
                                     {/if}
                                     <table class="js-product-features Product__features">
-                                        {$features_list = $features}
-                                        {if !empty($sku_features)}{$features_list = $sku_features}{/if}
 
-                                        {$product_features_list = $product.features}
-                                        {if !empty($product.skus[$product.sku_id].features)}{$product_features_list = $product.skus[$product.sku_id].features}{/if}
+                                        {if !empty($sku_features)}
+                                            {$features_items = $sku_features}
+                                        {else}
+                                            {$features_items = $features}
+                                        {/if}
+
+                                        {if !empty($product.skus[$product.sku_id].features)}
+                                            {$product_features_items = $product.skus[$product.sku_id].features}
+                                        {else}
+                                            {$product_features_items = $product.features}
+                                        {/if}
 
                                         {if class_exists('shopGroupattrPlugin')}
-                                            {$product_features_list = shopGroupattrPlugin::process($product, $features_list)}
+                                            {$product_features_items = shopGroupattrPlugin::process($product, $features_items)}
                                         {/if}
                                         {if class_exists('shopSeofilterViewHelper')}
-                                            {$product_features_list = shopSeofilterViewHelper::wrapFeatureValues($product_features_list)}
+                                            {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}
                                         {/if}
-                                        {foreach $product_features_list as $f_code => $f_value}
-                                            {if !empty($features_list[$f_code])}
-                                                <tr class="Product__features-item {if $features_list[$f_code].type == 'divider'} divider{/if}">
+                                        {foreach $product_features_items as $f_code => $f_value}
+                                            {if !empty($features_items[$f_code])}
+                                                <tr class="Product__features-item {if $features_items[$f_code].type == 'divider'} divider{/if}">
                                                     <td class="Product__features-title">
-                                                        <span>{$features_list[$f_code].name|escape}</span>
+                                                        <span>{$features_items[$f_code].name|escape}</span>
                                                     </td>
-                                                    {$_is_good_param = ($f_code|in_array:["weight", "model", "width", "height", "depth", "color", "manufacturer"])}
-                                                    {$_itemprop = ""}
-                                                    {if $_is_good_param}
-                                                        {$_itemprop = $f_code}
+                                                    {$_good_param = ($f_code|in_array:["weight", "model", "width", "height", "depth", "color", "manufacturer"])}
+                                                    {$itemProp = ""}
+                                                    {if $_good_param}
+                                                        {$itemProp = $f_code}
                                                     {/if}
-                                                    {if $theme_settings.feature_brand_code && $theme_settings.feature_brand_code == $f_code}
-                                                        {$_itemprop = "brand"}
+                                                    {if $theme_settings.brand_id && $theme_settings.brand_id == $f_code}
+                                                        {$itemProp = "brand"}
                                                     {/if}
-                                                    <td class="Product__features-value"{if $_itemprop} itemprop="{$_itemprop}"{/if}>
-                                                        {if $features_list[$f_code].type != 'divider'}
+                                                    <td class="Product__features-value"{if $itemProp} itemprop="{$itemProp}"{/if}>
+                                                        {if $features_items[$f_code].type != 'divider'}
                                                             {if is_array($f_value)}
-                                                                {if $features_list[$f_code].type == 'color'}
+                                                                {if $features_items[$f_code].type == 'color'}
                                                                     {implode('<br /> ', $f_value)}
                                                                 {else}
                                                                     {implode(', ', $f_value)}
@@ -289,147 +295,91 @@
                                     </table>
                                 </div>
                             {else if $item_alias_content == 'reviews'}
-                                {if $_tabs_accordion}
-                                    <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-reviews">
-                                        <span class="accordion-tabs-caret">
-                                            <span class="accordion-tabs-caret__icon maincolor"></span>
+                                {if $_tabs_acc}
+                                    <div class="js-acc-tab acc-tabs-el" data-tab-content="product-reviews">
+                                        <span class="acc-tabs-caret">
+                                            <span class="acc-tabs-caret__icon maincolor"></span>
                                         </span>
-                                        <div class="accordion-tabs-title">{$name_tab_reviews} <span class="product-reviews__count maincolor">{$reviews_total_count}</span></div>
+                                        <div class="acc-tabs-title">{$name_tab_reviews} <span class="product-reviews__count maincolor">{$reviews_total_count}</span></div>
                                     </div>
                                 {/if}
-                                <section id="product-reviews" class="product_reviews {$product_content_class}">
+                                <section id="product-reviews" class="product_reviews {$class_product_content}">
                                     <h2>{sprintf('[`%s reviews`]', $product.name|escape)}</h2>
 
                                     {if !empty($rates)}
-                                    <p class="rating">
-                                        [`Average customer rating:`]
-                                        <span class="nowrap">{$wa->shop->ratingHtml($product.rating, 16)}</span> (<a href="reviews/">{$reviews_total_count}</a>)
-                                        {if $product.rating > 0}<span class="hint product_rating-count">{sprintf('[`%s out of 5 stars`]', $product.rating)}</span>{/if}
-                                    </p>
+                                        <p class="rating">
+                                            [`Average customer rating:`]
+                                            <span class="nowrap">{$wa->shop->ratingHtml($product.rating, 16)}</span> (<a href="reviews/">{$reviews_total_count}</a>)
+                                            {if $product.rating > 0}<span class="hint product_rating-total">{sprintf('[`%s out of 5 stars`]', $product.rating)}</span>{/if}
+                                        </p>
 
-                                    <table class="rating-distribution">
-                                        {$_total_count = 0}
-                                        {foreach $rates as $_rate => $_count}
-                                        {$_total_count = $_total_count + $_count}
-                                        {/foreach}
-                                        {* foreach $rates as $_rate => $_count *}
-                                        {for $i = 5 to 0 step -1}
-                                        {if empty($rates[$i]) || !$rates[$i]}{$_count = 0}{else}{$_count = $rates[$i]}{/if}
-                                        {if $i || $_count}
-                                        <tr>
-                                            <td class="min-width hint">{$_count}</td>
-                                            <td>
-                                                <div class="bar">
-                                                    <div class="filling bg-sdColor" style="width: {if $_total_count > 0}{str_replace(',','.', 100*$_count/$_total_count)}{else}0{/if}%;{if !$i} background: #ddd;{/if}"></div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="rating">{for $j=1 to $i}<i class="icon10 star"></i>{forelse}<span class="hint">[`no rate`]</span>{/for}</span>
-                                            </td>
-                                        </tr>
-                                        {/if}
-                                        {/for}
-                                    </table>
+                                        <table class="rating-result">
+                                            {$_total_count = 0}
+
+                                            {foreach $rates as $_rate => $_count}
+                                                {$_total_count = $_total_count + $_count}
+                                            {/foreach}
+
+                                            {for $i = 5 to 0 step -1}
+                                                {if empty($rates[$i]) || !$rates[$i]}{$_count = 0}{else}{$_count = $rates[$i]}{/if}
+                                                {if $i || $_count}
+                                                    <tr>
+                                                        <td class="min-width hint">{$_count}</td>
+                                                        <td>
+                                                            <div class="bar">
+                                                                <div class="filling bg-sdColor" style="width: {if $_total_count > 0}{str_replace(',','.', 100*$_count/$_total_count)}{else}0{/if}%;{if !$i} background: #ddd;{/if}"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="rating">{for $j=1 to $i}<i class="icon10 star"></i>{forelse}<span class="hint">[`no rate`]</span>{/for}</span>
+                                                        </td>
+                                                    </tr>
+                                                {/if}
+                                            {/for}
+                                        </table>
                                     {/if}
                                     <div class="js-reviews-content" data-url-product="{$wa->shop->productUrl($product)}">
                                         {if $reviews}
                                             {foreach $reviews as $review}
-                                                {include file="review.html" is_schema_org=true inline}
+                                                {include file="review.html" _schema_org=true inline}
                                             {/foreach}
                                         {else}
-                                            [`About this product reviews yet. Be the first!`]
+                                            Отзывов нет
                                         {/if}
                                     </div>
                                 </section>
-                            {else if $item_alias_content == 'comments_vk' && $theme_settings.product_info_comments_vk_app_id}
-                                {if $_tabs_accordion}
-                                    <div class="js-accordion-tab accordion-tabs-el" data-tab-content="comments-vk">
-                                        <span class="accordion-tabs-caret">
-                                            <span class="accordion-tabs-caret__icon maincolor"></span>
-                                        </span>
-                                        <div class="accordion-tabs-title">
-                                            {if $theme_settings.product_info_comments_vk_title}{$theme_settings.product_info_comments_vk_title}{else}[`Discussions`]{/if}
-                                            <i class="fa fa-vk tabs_el-vk" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                {/if}
-                                <div id="comments-vk" class="product_vk {$product_content_class}">
-                                    {include file="`$wa_active_theme_path`/product.comments.vk.html"}
-                                </div>
-                            {else if $item_alias_content == 'comments_fb' && $theme_settings.product_info_comments_fb_app_id}
-                                {if $_tabs_accordion}
-                                    <div class="js-accordion-tab accordion-tabs-el" data-tab-content="comments-fb">
-                                        <span class="accordion-tabs-caret">
-                                            <span class="accordion-tabs-caret__icon maincolor"></span>
-                                        </span>
-                                        <div class="accordion-tabs-title">
-                                            {if $theme_settings.product_info_comments_fb_title}{$theme_settings.product_info_comments_fb_title}{else}[`Discussions`]{/if}</span>
-                                            <i class="fa fa-facebook-f tabs_el-fb"></i>
-                                        </div>
-                                    </div>
-                                {/if}
-                                <div id="comments-fb" class="product_fb {$product_content_class}">
-                                    {include file="`$wa_active_theme_path`/product.comments.fb.html"}
-                                </div>
                             {else if $item_alias_content == 'pages' && count($product.pages) > 0}
                                 {foreach $product.pages as $page}
-                                    {if $_tabs_accordion}
-                                        <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-page-{$page.id}">
-                                            <span class="accordion-tabs-caret">
-                                                <span class="accordion-tabs-caret__icon maincolor"></span>
+                                    {if $_tabs_acc}
+                                        <div class="js-acc-tab acc-tabs-el" data-tab-content="product-page-{$page.id}">
+                                            <span class="acc-tabs-caret">
+                                                <span class="acc-tabs-caret__icon maincolor"></span>
                                             </span>
-                                            <div class="accordion-tabs-title">{$page.name|escape}</div>
+                                            <div class="acc-tabs-title">{$page.name|escape}</div>
                                         </div>
                                     {/if}
-                                    <div id="product-page-{$page.id}" class="product_page {$product_content_class}">
-                                        {if !$_tabs_normal && !$_tabs_accordion}
-                                            <div class="product-tab_head"><h2>{$page.name|escape}</h2></div>
+                                    <div id="product-page-{$page.id}" class="product_page {$class_product_content}">
+                                        {if !$_tabs_normal && !$_tabs_acc}
+                                            <div class="product-tab_title"><h2>{$page.name|escape}</h2></div>
                                         {/if}
                                         {eval var=$page.content}
                                     </div>
                                 {/foreach}
-                            {else if $item_alias_content == 'add' && $theme_settings.product_add_info_title}
-                                {if $_tabs_accordion}
-                                    <div class="js-accordion-tab accordion-tabs-el" data-tab-content="product-page-addinfo">
-                                        <span class="accordion-tabs-caret">
-                                            <span class="accordion-tabs-caret__icon maincolor"></span>
-                                        </span>
-                                        <div class="accordion-tabs-title">
-                                            {$theme_settings.product_add_info_title}
-                                        </div>
-                                    </div>
-                                {/if}
-                                <div id="product-page-addinfo" class="product_addinfo {$product_content_class}">
-                                    {if !$_tabs_normal && !$_tabs_accordion}
-                                        <div class="product-tab_head"><h2>{$theme_settings.product_add_info_title}</h2></div>
-                                    {/if}
-                                    {$wa->block("product_addinfo")}
-                                </div>
                             {/if}
                         {/foreach}
                     </div>
                 {/if}
 
-                {if $theme_settings.product_page_plugin_hook_block != 'right_block'}
+                {if $theme_settings.plugin_hook_block_in_product != 'right_block'}
                     {* @event frontend_product.%plugin_id%.block *}
                     {foreach $frontend_product as $_}
                         {$_.block}
                     {/foreach}
                 {/if }
-                {if ($theme_settings.product_show_categories && count($product.categories) > 1) || ($theme_settings.product_show_tags && $product.tags)}
+                {if $theme_settings.show_tags_pr_page && $product.tags}
                     <div class="product_tags-cats">
-                        <!-- categories -->
-                        {if $theme_settings.product_show_categories && count($product.categories) > 1}
-                            <div class="product_categories">
-                                [`Categories`]:
-                                {foreach $product.categories as $c}{if $c.status}
-                                <a href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}">{$c.name|escape}</a>
-                                {/if}{/foreach}
-                            </div>
-                        {/if}
-
                         <!-- tags -->
-                        {if $theme_settings.product_show_tags && $product.tags}
+                        {if $theme_settings.show_tags_pr_page && $product.tags}
                             <div class="product_tags">
                                 [`Tags`]:
 
@@ -451,12 +401,11 @@
             </div>
         </article>
 
-        {$count_crossselling = (int) $theme_settings.crossselling_count}
-        {if empty($count_crossselling)}{$count_crossselling = 12}{/if}
-        {$crossselling = $product->crossSelling($count_crossselling)}
+        {if empty($totalCrossselling)}{$totalCrossselling = 10}{else}{$totalCrossselling = (int) $theme_settings.total_crossselling}{/if}
+        {$crossselling = $product->crossSelling($totalCrossselling)}
 
-        {$count_upselling = (int) $theme_settings.upselling_count}
-        {if empty($count_upselling)}{$count_upselling = 12}{/if}
+
+        {if empty($count_upselling)}{$count_upselling = 10}{else}{$count_upselling = (int) $theme_settings.upselling_count}{/if}
         {$upselling = $product->upSelling($count_upselling)}
 
         {$viewed_list = $wa->cookie('viewed_list')}
@@ -509,7 +458,7 @@
                     {if $products_view == "tile-carousel" && !$wa->isMobile()}
                         {include file="product.products-carousel.html" products=$products_result product_list_title="[`Viewed products`]"}
                     {else}
-                        {include file="product.Products-list.html" products=$products_result product_list_title="[`Viewed products`]" CategoryViewProducts=$products_view}
+                        {include file="product.products-list.html" products=$products_result product_list_title="[`Viewed products`]" CategoryViewProducts=$products_view}
                     {/if}
                 {/if}
             </div>
@@ -538,10 +487,10 @@
             }
         }
 
-        if(reviewsSection.length && reviewsSection.is(':visible') || reviewsSection.is(':first-child') || $('.js-accordion-tab:first-child + #product-reviews').length){
+        if(reviewsSection.length && reviewsSection.is(':visible') || reviewsSection.is(':first-child') || $('.js-acc-tab:first-child + #product-reviews').length){
             loadProductCardReviews();
         }else{
-            $('.js-tab[data-tab-content="product-reviews"], .js-accordion-tab[data-tab-content="product-reviews"]').one("click", function (){
+            $('.js-tab[data-tab-content="product-reviews"], .js-acc-tab[data-tab-content="product-reviews"]').one("click", function (){
                 loadProductCardReviews();
             });
         }

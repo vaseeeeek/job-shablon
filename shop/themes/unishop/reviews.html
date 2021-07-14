@@ -35,7 +35,7 @@
                 {/if}
             </div>
             {/if}
-            <ul class="product_nav ul-block">
+            <ul class="product_nav list-reset">
                 <li><a href="{$wa->shop->productUrl($product)}">[`Overview`]</a></li>
                 <li>
                     <a class="selected" href="{$wa->shop->productUrl($product, 'reviews')}">[`Reviews`]</a>
@@ -75,7 +75,7 @@
                       <li data-id={$review.id} data-parent-id="{$review.parent_id}">
                       {$depth=$review.depth}
                   {/if}
-                    {include file="review.html" inline reply_allowed=$reply_allowed single_view=true review=$review}
+                    {include file="review.html" inline reply_confir=$reply_confir single_view=true review=$review}
                     <!-- sub review placeholder -->
                 {/foreach}
 
@@ -191,7 +191,7 @@
                                     <div class="review-field">
                                         <label>[`Images`]</label>
                                         <div class="s-review-images-section" id="js-review-images-section">
-                                            <div class="s-image-form-section">
+                                            <div class="review-image-form-section">
                                                 {strip}
                                                 <div class="s-description">
                                                     <span class="s-icon photo">
@@ -212,7 +212,7 @@
                                             {strip}
                                             {capture assign="_file_template"}
                                                 <div class="s-file-wrapper">
-                                                    <div class="s-image-wrapper"></div>
+                                                    <div class="review_image-wrap"></div>
                                                     <div class="s-description-wrapper">
                                                         <div class="s-visible">
                                                             <a class="js-show-textarea" href="javascript:void(0);">[`Add a description`]</a>
@@ -321,7 +321,7 @@
                 <ul class="reviews-branch">
                 {foreach $reviews as $review}
                     <li data-id={$review.id} data-parent-id="0">
-                        {include file="review.html" reply_allowed=$reply_allowed inline}
+                        {include file="review.html" reply_confir=$reply_confir inline}
                         {if !empty($review.comments)}
                             {review_reviews reviews=$review.comments}
                         {else}

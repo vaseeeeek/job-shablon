@@ -8955,7 +8955,7 @@ iframe {
     height: 0
 }
 
-.ul-block, .ul-block > li {
+.list-reset, .list-reset > li {
     margin: 0;
     padding: 0;
     list-style: none
@@ -12333,7 +12333,7 @@ button.owl-dot {
     font-size: 14px
 }
 
-.tabs_el, li.tabs_el {
+.tabs_item, li.tabs_item {
     height: 54px;
     line-height: 52px;
     font-size: 16px;
@@ -12349,16 +12349,16 @@ button.owl-dot {
     border-top-color: #fff
 }
 
-.tabs_el-fb, .tabs_el-vk {
+.tabs_item-fb, .tabs_item-vk {
     margin: 0 0 0 5px;
     color: rgba(85, 102, 89, .46)
 }
 
-.tabs_el.selected .tabs_el-fb {
+.tabs_item.selected .tabs_item-fb {
     color: #1d63b7
 }
 
-.tabs_el.selected .tabs_el-vk {
+.tabs_item.selected .tabs_item-vk {
     color: #15729c
 }
 
@@ -12385,7 +12385,7 @@ button.owl-dot {
     }
 }
 
-.accordion-tabs-el {
+.acc-tabs-el {
     padding: 15px;
     font-weight: 500;
     cursor: pointer;
@@ -12394,26 +12394,26 @@ button.owl-dot {
     font-size: 16px
 }
 
-.accordion-tabs-el.selected {
+.acc-tabs-el.selected {
     border-bottom: none;
     padding-bottom: 0
 }
 
-.accordion-tab-content_el {
+.acc-tab-content_item {
     padding: 25px 15px;
     display: none
 }
 
-.accordion-tab-content_el.selected {
+.acc-tab-content_item.selected {
     border-bottom: 1px solid #ebebeb;
     display: block
 }
 
-.accordion-tabs-title {
+.acc-tabs-title {
     margin-right: 45px
 }
 
-.accordion-tabs-caret {
+.acc-tabs-caret {
     float: right;
     width: 30px;
     height: 30px;
@@ -12424,23 +12424,23 @@ button.owl-dot {
     top: 13px
 }
 
-.accordion-tabs-caret__icon {
+.acc-tabs-caret__icon {
     display: inline-block;
     transition: .2s
 }
 
-.accordion-tabs-el.selected .accordion-tabs-caret__icon {
+.acc-tabs-el.selected .acc-tabs-caret__icon {
     transform: rotate(90deg)
 }
 
-.accordion-tabs-caret__icon:before {
+.acc-tabs-caret__icon:before {
     font: normal normal normal 14px/1 FontAwesome;
     content: "\f105";
     font-weight: 400;
     font-size: 20px
 }
 
-.staff {
+.group_staff {
     background: #ebebed;
     padding: 2px 3px;
     color: #888;
@@ -15338,29 +15338,29 @@ table.compare thead .name-wrapper .compare-remove i {
 }
 
 @media print {
-    table.rating-distribution {
+    table.rating-result {
         display: none
     }
 }
 
-table.rating-distribution td {
+table.rating-result td {
     padding: 0 15px 0 0;
     border: none
 }
 
-table.rating-distribution td .bar {
+table.rating-result td .bar {
     background: #eee;
     width: 200px;
     height: 13px
 }
 
 @media (max-width: 600px) {
-    table.rating-distribution td .bar {
+    table.rating-result td .bar {
         width: 140px
     }
 }
 
-table.rating-distribution td .bar .filling {
+table.rating-result td .bar .filling {
     height: 13px
 }
 
@@ -16790,7 +16790,7 @@ input.filter-range_el {
     margin: 0 25px 0 0
 }
 
-.product_rating-count {
+.product_rating-total {
     margin: 0 0 0 5px
 }
 
@@ -17578,7 +17578,7 @@ img.pswp__img {
     border-top: 1px solid #ebebeb
 }
 
-.tab-accordion-contents ~ .product_tags-cats {
+.tab-acc-wrap ~ .product_tags-cats {
     border-top: none
 }
 
@@ -17645,7 +17645,7 @@ img.pswp__img {
     white-space: nowrap
 }
 
-.product-tab_head {
+.product-tab_title {
     margin: 0 0 20px
 }
 
@@ -17787,12 +17787,12 @@ img.pswp__img {
     cursor: pointer
 }
 
-.review_username-icon {
+.reviews-fa-user-icon {
     font-size: 16px;
     margin: -3px 5px 0 0
 }
 
-.review .staff, .review .username {
+.review .group_staff, .review .username {
     margin-right: 5px
 }
 
@@ -17810,11 +17810,11 @@ img.pswp__img {
     background: #fafadf
 }
 
-.s-review-images-section .s-image-form-section {
+.s-review-images-section .review-image-form-section {
     position: relative
 }
 
-.s-review-images-section .s-image-form-section .s-description .s-icon {
+.s-review-images-section .review-image-form-section .s-description .s-icon {
     position: relative;
     display: inline-block;
     vertical-align: -3px;
@@ -17823,7 +17823,7 @@ img.pswp__img {
     margin-right: 10px
 }
 
-.s-review-images-section .s-image-form-section .s-description .s-icon svg {
+.s-review-images-section .review-image-form-section .s-description .s-icon svg {
     position: absolute;
     top: 0;
     left: 0;
@@ -17831,7 +17831,7 @@ img.pswp__img {
     height: 100%
 }
 
-.s-review-images-section .s-image-form-section .s-file-field {
+.s-review-images-section .review-image-form-section .s-file-field {
     position: absolute;
     top: 0;
     left: 0;
@@ -17856,7 +17856,7 @@ img.pswp__img {
     margin: 40px 40px 0 0
 }
 
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-image-wrapper {
+.s-review-images-section .s-attached-files-section .s-file-wrapper .review_image-wrap {
     width: 200px;
     height: 200px;
     border: 1px solid rgba(0, 0, 0, .1);
@@ -17970,17 +17970,17 @@ img.pswp__img {
     }
 }
 
-.s-review-wrapper .s-images-list {
+.reviews-wrap .review_images_list {
     margin: 5px 0 0
 }
 
-.s-review-wrapper .s-images-list .s-image-wrapper {
+.reviews-wrap .review_images_list .review_image-wrap {
     display: inline-block;
     vertical-align: top;
     margin: 0 15px 5px 0
 }
 
-.s-review-wrapper .s-images-list .s-image-wrapper .s-image {
+.reviews-wrap .review_images_list .review_image-wrap .review-image {
     height: 100px;
     vertical-align: top
 }
@@ -18184,12 +18184,12 @@ img.pswp__img {
     background-position: 2px 2px
 }
 
-.s-slider-section .s-slider-block .s-slide-wrapper .s-image-wrapper {
+.s-slider-section .s-slider-block .s-slide-wrapper .review_image-wrap {
     position: relative;
     margin: 1.5em 0 0
 }
 
-.s-slider-section .s-slider-block .s-slide-wrapper .s-image-wrapper img {
+.s-slider-section .s-slider-block .s-slide-wrapper .review_image-wrap img {
     display: inline-block;
     vertical-align: top;
     max-width: 100%;
@@ -18310,11 +18310,11 @@ img.pswp__img {
         padding: 0
     }
 
-    .s-slider-section.is-products .s-slider-block .s-slide-wrapper .s-image-wrapper, .s-slider-section.is-products .s-slider-block .s-slide-wrapper .s-price-wrapper {
+    .s-slider-section.is-products .s-slider-block .s-slide-wrapper .review_image-wrap, .s-slider-section.is-products .s-slider-block .s-slide-wrapper .s-price-wrapper {
         margin: .5em 0 0
     }
 
-    .s-slider-section.is-products .s-slider-block .s-slide-wrapper .s-image-wrapper img {
+    .s-slider-section.is-products .s-slider-block .s-slide-wrapper .review_image-wrap img {
         max-height: 200px
     }
 

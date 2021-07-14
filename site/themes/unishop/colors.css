@@ -193,7 +193,7 @@ input[type="submit"].bg-maincolor:hover{
     color: #ff7420 !important;
 }
 
-.tabs_el.selected{
+.tabs_item.selected{
     border-top-color: #009999;
 }
 

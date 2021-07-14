@@ -223,7 +223,7 @@ var ReviewImagesSection = ( function($) {
 
         function render() {
             var $template = $(that.templates["file"]),
-                $image = $template.find(".s-image-wrapper");
+                $image = $template.find(".review_image-wrap");
 
             $template.attr("data-file-id", file_id);
 

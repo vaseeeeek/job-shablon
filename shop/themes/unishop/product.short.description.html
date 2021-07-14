@@ -59,7 +59,7 @@
                 {$product.summary|truncate:512}
             </div>
             {if $product.description  &&  !$wa->get('cart') && $_show_description}
-                <div class="product_link-full js-move-to-tab" data-tab-content="product-description">
+                <div class="product_link-full js-motion-to-tab" data-tab-content="product-description">
                     <a href="#">[`Detailed description`]</a>
                     <i class="fa fa-arrow-circle-o-down icon" aria-hidden="true"></i>
                 </div>
@@ -97,7 +97,7 @@
             </table>
 
             {if count($product_features_list) > count($short_features) &&  !$wa->get('cart') && $_show_features}
-                <div class="product_link-full js-move-to-tab" data-tab-content="product-options">
+                <div class="product_link-full js-motion-to-tab" data-tab-content="product-options">
                     <a href="#">[`Detailed specifications`]</a>
                     <i class="fa fa-arrow-circle-o-down icon" aria-hidden="true"></i>
                 </div>

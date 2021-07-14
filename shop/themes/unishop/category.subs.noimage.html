@@ -1,6 +1,6 @@
 {strip}
 {if $category.subcategories}
-    <ul class="category-subcat ul-block">
+    <ul class="category-subcat list-reset">
         {foreach $category.subcategories as $sc}
             <li class="category-subcat_item">
                 <a href="{$sc.url}" class="js-category-link">{$sc.name|escape}</a> {if $theme_settings.show_count_products_in_subs} ({$sc.count}){/if}

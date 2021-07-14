@@ -6,7 +6,7 @@
 
             <!-- product page navigation -->
             <nav>
-                <ul class="product_nav ul-block">
+                <ul class="product_nav list-reset">
                     <li><a href="{$wa->shop->productUrl($product)}">[`Overview`]</a></li>
                     {foreach $product.pages as $p}
                         <li><a {if $page.id == $p.id} class="selected"{/if} href="{$wa->shop->productUrl($product, 'page', ['page_url' => $p.url])}">{$p.name|escape}</a></li>

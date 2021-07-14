@@ -2189,14 +2189,14 @@
       <description locale="ru_RU">Настройка доступна если установлен плагин "Бренды с картинками и описаниями"</description>
       <description locale="en_US">Setting is available if the plugin "Brands with pictures and descriptions"</description>
     </setting>
-    <setting var="feature_brand_code" control_type="text">
+    <setting var="brand_id" control_type="text">
       <value>brand</value>
       <name locale="en_US">Feature brand code</name>
       <name locale="ru_RU">Код характеристики бренд</name>
       <description locale="ru_RU">Для микроразметки</description>
       <description locale="en_US">For microdata</description>
     </setting>
-    <setting var="product_page_plugin_hook_block" control_type="select">
+    <setting var="plugin_hook_block_in_product" control_type="select">
       <value>content</value>
       <name locale="en_US">Display hook addition information</name>
       <name locale="ru_RU">Вывод хука с дополнительной информацией</name>
@@ -2212,7 +2212,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>normal_tabs</value>
+      <value>acc_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в десктопной версии</name>
       <name locale="en_US">Type view in main content of product in desktop version</name>
       <options>
@@ -2224,7 +2224,7 @@
           <name locale="ru_RU">Обычные вкладки</name>
           <name locale="en_US">Normal tabs</name>
         </option>
-        <option value="accordion_tabs">
+        <option value="acc_tabs">
           <name locale="ru_RU">Вкладки аккардион</name>
           <name locale="en_US">Normal tabs</name>
         </option>
@@ -2235,7 +2235,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_mobile" control_type="select">
-      <value>accordion_tabs</value>
+      <value>none_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в мобильной версии</name>
       <name locale="en_US">Type view in main content of product in mobile version</name>
       <options>
@@ -2243,7 +2243,7 @@
           <name locale="ru_RU">Без вкладок</name>
           <name locale="en_US">Without tabs</name>
         </option>
-        <option value="accordion_tabs">
+        <option value="acc_tabs">
           <name locale="ru_RU">Вкладки аккардион</name>
           <name locale="en_US">Normal tabs</name>
         </option>
@@ -2265,13 +2265,13 @@
       <name locale="ru_RU">Наименование вкладки с описанием</name>
     </setting>
     <setting var="product_add_info_title" control_type="text">
-      <value/>
+      <value>www</value>
       <name locale="en_US">Additional tab name</name>
       <name locale="ru_RU">Наименование дополнительной вкладки</name>
       <description locale="ru_RU">Содержимое вкладки заполняется через Блоки в приложении Сайт. ID блока "product_addinfo"</description>
       <description locale="en_US">The contents of the tab are filled in through the Blocks in the Site application. Unit ID of "product_addinfo"</description>
     </setting>
-    <setting var="product_show_tags" control_type="checkbox">
+    <setting var="show_tags_pr_page" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Теги в карточке товара</name>
       <name locale="en_US">Tags in product card</name>
@@ -2365,13 +2365,13 @@
       <name locale="ru_RU">Выводить просмотренные товары в карточке товара</name>
       <name locale="en_US">Per viewed items in the product card</name>
     </setting>
-    <setting var="crossselling_count" control_type="text">
+    <setting var="total_crossselling" control_type="text">
       <value/>
       <name locale="en_US">Count crossselling products in card</name>
       <name locale="ru_RU">Количество перекрестных товаров в карточке</name>
     </setting>
     <setting var="upselling_count" control_type="text">
-      <value/>
+      <value><![CDATA[3]]></value>
       <name locale="en_US">Count recommended products in card</name>
       <name locale="ru_RU">Количество рекомендуемых товаров в карточке</name>
     </setting>

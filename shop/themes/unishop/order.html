@@ -4,8 +4,8 @@
 <style>
     #header-container { display: none; }
     .s-cart-empty-wrapper { margin: 100px 0; text-align: center; }
-    .s-cart-empty-wrapper .s-image-wrapper { margin: 0 0 20px; }
-    .s-cart-empty-wrapper .s-image-wrapper img { vertical-align: top; width: 100%; max-height: 160px; }
+    .s-cart-empty-wrapper .review_image-wrap { margin: 0 0 20px; }
+    .s-cart-empty-wrapper .review_image-wrap img { vertical-align: top; width: 100%; max-height: 160px; }
     .s-cart-empty-wrapper .s-description { margin: 20px 0 0; }
     .s-cart-empty-wrapper .s-actions-wrapper { margin: 30px 0 0; color: #006bd8; }
 </style>
@@ -14,7 +14,7 @@
 {*EMPTY*}
 {if empty($_cart_count)}
     <div class="s-cart-empty-wrapper">
-        <div class="s-image-wrapper">
+        <div class="review_image-wrap">
             <img src="{$wa_theme_url}img/svg/order/cart_empty.svg" alt="[`Your shopping cart is empty.`]">
         </div>
         <p class="s-description">{$config.cart.empty_text|default:"[`Your shopping cart is empty.`]"|escape}</p>

@@ -14,7 +14,7 @@
         {$limit = (int)$theme_settings.product_info_comments_vk_count}
     {/if}
     {if $wa->isMobile() || empty($theme_settings.product_page_tabs)}
-        <div class="product-tab_head">
+        <div class="product-tab_title">
             <h2>{if $theme_settings.product_info_comments_vk_title}{$theme_settings.product_info_comments_vk_title}{else}[`Discussions`]{/if}</h2>
         </div>
     {/if}

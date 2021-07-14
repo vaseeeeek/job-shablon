@@ -95,7 +95,7 @@ input[type=button].bg-maincolor:hover, input[type=submit].bg-maincolor:hover {
     color: #323079 !important
 }
 
-.tabs_el.selected {
+.tabs_item.selected {
     border-top-color: #009be3
 }
 
@@ -1439,7 +1439,7 @@ iframe {
     height: 0
 }
 
-.ul-block, .ul-block > li {
+.list-reset, .list-reset > li {
     margin: 0;
     padding: 0;
     list-style: none
@@ -5259,7 +5259,7 @@ button.owl-dot {
     font-size: 14px
 }
 
-.tabs_el, li.tabs_el {
+.tabs_item, li.tabs_item {
     height: 54px;
     line-height: 52px;
     font-size: 16px;
@@ -5275,16 +5275,16 @@ button.owl-dot {
     border-top-color: #fff
 }
 
-.tabs_el-fb, .tabs_el-vk {
+.tabs_item-fb, .tabs_item-vk {
     margin: 0 0 0 5px;
     color: rgba(85, 102, 89, .46)
 }
 
-.tabs_el.selected .tabs_el-fb {
+.tabs_item.selected .tabs_item-fb {
     color: #1d63b7
 }
 
-.tabs_el.selected .tabs_el-vk {
+.tabs_item.selected .tabs_item-vk {
     color: #15729c
 }
 
@@ -5311,7 +5311,7 @@ button.owl-dot {
     }
 }
 
-.accordion-tabs-el {
+.acc-tabs-el {
     padding: 15px;
     font-weight: 500;
     cursor: pointer;
@@ -5320,26 +5320,26 @@ button.owl-dot {
     font-size: 16px
 }
 
-.accordion-tabs-el.selected {
+.acc-tabs-el.selected {
     border-bottom: none;
     padding-bottom: 0
 }
 
-.accordion-tab-content_el {
+.acc-tab-content_item {
     padding: 25px 15px;
     display: none
 }
 
-.accordion-tab-content_el.selected {
+.acc-tab-content_item.selected {
     border-bottom: 1px solid #ebebeb;
     display: block
 }
 
-.accordion-tabs-title {
+.acc-tabs-title {
     margin-right: 45px
 }
 
-.accordion-tabs-caret {
+.acc-tabs-caret {
     float: right;
     width: 30px;
     height: 30px;
@@ -5350,23 +5350,23 @@ button.owl-dot {
     top: 13px
 }
 
-.accordion-tabs-caret__icon {
+.acc-tabs-caret__icon {
     display: inline-block;
     transition: .2s
 }
 
-.accordion-tabs-el.selected .accordion-tabs-caret__icon {
+.acc-tabs-el.selected .acc-tabs-caret__icon {
     transform: rotate(90deg)
 }
 
-.accordion-tabs-caret__icon:before {
+.acc-tabs-caret__icon:before {
     font: normal normal normal 14px/1 FontAwesome;
     content: "\f105";
     font-weight: 400;
     font-size: 20px
 }
 
-.staff {
+.group_staff {
     background: #ebebed;
     padding: 2px 3px;
     color: #888;

@@ -3,13 +3,13 @@
 
 {if !empty($ajax_append)}<li data-id={$review.id} data-parent-id="{$review.parent_id}">{/if}
 
-<figure class="s-review-wrapper review" data-id="{$review.id|escape}"{if !empty($is_schema_org)} itemprop="review" itemscope itemtype="http://schema.org/Review"{/if}>
+<figure class="reviews-wrap review" data-id="{$review.id|escape}"{if !empty($_schema_org)} itemprop="review" itemscope itemtype="http://schema.org/Review"{/if}>
     <div class="summary">
         <div>
             {if !$review.parent_id && !empty($review.rate)}
-            <span class="review-rate"{if !empty($is_schema_org)} itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"{/if}>
+            <span class="review-rate"{if !empty($_schema_org)} itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"{/if}>
                 {$rate = round($review.rate)}
-                {if !empty($is_schema_org)}
+                {if !empty($_schema_org)}
                     <meta itemprop="worstRating" content = "1">
                     <meta itemprop="ratingValue" content="{$rate}">
                     <meta itemprop="bestRating" content = "5">
@@ -18,42 +18,42 @@
             </span>
             {/if}
             {if $review.title}
-                <span{if !empty($is_schema_org)} itemprop="name"{/if} class="sdColor review_title">{$review.title}</span>
+                <span{if !empty($_schema_org)} itemprop="name"{/if} class="sdColor review_title">{$review.title}</span>
             {/if}
         </div>
         [`By`]
         {if empty($review.site)}
-            <i class="fa fa-user review_username-icon sdColor"></i><span class="username"{if !empty($is_schema_org)} itemprop="author"{/if}>{$review.author.name}</span>
+            <i class="fa fa-user reviews-fa-user-icon sdColor"></i><span class="username"{if !empty($_schema_org)} itemprop="author"{/if}>{$review.author.name}</span>
         {else}
-            <a href="{$review.site}" class="username"{if !empty($is_schema_org)} itemprop="author"{/if}>{$review.author.name}</a>
+            <a href="{$review.site}" class="username"{if !empty($_schema_org)} itemprop="author"{/if}>{$review.author.name}</a>
         {/if}
 
         {if ifempty($review.author.is_user) > 0}
-            <span class="staff">{$wa->shop->settings('name')}</span>
+            <span class="group_staff">{$wa->shop->settings('name')}</span>
         {/if}
-        {if !empty($is_schema_org)}
+        {if !empty($_schema_org)}
             <meta itemprop="itemReviewed" content="{$product.name|escape}">
             <meta itemprop="datePublished" content="{$review.datetime|date_format:'Y-m-d'}">
         {/if}
         <span class="review_date" title="{$review.datetime|wa_datetime}">{$review.datetime|wa_datetime:"humandatetime"}</span>
     </div>
     {if $review.text}
-        <div class="review_text"{if !empty($is_schema_org)} itemprop="description"{/if}>{$review.text}</div>
+        <div class="review_text"{if !empty($_schema_org)} itemprop="description"{/if}>{$review.text}</div>
     {/if}
 
     {strip}
     {if !empty($review.images)}
-        <div class="s-images-list">
+        <div class="review_images_list">
             {foreach $review.images as $_image}
-                <a class="s-image-wrapper js-show-image" href="{$_image.url_0|escape}" title="{$_image.description|escape}" target="_blank">
-                    <img class="s-image" src="{$_image.url_2|escape}" alt="{$_image.description|escape}">
+                <a class="review_image-wrap js-show-image" href="{$_image.url_0|escape}" title="{$_image.description|escape}" target="_blank">
+                    <img class="review-image" src="{$_image.url_2|escape}" alt="{$_image.description|escape}">
                 </a>
             {/foreach}
         </div>
     {/if}
     {/strip}
 
-    {if isset($reply_allowed) && $reply_allowed}
+    {if isset($reply_confir) && $reply_confir}
         <div class="actions">
             <a href="{if isset($reply_link)}{$reply_link}{else}#{/if}" class="review-reply inline-link">[`reply`]</a>
         </div>
@@ -62,7 +62,7 @@
     <script>
         ( function($) {
             var $document = $(document),
-                $review = $(".s-review-wrapper[data-id=\"" + {$review.id|escape} + "\"]");
+                $review = $(".reviews-wrap[data-id=\"" + {$review.id|escape} + "\"]");
 
             $review.on("click", ".js-show-image", function(event) {
                 event.preventDefault();
