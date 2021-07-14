@@ -1,8 +1,8 @@
 {strip}
 {if !empty($products)}
     <section>
-        <div class="product_related-title__outer">
-            <h3 class="product_related-title">{$product_list_title}</h3>
+        <div class="product_cross-title__outer">
+            <h3 class="product_cross-title">{$product_list_title}</h3>
         </div>
         {if $wa->isMobile()  && !($wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version)}
             {include file="list-thumbs-mini.html" products=$products ulclass=""}

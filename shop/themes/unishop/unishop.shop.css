@@ -2587,53 +2587,53 @@ img.pswp__img{
     table-layout: fixed;
 }
 
-.product_related{
+.product_cross{
     margin: 24px 0 0;
 }
 
 
-.product_related-compare{
+.product_cross-compare{
     font-size: 13px;
     margin: 0 0 0 10px;
 }
 
-.product_related-title__outer{
+.product_cross-title__outer{
     padding: 25px 15px;
 }
 
-.product_related-title,
-h3.product_related-title{
+.product_cross-title,
+h3.product_cross-title{
     margin: 0;
 }
 
-.product_related__direction{
+.product_cross__direction{
     float: right;
     position: relative;
 }
 
-.product_related__direction ~ .product_related-title{
+.product_cross__direction ~ .product_cross-title{
     margin: 0 70px 0 0;
 }
 
-.product_related__direction .owl-prev,
-.product_related__direction .owl-prev:after,
-.product_related__direction .owl-next,
-.product_related__direction .owl-next:after{
+.product_cross__direction .owl-prev,
+.product_cross__direction .owl-prev:after,
+.product_cross__direction .owl-next,
+.product_cross__direction .owl-next:after{
     position: static;
     display: inline-block;
     font-size: 24px;
 }
 
-.product_related__direction .owl-prev,
-.product_related__direction .owl-next{
+.product_cross__direction .owl-prev,
+.product_cross__direction .owl-next{
     cursor: pointer;
 }
 
-.product_related__direction .owl-prev{
+.product_cross__direction .owl-prev{
     margin: 0 20px 0 0;
 }
 
-.product_related__carousel .products-tile-outer{
+.product_cross__carousel .products-grid-outer{
     overflow: hidden;
     white-space: nowrap;
 }
@@ -2642,14 +2642,14 @@ h3.product_related-title{
     margin: 0 0 20px;
 }
 
-.content.product_related-products{
+.content.product_cross-products{
     border-bottom: none;
 }
 
 
 
 @media print{
-    .product_related-products{
+    .product_cross-products{
         display: none;
     }
 }

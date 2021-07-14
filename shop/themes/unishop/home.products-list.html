@@ -35,9 +35,9 @@
             {/if}
             <div class="container">
                 {$countLine = 1}{if !empty($is_two_line)}{$countLine = 2}{/if}
-                <div class="products-tile-outer">
-                    {$is_preview_tile_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
-                    <div data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.product_preview_images_lazy}" class="js-mainpage-products js-preview-products products-tile {if $is_preview_tile_mini} products-tile--mini{/if}" data-count-line="{$countLine}">
+                <div class="products-grid-outer">
+                    {$is_preview_grid_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
+                    <div data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.product_preview_images_lazy}" class="js-mainpage-products js-preview-products products-tile {if $is_preview_grid_mini} products-grid--mini{/if}" data-count-line="{$countLine}">
                         {foreach $list as $p}
                             {include file="product-preview-tile.html" product=$p favorites=$favorites_list}
                         {/foreach}

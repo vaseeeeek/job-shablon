@@ -410,25 +410,25 @@
 
         {$viewed_list = $wa->cookie('viewed_list')}
 
-        {if isset($theme_settings.product_page_list_view_type) && !empty($theme_settings.product_page_list_view_type)}
-            {$products_view = $theme_settings.product_page_list_view_type}
+        {if isset($theme_settings.pr_list_view_type) && !empty($theme_settings.pr_list_view_type)}
+            {$products_view = $theme_settings.pr_list_view_type}
         {/if}
 
         {if $crossselling || $upselling || ( $theme_settings.viewed_products && $theme_settings.product_page_views_products && $viewed_list)}
-            <div class="content product_related-products">
+            <div class="content product_cross-products">
                 {if $crossselling}
-                    {$product_list_title = sprintf('[`Customers who bought %s also bought`]', $product.name|escape)}
+                    {$product_list_title = sprintf('C "%s" так же берут', $product.name|escape)}
                     {if $products_view == "tile-carousel" && !$wa->isMobile()}
                         {include file="product.products-carousel.html" products=$crossselling product_list_title=$product_list_title}
                     {else}
-                        {include file="product.Products-list.html" products=$crossselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
+                        {include file="product.products-list.html" products=$crossselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
                     {/if}
                 {/if}
 
                 {if $upselling}
                     {$compare_ids = array_merge(array($product.id), array_keys($upselling))}
                     {$onClick = "javascript:window.location='{$wa->getUrl('/frontend/compare', ['id' => implode(',', $compare_ids)])}';"}
-                    {$product_list_title = "[`See also`] <a class='product_related-compare sdColor link-half' onClick=`$onClick`>[`Compare all`]</a>"}
+                    {$product_list_title = "[`See also`] <a class='product_cross-compare sdColor link-half' onClick=`$onClick`>[`Compare all`]</a>"}
                     {if $products_view == "tile-carousel" && !$wa->isMobile()}
                         {include file="product.products-carousel.html" products=$upselling product_list_title=$product_list_title}
                     {else}

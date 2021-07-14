@@ -211,7 +211,7 @@
             {if $theme_settings.cart_crossselling && $related}
             <section class="related">
                 <div class="content-block">
-                    <h3 class="product_related-title">{sprintf('[`Customers who bought %s also bought`]', $item.product.name|escape)}:</h3>
+                    <h3 class="product_cross-title">{sprintf('[`Customers who bought %s also bought`]', $item.product.name|escape)}:</h3>
                 </div>
 
                 {if $wa->isMobile()}

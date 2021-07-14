@@ -1274,6 +1274,11 @@
       <name locale="en_US">Allow to add products to Favorites</name>
       <name locale="ru_RU">Разрешить добавление товаров в избранное</name>
     </setting>
+    <setting var="viewed_products" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Activate the plugin "You've seen"</name>
+      <name locale="ru_RU">Включить плагин "Вы смотрели"</name>
+    </setting>
     <setting var="product_preview_dialog" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Preview Dialog Item Card</name>
@@ -1487,7 +1492,7 @@
       <name locale="ru_RU">Превью продуктов плиткой</name>
     </setting>
     <setting var="product_preview_tile_mobile" control_type="select">
-      <value>usually_tile</value>
+      <value>mini_tile</value>
       <name locale="en_US">Tile preview product for mobile</name>
       <name locale="ru_RU">Превью продуктов плиткой для моб.устройств</name>
       <options>
@@ -2371,11 +2376,11 @@
       <name locale="ru_RU">Количество перекрестных товаров в карточке</name>
     </setting>
     <setting var="upselling_count" control_type="text">
-      <value><![CDATA[3]]></value>
+      <value>3</value>
       <name locale="en_US">Count recommended products in card</name>
       <name locale="ru_RU">Количество рекомендуемых товаров в карточке</name>
     </setting>
-    <setting var="product_page_list_view_type" control_type="select">
+    <setting var="pr_list_view_type" control_type="select">
       <value>tile-carousel</value>
       <name locale="en_US">View of list products in product card</name>
       <name locale="ru_RU">Вид списка товаров в карточке товара</name>

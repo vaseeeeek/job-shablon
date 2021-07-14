@@ -2100,7 +2100,7 @@ var productsHome = {
 };
 
 var productsCarousel = {
-    carouselProductsWrap: $('.js-product-owl-carousel'),
+    carouselProductsWrap: $('.js-owl-carousel-product'),
     init: function (){
         var _this = this;
 
@@ -2163,20 +2163,20 @@ var productsCarousel = {
             productCarouselNav = $('.js-slider-init-interaction');
 
         productCarouselNav.on("click", function (){
-            var carousel = $(this).closest('.js-product-owl-carousel');
+            var carousel = $(this).closest('.js-owl-carousel-product');
 
             _this.carousel(carousel, $(this).data("index"));
         });
 
         if(is_touch_device()){
-            $('.js-product-owl-carousel .owl-carousel').each(function (){
+            $('.js-owl-carousel-product .owl-carousel').each(function (){
                 var $productList = $(this);
 
                 $productList.swipe( {
                     allowPageScroll:"auto",
                     threshold: 20,
                     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-                        var $productListCarousel = $(this).closest(".js-product-owl-carousel");
+                        var $productListCarousel = $(this).closest(".js-owl-carousel-product");
 
                         if(direction == 'left'){
                             _this.carousel($productListCarousel, "next");

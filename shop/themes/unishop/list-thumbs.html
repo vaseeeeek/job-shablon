@@ -160,9 +160,9 @@
     {$products_images = $wa->shop->images($products_ids, $size_image)}
 {/if}
 
-{$is_preview_tile_mini = $wa->isMobile() && $CategoryViewProducts == 'tile' && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
+{$is_preview_grid_mini = $wa->isMobile() && $CategoryViewProducts == 'tile' && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
 <div class="products-{$CategoryViewProducts}-outer">
-    <div data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.product_preview_images_lazy}" class="js-preview-products products-{$CategoryViewProducts} {if $is_preview_tile_mini} products-{$CategoryViewProducts}--mini{/if} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
+    <div data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.product_preview_images_lazy}" class="js-preview-products products-{$CategoryViewProducts} {if $is_preview_grid_mini} products-{$CategoryViewProducts}--mini{/if} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
         {$features = []}
         {$_features_product_list = !empty($theme_settings.product_show_list_features) && $CategoryViewProducts == 'list'}
         {if !$wa->isMobile()}

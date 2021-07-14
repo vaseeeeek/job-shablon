@@ -23,7 +23,7 @@
         {/if}
 
         {if $theme_settings.homepage_product_list_rand}{$shuffle = $list|shuffle}{/if}
-        <div class="mainpage-products mainpage-products--carousel js-product-owl-carousel">
+        <div class="mainpage-products mainpage-products--carousel js-owl-carousel-product">
             {if $list_title}
                 <div class="mainpage-products_head-outer"{if empty($is_with_sidebar_list) && $list_head_color} style="background: {$list_head_color}"{/if}>
                     <div class="container">
@@ -35,10 +35,10 @@
                 </div>
             {/if}
             <div class="container">
-                <div class="products-tile-outer">
-                    {$is_preview_tile_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
-                    <div data-retina="{$wa->shop->config('enable_2x')}" class="js-preview-products products-tile{if $is_preview_tile_mini} products-tile--mini{/if}">
-                        <div class="owl-carousel owl-theme owl-loaded"{if $is_preview_tile_mini} data-type-mobile-preview="mini"{/if}>
+                <div class="products-grid-outer">
+                    {$is_preview_grid_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
+                    <div data-retina="{$wa->shop->config('enable_2x')}" class="js-preview-products products-tile{if $is_preview_grid_mini} products-grid--mini{/if}">
+                        <div class="owl-carousel owl-theme owl-loaded"{if $is_preview_grid_mini} data-type-mobile-preview="mini"{/if}>
                             {foreach $list as $p}
                                 {include file="product-preview-tile.html" product=$p favorites=$favorites_list lazy_class="owl-lazy"}
                             {/foreach}
