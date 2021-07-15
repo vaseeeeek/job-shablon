@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="4">
+<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="30">
   <name locale="en_US">Unishop</name>
   <name locale="ru_RU">Unishop</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
@@ -18,7 +18,7 @@
         </file>
     <file path="unishop.min.js" custom="0">
     </file>
-    <file path="unishop.custom.css" custom="0">
+    <file path="unishop.custom.css" custom="0" modified="1">
       <description locale="ru_RU"/>
     </file>
     <file path="unishop.custom.js" custom="0">
@@ -1274,7 +1274,7 @@
       <name locale="en_US">Allow to add products to Favorites</name>
       <name locale="ru_RU">Разрешить добавление товаров в избранное</name>
     </setting>
-    <setting var="viewed_products" control_type="checkbox">
+    <setting var="show_list_viewed_products" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Activate the plugin "You've seen"</name>
       <name locale="ru_RU">Включить плагин "Вы смотрели"</name>
@@ -1492,7 +1492,7 @@
       <name locale="ru_RU">Превью продуктов плиткой</name>
     </setting>
     <setting var="product_preview_tile_mobile" control_type="select">
-      <value>mini_tile</value>
+      <value>usually_tile</value>
       <name locale="en_US">Tile preview product for mobile</name>
       <name locale="ru_RU">Превью продуктов плиткой для моб.устройств</name>
       <options>
@@ -2217,7 +2217,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>acc_tabs</value>
+      <value>normal_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в десктопной версии</name>
       <name locale="en_US">Type view in main content of product in desktop version</name>
       <options>
@@ -2240,7 +2240,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_mobile" control_type="select">
-      <value>none_tabs</value>
+      <value>acc_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в мобильной версии</name>
       <name locale="en_US">Type view in main content of product in mobile version</name>
       <options>
@@ -3030,7 +3030,7 @@
       <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Кастомные файлы стилей и скриптов</name>
     </setting>
     <setting var="load_custom_styles" control_type="select">
-      <value/>
+      <value>bottom</value>
       <name locale="en_US">Load file custom styles</name>
       <name locale="ru_RU">Загружать файл кастомных стилей</name>
       <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks - Block custom_styles</description>
@@ -3108,6 +3108,32 @@
       <description locale="ru_RU">Идентификаторы пользователей через запятую без пробелов</description>
       <description locale="en_US">User IDs separated by commas without spaces</description>
     </setting>
+    <setting var="divider_other" control_type="group_divider">
+      <value/>
+      <name locale="en_US">New settings</name>
+      <name locale="ru_RU">Новые настройки</name>
+    </setting>
+    <setting var="count_product_row" control_type="select">
+      <value>four</value>
+      <name locale="en_US">Load file custom js scripts</name>
+      <name locale="ru_RU">Количество элементов в списках</name>
+      <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks - Block footer_codes</description>
+      <description locale="ru_RU">Количество элементов в списках товаров категорий, при виде показа списка "плиткой"</description>
+      <options>
+        <option value="three">
+          <name locale="en_US">Download at the bottom of the page</name>
+          <name locale="ru_RU">3</name>
+        </option>
+        <option value="four">
+          <name locale="en_US">Download at the top of the page</name>
+          <name locale="ru_RU">4</name>
+        </option>
+        <option value="five">
+          <name locale="en_US">Загружать сразу</name>
+          <name locale="ru_RU">5</name>
+        </option>
+      </options>
+    </setting>
   </settings>
   <locales>
     <locale>
@@ -3144,7 +3170,7 @@
     </locale>
     <locale>
       <msgid>Catalog</msgid>
-      <msgstr locale="ru_RU">Каталог товаров</msgstr>
+      <msgstr locale="ru_RU">Каталог</msgstr>
     </locale>
     <locale>
       <msgid>Brands</msgid>

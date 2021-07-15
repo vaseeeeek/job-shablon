@@ -10,12 +10,12 @@
     {/if}
 {else}
     {$class_product_list = "js-cat-list products--category"}
-    {$isNoPaginate = 0}
+    {$_not_paginate = 0}
 	{$sorting=true}
     {$isSearchPro = $theme_settings.plugin_search_pro && strpos($wa->currentUrl(false, true), '/search/' ) === 0 && class_exists('shopSearchproPluginViewHelper') && !$wa->get('list')}
     {if $isSearchPro}{$sorting=false}{/if}
     {if $wa->get('list') == 'favorites' || $wa->get('list') == 'viewed'}
-        {$isNoPaginate = 1}
+        {$_not_paginate = 1}
 		{$sorting=false}
         {$list = $wa->cookie("`$wa->get('list')`_list")}
         {if $list}
@@ -75,7 +75,7 @@
     {else}
         <div class="js-product-ajax-list-loader display_none content-block"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
         <div class="js-product-ajax-list">
-            {include file='list-thumbs.html' sorting=$sorting isSwitchView=true ulclass=$class_product_list}
+            {include file='list-thumbs.html' sorting=$sorting isViewSwitch=true ulclass=$class_product_list}
         </div>
     {/if}
 

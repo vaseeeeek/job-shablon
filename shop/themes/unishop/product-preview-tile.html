@@ -67,7 +67,7 @@
     {/if}
 {/function}
 
-<div class="Product-grid js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if}" data-product-id="{$p.id}">
+<div class="Product-grid -{$theme_settings.count_product_row} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if}" data-product-id="{$p.id}">
     {$badge_html = $wa->shop->badgeHtml($p.badge)}
     {if $badge_html}
         {$badge_html}

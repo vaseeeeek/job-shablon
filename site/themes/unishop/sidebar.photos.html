@@ -3,7 +3,7 @@
     {$photos = $wa->photos->photos("", "408x408", 4)}
     {if count($photos)}
     <div class="sb-wrap sidebar-photos">
-        <ul class="js-sidebar-photos list-reset">
+        <ul class="js-sidebar-photos clear-list">
             {foreach $photos as $photo}
             <li class="sidebar-photos__el">
                 <a style="background-image: url({$photo.thumb_408x408.url})" title="{$photo.name}.{$photo.ext}" href="{$photo.frontend_link}"> </a>

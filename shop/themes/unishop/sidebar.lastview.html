@@ -1,17 +1,17 @@
 {strip}
-{if $theme_settings.viewed_products && $theme_settings.categories_views_products_count > 0}
-    {$viewed_list = $wa->cookie('viewed_list')}
-    {if $viewed_list}
-        {$viewed_list_arr = ","|explode:$viewed_list}
-        {$viewed_list_arr_lasted = []}
+{if $theme_settings.show_list_viewed_products && $theme_settings.categories_views_products_count > 0}
+    {$viewed_product_list = $wa->cookie('viewed_product_list')}
+    {if $viewed_product_list}
+        {$viewed_product_list_arr = ","|explode:$viewed_product_list}
+        {$viewed_product_list_arr_lasted = []}
         {$counter = 1}
-        {foreach $viewed_list_arr as $id}
-            {$viewed_list_arr_lasted[] = $id}
+        {foreach $viewed_product_list_arr as $id}
+            {$viewed_product_list_arr_lasted[] = $id}
             {if $counter++ == $theme_settings.categories_views_products_count}
                 {break}
             {/if}
         {/foreach}
-        {$products_views = $wa->shop->products($viewed_list_arr_lasted)}
+        {$products_views = $wa->shop->products($viewed_product_list_arr_lasted)}
 
         <div class="sb-wrap sidebar-views">
             <div class="sb-wrap_head maincolor">[`You watched`]</div>

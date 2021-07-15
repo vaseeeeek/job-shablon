@@ -1835,7 +1835,7 @@ var productListCustom = {
         var _this = this;
 
         if($('#product-cart').length && $('#product-cart').data('id')){
-            _this.add('viewed_list', $('#product-cart').data('id'), 20);
+            _this.add('viewed_product_list', $('#product-cart').data('id'), 20);
         }
     },
     compare: function(){

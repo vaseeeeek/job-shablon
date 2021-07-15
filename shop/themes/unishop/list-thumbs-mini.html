@@ -17,16 +17,16 @@
     {/if}
     {$index = $index+1}
 
-    <div class="sidebar-product">
-        <a class="sidebar-product_img" href="{$p.frontend_url}" title="{$p.name}">
+    <div class="sb-product">
+        <a class="sb-product_img" href="{$p.frontend_url}" title="{$p.name}">
             {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $default_img])}
         </a>
-        <div class="sidebar-product_content">
-            <a class="sidebar-product_name" href="{$p.frontend_url}">{$p.name}</a>
+        <div class="sb-product_content">
+            <a class="sb-product_name" href="{$p.frontend_url}">{$p.name}</a>
             {if $p.rating > 0}
                 <span class="rating nowrap">{$wa->shop->ratingHtml($p.rating)}</span>
             {/if}
-            <div class="sidebar-product_price nowrap">
+            <div class="sb-product_price nowrap">
                 {if empty($p.price) && !empty($theme_settings.text_zero_price)}
                     <span class="price">{$theme_settings.text_zero_price}</span>
                 {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}

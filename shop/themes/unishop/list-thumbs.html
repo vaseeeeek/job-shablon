@@ -1,7 +1,7 @@
 {strip}
-{if !isset($isSwitchView)}{$isSwitchView = 0}{/if}
+{if !isset($isViewSwitch)}{$isViewSwitch = 0}{/if}
 {if !isset($ulclass)}{$ulclass = ''}{/if}
-{if !isset($isNoPaginate)}{$isNoPaginate = 0}{/if}
+{if !isset($_not_paginate)}{$_not_paginate = 0}{/if}
 
 <!-- products thumbnail list view -->
 {if !isset($CategoryViewProducts) || empty($CategoryViewProducts)}
@@ -12,7 +12,7 @@
 {$_isView_list = false}
 {$_isView_tbl = false}
 
-{if $isSwitchView}
+{if $isViewSwitch}
     {if (!$wa->isMobile() && !empty($theme_settings.product_preview_tile)) || ($wa->isMobile() && !empty($theme_settings.product_preview_tile_mobile))}
         {$views_count = $views_count+1}
         {$_isView_tile = true}
@@ -53,10 +53,10 @@
 {* selected filters *}
 {if $theme_settings.filter_selected}{include file="category.select-filters.html"}{/if}
 
-{if !empty($sorting) || ($isSwitchView &&  $views_count > 1)}
+{if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
     <div class="cat-panel">
         <div class="dt-block">
-            {if $theme_settings.pagination != 'lazyloading'  && empty($isNoPaginate) && !$wa->isMobile()}
+            {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
                 <div class="cat-onpage">
                     <span class="cat-onpage-title">[`Display`]:</span>
                     <select id="set-per-page" class="cat-onpage_select">
@@ -217,7 +217,7 @@
 
 
 <div class="{if $theme_settings.pagination == 'lazyloading'}lazyloading-paging{else}category-pag-offset{/if}"  data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
-    {if isset($pages_count) && $pages_count > 1  && !$isNoPaginate}
+    {if isset($pages_count) && $pages_count > 1  && !$_not_paginate}
         {if class_exists('shopSeofilterViewHelper')}
             {capture assign=pagination}
                 {wa_pagination total=$pages_count attrs=['class' => "pagination"]}
