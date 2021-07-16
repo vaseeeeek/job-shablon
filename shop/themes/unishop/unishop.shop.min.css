@@ -11557,15 +11557,6 @@ button.owl-dot {
     text-align: right
 }
 
-.Product-stock-out {
-    display: inline-block;
-    background: #ebebed;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 5px;
-    color: #afafaf;
-    padding: 0 10px
-}
 
 @media (max-width: 450px) {
     .products-grid--mini .Product-grid .old-price {
@@ -12893,18 +12884,18 @@ form .wa-name, form .wa-value {
     font-weight: 400
 }
 
-.profile-head {
+.profile-title {
     display: table;
     width: 100%;
     margin: 0 0 20px
 }
 
-.profile-head h1 {
+.profile-title h1 {
     display: inline-block;
     margin: 0 15px 0 0
 }
 
-.profile_edit-btn:before {
+.edit-account-btn:before {
     content: "\f040";
     font-size: 18px;
     margin: 0 5px 0 0
@@ -15134,14 +15125,14 @@ span.rating {
     white-space: nowrap
 }
 
-ul.compare-diff-all {
+ul.compare-list-switch {
     float: right;
     list-style: none;
     height: 30px;
     line-height: 30px
 }
 
-ul.compare-diff-all li {
+ul.compare-list-switch li {
     display: inline-block;
     float: left;
     padding: 0 10px;
@@ -15149,7 +15140,7 @@ ul.compare-diff-all li {
     border-style: solid
 }
 
-.compare-diff-all a {
+.compare-list-switch a {
     text-decoration: none
 }
 
@@ -15161,15 +15152,15 @@ ul.compare-diff-all li {
     margin-top: 0
 }
 
-.compare-diff-all li.selected a {
+.compare-list-switch li.selected a {
     color: #fff
 }
 
-.compare-diff-all li:first-child {
+.compare-list-switch li:first-child {
     border-radius: 100px 0 0 100px
 }
 
-.compare-diff-all li:last-child {
+.compare-list-switch li:last-child {
     border-radius: 0 100px 100px 0
 }
 
@@ -15201,7 +15192,7 @@ table.compare td a {
     text-decoration: none
 }
 
-table.compare td a.compare-remove {
+table.compare td a.compare-delete {
     position: relative;
     top: -.2em;
     left: .2em
@@ -15222,13 +15213,13 @@ table.compare .price {
     font-weight: 700
 }
 
-table.compare thead .name-wrapper {
+table.compare thead .name-outer {
     position: relative;
     display: inline-block;
     padding: 0 30px 0 0
 }
 
-table.compare thead .name-wrapper .name-link {
+table.compare thead .name-outer .name-link {
     display: inline-block;
     max-width: 120px;
     white-space: nowrap;
@@ -15236,7 +15227,7 @@ table.compare thead .name-wrapper .name-link {
     text-overflow: ellipsis
 }
 
-table.compare thead .name-wrapper .compare-remove {
+table.compare thead .name-outer .compare-delete {
     position: absolute;
     top: 0;
     right: 6px;
@@ -15245,7 +15236,7 @@ table.compare thead .name-wrapper .compare-remove {
     height: 16px
 }
 
-table.compare thead .name-wrapper .compare-remove i {
+table.compare thead .name-outer .compare-delete i {
     margin: 0
 }
 
@@ -18738,7 +18729,7 @@ input[type=button].storequickorder-button:hover {
     width: 100%
 }
 
-.compare-table {
+.compare_table {
     overflow-x: scroll;
     overflow-y: hidden;
     margin: 0 0 20px
@@ -20388,7 +20379,7 @@ article, aside, footer, header, nav, section {
     display: flex;
 }
 
-.owl-carousel {
+.products-grid-outer .owl-carousel {
     display: flex!important;
     overflow: hidden;
 }
@@ -20403,35 +20394,37 @@ article, aside, footer, header, nav, section {
 
 .owl-carousel .Product-grid {
     display: flex;
-    flex: 0 0 20%!important;
+    flex: initial;
+    min-width: 20%;
     flex-direction:column;
 }
 .owl-carousel .owl-item .Product-grid {
-    flex: 1 0 100%!important;
+    min-width: 100%;
 }
 .owl-carousel .Product-grid form {
     display: flex;
     flex-direction: column;
     flex: 1 1;
+    max-width:100%;
 }
 @media (max-width: 1249px){
     .owl-carousel .Product-grid {
-        flex: 0 0 25%!important;
+        min-width: 25%;
     }
 }
 @media (max-width: 999px){
     .owl-carousel .Product-grid {
-        flex: 0 0 33.333333333333%!important;
+        min-width: 33.33333333%;
     }
 }
 @media (max-width: 699px){
     .owl-carousel .Product-grid {
-        flex: 0 0 50%!important;
+        min-width: 50%;
     }
 }
 @media (max-width: 449px){
     .owl-carousel .Product-grid {
-        flex: 0 0 100%!important;
+        min-width: 100%;
     }
 }
 .products-tile {
@@ -20457,18 +20450,50 @@ article, aside, footer, header, nav, section {
     position: relative;
     box-sizing: border-box;
 }
-.Product-grid.-three {
-    flex: 1 1 33.3333333333333333333333333%;
+.products-tile-outer .Product-grid.-three {
+    width: 33.3333333333%;
 }
-.Product-grid.-four {
-    flex: 1 1 25%;
+.products-tile-outer .Product-grid.-four {
+    width: 25%;
 }
-.Product-grid.-five {
-    flex: 1 1 20%;
+.products-tile-outer .Product-grid.-five {
+    width: 20%;
+}
+
+@media (max-width:1150px) {
+    .products-tile-outer .Product-grid.-three,
+    .products-tile-outer .Product-grid.-four,
+    .products-tile-outer .Product-grid.-five {
+        width: 33.3333333333%;
+    }
+}
+@media (max-width:750px) {
+    .products-tile-outer .Product-grid.-three,
+    .products-tile-outer .Product-grid.-four,
+    .products-tile-outer .Product-grid.-five {
+        width: 50%;
+    }
+}
+@media (max-width:520px) {
+    .products-tile-outer .Product-grid.-three,
+    .products-tile-outer .Product-grid.-four,
+    .products-tile-outer .Product-grid.-five {
+        width: 100%;
+    }
 }
 .Product-grid_name {
     white-space: normal;
 }
 .Product-grid .fa-heart, .Product-grid  .fa-files-o {
     font-size: 14px;
+}
+.Product-stock-out {
+    display: inline-block;
+    background: #ebebed;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 5px;
+    color: #afafaf;
+    padding: 0 10px;
+    font-size:12px;
 }

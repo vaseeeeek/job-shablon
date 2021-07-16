@@ -18,7 +18,7 @@
     color: #009999
 }
 
-.bg-sdСolor, .button, .button.disabled:hover, .compare-diff-all li.selected, .filters .ui-state-default, .filters .ui-state-hover, .filters .ui-widget-content .ui-state-default, .filters .ui-widget-content .ui-state-hover, .filters .ui-widget-header, button, button.disabled:hover, input[type=button], input[type=button].disabled:hover, input[type=submit], input[type=submit].disabled:hover {
+.bg-sdСolor, .button, .button.disabled:hover, .compare-list-switch li.selected, .filters .ui-state-default, .filters .ui-state-hover, .filters .ui-widget-content .ui-state-default, .filters .ui-widget-content .ui-state-hover, .filters .ui-widget-header, button, button.disabled:hover, input[type=button], input[type=button].disabled:hover, input[type=submit], input[type=submit].disabled:hover {
     background: #009999
 }
 
@@ -5907,18 +5907,18 @@ form .wa-name, form .wa-value {
     font-weight: 400
 }
 
-.profile-head {
+.profile-title {
     display: table;
     width: 100%;
     margin: 0 0 20px
 }
 
-.profile-head h1 {
+.profile-title h1 {
     display: inline-block;
     margin: 0 15px 0 0
 }
 
-.profile_edit-btn:before {
+.edit-account-btn:before {
     content: "\f040";
     font-size: 18px;
     margin: 0 5px 0 0

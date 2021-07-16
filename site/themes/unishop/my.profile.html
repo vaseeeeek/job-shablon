@@ -1,7 +1,8 @@
 {strip}
-<div class="profile-head" id="wa-my-info-head">
+
+<div class="profile-title" id="title-my-profile-wa">
     <h1>[s`My profile`]</h1>
-    <span class="maincolor fa-icon-before profile_edit-btn"><a id="wa-my-info-edit" class="link-half " href="#">[s`Edit`]</a></span>
+    <span class="maincolor fa-icon-before edit-account-btn"><a id="wa-my-info-edit" class="link-half " href="#">[s`Edit`]</a></span>
 </div>
 
 {if $saved}
@@ -96,7 +97,7 @@
 <script>
     (function () {
         var $wrapper = $('#wa-my-info-wrapper'),
-            $head = $('#wa-my-info-head'),
+            $head = $('#title-my-profile-wa'),
             $form = $wrapper.find('#wa-my-info-edit-wrapper'),
             $info = $wrapper.find('#wa-my-info-read-wrapper'),
             $password = $form.find('.wa-field-password'),

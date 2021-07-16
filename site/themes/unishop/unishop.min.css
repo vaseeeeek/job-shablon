@@ -11697,15 +11697,6 @@ button.owl-dot {
     text-align: right
 }
 
-.Product-stock-out {
-    display: inline-block;
-    background: #ebebed;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 5px;
-    color: #afafaf;
-    padding: 0 10px
-}
 
 @media (max-width: 450px) {
     .products-grid--mini .Product-grid .old-price {
@@ -13049,18 +13040,18 @@ form .wa-name, form .wa-value {
     font-weight: 400
 }
 
-.profile-head {
+.profile-title {
     display: table;
     width: 100%;
     margin: 0 0 20px
 }
 
-.profile-head h1 {
+.profile-title h1 {
     display: inline-block;
     margin: 0 15px 0 0
 }
 
-.profile_edit-btn:before {
+.edit-account-btn:before {
     content: "\f040";
     font-size: 18px;
     margin: 0 5px 0 0
@@ -15589,7 +15580,7 @@ article, aside, footer, header, nav, section {
     vertical-align: middle
 }
 
-.owl-carousel {
+.products-grid-outer .owl-carousel {
     display: flex!important;
     overflow: hidden;
 }
@@ -15633,4 +15624,15 @@ article, aside, footer, header, nav, section {
 }
 .Product-grid .fa-heart, .Product-grid  .fa-files-o {
     font-size: 14px;
+}
+
+.Product-stock-out {
+    display: inline-block;
+    background: #ebebed;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 5px;
+    color: #afafaf;
+    padding: 0 10px;
+    font-size:12px;
 }

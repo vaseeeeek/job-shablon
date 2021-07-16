@@ -1,5 +1,4 @@
 {strip}
-
 {$class = ''}
 {if $action == 'onestep' && $theme_settings.onepage_order_custom_css}
     {$class = ' custom-onestep'}
@@ -12,6 +11,10 @@
 {/if}
 
 {include file="`$wa_active_theme_path`/breadcrumbs.html"}
+
+{if $wa->globals('isMyAccount')}
+    {$wa->myNav('pages')}
+{/if}
 
 <!-- plugin hook: 'frontend_header' -->
 {* @event frontend_header.%plugin_id% *}
@@ -27,8 +30,8 @@
      && $action != 'order'
      && $action != 'compare'
      && $action != 'productReviews'
+     && !$wa->globals('isMyAccount')
 }
-
     {$cols = 1}
     {$sb_left = 0}
     {if !$wa->isMobile()}

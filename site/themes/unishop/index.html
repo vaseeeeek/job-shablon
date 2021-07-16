@@ -182,9 +182,7 @@
             <div class="container">
     {/if}
 
-    {if $wa->globals('isMyAccount')}
-        {$wa->myNav('pages')}
-    {else}
+    {if !$wa->globals('isMyAccount')}
         {include file="`$wa_active_theme_path`/header.html" inline}
     {/if}
 
@@ -192,9 +190,9 @@
         {include file="`$wa_active_theme_path`/main.html" inline}
     </main>
 
-                {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
+    {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
             </div> <!-- .container -->
-        </div> <!-- .inner-wrap.clearfix -->
+        </div> <!-- .inner-wrap -->
     {/if}
 
     <!-- FOOTER -->
