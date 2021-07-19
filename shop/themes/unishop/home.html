@@ -1,14 +1,7 @@
-{strip}
-{if $theme_settings.test_settings}
-    {foreach from=$theme_settings key=name item=setting}
-        {$cookieSettings = $wa->cookie($name)}
-        {if $cookieSettings && $cookieSettings != 'null'}
-            {$theme_settings.$name = $cookieSettings}
-        {/if}
-    {/foreach}
-{/if}
+
 {$promocards = $wa->shop->promos()|array_values}
-<div class="container clearfix">
+
+<div class="container">
     {if $theme_settings.sidebar_mainpage}
         <div class="left-sidebar mainpage-sidebar">
             {if $theme_settings.sidebar_mainpage}

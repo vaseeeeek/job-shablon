@@ -2658,14 +2658,14 @@ h3.product_cross-title{
     font-weight: bold;
 }
 
-.reviews-branch{
+.reviews-list{
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 
-.reviews-branch > li .review{
+.reviews-list > li .review{
     margin: 25px 0;
 }
 
@@ -2673,13 +2673,13 @@ h3.product_cross-title{
     background: #f4fff8;
 }
 
-.reviews-branch .reviews-branch{
+.reviews-list .reviews-list{
     margin: 0 0 0 25px;
     position: relative;
 
 }
 
-.reviews-branch .reviews-branch .review:before{
+.reviews-list .reviews-list .review:before{
     content: "\f112";
     position: absolute;
     left: -5px;
@@ -2706,41 +2706,41 @@ h3.product_cross-title{
     font-size: 15px;
 }
 
-.review-form-fields{
+.add-review-form-fields{
     padding: 15px;
     margin: 0 0 15px;
 }
 
-.review-form-user{
+.add-review-form-user{
     display: inline-block;
     margin: 0 8px;
 }
 
-.review-form-user img{
+.add-review-form-user img{
     margin: 0 4px 0 0;
 }
 
-.review-form ul.menu-h.auth-type {
+.add-review-form ul.menu-h.auth-type {
     padding-bottom: 20px;
 }
-.review-form ul.menu-h.auth-type li {
+.add-review-form ul.menu-h.auth-type li {
     vertical-align: middle;
 }
-.review-form ul.menu-h.auth-type li a img {
+.add-review-form ul.menu-h.auth-type li a img {
     float: left;
     margin-right: 3px;
     position: relative; top: 2px;
 }
 
-.review-submit{
+.review-add-submit{
     margin: 20px 0 0;
 }
 
-.review-submit .save{
+.review-add-submit .save{
     margin: 0 5px 0 0;
 }
 
-.review-submit .service-agreement-wrapper{
+.review-add-submit .terms-use-wrapper{
     margin: 0 0 20px 0;
     display: block;
 }
@@ -2760,20 +2760,20 @@ h3.product_cross-title{
     margin: 20px 0 0 0 ;
 }
 
-.write-review{
+.review-write{
     font-size: 18px;
 }
 
-.review-form-fields{
+.add-review-form-fields{
     max-width: 500px;
     margin: 15px 0;
 }
 
-.review-field{
+.add-review-field{
     margin: 0 0 5px;
 }
 
-.review-field .rate{
+.add-review-field .rate{
     margin: 0 5px;
 }
 
@@ -2791,7 +2791,7 @@ h3.product_cross-title{
     margin-right: 5px;
 }
 
-.s-review-images-section {
+.review-images-box {
     padding: 15px 20px;
     border: 1px dashed #bfbfbf;
     -webkit-transition: 200ms background linear;
@@ -2800,13 +2800,13 @@ h3.product_cross-title{
     -ms-transition: 200ms background linear;
     transition: 200ms background linear;
 }
-.s-review-images-section.is-box-highlighted {
+.review-images-box.is-box-highlighted {
     background: #fafadf;
 }
-.s-review-images-section .review-image-form-section {
+.review-images-box .review-form-image-box {
     position: relative;
 }
-.s-review-images-section .review-image-form-section .s-description .s-icon {
+.review-images-box .review-form-image-box .s-description .s-icon {
     position: relative;
     display: inline-block;
     vertical-align: -3px;
@@ -2814,14 +2814,14 @@ h3.product_cross-title{
     height: 19px;
     margin-right: 10px;
 }
-.s-review-images-section .review-image-form-section .s-description .s-icon svg {
+.review-images-box .review-form-image-box .s-description .s-icon svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
-.s-review-images-section .review-image-form-section .s-file-field {
+.review-images-box .review-form-image-box .s-file-field {
     position: absolute;
     top: 0;
     left: 0;
@@ -2834,16 +2834,16 @@ h3.product_cross-title{
     text-indent: -100%;
     font-size: 0;
 }
-.s-review-images-section .s-attached-files-section:not(:empty) {
+.review-images-box .attached-files-box:not(:empty) {
     margin: -20px 0 0;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper {
+.review-images-box .attached-files-box .input-file-wrap {
     position: relative;
     display: inline-block;
     vertical-align: top;
     margin: 40px 40px 0 0;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .review_image-wrap {
+.review-images-box .attached-files-box .input-file-wrap .review_image-wrap {
     width: 200px;
     height: 200px;
     border: solid 1px rgba(0,0,0,0.1);
@@ -2855,22 +2855,22 @@ h3.product_cross-title{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-description-wrapper {
+.review-images-box .attached-files-box .input-file-wrap .review-desc-wrap {
     margin-top: 10px;
     font-size: 13px;
     line-height: 1.153846153846154em;
     min-height: 55px;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-description-wrapper.is-extended .s-visible {
+.review-images-box .attached-files-box .input-file-wrap .review-desc-wrap.is-extended .desc-visible {
     display: none;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-description-wrapper:not(.is-extended) .s-hidden {
+.review-images-box .attached-files-box .input-file-wrap .review-desc-wrap:not(.is-extended) .desc-hidden {
     display: none;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-description-wrapper .s-visible {
+.review-images-box .attached-files-box .input-file-wrap .review-desc-wrap .desc-visible {
     padding: 5px;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-description-wrapper .s-textarea {
+.review-images-box .attached-files-box .input-file-wrap .review-desc-wrap .s-textarea {
     display: block;
     border: solid 1px rgba(0,0,0,0.1);
     padding: 4px 6px;
@@ -2885,7 +2885,7 @@ h3.product_cross-title{
     min-width: auto;
     min-height: auto;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-actions {
+.review-images-box .attached-files-box .input-file-wrap .btn-actions {
     position: absolute;
     top: 0;
     right: 0;
@@ -2895,7 +2895,7 @@ h3.product_cross-title{
     -ms-transform: translate(50%, -10px);
     transform: translate(50%, -10px);
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-actions .s-action {
+.review-images-box .attached-files-box .input-file-wrap .btn-actions .btn-actions {
     position: relative;
     width: 20px;
     height: 20px;
@@ -2907,10 +2907,10 @@ h3.product_cross-title{
     background: #fff;
     cursor: pointer;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-actions .s-action:not(:first-child) {
+.review-images-box .attached-files-box .input-file-wrap .btn-actions .btn-actions:not(:first-child) {
     margin-top: 10px;
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-actions .s-action .s-icon {
+.review-images-box .attached-files-box .input-file-wrap .btn-actions .btn-actions .s-icon {
     position: absolute;
     display: inline-block;
     width: 10px;
@@ -2923,27 +2923,27 @@ h3.product_cross-title{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-.s-review-images-section .s-attached-files-section .s-file-wrapper .s-actions .s-action .s-icon svg {
+.review-images-box .attached-files-box .input-file-wrap .btn-actions .btn-actions .s-icon svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
-.s-review-images-section .s-errors-section:not(:empty) {
+.review-images-box .errors-section:not(:empty) {
     margin: 20px 0 0;
 }
-.s-review-images-section .s-errors-section .s-error {
+.review-images-box .errors-section .s-error {
     font-size: 12px;
     line-height: 1.166666666666667em;
     color: #f00;
 }
-.s-review-images-section .s-errors-section .s-error:not(:first-child) {
+.review-images-box .errors-section .s-error:not(:first-child) {
     margin-top: 5px;
 }
 
 @media (max-width: 760px) {
-    .s-review-images-section,
+    .review-images-box,
     .s-review-notice-section {
         width: 100%;
     }

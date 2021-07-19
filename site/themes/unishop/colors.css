@@ -58,7 +58,7 @@ a.sdСolor:hover,
 .jq-selectbox,
 .checked-list,
 .jq-selectbox__dropdown li:hover,
-.reviews-branch .reviews-branch .review:before,
+.reviews-list .reviews-list .review:before,
 .comments ul ul:before,
 .jq-checkbox.checked:before, .jq-radio.checked:before, a.filter-option-color:before,
 .filter-el_title:after,
@@ -197,7 +197,7 @@ input[type="submit"].bg-maincolor:hover{
     border-top-color: #009999;
 }
 
-.review-form-fields .wa-auth-socials{
+.add-review-form-fields .wa-auth-socials{
     background: none;
     border-top: none;
     border-left: none;

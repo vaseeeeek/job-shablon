@@ -8,7 +8,7 @@ body {
 }
 input.Nav-inp-search {
     border-radius: 3px;
-    border: 2px solid #ff7420;
+    border: 2px solid #4169E1;
 }
 .product-custom_icon .icon {
     color: #202020;
@@ -42,11 +42,28 @@ input.Nav-inp-search {
     padding: 10px 0px;
      border-top: 0; 
 }
-.checkout-options li.selected, .comment-form, .box-highlighted, .review-form-fields, blockquote {
+.checkout-options li.selected, .comment-form, .box-highlighted, .add-review-form-fields, blockquote {
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 1px 8px 0 rgb(0 0 0 / 6%), 0 2px 2px 0 rgb(0 0 0 / 12%);
 }
 .product-page_main-left {
     border-right:0;
+}
+.filter-el {
+    border-bottom:0; 
+    padding: 7px 0;
+}
+.filter-el_title {
+    font-size: 15px;
+    font-weight: 600;
+}
+.checked-list, .cart-coupon-form input {
+    border: 1px solid #4169E1;
+}
+a.inline-link, .inline-link, .checked-list li.selected a, .checked-list li.selected, a:hover, .link:hover, a.selected, .selected > a, .link.selected, .sdСolor, .sdСolor > a, .checked-list, .checked-list a, .sdСolor > a:hover, a.sdСolor:hover, .jq-selectbox, .checked-list, .jq-selectbox__dropdown li:hover, .reviews-list .reviews-list .review:before, .comments ul ul:before, .style-check.checked:before, .jq-checkbox.checked:before, .radio-styler.checked:before, .jq-radio.checked:before, a.filter-option-color:before, .filter-el_title:after, .cat-views__el.selected, .button-link, button.button-link, input[type=button].button-link, input[type=submit].button-link, .sidebar-cats_el a:hover, .sidebar-cats li.selected > a, .checkout-options li.selected h3 {
+    color:#4169E1;
+}
+.content-block {
+    padding: 0;
 }

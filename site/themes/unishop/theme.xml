@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="30">
+<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="39">
   <name locale="en_US">Unishop</name>
   <name locale="ru_RU">Unishop</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
@@ -200,21 +200,21 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value/>
+      <value>linear-gradient( 45deg , #6D39ED, #3E3BF7, #4169E1,#3B9CF7, #39C5ED )</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Base color</name>
       <description locale="ru_RU">Цвет панели с поиском, иконок и тд</description>
       <description locale="en_US">Color of panel width search, icons and other</description>
     </setting>
     <setting var="bg_color_navogation" control_type="color">
-      <value/>
+      <value>#ffffff</value>
       <name locale="ru_RU">Цвет панели с поиском</name>
       <name locale="en_US">Color of panel width catalog button and search form</name>
       <description locale="ru_RU">Если не выбран то цвет берется из настройки "Основной цвет"</description>
       <description locale="en_US">If not selected, the color is taken from the "Base Color"</description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value/>
+      <value>linear-gradient( 45deg , #6D39ED, #3E3BF7, #4169E1,#3B9CF7, #39C5ED )</value>
       <name locale="ru_RU">Цвет кнопок, активных ссылок и др</name>
       <name locale="en_US">Color of buttons and other</name>
     </setting>
@@ -316,13 +316,13 @@
       <name locale="ru_RU">«Шапка» сайта</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1625663966</value>
+      <value>img/logo.png?v1626697252</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="logo_retina" control_type="image">
-      <value>img/logo@2x.png?v1625663966</value>
+      <value>img/logo@2x.png?v1626697252</value>
       <filename>img/logo@2x.*</filename>
       <name locale="en_US">Logo for retina</name>
       <name locale="ru_RU">Логотип для ретина дисплеев</name>
@@ -340,17 +340,17 @@
       <name locale="ru_RU">Ширина логотипа при размере экрана менее 950 пикселей, px</name>
     </setting>
     <setting var="language_toggle" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Show language selector</name>
       <name locale="ru_RU">Переключатель языка</name>
     </setting>
     <setting var="currency_toggle" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Show currency selector</name>
       <name locale="ru_RU">Переключатель валюты</name>
     </setting>
     <setting var="show_currency_flag" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Show currency flags</name>
       <name locale="ru_RU">Флаги в валютах</name>
     </setting>
@@ -636,7 +636,7 @@
       <name locale="ru_RU">Сайдбар</name>
     </setting>
     <setting var="sidebar_mainpage" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Display left sidebar with menu of categories</name>
       <name locale="ru_RU">Показывать левый сайдбар с категориями</name>
     </setting>
@@ -1943,7 +1943,7 @@
       <name locale="ru_RU">Высота не скрытого текста, px</name>
     </setting>
     <setting var="cat_desc_bottom" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Description below the products</name>
       <name locale="ru_RU">Описание под списком товаров</name>
       <description locale="ru_RU">.</description>
@@ -2869,13 +2869,13 @@
       <description locale="en_US">The option is available when the option "From app menu" is selected for the option "Footer block #2 links"</description>
     </setting>
     <setting var="logo_footer" control_type="image">
-      <value>img/logo_footer.png?v1625664816</value>
+      <value>img/logo_footer.png?v1626697252</value>
       <filename>img/logo_footer.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="logo_footer_2x" control_type="image">
-      <value>img/logo_footer@2x.png?v1625664816</value>
+      <value>img/logo_footer@2x.png?v1626697252</value>
       <filename>img/logo_footer@2x.*</filename>
       <name locale="en_US">Logo for retina</name>
       <name locale="ru_RU">Логотип для ретина дисплеев</name>
@@ -3090,11 +3090,6 @@
       <value/>
       <name locale="en_US">Other settings</name>
       <name locale="ru_RU">Другие настройки</name>
-    </setting>
-    <setting var="test_settings" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Тестовые настройки</name>
-      <name locale="en_US">Test settings</name>
     </setting>
     <setting var="quicklinks_show" control_type="checkbox">
       <value>1</value>

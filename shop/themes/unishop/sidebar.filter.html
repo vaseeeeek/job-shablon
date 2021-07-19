@@ -2,12 +2,6 @@
 
 {$is_smartfilters_hide_options = !empty($smartfilters.hideDisabled)}
 <div class="sb-wrap filters js-filters{if $wa->isMobile()} mobile-filter{/if}{if !empty($theme_settings.ajax_filters)} js-ajax{/if}"{if $is_smartfilters_hide_options} data-smartfilters-hide-option="1"{/if}>
-    <div class="sb-wrap_head sb-wrap_head--icon maincolor">
-        <i class="sb-wrap_btn fa-icon-after sdColor js-nav-button" data-id="filter-body"></i>
-
-        <i class="fa fa-filter icon"></i>
-        <div class="sb-wrap_title">[`Selection by parameters`]</div>
-    </div>
 
     <form id="filter-body" class="filters-body js-filter-body" method="get" action="{$wa->currentUrl(0,1)}">
         {$indexFilter = 0}

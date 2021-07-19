@@ -86,9 +86,6 @@
                     {$default_sort = " "|explode:$category.sort_products}
                 {/if}
                 <div class="cat-sort">
-                    {if !$wa->isMobile()}
-                        <span class="cat-sort-title">[`Sort by`]:</span>
-                    {/if}
                     <div class="checked-list js-selecList cat-sort_select">
                         <div class="js-checked-toggle checked-list_toggle">
                             {if !$sort_active || !isset($sort_fields[$sort_active])}
@@ -128,9 +125,6 @@
 
             {if $views_count > 1}
                 <div class="cat-views">
-                    {if !$wa->isMobile()}
-                        <span class="cat-views-title">[`View`]:</span>
-                    {/if}
                     {if $_isView_tile == true}
                         <i data-view="tile" class="js-switch-product-view cat-views__el fa fa-th-large{if $CategoryViewProducts == 'tile'} selected{/if}" aria-hidden="true"></i>
                     {/if}

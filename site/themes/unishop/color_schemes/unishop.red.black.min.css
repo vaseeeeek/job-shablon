@@ -14,7 +14,7 @@
     background: #cf0028
 }
 
-.button-link, .cat-views__el.selected, .checkout-options li.selected h3, .comments ul ul:before, .filter-el_title:after, .inline-link, .jq-checkbox.checked:before, .jq-radio.checked:before, .jq-selectbox, .jq-selectbox__dropdown li:hover, .link.selected, .link:hover, .reviews-branch .reviews-branch .review:before, .sdСolor, .sdСolor > a, .sdСolor > a:hover, .checked-list, .checked-list a, .checked-list li.selected, .checked-list li.selected a, .selected > a, .sidebar-cats_el a:hover, .sidebar-cats li.selected > a, a.filter-option-color:before, a.inline-link, a.sdСolor:hover, a.selected, a:hover, button.button-link, input[type=button].button-link, input[type=submit].button-link {
+.button-link, .cat-views__el.selected, .checkout-options li.selected h3, .comments ul ul:before, .filter-el_title:after, .inline-link, .jq-checkbox.checked:before, .jq-radio.checked:before, .jq-selectbox, .jq-selectbox__dropdown li:hover, .link.selected, .link:hover, .reviews-list .reviews-list .review:before, .sdСolor, .sdСolor > a, .sdСolor > a:hover, .checked-list, .checked-list a, .checked-list li.selected, .checked-list li.selected a, .selected > a, .sidebar-cats_el a:hover, .sidebar-cats li.selected > a, a.filter-option-color:before, a.inline-link, a.sdСolor:hover, a.selected, a:hover, button.button-link, input[type=button].button-link, input[type=submit].button-link {
     color: #333333
 }
 
@@ -99,7 +99,7 @@ input[type=button].bg-maincolor:hover, input[type=submit].bg-maincolor:hover {
     border-top-color: #333333
 }
 
-.review-form-fields .wa-auth-socials {
+.add-review-form-fields .wa-auth-socials {
     background: none;
     border-top: none;
     border-left: none;
@@ -1506,7 +1506,7 @@ iframe {
     font-weight: 500
 }
 
-.comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .fa-icon-after:after, .fa-icon-before:before, .owl-next:after, .owl-prev:after, .reviews-branch .reviews-branch .review:before, .star, .star-rating-empty, .star-half, .star-hover {
+.comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .fa-icon-after:after, .fa-icon-before:before, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover {
     font: normal normal normal 16px/1 FontAwesome;
     vertical-align: middle
 }
@@ -6248,7 +6248,7 @@ button.mfp-arrow:hover, button.mfp-close:hover {
     content: "\f110"
 }
 
-.checkout-options li.selected, .comment-form, .box-highlighted, .review-form-fields, blockquote {
+.checkout-options li.selected, .comment-form, .box-highlighted, .add-review-form-fields, blockquote {
     background: #f6f6f6;
     border: 1px solid #ebebeb
 }

@@ -7,7 +7,7 @@
     .s-cart-empty-wrapper .review_image-wrap { margin: 0 0 20px; }
     .s-cart-empty-wrapper .review_image-wrap img { vertical-align: top; width: 100%; max-height: 160px; }
     .s-cart-empty-wrapper .s-description { margin: 20px 0 0; }
-    .s-cart-empty-wrapper .s-actions-wrapper { margin: 30px 0 0; color: #006bd8; }
+    .s-cart-empty-wrapper .btn-actions-wrapper { margin: 30px 0 0; color: #006bd8; }
 </style>
 
 
@@ -18,7 +18,7 @@
             <img src="{$wa_theme_url}img/svg/order/cart_empty.svg" alt="[`Your shopping cart is empty.`]">
         </div>
         <p class="s-description">{$config.cart.empty_text|default:"[`Your shopping cart is empty.`]"|escape}</p>
-        <p class="s-actions-wrapper">
+        <p class="btn-actions-wrapper">
             <a href="{$wa_app_url}">[`Go to home page`]</a>
         </p>
     </div>

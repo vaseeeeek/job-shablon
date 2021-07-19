@@ -54,40 +54,40 @@
             <div class="js-reviews-wrap">
                 <!-- reviews begin -->
                 {function review_reviews}
-                    {$depth=-1}
-                    {foreach $reviews as $review}
-                        {if $review.depth < $depth}
+                {$depth=-1}
+                {foreach $reviews as $review}
+                {if $review.depth < $depth}
 
-                            {$loop=($depth-$review.depth)}
-                            {section name="end-review" loop=$loop}
-                                <ul class="reviews-branch"></ul>
-                                </li>
-                                </ul>
-                            {/section}
-
-                            {$depth=$review.depth}
-                        {/if}
-
-                        {if $review.depth == $depth}
+                    {$loop=($depth-$review.depth)}
+                    {section name="last-review" loop=$loop}
+                        <ul class="reviews-list"></ul>
                         </li>
-                        <div data-id="{$review.id}" data-parent-id="{$review.parent_id}">
+                        </ul>
+                    {/section}
+
+                    {$depth=$review.depth}
+                {/if}
+
+                {if $review.depth == $depth}
+                </li>
+                <div data-id="{$review.id}" data-parent-id="{$review.parent_id}">
+                    {/if}
+
+                    {if $review.depth > $depth}
+                    <ul class="reviews-list">
+                        <li data-id={$review.id} data-parent-id="{$review.parent_id}">
+                            {$depth=$review.depth}
                             {/if}
+                            {include file="review.html" inline reply_confir=$reply_confir single_view=true review=$review}
+                            <!-- sub review placeholder -->
+                            {/foreach}
 
-                            {if $review.depth > $depth}
-                            <ul class="reviews-branch">
-                                <li data-id={$review.id} data-parent-id="{$review.parent_id}">
-                                    {$depth=$review.depth}
-                                    {/if}
-                                    {include file="review.html" inline reply_confir=$reply_confir single_view=true review=$review}
-                                    <!-- sub review placeholder -->
-                    {/foreach}
-
-                                    {section name="end-review" loop=$depth}
-                                    <ul class="reviews-branch"></ul>
-                                </li>
-                            </ul>
-                                    {/section}
-                {/function}
+                            {section name="last-review" loop=$depth}
+                            <ul class="reviews-list"></ul>
+                        </li>
+                    </ul>
+                    {/section}
+                    {/function}
 
 
                     <section class="js-reviews reviews product-info">
@@ -95,35 +95,36 @@
                         <script src="{$wa_theme_url}reviews.js"></script>
 
                         <input type="hidden" name="reviewheader"/>
-                        <h3 class="reviews-count-text" {if $reviews_count == 0}style="display: none;"{/if}>
+                        <h3 class="reviews-total" {if $reviews_count == 0}style="display: none;"{/if}>
                             {_w('%d review for ','%d reviews for ', $reviews_count)|cat:$product.name|escape}
                         </h3>
 
                         <!-- add review form -->
-                        <div class="write-review">
+                        <div class="review-write">
                             <a href="#" class="inline-link">[`Write a review`]</a>
                         </div>
 
-                        <div class="review-form display_none" id="product-review-form">
+                        <div class="add-review-form display_none" id="product-add-review-form">
 
-                            {$current_user_id = $wa->userId()}
+                            {$user_id = $wa->userId()}
 
                             <form method="post" action="{$wa->currentUrl()}">
-                                <div class="review-form-fields">
+                                <div class="add-review-form-fields">
 
-                                    {if empty($current_user_id) && $require_authorization}
-                                        <p class="review-field">{sprintf(
+                                    {if empty($user_id) && $require_authorization}
+                                        <p class="add-review-field">{sprintf(
                                             '[`To add a review please <a href="%s">sign up</a> or <a href="%s">login</a>`]',
                                             $wa->signupUrl(),
                                             $wa->loginUrl())
                                             }</p>
                                     {else}
 
-                                        {if !empty($current_user_id)}
-                                            <p class="review-field"><label>[`Your name`]</label>
-                                                <strong class="review-form-user"><img src="{$wa->user()->getPhoto(20)}"
-                                                                                      class="userpic"
-                                                                                      alt="">{$wa->user('name')}
+                                        {if !empty($user_id)}
+                                            <p class="add-review-field"><label>[`Your name`]</label>
+                                                <strong class="add-review-form-user"><img
+                                                            src="{$wa->user()->getPhoto(20)}"
+                                                            class="userpic"
+                                                            alt="">{$wa->user('name')}
                                                 </strong>
                                                 <a href="?logout">[`log out`]</a>
                                             </p>
@@ -147,19 +148,19 @@
                                                     </ul>
                                                 </div>
                                             {/if}
-                                            <div class="provider-fields"
+                                            <div class="provider-input"
                                                  data-provider="{shopProductReviewsModel::AUTH_GUEST}"
                                                  {if $current_auth_source != shopProductReviewsModel::AUTH_GUEST}style="display:none"{/if}>
-                                                <p class="review-field">
+                                                <p class="add-review-field">
                                                     <label>[`Your name`]</label>
                                                     <input type="text" name="name" id="review-name" value="">
                                                 </p>
-                                                <p class="review-field">
+                                                <p class="add-review-field">
                                                     <label>[`Email`]</label>
                                                     <input type="text" name="email" id="review-email">
                                                 </p>
                                                 {if !$theme_settings.product_reviews_site_field_off}
-                                                    <p class="review-field">
+                                                    <p class="add-review-field">
                                                         <label>[`Website`]</label>
                                                         <input type="text" name="site" id="review-site">
                                                     </p>
@@ -167,8 +168,8 @@
                                             </div>
                                             {if !empty($auth_adapters[$current_auth_source])}
                                                 {$adapter = $auth_adapters[$current_auth_source]}
-                                                <div class="provider-fields" data-provider="{$adapter->getId()}">
-                                                    <p class="review-field"><label>[`Your name`]</label>
+                                                <div class="provider-input" data-provider="{$adapter->getId()}">
+                                                    <p class="add-review-field"><label>[`Your name`]</label>
                                                         <strong><img src="{$adapter->getIcon()}"
                                                                      class="userpic"/>{$current_auth.name|escape}
                                                         </strong>
@@ -178,11 +179,11 @@
                                             {/if}
                                         {/if}
                                         <br>
-                                        <p class="review-field">
+                                        <p class="add-review-field">
                                             <label for="review-title">[`Title`]</label>
                                             <input type="text" name="title" id="review-title" class="bold">
                                         </p>
-                                        <p class="review-field">
+                                        <p class="add-review-field">
                                             <label>[`Rate product`]</label>
                                             <a href="#" class="no-underline rate" data-rate="0" id="review-rate">
                                                 {for $i = 1 to 5}<i class="icon16 star-rating-empty"></i>{/for}
@@ -192,19 +193,21 @@
                                     </span>
                                             <input name="rate" type="hidden" value="0">
                                         </p>
-                                        <p class="review-field">
+                                        <p class="add-review-field">
                                             <label for="review-text">[`Review`]</label>
                                             <textarea id="review-text" name="text" rows="10" cols="45"></textarea>
                                         </p>
-                                        {$_images_enabled = $wa->setting("allow_image_upload", false, "shop")}
+
+                                        {$_images_enabled = $wa->setting("allow_image_upload", true, "shop")}
+
                                         {if !empty($_images_enabled)}
-                                            <div class="review-field">
+                                            <div class="add-review-field">
                                                 <label>[`Images`]</label>
-                                                <div class="s-review-images-section" id="js-review-images-section">
-                                                    <div class="review-image-form-section">
+                                                <div class="review-images-box" id="jreview-images-box">
+                                                    <div class="review-form-image-box">
                                                         {strip}
-                                                            <div class="s-description">
-                                                    <span class="s-icon photo">
+                                                            <div>
+                                                    <span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19"
                                                              viewBox="0 0 22 19">
                                                             <path fill="#ddd"
@@ -212,59 +215,38 @@
                                                         </svg>
                                                     </span>
                                                                 <a href="javascript:void(0);">[`Upload photos`]</a> [`or
-                                                                drag &amp; drop here (max. 10 photos)`]
+                                                                drag &amp; drop here (10 max.)`]
                                                             </div>
                                                         {/strip}
-                                                        <input class="s-file-field js-file-field" type="file" multiple>
+                                                        <input class="js-file-field" type="file" multiple>
                                                     </div>
 
-                                                    <div class="s-attached-files-section js-attached-files-section"></div>
+                                                    <div class="attached-files-box js-attached-files-box"></div>
 
-                                                    <div class="s-errors-section js-errors-section"></div>
+                                                    <div class="errors-section js-errors-box"></div>
 
                                                     {strip}
                                                         {capture assign="_file_template"}
-                                                            <div class="s-file-wrapper">
+                                                            <div class="input-file-wrap">
                                                                 <div class="review_image-wrap"></div>
-                                                                <div class="s-description-wrapper">
-                                                                    <div class="s-visible">
+                                                                <div class="review-desc-wrap">
+                                                                    <div class="desc-visible">
                                                                         <a class="js-show-textarea"
                                                                            href="javascript:void(0);">[`Add a
                                                                             description`]</a>
                                                                     </div>
-                                                                    <div class="s-hidden">
+                                                                    <div class="desc-hidden">
                                                                         <textarea class="s-textarea js-textarea"
                                                                                   placeholder="[`Enter a description here`]"></textarea>
                                                                     </div>
                                                                 </div>
-                                                                <div class="s-actions">
-                                                                    <div class="s-action js-delete-file"
+                                                                <div class="btn-actions">
+                                                                    <div class="btn-actions js-delete-file"
                                                                          title="{_w("Delete")|escape}">
-                                                            <span class="s-icon delete">
-                                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                                     viewBox="0 0 10 10" xml:space="preserve">
-                                                                    <style type="text/css">.st0 {
-                                                                            fill: none;
-                                                                            stroke: rgba(0, 0, 0, 0.5);
-                                                                            stroke-linecap: round;
-                                                                            stroke-linejoin: round;
-                                                                            stroke-miterlimit: 10;
-                                                                        } </style>
-                                                                    <line class="st0" x1="0.5" y1="0.5" x2="9.5"
-                                                                          y2="9.5"/>
-                                                                    <line class="st0" x1="9.5" y1="0.5" x2="0.5"
-                                                                          y2="9.5"/>
-                                                                </svg>
-                                                            </span>
+                                                                        <span class="fi-rr-cross"></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        {/capture}
-                                                    {/strip}
-
-                                                    {strip}
-                                                        {capture assign="_error_template"}
-                                                            <div class="s-error">%text%</div>
                                                         {/capture}
                                                     {/strip}
 
@@ -276,7 +258,7 @@
                                                             {$_max_file_size_mb = floor($_max_file_size * 10/(1024))/10}
 
                                                             new ReviewImagesSection({
-                                                                $wrapper: $("#js-review-images-section"),
+                                                                $wrapper: $("#jreview-images-box"),
                                                                 max_post_size: {$_max_post_size|json_encode},
                                                                 max_file_size: {$_max_file_size|json_encode},
                                                                 max_files: 10,
@@ -301,23 +283,13 @@
                                                 </div>
                                             </div>
                                         {/if}
-
-                                        {$_moderate_enabled = $wa->setting('moderation_reviews', 0, 'shop')}
-                                        {if !empty($_moderate_enabled)}
-                                            <div class="review-field">
-                                                <label for="review-text">&nbsp;</label>
-                                                <div class="s-review-notice-section">
-                                                    [`Your review will be published after moderation.`]
-                                                </div>
-                                            </div>
-                                        {/if}
-                                        <div class="review-submit">
-                                            {if $request_captcha && empty($current_user_id)}
+                                        <div class="review-add-submit">
+                                            {if $request_captcha && empty($user_id)}
                                                 {$wa->captcha()}
                                             {/if}
 
-                                            {if empty($current_user_id) && !empty($review_service_agreement) && !empty($review_service_agreement_hint)}
-                                                <label class="service-agreement-wrapper js-review-agreement">
+                                            {if empty($user_id) && !empty($review_service_agreement) && !empty($review_service_agreement_hint)}
+                                                <label class="terms-use-wrapper js-review-agreement">
                                                     {if $review_service_agreement == 'checkbox'}
                                                         <input type="hidden" name="service_agreement" value="">
                                                         <input type="checkbox" name="service_agreement"
@@ -329,8 +301,8 @@
                                             <input type="submit" class="save js-submit-button" value="[`Add review`]"
                                                    data-active="[`Adding`]" data-inactive="[`Add review`]">
                                             <span class="review-add-form-status ajax-status" style="display: none;">
-                                        <i class="ajax-statuloading icon16 loading"><!--icon --></i>
-                                    </span>
+                                                <i class="ajax-statuloading icon16 loading"><!--icon --></i>
+                                            </span>
 
                                             <em class="hint">Ctrl+Enter</em>
                                             <input type="hidden" name="parent_id" value="0">
@@ -347,14 +319,14 @@
                         </div>
 
                         <!-- existing reviews list -->
-                        <ul class="reviews-branch">
+                        <ul class="reviews-list">
                             {foreach $reviews as $review}
                                 <li data-id={$review.id} data-parent-id="0">
                                     {include file="review.html" reply_confir=$reply_confir inline}
                                     {if !empty($review.comments)}
                                         {review_reviews reviews=$review.comments}
                                     {else}
-                                        <ul class="reviews-branch"></ul>
+                                        <ul class="reviews-list"></ul>
                                     {/if}
                                 </li>
                             {/foreach}

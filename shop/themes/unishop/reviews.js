@@ -6,8 +6,8 @@ var ReviewImagesSection = ( function($) {
         // DOM
         that.$wrapper = options["$wrapper"];
         that.$file_field = that.$wrapper.find(".js-file-field");
-        that.$files_wrapper = that.$wrapper.find(".js-attached-files-section");
-        that.$errors_wrapper = that.$wrapper.find(".js-errors-section");
+        that.$files_wrapper = that.$wrapper.find(".js-attached-files-box");
+        that.$errors_wrapper = that.$wrapper.find(".js-errors-box");
 
         // CONST
         that.max_post_size = options["max_post_size"];
@@ -40,12 +40,12 @@ var ReviewImagesSection = ( function($) {
 
         that.$wrapper.on("click", ".js-show-textarea", function(event) {
             event.preventDefault();
-            $(this).closest(".s-description-wrapper").addClass("is-extended");
+            $(this).closest(".review-desc-wrap").addClass("is-extended");
         });
 
         that.$wrapper.on("click", ".js-delete-file", function(event) {
             event.preventDefault();
-            var $file = $(this).closest(".s-file-wrapper"),
+            var $file = $(this).closest(".input-file-wrap"),
                 file_id = "" + $file.data("file-id");
 
             if (file_id && that.files_data[file_id]) {
@@ -62,7 +62,7 @@ var ReviewImagesSection = ( function($) {
 
         that.$wrapper.on("keyup change", ".js-textarea", function(event) {
             var $textarea = $(this),
-                $file = $textarea.closest(".s-file-wrapper"),
+                $file = $textarea.closest(".input-file-wrap"),
                 file_id = "" + $file.data("file-id");
 
             if (file_id && that.files_data[file_id]) {
@@ -325,7 +325,7 @@ $(function() {
         }
     };
 
-    var form_wrapper = $('#product-review-form');
+    var form_wrapper = $('#product-add-review-form');
     var form = form_wrapper.find('form');
     var content = $('.js-reviews');
     var $submit_button = form.find(".js-submit-button");
@@ -340,7 +340,7 @@ $(function() {
         }
     });
 
-    content.off('click', '.review-reply, .write-review a').on('click', '.review-reply, .write-review a', function() {
+    content.off('click', '.review-reply, .review-write a').on('click', '.review-reply, .review-write a', function() {
         var self = $(this);
         var item = self.parents('li:first');
         var parent_id = parseInt(item.attr('data-id'), 10) || 0;
@@ -371,14 +371,14 @@ $(function() {
         var provider = li.attr('data-provider');
         form.find('input[name=auth_provider]').val(provider);
         if (provider == 'guest') {
-            $('div.provider-fields').hide();
-            $('div.provider-fields[data-provider=guest]').show();
+            $('div.provider-input').hide();
+            $('div.provider-input[data-provider=guest]').show();
             captcha.show();
             return false;
         }
         if (provider == current_provider) {
-            $('div.provider-fields').hide();
-            $('div.provider-fields[data-provider='+provider+']').show();
+            $('div.provider-input').hide();
+            $('div.provider-input[data-provider='+provider+']').show();
             captcha.hide();
             return false;
         }
@@ -450,7 +450,7 @@ $(function() {
                 form_data.append(field.name, field.value);
             });
 
-            var $image_section = $form.find("#js-review-images-section");
+            var $image_section = $form.find("#jreview-images-box");
             if ($image_section.length) {
                 var controller = $image_section.data("controller"),
                     data = controller.getSerializedArray();
@@ -478,7 +478,7 @@ $(function() {
             var html = r.data.html;
             var parent_id = parseInt(r.data.parent_id, 10) || 0;
             var parent_item = parent_id ? form.parents('li:first') : content;
-            var ul = $('ul.reviews-branch:first', parent_item);
+            var ul = $('ul.reviews-list:first', parent_item);
 
             if (parent_id) {
                 //reply to a review
@@ -490,11 +490,11 @@ $(function() {
                 ul.find('li:first .review').addClass('new');
             }
 
-            $('.reviews-count-text').text(r.data.review_count_str);
+            $('.reviews-total').text(r.data.review_count_str);
             $('.reviews-count').text(r.data.count);
             form.find('input[name=count]').val(r.data.count);
             clear(form, true);
-            content.find('.write-review a').click();
+            content.find('.review-write a').click();
 
             form_wrapper.hide();
             if (typeof success === 'function') {
@@ -536,10 +536,10 @@ $(function() {
         var self = this; // clicked link
         if (review_id) {
             self.parents('.actions:first').after(form_wrapper);
-            $('.rate ', form).trigger('clear').parents('.review-field:first').hide();
+            $('.rate ', form).trigger('clear').parents('.add-review-field:first').hide();
         } else {
-            self.parents('.write-review').after(form_wrapper);
-            form.find('.rate').parents('.review-field:first').show();
+            self.parents('.review-write').after(form_wrapper);
+            form.find('.rate').parents('.add-review-field:first').show();
         }
         clear(form, false);
         $('input[name=parent_id]', form).val(review_id);
