@@ -69,7 +69,7 @@
 
                 {if !isset($category.params.menu_hide)}
                     <li class="sidebar-cats_el{if $categoryegory_selected == $category.id} selected{/if}">
-                        {if $_has_childs}<i class="sidebar-cats_el-open sdColor js-subcat-open fa-icon-after{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
+                        {if $_has_childs}<i class="sidebar-cats_el-open sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
                         <a class="sidebar-cats_link" href="{$category.url}">
                             {if $theme_settings.icon_sidebar_subcategories}
                                 {if isset($Wmimages[$category.id].icon) && !isset($category.page)}

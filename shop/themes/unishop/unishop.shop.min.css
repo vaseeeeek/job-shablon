@@ -9139,9 +9139,6 @@ iframe {
     min-width: 70px
 }
 
-.Product-grid_cart .addtocart:before {
-    font-size: 25px
-}
 
 .addtocart.cart-loading.ion-android-cart:before, .addtocart.cart-loading:before {
     content: "\f29a"
@@ -9461,10 +9458,6 @@ iframe {
 .product-custom_total {
     color: #fff;
     margin: 2px 0 0
-}
-
-a:hover .product-custom_title {
-    color: #fff
 }
 
 .product-custom_total {
@@ -12423,7 +12416,8 @@ button.owl-dot {
 }
 
 .sidebar-cats_el-open:after {
-    content: "\f107";
+    font-style: normal;
+    content: "\f10f";
     height: 16px;
     width: 16px;
     line-height: 17px;
@@ -12435,7 +12429,7 @@ button.owl-dot {
 }
 
 .sidebar-cats_el-open.selected:after {
-    content: "\f106";
+    content: "\f112";
     line-height: 15px
 }
 
@@ -12810,7 +12804,7 @@ button.owl-dot {
     margin: auto 0
 }
 
-.hidden-fixed, .overflow_hidden {
+.hidden-fixed, .ovf_hidden {
     overflow: hidden
 }
 
@@ -12901,7 +12895,7 @@ form .wa-name, form .wa-value {
     margin: 0 5px 0 0
 }
 
-.prodile_edit-cancel-btn {
+.lk_edit-cancel-btn {
     margin: 0 0 0 15px
 }
 
@@ -20382,6 +20376,21 @@ article, aside, footer, header, nav, section {
 .products-grid-outer .owl-carousel {
     display: flex!important;
     overflow: hidden;
+}
+
+.product-action.add-to-favorite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-action.add-to-favorite .fi-rr-heart {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1;
+    height: 30px;
 }
 
 .owl-stage {

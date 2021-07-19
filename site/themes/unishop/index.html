@@ -44,6 +44,7 @@
 
     <!-- css -->
     {include file="colors.css.html"}
+    <link href="{$wa_theme_url}fonts/uicons-regular-rounded/css/uicons-regular-rounded.css?v{$wa_theme_version}" rel="stylesheet"/>
     <link href="{$wa_theme_url}unishop.min.css?v{$wa_theme_version}" rel="stylesheet"/>
 
 
@@ -117,7 +118,7 @@
                                 </div>
                             {else}
                                 <div class="header_login-icon">
-                                    <i class="fa fa-user icon maincolor"></i>
+                                    <i class=" fi-rr-user icon maincolor"></i>
                                 </div>
                                 <div class="header_login-content">
                                     {$wa->user('firstname')|default:'[`My account`]'}
@@ -129,7 +130,7 @@
                             {/if}
                         {else}
                             <div class="header_login-icon">
-                                <i class="fa fa-user icon maincolor"></i>
+                                <i class=" fi-rr-user icon maincolor"></i>
                             </div>
                             <div class="header_login-content">
                                 <div class="header_login-sign">
@@ -153,7 +154,7 @@
                 <div class="header__cart js-header-preview-cart js-cart-header"  data-url="{$cartPopupUrl}">
                     <a href="{$cartUrl}">
                         <div class="header__cart-icon">
-                            <i class="icon ion-android-cart sdСolor"></i>
+                            <i class="icon fi-rr-shopping-cart sdСolor"></i>
                             <span class="js-cart-preview-count header__cart-count bg-maincolor">{$wa->shop->cart->count()}</span>
                         </div>
                         <div class="header__cart-content">

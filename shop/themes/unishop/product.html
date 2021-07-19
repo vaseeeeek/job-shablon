@@ -81,7 +81,7 @@
                             </div>
                         {/if}
 
-                        {if $theme_settings.favorites || $theme_settings.compare_products}
+                        {if $theme_settings.favorites || $theme_settings.compare}
                             <div class="product_action-actions">
                                 {if $theme_settings.favorites}
                                 {$favorites = $wa->cookie('favorites_list')}
@@ -91,11 +91,11 @@
                                 {$favorites_list = []}
                                 {/if}
                                 <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $favorites_list)} active{/if}">
-                                    <i class="fa fa-heart"></i>
+                                    <i class="fi-rr-heart"></i>
                                     <span class="product-action-text">[`To favorites`]</span>
                                 </span>
                                 {/if}
-                                {if $theme_settings.compare_products}
+                                {if $theme_settings.compare}
                                 <span data-name="{$product.name|escape}" data-img="{$wa->shop->productImgUrl($product, '60')}" data-url="{$product.frontend_url}" data-product="{$product.id}" class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($product.id)} active{/if}">
                                     <i class="fa fa-files-o"></i>
                                     <span class="product-action-text">[`Compare`]</span>
@@ -472,7 +472,7 @@
 
         function loadProductCardReviews (){
             var reviewsContent = $('.js-reviews-content'),
-                isLoad = reviewsContent.find('.js-reviews-outer').length;
+                isLoad = reviewsContent.find('.js-reviews-wrap').length;
 
             if(!isLoad){
                 reviewsContent.html("");
@@ -481,7 +481,7 @@
                 var url = reviewsContent.data("url-product").replace(/\/#\/[^#]*|\/#|\/$/g, '') + '/reviews/';
 
                 $.get(url, function(data) {
-                    var content = $(data).find('.js-reviews-outer');
+                    var content = $(data).find('.js-reviews-wrap');
                     reviewsContent.html(content);
                 });
             }

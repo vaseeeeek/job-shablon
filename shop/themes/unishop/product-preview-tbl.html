@@ -93,16 +93,16 @@
                         </span>
                     {/if}
                     {if $p.sku_count > 1}<!-- Спросить о настройке -->
-                        <span class="button js-card-dialog addtocart addtocart--mini ion-android-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
+                        <span class="button js-card-dialog addtocart addtocart--mini fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
                     {else}
                         <input type="hidden" name="product_id" value="{$p.id}">
-                        <span class="button js-submit-form addtocart addtocart--mini ion-android-cart"></span>
+                        <span class="button js-submit-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
                     {/if}
                 </form>
             {/if}
         {else}
             <div class="Product-table-cart">
-                <span class="button addtocart disabled addtocart--mini ion-android-cart"></span>
+                <span class="button addtocart disabled addtocart--mini fi-rr-shopping-cart"></span>
             </div>
         {/if}
     </div>

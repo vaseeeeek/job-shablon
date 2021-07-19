@@ -234,12 +234,12 @@
                                     {if $available}
                                         {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
                                         {if $p.sku_count > 1}
-                                            <span class="button main-slider_el-btn js-card-dialog addtocart ion-android-cart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
+                                            <span class="button main-slider_el-btn js-card-dialog addtocart fi-rr-shopping-cart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
                                         {else}
                                             {$preview_image = $wa->shop->productImgUrl($p, '60')}
                                             <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart main-slider_el-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                                                 <input type="hidden" name="product_id" value="{$p.id}">
-                                                <span class="button main-slider_el-btn js-submit-form addtocart ion-android-cart addtocart--large">{$add2label_cart}</span>
+                                                <span class="button main-slider_el-btn js-submit-form addtocart fi-rr-shopping-cart addtocart--large">{$add2label_cart}</span>
                                             </form>
                                         {/if}
                                     {/if}

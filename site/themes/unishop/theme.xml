@@ -1264,7 +1264,7 @@
         </option>
       </options>
     </setting>
-    <setting var="compare_products" control_type="checkbox">
+    <setting var="compare" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Allow product comparison</name>
       <name locale="ru_RU">Разрешить сравнение товаров</name>

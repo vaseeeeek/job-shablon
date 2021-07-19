@@ -13,8 +13,8 @@
     <strong><i class="icon16 saved"></i><span style="color:green">[s`Contact information successfully updated!`]</span></strong>
 {/if}
 
-<div id="wa-my-info-wrapper">
-    <div class="wa-form" id="wa-my-info-read-wrapper"{if !empty($form->errors)} style="display: none;"{/if}>
+<div id="lk-info-wrapper">
+    <div class="wa-form" id="lk-info-read-wrapper"{if !empty($form->errors)} style="display: none;"{/if}>
 
         {foreach $user_info as $id => $info}
             <div class="wa-field">
@@ -31,7 +31,7 @@
     </div>
 
 
-    <form action="" enctype="multipart/form-data" method="post"{if empty($form->errors)} style="display: none;"{/if} id="wa-my-info-edit-wrapper">
+    <form action="" enctype="multipart/form-data" method="post"{if empty($form->errors)} style="display: none;"{/if} id="lk-info-edit-wrapper">
         <div class="wa-form">
 
             {$form->html()}
@@ -40,7 +40,7 @@
                 <div class="wa-value">
                     <input type="submit" value="[s`Save`]">
 
-                    <span class="prodile_edit-cancel-btn" id="wa-my-info-cancel">
+                    <span class="lk_edit-cancel-btn" id="lk_info-cancel">
                         <i class="fa fa-times"></i>
                         <a href="#" class="link-half">[s`cancel`]</a>
                     </span>
@@ -51,38 +51,38 @@
 
 </div>
 
-{$auth_adapters = $wa->authAdapters(true)}
-{if $auth_adapters}
-    <div class="wa-auth-adapters wa-connect">
+{$auth_social = $wa->authAdapters(true)}
+{if $auth_social}
+    <div class="wa-auth-socials wa-connect">
         <h3>[s`Connected accounts`]</h3>
 
-        {$linked_adapters = []}
-        {$other_adapters = []}
-        {foreach $auth_adapters as $a}
+        {$linked_socials = []}
+        {$other_socials = []}
+        {foreach $auth_social as $a}
             {if $wa->user("{$a->getId()}_id")}
-                {$linked_adapters[] = $a}
+                {$linked_socials[] = $a}
             {else}
-                {$other_adapters[] = $a}
+                {$other_socials[] = $a}
             {/if}
         {/foreach}
 
-        {if $linked_adapters}
+        {if $linked_socials}
             <ul>
-            {foreach $linked_adapters as $a}
+            {foreach $linked_socials as $a}
                 <li><span><img alt="{$a->getName()}" src="{$a->getIcon()}"/>{$a->getName()}</span></li>
             {/foreach}
             </ul>
         {/if}
 
-        {if $other_adapters}
+        {if $other_socials}
             <p>[s`Connect this account to your social network accounts so next time you can log in without entering your password:`]</p>
             <ul>
-                {foreach $other_adapters as $a}
+                {foreach $other_socials as $a}
                 <li><a href="{$a->getUrl()}"><img alt="{$a->getName()}" src="{$a->getIcon()}"/>{$a->getName()}</a></li>
                 {/foreach}
             </ul>
             <script type="text/javascript">
-                $("div.wa-auth-adapters a").click(function () {
+                $("div.wa-auth-socials a").click(function () {
                     var left = (screen.width - 600) / 2;
                     var top = (screen.height - 400) / 2;
                     window.open($(this).attr('href'),'oauth', "width=600,height=400,left="+left+",top="+top+",status=no,toolbar=no,menubar=no");
@@ -96,10 +96,10 @@
 
 <script>
     (function () {
-        var $wrapper = $('#wa-my-info-wrapper'),
+        var $wrapper = $('#lk-info-wrapper'),
             $head = $('#title-my-profile-wa'),
-            $form = $wrapper.find('#wa-my-info-edit-wrapper'),
-            $info = $wrapper.find('#wa-my-info-read-wrapper'),
+            $form = $wrapper.find('#lk-info-edit-wrapper'),
+            $info = $wrapper.find('#lk-info-read-wrapper'),
             $password = $form.find('.wa-field-password'),
             $photo = $form.find('.wa-field-photo');
 
@@ -154,7 +154,7 @@
                     $form.show();
                     $info.hide();
                 });
-        $wrapper.on('click', '#wa-my-info-cancel', function(e){
+        $wrapper.on('click', '#lk_info-cancel', function(e){
                     e.preventDefault();
                     $form.hide();
                     $info.show();

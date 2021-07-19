@@ -99,7 +99,7 @@ input[type=button].bg-maincolor:hover, input[type=submit].bg-maincolor:hover {
     border-top-color: #B52563
 }
 
-.review-form-fields .wa-auth-adapters {
+.review-form-fields .wa-auth-socials {
     background: none;
     border-top: none;
     border-left: none;
@@ -381,45 +381,45 @@ ul.tree ul a {
     background: #eee
 }
 
-.wa-auth-adapters {
+.wa-auth-socials {
     margin: 0 0 20px;
     line-height: 24px
 }
 
-.wa-auth-adapters br {
+.wa-auth-socials br {
     display: none
 }
 
-.wa-auth-adapters ul {
+.wa-auth-socials ul {
     padding: 0;
     min-height: 16px;
     margin: 0
 }
 
-.wa-auth-adapters ul li {
+.wa-auth-socials ul li {
     list-style: none;
     display: inline-block;
     padding: 0 15px 0 0
 }
 
-.wa-auth-adapters ul li a {
+.wa-auth-socials ul li a {
     text-decoration: underline;
     padding: 0
 }
 
-.wa-auth-adapters ul li a img, .wa-auth-adapters ul li span img {
+.wa-auth-socials ul li a img, .wa-auth-socials ul li span img {
     position: relative;
     top: 4px;
     margin-right: 3px
 }
 
-.wa-auth-adapters p {
+.wa-auth-socials p {
     color: #888;
     margin: 10px 0 0;
     line-height: 18px
 }
 
-.wa-auth-adapters.wa-connect {
+.wa-auth-socials.wa-connect {
     margin-top: 20px
 }
 
@@ -618,7 +618,7 @@ input.error, textarea.error {
 }
 
 @media (max-width: 500px) {
-    .wa-auth-adapters ul li {
+    .wa-auth-socials ul li {
         padding: 0 10px 0 0
     }
 }
@@ -2483,7 +2483,7 @@ a:hover .product-custom_title {
     background: #f9f9f9
 }
 
-.cat-menu__el:hover > .cat-menu__el-caret, .subcat-menu__el:hover > .cat-menu__el-caret {
+.cat-menu__el:hover > .fi-rr-angle-small-right, .subcat-menu__el:hover > .fi-rr-angle-small-right {
     color: #B52563
 }
 
@@ -2524,7 +2524,7 @@ a:hover .product-custom_title {
     text-decoration: none
 }
 
-.cat-menu__el-caret {
+.fi-rr-angle-small-right {
     float: right;
     font-size: 15px;
     cursor: pointer;
@@ -2536,16 +2536,14 @@ a:hover .product-custom_title {
     margin: 0 0 0 -40px
 }
 
-.cat-menu__el-caret:after {
-    content: "\f105"
-}
 
-.has-subs .has-subs .cat-menu__el-caret {
+
+.has-subs .has-subs .fi-rr-angle-small-right {
     height: 38px;
     line-height: 38px
 }
 
-.subcat-opened__el .cat-menu__el-caret {
+.subcat-opened__el .fi-rr-angle-small-right {
     display: none
 }
 
@@ -3534,7 +3532,7 @@ button.owl-dot {
         font-weight: 400
     }
 
-    .subcat-opened__el .cat-menu__el-caret {
+    .subcat-opened__el .fi-rr-angle-small-right {
         display: block
     }
 
@@ -3550,12 +3548,12 @@ button.owl-dot {
         margin: 0 40px 0 0
     }
 
-    .cat-menu__el-caret:after {
+    .fi-rr-angle-small-right:after {
         content: "\f0fe";
         font-size: 26px
     }
 
-    .cat-menu__el-caret.open:after {
+    .fi-rr-angle-small-right.open:after {
         content: "\f146"
     }
 }
@@ -5833,7 +5831,7 @@ button.owl-dot {
     margin: auto 0
 }
 
-.hidden-fixed, .overflow_hidden {
+.hidden-fixed, .ovf_hidden {
     overflow: hidden
 }
 
@@ -5924,7 +5922,7 @@ form .wa-name, form .wa-value {
     margin: 0 5px 0 0
 }
 
-.prodile_edit-cancel-btn {
+.lk_edit-cancel-btn {
     margin: 0 0 0 15px
 }
 

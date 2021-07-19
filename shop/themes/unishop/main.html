@@ -1,58 +1,58 @@
 {strip}
-{$class = ''}
-{if $action == 'onestep' && $theme_settings.onepage_order_custom_css}
-    {$class = ' custom-onestep'}
-{/if}
-{if $action == 'checkoutone' && $theme_settings.cart_onepage_order_custom_css}
-    {$class = ' custom-cartonestep'}
-{/if}
-{if $action == 'brands'}
-    {$class = ' brand-list'}
-{/if}
-
-{include file="`$wa_active_theme_path`/breadcrumbs.html"}
-
-{if $wa->globals('isMyAccount')}
-    {$wa->myNav('pages')}
-{/if}
-
-<!-- plugin hook: 'frontend_header' -->
-{* @event frontend_header.%plugin_id% *}
-{if count($frontend_header) > 0}
-    {foreach $frontend_header as $_}{$_}{/foreach}
-{/if}
-
-{if $wa->currentUrl(false, true) != $wa_app_url
-     && $action != 'category'
-     && $action != 'product'
-     && $action != 'cart'
-     && $action != 'checkout'
-     && $action != 'order'
-     && $action != 'compare'
-     && $action != 'productReviews'
-     && !$wa->globals('isMyAccount')
-}
-    {$cols = 1}
-    {$sb_left = 0}
-    {if !$wa->isMobile()}
-        {$cols = $cols + 1}
-        {$sb_left = 1}
+    {$class = ''}
+    {if $action == 'onestep' && $theme_settings.onepage_order_custom_css}
+        {$class = ' custom-onestep'}
+    {/if}
+    {if $action == 'checkoutone' && $theme_settings.cart_onepage_order_custom_css}
+        {$class = ' custom-cartonestep'}
+    {/if}
+    {if $action == 'brands'}
+        {$class = ' brand-list'}
     {/if}
 
-    <div class="cols-{$cols}">
-        <div class="out_sidebars">
-            {if $sb_left}
-                {include file="`$wa_active_theme_path`/sidebar-left.html"}
-            {/if}
+    {include file="`$wa_active_theme_path`/breadcrumbs.html"}
+
+    {if $wa->globals('isMyAccount')}
+        {$wa->myNav('pages')}
+    {/if}
+
+    <!-- plugin hook: 'frontend_header' -->
+    {* @event frontend_header.%plugin_id% *}
+    {if count($frontend_header) > 0}
+        {foreach $frontend_header as $_}{$_}{/foreach}
+    {/if}
+
+    {if $wa->currentUrl(false, true) != $wa_app_url
+    && $action != 'category'
+    && $action != 'product'
+    && $action != 'cart'
+    && $action != 'checkout'
+    && $action != 'order'
+    && $action != 'compare'
+    && $action != 'productReviews'
+    && !$wa->globals('isMyAccount')
+    && $wa->currentUrl(false, true) != '/my/orders/'
+    }
+        {$cols = 1}
+        {$sb_left = 0}
+        {if !$wa->isMobile()}
+            {$cols = $cols + 1}
+            {$sb_left = 1}
+        {/if}
+        <div class="cols-{$cols}">
+            <div class="out_sidebars">
+                {if $sb_left}
+                    {include file="`$wa_active_theme_path`/sidebar-left.html"}
+                {/if}
+            </div>
+            {* проверить работу плагина *}
+            {if $wa->globals('isSearchProPage') && isset($filters) && !empty($filters)}{$class = "`$class` searchpro-page-with-sidebar"}{/if}
+            {$is_search_products_template = $wa->globals('isSearchPage') && ($action == 'search' || $action == 'brand' || $action == 'tag')}
+            <div class="js-content content{if !$is_search_products_template} content-block{/if} {if $sb_left} with-sidebar{/if} {$class}">
+                {$content}
+            </div>
         </div>
-        {* проверить работу плагина *}
-        {if $wa->globals('isSearchProPage') && isset($filters) && !empty($filters)}{$class = "`$class` searchpro-page-with-sidebar"}{/if}
-        {$is_search_products_template = $wa->globals('isSearchPage') && ($action == 'search' || $action == 'brand' || $action == 'tag')}
-        <div class="js-content content{if !$is_search_products_template} content-block{/if} {if $sb_left} with-sidebar{/if} {$class}">
-            {$content}
-        </div>
-    </div>
-{else}
-    {$content}
-{/if}
+    {else}
+        {$content}
+    {/if}
 {/strip}

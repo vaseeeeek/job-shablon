@@ -74,13 +74,13 @@
     {/if}
 
     {if $theme_settings.favorites}
-        <div class="js-button Product-grid_action{if $theme_settings.compare_products} margin{/if}">
+        <div class="js-button Product-grid_action{if $theme_settings.compare} margin{/if}">
             <span data-product="{$p.id}" class="js-favorites-add product-action add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
-                <i class="fa fa-heart"></i>
+                <i class="fi-rr-heart"></i>
             </span>
         </div>
     {/if}
-    {if $theme_settings.compare_products}
+    {if $theme_settings.compare}
         <div class="js-button Product-grid_action">
             <span class="js-compare-add product-action add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
                 <i class="fa fa-files-o"></i>
@@ -91,7 +91,7 @@
     {if $theme_settings.product_preview_dialog}
         <div class="js-dialog Product-grid_dialog Product-grid_action">
             <span class="js-card-dialog product-action" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
-                <i class="fa fa-search-plus"></i>
+                <i class="fa fi-rr-zoom-in"></i>
             </span>
         </div>
     {/if}
@@ -229,12 +229,12 @@
                         {if !$_hide_btn}
                             {if $p.sku_count > 1}
                                 {if $wa_app == 'shop'}
-                                    <span class="button js-card-dialog addtocart ion-android-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
+                                    <span class="button js-card-dialog addtocart fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
                                 {else}
-                                    <a class="button addtocart ion-android-cart" href="{$p.frontend_url}"></a>
+                                    <a class="button addtocart fi-rr-shopping-cart" href="{$p.frontend_url}"></a>
                                 {/if}
                             {else}
-                                <span class="button js-submit-form addtocart ion-android-cart"></span>
+                                <span class="button js-submit-form addtocart fi-rr-shopping-cart"></span>
                             {/if}
                         {/if}
                     {else}
