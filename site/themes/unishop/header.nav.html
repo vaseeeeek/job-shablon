@@ -1,11 +1,37 @@
 {strip}
 {if $wa->shop}
-    <div class="Nav__Primary-outer bg-maincolor js-moved-content">
-        <div class="Nav__Primary container">
-            {if !$theme_settings.sidebar_mainpage || $wa_app != 'shop' || $wa->currentUrl() != $wa_app_url}
-                {include file="header.categories.html"}
-            {/if}
+    {if $theme_settings.horizontal_menu || (!$theme_settings.sidebar_mainpage || $wa_app != 'shop' || $wa->currentUrl() != $wa_app_url)}
+        <div class="Nav__Primary-outer bg-maincolor js-moved-content">
+            <div class="Nav__Primary container">
+                {if $theme_settings.horizontal_menu}
+                    <ul class="Nav__horizontal--list {if $theme_settings.horizontal_menu_between}-Between{/if}">
+                        {if $theme_settings.horizontal_menu == 'cat'}
+                            {$catListHorizontalNav = $wa->shop->categories(0, null, true, true)}
+                            {foreach $catListHorizontalNav as $id => $cat}
+                                <li class="Nav__horizontal--item">
+                                    <a class="Nav__horizontal--link" href="{$cat.url}">
+                                        {$cat.name}
+                                    </a>
+                                </li>
+                            {/foreach}
+                        {elseif $theme_settings.horizontal_menu == 'app' && $theme_settings.horizontal_menu_app_id}
+                            {$appMenuId = $theme_settings.horizontal_menu_app_id}
+                            {$items = $wa->menu->get($appMenuId)}
+                            {foreach $items as $id => $cat}
+                                <li class="Nav__horizontal--item">
+                                    <a class="Nav__horizontal--link" href="{$cat.url}">
+                                        {$cat.name}
+                                    </a>
+                                </li>
+                            {/foreach}
+                        {/if}
+                    </ul>
+                {/if}
+                {if !$theme_settings.sidebar_mainpage || $wa_app != 'shop' || $wa->currentUrl() != $wa_app_url}
+                    {include file="header.categories.html"}
+                {/if}
+            </div>
         </div>
-    </div>
+    {/if}
 {/if}
 {/strip}

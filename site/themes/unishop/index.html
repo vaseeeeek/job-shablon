@@ -100,8 +100,6 @@
                 </div>
             </div>
             <div class="header--right">
-
-
                 {* проверить работу плагина *}
                 <div class="Nav-search js-header-search">
                     <i class="btn Nav-search_btn-show fa-icon-before js-show-Nav-search"></i>
@@ -121,8 +119,13 @@
                         </form>
                     {/if}
                 </div>
-                {$wa->block("header_address")}
-                {$wa->block("header_contacts")}
+
+                <div class="Nav-contact-info">
+                    <p class="Nav-contact-phone">{$theme_settings.header_company_phone}</p>
+                    <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
+                    <p class="Nav-contact-callback">Обратный звонок</p>
+                </div>
+
                 <div class="Nav-product-custom">
                     {if $theme_settings.favorites}
                         {$count_favorites = 0}

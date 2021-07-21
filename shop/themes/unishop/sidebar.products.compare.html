@@ -15,9 +15,9 @@
 
     <div class="sb-wrap compare-products">
 
-        <div class="js-compare-products-full{if count($in_comparison) == 0} display_none{/if}">
+        <div class="js-compare-products-full{if count($in_comparison) == 0} -Close{/if}">
             <div class="js-compare-Products-list sb-wrap_content">
-                <div class="js-compare-template sb-product display_none">
+                <div class="js-compare-template sb-product -Close">
                     <a class="sb-product_img js-compare-img" href=""></a>
                     <div class="sb-product_content ">
                         <a class="sb-product_name js-compare-name" href=""></a>
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <div class="js-compare-products-empty sb-wrap_content{if count($in_comparison) > 0} display_none{/if}">
+        <div class="js-compare-products-empty sb-wrap_content{if count($in_comparison) > 0} -Close{/if}">
             [`Products in compare no`]
         </div>
     </div>

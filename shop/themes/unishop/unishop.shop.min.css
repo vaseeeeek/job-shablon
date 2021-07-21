@@ -9086,7 +9086,6 @@ iframe {
     background: #fff;
     color: #4d4d4d;
     box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
-    margin: 23px 0 0;
     position: relative;
     border: 1px solid #ebebeb;
     border-top-width: 3px
@@ -9347,12 +9346,6 @@ iframe {
     }
 }
 
-
-
-.Nav__Primary-outer {
-    margin: 0 0 15px
-}
-
 .Nav__Primary {
     position: relative
 }
@@ -9498,7 +9491,7 @@ iframe {
 .left-sidebar .nav-cat_wrap {
     position: relative;
     left: 0;
-    margin: -24px 0 0
+    margin: -18px 0 0
 }
 
 .left-sidebar .dd-wrap {
@@ -10509,10 +10502,6 @@ button.owl-dot {
         box-sizing: border-box
     }
 
-    .Nav__Primary-outer .dd-wrap {
-        margin: 0 -10px -10px
-    }
-
     .catmenu-el_banner, .menu-subcategory_banner {
         display: none;
         width: 0;
@@ -11087,7 +11076,7 @@ button.owl-dot {
     border-radius: 0 100px 100px 0;
     text-align: center;
     padding: 3px 10px;
-    z-index: 1
+    z-index: 2
 }
 
 .badge span {
@@ -12200,9 +12189,7 @@ button.owl-dot {
     display: block
 }
 
-.display_none {
-    display: none
-}
+
 
 .tabs {
     border-bottom: 1px solid #ebebeb;
@@ -19782,6 +19769,7 @@ article, aside, footer, header, nav, section {
 }
 
 .header-top_menu {
+    flex: 1;
     margin: 0 !important
 }
 
@@ -20217,11 +20205,11 @@ article, aside, footer, header, nav, section {
 .product-page_main-left {
     flex: 1 1 calc(55% - 100px);
     overflow: hidden;
+    position: relative;
 }
 @media (max-width: 825px){
     .product-page_main-left {
         flex: 1 1 100%;
-        overflow: hidden;
     }
 }
 .product-page_main-right {
@@ -20471,4 +20459,35 @@ article, aside, footer, header, nav, section {
 .header__cart {
     padding-left: 24px;
     height: 32px;
+}
+
+.Nav__horizontal--list {
+    list-style: none;
+    display: flex;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.Nav__horizontal--list.-Between {
+    justify-content: space-between;
+}
+.Nav__horizontal--link {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.Nav__horizontal--list:not(.-Beetwen) .Nav__horizontal--item:not(:last-child){
+    margin-right:20px
+}
+.Nav-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Nav-contact-info p {
+    margin: 0;
+    line-height: 1;
+    font-weight: 600;
+    color: #333333;
+}
+.-Close {
+    display: none;
 }

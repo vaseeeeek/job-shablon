@@ -31,9 +31,9 @@
             {$index = 1}
             {foreach $cat.childs as $keyCatChild => $catChild_2}
                 {if !isset($catChild_2.params.menu_hide)}
-                    {$is_subcat_lvl2 = 0}
+                    {$_subcat_lvl2 = 0}
                     {if count($catChild_2.childs) && $theme_settings.max_cat_lvl > 2 && ($type_subcategory_image != 'image' || $wa->isMobile())}
-                        {$is_subcat_lvl2 = 1}
+                        {$_subcat_lvl2 = 1}
                     {/if}
 
                     {if $index > $count_childs_in_col || $type_align_subcat != 'column'}
@@ -41,8 +41,8 @@
                         </div> <!--  .subcat_col -->
                         <div class="subcat_col">
                     {/if}
-                        <div class="subcat-opened__el{if $is_subcat_lvl2} js-subcatmenu-el has-subs{/if}{if $type_subcategory_image == 'image'} align-center{/if}">
-                            {if $is_subcat_lvl2}
+                        <div class="subcat-opened__el{if $_subcat_lvl2} js-subcatmenu-el has-subs{/if}{if $type_subcategory_image == 'image'} align-center{/if}">
+                            {if $_subcat_lvl2}
                                 <i class="js-cat-el-caret fi-rr-angle-small-right"></i>
                             {/if}
                             <div class="subcat-opened__el-name">
@@ -81,7 +81,7 @@
                                 {/if}
                             {/if}
 
-                            {if $is_subcat_lvl2}
+                            {if $_subcat_lvl2}
                                 <div class="subcat-disclosed__subs js-subcategorymenu">
                                     {foreach $catChild_2.childs as $catChild_3}
                                         {if !isset($catChild_3.params.menu_hide)}

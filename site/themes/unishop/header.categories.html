@@ -38,81 +38,79 @@
 
 {* add links from pages *}
 {if $theme_settings.added_cat_menu_links}
-    {$add_links = []}
-    {$add_links_res = []}
+    {$links_add = []}
+    {$links_add_res = []}
     {if $theme_settings.added_cat_menu_links == 'app-menu' && $theme_settings.get_menu_from != 'app-menu' && $wa->menu && (int)$theme_settings.id_app_menu_cat > 0}
         {$id_menu = $theme_settings.id_app_menu_cat}
-        {$add_links_res = $wa->menu->get($id_menu)}
+        {$links_add_res = $wa->menu->get($id_menu)}
     {else}
         {if $theme_settings.added_cat_menu_links == 'site-pages'}
-            {if $wa->site}{$add_links = $wa->site->pages()}{/if}
+            {if $wa->site}{$links_add = $wa->site->pages()}{/if}
         {elseif $theme_settings.added_cat_menu_links == 'shop-pages'}
-            {if $wa->shop}{$add_links = $wa->shop->pages()}{/if}
+            {if $wa->shop}{$links_add = $wa->shop->pages()}{/if}
         {elseif $theme_settings.added_cat_menu_links == 'blog-pages'}
-            {if $wa->blog}{$add_links = $wa->blog->pages()}{/if}
+            {if $wa->blog}{$links_add = $wa->blog->pages()}{/if}
         {elseif $theme_settings.added_cat_menu_links == 'photos-pages'}
-            {if $wa->photos}{$add_links = $wa->photos->pages()}{/if}
+            {if $wa->photos}{$links_add = $wa->photos->pages()}{/if}
         {elseif $theme_settings.added_cat_menu_links == 'hub-pages'}
-            {if $wa->hub}{$add_links = $wa->hub->pages()}{/if}
+            {if $wa->hub}{$links_add = $wa->hub->pages()}{/if}
         {/if}
 
         {$ids = ","|explode:$theme_settings.added_cat_menu_links_ids}
-        {if count($add_links) > 0 && count($ids) > 0}
-            {foreach $add_links as $add_link}
-                {if in_array($add_link.id, $ids)}
-                    {$add_linkId = "add`$add_link.id`"}
-                    {$add_link = ['name' => $add_link.title, 'url' => $add_link.url, 'childs' => [], 'id' => $add_linkId, 'page'=>1]}
-                    {if isset($add_link.childs) && $add_link.childs && count($add_link.childs)}
-                        {$add_link['childs'] = $add_link.childs}
-                        {foreach $add_link.childs as $key => $child}
-                            {$add_link.childs[$key]["page"] = 1}
-                            {if !isset($add_link.childs[$key]['childs'])}{$add_link.childs[$key]['childs'] = []}{/if}
-                            {if isset($add_link.childs[$key]['icon'])}
-                                {$add_link.childs[$key]['params']['icon'] = $add_link.childs[$key]['icon']}
+        {if count($links_add) > 0 && count($ids) > 0}
+            {foreach $links_add as $link_add}
+                {if in_array($link_add.id, $ids)}
+                    {$linkId_add = "add`$link_add.id`"}
+                    {$link_add = ['name' => $link_add.title, 'url' => $link_add.url, 'childs' => [], 'id' => $linkId_add, 'page'=>1]}
+                    {if isset($link_add.childs) && $link_add.childs && count($link_add.childs)}
+                        {$link_add['childs'] = $link_add.childs}
+                        {foreach $link_add.childs as $key => $child}
+                            {$link_add.childs[$key]["page"] = 1}
+                            {if !isset($link_add.childs[$key]['childs'])}{$link_add.childs[$key]['childs'] = []}{/if}
+                            {if isset($link_add.childs[$key]['icon'])}
+                                {$link_add.childs[$key]['params']['icon'] = $link_add.childs[$key]['icon']}
                             {/if}
-                            {if isset($add_link.childs[$key]['image'])}
-                                {$add_link.childs[$key]['params']['image'] = $add_link.childs[$key]['image']}
+                            {if isset($link_add.childs[$key]['image'])}
+                                {$link_add.childs[$key]['params']['image'] = $link_add.childs[$key]['image']}
                             {/if}
                         {/foreach}
                     {/if}
-                    {if isset($add_link.icon)}
-                        {$add_link['params']['icon'] = $add_link.icon}
+                    {if isset($link_add.icon)}
+                        {$link_add['params']['icon'] = $link_add.icon}
                     {/if}
-                    {if isset($add_link.submenu_columns)}
-                        {$add_link['params']['submenu_columns'] = $add_link.submenu_columns}
+                    {if isset($link_add.submenu_columns)}
+                        {$link_add['params']['submenu_columns'] = $link_add.submenu_columns}
                     {/if}
-                    {if isset($add_link.submenu_pic)}
-                        {$add_link['params']['submenu_pic'] = $add_link.submenu_pic}
+                    {if isset($link_add.submenu_pic)}
+                        {$link_add['params']['submenu_pic'] = $link_add.submenu_pic}
                     {/if}
-                    {if strlen($add_link.url)>1 && $wa->currentUrl() == $add_link.url}
-                        {$category_selected=$add_linkId}
+                    {if strlen($link_add.url)>1 && $wa->currentUrl() == $link_add.url}
+                        {$category_selected=$linkId_add}
                     {/if}
-                    {$add_links_res[] = $add_link}
+                    {$links_add_res[] = $link_add}
                 {/if}
             {/foreach}
         {/if}
     {/if}
-    {if count($add_links_res) > 0}
+    {if count($links_add_res) > 0}
         {if $theme_settings.added_cat_menu_links_end}
-            {$categories = $categories|@array_merge:$add_links_res}
+            {$categories = $categories|@array_merge:$links_add_res}
         {else}
-            {$categories = $add_links_res|@array_merge:$categories}
+            {$categories = $links_add_res|@array_merge:$categories}
         {/if}
     {/if}
 {/if}
 
 {* hide lasted categories to ELSE link *}
 {$else_categories = []}
-{if !empty($max_count_categories) && (!$wa->isMobile() || ($wa->isMobile() && $wa->cookie("is_desktop_for_mobile") == 1))}
+{if !empty($max_count_categories) && !$wa->isMobile()}
     {$index = 0}
     {foreach $categories as $cat}
-        {if !isset($cat.params.menu_hide)}
-            {$index = $index + 1}
-            {if $index <= $max_count_categories}
-                {$cat_result[] = $cat}
-            {else}
-                {$else_categories[] = $cat}
-            {/if}
+        {$index = $index + 1}
+        {if $index <= $max_count_categories}
+            {$cat_result[] = $cat}
+        {else}
+            {$else_categories[] = $cat}
         {/if}
     {/foreach}
     {if !empty($else_categories)}
@@ -122,80 +120,76 @@
     {$cat_result = $categories}
 {/if}
 
-{$is_retina = $theme_settings.cat_img_menu_retina && !empty($skImages)}
 <div id="nav-cat"{if $theme_settings.cat_hover_dd_delay} data-delay="1"{/if} class="nav-cat_wrap js-dd-wrap{if $menu_static} desktop-show{/if}" data-retina="{$is_retina}" data-lazy="{$theme_settings.menu_cat_img_lazy}">
     {if !$menu_static && $theme_settings.cat_hover_bg}<div class="js-bg cat-nav-bg mfp-bg mfp-ready"></div>{/if}
     <div class="dd-wrap">
         <div class="category-menu js-category-menu-wrap">
             {foreach $cat_result as $cat}
-                {if !isset($cat.params.menu_hide)}
-                    {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
-                        {$type_view_subcat = $cat.params.submenu_columns}
-                    {else if $theme_settings.col_menu_subcat}
-                        {$type_view_subcat = $theme_settings.col_menu_subcat}
-                    {/if}
-                    {if !isset($type_view_subcat) || ($type_view_subcat != "columns")}
-                        {$type_view_subcat = "one_column"}
-                    {/if}
-
-
-
-                    {$is_subcat = 0}
-                    {if count($cat.childs) && $theme_settings.max_cat_lvl > 1}
-                        {foreach $cat.childs as $child}
-                            {if !isset($child.params.menu_hide)}
-                                {$is_subcat = 1}
-                            {/if}
-                        {/foreach}
-                    {/if}
-                    {if $cat.id == 'else'}
-                        {$is_subcat = 1}
-                    {/if}
-                    <div class="{if $is_subcat}js-cat-subs-{if $type_view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__el{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
-                        {if $is_subcat}
-                            <i class="js-cat-el-caret fi-rr-angle-small-right"></i>
-                        {/if}
-
-                        {if $cat.id == 'else'}
-                            <div class="cat-menu__el-link">
-                                <span class="cat-menu__el-title cat-menu__el-title--else maincolor">
-                                    [`Else categories`]
-                                </span>
-                            </div>
-                        {else}
-                            <a class="cat-menu__el-link" href="{$cat.url}">
-                                {if $theme_settings.icon_dropdown_menu_subcategories}
-                                    {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
-                                        {$cat.params.icon = $Wmimages[$cat.id].icon}
-                                    {/if}
-                                    {if isset($skImages[$cat.id].icon)}
-                                        {$cat.params.icon = $skImages[$cat.id].icon}
-                                    {/if}
-                                    {if isset($cat.params.icon)}
-                                        <div class="cat-menu__el-icon">
-                                            {if $theme_settings.menu_cat_img_lazy}
-                                                <img class="js-category-menu-image" alt="{$cat.name}" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.icon}" />
-                                            {else}
-                                                <img class="js-category-menu-image" alt="{$cat.name}" src="{$cat.params.icon}" />
-                                            {/if}
-                                        </div>
-                                    {/if}
-                                {/if}
-                                <div class="cat-menu__el-title">
-                                    {$cat.name}
-                                </div>
-                            </a>
-                        {/if}
-                        {if $is_subcat}
-                            {if isset($wa_parent_theme_path)}
-                                {$subcatFile = "`$wa_parent_theme_path`/header.subcat.`$type_view_subcat`.html"}
-                            {else}
-                                {$subcatFile = "header.subcat.`$type_view_subcat`.html"}
-                            {/if}
-                            {include file=$subcatFile}
-                        {/if}
-                    </div>
+                {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
+                    {$type_view_subcat = $cat.params.submenu_columns}
+                    <!-- Спросить о настройке -->
+                {else if $theme_settings.col_menu_subcat}
+                    {$type_view_subcat = $theme_settings.col_menu_subcat}
                 {/if}
+                {if !isset($type_view_subcat) || ($type_view_subcat != "columns")}
+                    {$type_view_subcat = "one_column"}
+                {/if}
+
+
+
+                {$_subcat = 0}
+                {if count($cat.childs) && $theme_settings.max_cat_lvl > 1}
+                    {foreach $cat.childs as $child}
+                        {$_subcat = 1}
+                    {/foreach}
+                {/if}
+                {if $cat.id == 'else'}
+                    {$_subcat = 1}
+                {/if}
+                <div class="{if $_subcat}js-cat-subs-{if $type_view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__el{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
+                    {if $_subcat}
+                        <i class="js-cat-el-caret fi-rr-angle-small-right"></i>
+                    {/if}
+
+                    {if $cat.id == 'else'}
+                        <div class="cat-menu__el-link">
+                            <span class="cat-menu__el-title cat-menu__el-title--else maincolor">
+                                [`Else categories`]
+                            </span>
+                        </div>
+                    {else}
+                        <a class="cat-menu__el-link" href="{$cat.url}">
+                            {if $theme_settings.icon_dropdown_menu_subcategories}
+                                {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
+                                    {$cat.params.icon = $Wmimages[$cat.id].icon}
+                                {/if}
+                                {if isset($skImages[$cat.id].icon)}
+                                    {$cat.params.icon = $skImages[$cat.id].icon}
+                                {/if}
+                                {if isset($cat.params.icon)}
+                                    <div class="cat-menu__el-icon">
+                                        {if $theme_settings.menu_cat_img_lazy}
+                                            <img class="js-category-menu-image" alt="{$cat.name}" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.icon}" />
+                                        {else}
+                                            <img class="js-category-menu-image" alt="{$cat.name}" src="{$cat.params.icon}" />
+                                        {/if}
+                                    </div>
+                                {/if}
+                            {/if}
+                            <div class="cat-menu__el-title">
+                                {$cat.name}
+                            </div>
+                        </a>
+                    {/if}
+                    {if $_subcat}
+                        {if isset($wa_parent_theme_path)}
+                            {$subcatFile = "`$wa_parent_theme_path`/header.subcat.`$type_view_subcat`.html"}
+                        {else}
+                            {$subcatFile = "header.subcat.`$type_view_subcat`.html"}
+                        {/if}
+                        {include file=$subcatFile}
+                    {/if}
+                </div>
             {/foreach}
         </div>
     </div>

@@ -309,7 +309,7 @@ Product.prototype.updateDiscount = function (price, compare_price) {
             typeRound = this.discount.data('round'),
             minimal = parseInt(this.discount.data('minimal'));
 
-        this.discount.addClass('display_none');
+        this.discount.addClass('-Close');
         if(compare_price > price && price > 0){
             discount = ((compare_price- price)/compare_price)*100;
             if (typeRound == "ceil"){
@@ -320,7 +320,7 @@ Product.prototype.updateDiscount = function (price, compare_price) {
                 discount = Math.round(discount);
             }
             if(discount >= minimal){
-                this.discount.html('-' + discount + '%').removeClass('display_none');
+                this.discount.html('-' + discount + '%').removeClass('-Close');
             }
         }
     }
@@ -329,11 +329,11 @@ Product.prototype.updateDiscount = function (price, compare_price) {
 Product.prototype.updateSaved = function (price, compare_price) {
     if (this.savedWrap.length){
 
-        this.savedWrap.addClass('display_none');
+        this.savedWrap.addClass('-Close');
         if(compare_price > price && price > 0){
             var saved = price - compare_price;
 
-            this.savedWrap.html(this.currencyFormat(saved)).removeClass('display_none');
+            this.savedWrap.html(this.currencyFormat(saved)).removeClass('-Close');
         }
     }
 };

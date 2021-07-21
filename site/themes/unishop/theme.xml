@@ -467,7 +467,7 @@
       </options>
     </setting>
     <setting var="max_num_cat_dd" control_type="text">
-      <value>8</value>
+      <value>3</value>
       <name locale="ru_RU">Максимальное количество категорий в выпадающем меню категорий</name>
       <name locale="en_US">Maximum number of categories in the drop-down list</name>
       <description locale="ru_RU">Остальные категории скроются за пунктом "Еще". Если поле пустое, выводятся все категории.</description>
@@ -636,12 +636,12 @@
       <name locale="ru_RU">Сайдбар</name>
     </setting>
     <setting var="sidebar_mainpage" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Display left sidebar with menu of categories</name>
       <name locale="ru_RU">Показывать левый сайдбар с категориями</name>
     </setting>
     <setting var="max_num_cat_sb" control_type="text">
-      <value>8</value>
+      <value><![CDATA[4]]></value>
       <name locale="ru_RU">Максимальное количество категорий в сайдбаре на главной</name>
       <name locale="en_US">Maximum number of categories in the sidebar on the main</name>
       <description locale="ru_RU">
@@ -3128,6 +3128,45 @@
           <name locale="ru_RU">5</name>
         </option>
       </options>
+    </setting>
+    <setting var="horizontal_menu" control_type="select">
+      <value>cat</value>
+      <name locale="en_US"/>
+      <name locale="ru_RU">Вывод горизонтального меню</name>
+      <options>
+        <option value="0">
+          <name locale="en_US"/>
+          <name locale="ru_RU">Не выводить</name>
+        </option>
+        <option value="cat">
+          <name locale="en_US"/>
+          <name locale="ru_RU">Категории первого уровня</name>
+        </option>
+        <option value="app">
+          <name locale="en_US"/>
+          <name locale="ru_RU">приложение "Управление меню"</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="horizontal_menu_between" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Растянуть горизонтальное меню</name>
+      <name locale="en_US">Display quick edit links (for site administrator)</name>
+    </setting>
+    <setting var="horizontal_menu_app_id" control_type="text">
+      <value>83</value>
+      <name locale="en_US"/>
+      <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
+    </setting>
+    <setting var="header_company_phone" control_type="text">
+      <value>+7 (999) - 999 - 99 - 99</value>
+      <name locale="ru_RU">Телефон</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="header_company_email" control_type="text">
+      <value>vaseeeeeeeeeeeeeeeeeeeeeek53@gmail.com</value>
+      <name locale="ru_RU">Почта</name>
+      <name locale="en_US"/>
     </setting>
   </settings>
   <locales>
