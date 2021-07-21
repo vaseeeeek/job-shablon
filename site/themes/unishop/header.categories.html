@@ -120,19 +120,19 @@
     {$cat_result = $categories}
 {/if}
 
-<div id="nav-cat"{if $theme_settings.cat_hover_dd_delay} data-delay="1"{/if} class="nav-cat_wrap js-dd-wrap{if $menu_static} desktop-show{/if}" data-retina="{$is_retina}" data-lazy="{$theme_settings.menu_cat_img_lazy}">
+<div id="nav-cat"{if $theme_settings.cat_hover_dd_delay} data-delay="1"{/if} class="nav-cat_wrap js-dd-wrap{if $menu_static} desktop-show{/if}" data-retina="{$_retina}" data-lazy="{$theme_settings.menu_cat_img_lazy}">
     {if !$menu_static && $theme_settings.cat_hover_bg}<div class="js-bg cat-nav-bg mfp-bg mfp-ready"></div>{/if}
     <div class="dd-wrap">
         <div class="category-menu js-category-menu-wrap">
             {foreach $cat_result as $cat}
                 {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
-                    {$type_view_subcat = $cat.params.submenu_columns}
+                    {$view_subcat = $cat.params.submenu_columns}
                     <!-- Спросить о настройке -->
                 {else if $theme_settings.col_menu_subcat}
-                    {$type_view_subcat = $theme_settings.col_menu_subcat}
+                    {$view_subcat = $theme_settings.col_menu_subcat}
                 {/if}
-                {if !isset($type_view_subcat) || ($type_view_subcat != "columns")}
-                    {$type_view_subcat = "one_column"}
+                {if !isset($view_subcat) || ($view_subcat != "columns")}
+                    {$view_subcat = "one_column"}
                 {/if}
 
 
@@ -146,20 +146,21 @@
                 {if $cat.id == 'else'}
                     {$_subcat = 1}
                 {/if}
-                <div class="{if $_subcat}js-cat-subs-{if $type_view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__el{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
+                <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
                     {if $_subcat}
-                        <i class="js-cat-el-caret fi-rr-angle-small-right"></i>
+                        <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                     {/if}
 
                     {if $cat.id == 'else'}
-                        <div class="cat-menu__el-link">
-                            <span class="cat-menu__el-title cat-menu__el-title--else maincolor">
+                        <div class="cat-menu__item-link">
+                            <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
                                 [`Else categories`]
                             </span>
                         </div>
                     {else}
-                        <a class="cat-menu__el-link" href="{$cat.url}">
-                            {if $theme_settings.icon_dropdown_menu_subcategories}
+                        <a class="cat-menu__item-link" href="{$cat.url}">
+                            <!-- Спросить о настройке -->
+                            {if $theme_settings.icon_dd_menu_subcat}
                                 {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
                                     {$cat.params.icon = $Wmimages[$cat.id].icon}
                                 {/if}
@@ -167,7 +168,7 @@
                                     {$cat.params.icon = $skImages[$cat.id].icon}
                                 {/if}
                                 {if isset($cat.params.icon)}
-                                    <div class="cat-menu__el-icon">
+                                    <div class="cat-menu__item-icon">
                                         {if $theme_settings.menu_cat_img_lazy}
                                             <img class="js-category-menu-image" alt="{$cat.name}" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.icon}" />
                                         {else}
@@ -176,16 +177,16 @@
                                     </div>
                                 {/if}
                             {/if}
-                            <div class="cat-menu__el-title">
+                            <div class="cat-menu__item-title">
                                 {$cat.name}
                             </div>
                         </a>
                     {/if}
                     {if $_subcat}
                         {if isset($wa_parent_theme_path)}
-                            {$subcatFile = "`$wa_parent_theme_path`/header.subcat.`$type_view_subcat`.html"}
+                            {$subcatFile = "`$wa_parent_theme_path`/header.subcat.`$view_subcat`.html"}
                         {else}
-                            {$subcatFile = "header.subcat.`$type_view_subcat`.html"}
+                            {$subcatFile = "header.subcat.`$view_subcat`.html"}
                         {/if}
                         {include file=$subcatFile}
                     {/if}

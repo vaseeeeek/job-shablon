@@ -5,12 +5,12 @@
     {$type_align_subcat = $theme_settings.type_menu_subcat}
 {/if}
 
-{$countColumns = 4}
-{if count($cat.childs) <= $countColumns}
-    {$count_childs_in_col = 1}
-    {$countColumns = count($cat.childs)}
+{$totalColumns = 4}
+{if count($cat.childs) <= $totalColumns}
+    {$total_childs_col = 1}
+    {$totalColumns = count($cat.childs)}
 {else}
-    {$count_childs_in_col = ceil(count($cat.childs) / $countColumns)}
+    {$total_childs_col = ceil(count($cat.childs) / $totalColumns)}
 {/if}
 
 {$type_subcategory_image = ""}
@@ -25,9 +25,9 @@
     {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 
-<div class="menu-subcategory cols-{ceil(count($cat.childs) / $count_childs_in_col)} menu-subcategory--disclosed js-subcategorymenu">
-    <div class="subcat_cols">
-        <div class="{if $type_align_subcat == 'column'}subcat_col{/if}">
+<div class="menu-subcategory cols-{ceil(count($cat.childs) / $total_childs_col)} menu-subcategory--disclosed js-subcategory-menu">
+    <div class="sub-category_cols">
+        <div class="{if $type_align_subcat == 'column'}sub-category_col{/if}">
             {$index = 1}
             {foreach $cat.childs as $keyCatChild => $catChild_2}
                 {if !isset($catChild_2.params.menu_hide)}
@@ -36,14 +36,14 @@
                         {$_subcat_lvl2 = 1}
                     {/if}
 
-                    {if $index > $count_childs_in_col || $type_align_subcat != 'column'}
+                    {if $index > $total_childs_col || $type_align_subcat != 'column'}
                         {$index = 1}
-                        </div> <!--  .subcat_col -->
-                        <div class="subcat_col">
+                        </div> <!--  .sub-category_col -->
+                        <div class="sub-category_col">
                     {/if}
                         <div class="subcat-opened__el{if $_subcat_lvl2} js-subcatmenu-el has-subs{/if}{if $type_subcategory_image == 'image'} align-center{/if}">
                             {if $_subcat_lvl2}
-                                <i class="js-cat-el-caret fi-rr-angle-small-right"></i>
+                                <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                             {/if}
                             <div class="subcat-opened__el-name">
                                 <a  href="{$catChild_2.url}">{$catChild_2.name}</a>
@@ -82,10 +82,10 @@
                             {/if}
 
                             {if $_subcat_lvl2}
-                                <div class="subcat-disclosed__subs js-subcategorymenu">
+                                <div class="sub-category-opened__subs js-subcategory-menu">
                                     {foreach $catChild_2.childs as $catChild_3}
                                         {if !isset($catChild_3.params.menu_hide)}
-                                            <div class="subcat-disclosed__sub">
+                                            <div class="sub-category-opened__sub">
                                                 <a href="{$catChild_3.url}">{$catChild_3.name}</a>
                                             </div>
                                         {/if}

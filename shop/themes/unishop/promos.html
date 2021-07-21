@@ -1,16 +1,16 @@
 {$promoslist = []}
 {if $theme_settings.nums_promos_list}
-    {$promo_nums = ","|explode:$theme_settings.nums_promos_list}
-    {if count($promo_nums) > 0}
-        {foreach $promo_nums as $num}
-            {if isset($promocards[$num])}
-                {$promoslist[] = $promocards[$num]}
+    {$promo_ids = ","|explode:$theme_settings.nums_promos_list}
+    {if count($promo_ids) > 0}
+        {foreach $promo_ids as $num}
+            {if isset($mPromoCards[$num])}
+                {$promoslist[] = $mPromoCards[$num]}
             {/if}
         {/foreach}
     {/if}
 {/if}
 {if empty($promoslist)}
-    {$promoslist = $promocards}
+    {$promoslist = $mPromoCards}
 {/if}
 {if count($promoslist) > 0}
     {if $theme_settings.homepage_promos_rand}{$shuffle = $promoslist|shuffle}{/if}
@@ -18,7 +18,7 @@
     <div class="promos-list-col{count($promoslist)} wrapper-justify">
         {foreach $promoslist as $promo}
             {strip}
-                {if $promo@first && $wa->isMobile() && !empty($theme_settings.preload_image_homepage)}
+                {if $promo@first && $wa->isMobile() && !empty($theme_settings.image_mainpage_preload)}
                     {$wa->globals('preload_image_2', $promo.image)}
                 {/if}
                 <a href="{$promo.link|escape}" {if $promo.image && $is_image_bg} style="background-image: url({$promo.image})"{/if} class="promos-tile__el{if $promo.image && $is_image_bg} promos-tile__el--img-bg{/if}" >

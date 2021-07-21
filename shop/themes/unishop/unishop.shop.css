@@ -3720,7 +3720,7 @@ a.promos-list-col1 .promos-tile__el{
         float: none;
     }
 
-    .mainpage-categories{
+    .homepage-categories{
         padding: 0;
     }
 
@@ -3750,7 +3750,7 @@ a.promos-list-col1 .promos-tile__el{
 
 }
 
-.categories-tile-list{
+.cat-tile-list{
     padding-bottom: 10px;
     font-size: 0;
 }
@@ -3779,7 +3779,7 @@ a.promos-list-col1 .promos-tile__el{
     width: 23%;
 }
 
-.mainpage-categories{
+.homepage-categories{
     padding-bottom: 0;
     border: 1px solid #ebebeb;
 }
@@ -3788,7 +3788,7 @@ a.promos-list-col1 .promos-tile__el{
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-.categories-tile_image{
+.cat-tile_image{
     height: 140px;
     line-height: 140px;
     overflow: hidden;
@@ -3796,13 +3796,13 @@ a.promos-list-col1 .promos-tile__el{
     text-align: center;
 }
 
-.categories-tile_image img{
+.cat-tile_image img{
     max-height: 100%;
     max-width: 100%;
     vertical-align: middle;
 }
 
-.categories-tile_title{
+.cat-tile_name{
     padding: 10px 0;
     margin: 0 10px;
     border-top: 1px solid #ebebeb;
@@ -3830,7 +3830,7 @@ a.promos-list-col1 .promos-tile__el{
 }
 
 @media (max-width: 780px) {
-    .categories-tile-list{
+    .cat-tile-list{
         text-align: center;
     }
 
@@ -3852,7 +3852,7 @@ a.promos-list-col1 .promos-tile__el{
         background: #FFF;
     }
 
-    .mainpage-categories{
+    .homepage-categories{
         background: none;
         border: 0;
     }
@@ -4528,11 +4528,11 @@ input[type=button].storequickorder-button:hover{
     padding: 0 !important;
 }
 
-.wa-order-cross_selling-wrapper .wa-slider-wrapper .wa-slider-list{
+.wa-order-cross_selling-wrapper .wa-slider-outerper .wa-slider-list{
     padding-bottom: 0 !important;
 }
 
-.wa-order-cross_selling-wrapper .wa-slider-wrapper .wa-slider-list .wa-slide-wrapper{
+.wa-order-cross_selling-wrapper .wa-slider-outerper .wa-slider-list .wa-slide-wrapper{
     padding: 20px !important;
 }
 
@@ -4548,7 +4548,7 @@ input[type=button].storequickorder-button:hover{
     width: calc(100% - 65px);
 }
 
-.wa-order-cross_selling-wrapper .wa-slider-wrapper .wa-slider-actions .wa-action > *{
+.wa-order-cross_selling-wrapper .wa-slider-outerper .wa-slider-actions .wa-action > *{
     top: 50px !important;
     width: 23px !important;
     height: 23px !important;

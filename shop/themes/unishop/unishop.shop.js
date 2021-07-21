@@ -206,7 +206,7 @@ var filter = {
             isSaveFilters = subcategoriesWrap.data('save-filters'),
             saveFiltersAliases = subcategoriesWrap.data('save-filters-aliases'),
             saveFields = fields,
-            subcategiesLink = subcategoriesWrap.find('.js-category-link');
+            subcategiesLink = subcategoriesWrap.find('.js-cat-link');
 
         if(isSaveFilters){
             if(saveFiltersAliases){

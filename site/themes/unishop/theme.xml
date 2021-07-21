@@ -473,7 +473,7 @@
       <description locale="ru_RU">Остальные категории скроются за пунктом "Еще". Если поле пустое, выводятся все категории.</description>
       <description locale="en_US">Other categories will be hidden behind the "More". If the empty field displays all categories</description>
     </setting>
-    <setting var="icon_dropdown_menu_subcategories" control_type="checkbox">
+    <setting var="icon_dd_menu_subcat" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Показывать иконки для первого уровня в выпадающем меню категорий</name>
       <name locale="en_US">Show icons for the first level in the menu</name>
@@ -641,7 +641,7 @@
       <name locale="ru_RU">Показывать левый сайдбар с категориями</name>
     </setting>
     <setting var="max_num_cat_sb" control_type="text">
-      <value><![CDATA[4]]></value>
+      <value>4</value>
       <name locale="ru_RU">Максимальное количество категорий в сайдбаре на главной</name>
       <name locale="en_US">Maximum number of categories in the sidebar on the main</name>
       <description locale="ru_RU">
@@ -693,8 +693,8 @@
       <name locale="en_US">Slider</name>
       <name locale="ru_RU">Слайдер</name>
     </setting>
-    <setting var="homepage_bxslider_mode" control_type="select">
-      <value>products</value>
+    <setting var="homepage_type_slider_mode" control_type="select">
+      <value>promos</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <options>
@@ -714,14 +714,14 @@
         </option>
       </options>
     </setting>
-    <setting var="slider_pause_auto" control_type="text">
-      <value/>
+    <setting var="slider_scroll_pause_auto" control_type="text">
+      <value>0</value>
       <name locale="en_US">Slider pause</name>
       <name locale="ru_RU">Задержка слайдера</name>
       <description locale="en_US">Specify the value in seconds. If the value is zero, the automatic sheet turns off</description>
       <description locale="ru_RU">Указать значение в секундах. При нулевом значении, автоматическое перелистование отключается</description>
     </setting>
-    <setting var="slider_height" control_type="text">
+    <setting var="height_slider" control_type="text">
       <value>416</value>
       <name locale="en_US">Height of slider, px</name>
       <name locale="ru_RU">Высота слайдера, px</name>
@@ -767,8 +767,8 @@
       <description locale="ru_RU">Доступно, если для опции "Характеристики товаров в слайдер" выбран вариант "Первые характеристики"</description>
       <description locale="en_US">Available when "First Characteristics" is selected for the "Product characteristics in the slider" option</description>
     </setting>
-    <setting var="nums_promos_slider" control_type="text">
-      <value>4,5,6</value>
+    <setting var="id_slider_promo" control_type="text">
+      <value>0,1</value>
       <name locale="ru_RU">Промо-карточки в слайдере</name>
       <name locale="en_US">Promo cards in slider</name>
       <description locale="ru_RU">Укажите номера промокарточек, через запятую без пробелов. Номер карточки соответствует позиции в списке, начиная с нуля.</description>
@@ -813,7 +813,7 @@
       <name locale="en_US">Categories list</name>
       <name locale="ru_RU">Список категорий</name>
     </setting>
-    <setting var="categories_mainpage" control_type="select">
+    <setting var="categories_home_page" control_type="select">
       <value>1</value>
       <name locale="ru_RU">Выводить список категорий в контенте на главной</name>
       <name locale="en_US">Show categories in content on mainpage</name>
@@ -827,18 +827,6 @@
           <name locale="en_US">Off</name>
         </option>
       </options>
-    </setting>
-    <setting var="categories_mainpage_selected" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Display only the selected categories in the list on the mainpage</name>
-      <name locale="ru_RU">Выводить только выбранные категории в списке на главной</name>
-      <description locale="ru_RU">Если активна настройка, то в список выводятся категории с Дополнительным параметром "show_in_list_mainpage=1". Параметр действителен только для первого уровня категорий.</description>
-      <description locale="en_US">If the setting is active, then the categories with the Additional parameter "show_in_list_mainpage=1" are displayed in the list. The parameter is valid only for the first level of categories.</description>
-    </setting>
-    <setting var="max_numbers_subcat_mainpage" control_type="text">
-      <value/>
-      <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
-      <name locale="en_US">Maximum number of subcategories</name>
     </setting>
     <setting var="show_count_products_in_subs" control_type="checkbox">
       <value/>
@@ -1452,12 +1440,12 @@
       <description locale="ru_RU">Рекомендуется размер 400px * 400px</description>
       <description locale="en_US">Recommended size 400px * 400px</description>
     </setting>
-    <setting var="categories_list_images_lazy" control_type="checkbox">
+    <setting var="cat_list_img_lazy" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Lazy images of categories in content</name>
       <name locale="ru_RU">Ленивая загрузка картинок категорий в контенте</name>
     </setting>
-    <setting var="categories_list_images_retina" control_type="checkbox">
+    <setting var="cat_list_img_retina" control_type="checkbox">
       <value/>
       <name locale="en_US">Retina of categories in content</name>
       <name locale="ru_RU">Ретина картинок категорий в контенте</name>
@@ -2940,7 +2928,7 @@
       <name locale="en_US">&lt;br&gt;Preloading critical resources</name>
       <name locale="ru_RU">&lt;br&gt;Предзагрузка критических ресурсов</name>
     </setting>
-    <setting var="preload_image_homepage" control_type="checkbox">
+    <setting var="image_mainpage_preload" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Preloading the first slide image on the main page</name>
       <name locale="ru_RU">Предзагрузка картинки первого слайда на главной странице</name>

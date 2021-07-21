@@ -1,5 +1,5 @@
 
-{$promocards = $wa->shop->promos()|array_values}
+{$mPromoCards = $wa->shop->promos()|array_values}
 
 <div class="container">
     {if $theme_settings.sidebar_mainpage}
@@ -29,21 +29,22 @@
     </div> <!-- .container clearfix -->
     {/if}
 
-    {if $theme_settings.categories_mainpage}
+    {if $theme_settings.categories_home_page}
         {$categories = $wa->shop->categories(0, null, true, true)}
         {if count($categories) > 0}
             <div class="container">
-                <div class="wrap-white mainpage-categories">
+                <div class="homepage-categories">
                     {if class_exists('shopSkcatimagePlugin')}
                         {$skImages = shopSkcatimageHelper::getImages()}
                     {elseif class_exists('shopWmimageincatPlugin')}
                         {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
                     {/if}
 
+                    <!-- Спросить о настройке -->
                     {if $theme_settings.max_numbers_subcat_mainpage}
-                        {include file="categories.disclosed.html" categories=$categories show_is_selected=$theme_settings.categories_mainpage_selected}
+                        {include file="categories.disclosed.html" categories=$categories}
                     {else}
-                        {include file="categories.tile.html" categories=$categories show_is_selected=$theme_settings.categories_mainpage_selected}
+                        {include file="categories.tile.html" categories=$categories}
                     {/if}
                 </div>
             </div>

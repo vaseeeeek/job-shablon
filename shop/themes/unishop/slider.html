@@ -1,91 +1,64 @@
 {strip}
-{if (int)$theme_settings.slider_height > 0 && !$wa->isMobile()}{$height_slider = $theme_settings.slider_height}{/if}
-{$is_image_background = !empty($height_slider)}
+<!-- Спросить о настройке -->
+{if (int)$theme_settings.height_slider > 0 && !$wa->isMobile()}{$slider_height = $theme_settings.height_slider}{/if}
+{$_image_background = !empty($slider_height)}
 
-{$promoslider = []}
-{if $theme_settings.homepage_bxslider_mode == 'promos'}
-    {if $theme_settings.nums_promos_slider}
-        {$promo_nums = ","|explode:$theme_settings.nums_promos_slider}
-        {if count($promo_nums) > 0}
-            {foreach $promo_nums as $num}
-                {if isset($promocards[$num])}
-                    {$promoslider[] = $promocards[$num]}
+{$slidersPromo = []}
+{if $theme_settings.homepage_type_slider_mode == 'promos'}
+    {if $theme_settings.id_slider_promo}
+        {$promo_ids = ","|explode:$theme_settings.id_slider_promo}
+        {if count($promo_ids) > 0}
+            {foreach $promo_ids as $num}
+                {if isset($mPromoCards[$num])}
+                    {$slidersPromo[] = $mPromoCards[$num]}
                 {/if}
             {/foreach}
         {/if}
     {/if}
-    {if empty($promoslider)}
-        {$promoslider = $promocards}
+
+    {if empty($slidersPromo)}
+        {$slidersPromo = $mPromoCards}
     {/if}
-    {if count($promoslider) > 0}
-        {if $theme_settings.homepage_slider_rand}{$shuffle = $promoslider|shuffle}{/if}
-        <div class="slider-wrap js-slider-wrap slider-wrap--photos">
-            <div class="js-main-slider owl-carousel main-slider-photos" data-pause="{$theme_settings.slider_pause_auto}" data-type="{if $is_image_background}promo-bg{else}promo-image{/if}">
-                {foreach $promoslider as $promo}
-                    {if !empty($theme_settings.preload_image_homepage) && !empty($promo@first) && !empty($promo.image)}
-                        {$wa->globals('preload_image', $promo.image)}
+    {if count($slidersPromo) > 0}
+        <div class="slider-outer js-slider-outer slider-outer--photos">
+            <div class="js-home-slider owl-carousel home-slider-photos" data-pause="{$theme_settings.slider_scroll_pause_auto}" data-type="{if $_image_background}promo-bg{else}promo-image{/if}">
+                {foreach $slidersPromo as $item}
+                    {if !empty($theme_settings.image_mainpage_preload) && !empty($item@first) && !empty($item.image)}
+                        {$wa->globals('preload_image', $item.image)}
                     {/if}
 
-                    <div class="main-slider-photos_el">
-                        {if $is_image_background && $height_slider}
-                            {$style_slide = "height: `$height_slider`px;"}
-                            {if $promo@first}{$style_slide = "`$style_slide`background-image:url(`$promo.image`);"}{/if}
+                    <div class="home-slider-photos_el">
+                        {if $_image_background && $slider_height}
+                            {$style_slide = "height: `$slider_height`px;"}
+                            {if $item@first}{$style_slide = "`$style_slide`background-image:url(`$item.image`);"}{/if}
                         {/if}
-                        <a class="main-slider-photos_el-content{if $is_image_background && !$promo@first} owl-lazy{/if}" href="{$promo.link|escape}" {if $is_image_background && !$promo@first} data-src="{$promo.image}"{/if}{if !empty($style_slide)} style="{$style_slide}"{/if}>
-                            {if !$is_image_background}
-                                {if $promo@first}
-                                    <img alt="{if !empty($promo.title)}{$promo.title}{/if}" src="{$promo.image}" />
+                        <a class="home-slider-photos_el-content{if $_image_background && !$item@first} owl-lazy{/if}" href="{$item.link|escape}" {if $_image_background && !$item@first} data-src="{$item.image}"{/if}{if !empty($style_slide)} style="{$style_slide}"{/if}>
+                            {if !$_image_background}
+                                {if $item@first}
+                                    <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" />
                                 {else}
-                                    <img class="owl-lazy" alt="{if !empty($promo.title)}{$promo.title}{/if}" data-src="{$promo.image}" src="{$wa_theme_url}img/lazy-image.png" />
+                                    <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
                                 {/if}
-                            {/if}
-                            {if !empty($promo.title) || !empty($promo.body) || (!empty($promo.countdown_datetime) && time() <= strtotime($promo.countdown_datetime))}
-                                <div class="main-slider-photos_el-text" style="border-bottom: 3px solid {$promo.background_color};color: {$promo.color};">
-                                    {if !empty($promo.title)}<div class="main-slider-photos_el-ttl">{$promo.title}</div>{/if}
-                                    {if !empty($promo.body)}<div class="main-slider-photos_el-body">{$promo.body}</div>{/if}
-                                    {if !empty($promo.countdown_datetime) && time() <= strtotime($promo.countdown_datetime)}
-                                        <div class="main-slider-photos_el-countdown">
-                                            <div data-wrap="1" data-day-text="[`d.`]" class="main-slider-photos_el-time js-promo-countdown" data-end="{$promo.countdown_datetime}">
-                                                <div class="countdown-item">
-                                                    <span class="countdown-item-count js-countdown-days"></span>
-                                                    <span class="countdown-item-text">[`d`]</span>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <span class="countdown-item-count js-countdown-hours"></span>
-                                                    <span class="countdown-item-text">[`h`]</span>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <span class="countdown-item-count js-countdown-minutes"></span>
-                                                    <span class="countdown-item-text">[`min`]</span>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <span class="countdown-item-count js-countdown-seconds"></span>
-                                                    <span class="countdown-item-text">[`sec`]</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {/if}
-                                </div>
                             {/if}
                         </a>
                     </div>
                 {/foreach}
             </div>
 
-            {if count($promoslider) > 1}
-                <div class="js-slider-dots owl-dots">
-                    {foreach $promoslider as $item}
-                        <button data-index="{$item@index}" class="js-slider-init-interaction owl-dot{if $item@first} active{/if}"><span></span></button>
+            {if count($slidersPromo) > 1}
+                <div class="js-dots-slider owl-dots">
+                    {foreach $slidersPromo as $item}
+                        <button data-index="{$item@index}" class="js-slider-init-action owl-dot{if $item@first} active{/if}"><span></span></button>
                     {/foreach}
                 </div>
-                <div class="js-slider-nav owl-nav">
-                    <button data-index="prev" type="button" class="js-slider-init-interaction owl-prev"></button>
-                    <button data-index="next" type="button" class="js-slider-init-interaction owl-next"></button>
+                <div class="js-nav-slider owl-nav">
+                    <button data-index="prev" type="button" class="js-slider-init-action owl-prev"></button>
+                    <button data-index="next" type="button" class="js-slider-init-action owl-next"></button>
                 </div>
             {/if}
         </div>
     {/if}
-{else if $theme_settings.homepage_bxslider_mode == 'products'}
+{else if $theme_settings.homepage_type_slider_mode == 'products'}
 
     {$add_order_action = $theme_settings.add_order_action}
     {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
@@ -124,9 +97,8 @@
     {/function}
 
     {if count($promoproducts) > 0}
-        {if $theme_settings.homepage_slider_rand}{$shuffle = $promoproducts|shuffle}{/if}
-        <div class="js-preview-cart slider-wrap slider-wrap--products js-slider-wrap">
-            <article class="js-main-slider owl-carousel main-slider" data-pause="{$theme_settings.slider_pause_auto}" data-type="product">
+        <div class="js-preview-cart slider-outer slider-outer--products js-slider-outer">
+            <article class="js-home-slider owl-carousel main-slider" data-pause="{$theme_settings.slider_scroll_pause_auto}" data-type="product">
                 {foreach $promoproducts as $p}
 
 
@@ -153,12 +125,12 @@
                             {$short_features = $p.features}
                         {/if}
                     {/if}
-                    <div  class="main-slider_el "{if isset($height_slider)} style="height: {$height_slider}px"{/if}>
+                    <div  class="main-slider_el "{if isset($slider_height)} style="height: {$slider_height}px"{/if}>
                         <a data-position="fixed" class="main-slider_el-img " href="{$p.frontend_url}">
                             {if empty($p@first)}
                                 {$wa->shop->productImgHtml($p, '0x320', ['class' => "owl-lazy", 'alt' => $p.name, 'default' => $default_img])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                             {else}
-                                {if !empty($theme_settings.preload_image_homepage)}
+                                {if !empty($theme_settings.image_mainpage_preload)}
                                     {$image_url = $wa->shop->productImgUrl($p, '0x320')}
                                     {$wa->globals('preload_image', $image_url)}
                                 {/if}
@@ -251,14 +223,14 @@
                 {/foreach}
             </article>
             {if count($promoproducts) > 1}
-                <div class="js-slider-dots owl-dots">
+                <div class="js-dots-slider owl-dots">
                     {foreach $promoproducts as $item}
-                        <button data-index="{$item@index}" class="js-slider-init-interaction owl-dot{if $item@first} active{/if}"><span></span></button>
+                        <button data-index="{$item@index}" class="js-slider-init-action owl-dot{if $item@first} active{/if}"><span></span></button>
                     {/foreach}
                 </div>
-                <div class="js-slider-nav owl-nav">
-                    <button data-index="prev" type="button" class="js-slider-init-interaction owl-prev"></button>
-                    <button data-index="next" type="button" class="js-slider-init-interaction owl-next"></button>
+                <div class="js-nav-slider owl-nav">
+                    <button data-index="prev" type="button" class="js-slider-init-action owl-prev"></button>
+                    <button data-index="next" type="button" class="js-slider-init-action owl-next"></button>
                 </div>
             {/if}
         </div>

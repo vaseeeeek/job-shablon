@@ -1,38 +1,34 @@
-{strip}
+    {strip}
 {if isset($categories) && count($categories)}
     {$default_img = "`$wa_theme_url`img/dummy200.png"}
     {if !empty($theme_settings.default_img)}
         {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
     {/if}
 
-    {$is_retina = $theme_settings.categories_list_images_retina && !empty($skImages)}
-    {$is_lazy = $theme_settings.categories_list_images_lazy}
-    <ul class="js-categories-list categories categories-tile-list" data-retina="{$is_retina}" data-lazy="{$is_lazy}">
+    {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
+    {$_lazy = $theme_settings.cat_list_img_lazy}
+    <ul class="js-list-categories categories cat-tile-list" data-retina="{$_retina}" data-lazy="{$_lazy}">
         {foreach $categories as $cat}
-            {if (isset($show_is_selected) && !empty($show_is_selected) && isset($cat.params.show_in_list_mainpage))
-             || !isset($show_is_selected)
-             || empty($show_is_selected)}
-                <li class="categories-tile">
-                    <a href="{$cat.url}" class="js-category-link">
-                        <div class="categories-tile_image">
-                            {if isset($Wmimages[$cat.id].image)}
-                                {$cat.params.image = $Wmimages[$cat.id].image}
-                            {/if}
-                            {if isset($skImages[$cat.id].image)}
-                                {$cat.params.image = $skImages[$cat.id].image}
-                            {/if}
-                            {if $is_lazy}
-                                <img class="js-categories-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($cat.params.image)}{$cat.params.image}{else}{$default_img}{/if}" alt="{$cat.name}" />
-                            {else}
-                                <img class="js-categories-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else}{$default_img}{/if}" alt="{$cat.name}" />
-                            {/if}
-                        </div>
-                        <div class="categories-tile_title sdColor">
-                            {$cat.name}
-                        </div>
-                    </a>
-                </li>
-            {/if}
+            <li class="categories-tile">
+                <a href="{$cat.url}" class="js-cat-link">
+                    <div class="cat-tile_image">
+                        {if isset($Wmimages[$cat.id].image)}
+                            {$cat.params.image = $Wmimages[$cat.id].image}
+                        {/if}
+                        {if isset($skImages[$cat.id].image)}
+                            {$cat.params.image = $skImages[$cat.id].image}
+                        {/if}
+                        {if $_lazy}
+                            <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($cat.params.image)}{$cat.params.image}{else}{$default_img}{/if}" alt="{$cat.name}" />
+                        {else}
+                            <img class="js-cat-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else}{$default_img}{/if}" alt="{$cat.name}" />
+                        {/if}
+                    </div>
+                    <div class="cat-tile_name sdColor">
+                        {$cat.name}
+                    </div>
+                </a>
+            </li>
         {/foreach}
     </ul>
 {/if}

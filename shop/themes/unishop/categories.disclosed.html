@@ -1,9 +1,9 @@
 {strip}
 {if count($categories)}
     {$count_max_subcnt = $theme_settings.max_numbers_subcat_mainpage}
-    {$is_retina = $theme_settings.categories_list_images_retina && !empty($skImages)}
-    {$is_lazy = $theme_settings.categories_list_images_lazy}
-    <ul class="js-categories-list categories" data-retina="{$is_retina}" data-lazy="{$is_lazy}">
+    {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
+    {$_lazy = $theme_settings.cat_list_img_lazy}
+    <ul class="js-list-categories categories" data-retina="{$_retina}" data-lazy="{$_lazy}">
         {foreach $categories as $cat}
             {if (isset($show_is_selected) && !empty($show_is_selected) && isset($cat.params.show_in_list_mainpage))
              || !isset($show_is_selected)
@@ -17,10 +17,10 @@
                     {/if}
                     {if isset($cat.params.image)}
                         <div class="categories-item-image">
-                            {if $theme_settings.categories_list_images_lazy}
-                                <img class="js-categories-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.image}" alt="{$cat.name}" />
+                            {if $theme_settings.cat_list_img_lazy}
+                                <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.image}" alt="{$cat.name}" />
                             {else}
-                                <img class="js-categories-item-image" src="{$cat.params.image}" alt="{$cat.name}" />
+                                <img class="js-cat-item-image" src="{$cat.params.image}" alt="{$cat.name}" />
                             {/if}
                         </div>
                     {/if}
