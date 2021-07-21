@@ -10268,7 +10268,7 @@ button.owl-dot {
     overflow: hidden
 }
 
-.main-slider_el {
+.main-slider_item {
     display: inline-block;
     font-size: 14px;
     white-space: normal;
@@ -10280,12 +10280,12 @@ button.owl-dot {
     position: relative
 }
 
-.main-slider_el .badge {
+.main-slider_item .badge {
     top: 10%;
     left: 0
 }
 
-.main-slider_el-img {
+.main-slider_item-img {
     width: 30%;
     text-align: center;
     display: block;
@@ -10295,68 +10295,68 @@ button.owl-dot {
     margin: 0 1px
 }
 
-.main-slider_el-img > img {
+.main-slider_item-img > img {
     max-height: 280px;
     max-width: 100%
 }
 
-.main-slider_el-content {
+.main-slider_item-content {
     width: 65%;
     margin: 0 0 0 35%;
     padding: 40px 0 80px
 }
 
-.main-slider_el-desc {
+.main-slider_item-desc {
     margin-bottom: 10px
 }
 
-.main-slider_el_discounts {
+.main-slider_item_discounts {
     margin: 0 0 15px
 }
 
-.main-slider_el-title {
+.main-slider_item-title {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 25px;
     line-height: 25px
 }
 
-.main-slider_el-title a {
+.main-slider_item-title a {
     text-decoration: none
 }
 
-.main-slider_el-desc {
+.main-slider_item-desc {
     margin-bottom: 25px;
     font-size: 16px
 }
 
-.main-slider_el-features {
+.main-slider_item-features {
     margin: 10px 0 0
 }
 
-.main-slider_el-prs {
+.main-slider_item-prs {
     line-height: 47px;
     height: 47px
 }
 
-.main-slider_el-pr {
+.main-slider_item-pr {
     font-size: 24px;
     color: #000;
     float: left;
     margin: 0 2% 0 0
 }
 
-.main-slider_el-oldpr {
+.main-slider_item-oldpr {
     float: left;
     font-size: 18px
 }
 
-.main-slider_el-price-zero {
+.main-slider_item-price-zero {
     font-size: 18px;
     font-weight: 700
 }
 
-.main-slider_el-btn {
+.main-slider_item-btn {
     float: right
 }
 
@@ -10433,31 +10433,31 @@ button.owl-dot {
         margin-left: 0
     }
 
-    .main-slider_el {
+    .main-slider_item {
         padding-bottom: 40px;
         height: auto !important
     }
 
-    .main-slider_el-content {
+    .main-slider_item-content {
         margin: 0;
         width: 100%;
         padding: 20px 0
     }
 
-    .Product__features.main-slider_el-features {
+    .Product__features.main-slider_item-features {
         width: calc(100% - 30% - 20px)
     }
 
-    .main-slider_el-prs {
+    .main-slider_item-prs {
         text-align: center
     }
 
-    .main-slider_el-img {
+    .main-slider_item-img {
         margin: 0 20px 0 0;
         padding: 20px 0
     }
 
-    .main-slider_el-desc {
+    .main-slider_item-desc {
         line-height: 18px;
         font-size: 14px
     }
@@ -10668,7 +10668,7 @@ button.owl-dot {
         right: 0
     }
 
-    .main-slider_el-title {
+    .main-slider_item-title {
         font-size: 20px
     }
 }
@@ -10702,23 +10702,23 @@ button.owl-dot {
 }
 
 @media (max-width: 550px) {
-    .main-slider_el-btn {
+    .main-slider_item-btn {
         width: 150px;
         float: none;
         margin: 10px auto 0;
         display: block
     }
 
-    .main-slider_el-oldpr, .main-slider_el-pr {
+    .main-slider_item-oldpr, .main-slider_item-pr {
         float: none;
         margin: 10px auto
     }
 
-    .main-slider_el-prs {
+    .main-slider_item-prs {
         height: auto
     }
 
-    .main-slider_el {
+    .main-slider_item {
         padding: 20px 30px
     }
 
@@ -10726,30 +10726,30 @@ button.owl-dot {
         display: none
     }
 
-    .main-slider_el .badge {
+    .main-slider_item .badge {
         top: 5%
     }
 
-    .main-slider_el-img {
+    .main-slider_item-img {
         width: 100%;
         margin: 0 0 20px;
         padding: 0
     }
 
-    .main-slider_el-img img {
+    .main-slider_item-img img {
         max-height: 130px
     }
 
-    .main-slider_el-content {
+    .main-slider_item-content {
         text-align: center;
         padding: 0
     }
 
-    .Product__features.main-slider_el-features {
+    .Product__features.main-slider_item-features {
         width: 100%
     }
 
-    .main-slider_el-content .Product__features {
+    .main-slider_item-content .Product__features {
         text-align: left
     }
 
@@ -10757,7 +10757,7 @@ button.owl-dot {
         display: none
     }
 
-    .main-slider_el-desc {
+    .main-slider_item-desc {
         margin-bottom: 15px
     }
 

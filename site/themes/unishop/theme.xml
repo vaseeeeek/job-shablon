@@ -728,15 +728,15 @@
       <description locale="ru_RU">Если оставить значение пустым, высота слайдера будет подстраиваться под контент каждого слайда</description>
       <description locale="en_US">If you leave the value blank, the height of the slider will adjust to the content of each slide</description>
     </setting>
-    <setting var="homepage_product_list_slider" control_type="text">
+    <setting var="id_promo_list_slider" control_type="text">
       <value>bestsellers</value>
       <name locale="en_US">Slider product set ID</name>
       <name locale="ru_RU">Идентификатор списка товаров в слайдере</name>
       <description locale="ru_RU">Идентификатор списка товаров в слайдере. Товары из этого списка будут показаны в слайдере, если так указано в настройке слайдера выше.</description>
       <description locale="en_US">Products from this list will be shown in the storefront slider if it is setup that way in the setting above.</description>
     </setting>
-    <setting var="slider_Product__features" control_type="select">
-      <value>short</value>
+    <setting var="size_slider_feat" control_type="select">
+      <value>full</value>
       <name locale="en_US">Characteristics of goods in the slider</name>
       <name locale="ru_RU">Характеристики товаров в слайдер</name>
       <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)".  Если выбран вариант "Первые характеристики", то необходимо заполнить опцию "Количество выводимых характеристик"</description>
@@ -760,8 +760,8 @@
         </option>
       </options>
     </setting>
-    <setting var="slider_Product__features_count" control_type="text">
-      <value>5</value>
+    <setting var="size_slider_feat_count" control_type="text">
+      <value>3</value>
       <name locale="ru_RU">Количество выводимых характеристик</name>
       <name locale="en_US">Number of output characteristics</name>
       <description locale="ru_RU">Доступно, если для опции "Характеристики товаров в слайдер" выбран вариант "Первые характеристики"</description>
@@ -773,11 +773,6 @@
       <name locale="en_US">Promo cards in slider</name>
       <description locale="ru_RU">Укажите номера промокарточек, через запятую без пробелов. Номер карточки соответствует позиции в списке, начиная с нуля.</description>
       <description locale="en_US">Specify the numbers of promo cards, separated by commas without spaces. The card number corresponds to position in the list starting with zero</description>
-    </setting>
-    <setting var="homepage_slider_rand" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Slider randomly</name>
-      <name locale="ru_RU">Слайды рандомно</name>
     </setting>
     <setting var="desc_mainpage_promos" control_type="paragraph">
       <value/>
@@ -1426,7 +1421,7 @@
       <name locale="en_US">Dropdown subcategories in breadcrumbs</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value/>
+      <value><![CDATA[obrezka,obem,sun,]]></value>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the right)</name>
       <description locale="ru_RU">Укажите коды характеристики через запятую, без пробелов. Узнать код: приложение Магазин - Настройки - Типы и характеристики товаров. Если полe пустое, выводятся все характеристики товара</description>
@@ -1672,8 +1667,8 @@
       <name locale="ru_RU">Для превью товара вида "список" использовать плагин "Плиточная галерея"</name>
       <name locale="en_US">Display the number of goods in the warehouse in preview</name>
     </setting>
-    <setting var="product_list_price_range" control_type="checkbox">
-      <value/>
+    <setting var="price_range_in_product_list" control_type="checkbox">
+      <value>1</value>
       <name locale="ru_RU">В списках товара выводить диапазон цены</name>
       <name locale="en_US">In the lists of goods display price range</name>
     </setting>
