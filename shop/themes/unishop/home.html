@@ -73,8 +73,11 @@
     {$is_with_sidebar_list_3 = true}
 {/if}
 
-{$product_list_file = "home.Products-list.html"}{if $theme_settings.homepage_product_view == "carousel"}{$product_list_file = "home.products-carousel.html"}{/if}
-
+{if $theme_settings.homepage_product_view == "carousel"}
+    {$product_list_file = "home.products-carousel.html"}
+{else}
+    {$product_list_file = "home.products-list.html"}
+{/if}
 <!-- product list#1 -->
 {include file=$product_list_file list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title list_head_color=$theme_settings.homepage_product_list_1_head_color is_with_sidebar_list=$is_with_sidebar_list_1 is_two_line=$theme_settings.homepage_product_list_1_line}
 {if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_2"}

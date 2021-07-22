@@ -3492,8 +3492,8 @@ li.category-subcat-icon_item{
     font-size: 0;
 }
 
-.promos-tile__el,
-a.promos-tile__el{
+.promos-tile__item,
+a.promos-tile__item{
     width: 23%;
     box-sizing: border-box;
     border-radius: 8px;
@@ -3513,71 +3513,71 @@ a.promos-tile__el{
     line-height: 0;
 }
 
-.promos-tile__el--img-bg{
+.promos-tile__item--img-bg{
     height: 250px;
 }
 
-.promos-list-col3 .promos-tile__el,
-.promos-list-col3 a.promos-tile__el,
-.with-sidebar .promos-tile__el,
-.with-sidebar a.promos-tile__el{
+.promo-col3 .promos-tile__item,
+.promo-col3 a.promos-tile__item,
+.with-sidebar .promos-tile__item,
+.with-sidebar a.promos-tile__item{
     width: 32%;
 }
 
-.promos-list-col2 .promos-tile__el,
-.promos-list-col2 a.promos-tile__el
+.promo-col2 .promos-tile__item,
+.promo-col2 a.promos-tile__item
 {
     width: 49% !important;
 }
 
 @media (max-width: 1000px) {
-    .promos-tile__el,
-    a.promos-tile__el{
+    .promos-tile__item,
+    a.promos-tile__item{
         width: 31%;
     }
 }
 
 @media (max-width: 800px) {
-    .promos-tile__el,
-    a.promos-tile__el,
-    .promos-list-col3 .promos-tile__el,
-    .promos-list-col3 a.promos-tile__el,
-    .with-sidebar .promos-tile__el,
-    .with-sidebar a.promos-tile__el{
+    .promos-tile__item,
+    a.promos-tile__item,
+    .promo-col3 .promos-tile__item,
+    .promo-col3 a.promos-tile__item,
+    .with-sidebar .promos-tile__item,
+    .with-sidebar a.promos-tile__item{
         width: 48%;
     }
 }
 
-.promos-list-col1 .promos-tile__el,
-a.promos-list-col1 .promos-tile__el{
+.promo-col1 .promos-tile__item,
+a.promo-col1 .promos-tile__item{
     width: 400px !important;
 }
 
 @media (max-width: 500px) {
-    .promos-tile__el,
-    a.promos-tile__el,
-    .promos-list-col1 .promos-tile__el,
-    a.promos-list-col1 .promos-tile__el,
-    .promos-list-col2 .promos-tile__el,
-    .promos-list-col2 a.promos-tile__el{
+    .promos-tile__item,
+    a.promos-tile__item,
+    .promo-col1 .promos-tile__item,
+    a.promo-col1 .promos-tile__item,
+    .promo-col2 .promos-tile__item,
+    .promo-col2 a.promos-tile__item{
         width: 100% !important;
         margin-right: 0 !important;
         margin-left: 0 !important;
     }
 }
 
-.promos-tile.align-center .promos-tile__el{
+.promos-tile.align-center .promos-tile__item{
     margin-right: 2%;
     margin-left: 2%;
 }
 
-.promos-tile__el-body,
-.promos-tile__el-content{
+.promos-tile__item-body,
+.promos-tile__item-content{
     line-height: 18px;
     font-size: 14px;
 }
 
-.promos-tile__el-content{
+.promos-tile__item-content{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -3590,15 +3590,15 @@ a.promos-list-col1 .promos-tile__el{
 
 }
 
-.promos-tile__el-content a{
+.promos-tile__item-content a{
     color: #FFF;
 }
 
-.promos-tile__el-ttl{
+.promos-tile__item-ttl{
     font-size: 20px;
 }
 
-.promos-tile__el-countdown{
+.promos-tile__item-countdown{
     padding: 5px 10px;
     font-size: 18px;
     border-radius: 0 100px 100px 0;

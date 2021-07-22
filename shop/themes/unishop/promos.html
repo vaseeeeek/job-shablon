@@ -1,37 +1,44 @@
-{$promoslist = []}
-{if $theme_settings.nums_promos_list}
-    {$promo_ids = ","|explode:$theme_settings.nums_promos_list}
+{$promo_list = []}
+{if $theme_settings.ids_promos_list}
+    {$promo_ids = ","|explode:$theme_settings.ids_promos_list}
     {if count($promo_ids) > 0}
         {foreach $promo_ids as $num}
             {if isset($mPromoCards[$num])}
-                {$promoslist[] = $mPromoCards[$num]}
+                {$promo_list[] = $mPromoCards[$num]}
             {/if}
         {/foreach}
     {/if}
 {/if}
-{if empty($promoslist)}
-    {$promoslist = $mPromoCards}
+{if empty($promo_list)}
+    {$promo_list = $mPromoCards}
 {/if}
-{if count($promoslist) > 0}
-    {if $theme_settings.homepage_promos_rand}{$shuffle = $promoslist|shuffle}{/if}
-    {$is_image_bg = $theme_settings.promos_image_bg}
-    <div class="promos-list-col{count($promoslist)} wrapper-justify">
-        {foreach $promoslist as $promo}
+{if count($promo_list) > 0}
+    {$_image_bg = $theme_settings.view_promo_bg}
+    <div class="promo-col{count($promo_list)} wrap-beetwen">
+        {foreach $promo_list as $promo_item}
             {strip}
-                {if $promo@first && $wa->isMobile() && !empty($theme_settings.image_mainpage_preload)}
-                    {$wa->globals('preload_image_2', $promo.image)}
+                <!-- За что отвечает ? -->
+                {if $promo_item@first && $wa->isMobile() && !empty($theme_settings.image_mainpage_preload)}
+                    {$wa->globals('preload_image_2', $promo_item.image)}
                 {/if}
-                <a href="{$promo.link|escape}" {if $promo.image && $is_image_bg} style="background-image: url({$promo.image})"{/if} class="promos-tile__el{if $promo.image && $is_image_bg} promos-tile__el--img-bg{/if}" >
-                    {if $promo.image && empty($is_image_bg)}<img src="{$promo.image}" alt="{$promo.title|escape}" />{/if}
-                    {if !empty($promo.title) || !empty($promo.body)}
-                        <div class="promos-tile__el-content">
-                            {if !empty($promo.title)}<div class="promos-tile__el-ttl">{$promo.title|escape}</div>{/if}
-                            {if !empty($promo.body)}<div class="promos-tile__el-body">{$promo.body|escape|nl2br}</div>{/if}
+                <a href="{$promo_item.link|escape}" {if $promo_item.image && $_image_bg} style="background-image: url({$promo_item.image})"{/if}
+                   class="promos-tile__item{if $promo_item.image && $_image_bg} promos-tile__item--img-bg{/if}">
+                    {if $promo_item.image && empty($_image_bg)}
+                        <img src="{$promo_item.image}"
+                             alt="{$promo_item.title|escape}" />{/if}
+                    {if !empty($promo_item.title) || !empty($promo_item.body)}
+                        <div class="promos-tile__item-content">
+                            {if !empty($promo_item.title)}
+                                <div class="promos-tile__item-ttl">{$promo_item.title|escape}</div>{/if}
+                            {if !empty($promo_item.body)}
+                                <div class="promos-tile__item-body">{$promo_item.body|escape|nl2br}</div>{/if}
                         </div>
                     {/if}
-                    {if !empty($promo.countdown_datetime) && time() <= strtotime($promo.countdown_datetime)}
-                        <div class="promos-tile__el-countdown" style="background: {$promo.background_color};color: {$promo.color};">
-                            <span data-day-text="[`d`]" class="promos-tile__el-time js-promo-countdown" data-end="{$promo.countdown_datetime}"></span>
+                    {if !empty($promo_item.countdown_datetime) && time() <= strtotime($promo_item.countdown_datetime)}
+                        <div class="promos-tile__item-countdown"
+                             style="background: {$promo_item.background_color};color: {$promo_item.color};">
+                            <span data-day-text="[`d`]" class="promos-tile__item-time js-promo-countdown"
+                                  data-end="{$promo_item.countdown_datetime}"></span>
                         </div>
                     {/if}
                 </a>

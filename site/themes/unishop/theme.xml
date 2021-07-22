@@ -784,24 +784,17 @@
       <name locale="en_US">Display promos list</name>
       <name locale="ru_RU">Вывести промокарточки</name>
     </setting>
-    <setting var="nums_promos_list" control_type="text">
+    <setting var="ids_promos_list" control_type="text">
       <value>0,1,2,3</value>
       <name locale="ru_RU">Промо-карточки в списке</name>
       <name locale="en_US">Promo cards in list</name>
       <description locale="ru_RU">Укажите номера промокарточек, через запятую без пробелов. Номер карточки соответствует позиции в списке, начиная с нуля.</description>
       <description locale="en_US">Specify the numbers of promo cards, separated by commas without spaces. The card number corresponds to position in the list starting with zero</description>
     </setting>
-    <setting var="promos_image_bg" control_type="checkbox">
+    <setting var="view_promo_bg" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">The picture in promocart display background</name>
       <name locale="ru_RU">Картинку в промокарточке выводить фоном</name>
-    </setting>
-    <setting var="homepage_promos_rand" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Promocards randomly</name>
-      <name locale="ru_RU">Промокарточки в рандомном порядке</name>
-      <description locale="ru_RU">.</description>
-      <description locale="en_US">.</description>
     </setting>
     <setting var="desc_mainpage_categories" control_type="paragraph">
       <value/>
@@ -902,7 +895,7 @@
       <description locale="en_US">The option is available if the option "List" is selected in the "View of lists on the main" option</description>
     </setting>
     <setting var="homepage_product_view" control_type="select">
-      <value>carousel</value>
+      <value>list</value>
       <name locale="en_US">View of products lists on the main</name>
       <name locale="ru_RU">Оформление списков товаров на главной</name>
       <options>
@@ -1421,7 +1414,7 @@
       <name locale="en_US">Dropdown subcategories in breadcrumbs</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value><![CDATA[obrezka,obem,sun,]]></value>
+      <value>obrezka,obem,sun,</value>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the right)</name>
       <description locale="ru_RU">Укажите коды характеристики через запятую, без пробелов. Узнать код: приложение Магазин - Настройки - Типы и характеристики товаров. Если полe пустое, выводятся все характеристики товара</description>
