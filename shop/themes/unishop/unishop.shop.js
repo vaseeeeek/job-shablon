@@ -491,14 +491,14 @@ var brandsCarousel = {
         var _this = this,
             carousel = _this.brandsWrap.find('.owl-carousel'),
             carouselWidth = carousel.outerWidth(true),
-            itemCarousel = _this.brandsWrap.find(".js-brands-mainpage-el"),
+            itemCarousel = _this.brandsWrap.find(".js-homepage-brands-el"),
             countItems = itemCarousel.length,
             widthItem = itemCarousel.first().outerWidth(true),
             widthAllItems = widthItem * countItems,
             isButtons = widthAllItems > carouselWidth;
 
         if(isButtons){
-            var wrapButtons = _this.brandsWrap.find(".js-brands-mainpage-direction");
+            var wrapButtons = _this.brandsWrap.find(".js-homepage-brands-direction");
             wrapButtons.append('<button data-index="prev" class="js-carousel-brands-on-initialized owl-prev disabled"></button>');
             wrapButtons.append('<button data-index="next" class="js-carousel-brands-on-initialized owl-next"></button>');
         }
@@ -547,7 +547,7 @@ var brandsCarousel = {
         }
 
         var carousel = brandsCarousel.brandsWrap.find('.owl-carousel'),
-            nav = brandsCarousel.brandsWrap.find('.js-brands-mainpage-direction');
+            nav = brandsCarousel.brandsWrap.find('.js-homepage-brands-direction');
 
         carousel.owlCarousel({
             loop:false,

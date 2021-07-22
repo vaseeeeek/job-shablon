@@ -5725,6 +5725,9 @@ a.button:hover {
 .button, button, input[type=button], input[type=submit] {
     color: #fff
 }
+.homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit] {
+    color: #6945ee;
+}
 
 .button:hover, button:hover, input[type=button]:hover, input[type=submit]:hover {
     box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, .1)
@@ -12767,21 +12770,21 @@ h1 .order-status {
     margin-left: 10px
 }
 
-.brands-mainpage .owl-stage {
+.homepage-brands .owl-stage {
     border-left: none
 }
 
-.brands-mainpage .owl-next {
+.homepage-brands .owl-next {
     border-left: 1px solid #ebebeb;
     border-radius: 0
 }
 
-.brands-mainpage .owl-prev {
+.homepage-brands .owl-prev {
     border-right: 1px solid #ebebeb;
     border-radius: 0
 }
 
-.brands-mainpage {
+.homepage-brands {
     background: #fff;
     padding: 0 10%;
     width: 100%;
@@ -12791,11 +12794,11 @@ h1 .order-status {
     position: relative
 }
 
-.brands-mainpage .owl-carousel {
+.homepage-brands .owl-carousel {
     overflow: hidden
 }
 
-.brands-mainpage_el {
+.homepage-brands_el {
     height: 200px;
     width: 20%;
     line-height: 150px;
@@ -12808,40 +12811,40 @@ h1 .order-status {
 }
 
 @media (max-width: 1200px) {
-    .brands-mainpage_el {
+    .homepage-brands_el {
         width: 25%
     }
 }
 
 @media (max-width: 1000px) {
-    .brands-mainpage_el {
+    .homepage-brands_el {
         width: 33.33%
     }
 }
 
 @media (max-width: 800px) {
-    .brands-mainpage_el {
+    .homepage-brands_el {
         width: 50%
     }
 }
 
 @media (max-width: 400px) {
-    .brands-mainpage_el {
+    .homepage-brands_el {
         width: 100%
     }
 }
 
-.owl-item .brands-mainpage_el {
+.owl-item .homepage-brands_el {
     width: 100%
 }
 
-.brands-mainpage_el img {
+.homepage-brands_el img {
     max-width: 150px !important;
     max-height: 100%;
     vertical-align: middle
 }
 
-.brands-mainpage-head {
+.homepage-brands-head {
     font-size: 32px;
     line-height: 35px;
     padding: 24px;
@@ -12851,31 +12854,31 @@ h1 .order-status {
     text-align: center
 }
 
-.brands-mainpage-head__inner {
+.homepage-brands-head__inner {
     width: 260px;
     margin: 0 auto;
     position: relative
 }
 
-.brands-mainpage .owl-next, .brands-mainpage .owl-prev {
+.homepage-brands .owl-next, .homepage-brands .owl-prev {
     height: 100%;
     width: 10%;
     background: none
 }
 
-.brands-mainpage .owl-prev {
+.homepage-brands .owl-prev {
     border-right: 1px solid #ebebeb !important;
     text-align: center;
     cursor: pointer
 }
 
-.brands-mainpage .owl-next {
+.homepage-brands .owl-next {
     border-left: 1px solid #ebebeb !important;
     text-align: center;
     cursor: pointer
 }
 
-.brands-mainpage .owl-next:hover, .brands-mainpage .owl-prev:hover {
+.homepage-brands .owl-next:hover, .homepage-brands .owl-prev:hover {
     box-shadow: none;
     background: none
 }
@@ -12891,15 +12894,15 @@ h1 .order-status {
 }
 
 @media (max-width: 800px) {
-    .brands-mainpage_el img {
+    .homepage-brands_el img {
         max-width: calc(100% - 30px) !important
     }
 
-    .brands-mainpage-head {
+    .homepage-brands-head {
         text-align: left
     }
 
-    .brands-mainpage-head__inner {
+    .homepage-brands-head__inner {
         width: 100%;
         margin: 0
     }
@@ -12913,7 +12916,7 @@ h1 .order-status {
 }
 
 @media (max-width: 400px) {
-    .brands-mainpage-head {
+    .homepage-brands-head {
         font-size: 18px;
         font-weight: 700;
         line-height: 24px

@@ -1,40 +1,34 @@
 {strip}
 
-{if !empty($theme_settings.homepage_brands) && class_exists('shopBrandViewHelper')}
+    {if !empty($theme_settings.brands_mainpage) && class_exists('shopBrandViewHelper')}
 
-    {$brands = []}
-    {$brands = shopBrandViewHelper::getAllBrands()}
+        {$brands = []}
+        {$brands = shopBrandViewHelper::getfullListBrands()}
 
-    {if count($brands) > 0}
-        {if $theme_settings.homepage_brands_type == 'with_header'}
-            <div class="brands-mainpage-head">
-                <div class="brands-mainpage-head__inner">[`Our brands`]
+        {if count($brands) > 0}
+            <div class="homepage-brands-head">
+                <div class="homepage-brands-head__inner">[`Our brands`]
                     <div class="all_brands maincolor">
                         <a href="{$wa->getUrl('shop/frontend/brands')}">[`All brands`]</a> →
                     </div>
                 </div>
             </div>
-        {/if}
-        <div class="js-brands-carousel brands-mainpage margin-bottom">
-            <div class="js-brands-mainpage-direction"></div>
-            <div class="owl-carousel">
-                {foreach $brands as $b}
-                    <div class="brands-mainpage_el js-brands-mainpage-el">
-                        <a title="{$b.name|escape}" href="{$b.frontend_url}">
-                            {if $b.image_url}
-                                {if $theme_settings.brands_list_images_lazy}
-                                    <img class="owl-lazy" src="{$wa_theme_url}img/lazy-image.png" data-src="{$b.image_url}" alt="{$b.name|escape}">
-                                {else}
+            <div class="js-brands-carousel homepage-brands margin-bottom">
+                <div class="js-homepage-brands-direction"></div>
+                <div class="owl-carousel">
+                    {foreach $brands as $b}
+                        <div class="homepage-brands_el js-homepage-brands-el">
+                            <a title="{$b.name|escape}" href="{$b.frontend_url}">
+                                {if $b.image_url}
                                     <img src="{$b.image_url}" alt="{$b.name|escape}">
+                                {else}
+                                    <span>{$b.name|escape}</span>
                                 {/if}
-                            {else}
-                                <span>{$b.name|escape}</span>
-                            {/if}
-                        </a>
-                    </div>
-                {/foreach}
+                            </a>
+                        </div>
+                    {/foreach}
+                </div>
             </div>
-        </div>
+        {/if}
     {/if}
-{/if}
 {/strip}

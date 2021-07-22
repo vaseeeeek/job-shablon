@@ -916,7 +916,7 @@
         </option>
       </options>
     </setting>
-    <setting var="homepage_brands" control_type="select">
+    <setting var="brands_mainpage" control_type="select">
       <value>all</value>
       <name locale="en_US">Brands on homepage</name>
       <name locale="ru_RU">Бренды на главной</name>
@@ -925,37 +925,16 @@
           <name locale="ru_RU">Выводить все</name>
           <name locale="en_US">Display all</name>
         </option>
-        <option value="param">
-          <name locale="ru_RU">Выводить только с параметром "home"</name>
-          <name locale="en_US">Only display with param "home"</name>
-        </option>
         <option value="">
           <name locale="ru_RU">Не выводить</name>
           <name locale="en_US">None</name>
         </option>
       </options>
     </setting>
-    <setting var="brands_list_images_lazy" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Lazy images logos</name>
-      <name locale="ru_RU">Ленивая загрузка логотипов</name>
-    </setting>
-    <setting var="homepage_brands_type" control_type="select">
-      <value>with_header</value>
-      <name locale="en_US">A variant design of the brands at home</name>
-      <name locale="ru_RU">Вариант оформления брендов на главной</name>
-      <description locale="en_US">.</description>
-      <description locale="ru_RU">.</description>
-      <options>
-        <option value="only_brands">
-          <name locale="ru_RU">Без заголовка и ссылки на страницу брендов</name>
-          <name locale="en_US">No title and no link to brand page</name>
-        </option>
-        <option value="with_header">
-          <name locale="ru_RU">С заголовком и ссылкой на страницу брендов</name>
-          <name locale="en_US">With title and link to brand page</name>
-        </option>
-      </options>
+    <setting var="home_brands_ids" control_type="text">
+      <value><![CDATA[212,213,216,215,243,244,214]]></value>
+      <name locale="en_US"/>
+      <name locale="ru_RU">Id брендов на главной</name>
     </setting>
     <setting var="desc_mainpage_welcome" control_type="paragraph">
       <value/>
@@ -991,7 +970,7 @@
       <name locale="en_US">Last news</name>
       <name locale="ru_RU">Последние новости</name>
     </setting>
-    <setting var="homepage_blogposts" control_type="checkbox">
+    <setting var="home_lastposts" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Show latest blog posts on storefront homepage</name>
       <name locale="ru_RU">Показывать последние посты блога на главной странице интернет-магазина</name>
