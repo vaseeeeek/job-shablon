@@ -1,51 +1,48 @@
 {strip}
-{if count($categories)}
-    {$count_max_subcnt = $theme_settings.max_numbers_subcat_mainpage}
-    {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
-    {$_lazy = $theme_settings.cat_list_img_lazy}
-    <ul class="js-list-categories categories" data-retina="{$_retina}" data-lazy="{$_lazy}">
-        {foreach $categories as $cat}
-            {if (isset($show_is_selected) && !empty($show_is_selected) && isset($cat.params.show_in_list_mainpage))
-             || !isset($show_is_selected)
-             || empty($show_is_selected)}
-                <li class="categories-item">
-                    {if isset($Wmimages[$cat.id].image)}
-                        {$cat.params.image = $Wmimages[$cat.id].image}
+    {if count($categories)}
+        {$total_max_subcat = $theme_settings.total_max_maxcat_homepage}
+        {$_lazy = $theme_settings.cat_list_img_lazy}
+        <ul class="js-list-categories categories" data-lazy="{$_lazy}">
+            {foreach $categories as $category}
+                <li class="categories-el">
+                    {if isset($Wmimages[$category.id].image)}
+                        {$category.params.image = $Wmimages[$category.id].image}
                     {/if}
-                    {if isset($skImages[$cat.id].image)}
-                        {$cat.params.image = $skImages[$cat.id].image}
+                    {if isset($skImages[$category.id].image)}
+                        {$category.params.image = $skImages[$category.id].image}
                     {/if}
-                    {if isset($cat.params.image)}
-                        <div class="categories-item-image">
+                    {if isset($category.params.image)}
+                        <div class="categories-el-image">
                             {if $theme_settings.cat_list_img_lazy}
-                                <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.image}" alt="{$cat.name}" />
+                                <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png"
+                                     data-src="{$category.params.image}" alt="{$category.name}"/>
                             {else}
-                                <img class="js-cat-item-image" src="{$cat.params.image}" alt="{$cat.name}" />
+                                <img class="js-cat-item-image" src="{$category.params.image}" alt="{$category.name}"/>
                             {/if}
                         </div>
                     {/if}
-                    <div class="categories-item-content">
-                        <div class="categories-item_title">
-                            <a href="{$cat.url}">{$cat.name}</a>
+                    <div class="categories-el-content">
+                        <div class="categories-el_title">
+                            <a href="{$category.url}">{$category.name}</a>
                         </div>
-                        {if isset($cat.childs) && $cat.childs && count($cat.childs)}
-                            <ul class="categories-item_subs">
+                        {if isset($category.childs) && $category.childs && count($category.childs)}
+                            <ul class="categories-el_subs">
                                 {$index = 0}
-                                {foreach $cat.childs as $keyCatlvl2 => $catlvl2}
+                                {foreach $category.childs as $keyCategorylvl2 => $categorylvl2}
                                     {$index = $index + 1}
-                                    {if $index > $count_max_subcnt && $count_max_subcnt}{break}{/if}
-                                    <li class="icon-before"><a href="{$catlvl2.url}">{$catlvl2.name}</a> {if $theme_settings.show_count_products_in_subs}<span class="hint">({$catlvl2.count})</span>{/if}
+                                    {if $index > $total_max_subcat && $total_max_subcat}{break}{/if}
+                                    <li class="icon-before"><a
+                                                href="{$categorylvl2.url}">{$categorylvl2.name}</a>
                                     </li>
                                 {/foreach}
                             </ul>
-                            {if count($cat.childs) > $count_max_subcnt && $count_max_subcnt}
-                                <a class="categories-item_more box-highlighted" href="{$cat.url}">[`All categories`]</a>
+                            {if count($category.childs) > $total_max_subcat && $total_max_subcat}
+                                <a class="categories-el_more box-hlighted" href="{$category.url}">[`All categories`]</a>
                             {/if}
                         {/if}
                     </div>
                 </li>
-            {/if}
-        {/foreach}
-    </ul>
-{/if}
+            {/foreach}
+        </ul>
+    {/if}
 {/strip}

@@ -1,57 +1,59 @@
 {strip}
-{if !empty($list_id)}
-    {$list = $wa->shop->productSet($list_id)}
-    {if !empty($list)}
-        {$favorites = $wa->cookie('favorites_list')}
-        {if $favorites}
-            {$favorites_list = ","|explode:$favorites}
-        {else}
-            {$favorites_list = []}
-        {/if}
-        {if (!$wa->isMobile() && !empty($theme_settings.product_show_tile_features)) || ($wa->isMobile() && !empty($theme_settings.product_show_tile_mobile_features))}
-            {$features = $wa->shop->features($list)}
-        {/if}
+    {if !empty($products_list_id)}
+        {$list = $wa->shop->productSet($products_list_id)}
+        {if !empty($list)}
+            {$favorites = $wa->cookie('favorites_list')}
+            {if $favorites}
+                {$favorites_list = ","|explode:$favorites}
+            {else}
+                {$favorites_list = []}
+            {/if}
+            {if (!$wa->isMobile() && !empty($theme_settings.product_show_tile_features)) || ($wa->isMobile() && !empty($theme_settings.product_show_tile_mobile_features))}
+                {$features = $wa->shop->features($list)}
+            {/if}
 
-        {$isPreviewProductGalleryTile = ($theme_settings.product_preview_tile_gallerytile && !$wa->isMobile())}
-        {if $isPreviewProductGalleryTile}
-            {$products_ids = ""}
-            {foreach $list as $p}
-                {if $p.id}{$products_ids[] = $p.id}{/if}
-            {/foreach}
-            {$size_image = '0x340'}
-            {$products_images = $wa->shop->images($products_ids, $size_image)}
-        {/if}
+            {$isPreviewProductGalleryTile = ($theme_settings.product_preview_tile_gallerytile && !$wa->isMobile())}
+            {if $isPreviewProductGalleryTile}
+                {$products_ids = ""}
+                {foreach $list as $p}
+                    {if $p.id}{$products_ids[] = $p.id}{/if}
+                {/foreach}
+                {$size_image = '0x340'}
+                {$products_images = $wa->shop->images($products_ids, $size_image)}
+            {/if}
 
-        {if $theme_settings.homepage_product_list_rand}{$shuffle = $list|shuffle}{/if}
-        <div class="mainpage-products mainpage-products--list">
-            {if $list_title}
-                <div class="mainpage-products_head-outer"{if empty($is_with_sidebar_list) && $list_head_color} style="background: {$list_head_color}"{/if}>
-                    <div class="container">
-                        <div  class="mainpage-products_head">
-                            {$list_title}
+            {if $theme_settings.homepage_product_list_rand}{$shuffle = $list|shuffle}{/if}
+            <div class="mainpage-products mainpage-products--list">
+                {if $list_title}
+                    <div class="mainpage-products_head-outer"{if empty($is_with_sidebar_list) && $list_head_color} style="background: {$list_head_color}"{/if}>
+                        <div class="container">
+                            <div class="mainpage-products_head">
+                                {$list_title}
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+                <div class="container">
+                    <div class="products-grid-outer">
+                        {$is_preview_grid_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
+                        <div data-retina="{$wa->shop->config('enable_2x')}"
+                             data-image-lazy="{$theme_settings.product_preview_images_lazy}"
+                             class="js-mainpage-products js-preview-products products-tile {if $is_preview_grid_mini} products-grid--mini{/if}"
+                             data-count-line="2">
+                            {foreach $list as $p}
+                                {include file="product-preview-tile.html" product=$p favorites=$favorites_list}
+                            {/foreach}
+                            {if $isPreviewProductGalleryTile}
+                                <script>
+                                    $(function () {
+                                        new productTileGallery();
+                                    });
+                                </script>
+                            {/if}
                         </div>
                     </div>
                 </div>
-            {/if}
-            <div class="container">
-                {$countLine = 1}{if !empty($is_two_line)}{$countLine = 2}{/if}
-                <div class="products-grid-outer">
-                    {$is_preview_grid_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
-                    <div data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.product_preview_images_lazy}" class="js-mainpage-products js-preview-products products-tile {if $is_preview_grid_mini} products-grid--mini{/if}" data-count-line="{$countLine}">
-                        {foreach $list as $p}
-                            {include file="product-preview-tile.html" product=$p favorites=$favorites_list}
-                        {/foreach}
-                        {if $isPreviewProductGalleryTile}
-                            <script>
-                                $(function(){
-                                    new productTileGallery();
-                                });
-                            </script>
-                        {/if}
-                    </div>
-                </div>
             </div>
-        </div>
+        {/if}
     {/if}
-{/if}
 {/strip}

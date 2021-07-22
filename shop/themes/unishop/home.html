@@ -41,7 +41,7 @@
                     {/if}
 
                     <!-- Спросить о настройке -->
-                    {if $theme_settings.max_numbers_subcat_mainpage}
+                    {if $theme_settings.total_max_maxcat_homepage}
                         {include file="categories.disclosed.html" categories=$categories}
                     {else}
                         {include file="categories.tile.html" categories=$categories}
@@ -79,21 +79,21 @@
     {$product_list_file = "home.products-list.html"}
 {/if}
 <!-- product list#1 -->
-{include file=$product_list_file list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title list_head_color=$theme_settings.homepage_product_list_1_head_color is_with_sidebar_list=$is_with_sidebar_list_1 is_two_line=$theme_settings.homepage_product_list_1_line}
+{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title is_with_sidebar_list=$is_with_sidebar_list_1}
 {if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_2"}
     </div> <!-- .with-sidebar -->
 </div> <!-- .container clearfix -->
 {/if}
 
 <!-- product list#2 -->
-{include file=$product_list_file list_id=$theme_settings.homepage_product_list_2 list_title=$theme_settings.homepage_product_list_2_title list_head_color=$theme_settings.homepage_product_list_2_head_color is_with_sidebar_list=$is_with_sidebar_list_2 is_two_line=$theme_settings.homepage_product_list_2_line}
+{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_2 list_title=$theme_settings.homepage_product_list_2_title is_with_sidebar_list=$is_with_sidebar_list_2}
 {if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_3"}
     </div> <!-- .with-sidebar -->
 </div> <!-- .container clearfix -->
 {/if}
 
 <!-- product list#3 -->
-{include file=$product_list_file list_id=$theme_settings.homepage_product_list_3 list_title=$theme_settings.homepage_product_list_3_title list_head_color=$theme_settings.homepage_product_list_3_head_color is_with_sidebar_list=$is_with_sidebar_list_3 is_two_line=$theme_settings.homepage_product_list_3_line}
+{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_3 list_title=$theme_settings.homepage_product_list_3_title is_with_sidebar_list=$is_with_sidebar_list_3}
 {if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "bullets"}
     </div> <!-- .with-sidebar -->
 </div> <!-- .container clearfix -->

@@ -56,7 +56,7 @@
 
 {if !empty($categories)}
     <div class="sb-wrap sidebar-categories">
-        <ul class="js-sidebar-cats sidebar-cats" data-retina="{$theme_settings.cat_img_menu_retina && !empty($skImages)}" data-lazy="{$theme_settings.categories_menu_images_lazy}">
+        <ul class="js-sidebar-cats sidebar-cats" data-lazy="{$theme_settings.categories_menu_images_lazy}">
             {foreach $categories as $category}
                 {$_has_childs = false}
                 {if !empty($category.childs)}

@@ -9933,7 +9933,7 @@ iframe {
     margin: 10px 0 10px 10px
 }
 
-.categories-item_subs li:before, .sub-category-opened__sub:before {
+.categories-el_subs li:before, .sub-category-opened__sub:before {
     content: "•";
     position: absolute;
     left: -15px;
@@ -13332,7 +13332,7 @@ button.mfp-arrow:hover, button.mfp-close:hover {
     content: "\f110"
 }
 
-.checkout-options li.selected, .comment-form, .box-highlighted, .add-review-form-fields, blockquote {
+.checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields, blockquote {
     background: #f6f6f6;
     border: 1px solid #ebebeb
 }

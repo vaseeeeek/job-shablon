@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="site" version="3.0.0" edition="39">
-  <name locale="en_US">Unishop</name>
-  <name locale="ru_RU">Unishop</name>
+<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="39">
+  <name locale="en_US">Free</name>
+  <name locale="ru_RU">Free</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
   <description locale="ru_RU">Современная, удобная, адаптивная тема дизайна, разработанная для приложений Сайт, Магазин, Блог, Фотогалерея</description>
   <files>
@@ -816,12 +816,10 @@
         </option>
       </options>
     </setting>
-    <setting var="show_count_products_in_subs" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Output quantity of goods in subcategories</name>
-      <name locale="ru_RU">Выводить количество товаров в подкатегориях</name>
-      <description locale="ru_RU">Внимание! Рекомендуется выводить количество товаров, если у всех категорий НЕ активирована настройка "Включить товары из подкатегорий", так как в количество не подсчитываются товары из подкатегорий</description>
-      <description locale="en_US">Attention! It is recommended to display the quantity of goods if all categories DO NOT activate the "Include products from subcategories" setting, because the quantity does not count products from subcategories</description>
+    <setting var="total_max_maxcat_homepage" control_type="text">
+      <value>3</value>
+      <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
+      <name locale="en_US">Maximum number of subcategories</name>
     </setting>
     <setting var="desc_mainpage_lists" control_type="paragraph">
       <value/>
@@ -833,18 +831,13 @@
       <name locale="en_US">Title above the product list #1 on mainpage</name>
       <name locale="ru_RU">Заголовок над списком товаров #1 на главной</name>
     </setting>
-    <setting var="homepage_product_list_1_head_color" control_type="color">
-      <value>#fc7f2a</value>
-      <name locale="ru_RU">Цвет оформления шапки списка #1</name>
-      <name locale="en_US">Design color head of list #1</name>
-    </setting>
     <setting var="homepage_product_list_1" control_type="text">
       <value>bestsellers</value>
       <name locale="en_US">ID product list #1 on mainpage</name>
       <name locale="ru_RU">Идентификатор списка #1 на главной</name>
     </setting>
     <setting var="homepage_product_list_1_line" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="en_US">By default, print 2 lines in the list #1</name>
       <name locale="ru_RU">По умолчанию выводить 2 строки в списке #1</name>
       <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант "Списком"</description>
@@ -854,11 +847,6 @@
       <value>Новинки</value>
       <name locale="en_US">Title above the product list #2 on mainpage</name>
       <name locale="ru_RU">Заголовок над списком товаров #2 на главной</name>
-    </setting>
-    <setting var="homepage_product_list_2_head_color" control_type="color">
-      <value>#01d5ed</value>
-      <name locale="ru_RU">Цвет оформления шапки списка #2</name>
-      <name locale="en_US">Design color head of list #2</name>
     </setting>
     <setting var="homepage_product_list_2" control_type="text">
       <value>new</value>
@@ -876,11 +864,6 @@
       <value/>
       <name locale="en_US">Title above the product list #3 on mainpage</name>
       <name locale="ru_RU">Заголовок над списком товаров #3 на главной</name>
-    </setting>
-    <setting var="homepage_product_list_3_head_color" control_type="color">
-      <value/>
-      <name locale="ru_RU">Цвет оформления шапки списка #3</name>
-      <name locale="en_US">Design color header of list #3</name>
     </setting>
     <setting var="homepage_product_list_3" control_type="text">
       <value/>
@@ -1433,24 +1416,10 @@
       <name locale="en_US">Lazy images of categories in content</name>
       <name locale="ru_RU">Ленивая загрузка картинок категорий в контенте</name>
     </setting>
-    <setting var="cat_list_img_retina" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Retina of categories in content</name>
-      <name locale="ru_RU">Ретина картинок категорий в контенте</name>
-      <description locale="ru_RU">Досупно при использовании плагина "Изображения для категории" (от skilbe)</description>
-      <description locale="en_US">Available when using the "Images for category" plugin (from skilbe)</description>
-    </setting>
     <setting var="menu_cat_img_lazy" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Lazy images of categories in menu</name>
       <name locale="ru_RU">Ленивая загрузка картинок категорий в меню</name>
-    </setting>
-    <setting var="cat_img_menu_retina" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Retina images of categories in menu</name>
-      <name locale="ru_RU">Ретина картинок категорий в меню</name>
-      <description locale="ru_RU">Досупно при использовании плагина "Изображения для категории" (от skilbe)</description>
-      <description locale="en_US">Available when using the "Images for category" plugin (from skilbe)</description>
     </setting>
     <setting var="divider_product_preview" control_type="group_divider">
       <value/>

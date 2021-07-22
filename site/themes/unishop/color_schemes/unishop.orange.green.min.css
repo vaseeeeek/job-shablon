@@ -1,4 +1,4 @@
-.maincolor, .maincolor > a, .maincolor > a:hover, .bx-next, .bx-next:hover, .bx-prev, .bx-prev:hover, .categories-item_subs > li:after, .categories-item_subs li:before, .category-subcat_item:after, .mainpage-products-more, .owl-next, .owl-next:hover, .owl-prev, .owl-prev:hover, .star, .star-rating-empty, .star-half, .star-hover, a.maincolor:hover, ul.menu-v > li ul li:before {
+.maincolor, .maincolor > a, .maincolor > a:hover, .bx-next, .bx-next:hover, .bx-prev, .bx-prev:hover, .categories-el_subs > li:after, .categories-el_subs li:before, .category-subcat_item:after, .mainpage-products-more, .owl-next, .owl-next:hover, .owl-prev, .owl-prev:hover, .star, .star-rating-empty, .star-half, .star-hover, a.maincolor:hover, ul.menu-v > li ul li:before {
     color: #ff7420
 }
 
@@ -2715,7 +2715,7 @@ a:hover .product-custom_title {
     margin: 10px 0 10px 10px
 }
 
-.categories-item_subs li:before, .sub-category-opened__sub:before {
+.categories-el_subs li:before, .sub-category-opened__sub:before {
     content: "•";
     position: absolute;
     left: -15px;
@@ -6248,7 +6248,7 @@ button.mfp-arrow:hover, button.mfp-close:hover {
     content: "\f110"
 }
 
-.checkout-options li.selected, .comment-form, .box-highlighted, .add-review-form-fields, blockquote {
+.checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields, blockquote {
     background: #f6f6f6;
     border: 1px solid #ebebeb
 }

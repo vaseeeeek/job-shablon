@@ -42,7 +42,7 @@ input.Nav-inp-search {
     padding: 10px 0px;
      border-top: 0; 
 }
-.checkout-options li.selected, .comment-form, .box-highlighted, .add-review-form-fields, blockquote {
+.checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields, blockquote {
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 1px 8px 0 rgb(0 0 0 / 6%), 0 2px 2px 0 rgb(0 0 0 / 12%);

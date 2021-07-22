@@ -2800,7 +2800,7 @@ h3.product_cross-title{
     -ms-transition: 200ms background linear;
     transition: 200ms background linear;
 }
-.review-images-box.is-box-highlighted {
+.review-images-box.is-box-hlighted {
     background: #fafadf;
 }
 .review-images-box .review-form-image-box {
@@ -3641,55 +3641,55 @@ a.promo-col1 .promos-tile__item{
     list-style: none;
 }
 
-.categories-item{
+.categories-el{
     display: inline-block;
     vertical-align: top;
     margin: 0 2% 30px 0;
     width: 31%;
 }
 
-.categories-item_title{
+.categories-el_title{
     font-size: 18px;
     margin: 0 0 10px;
 }
 
-.categories-item_title a{
+.categories-el_title a{
     text-decoration: none;
 }
 
-.categories-item-image{
+.categories-el-image{
     float: left;
     width: 100px;
 }
 
-.categories-item-image img{
+.categories-el-image img{
     max-width: 100%;
 }
 
-.categories-item-content{
+.categories-el-content{
     margin: 0 0 0 115px;
 }
 
-.categories-item_subs{
+.categories-el_subs{
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.categories-item_more{
+.categories-el_more{
     margin: 10px 0 0;
     display: inline-block;
     padding: 0 10px;
     border-radius: 10px;
 }
 
-.categories-item_subs li{
+.categories-el_subs li{
     position: relative;
     margin: 0 0 8px 18px;
     line-height: 17px;
 }
 
-.categories-item_subs li:before{
+.categories-el_subs li:before{
     content: "\2022";
     position: absolute;
     left: -15px;
@@ -3699,7 +3699,7 @@ a.promo-col1 .promos-tile__item{
 }
 
 @media (max-width: 1000px) {
-    .categories-item{
+    .categories-el{
         width: 47%;
     }
 
@@ -3707,14 +3707,14 @@ a.promo-col1 .promos-tile__item{
 }
 
 @media (max-width: 700px) {
-    .categories-item{
+    .categories-el{
         width: 100%;
         margin-right: 0;
     }
 }
 
 @media (max-width: 400px) {
-    .categories-item-image{
+    .categories-el-image{
         margin: 0 auto;
         width: 80px;
         float: none;
@@ -3724,26 +3724,26 @@ a.promo-col1 .promos-tile__item{
         padding: 0;
     }
 
-    .categories-item{
+    .categories-el{
         padding: 15px;
         border-bottom: 1px solid #ebebeb;
         box-sizing: border-box;
         margin: 0;
     }
 
-    .categories-item:last-child{
+    .categories-el:last-child{
         border-bottom: none;
     }
 
-    .categories-item-content{
+    .categories-el-content{
         margin: 0;
     }
 
-    .categories-item_title{
+    .categories-el_title{
         text-align: center;
     }
 
-    .categories-item_subs li{
+    .categories-el_subs li{
         display: inline-block;
         margin: 0 9px 8px 13px;
     }

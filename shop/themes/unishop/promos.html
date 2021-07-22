@@ -26,21 +26,6 @@
                     {if $promo_item.image && empty($_image_bg)}
                         <img src="{$promo_item.image}"
                              alt="{$promo_item.title|escape}" />{/if}
-                    {if !empty($promo_item.title) || !empty($promo_item.body)}
-                        <div class="promos-tile__item-content">
-                            {if !empty($promo_item.title)}
-                                <div class="promos-tile__item-ttl">{$promo_item.title|escape}</div>{/if}
-                            {if !empty($promo_item.body)}
-                                <div class="promos-tile__item-body">{$promo_item.body|escape|nl2br}</div>{/if}
-                        </div>
-                    {/if}
-                    {if !empty($promo_item.countdown_datetime) && time() <= strtotime($promo_item.countdown_datetime)}
-                        <div class="promos-tile__item-countdown"
-                             style="background: {$promo_item.background_color};color: {$promo_item.color};">
-                            <span data-day-text="[`d`]" class="promos-tile__item-time js-promo-countdown"
-                                  data-end="{$promo_item.countdown_datetime}"></span>
-                        </div>
-                    {/if}
                 </a>
             {/strip}
         {/foreach}
