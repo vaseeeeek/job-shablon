@@ -17,14 +17,14 @@
                 {if $theme_settings.favorites || $theme_settings.compare}
                     <div class="product_action-actions">
                         {if $theme_settings.favorites}
-                            {$favorites = $wa->cookie('favorites_list')}
+                            {$favorites = $wa->cookie('product_favor_arr')}
                             {if $favorites}
-                                {$favorites_list = ","|explode:$favorites}
+                                {$product_favor_arr = ","|explode:$favorites}
                             {else}
-                                {$favorites_list = []}
+                                {$product_favor_arr = []}
                             {/if}
                             <span data-product="{$product.id}"
-                                  class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $favorites_list)} active{/if}">
+                                  class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
                     <i class="fi-rr-heart"></i>
                     <span class="product-action-text">[`To favorites`]</span>
                 </span>

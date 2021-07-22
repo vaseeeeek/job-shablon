@@ -6,11 +6,11 @@
 {if $action == 'product' && isset($product)}{$nameCurrentPage = $product.name}{/if}
 {if $action == 'brands'}{$nameCurrentPage = '[`Brands`]'}{/if}
 
-{if  $action == 'brandPage' && $theme_settings.brands_plugin == 'brands_pro' && class_exists('shopBrandViewHelper')}
+{if  $action == 'brandPage' && $theme_settings.use_plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
     {if !isset($breadcrumbs)}{$breadcrumbs = []}{/if}
     {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
     {if isset($brand)}{$nameCurrentPage = $brand.name}{/if}
-{else if $action == 'brand' && $theme_settings.brands_plugin == 'brands' && class_exists('shopProductbrandsPlugin')}
+{else if $action == 'brand' && $theme_settings.use_plugin_brands == 'brands' && class_exists('shopProductbrandsPlugin')}
     {if !isset($breadcrumbs)}{$breadcrumbs = []}{/if}
     {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
     {if isset($brand)}{$nameCurrentPage = $brand.name}{/if}

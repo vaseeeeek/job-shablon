@@ -45,7 +45,7 @@
     {$images = array_values($products_images[$p.id])}
 {/if}
 
-{$isProductTilePreviewTileGallery = $theme_settings.product_preview_tile_gallerytile && !$wa->isMobile()}
+{$isProductTilePreviewTileGallery = $theme_settings.product_scroll_hover_gallery && !$wa->isMobile()}
 {$preview_image = $wa->shop->productImgUrl($p, '60')}
 <!-- Спросить о настройке -->
 {$add_order_action = $theme_settings.add_order_action}

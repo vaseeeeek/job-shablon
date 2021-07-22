@@ -1852,7 +1852,7 @@ var productListCustom = {
         var _this = this;
 
         _this.list(
-            'favorites_list',
+            'product_favor_arr',
             $(".js-favorites-preview"),
             '.js-favorites-add'
         );
@@ -2016,7 +2016,7 @@ var productsHome = {
     init: function (){
         var _this = this;
 
-        var productsList = $(".js-mainpage-products");
+        var productsList = $(".js-home-products");
 
         if(productsList.length){
             productsList.each(function(){
@@ -2028,8 +2028,8 @@ var productsHome = {
         var _this = this;
 
         productsList.removeClass("active");
-        productsList.parent().find('.js-mainpage-products-more').remove();
-        productsList.after('<span class="mainpage-products-more js-mainpage-products-more"></span>');
+        productsList.parent().find('.js-home-products-more').remove();
+        productsList.after('<span class="home-products-more js-home-products-more"></span>');
 
         var products = productsList.find('.js-Product-grid');
         products.removeClass('hide');
@@ -2067,7 +2067,7 @@ var productsHome = {
         }
     },
     showElements: function (productsList, countInLine){
-        var btnShowMore = productsList.parent().find('.js-mainpage-products-more');
+        var btnShowMore = productsList.parent().find('.js-home-products-more');
 
         btnShowMore.on("click", function(){
             var products = productsList.find('.js-Product-grid');

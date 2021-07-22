@@ -837,7 +837,7 @@
       <name locale="ru_RU">Идентификатор списка #1 на главной</name>
     </setting>
     <setting var="homepage_product_list_1_line" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">By default, print 2 lines in the list #1</name>
       <name locale="ru_RU">По умолчанию выводить 2 строки в списке #1</name>
       <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант "Списком"</description>
@@ -878,7 +878,7 @@
       <description locale="en_US">The option is available if the option "List" is selected in the "View of lists on the main" option</description>
     </setting>
     <setting var="homepage_product_view" control_type="select">
-      <value>list</value>
+      <value>carousel</value>
       <name locale="en_US">View of products lists on the main</name>
       <name locale="ru_RU">Оформление списков товаров на главной</name>
       <options>
@@ -892,161 +892,12 @@
         </option>
       </options>
     </setting>
-    <setting var="homepage_product_list_rand" control_type="checkbox">
-      <value/>
-      <name locale="en_US">List products randomly</name>
-      <name locale="ru_RU">Товары в списках рандомно</name>
-      <description locale="ru_RU">.</description>
-      <description locale="en_US">.</description>
-    </setting>
-    <setting var="desc_mainpage_infoblocks" control_type="paragraph">
-      <value/>
-      <name locale="en_US">Infoblocks</name>
-      <name locale="ru_RU">Инфоблоки</name>
-    </setting>
-    <setting var="homepage_bullet_title_1" control_type="text">
-      <value>Доставка по всей России</value>
-      <name locale="en_US">Info block #1</name>
-      <name locale="ru_RU">Инфоблок №1</name>
-    </setting>
-    <setting var="homepage_bullet_link_1" control_type="text">
-      <value>#</value>
-      <name locale="en_US">Info block #1 link</name>
-      <name locale="ru_RU">Инфоблок №1 - ссылка</name>
-    </setting>
-    <setting var="homepage_bullet_link_1_popup" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="homepage_bullet_body_1" control_type="text">
-      <value>Доставим Ваш заказ в любую точку России курьером или службой доставки, так же есть возможность самовывоза </value>
-      <name locale="en_US">Info block #1 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №1</name>
-    </setting>
-    <setting var="homepage_bullet_icon_1" control_type="text">
-      <value>fa fa-truck</value>
-      <name locale="en_US">Info block #1 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №1</name>
-    </setting>
-    <setting var="homepage_bullet_image_1" control_type="image">
-      <value/>
-      <filename>img/bullet_image_1.*</filename>
-      <name locale="en_US">Info block #1 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №1</name>
-    </setting>
-    <setting var="homepage_bullet_title_2" control_type="text">
-      <value>Оплата онлайн</value>
-      <name locale="en_US">Info block #2</name>
-      <name locale="ru_RU">Инфоблок №2</name>
-    </setting>
-    <setting var="homepage_bullet_link_2" control_type="text">
-      <value>#</value>
-      <name locale="en_US">Info block #2 link</name>
-      <name locale="ru_RU">Инфоблок №2 - ссылка</name>
-    </setting>
-    <setting var="homepage_bullet_link_2_popup" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="homepage_bullet_body_2" control_type="text">
-      <value>Оплата заказ различными способами: наличными, банковской картой курьеру или онлайн через платежные сервисы</value>
-      <name locale="en_US">Info block #2 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №2</name>
-    </setting>
-    <setting var="homepage_bullet_icon_2" control_type="text">
-      <value>fa fa-credit-card</value>
-      <name locale="en_US">Info block #2 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №2</name>
-    </setting>
-    <setting var="homepage_bullet_image_2" control_type="image">
-      <value/>
-      <filename>img/bullet_image_2.*</filename>
-      <name locale="en_US">Info block #2 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №2</name>
-    </setting>
-    <setting var="homepage_bullet_title_3" control_type="text">
-      <value>Мы находимся в Москве</value>
-      <name locale="en_US">Info block #3</name>
-      <name locale="ru_RU">Инфоблок №3</name>
-    </setting>
-    <setting var="homepage_bullet_link_3" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #3 link</name>
-      <name locale="ru_RU">Инфоблок №3 - ссылка</name>
-    </setting>
-    <setting var="homepage_bullet_link_3_popup" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="homepage_bullet_body_3" control_type="text">
-      <value>По адресу улица Люсиновская, 93. Приходите мы всегда Вам рады!</value>
-      <name locale="en_US">Info block #3 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №3</name>
-    </setting>
-    <setting var="homepage_bullet_icon_3" control_type="text">
-      <value>fa fa-map-marker</value>
-      <name locale="en_US">Info block #3 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №3</name>
-    </setting>
-    <setting var="homepage_bullet_image_3" control_type="image">
-      <value/>
-      <filename>img/bullet_image_3.*</filename>
-      <name locale="en_US">Info block #3 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №3</name>
-    </setting>
-    <setting var="homepage_bullet_title_4" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #4</name>
-      <name locale="ru_RU">Инфоблок №4</name>
-    </setting>
-    <setting var="homepage_bullet_link_4" control_type="text">
-      <value>#</value>
-      <name locale="en_US">Info block #4 link</name>
-      <name locale="ru_RU">Инфоблок №4 - ссылка</name>
-    </setting>
-    <setting var="homepage_bullet_link_4_popup" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Open page in popup-window</name>
-      <name locale="ru_RU">Открыть страницу в попап-окне</name>
-      <description locale="ru_RU">Работает только для модуля Страницы приложений Сайт, Магазин, Фото, Блог</description>
-      <description locale="en_US">Works only for the module Pages Application Site, Store, Photo, Blog</description>
-    </setting>
-    <setting var="homepage_bullet_body_4" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #4 content</name>
-      <name locale="ru_RU">Текст в инфоблоке №4</name>
-    </setting>
-    <setting var="homepage_bullet_icon_4" control_type="text">
-      <value/>
-      <name locale="en_US">Info block #4 icon</name>
-      <name locale="ru_RU">Иконка в инфоблоке №4</name>
-    </setting>
-    <setting var="homepage_bullet_image_4" control_type="image">
-      <value/>
-      <filename>img/bullet_image_4.*</filename>
-      <name locale="en_US">Info block #4 image</name>
-      <name locale="ru_RU">Картинка в инфоблоке №4</name>
-    </setting>
-    <setting var="bullets_mainpage" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Выводить Инфоблоки</name>
-      <name locale="en_US">Display Info block</name>
-    </setting>
     <setting var="desc_mainpage_brands" control_type="paragraph">
       <value/>
       <name locale="en_US">Brands</name>
       <name locale="ru_RU">Бренды</name>
     </setting>
-    <setting var="brands_plugin" control_type="select">
+    <setting var="use_plugin_brands" control_type="select">
       <value>brands</value>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Использование плагина Брендов</name>
@@ -1437,7 +1288,7 @@
       <name locale="ru_RU">Превью продуктов плиткой</name>
     </setting>
     <setting var="product_preview_tile_mobile" control_type="select">
-      <value>usually_tile</value>
+      <value>mini_tile</value>
       <name locale="en_US">Tile preview product for mobile</name>
       <name locale="ru_RU">Превью продуктов плиткой для моб.устройств</name>
       <options>
@@ -1639,7 +1490,7 @@
       <name locale="en_US">Show button on popup-video</name>
       <name locale="ru_RU">Показывать кнопку на попап-видео</name>
     </setting>
-    <setting var="product_preview_tile_gallerytile" control_type="checkbox">
+    <setting var="product_scroll_hover_gallery" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Tiled gallery in the goods type "tile"</name>
       <name locale="ru_RU">Плиточная галерея в товарах вида "плиткой"</name>

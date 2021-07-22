@@ -1,4 +1,4 @@
-.maincolor, .maincolor > a, .maincolor > a:hover, .bx-next, .bx-next:hover, .bx-prev, .bx-prev:hover, .categories-el_subs > li:after, .categories-el_subs li:before, .category-subcat_item:after, .mainpage-products-more, .owl-next, .owl-next:hover, .owl-prev, .owl-prev:hover, .star, .star-rating-empty, .star-half, .star-hover, a.maincolor:hover, ul.menu-v > li ul li:before {
+.maincolor, .maincolor > a, .maincolor > a:hover, .bx-next, .bx-next:hover, .bx-prev, .bx-prev:hover, .categories-el_subs > li:after, .categories-el_subs li:before, .category-subcat_item:after, .home-products-more, .owl-next, .owl-next:hover, .owl-prev, .owl-prev:hover, .star, .star-rating-empty, .star-half, .star-hover, a.maincolor:hover, ul.menu-v > li ul li:before {
     color: #cf0028
 }
 
@@ -4630,7 +4630,7 @@ button.owl-dot {
     }
 }
 
-.mainpage-products-more {
+.home-products-more {
     text-align: center;
     cursor: pointer;
     display: none;
@@ -4638,71 +4638,71 @@ button.owl-dot {
     border-top: none
 }
 
-.mainpage-products--carousel {
+.home-products--carousel {
     margin: 0 0 24px
 }
 
-.mainpage-products--list .active ~ .mainpage-products-more {
+.home-products--list .active ~ .home-products-more {
     display: block
 }
 
-.mainpage-products-more:after {
+.home-products-more:after {
     font: normal normal normal 16px/1 FontAwesome;
     vertical-align: middle;
     content: "\f107";
     font-size: 60px
 }
 
-.mainpage-products--carousel .products-grid-outer {
+.home-products--carousel .products-grid-outer {
     overflow: hidden;
     border-right: 1px solid #ebebeb
 }
 
-.mainpage-products_head-outer + .container .products-grid-outer {
+.home-products_head-outer + .container .products-grid-outer {
     margin: -48px 0 0
 }
 
-.with-sidebar .mainpage-products_head-outer + .container .products-grid-outer {
+.with-sidebar .home-products_head-outer + .container .products-grid-outer {
     margin: 0
 }
 
-.with-sidebar .mainpage-products_head-outer {
+.with-sidebar .home-products_head-outer {
     padding: 0;
     border: 1px solid #ebebeb
 }
 
-.mainpage-products .products-tile {
+.home-products .products-tile {
     border-left: 1px solid #ebebeb;
     border-top: none
 }
 
-.mainpage-products .products-grid-outer {
+.home-products .products-grid-outer {
     margin: 0 -1px 0 0;
     background: #fff
 }
 
-.mainpage-products--list .products-tile {
+.home-products--list .products-tile {
     border-left: 1px solid #ebebeb;
     border-top: none
 }
 
-.mainpage-products--list {
+.home-products--list {
     margin: 0 0 24px
 }
 
-.with-sidebar .mainpage-products__outer {
+.with-sidebar .home-products__outer {
     border: 1px solid #ebebeb
 }
 
-.mainpage-products_head-outer {
+.home-products_head-outer {
     padding: 24px 0 48px
 }
 
-.with-sidebar .mainpage-products_head-outer {
+.with-sidebar .home-products_head-outer {
     padding-top: 0
 }
 
-.mainpage-products_head {
+.home-products_head {
     font-size: 32px;
     line-height: 35px;
     padding: 24px 0;
@@ -4714,58 +4714,58 @@ button.owl-dot {
     position: relative
 }
 
-.mainpage-products--carousel .mainpage-products_head {
+.home-products--carousel .home-products_head {
     text-align: left;
     padding-left: 40px;
     padding-right: 40px;
     margin: 0
 }
 
-.with-sidebar .mainpage-products--carousel .mainpage-products_head {
+.with-sidebar .home-products--carousel .home-products_head {
     padding-left: 24px;
     padding-right: 24px
 }
 
-.mainpage-products__direction {
+.home-products__direction {
     font-size: 20px;
     float: right
 }
 
-.mainpage-products__direction ~ .mainpage-products__title {
+.home-products__direction ~ .home-products__title {
     margin-right: 70px
 }
 
 @media (max-width: 700px) {
-    .mainpage-products--carousel .mainpage-products_head {
+    .home-products--carousel .home-products_head {
         padding: 14px 24px;
         font-size: 24px
     }
 }
 
-.mainpage-products__direction .owl-next, .mainpage-products__direction .owl-next:after, .mainpage-products__direction .owl-prev, .mainpage-products__direction .owl-prev:after {
+.home-products__direction .owl-next, .home-products__direction .owl-next:after, .home-products__direction .owl-prev, .home-products__direction .owl-prev:after {
     position: static;
     display: inline-block
 }
 
-.mainpage-products__direction .owl-next:after, .mainpage-products__direction .owl-prev:after {
+.home-products__direction .owl-next:after, .home-products__direction .owl-prev:after {
     font-size: 24px;
     height: auto
 }
 
-.mainpage-products__direction .owl-next, .mainpage-products__direction .owl-prev {
+.home-products__direction .owl-next, .home-products__direction .owl-prev {
     cursor: pointer
 }
 
-.mainpage-products__direction .owl-prev {
+.home-products__direction .owl-prev {
     margin-right: 20px
 }
 
-.mainpage-products .owl-carousel {
+.home-products .owl-carousel {
     white-space: nowrap;
     overflow: hidden
 }
 
-.with-sidebar .mainpage-products_head {
+.with-sidebar .home-products_head {
     border-bottom: none;
     padding: 10px 0;
     font-size: 24px

@@ -143,7 +143,7 @@
 {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
 {if !isset($isCategoryViewProductsList)}{$isCategoryViewProductsList = 0}{/if}
 
-{$isPreviewProductGalleryTile = (($theme_settings.product_preview_tile_gallerytile && $CategoryViewProducts == 'tile') || ($theme_settings.preview_product_list_gallerytile && $CategoryViewProducts == 'list')) && $products && !$wa->isMobile()}
+{$isPreviewProductGalleryTile = (($theme_settings.product_scroll_hover_gallery && $CategoryViewProducts == 'tile') || ($theme_settings.preview_product_list_gallerytile && $CategoryViewProducts == 'list')) && $products && !$wa->isMobile()}
 
 {if $isPreviewProductGalleryTile}
     {$products_ids = ""}
@@ -169,11 +169,11 @@
             {$features = $wa->shop->features($products)}
         {/if}
 
-        {$favorites = $wa->cookie('favorites_list')}
+        {$favorites = $wa->cookie('product_favor_arr')}
         {if $favorites}
-            {$favorites_list = ","|explode:$favorites}
+            {$product_favor_arr = ","|explode:$favorites}
         {else}
-            {$favorites_list = []}
+            {$product_favor_arr = []}
         {/if}
 
         {if ($theme_settings.show_grid_sku && $CategoryViewProducts == 'tile')
@@ -189,11 +189,11 @@
             {/if}
 
             {if $CategoryViewProducts == 'list'}
-                {include file="product-preview-line.html" product=$p features=$features favorites=$favorites_list}
+                {include file="product-preview-line.html" product=$p features=$features favorites=$product_favor_arr}
             {else if $CategoryViewProducts == 'tbl'}
-                {include file="product-preview-tbl.html" product=$p favorites=$favorites_list}
+                {include file="product-preview-tbl.html" product=$p favorites=$product_favor_arr}
             {else}
-                {include file="product-preview-tile.html" product=$p favorites=$favorites_list}
+                {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr}
             {/if}
         {/foreach}
 

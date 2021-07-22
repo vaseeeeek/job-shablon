@@ -100,11 +100,10 @@
 {/if}
 
 <div class="container">
-    {include file="bullets.html"}
 
-    {if $theme_settings.brands_plugin == 'brands_pro'}
+    {if $theme_settings.use_plugin_brands == 'brands_pro'}
         {include file="home.brand-pro.html"}
-    {else if $theme_settings.brands_plugin == 'brands'}
+    {else if $theme_settings.use_plugin_brands == 'brands'}
         {include file="home.brands.html"}
     {/if}
 

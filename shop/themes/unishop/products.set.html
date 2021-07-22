@@ -17,7 +17,7 @@
     {if !isset($theme_settings.show_grid_sku)}{$theme_settings.show_grid_sku = false}{/if}
     {if !isset($theme_settings.disabled_button_cart_zero_price)}{$theme_settings.disabled_button_cart_zero_price = false}{/if}
     {if !isset($theme_settings.product_show_preview_video)}{$theme_settings.product_show_preview_video = true}{/if}
-    {if $wa_app != 'shop' || !isset($theme_settings.product_preview_tile_gallerytile)}{$theme_settings.product_preview_tile_gallerytile = false}{/if}
+    {if $wa_app != 'shop' || !isset($theme_settings.product_scroll_hover_gallery)}{$theme_settings.product_scroll_hover_gallery = false}{/if}
     {if $wa_app != 'shop' || !isset($theme_settings.product_preview_images_lazy)}{$theme_settings.product_preview_images_lazy = false}{/if}
     {if !isset($theme_settings.text_zero_price)}
         {$theme_settings.text_zero_price = "Price on request"}
@@ -28,7 +28,7 @@
     {if !isset($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible = false}{/if}
 
     {if !isset($favorites)}
-        {$favorites = $wa->cookie('favorites_list')}
+        {$favorites = $wa->cookie('product_favor_arr')}
         {if $favorites}{$favorites = ","|explode:$favorites}{else}{$favorites = []}{/if}
     {/if}
 

@@ -1,18 +1,19 @@
 {strip}
-{if !empty($list_id)}
-    {$list = $wa->shop->productSet($list_id)}
+{if !empty($products_list_id)}
+    {$list = $wa->shop->productSet($products_list_id)}
     {if !empty($list)}
-        {$favorites = $wa->cookie('favorites_list')}
+        {$favorites = $wa->cookie('product_favor_arr')}
         {if $favorites}
-            {$favorites_list = ","|explode:$favorites}
+            {$product_favor_arr = ","|explode:$favorites}
         {else}
-            {$favorites_list = []}
+            {$product_favor_arr = []}
         {/if}
         {if (!$wa->isMobile() && !empty($theme_settings.product_show_tile_features)) || ($wa->isMobile() && !empty($theme_settings.product_show_tile_mobile_features))}
             {$features = $wa->shop->features($list)}
         {/if}
 
-        {$isPreviewProductGalleryTile = ($theme_settings.product_preview_tile_gallerytile && !$wa->isMobile())}
+        {$isPreviewProductGalleryTile = ($theme_settings.product_scroll_hover_gallery && !$wa->isMobile())}
+
         {if $isPreviewProductGalleryTile}
             {$products_ids = ""}
             {foreach $list as $p}
@@ -22,14 +23,13 @@
             {$products_images = $wa->shop->images($products_ids, $size_image)}
         {/if}
 
-        {if $theme_settings.homepage_product_list_rand}{$shuffle = $list|shuffle}{/if}
-        <div class="mainpage-products mainpage-products--carousel js-owl-carousel-product">
+        <div class="home-products home-products--carousel js-owl-carousel-product">
             {if $list_title}
-                <div class="mainpage-products_head-outer"{if empty($is_with_sidebar_list) && $list_head_color} style="background: {$list_head_color}"{/if}>
+                <div class="home-products_head-outer">
                     <div class="container">
-                        <div  class="mainpage-products_head">
-                            <div class="mainpage-products__direction js-carousel-direction"></div>
-                            <div class="mainpage-products__title">{$list_title}</div>
+                        <div  class="home-products_head">
+                            <div class="home-products__direction js-carousel-direction"></div>
+                            <div class="home-products__title">{$list_title}</div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                     <div data-retina="{$wa->shop->config('enable_2x')}" class="js-preview-products products-tile{if $is_preview_grid_mini} products-grid--mini{/if}">
                         <div class="owl-carousel owl-theme owl-loaded"{if $is_preview_grid_mini} data-type-mobile-preview="mini"{/if}>
                             {foreach $list as $p}
-                                {include file="product-preview-tile.html" product=$p favorites=$favorites_list lazy_class="owl-lazy"}
+                                {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy"}
                             {/foreach}
                         </div>
                     </div>

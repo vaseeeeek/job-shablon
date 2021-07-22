@@ -2,9 +2,9 @@
     <div class="fixed-panel top-border-color js-fixed">
         {if $theme_settings.favorites}
         {$count_favorites = 0}
-        {$favorites_list = $wa->cookie('favorites_list')}
-        {if $favorites_list && $favorites_list != 'null'}
-        {$count_favorites = count(","|explode:$favorites_list)}
+        {$product_favor_arr = $wa->cookie('product_favor_arr')}
+        {if $product_favor_arr && $product_favor_arr != 'null'}
+        {$count_favorites = count(","|explode:$product_favor_arr)}
         {/if}
         <div class="js-favorites-preview product-custom">
             <a class="js-products-link" href="{$wa->getUrl('shop/frontend/search')}?list=favorites">

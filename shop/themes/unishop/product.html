@@ -84,13 +84,13 @@
                         {if $theme_settings.favorites || $theme_settings.compare}
                             <div class="product_action-actions">
                                 {if $theme_settings.favorites}
-                                {$favorites = $wa->cookie('favorites_list')}
+                                {$favorites = $wa->cookie('product_favor_arr')}
                                 {if $favorites}
-                                {$favorites_list = ","|explode:$favorites}
+                                {$product_favor_arr = ","|explode:$favorites}
                                 {else}
-                                {$favorites_list = []}
+                                {$product_favor_arr = []}
                                 {/if}
-                                <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $favorites_list)} active{/if}">
+                                <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
                                     <i class="fi-rr-heart"></i>
                                     <span class="product-action-text">[`To favorites`]</span>
                                 </span>
@@ -212,14 +212,14 @@
                                     {if !$_tabs_normal && !$_tabs_acc}
                                         <div class="product-tab_title"><h2>{$name_tab_description}</h2></div>
                                     {/if}
-                                    {if $theme_settings.product_page_show_brand_content && $theme_settings.brands_plugin == 'brands_pro' && class_exists('shopBrandViewHelper')}
+                                    {if $theme_settings.product_page_show_brand_content && $theme_settings.use_plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
                                         {$_brand_pro = shopBrandViewHelper::getProductBrand($product)}
                                         {if !empty($_brand_pro) && $_brand_pro.image_url}
                                             <div class="product_desc-brand">
                                                 <a class="brand_product-img" href="{$_brand_pro.frontend_url}"><img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}"></a>
                                             </div>
                                         {/if}
-                                    {else if $theme_settings.product_page_show_brand_content && $theme_settings.brands_plugin == 'brands' && class_exists('shopProductbrandsPlugin')}
+                                    {else if $theme_settings.product_page_show_brand_content && $theme_settings.use_plugin_brands == 'brands' && class_exists('shopProductbrandsPlugin')}
                                         {$_b = shopProductbrandsPlugin::productBrand($product.id)}
                                         {if !empty($_b) && $_b.image}
                                             <div class="product_desc-brand">
