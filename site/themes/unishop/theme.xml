@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="39">
+<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="48">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
@@ -655,39 +655,6 @@
         To display a long list, we recommend that you adjust the "Sidebar Length"
       </description>
     </setting>
-    <setting var="sidebar_end" control_type="select">
-      <value>promos</value>
-      <name locale="ru_RU">Длина сайдбара</name>
-      <name locale="en_US">Length of sidebar</name>
-      <description locale="ru_RU">Должна быть активирована настройка "Показывать левый сайдбар с категориями"</description>
-      <description locale="en_US">The "Display left sidebar with menu of categories" setting should be enabled.</description>
-      <options>
-        <option value="promos">
-          <name locale="ru_RU">До списка промокарточек</name>
-          <name locale="en_US">To the list of promo cards</name>
-        </option>
-        <option value="categories">
-          <name locale="ru_RU">До списка категорий</name>
-          <name locale="en_US">To the list of categories</name>
-        </option>
-        <option value="product_list_1">
-          <name locale="ru_RU">До списка товаров #1</name>
-          <name locale="en_US">To the list of products #1</name>
-        </option>
-        <option value="product_list_2">
-          <name locale="ru_RU">До списка товаров #2</name>
-          <name locale="en_US">To the list of products #2</name>
-        </option>
-        <option value="product_list_3">
-          <name locale="ru_RU">До списка товаров #3</name>
-          <name locale="en_US">To the list of products #3</name>
-        </option>
-        <option value="bullets">
-          <name locale="ru_RU">До инфоблоков</name>
-          <name locale="en_US">To the list of infoblocks</name>
-        </option>
-      </options>
-    </setting>
     <setting var="desc_mainpage_slider" control_type="paragraph">
       <value/>
       <name locale="en_US">Slider</name>
@@ -932,7 +899,7 @@
       </options>
     </setting>
     <setting var="home_brands_ids" control_type="text">
-      <value><![CDATA[212,213,216,215,243,244,214]]></value>
+      <value>212,213,216,215,243,244,214</value>
       <name locale="en_US"/>
       <name locale="ru_RU">Id брендов на главной</name>
     </setting>
@@ -941,12 +908,12 @@
       <name locale="en_US">Welcome text</name>
       <name locale="ru_RU">Приветственный текст</name>
     </setting>
-    <setting var="homepage_welcome_head" control_type="text">
+    <setting var="home_text_head" control_type="text">
       <value>Добро пожаловать в интернет-магазин Unishop</value>
       <name locale="en_US">Head welcome head</name>
       <name locale="ru_RU">Заголовок приветствия</name>
     </setting>
-    <setting var="homepage_welcome_note" control_type="text">
+    <setting var="home_text_note" control_type="text">
       <value>&lt;p&gt;Интернет-магазин Unishop предоставляет широкий ассортимент товаров c более двухсот разделов и 2000 наименований. Мы работаем по всей России, а также по странам СНГ, выполняя самую быструю доставку в любой населенный пункт.&lt;/p&gt;  &lt;p&gt; За пять лет работы мы нарастили большую клиентскую базу.3000 клиентов, которые повторно обращаются за нашими услугами. &lt;/p&gt;  &lt;p&gt; У нас самые низкие цены на товары, Но если Вы найдете дешевле, мы обязательно снизим цену! Так же у нас постоянно проводятся акции и распродажи на разные группы товаров. &lt;/p&gt;</value>
       <name locale="en_US">Welcome note (HTML)</name>
       <name locale="ru_RU">Приветствие (HTML)</name>
@@ -980,7 +947,7 @@
       <name locale="en_US">ID Blog on homepage</name>
       <name locale="ru_RU">идентификатор блога на главной</name>
     </setting>
-    <setting var="homepage_blog_images_lazy" control_type="checkbox">
+    <setting var="home_blog_img_lazy" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Lazy images of categories in blog</name>
       <name locale="ru_RU">Ленивая загрузка картинок в новостях</name>
@@ -2254,48 +2221,6 @@
       <name locale="en_US">Activate popup cart</name>
       <name locale="ru_RU">Включить всплывающую корзину</name>
     </setting>
-    <setting var="add_order_action" control_type="select">
-      <value>move</value>
-      <name locale="en_US">Effect when added to cart (desktop)</name>
-      <name locale="ru_RU">Эффект при добавлении в корзину (десктоп)</name>
-      <options>
-        <option value="popup">
-          <name locale="ru_RU">Модальное окно с кнопкой на оформление заказа</name>
-          <name locale="en_US">Modal window with a button for placing an order</name>
-        </option>
-        <option value="move">
-          <name locale="ru_RU">Уплывание в корзину</name>
-          <name locale="en_US">Sailing to the basket</name>
-        </option>
-        <option value="fixed">
-          <name locale="ru_RU">Фиксированная панель справа</name>
-          <name locale="en_US">Fixed panel on right</name>
-        </option>
-        <option value="none">
-          <name locale="ru_RU">Нет</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="add_order_action_mobile" control_type="select">
-      <value>move</value>
-      <name locale="en_US">Effect when added to cart (mobile)</name>
-      <name locale="ru_RU">Эффект при добавлении в корзину (мобильная)</name>
-      <options>
-        <option value="popup">
-          <name locale="ru_RU">Модальное окно с кнопкой на оформление заказа</name>
-          <name locale="en_US">Modal window with a button for placing an order</name>
-        </option>
-        <option value="move">
-          <name locale="ru_RU">Уплывание в корзину</name>
-          <name locale="en_US">Sailing to the basket</name>
-        </option>
-        <option value="none">
-          <name locale="ru_RU">Нет</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
-    </setting>
     <setting var="cart_crossselling" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Cross-selling in cart</name>
@@ -2415,137 +2340,12 @@
       <name locale="en_US">Social groups</name>
       <name locale="ru_RU">Группы соц.сетей</name>
     </setting>
-    <setting var="divider_widget_popup_advert" control_type="group_divider">
-      <value/>
-      <name locale="ru_RU">Виджет акции во всплывающем окне</name>
-      <name locale="en_US">Widget promotion in popup</name>
-    </setting>
-    <setting var="widget_popup_advert_active" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Активировать виджет</name>
-      <name locale="en_US">Widget on</name>
-    </setting>
-    <setting var="widget_popup_advert_time" control_type="text">
-      <value>10</value>
-      <name locale="ru_RU">Задержка показа окна (в секундах)</name>
-      <name locale="en_US">Window Delay (in seconds)</name>
-    </setting>
-    <setting var="widget_popup_advert_tabu_days" control_type="text">
-      <value>10</value>
-      <name locale="ru_RU">Количество дней для повторного показа окна</name>
-      <name locale="en_US">The number of days to re-show the window</name>
-    </setting>
-    <setting var="widget_popup_advert_width" control_type="text">
-      <value>800</value>
-      <name locale="ru_RU">Максимальная ширина popup окна (в пикселях)</name>
-      <name locale="en_US">Maximum width of the popup window (in pixels)</name>
-    </setting>
-    <setting var="widget_popup_advert_title" control_type="text">
-      <value locale="ru_RU"/>
-      <value locale="en_US"/>
-      <name locale="ru_RU">Заголовок popup окна</name>
-      <name locale="en_US">Title popup window</name>
-    </setting>
-    <setting var="widget_popup_advert_block_id" control_type="text">
-      <value>unishop.popup.advert</value>
-      <name locale="ru_RU">Идентификатор блока для вывода (Сайт -&gt; Блоки)</name>
-      <name locale="en_US">ID of block for display (Site -&gt; Blocks)</name>
-    </setting>
-    <setting var="widget_popup_id" control_type="text">
-      <value>1</value>
-      <name locale="ru_RU">Идентификатор новой акции (Произвольное число)</name>
-      <name locale="en_US">ID new Promotion (arbitrary number)</name>
-      <description locale="ru_RU">После смены идентификатора акция вновь отобразится у всех пользователей</description>
-      <description locale="en_US">After changing the ID, the action will be displayed again for all users.</description>
-    </setting>
-    <setting var="divider_widget_social_groups" control_type="group_divider">
-      <value/>
-      <name locale="ru_RU">Виджет социальных групп</name>
-      <name locale="en_US">Widget of social groups</name>
-    </setting>
-    <setting var="widget_social_groups_vk" control_type="text">
-      <value/>
-      <name locale="ru_RU">Код для виджета Вконтакте</name>
-      <name locale="en_US">Code for Vk</name>
-    </setting>
-    <setting var="widget_social_groups_fb" control_type="text">
-      <value/>
-      <name locale="ru_RU">Код для виджета Facebook</name>
-      <name locale="en_US">Code for Facebook</name>
-    </setting>
-    <setting var="widget_social_groups_ok" control_type="text">
-      <value/>
-      <name locale="ru_RU">Код для виджета Одноклассники</name>
-      <name locale="en_US">Code for Ok</name>
-    </setting>
-    <setting var="widget_social_groups_tw" control_type="text">
-      <value/>
-      <name locale="ru_RU">Код для виджета Twitter</name>
-      <name locale="en_US">Code for Twitter</name>
-    </setting>
-    <setting var="widget_social_groups_inst" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Формировать instagram виджет</name>
-      <name locale="en_US">Generate instagram widget</name>
-    </setting>
-    <setting var="widget_social_groups_inst_id" control_type="text">
-      <value/>
-      <name locale="ru_RU">Числовой идентификатор пользователя instagram для верификации</name>
-      <name locale="en_US">Instagram numeric user ID for verification</name>
-    </setting>
-    <setting var="widget_social_groups_inst_oath" control_type="text">
-      <value/>
-      <name locale="ru_RU">Валидный oAuth токен instagram</name>
-      <name locale="en_US">oAuth token instagram</name>
-    </setting>
-    <setting var="widget_social_groups_inst_out" control_type="text">
-      <value/>
-      <name locale="ru_RU">Числовой идентификатор пользователя instagram для вывода фото</name>
-      <name locale="en_US">Instagram numeric user id for photo output</name>
-      <description locale="ru_RU">При пустом значении вывод фото пользователя, указанного для верификации</description>
-      <description locale="en_US">If the value is empty, the photo output of the user specified for verification</description>
-    </setting>
-    <setting var="widget_social_groups_inst_limit" control_type="text">
-      <value>16</value>
-      <name locale="ru_RU">Лимит вывода фото для instagram</name>
-      <name locale="en_US">Photo output limit for instagram</name>
-    </setting>
-    <setting var="widget_social_shuffle" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Перемешивать виджеты</name>
-      <name locale="en_US">Shuffle Widgets</name>
-    </setting>
-    <setting var="widget_social_groups_auto" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Автоматическое переключение соцсетей</name>
-      <name locale="en_US">Automatic switching of social networks</name>
-    </setting>
-    <setting var="widget_social_groups_time" control_type="text">
-      <value>8</value>
-      <name locale="ru_RU">Время автоматического переключения (секунды)</name>
-      <name locale="en_US">Automatic switching time (seconds)</name>
-    </setting>
-    <setting var="widget_social_groups_load" control_type="select">
-      <value>switch</value>
-      <name locale="ru_RU">Предзагрузка виджетов</name>
-      <name locale="en_US">Preload widgets</name>
-      <options>
-        <option value="switch">
-          <name locale="ru_RU">Загружать при переключении</name>
-          <name locale="en_US">Load when switching</name>
-        </option>
-        <option value="just">
-          <name locale="ru_RU">Загружать сразу</name>
-          <name locale="en_US">Load immediately</name>
-        </option>
-      </options>
-    </setting>
     <setting var="divider_footer" control_type="group_divider">
       <value/>
       <name locale="en_US">Footer</name>
       <name locale="ru_RU">«Подвал» сайта</name>
     </setting>
-    <setting var="hide_links_to_webasyst" control_type="checkbox">
+    <setting var="hide_wa_links" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Remove links to webasyst</name>
       <name locale="ru_RU">Убрать ссылки на webasyst</name>
@@ -2649,14 +2449,6 @@
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
-    <setting var="logo_footer_2x" control_type="image">
-      <value>img/logo_footer@2x.png?v1626697252</value>
-      <filename>img/logo_footer@2x.*</filename>
-      <name locale="en_US">Logo for retina</name>
-      <name locale="ru_RU">Логотип для ретина дисплеев</name>
-      <description locale="ru_RU">Загрузите логотип размером в 2 раза больше.</description>
-      <description locale="en_US">Upload a logo 2 times larger</description>
-    </setting>
     <setting var="facebook" control_type="text">
       <value locale="en_US">https://www.facebook.com/Webasyst</value>
       <value locale="ru_RU">https://www.facebook.com/Webasyst.RU</value>
@@ -2690,20 +2482,10 @@
       <name locale="en_US">Youtube channel URL</name>
       <name locale="ru_RU">Адрес канала YouTube</name>
     </setting>
-    <setting var="rss" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Link to rss</name>
-      <name locale="ru_RU">Ссылка на rss</name>
-    </setting>
-    <setting var="button_to_top" control_type="checkbox">
+    <setting var="scroll_top" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Show button "To top"</name>
       <name locale="ru_RU">Кнопка "Наверх"</name>
-    </setting>
-    <setting var="fixed_panel" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Fixed panel</name>
-      <name locale="ru_RU">Фиксированная панель</name>
     </setting>
     <setting var="divider_styles_scripts_fonts" control_type="group_divider">
       <value/>
@@ -2767,8 +2549,8 @@
     </setting>
     <setting var="load_text_font_footer" control_type="checkbox">
       <value/>
-      <name locale="en_US">Load text font style file at the bottom of the page</name>
-      <name locale="ru_RU">Загружать файл стилей текстового шрифта в нижней части страницы</name>
+      <name locale="en_US">Load text font style file </name>
+      <name locale="ru_RU">Загружать файл стилей текстового шрифта</name>
     </setting>
     <setting var="local_load_text_font" control_type="checkbox">
       <value>1</value>
@@ -2804,47 +2586,19 @@
       <name locale="en_US">&lt;br&gt;&lt;br&gt;Customs files of styles and scripts</name>
       <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Кастомные файлы стилей и скриптов</name>
     </setting>
-    <setting var="load_custom_styles" control_type="select">
-      <value>bottom</value>
+    <setting var="load_custom_styles" control_type="checkbox">
+      <value>1</value>
       <name locale="en_US">Load file custom styles</name>
       <name locale="ru_RU">Загружать файл кастомных стилей</name>
       <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks - Block custom_styles</description>
       <description locale="ru_RU">Кастомные скрипты рекомендуется добавлять через прилоежние Сайт - Блоки - Блок с id custom_styles</description>
-      <options>
-        <option value="bottom">
-          <name locale="en_US">Download at the bottom of the page</name>
-          <name locale="ru_RU">Загружать в нижней части страницы</name>
-        </option>
-        <option value="top">
-          <name locale="en_US">Download at the top of the page</name>
-          <name locale="ru_RU">Загружать в верхней части страницы</name>
-        </option>
-        <option value="">
-          <name locale="en_US">Загружать сразу</name>
-          <name locale="ru_RU">Не загружать</name>
-        </option>
-      </options>
     </setting>
-    <setting var="load_custom_js" control_type="select">
+    <setting var="load_custom_js" control_type="checkbox">
       <value/>
       <name locale="en_US">Load file custom js scripts</name>
       <name locale="ru_RU">Загружать файл кастомных js-скриптов</name>
       <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks - Block footer_codes</description>
       <description locale="ru_RU">Кастомные скрипты рекомендуется добавлять через прилоежние Сайт - Блоки - Блок с id footer_codes</description>
-      <options>
-        <option value="bottom">
-          <name locale="en_US">Download at the bottom of the page</name>
-          <name locale="ru_RU">Загружать в нижней части страницы</name>
-        </option>
-        <option value="top">
-          <name locale="en_US">Download at the top of the page</name>
-          <name locale="ru_RU">Загружать в верхней части страницы</name>
-        </option>
-        <option value="">
-          <name locale="en_US">Загружать сразу</name>
-          <name locale="ru_RU">Не загружать</name>
-        </option>
-      </options>
     </setting>
     <setting var="desc_min_files" control_type="paragraph">
       <value/>
@@ -2856,17 +2610,12 @@
       <name locale="ru_RU">Отключить минимизированные файлы стилей</name>
       <name locale="en_US">Disable the minimized style files</name>
     </setting>
-    <setting var="min_script_off" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Отключить минимизированные файлы скриптов</name>
-      <name locale="en_US">Disable minimized script files</name>
-    </setting>
     <setting var="divider_other" control_type="group_divider">
       <value/>
       <name locale="en_US">Other settings</name>
       <name locale="ru_RU">Другие настройки</name>
     </setting>
-    <setting var="quicklinks_show" control_type="checkbox">
+    <setting var="show_link_admin_edit" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Выводить ссылки быстрого редактирования (для администратора сайта)</name>
       <name locale="en_US">Display quick edit links (for site administrator)</name>
@@ -2905,7 +2654,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>cat</value>
+      <value></value>
       <name locale="en_US"/>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <options>

@@ -67,3 +67,29 @@ a.inline-link, .inline-link, .checked-list li.selected a, .checked-list li.selec
 .content-block {
     padding: 0;
 }
+.header {
+    padding: 10px 0;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
+    margin: 10px 0;
+}
+/*.products-grid-outer .Product-grid.-four, .products-tile-outer .Product-grid.-four {
+    width: 24%;
+    margin-right: 1%;
+}
+.Product-grid_img {
+    height: 260px;
+    line-height: 260px;
+    padding:0;
+}
+.Product-grid {
+    border-right:0; 
+    border-bottom:0; 
+}
+.Product-grid_img > img {
+    max-width: 100%;
+    max-height: 100%;
+}*/
+.products-tile {
+    border-top:0;
+    border-left:0;
+}

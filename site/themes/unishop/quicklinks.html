@@ -42,9 +42,9 @@
 {/if}
 
 {if !empty($quick_links) && count($quick_links)}
-    <div class="admin-quick-links">
+    <div class="admin-edit-links">
         {foreach $quick_links as $link}
-            <a class="admin-quick-links__el" target="_blank" href="{$link.href}" title="{$link.name}">
+            <a class="admin-edit-links__el" target="_blank" href="{$link.href}" title="{$link.name}">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
             </a>
         {/foreach}

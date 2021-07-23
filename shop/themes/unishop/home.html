@@ -14,19 +14,14 @@
 
     {include file="slider.html"}
     {if !$theme_settings.sidebar_mainpage}
-        </div> <!-- .container clearfix -->
-    {/if}
-    {if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "promos"}
-        </div> <!-- .with-sidebar -->
-    </div> <!-- .container clearfix -->
+        </div>
+    {else}
+            </div>
+        </div>
     {/if}
 
     {if $theme_settings.is_homepage_promos}
         <div class="container">{include file="promos.html"}</div>
-    {/if}
-    {if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "categories"}
-        </div> <!-- .with-sidebar -->
-    </div> <!-- .container clearfix -->
     {/if}
 
     {if $theme_settings.categories_home_page}
@@ -122,39 +117,15 @@
     {/if}
 {/if}
 
-{$countWidgets = 0}
-{if $theme_settings.widget_code_1 || $theme_settings.widget_code_2}
-    {$countWidgets = 1}
-    {if $theme_settings.widget_code_1 && $theme_settings.widget_code_2}
-        {$countWidgets = 2}
-    {/if}
-{/if}
-
-
-
-{if !empty($theme_settings.homepage_welcome_head) || !empty($theme_settings.homepage_welcome_note) || !empty($is_news) || $countWidgets > 0}
-    <div class="mainpage-text-outer">
-        {if !empty($theme_settings.homepage_welcome_head) || !empty($theme_settings.homepage_welcome_note) || $countWidgets > 0}
-            <div class="mainpage-text ">
+{if !empty($theme_settings.home_text_head) || !empty($theme_settings.home_text_note) || !empty($is_news) || $countWidgets > 0}
+    <div class="homepage-text-outer">
+        {if !empty($theme_settings.home_text_head) || !empty($theme_settings.home_text_note)}
+            <div class="homepage-text">
                 <div class="container clearfix">
-                    {if $countWidgets > 0}
-                        <div class="mainpage-social">
-                            {if !empty($theme_settings.widget_code_1)}
-                                <div class="mainpage-social_el">
-                                    {$theme_settings.widget_code_1}
-                                </div>
-                            {/if}
-                            {if !empty($theme_settings.widget_code_2)}
-                                <div class="mainpage-social_el">
-                                    {$theme_settings.widget_code_2}
-                                </div>
-                            {/if}
-                        </div>
+                    {if !empty($theme_settings.home_text_head)}
+                    <h1>{$theme_settings.home_text_head}</h1>
                     {/if}
-                    {if !empty($theme_settings.homepage_welcome_head)}
-                    <h1>{$theme_settings.homepage_welcome_head}</h1>
-                    {/if}
-                    {$theme_settings.homepage_welcome_note}
+                    {$theme_settings.home_text_note}
                 </div>
             </div>
         {/if}
@@ -163,39 +134,39 @@
                 {$sk_blog_images = blogSkimageHelper::getImages()}
             {/if}
             <div class="container">
-                <ul class="news-preview clear-list">
-                    {foreach $blog_posts as $post}
-                        <li class="news-preview_el">
+                <ul class="home-prev-news clear-list">
+                    {foreach $blog_posts as $item}
+                        <li class="home-prev-news_item">
                             {$image = ""}
-                            {if isset($post.image_small) && !empty($post.image_small)}
-                                {$image = $post.image_small}
+                            {if isset($item.image_small) && !empty($item.image_small)}
+                                {$image = $item.image_small}
                             {/if}
-                            {if empty($image) && isset($post.image) && !empty($post.image)}
-                                {$image = $post.image}
+                            {if empty($image) && isset($item.image) && !empty($item.image)}
+                                {$image = $item.image}
                             {/if}
-                            {if isset($sk_blog_images[$post.id]['widget']) && !empty($sk_blog_images[$post.id]['widget'])}
-                                {$image = $sk_blog_images[$post.id]['widget']}
+                            {if isset($sk_blog_images[$item.id]['preview']) && !empty($sk_blog_images[$item.id]['preview'])}
+                                {$image = $sk_blog_images[$item.id]['preview']}
                             {/if}
                             {if !empty($image)}
-                                <a href="{$post.link}" class="news-preview_el-image">
-                                    {if $theme_settings.homepage_blog_images_lazy}
-                                        <img class="js-image-lazy" src="{$wa_theme_url}img/lazy-image.png" data-src="{$image}" alt="{$post.title}">
+                                <a href="{$item.link}" class="home-prev-news_item-image">
+                                    {if $theme_settings.home_blog_img_lazy}
+                                        <img class="js-image-lazy" src="{$wa_theme_url}img/lazy-image.png" data-src="{$image}" alt="{$item.title}">
                                     {else}
-                                        <img src="{$image}" alt="{$post.title}">
+                                        <img src="{$image}" alt="{$item.title}">
                                     {/if}
                                 </a>
                             {/if}
-                            <div class="news-preview_el-info">
-                                <div class="news-preview_el-name">
-                                    <span class="news-preview_el-date">{$post.datetime|wa_datetime:"humandate"}</span>
-                                    <a href="{$post.link}">{$post.title}</a>
+                            <div class="home-prev-news_item-info">
+                                <div class="home-prev-news_item-name">
+                                    <span class="home-prev-news_item-date">{$item.datetime|wa_datetime:"humandate"}</span>
+                                    <a href="{$item.link}">{$item.title}</a>
                                 </div>
-                                <div class="news-preview_el-text">
-                                    {strip_tags($post.text)|truncate:128}
+                                <div class="home-prev-news_item-text">
+                                    {strip_tags($item.text)|truncate:128}
                                 </div>
 
-                                <div class="news-preview_el-more sdColor">
-                                    <a href="{$post.link}">[`Read more`]</a> &rarr;
+                                <div class="home-prev-news_item-more sdColor">
+                                    <a href="{$item.link}">[`Read more`]</a> &rarr;
                                 </div>
                             </div>
                         </li>

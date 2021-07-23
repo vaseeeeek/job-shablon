@@ -50,10 +50,6 @@
 
     {include file="`$parent_theme_path`/add.css.html"}
 
-    {if !$theme_settings.load_text_font_footer}
-        {include file="`$parent_theme_path`/fonts.html"}
-    {/if}
-
     <script src="{$wa_theme_url}jquery.min.js?v{$wa_theme_version}"></script>
 
     {if !$theme_settings.plugins_js_footer}
@@ -66,11 +62,9 @@
     {if $theme_settings.load_custom_styles == 'top'}
 		<link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
     {/if}
+
     {$wa->block("custom_styles")}
 
-    {if $theme_settings.load_custom_js == 'top'}
-        <script src="{$wa_theme_url}unishop.custom.js?v{$wa_theme_version}"></script>
-    {/if}
     {if method_exists($wa->shop, 'checkout')}
         {$cartUrl = $wa->shop->checkout()->cartUrl()}
     {else}
@@ -123,7 +117,7 @@
                 <div class="Nav-contact-info">
                     <p class="Nav-contact-phone">{$theme_settings.header_company_phone}</p>
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
-                    <p class="Nav-contact-callback">Обратный звонок</p>
+                    <p class="Nav-contact-callback js-sk-callback-open">Обратный звонок</p>
                 </div>
 
                 <div class="Nav-product-custom">
@@ -222,73 +216,69 @@
     <!-- FOOTER -->
     <footer class="footer" itemscope itemtype="http://schema.org/Organization">
         <meta itemprop="name" content="{$wa->shop->settings('name')}">
-        <div class="footer-content container">
+        <div class="footer-box container">
             <div class="clearfix">
-                <div class="footer-content_col">
+                <div class="footer-box_col">
                     {if $theme_settings.logo_footer}
                         <div class="footer_logo">
                             <a href="{$wa_url}">
-                                <img{if $theme_settings.logo_footer_2x} class="js-retina-logo"{/if} src="{$wa_theme_url}{$theme_settings.logo_footer}" alt="{$wa->shop->settings('name')}" />
+                                <img src="{$wa_theme_url}{$theme_settings.logo_footer}" alt="{$wa->shop->settings('name')}" />
                             </a>
                         </div>
                     {/if}
                     <div class="footer-social">
                         {if !empty($theme_settings.facebook)}
-                            <a target="_blank" class="footer-social_el" href="{$theme_settings.facebook}"><i class="fa fa-facebook-square sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.facebook}"><i class="fa fa-facebook-square sdСolor" aria-hidden="true"></i></a>
                         {/if}
                         {if !empty($theme_settings.twitter)}
-                            <a target="_blank" class="footer-social_el" href="{$theme_settings.twitter}"><i class="fa fa-twitter-square sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.twitter}"><i class="fa fa-twitter-square sdСolor" aria-hidden="true"></i></a>
                         {/if}
                         {if !empty($theme_settings.vk)}
-                            <a target="_blank" class="footer-social_el" href="{$theme_settings.vk}"><i class="fa fa-vk sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.vk}"><i class="fa fa-vk sdСolor" aria-hidden="true"></i></a>
                         {/if}
                         {if !empty($theme_settings.odnoclassniki)}
-                        <a target="_blank" class="footer-social_el" href="{$theme_settings.odnoclassniki}"><i class="fa fa-odnoklassniki sdСolor" aria-hidden="true"></i></a>
+                        <a target="_blank" class="footer-social_item" href="{$theme_settings.odnoclassniki}"><i class="fa fa-odnoklassniki sdСolor" aria-hidden="true"></i></a>
                         {/if}
                         {if !empty($theme_settings.instagram)}
-                            <a target="_blank" class="footer-social_el" href="{$theme_settings.instagram}"><i class="fa fa-instagram sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.instagram}"><i class="fa fa-instagram sdСolor" aria-hidden="true"></i></a>
                         {/if}
                         {if !empty($theme_settings.youtube)}
-                            <a target="_blank" class="footer-social_el" href="{$theme_settings.youtube}"><i class="fa fa-youtube-square sdСolor" aria-hidden="true"></i></a>
-                        {/if}
-                        {if $wa->blog && $rss && $theme_settings.rss}
-                            <a target="_blank" class="footer-social_el" href="{$rss}"><i class="fa fa-rss-square sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.youtube}"><i class="fa fa-youtube-square sdСolor" aria-hidden="true"></i></a>
                         {/if}
                     </div>
                 </div>
 
-                <div class="footer-content_col">
-                    {$wa->block("footer_links_company")}
+                <div class="footer-box_col">
+                    {$wa->block("footer_col1")}
                 </div>
-                <div class="footer-content_col">
-                    {$wa->block("footer_links_sections")}
+                <div class="footer-box_col">
+                    {$wa->block("footer_col2")}
                 </div>
-                <div class="footer-content_col">
-                    {$wa->block("footer_contacts")}
+                <div class="footer-box_col">
+                    {$wa->block("footer_col3")}
                 </div>
             </div>
-            <div class="footer-text">
-                {$wa->block("footer_text")}
+            <div class="footer-horizontal">
+                {$wa->block("footer_horizontal")}
             </div>
             {include file="`$wa_active_theme_path`/footer.html" inline}
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bot">
             <div class="container clearfix">
-                <div class="footer-bottom_text">
+                <div class="footer-bot_text">
                     <div class="copyright">{$wa->block("copyright")}</div>
                 </div>
                 {if !empty($theme_settings.dislay_payment_footer)}
-                    <div class="footer-payments">
-                        {$availabe_options = $wa->shop->payment()}
-                        {$_cnt = 0}
-                        {foreach $availabe_options as $option name=options}
-                            {if $_cnt == 8}{break}{/if}
+                    <div class="footer-pay">
+                        {$availabe_pay = $wa->shop->payment()}
+                        {$_maxPayType = 0}
+                        {foreach $availabe_pay as $option name=options}
+                            {if $_maxPayType == 8}{break}{/if}
                             {if $option.logo}
                                 <img src="{$option.logo}" alt="{$option.name}">
                                 {$_cnt = $_cnt + 1}
                             {/if}
                         {foreachelse}
-                        &nbsp;
                         {/foreach}
                     </div>
                 {/if}
@@ -296,27 +286,23 @@
         </div>
     </footer>
 
-    {if $theme_settings.button_to_top}<span class="btn-top fa-icon-before sdСolor" id="move-to-top"></span>{/if}
+    {if $theme_settings.scroll_top}<span class="btn-top fa-icon-before sdСolor" id="move-to-top"></span>{/if}
 
-    {if $theme_settings.fixed_panel || $wa->isMobile()}{include file="fixed.panel.html" inline}{/if}
+    {if $wa->isMobile()}{include file="fixed.panel.html" inline}{/if}
 
-    {if $theme_settings.widget_popup_advert_active && $theme_settings.widget_popup_advert_block_id}
-        {include file="popup.advert.html" inline}
-    {/if}
-
-    {if $theme_settings.quicklinks_show && $wa->user()->isAuth() && !$wa->isMobile()}
-        {$quick_access = false}
+    {if $theme_settings.show_link_admin_edit && $wa->user()->isAuth() && !$wa->isMobile()}
+        {$admin_edit_link = false}
         {if $wa->user()->isAdmin()}
-            {$quick_access = true}
+            {$admin_edit_link = true}
         {else}
             {if $theme_settings.quicklinks_ids}
                 {$ids = ","|explode:$theme_settings.quicklinks_ids}
                 {if in_array($wa->userId(), $ids)}
-                    {$quick_access = true}
+                    {$admin_edit_link = true}
                 {/if}
             {/if}
         {/if}
-        {if $quick_access}
+        {if $admin_edit_link}
             {include file="`$parent_theme_path`/quicklinks.html" inline}
         {/if}
     {/if}
@@ -325,32 +311,7 @@
         {shopCallbPlugin::display()}
     {/if}
 
-    {if $wa->shop && $theme_settings.plugin_callback && class_exists('shopSkcallbackHelper') && shopSkcallbackHelper::isActive()}
-        {include file="`$parent_theme_path`/skcallback.html" inline}
-    {/if}
-
-    {if $wa->shop && $theme_settings.fastorder == "skoneclick" && class_exists('shopSkoneclickHelper') && shopSkoneclickHelper::isActive()}
-        {include file="`$parent_theme_path`/skoneclick.html" inline}
-    {/if}
-
-    {$add_order_action = $theme_settings.add_order_action}
-    {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
-
-    {if $add_order_action == 'popup'}
-        {include file="`$parent_theme_path`/cart.add.popup.html" inline}
-    {/if}
-
-    {if !$is_use_cartonestep_cart_and_order && $add_order_action == 'fixed'}
-        {if !isset($action) || (isset($action) && $action != 'cart' && $action != 'checkout' && $action != 'checkoutone')}
-            <div class="js-fixed-cart-outer" data-cart-url="{$wa->getUrl('shop/frontend/cart')}"></div>
-        {/if}
-    {/if}
-
-    {if $theme_settings.test_settings}
-        {include file="`$parent_theme_path`/settings.html" inline}
-    {/if}
-
-    {$wa->block("footer_codes")}
+    {$wa->block("footer_settings")}
 
     <script src="{$wa_theme_url}vendor.min.js?v{$wa_theme_version}"></script>
 
@@ -365,18 +326,15 @@
     <![endif]-->
 
 
-    {if $theme_settings.min_script_off}
-        <script src="{$wa_theme_url}unishop.js?v{$wa_theme_version}"></script>
-    {else}
-        <script src="{$wa_theme_url}unishop.min.js?v{$wa_theme_version}"></script>
-    {/if}
+    {*<script src="{$wa_theme_url}unishop.js?v{$wa_theme_version}"></script>*}
+    <script src="{$wa_theme_url}unishop.min.js?v{$wa_theme_version}"></script>
 
     {include file="`$wa_active_theme_path`/sources.js.html" inline}
 
-    {if $theme_settings.load_custom_styles == 'bottom'}
+    {if $theme_settings.load_custom_styles}
         <link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
     {/if}
-    {if $theme_settings.load_custom_js == 'bottom'}
+    {if $theme_settings.load_custom_js}
         <script src="{$wa_theme_url}unishop.custom.js?v{$wa_theme_version}"></script>
     {/if}
 

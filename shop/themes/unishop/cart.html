@@ -184,9 +184,9 @@
                                     display up to 8 logos of available payment options;
                                     replace $wa->shop->payment() with $wa->shop->shipping() if you prefer shipping options logos
                                 *}
-                                {$availabe_options = $wa->shop->payment()}
+                                {$availabe_pay = $wa->shop->payment()}
                                 {$_cnt = 0}
-                                {foreach $availabe_options as $option name=options}
+                                {foreach $availabe_pay as $option name=options}
                                     {if $_cnt == 8}{break}{/if}
                                     {if $option.logo}
                                         <img src="{$option.logo}" alt="{$option.name}">
