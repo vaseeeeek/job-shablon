@@ -1,7 +1,7 @@
 {strip}
-{$default_img = "`$wa_theme_url`img/dummy96.png"}
-{if !empty($theme_settings.default_img)}
-    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{$def_img = "`$wa_theme_url`img/dummy96.png"}
+{if !empty($theme_settings.def_img)}
+    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 <div class="js-content content content-block">
     <div class="compare-title">
@@ -67,7 +67,7 @@
                         {foreach $products as $p name=product_names}
                             <td width="{$tableTdWidth}%">
                                 <a href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">
-                                    {$wa->shop->productImgHtml($p, '70', ['itemprop' => 'image', 'id' => 'product-image', 'default' => $default_img, 'title' => $p.name|cat:' ':strip_tags($p.summary)|escape])}
+                                    {$wa->shop->productImgHtml($p, '70', ['itemprop' => 'image', 'id' => 'product-image', 'default' => $def_img, 'title' => $p.name|cat:' ':strip_tags($p.summary)|escape])}
                                 </a>
                                 <div class="name-outer">
                                     <a class="name-link" href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">{$p.name}</a>

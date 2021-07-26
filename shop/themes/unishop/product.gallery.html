@@ -30,9 +30,9 @@
     </div>
 {/if}
 
-{$default_img = "`$wa_theme_url`img/dummy200.png"}
-{if !empty($theme_settings.default_img)}
-    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{$def_img = "`$wa_theme_url`img/dummy200.png"}
+{if !empty($theme_settings.def_img)}
+    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 
 <div class="product-page_main-left">
@@ -73,7 +73,7 @@
                         {$position = $position + 1}
                     {/if}
                 {else}
-                    <img src="{$default_img}" alt="{$product.name|escape}"/>
+                    <img src="{$def_img}" alt="{$product.name|escape}"/>
                 {/if}
             </div>
         </div>

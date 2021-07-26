@@ -35,9 +35,9 @@
     {/if}
 {/if}
 
-{$default_img = "`$wa_theme_url`img/dummy200.png"}
-{if !empty($theme_settings.default_img)}
-    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{$def_img = "`$wa_theme_url`img/dummy200.png"}
+{if !empty($theme_settings.def_img)}
+    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 
 {$images = []}
@@ -108,9 +108,9 @@
             {$class_img = "js-product-preview-img"}
             {if !empty($lazy_class) && $theme_settings.product_preview_images_lazy && !empty($p.image_id)}{$class_img = "`$class_img` $lazy_class"}{/if}
             {if $isOwlSlider}
-                {$image = $wa->shop->productImgHtml($p, '0x200', ['class' => $class_img, 'alt' => $p.name, 'default' => $default_img])}
+                {$image = $wa->shop->productImgHtml($p, '0x200', ['class' => $class_img, 'alt' => $p.name, 'default' => $def_img])}
             {else}
-                {$image = $wa->shop->productImgHtml($p, '0x260', ['class' => $class_img, 'alt' => $p.name, 'default' => $default_img])}
+                {$image = $wa->shop->productImgHtml($p, '0x260', ['class' => $class_img, 'alt' => $p.name, 'default' => $def_img])}
             {/if}
 {*            {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}*}
 {*                {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}*}

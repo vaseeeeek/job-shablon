@@ -1,7 +1,7 @@
 {strip}
-{$default_img = "`$wa_theme_url`img/dummy96.png"}
-{if !empty($theme_settings.default_img)}
-    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{$def_img = "`$wa_theme_url`img/dummy96.png"}
+{if !empty($theme_settings.def_img)}
+    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 
 {$add_order_action = $theme_settings.add_order_action}
@@ -13,7 +13,7 @@
 <div class="Product-table js-preview-cart">
     <div class="Product-table-img">
         <a href="{$p.frontend_url}" title="{$p.name}">
-            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $default_img])}
+            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $def_img])}
             {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
                 {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
             {/if}

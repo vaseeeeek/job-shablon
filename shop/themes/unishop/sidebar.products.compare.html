@@ -1,8 +1,8 @@
 {strip}
 {if $theme_settings.compare}
-    {$default_img = "`$wa_theme_url`img/dummy96.png"}
-    {if !empty($theme_settings.default_img)}
-        {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+    {$def_img = "`$wa_theme_url`img/dummy96.png"}
+    {if !empty($theme_settings.def_img)}
+        {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
     {/if}
 
     {$in_comparison = $wa->shop->inComparison()}
@@ -29,7 +29,7 @@
                     {foreach $products as $p}
                         <div data-product="{$p.id}" class="js-compare-product sb-product">
                             <a class="sb-product_img" href="{$p.frontend_url}" title="{$p.name}">
-                                {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $default_img])}
+                                {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $def_img])}
                             </a>
                             <div class="sb-product_content">
                                 <a class="sb-product_name" href="{$p.frontend_url}">{$p.name}</a>

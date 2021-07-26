@@ -63,7 +63,6 @@
 		<link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
     {/if}
 
-    {$wa->block("custom_styles")}
 
     {if method_exists($wa->shop, 'checkout')}
         {$cartUrl = $wa->shop->checkout()->cartUrl()}
@@ -311,6 +310,7 @@
         {shopCallbPlugin::display()}
     {/if}
 
+    {$wa->block("custom_styles")}
     {$wa->block("footer_settings")}
 
     <script src="{$wa_theme_url}vendor.min.js?v{$wa_theme_version}"></script>

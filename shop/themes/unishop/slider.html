@@ -76,9 +76,9 @@
         {$homeProductsPromo_features = $wa->shop->features($homeProductsPromo)}
     {/if}
 
-    {$default_img = "`$wa_theme_url`img/dummy200.png"}
-    {if !empty($theme_settings.default_img)}
-        {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+    {$def_img = "`$wa_theme_url`img/dummy200.png"}
+    {if !empty($theme_settings.def_img)}
+        {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
     {/if}
 
     <!--Спросить о настройке-->
@@ -128,13 +128,13 @@
                     <div  class="main-slider_item "{if isset($slider_height)} style="height: {$slider_height}px"{/if}>
                         <a data-position="fixed" class="main-slider_item-img " href="{$product.frontend_url}">
                             {if empty($product@first)}
-                                {$wa->shop->productImgHtml($product, '0x320', ['class' => "owl-lazy", 'alt' => $product.name, 'default' => $default_img])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                                {$wa->shop->productImgHtml($product, '0x320', ['class' => "owl-lazy", 'alt' => $product.name, 'default' => $def_img])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                             {else}
                                 {if !empty($theme_settings.image_mainpage_preload)}
                                     {$image_url = $wa->shop->productImgUrl($product, '0x320')}
                                     {$wa->globals('preload_image', $image_url)}
                                 {/if}
-                                {$wa->shop->productImgHtml($product, '0x320', ['alt' => $product.name, 'default' => $default_img])}
+                                {$wa->shop->productImgHtml($product, '0x320', ['alt' => $product.name, 'default' => $def_img])}
                             {/if}
                         </a>
                         {$badge_html = $wa->shop->badgeHtml($product.badge)}

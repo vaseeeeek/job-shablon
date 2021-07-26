@@ -23,9 +23,9 @@
     {/if}
 {/if}
 
-{$default_img = "`$wa_theme_url`img/dummy200.png"}
-{if !empty($theme_settings.default_img)}
-    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{$def_img = "`$wa_theme_url`img/dummy200.png"}
+{if !empty($theme_settings.def_img)}
+    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 
 {$images = []}
@@ -75,7 +75,7 @@
                 {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
                     {$blockHtmlProtilegallery}
                 {else}
-                    {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $default_img])}
+                    {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $def_img])}
                     {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
                         {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                     {/if}

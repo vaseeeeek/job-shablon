@@ -1,9 +1,9 @@
 {strip}
 <script src="{$wa_theme_url}cart.js"></script>
 
-{$default_img = "`$wa_theme_url`img/dummy48.png"}
-{if !empty($theme_settings.default_img)}
-    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{$def_img = "`$wa_theme_url`img/dummy48.png"}
+{if !empty($theme_settings.def_img)}
+    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 
 {if $wa->get('ajax')}
@@ -49,7 +49,7 @@
                                 <div class="row" data-id="{$item.id}">
                                     <div class="col cart-item_thumb">
                                         <a href="{$wa->shop->productUrl($item.product)}" title="{$item.product.name|escape}">
-                                            {$wa->shop->productImgHtml($item.product, '70', ['default' => $default_img])}
+                                            {$wa->shop->productImgHtml($item.product, '70', ['default' => $def_img])}
                                         </a>&nbsp;
                                     </div>
                                     <div class="col cart-item_desc">

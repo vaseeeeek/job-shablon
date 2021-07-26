@@ -1716,23 +1716,23 @@ li.category-subcat_item:last-child:after,
     margin: 0 25px 0 0;
 }
 
-.product_action-actions{
+.product_action-btn{
     float: right;
 }
 
 @media  print{
-    .product_action-actions{
+    .product_action-btn{
         display: none;
     }
 }
 
-.product_action-actions .product-action{
+.product_action-btn .product-action{
     margin: 0 0 0 15px;
 }
 
 @media (max-width: 600px){
     .product_rating,
-    .product_action-actions,
+    .product_action-btn,
     .product_nav,
     .product-card_discounts{
         float: none;
@@ -1740,7 +1740,7 @@ li.category-subcat_item:last-child:after,
         display: inline-block;
     }
 
-    .product_action-actions .product-action{
+    .product_action-btn .product-action{
         margin: 0 15px 0 0;
     }
 }

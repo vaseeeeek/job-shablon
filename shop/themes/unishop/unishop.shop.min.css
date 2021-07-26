@@ -8176,7 +8176,8 @@ button.owl-dot {
 
 .product-action-text {
     border-bottom: 1px dotted;
-    margin: 0 0 0 3px
+    margin: 0 0 0 3px;
+    line-height: 17px;
 }
 
 .Product-grid_action {
@@ -8208,7 +8209,7 @@ button.owl-dot {
 
 .Product-grid_dialog {
     position: absolute;
-    top: 110px;
+    top: 90px;
     left: 50%;
     margin: 0 0 0 -15px;
     display: none
@@ -16734,7 +16735,6 @@ article, aside, footer, header, nav, section {
 .header-top--links .container {
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
 }
 .header {
     background: #fff;
@@ -16934,30 +16934,33 @@ article, aside, footer, header, nav, section {
 .product_name{
     order:1;
 }
-.product_action-actions {
+.product_action-btn {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 @media print {
-    .product_action-actions {
+    .product_action-btn {
         display: none
     }
 }
 
-.product_action-actions .product-action {
+.product_action-btn .product-action {
     margin: 0 0 0 15px
 }
 
 @media (max-width: 600px) {
 
-    .product_action-actions {
+    .product_action-btn {
         margin-left: initial;
     }
-    .product-card_discounts, .product_action-actions, .product_nav, .product_rating {
+    .product-card_discounts, .product_action-btn, .product_nav, .product_rating {
         margin: 0 15px 10px 0;
         display: inline-block
     }
 
-    .product_action-actions .product-action {
+    .product_action-btn .product-action {
         margin: 0 15px 0 0
     }
 }
@@ -17078,7 +17081,7 @@ article, aside, footer, header, nav, section {
     font-size: 24px
 }
 
-.owl-next:after, .owl-prev:after {
+].owl-next:after, .owl-prev:after {
     position: absolute;
 }
 
@@ -17119,7 +17122,7 @@ article, aside, footer, header, nav, section {
     display: flex;
 }
 
-.owl-carousel .owl-item {
+.products-tile .owl-carousel .owl-item {
     display: flex;
     width: 200px!important;
 }

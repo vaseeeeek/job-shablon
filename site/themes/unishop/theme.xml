@@ -1339,7 +1339,7 @@
       <description locale="en_US">Available when "First Characteristics" is selected for the "Characteristics in product lists (view list)" option</description>
     </setting>
     <setting var="product_show_tile_features" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Display in features in product preview "tile"</name>
       <name locale="ru_RU">Показывать характеристики в превью товара вид "плиткой"</name>
     </setting>
@@ -1836,7 +1836,7 @@
       <name locale="en_US">Zoom on for large image</name>
     </setting>
     <setting var="product_gallery_display_description" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="ru_RU">Описание картинки</name>
       <name locale="en_US">Description of product</name>
     </setting>

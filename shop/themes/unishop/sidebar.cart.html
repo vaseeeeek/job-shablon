@@ -5,9 +5,9 @@
 {/if}
 {$items = $wa->shop->cart->items()}
 
-{$default_img = "`$wa_theme_url`img/dummy48.png"}
-{if !empty($theme_settings.default_img)}
-    {$default_img = "`$wa_parent_theme_url``$theme_settings.default_img`"}
+{$def_img = "`$wa_theme_url`img/dummy48.png"}
+{if !empty($theme_settings.def_img)}
+    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
 {/if}
 
 {if count($items)}
@@ -16,7 +16,7 @@
         {foreach $items as $item}
             <div class="cart-mini__product">
                 <div class="cart-mini__product-img">
-                    <a href="{$wa->shop->productUrl($item.product)}" title="{$item.product.name|escape}">{$wa->shop->productImgHtml($item.product, '50', ['default' => $default_img])}</a>
+                    <a href="{$wa->shop->productUrl($item.product)}" title="{$item.product.name|escape}">{$wa->shop->productImgHtml($item.product, '50', ['default' => $def_img])}</a>
                 </div>
                 <div class="cart-mini__product-info">
                     <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a>

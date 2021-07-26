@@ -22,7 +22,6 @@
     <section class="js-owl-carousel-product product_cross__carousel">
         <div class="product_cross-title__outer">
             <h3 class="product_cross-title">{$product_list_title}</h3>
-            <div class="product_cross__direction js-carousel-direction"></div>
         </div>
         <div class="products-grid-outer">
             {$is_preview_grid_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
@@ -32,6 +31,7 @@
                         {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy" isOwlSlider='true'}
                     {/foreach}
                 </div>
+                <div class="product_cross__direction js-carousel-direction"></div>
             </div>
         </div>
     </section>
