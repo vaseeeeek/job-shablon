@@ -25,13 +25,13 @@
                     {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
                         {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
                         {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
-                        <li class="js-resp-nav-top-el js-header-top-nav-el">
+                        <li class="js-resp-nav-top-el juniq-header-top-nav-el">
                             <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
                                 {$link.name}
                             </a>
                             {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
                                 <i class="js-top-nav-caret nav-caret fa-icon"></i>
-                                <div class="js-header_menu-nav-sub header-top_nav-sub">
+                                <div class="juniq-header_menu-nav-sub header-top_nav-sub">
                                     <ul class="top-border-color">
                                         {foreach $link.childs as $child}
                                             {if !isset($child.top_menu_hide)}
@@ -44,9 +44,9 @@
                         </li>
                     {/if}
                 {/foreach}
-                <li class="js-resp-nav-top-else js-header-top-nav-el header-top_nav-else hide">
+                <li class="js-resp-nav-top-else juniq-header-top-nav-el header-top_nav-else hide">
                     <span class="link">[`Else`]</span> <i class="fa fa-caret-down"></i>
-                    <div class="header-top_nav-sub js-header_menu-nav-sub"><ul class="js-resp-subnav-else top-border-color"></ul></div>
+                    <div class="header-top_nav-sub juniq-header_menu-nav-sub"><ul class="js-resp-subnav-else top-border-color"></ul></div>
                 </li>
             </ul>
         </nav>

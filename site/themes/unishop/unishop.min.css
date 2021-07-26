@@ -665,10 +665,6 @@ img.mfp-img {
     display: none
 }
 
-.no-js .owl-carousel, .owl-carousel.owl-loaded {
-    display: block
-}
-
 .owl-carousel .owl-dot, .owl-carousel .owl-nav .owl-next, .owl-carousel .owl-nav .owl-prev {
     cursor: pointer;
     -webkit-user-select: none;
@@ -7562,11 +7558,7 @@ html.swipebox-html.swipebox-touch {
     visibility: hidden
 }
 
-.jq-selectbox.disabled, .checked-list.disabled, input[type=email]:disabled, input[type=number]:disabled, input[type=password]:disabled, input[type=search]:disabled, input[type=text]:disabled, select:disabled, textarea:disabled {
-    border: 1px solid #c9c9c9;
-    background: #f5f5f5;
-    color: #c9c9c9
-}
+
 
 input[type=checkbox], input[type=radio] {
     display: inline-block;
@@ -8594,17 +8586,6 @@ p {
     text-decoration: none
 }
 
-.jq-selectbox, .checked-list, input[type=email], input[type=number], input[type=password], input[type=phone], input[type=search], input[type=tel], input[type=text], select, textarea {
-    padding: 0 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 5px;
-    outline: none;
-    display: inline-block;
-    height: 37px;
-    line-height: 37px
-}
-
 textarea {
     height: 90px;
     line-height: 20px;
@@ -8636,27 +8617,6 @@ textarea {
     text-decoration: none
 }
 
-.checked-list_toggle {
-    position: relative;
-    padding: 0 17px 0 0;
-    cursor: pointer
-}
-
-.button, .button-link, button, input[type=button], input[type=submit] {
-    height: 37px;
-    line-height: 37px;
-    padding: 0 20px;
-    outline: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    white-space: nowrap;
-    border-radius: 5px;
-    display: inline-block;
-    text-decoration: none;
-    border: none;
-    text-align: center
-}
-
 a.button:hover {
     color: #fff
 }
@@ -8684,14 +8644,6 @@ a.button:hover {
 .button.disabled, button.disabled, button[disabled], input[type=button].disabled, input[type=button][disabled], input[type=submit].disabled, input[type=submit][disabled] {
     cursor: default;
     opacity: .5
-}
-
-.jq-selectbox, select {
-    border-radius: 5px;
-    outline: none;
-    padding: 0 10px;
-    cursor: pointer;
-    background: #fff
 }
 
 .jq-selectbox.sm, select.sm {
@@ -8786,14 +8738,10 @@ a.button:hover {
 }
 
 .style-check, .jq-checkbox, .jq-radio, .radio-styler {
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
     border: 1px solid #d6d1d1;
-    background: #fff;
-    vertical-align: middle;
-    margin: 0 8px 1px 0;
     cursor: pointer;
-    border-radius: 2px;
     position: relative;
     display: inline-block
 }
@@ -8843,10 +8791,6 @@ a.button:hover {
     height: 5px;
     border-radius: 50%;
     margin: auto
-}
-
-.style-check, .jq-checkbox {
-    margin-left: 2px
 }
 
 .filter-option-color .style-check, .filter-option-color .radio-styler {
@@ -10039,13 +9983,6 @@ input.Nav-inp-search {
     position: relative
 }
 
-.inp-search .btn {
-    position: absolute;
-    right: 9px;
-    top: 5px;
-    font-size: 29px;
-    cursor: pointer
-}
 
 .product-custom_short-count, .header__cart-count {
     position: absolute;
@@ -10128,7 +10065,6 @@ input.Nav-inp-search {
     position: absolute;
     top: 0;
     left: 0;
-    margin: auto;
     font-size: 40px;
     bottom: 0;
     outline: none;
@@ -10142,23 +10078,8 @@ input.Nav-inp-search {
     right: 0
 }
 
-.owl-next:after, .owl-prev:after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: 16px
-}
-
 .owl-prev:after {
     content: "\f053"
-}
-
-.owl-next:hover, .owl-prev:hover {
-    box-shadow: none;
-    background: none !important
 }
 
 .owl-next:after {
@@ -11704,32 +11625,14 @@ button.owl-dot {
     font-size: 60px
 }
 
-.home-products_head-outer + .container .products-grid-outer {
-    overflow: hidden;
-    margin: -48px 0 0
-}
-
-.with-sidebar .home-products_head-outer + .container .products-grid-outer {
-    margin: 0
-}
-
 .with-sidebar .home-products_head-outer {
     padding: 0;
     border: 1px solid #ebebeb
 }
 
-.home-products .products-tile {
-    border-top: none
-}
-
 .home-products .products-grid-outer {
     margin: 0 -1px 0 0;
     background: #fff;
-}
-
-.home-products--list .products-tile {
-    border: 1px solid #ebebeb;
-    border-top: none
 }
 
 .home-products--list {
@@ -11771,14 +11674,7 @@ button.owl-dot {
     padding-right: 24px
 }
 
-.home-products__direction {
-    font-size: 20px;
-    float: right
-}
 
-.home-products__direction ~ .home-products__title {
-    margin-right: 70px
-}
 
 @media (max-width: 700px) {
     .home-products--carousel .home-products_head {
@@ -11787,22 +11683,9 @@ button.owl-dot {
     }
 }
 
-.home-products__direction .owl-next, .home-products__direction .owl-next:after, .home-products__direction .owl-prev, .home-products__direction .owl-prev:after {
-    position: static;
-    display: inline-block
-}
-
-.home-products__direction .owl-next:after, .home-products__direction .owl-prev:after {
-    font-size: 24px;
-    height: auto
-}
-
+full-line
 .home-products__direction .owl-next, .home-products__direction .owl-prev {
     cursor: pointer
-}
-
-.home-products__direction .owl-prev {
-    margin-right: 20px
 }
 
 .home-products .owl-carousel {
@@ -12918,15 +12801,6 @@ ul.pages li a {
     border-bottom: 1px solid
 }
 
-.wa-name {
-    margin: 0 15px 0 0;
-    position: relative
-}
-
-.wa-name, .wa-value {
-    display: inline-block
-}
-
 .wa-value {
     color: #000
 }
@@ -12937,11 +12811,6 @@ ul.pages li a {
 }
 
 .wa-value_empty {
-    font-weight: 400
-}
-
-form .wa-name, form .wa-value {
-    display: block;
     font-weight: 400
 }
 
@@ -13190,7 +13059,7 @@ form .wa-name, form .wa-value {
     margin: 0 10px 0 0
 }
 
-.settings-footer, .settings-header {
+.settings-footer, .settinguniq-header {
     padding: 10px;
     background: #eff9ff;
     line-height: 33px
@@ -13200,7 +13069,7 @@ form .wa-name, form .wa-value {
     margin: 10px 0 0
 }
 
-.settings-header {
+.settinguniq-header {
     margin: 0 0 10px
 }
 
@@ -13286,11 +13155,6 @@ button.mfp-arrow:hover, button.mfp-close:hover {
 .mfp-preloader:before {
     font: normal normal normal 36px/1 FontAwesome;
     content: "\f110"
-}
-
-.checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields, blockquote {
-    background: #f6f6f6;
-    border: 1px solid #ebebeb
 }
 
 .modal-content--settings {
@@ -15125,6 +14989,44 @@ ul, li {
 article, aside, footer, header, nav, section {
     display: block
 }
+
+.jq-selectbox, .checked-list, input[type=email], input[type=number], input[type=password], input[type=phone], input[type=search], input[type=tel], input[type=text], select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px
+}
+
+.jq-selectbox, select {
+    outline: none;
+    cursor: pointer;
+    background: #fff
+}
+.jq-selectbox.disabled, .checked-list.disabled, input[type=email]:disabled, input[type=number]:disabled, input[type=password]:disabled, input[type=search]:disabled, input[type=text]:disabled, select:disabled, textarea:disabled {
+    background: #f5f5f5;
+    color: #c9c9c9
+}
+
+.button, .button-link, button, input[type=button], input[type=submit] {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    white-space: nowrap;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    text-align: center
+}
+
+.checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields, blockquote {
+    border: 1px solid #ebebeb
+}
+
 /* font */
 
 .fa-icon {
@@ -15139,7 +15041,8 @@ article, aside, footer, header, nav, section {
     margin: 0 auto;
     max-width: 1400px;
     min-width: 300px;
-    padding: 0 10px
+    padding: 0 10px;
+    overflow: hidden;
 }
 
 .head_info-massage__wrap{
@@ -15450,7 +15353,15 @@ article, aside, footer, header, nav, section {
     flex-direction: column;
     flex: 1 1;
 }
-
+.owl-next:after, .owl-prev:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 13px
+}
 .Product-grid_img {
     display: block;
     text-align: center;
@@ -15484,8 +15395,7 @@ article, aside, footer, header, nav, section {
 .products-tile {
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px solid #ebebeb;
-    border-left: 1px solid #ebebeb;
+    position: relative;
 }
 .Product-grid_bottom {
     padding: 10px;
@@ -15554,6 +15464,29 @@ article, aside, footer, header, nav, section {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+.style-check, .jq-checkbox, .jq-radio, .radio-styler {
+     width: 10px;
+     height: 10px;
+     border: 1px solid #d6d1d1;
+     padding: 1px;
+     cursor: pointer;
+     position: relative;
+     display: inline-block
+ }
+
+.checked-list_toggle {
+    position: relative;
+    padding:  0 15px ;
+    cursor: pointer
+}
+
+.inp-search .btn {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 19px;
+    cursor: pointer
 }
 .-Close {
     display: none

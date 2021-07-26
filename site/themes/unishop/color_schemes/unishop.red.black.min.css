@@ -6150,7 +6150,7 @@ form .wa-name, form .wa-value {
     margin: 0 10px 0 0
 }
 
-.settings-footer, .settings-header {
+.settings-footer, .settinguniq-header {
     padding: 10px;
     background: #eff9ff;
     line-height: 33px
@@ -6160,7 +6160,7 @@ form .wa-name, form .wa-value {
     margin: 10px 0 0
 }
 
-.settings-header {
+.settinguniq-header {
     margin: 0 0 10px
 }
 

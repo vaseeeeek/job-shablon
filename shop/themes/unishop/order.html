@@ -1,134 +1,138 @@
 {strip}
-{$_cart_count = $wa->shop->cart->count()}
+    {$_total_product = $wa->shop->cart->count()}
+    <style>
+        #header-container {
+            display: none;
+        }
 
-<style>
-    #header-container { display: none; }
-    .s-cart-empty-wrapper { margin: 100px 0; text-align: center; }
-    .s-cart-empty-wrapper .review_image-wrap { margin: 0 0 20px; }
-    .s-cart-empty-wrapper .review_image-wrap img { vertical-align: top; width: 100%; max-height: 160px; }
-    .s-cart-empty-wrapper .s-description { margin: 20px 0 0; }
-    .s-cart-empty-wrapper .btn-actions-wrapper { margin: 30px 0 0; color: #006bd8; }
-</style>
+        .cart-empty-wrap {
+            margin: 100px 0;
+            text-align: center;
+        }
 
+        .cart-empty-wrap .review_image-wrap {
+            margin: 0 0 20px;
+        }
 
-{*EMPTY*}
-{if empty($_cart_count)}
-    <div class="s-cart-empty-wrapper">
-        <div class="review_image-wrap">
-            <img src="{$wa_theme_url}img/svg/order/cart_empty.svg" alt="[`Your shopping cart is empty.`]">
+        .cart-empty-wrap .review_image-wrap img {
+            vertical-align: top;
+            width: 100%;
+            max-height: 160px;
+        }
+
+        .cart-empty-wrap .description--uniq {
+            margin: 20px 0 0;
+        }
+
+        .cart-empty-wrap .btn-actions-wrapper {
+            margin: 30px 0 0;
+            color: #006bd8;
+        }
+    </style>
+    {if empty($_total_product)}
+        <div class="cart-empty-wrap">
+            <p class="description--uniq">{$config.cart.empty_text|default:"[`Your shopping cart is empty.`]"|escape}</p>
         </div>
-        <p class="s-description">{$config.cart.empty_text|default:"[`Your shopping cart is empty.`]"|escape}</p>
-        <p class="btn-actions-wrapper">
-            <a href="{$wa_app_url}">[`Go to home page`]</a>
-        </p>
-    </div>
+    {else}
+        <div class="order-wrap" id="js-page-order">
+            <div class="order-col order-col--left">
 
-{*ORDER*}
-{else}
-    <div class="s-order-page" id="js-order-page">
-        <div class="s-order-column">
-
-            <section class="s-order-section" id="js-order-cart">
-                <div class="s-section-header wa-flex-box full-line middle">
-                    <h2 class="s-header">{$config.cart.block_name|default:"[`Shopping cart`]"|escape}</h2>
-                    <a class="s-delete-button js-clear-cart" href="javascript:void(0);">
-                        {$_svg_icon = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.9 9.9"><path d="M0,8.5l3.5-3.5L0,1.4L1.4,0l3.5,3.5L8.5,0l1.4,1.4L6.4,4.9l3.5,3.5L8.5,9.9L4.9,6.4L1.4,9.9L0,8.5z"/></svg>'}
-                        <span class="s-delete-icon">{$_svg_icon}</span>Удалить все товары
-                    </a>
-                </div>
-                <div class="s-section-body">
-                    {$wa->shop->checkout()->cart([
-                        "DEBUG" => true,
-                        "wrapper" => "#js-order-cart"
-                    ])}
-                </div>
-                <div class="s-section-footer">
-                    <div class="s-back-link">
-                        {$_url = $wa->getUrl('shop/frontend/')}
-                        {$_refer_url = waRequest::server('HTTP_REFERER')}
-                        {if !empty($_refer_url)}
-                        {$_refer_host = $_refer_url|parse_url:$smarty.const.PHP_URL_HOST}
-                        {$_current_url = $wa->currentUrl(true)}
-                        {$_current_host = $_current_url|parse_url:$smarty.const.PHP_URL_HOST}
-
-                        {if $_refer_host === $_current_host}
-                        {$_url = $_refer_url}
-                        {/if}
-                        {/if}
-                        <a href="{$_url|escape}">&larr; [`Back to shopping`]</a>
+                <section class="order-box" id="js-cart-order">
+                    <div class="section-head">
+                        <h2 class="uniq-header">{$config.cart.block_name|default:"[`Shopping cart`]"|escape}</h2>
+                        <a class="delete-button js-cart-delete-product" href="javascript:void(0);">Удалить все товары</a>
                     </div>
-                </div>
-            </section>
-            {strip}
-            {if method_exists("shopCheckoutViewHelper", "crossSelling")}
-                {capture assign="_cross_selling_html"}
-                    {$wa->shop->checkout()->crossSelling([
+                    <div class="section-content">
+                        {$wa->shop->checkout()->cart([
                         "DEBUG" => true,
-                        "wrapper" => "#js-cross-selling-section"
-                    ])}
-                {/capture}
-            {/if}
-            {/strip}
-
-            {if !empty($_cross_selling_html)}
-                <section class="s-order-section s-cross-selling-section" id="js-cross-selling-section">
-                    <div class="s-section-header">
-                        <h2 class="s-header">{$config.recommendations.block_name|default:"[`Recommended`]"|escape}</h2>
+                        "wrapper" => "#js-cart-order"
+                        ])}
                     </div>
-                    <div class="s-section-body">
-                        {$_cross_selling_html}
+                    <div class="section-footer">
+                        <div class="return-link">
+                            {$url = $wa->getUrl('shop/frontend/')}
+                            {$url_ref = waRequest::server('HTTP_REFERER')}
+                            {if !empty($url_ref)}
+                                {$host_ref = $url_ref|parse_url:$smarty.const.PHP_URL_HOST}
+                                {$url_current = $wa->currentUrl(true)}
+                                {$host_current = $url_current|parse_url:$smarty.const.PHP_URL_HOST}
+
+                                {if $host_ref === $host_current}
+                                    {$url = $url_ref}
+                                {/if}
+                            {/if}
+                            <a href="{$url|escape}">&larr; [`Back to shopping`]</a>
+                        </div>
                     </div>
                 </section>
-            {/if}
+                {strip}
+                    {if method_exists("shopCheckoutViewHelper", "crossSelling")}
+                        {capture assign="_cross_selling_html"}
+                            {$wa->shop->checkout()->crossSelling([
+                            "DEBUG" => true,
+                            "wrapper" => "#js-csell-pr-list"
+                            ])}
+                        {/capture}
+                    {/if}
+                {/strip}
 
-        </div>
-        <div class="s-order-column">
+                {if !empty($_cross_selling_html)}
+                    <section class="order-box " id="js-csell-pr-list">
+                        <div class="section-head">
+                            <h2 class="uniq-header">{$config.recommendations.block_name|default:"[`Recommended`]"|escape}</h2>
+                        </div>
+                        <div class="section-content">
+                            {$_cross_selling_html}
+                        </div>
+                    </section>
+                {/if}
 
-            <section class="s-order-section" id="js-order-form">
-                <div class="s-section-header">
-                    <h2 class="s-header">{$config.order.block_name|default:"[`Checkout`]"|escape}</h2>
-                </div>
-                <div class="s-section-body">
-                    {$wa->shop->checkout()->form([
+            </div>
+            <div class="order-col order-col--right">
+                <section class="order-box" id="js-form-order">
+                    <div class="section-head">
+                        <h2 class="uniq-header">{$config.order.block_name|default:"[`Checkout`]"|escape}</h2>
+                    </div>
+                    <div class="section-content">
+                        {$wa->shop->checkout()->form([
                         "DEBUG" => true,
-                        "wrapper" => "#js-order-form"
-                    ])}
-                </div>
-            </section>
+                        "wrapper" => "#js-form-order"
+                        ])}
+                    </div>
+                </section>
+            </div>
 
+            <script>
+                (function ($) {
+
+                    (typeof window.ShopOrderPage === "function" ? init() : load().then(init));
+
+                    function load() {
+                        var deferred = $.Deferred();
+
+                        $.getScript("{$wa_theme_url}order.js?v={$wa->version()}", function () {
+                            deferred.resolve();
+                        });
+
+                        return deferred.promise();
+                    }
+
+                    function init() {
+                        new window.ShopOrderPage({
+                            $wrapper: $("#js-page-order"),
+                            urls: {
+                                "checkbox-icon": "{$wa_app_static_url}img/frontend/order/svg/sprite.svg#checkbox-yes"
+                            }
+                        });
+                    }
+
+                })(jQuery);
+            </script>
         </div>
+    {/if}
 
-        <script>
-            ( function($) {
-
-                ( typeof window.ShopOrderPage === "function" ? init() : load().then(init) );
-
-                function load() {
-                    var deferred = $.Deferred();
-
-                    $.getScript("{$wa_theme_url}order.js?v={$wa->version()}", function() {
-                        deferred.resolve();
-                    });
-
-                    return deferred.promise();
-                }
-
-                function init() {
-                    new window.ShopOrderPage({
-                        $wrapper: $("#js-order-page"),
-                        urls: {
-                            "checkbox-icon": "{$wa_app_static_url}img/frontend/order/svg/sprite.svg#checkbox-yes"
-                        }
-                    });
-                }
-
-            })(jQuery);
-        </script>
-    </div>
-{/if}
-
-<!-- plugin hook: 'frontend_order' -->
-{* @event frontend_order.%plugin_id% *}
-{foreach $frontend_order as $_}{$_}{/foreach}
+    <!-- plugin hook: 'frontend_order' -->
+    {* @event frontend_order.%plugin_id% *}
+    {foreach $frontend_order as $_}{$_}{/foreach}
 {/strip}
 

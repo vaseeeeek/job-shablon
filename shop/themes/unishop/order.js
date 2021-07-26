@@ -24,7 +24,7 @@
 
             that.initThemeCart();
 
-            that.$wrapper.on("click", ".js-clear-cart", function() {
+            that.$wrapper.on("click", ".js-cart-delete-product", function() {
                 var wa_order_cart = getCartController(that.$wrapper);
                 if (wa_order_cart) {
                     wa_order_cart.clear({
@@ -221,7 +221,7 @@
         function getCartController($wrapper) {
             var result = null;
 
-            var $cart = $wrapper.find("#js-order-cart");
+            var $cart = $wrapper.find("#js-cart-order");
 
             if ($cart.length && $cart.data("controller")) {
                 result = $cart.data("controller");

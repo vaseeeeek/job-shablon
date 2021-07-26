@@ -94,7 +94,7 @@
             </div>
             <div class="header--right">
                 {* проверить работу плагина *}
-                <div class="Nav-search js-header-search">
+                <div class="Nav-search juniq-header-search">
                     <i class="btn Nav-search_btn-show fa-icon-before js-show-Nav-search"></i>
                     {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
                         <div class="Nav-search_form js-Nav-search">
@@ -172,7 +172,7 @@
                             {$cartPopupUrl = $cartonestepUrl}
                         {/if}
                     {/if}
-                    <div class="header__cart js-header-preview-cart js-cart-header"  data-url="{$cartPopupUrl}">
+                    <div class="header__cart juniq-header-preview-cart js-cart-header"  data-url="{$cartPopupUrl}">
                         <a href="{$cartUrl}">
                             <div class="header__cart-icon">
                                 <i class="icon fi-rr-shopping-cart sdСolor"></i>
@@ -208,8 +208,8 @@
     </main>
 
     {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
-            </div> <!-- .container -->
-        </div> <!-- .inner-wrap -->
+            </div>
+        </div>
     {/if}
 
     <!-- FOOTER -->

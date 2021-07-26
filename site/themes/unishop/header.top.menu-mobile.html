@@ -27,7 +27,7 @@
                     {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
                         {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
                         {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
-                        <li class="js-header-top-nav-el">
+                        <li class="juniq-header-top-nav-el">
                             <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
                                 {$link.name}
                             </a>

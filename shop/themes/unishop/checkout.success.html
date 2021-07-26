@@ -2,8 +2,8 @@
 <style>
     .checkout .checkout-result { margin: 50px 0; text-align: center; }
     .checkout .checkout-result a { text-decoration: none; }
-    .checkout .checkout-result .s-header { margin: 0; font-size: 36px; line-height: 1.472222222222222em; font-weight: bold; color: #000; }
-    .checkout .checkout-result .s-description { margin: 20px 0 0; }
+    .checkout .checkout-result .uniq-header { margin: 0; font-size: 36px; line-height: 1.472222222222222em; font-weight: bold; color: #000; }
+    .checkout .checkout-result .description--uniq { margin: 20px 0 0; }
     .checkout .checkout-result .s-plugin-wrapper { margin: 30px 0 0; }
     .checkout .checkout-result .s-payment-success { margin: 30px 0 0; }
     .checkout .checkout-result .btn-actions-wrapper { margin: 30px 0 0; color: #006bd8; }
@@ -11,7 +11,7 @@
 
 <div class="content-block checkout-result success">
 
-    <h1 class="s-header">
+    <h1 class="uniq-header">
         {if !empty($thankyou_header)}
             {$thankyou_header}
         {else}
@@ -19,7 +19,7 @@
         {/if}
     </h1>
 
-    <div class="s-description">
+    <div class="description--uniq">
         {if !empty($thankyou_content)}
             {$thankyou_content|replace:'$order_id':"<a href=\"`$my_order_url`\" class=\"s-order-number\">`$order.id`</a>"}
         {else}

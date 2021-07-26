@@ -32,13 +32,13 @@
                     {if !($a.url == $wa_url && $a.name == $wa->accountName()) && !isset($a.top_menu_hide)}
                         {$is_select = strlen($a.url)>1 && $wa->currentUrl() == $a.url}
                         {$is_open = $a.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($a.url)>1 && $wa->currentUrl()|strstr:$a.url}
-                        <li class="js-resp-nav-top-el js-header-top-nav-el">
+                        <li class="js-resp-nav-top-el juniq-header-top-nav-el">
                             <a{if isset($a.target)} target="{$a.target}"{/if}{if $is_select} class="selected"{/if} href="{$a.url}">
                                 {$a.name}
                             </a>
                             {if isset($a.childs) && $a.childs && count($a.childs) && $theme_settings.display_header_top_menu_submenu}
                                 <i class="js-top-nav-caret nav-caret fa-icon-before"></i>
-                                <div class="js-header-nav-sub header-top_nav-sub">
+                                <div class="juniq-header-nav-sub header-top_nav-sub">
                                     <ul class="border-top-color">
                                         {foreach $a.childs as $subp}
                                             {if !isset($subp.top_menu_hide)}
@@ -51,9 +51,9 @@
                         </li>
                     {/if}
                 {/foreach}
-                <li class="js-resp-nav-top-else js-header-top-nav-el header-top_nav-else hide">
+                <li class="js-resp-nav-top-else juniq-header-top-nav-el header-top_nav-else hide">
                     <span class="link">[`Else`]</span> <i class="fa fa-caret-down"></i>
-                    <div class="header-top_nav-sub js-header-nav-sub"><ul class="js-resp-subnav-else border-top-color"></ul></div>
+                    <div class="header-top_nav-sub juniq-header-nav-sub"><ul class="js-resp-subnav-else border-top-color"></ul></div>
                 </li>
             </ul>
         </nav>
