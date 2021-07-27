@@ -88,7 +88,7 @@
     border-bottom: 1px solid #ebebeb;
 }
 
-.custom-onestep .onestep-cart table.cart tr.no-border{
+.custom-onestep .onestep-cart table.cart tr.border-none{
     border: none;
 }
 

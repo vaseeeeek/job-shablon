@@ -36,8 +36,6 @@
 {$add_order_action = $theme_settings.add_order_action}
 {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
     {* проверить работу плагина *}
-{$_storequickorder =  class_exists('shopStorequickorderPlugin') && $theme_settings.fastorder == "storequickorder" && $theme_settings.product_show_list_fast_cart}
-{$_skoneclick = class_exists('shopSkoneclickHelper') && $theme_settings.fastorder == "skoneclick" && $theme_settings.product_show_list_fast_cart && shopSkoneclickHelper::isActive()}
 {$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click" && $theme_settings.product_show_list_fast_cart}
 
 {$_price_range = $theme_settings.price_range_in_product_list}
@@ -201,18 +199,14 @@
                         {else}
                             <input type="hidden" name="product_id" value="{$p.id}">
                             {if $theme_settings.show_number_item_add_in_list}
-                                <span class="button js-submit-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
+                                <span class="button js-btn-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
                             {else}
-                                <span class="button js-submit-form addtocart addtocart--large fi-rr-shopping-cart">{$add2label_cart}</span>
+                                <span class="button js-btn-form addtocart addtocart--large fi-rr-shopping-cart">{$add2label_cart}</span>
                             {/if}
                         {/if}
 
-                        {if $_skoneclick}
-                            <span class="button-fastorder__sk-oneclick js-sk-oneclick-open _show" data-type="product" data-product-id="{$p.id}">{$theme_settings.plugin_oneclick_button_text}</span>
-                        {else if $_buy1click}
+                        {if $_buy1click}
                             {shopBuy1clickViewHelper::getButton($p.id)}
-                        {else if $_storequickorder}
-                            {shopStorequickorderPlugin::product_button()}
                         {/if}
                     </form>
                 {/if}

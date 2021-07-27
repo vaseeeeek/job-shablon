@@ -48,7 +48,7 @@
     {/if}
 
     {if !$isSearchPro || count($frontend_search) > 0}
-        <div class="content-block{if $wa->get('list')} search-title-list{/if}">
+        <div class="content-box{if $wa->get('list')} search-title-list{/if}">
             <h1>{$h1}</h1>
             {if $wa->get('list') && $products}
                 <div class="search-list-clear">
@@ -71,9 +71,9 @@
     {/if}
 
     {if !$products}
-        <div class="content-block">[`No products were found.`]</div>
+        <div class="content-box">[`No products were found.`]</div>
     {else}
-        <div class="js-product-ajax-list-loader -Close content-block"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
+        <div class="js-product-ajax-list-loader -Close content-box"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
         <div class="js-product-ajax-list">
             {include file='list-thumbs.html' sorting=$sorting isViewSwitch=true ulclass=$class_product_list}
         </div>

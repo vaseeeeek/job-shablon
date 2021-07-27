@@ -1,7 +1,7 @@
 function Product(form, options) {
     this.form = $(form);
     this.add2cart = this.form.find(".js-add2cart");
-    this.button = this.add2cart.find(".js-submit-form");
+    this.button = this.add2cart.find(".js-btn-form");
     this.skFastButton = this.form.find(".js-sk-oneclick-open");
     this.discount = this.form.closest('.js-product-page').find(".js-product-discount");
     this.savedWrap = this.form.closest('.js-product-page').find(".js-product-discounts");
@@ -12,7 +12,7 @@ function Product(form, options) {
     var self = this;
     // add to cart block: services
     this.form.find(".services input[type=checkbox]").change(function () {
-        var obj = $('select[name="service-choice[' + $(this).val() + ']"]');
+        var obj = $('select[name="service-option[' + $(this).val() + ']"]');
         if (obj.length) {
             if ($(this).is(':checked')) {
                 obj.removeAttr('disabled');
@@ -24,7 +24,7 @@ function Product(form, options) {
         self.updatePrice();
     });
 
-    this.form.find(".services .service-choice").on('change', function () {
+    this.form.find(".services .service-option").on('change', function () {
         self.cartButtonVisibility(true);
         self.updatePrice();
     });
@@ -206,7 +206,7 @@ Product.prototype.updateSkuServices = function (sku_id) {
                 this.form.find(".service-" + service_id + ' .service-price').html(this.currencyFormat(v));
                 this.form.find(".service-" + service_id + ' input').data('price', v);
             } else {
-                var select = this.form.find(".service-" + service_id + ' .service-choice');
+                var select = this.form.find(".service-" + service_id + ' .service-option');
                 var selected_variant_id = select.val();
                 for (var variant_id in v) {
                     var obj = select.find('option[value=' + variant_id + ']');
@@ -223,9 +223,9 @@ Product.prototype.updateSkuServices = function (sku_id) {
                     }
                 }
                 if(!selected_variant_id){
-                    selected_variant_id = this.form.find(".service-" + service_id + ' .service-choice').find("option:not(.disable):first").attr("value");
+                    selected_variant_id = this.form.find(".service-" + service_id + ' .service-option').find("option:not(.disable):first").attr("value");
                 }
-                this.form.find(".service-" + service_id + ' .service-choice').val(selected_variant_id);
+                this.form.find(".service-" + service_id + ' .service-option').val(selected_variant_id);
             }
         }
     }
@@ -253,8 +253,8 @@ Product.prototype.updatePrice = function (price, compare_price) {
     var self = this;
     this.form.find(".services input:checked").each(function () {
         var s = $(this).val();
-        if (self.form.find('.service-' + s + '  .service-choice').length) {
-            price += parseFloat(self.form.find('.service-' + s + '  .service-choice :selected').data('price'));
+        if (self.form.find('.service-' + s + '  .service-option').length) {
+            price += parseFloat(self.form.find('.service-' + s + '  .service-option :selected').data('price'));
         } else {
             price += parseFloat($(this).data('price'));
         }

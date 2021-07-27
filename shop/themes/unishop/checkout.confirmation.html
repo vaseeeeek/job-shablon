@@ -39,25 +39,25 @@
             </tr>
             {/foreach}
             {if $tax > 0}{$colspan=3}{else}{$colspan=2}{/if}
-            <tr class="no-border thin">
+            <tr class="border-none thin">
                 <td colspan="{$colspan}" class="align-right">[`Subtotal`]</td>
                 <td class="align-right nowrap">{shop_currency_html($subtotal, true)}</td>
             </tr>
-            <tr class="no-border thin">
+            <tr class="border-none thin">
                 <td colspan="{$colspan}" class="align-right">[`Discount`]</td>
                 <td class="align-right nowrap">&minus; {shop_currency_html($discount, true)}</td>
             </tr>
-            <tr class="no-border thin">
+            <tr class="border-none thin">
                 <td colspan="{$colspan}" class="align-right">[`Shipping`]{if !empty($params.shipping_name)} &mdash; <strong>{$params.shipping_name}</strong>{/if}</td>
                 <td class="align-right nowrap">{shop_currency_html($shipping, true)}</td>
             </tr>
             {if $tax > 0}
-            <tr class="no-border thin">
+            <tr class="border-none thin">
                 <td colspan="{$colspan}" class="align-right">[`Tax`]</td>
                 <td class="align-right nowrap">{shop_currency_html($tax, true)}</td>
             </tr>
             {/if}
-            <tr class="no-border thin large">
+            <tr class="border-none thin large">
                 <td colspan="{$colspan}" class="align-right"><b>[`Total`]</b></td>
                 <td class="align-right nowrap"><strong class="large">{shop_currency_html($total, true)}</strong></td>
             </tr>

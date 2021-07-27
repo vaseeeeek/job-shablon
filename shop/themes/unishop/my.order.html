@@ -93,15 +93,15 @@
                 <td class="align-right">{wa_currency_html($item.price * $item.quantity, $order.currency)}</td>
             </tr>
         {/foreach}
-        <tr class="no-border thin">
+        <tr class="border-none thin">
             <td colspan="2" class="align-right">[`Subtotal`]</td>
             <td class="align-right">{wa_currency_html($subtotal, $order.currency)}</td>
         </tr>
-        <tr class="no-border thin">
+        <tr class="border-none thin">
             <td colspan="2" class="align-right">[`Discount`]</td>
             <td class="align-right">&minus; {wa_currency_html($order.discount, $order.currency)}</td>
         </tr>
-        <tr class="no-border thin">
+        <tr class="border-none thin">
             <td colspan="2" class="align-right">
                 [`Shipping`]
                 {if !empty($order.params.shipping_name)}
@@ -111,12 +111,12 @@
             <td class="align-right">{wa_currency_html($order.shipping, $order.currency)}</td>
         </tr>
         {if $order.tax > 0}
-            <tr class="no-border thin">
+            <tr class="border-none thin">
                 <td colspan="2" class="align-right">[`Tax`]</td>
                 <td class="align-right">{wa_currency_html($order.tax, $order.currency)}</td>
             </tr>
         {/if}
-        <tr class="no-border thin large">
+        <tr class="border-none thin large">
             <td colspan="2" class="align-right"><b>[`Total`]</b></td>
             <td class="align-right bold">{wa_currency_html($order.total, $order.currency)}</td>
         </tr>

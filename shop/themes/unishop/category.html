@@ -71,7 +71,7 @@
             {if !$products}
                 {* selected filters *}
                 {if $theme_settings.filter_selected}{include file="category.select-filters.html"}{/if}
-                <div class="content-block">
+                <div class="content-box">
                     {if !empty($filters)}
                         [`No products were found.`]
                     {else if !$category.subcategories}
@@ -82,10 +82,10 @@
                 {include file='list-thumbs.html' sorting=!empty($category.params.enable_sorting) isViewSwitch=true ulclass="js-cat-list products--category"}
             {/if}
         </div>
-        <div class="js-product-ajax-list-loader -Close content-block"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
+        <div class="js-product-ajax-list-loader -Close content-box"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
 
         {if $theme_settings.cat_desc_bottom}
-            <div class="content-block">
+            <div class="content-box">
                 {strip}
                     {if $category.description}
                         <div class="category-desc-outer">

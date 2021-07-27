@@ -268,13 +268,13 @@
                             {$s.name|escape} {if $s.price && !isset($s.variants)}+<span class="service-price">{shop_currency_html($s.price, $s.currency)}</span>{/if}
                         </label>
                         {if isset($s.variants)}
-                            <select data-variant-id="{$s.variant_id}" class="service-choice" name="service-choice[{$s.id}]" disabled>
+                            <select data-variant-id="{$s.variant_id}" class="service-option" name="service-option[{$s.id}]" disabled>
                                 {foreach $s.variants as $v}
                                     <option {if $s.variant_id == $v.id}selected{/if} data-price="{shop_currency($v.price, $s.currency, null, 0)}" value="{$v.id}">{$v.name|escape} (+{shop_currency($v.price, $s.currency)})</option>
                                 {/foreach}
                             </select>
                         {else}
-                        <input type="hidden" name="service-choice[{$s.id}]" value="{$s.variant_id}">
+                        <input type="hidden" name="service-option[{$s.id}]" value="{$s.variant_id}">
                         {/if}
                     </div>
                     {/foreach}
@@ -305,7 +305,7 @@
                     <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
                 </span>
                 {$_hide_btn = $product.price == 0 && !empty($theme_settings.disabled_button_cart_zero_price)}
-                <span class="button js-submit-form addtocart fi-rr-shopping-cart addtocart--large{if !$pd_available || $_hide_btn} disabled{/if}"{if !empty($theme_settings.disabled_button_cart_zero_price)} data-zero-price-disabled="1"{/if}>
+                <span class="button js-btn-form addtocart fi-rr-shopping-cart addtocart--large{if !$pd_available || $_hide_btn} disabled{/if}"{if !empty($theme_settings.disabled_button_cart_zero_price)} data-zero-price-disabled="1"{/if}>
                     {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
                 </span>
             </div>

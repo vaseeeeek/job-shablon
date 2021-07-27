@@ -2,7 +2,7 @@ $(function () {
 
     function updateCart(data)
     {
-        $(".cart-total, .js-cart-total").html(data.total);
+        $(".cart-price-total, .js-cart-price-total").html(data.total);
         if (data.discount_numeric) {
             $(".cart-discount").closest('div.row').show();
         }
@@ -41,13 +41,13 @@ $(function () {
 
         $.post(url+'delete/', {html: 1, id: row.data('id')}, function (response) {
             if (response.data.count == 0) {
-                $('.js-cart-mini-empty').show();
-                $('.js-cart-mini-full').hide();
+                $('.js-header_cart-preview-empty').show();
+                $('.js-header_cart-preview-full').hide();
             }
             row.hide();
             updateCart(response.data);
             $('.js-cart-preview-count').html(response.data.count);
-            $('.js-cart-total-price').html(response.data.total);
+            $('.js-cart-price-total-price').html(response.data.total);
         }, "json");
     });
 
@@ -91,7 +91,7 @@ $(function () {
     }
 
     $(".js-cart-services input:checkbox").change(function () {
-        var obj = $('select[name="service-choice[' + $(this).closest('div.row').data('id') + '][' + $(this).val() + ']"]');
+        var obj = $('select[name="service-option[' + $(this).closest('div.row').data('id') + '][' + $(this).val() + ']"]');
         if (obj.length) {
             if ($(this).is(':checked')) {
                 obj.removeAttr('disabled');
@@ -105,9 +105,9 @@ $(function () {
         if ($(this).is(':checked')) {
            var parent_id = row.data('id')
            var data = {html: 1, parent_id: parent_id, service_id: $(this).val()};
-           var $variants = $('[name="service-choice[' + parent_id + '][' + $(this).val() + ']"]');
+           var $variants = $('[name="service-option[' + parent_id + '][' + $(this).val() + ']"]');
            if ($variants.length) {
-               data['service-choice_id'] = $variants.val();
+               data['service-option_id'] = $variants.val();
            }
            $.post('add/', data, function(response) {
                div.data('id', response.data.id);
@@ -125,7 +125,7 @@ $(function () {
 
     $(".js-cart-services select").change(function () {
         var row = $(this).closest('div.row');
-        $.post('save/', {html: 1, id: $(this).closest('div').data('id'), 'service-choice_id': $(this).val()}, function (response) {
+        $.post('save/', {html: 1, id: $(this).closest('div').data('id'), 'service-option_id': $(this).val()}, function (response) {
             row.find('.js-item-total').html(response.data.item_total);
             updateCart(response.data);
         }, "json");
@@ -141,10 +141,10 @@ $(function () {
         return false;
     })
 
-    $("#use-coupon").click(function () {
+    $("#coupon-in-stock").click(function () {
         $('#discount-row:hidden').slideToggle(200);
-        $('#apply-coupon-code:hidden').show();
-        $('#apply-coupon-code input[type="text"]').focus();
+        $('#use-coupon-code:hidden').show();
+        $('#use-coupon-code input[type="text"]').focus();
         return false;
     });
 
@@ -166,8 +166,8 @@ $(function () {
         }).change(onChange);
     };
 
-    onInputChange($('#apply-coupon-code input[type="text"]'), function () {
-        $('#apply-coupon-code .errormsg').hide();
+    onInputChange($('#use-coupon-code input[type="text"]'), function () {
+        $('#use-coupon-code .errormsg').hide();
     });
 
     $("div.addtocart input:button").click(function () {
@@ -189,7 +189,7 @@ $(function () {
         }
         $.post($(this).data('url'), {html: 1, product_id: $(this).data('product_id')}, function (response) {
             if (response.status == 'ok') {
-                var cart_total = $(".cart-total");
+                var cart_total = $(".cart-price-total");
                 $("#page-content").load(location.href, function () {
                     cart_total.closest('#cart').removeClass('empty');
                     cart_total.html(response.data.total);
@@ -202,7 +202,7 @@ $(function () {
        return false;
     });
 
-    $('.js-cart-checkout-button').click(function (event){
+    $('.js-checkout-button-cart').click(function (event){
         var PluginBuy1step = $('.buy1step-page__checkout-box');
 
         if(PluginBuy1step.length){

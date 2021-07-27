@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="48">
+<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="49">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
@@ -392,7 +392,7 @@
       </options>
     </setting>
     <setting var="id_app_header-top_menu" control_type="text">
-      <value/>
+      <value>83</value>
       <name locale="en_US">Identifier from applications Menu for output in the top menu</name>
       <name locale="ru_RU">идентификатор из приложения Меню для вывода в верхнем меню</name>
       <description locale="ru_RU">Опция доступна при выбранном варианте "Из приложения меню" для опции "Ссылки в верхнем меню"</description>
@@ -609,7 +609,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value/>
+      <value>83</value>
       <name locale="en_US">Identifier from applications Menu</name>
       <name locale="ru_RU">Идентификатор из приложения Управление меню</name>
     </setting>
@@ -661,7 +661,7 @@
       <name locale="ru_RU">Слайдер</name>
     </setting>
     <setting var="homepage_type_slider_mode" control_type="select">
-      <value>promos</value>
+      <value>products</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <options>
@@ -1411,13 +1411,13 @@
       <name locale="en_US">Show field for The quantity of goods for the basket, the kind of "list"</name>
       <name locale="ru_RU">Показывать кнопку "Купить в один клик", вид превью "списком"</name>
     </setting>
-    <setting var="show_preview_stock" control_type="checkbox">
+    <setting var="preview_stock" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Выводить наличие на складе в превью</name>
       <name locale="en_US">Display stock in the preview</name>
     </setting>
-    <setting var="show_preview_stock_count" control_type="checkbox">
-      <value/>
+    <setting var="preview_stock_count" control_type="checkbox">
+      <value>1</value>
       <name locale="ru_RU">Выводить количество товара на складе в превью</name>
       <name locale="en_US">Display the number of goods in the warehouse in preview</name>
     </setting>
@@ -1836,7 +1836,7 @@
       <name locale="en_US">Zoom on for large image</name>
     </setting>
     <setting var="product_gallery_display_description" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Описание картинки</name>
       <name locale="en_US">Description of product</name>
     </setting>
@@ -2654,7 +2654,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value></value>
+      <value>app</value>
       <name locale="en_US"/>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <options>
@@ -2683,12 +2683,12 @@
       <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
     </setting>
     <setting var="header_company_phone" control_type="text">
-      <value>+7 (999) - 999 - 99 - 99</value>
+      <value>+7 (495) 999-99-99</value>
       <name locale="ru_RU">Телефон</name>
       <name locale="en_US"/>
     </setting>
     <setting var="header_company_email" control_type="text">
-      <value>vaseeeeeeeeeeeeeeeeeeeeeek53@gmail.com</value>
+      <value>info@free.ru</value>
       <name locale="ru_RU">Почта</name>
       <name locale="en_US"/>
     </setting>

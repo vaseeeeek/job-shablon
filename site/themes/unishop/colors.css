@@ -40,8 +40,8 @@ input[type="submit"].bg-maincolor,
     background: #ff7420;
 }
 
-a.inline-link,
-.inline-link,
+a.link-style,
+.link-style,
 .checked-list li.selected a,
 .checked-list li.selected,
 a:hover,
@@ -129,7 +129,7 @@ select,
 }
 
 .checked-list,
-.cart-coupon-form input{
+.coupon-form input{
     border: 1px solid #009999;
 }
 
@@ -204,22 +204,22 @@ input[type="submit"].bg-maincolor:hover{
     border-right: none;
 }
 
-.step-header.upcoming,
-.step-header.upcoming:hover{
+.step-item.upcoming,
+.step-item.upcoming:hover{
     color: #d6d6d6;
 }
 
-.step-header.current{
+.step-item.current{
     color: #009999;
 }
 
-.step-header.is-done,
-.step-header.is-done:hover{
+.step-item.is-done,
+.step-item.is-done:hover{
     color: #FFF;
     background: #009999;
 }
 
-.step-header, .step-header.current
+.step-item, .step-item.current
 {
     border-color:  #009999;
     background: #FFF;

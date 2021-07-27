@@ -6,11 +6,6 @@
     {$checkoutUrl = $wa->getUrl('shop/frontend/checkout')}
 {/if}
 
-{$is_plugin_buy1step_in_cart = class_exists('shopBuy1stepPlugin') && !empty($theme_settings.buy1step_checkout_in_cart)}
-{if $is_plugin_buy1step_in_cart}
-    {$checkoutUrl = $cartUrl}
-{/if}
-
 {if isset($cart.count) && $cart.count > 0}
     <div class="js-fixed-cart fixed-cart">
         <span class="fixed-cart__close js-cart-fixed-close maincolor">&times;</span>
@@ -63,7 +58,7 @@
                     </div>
                     <div class="fixed-cart__total">
                         <span class="fixed-cart__total-amount-text">[`Total`]:</span>
-                        <span class="cart-total">{shop_currency_html($cart.total, true)}</span>
+                        <span class="cart-price-total">{shop_currency_html($cart.total, true)}</span>
                     </div>
                 </div>
                 <a class="fixed-cart__checkout button" href="{$checkoutUrl}">

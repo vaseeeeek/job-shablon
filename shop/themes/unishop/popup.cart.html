@@ -6,27 +6,24 @@
     {$checkoutUrl = $wa->getUrl('shop/frontend/checkout')}
 {/if}
 
-{$is_plugin_buy1step_in_cart = class_exists('shopBuy1stepPlugin') && !empty($theme_settings.buy1step_checkout_in_cart)}
-{if $is_plugin_buy1step_in_cart}
-    {$checkoutUrl = $cartUrl}
-{/if}
-
-<div id="cart-products">
-    <div class="js-cart-ajax cart-mini dd-wrap br-top-sdColor" data-url="{$wa->getUrl('shop/frontend/cart')}">
-        <div class="cart-mini-empty js-cart-mini-empty" {if $cart.count > 0} style="display: none"{/if}>
+<div id="cart-pr-list">
+    <div class="js-cart-ajax header_cart-preview dd-wrap br-top-sdColor" data-url="{$wa->getUrl('shop/frontend/cart')}">
+        <div class="header_cart-preview-empty js-header_cart-preview-empty" {if $cart.count > 0} style="display: none"{/if}>
             <h1>[`Shopping cart`]</h1>
             <p>[`Your shopping cart is empty.`]</p>
         </div>
-        <div  class="cart-mini-full js-cart-mini-full" {if !$cart.count} style="display: none"{/if}>
-            <div class="cart-mini__products">
+        <div class="header_cart-preview-full js-header_cart-preview-full" {if !$cart.count} style="display: none"{/if}>
+            <div class="header_cart-preview__products">
                 {foreach $cart.items as $item}
-                    <div class="js-cart-product cart-mini__product" data-id="{$item.id}">
-                        <div class="cart-mini__product-img">
-                            <a href="{$wa->shop->productUrl($item.product)}" title="{$item.product.name|escape}">{$wa->shop->productImgHtml($item.product, '50', ['default' => $def_img])}</a>
+                    <div class="js-cart-product header_cart-preview__product" data-id="{$item.id}">
+                        <div class="header_cart-preview__product-img">
+                            <a href="{$wa->shop->productUrl($item.product)}"
+                               title="{$item.product.name|escape}">{$wa->shop->productImgHtml($item.product, '50', ['default' => $def_img])}</a>
                         </div>
-                        <div class="cart-mini__product-info">
-                            <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a> <span class="hint nowrap">(&times; {$item.quantity})</span>
-                            <div class="cart-mini__product-price js-cart-product-price">
+                        <div class="header_cart-preview__product-info">
+                            <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a> <span
+                                    class="hint nowrap">(&times; {$item.quantity})</span>
+                            <div class="header_cart-preview__product-price js-cart-product-price">
                                 {if empty($item.full_price) && !empty($theme_settings.text_zero_price)}
                                     {$theme_settings.text_zero_price}
                                 {else}
@@ -34,24 +31,26 @@
                                 {/if}
                             </div>
                         </div>
-                        <div class="cart-mini__product-count">
-                            <div class="cart-mini__product-remove"><span class="js-preview-cart-delete">&times;</span></div>
+                        <div class="header_cart-preview__product-count">
+                            <div class="header_cart-preview__product-remove"><span class="js-preview-cart-delete">&times;</span>
+                            </div>
                         </div>
                     </div>
                 {/foreach}
             </div>
 
-            <div class="cart-mini__total">
-                <span class="cart-mini__total-text">[`Total`]:</span> <span class="js-cart-total price ">{shop_currency_html($cart.total, true)}</span>
+            <div class="header_cart-preview__total">
+                <span class="header_cart-preview__total-text">[`Total`]:</span> <span
+                        class="js-cart-price-total price ">{shop_currency_html($cart.total, true)}</span>
             </div>
             {if method_exists($wa->shop, 'checkout') || $checkoutUrl == $cartUrl}
-                <div class="cart-mini__buttons align-center">
-                    <a class="button button-mini" href="{$checkoutUrl}">[`Proceed to checkout`]</a>
+                <div class="header_cart-preview__buttons align-center">
+                    <a class="button button-s" href="{$checkoutUrl}">[`Proceed to checkout`]</a>
                 </div>
             {else}
-                <div class="cart-mini__buttons">
+                <div class="header_cart-preview__buttons">
                     <a href="{$cartUrl}">[`Cart`] &rarr;</a>
-                    <a class="button button-mini" href="{$checkoutUrl}">[`Proceed to checkout`]</a>
+                    <a class="button button-s" href="{$checkoutUrl}">[`Proceed to checkout`]</a>
                 </div>
             {/if}
         </div>

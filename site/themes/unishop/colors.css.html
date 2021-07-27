@@ -2,7 +2,6 @@
 {$selectColors = []}
 
 {if $wa->globals("color_scheme")}{$theme_settings.color_scheme = $wa->globals("color_scheme")}{/if}
-{if $theme_settings.test_settings && !empty($wa->cookie('color_scheme')) && $wa->cookie('color_scheme') != 'null'}{$theme_settings.color_scheme = $wa->cookie('color_scheme')}{/if}
 {$_color_scheme = str_replace('img/themesettings/','',str_replace('.png','',$theme_settings.color_scheme))}
 
 {$colors['orange.green']['maincolor'] = '#ff7420'}
@@ -156,8 +155,8 @@
         background: {$maincolor};
     }
 
-    a.inline-link,
-    .inline-link,
+    a.link-style,
+    .link-style,
     .checked-list li.selected a,
     .checked-list li.selected,
     a:hover,
@@ -249,7 +248,7 @@
     }
 
     .checked-list,
-    .cart-coupon-form input{
+    .coupon-form input{
         border: 1px solid {$scColor};
     }
 
@@ -302,17 +301,17 @@
         border-top-color: {$scColor};
     }
 
-    .step-header.current{
+    .step-item.current{
         color: {$scColor};
     }
 
-    .step-header.is-done,
-    .step-header.is-done:hover{
+    .step-item.is-done,
+    .step-item.is-done:hover{
         color: #FFF;
         background: {$scColor};
     }
 
-    .step-header, .step-header.current
+    .step-item, .step-item.current
     {
         border-color:  {$scColor};
         background: #FFF;

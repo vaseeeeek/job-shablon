@@ -179,7 +179,7 @@
 
                     if (data.formatted_price) {
                         that.$price.html(data.formatted_price);
-                        $(".js-cart-total-price").html(data.formatted_price);
+                        $(".js-cart-price-total-price").html(data.formatted_price);
                         $(".js-cart-preview-count").html(data.count);
 
                         toggle(data.price > 0);
@@ -202,7 +202,7 @@
 
             var cart = new Cart({
                 $wrapper: $cart,
-                $price: $cart.find(".cart-total")
+                $price: $cart.find(".cart-price-total")
             });
 
             that.$wrapper.on("wa_order_cart_changed", function(event, api) {

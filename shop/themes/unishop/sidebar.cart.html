@@ -14,13 +14,13 @@
     <div class="sb-wrap sidebar-views">
         <div class="sb-wrap_head maincolor">[`Composition of order`]</div>
         {foreach $items as $item}
-            <div class="cart-mini__product">
-                <div class="cart-mini__product-img">
+            <div class="header_cart-preview__product">
+                <div class="header_cart-preview__product-img">
                     <a href="{$wa->shop->productUrl($item.product)}" title="{$item.product.name|escape}">{$wa->shop->productImgHtml($item.product, '50', ['default' => $def_img])}</a>
                 </div>
-                <div class="cart-mini__product-info">
+                <div class="header_cart-preview__product-info">
                     <a href="{$wa->shop->productUrl($item.product)}">{$item.product.name|escape}</a>
-                    <div class="cart-mini__product-price">
+                    <div class="header_cart-preview__product-price">
                         {$product_price = (int) $item.price}
                         {if empty($product_price) && !empty($theme_settings.text_zero_price)}
                             {$theme_settings.text_zero_price}
