@@ -213,8 +213,8 @@ input[type="submit"].bg-maincolor:hover{
     color: #009999;
 }
 
-.step-item.is-done,
-.step-item.is-done:hover{
+.step-item.is-completed,
+.step-item.is-completed:hover{
     color: #FFF;
     background: #009999;
 }

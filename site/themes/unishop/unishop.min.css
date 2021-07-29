@@ -14837,7 +14837,7 @@ input.shop-sk-oneclick-counter__input {
     margin: 20px 0 0
 }
 
-.custom-onestep .onestep-cart .checkout .checkout-step-content {
+.custom-onestep .onestep-cart .checkout .checkout-item-step-content {
     padding: 0
 }
 
@@ -14903,7 +14903,7 @@ input.shop-sk-oneclick-counter__input {
     padding: 0
 }
 
-.custom-onestep .checkout-content[data-step-id=confirmation] {
+.custom-onestep .checkout-step-content[data-step-id=confirmation] {
     padding: 10px 0
 }
 
@@ -15044,7 +15044,6 @@ article, aside, footer, header, nav, section {
     max-width: 1400px;
     min-width: 300px;
     padding: 0 10px;
-    overflow: hidden;
 }
 
 .head_info-massage__wrap{

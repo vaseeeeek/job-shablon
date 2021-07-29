@@ -1,5 +1,5 @@
 {strip}
-<div class="checkout-content" data-step-id="confirmation">
+<div class="checkout-step-content" data-step-id="confirmation">
 
     {if !empty($error)}
         <div class="checkout-result error">
@@ -13,10 +13,10 @@
         <p>{$contact.name|escape}<br>
         {$shipping_address.value}</p>
 
-        {if $billing_address}
+        {if $adress}
             <h3>[`Bill to`]</h3>
             <p>{$contact.name|escape}<br>
-            {$billing_address.value}</p>
+            {$adress.value}</p>
         {/if}
 
         <table class="table order-data">

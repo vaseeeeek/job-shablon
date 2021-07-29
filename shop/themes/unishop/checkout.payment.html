@@ -1,5 +1,5 @@
 {strip}
-<div class="checkout-content" data-step-id="payment">
+<div class="checkout-step-content" data-step-id="payment">
 
     <ul class="checkout-options payment">
         {foreach $checkout_payment_methods as $m}
@@ -32,8 +32,8 @@
         });
 
         if(jQuery().styler) {
-            $('.checkout-content input[type="checkbox"], .checkout-content input[type="radio"]').styler('destroy');
-            $('.checkout-content input[type="checkbox"], .checkout-content input[type="radio"]').styler();
+            $('.checkout-step-content input[type="checkbox"], .checkout-step-content input[type="radio"]').styler('destroy');
+            $('.checkout-step-content input[type="checkbox"], .checkout-step-content input[type="radio"]').styler();
         }
     </script>
 
