@@ -8,11 +8,8 @@
             {/if}
             <div class="wa-form">
                 {$checkout_contact_form->html()}
-
-                {* When both billing and shipping addresses are enabled, billing address matches shipping address
-                 * unless user specifically wants to edit billing address separately. *}
                 {if $billing_matches_shipping}
-                    <div class="wa-field billing-address-fake" style="display:none;">
+                    <div class="wa-field" style="display:none;">
                         <div class="wa-name">{$checkout_contact_form->fields('address.billing')->getName(null, true)}</div>
                         <div class="wa-value">
                             [`Matches shipping address`] <a href="javascript:void(0)" id="edi-address-link">[`Edit

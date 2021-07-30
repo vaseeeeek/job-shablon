@@ -3,22 +3,12 @@
 {$app = $wa->param('app')}
 {$action = $wa->param('action')}
 {$plugin = $wa->param('plugin')}
-{$quick_links = []}
+{$quick_links_arr = []}
 {if empty($plugin)}
     {if $app == 'shop' && $action == 'category' && !empty($category)}
-        {$quick_links[] = [
+        {$quick_links_arr[] = [
             "name" => "[s`Edit`]",
             "href" => "{$wa_backend_url}shop/?action=products#/products/category_id={$category.id}"
-        ]}
-    {elseif $app == 'shop' && $action == 'product' && !empty($product)}
-        {$quick_links[] = [
-            "name" => "[s`Edit`]",
-            "href" => "{$wa_backend_url}shop/?action=products#/product/{$product.id}/edit/"
-        ]}
-    {elseif $app == 'blog' && $action == 'post' && !empty($post)}
-        {$quick_links[] = [
-            "name" => "[s`Edit`]",
-            "href" => "{$wa_backend_url}blog/?module=post&id={$post.id}&action=edit"
         ]}
     {elseif $action == 'page'}
         {$href = false}
@@ -28,22 +18,32 @@
             {$href = "{$wa_backend_url}{$app}/?module=pages#/{$page.id}"}
         {/if}
         {if $href}
-            {$quick_links[] = [
-                "name" => "[s`Edit`]",
-                "href" => $href
+            {$quick_links_arr[] = [
+            "name" => "[s`Edit`]",
+            "href" => $href
             ]}
         {/if}
+    {elseif $app == 'blog' && $action == 'post' && !empty($post)}
+        {$quick_links_arr[] = [
+            "name" => "[s`Edit`]",
+            "href" => "{$wa_backend_url}blog/?module=post&id={$post.id}&action=edit"
+        ]}
+    {elseif $app == 'shop' && $action == 'product' && !empty($product)}
+        {$quick_links_arr[] = [
+        "name" => "[s`Edit`]",
+        "href" => "{$wa_backend_url}shop/?action=products#/product/{$product.id}/edit/"
+        ]}
     {elseif $app == 'site' && !empty($page)}
-        {$quick_links[] = [
+        {$quick_links_arr[] = [
             "name" => "[s`Edit`]",
             "href" => "{$wa_backend_url}{$app}/#/pages/{$page.id}"
         ]}
     {/if}
 {/if}
 
-{if !empty($quick_links) && count($quick_links)}
+{if !empty($quick_links_arr) && count($quick_links_arr)}
     <div class="admin-edit-links">
-        {foreach $quick_links as $link}
+        {foreach $quick_links_arr as $link}
             <a class="admin-edit-links__el" target="_blank" href="{$link.href}" title="{$link.name}">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
             </a>

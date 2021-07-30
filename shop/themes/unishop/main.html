@@ -23,15 +23,17 @@
     {/if}
 
     {if $wa->currentUrl(false, true) != $wa_app_url
+    && $action != 'checkout'
     && $action != 'category'
     && $action != 'product'
-    && $action != 'cart'
-    && $action != 'checkout'
-    && $action != 'order'
     && $action != 'compare'
+    && $action != 'cart'
+    && $action != 'order'
     && $action != 'productReviews'
     && !$wa->globals('isMyAccount')
     && $wa->currentUrl(false, true) != '/my/orders/'
+    && $wa->currentUrl(false, true) != '/signup/'
+    && $wa->currentUrl(false, true) != '/login/'
     }
         {$cols = 1}
         {$sb_left = 0}

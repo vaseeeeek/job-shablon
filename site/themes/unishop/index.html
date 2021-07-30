@@ -6,10 +6,6 @@
     {$parent_theme_path = $wa_parent_theme_path}
 {/if}
 
-<!-- Спросить о настройке -->
-{$is_icon_font_swap = !empty($theme_settings.load_icon_font_display_swap)}
-{$is_icon_font_include_footer = !empty($theme_settings.load_icon_font_footer)}
-{$is_icons_hidden = ($is_icon_font_include_footer || $is_icon_font_swap)}
 <!DOCTYPE html>
 <html lang="ru">
 <head prefix="og: http://ogp.me/ns#{if  isset($action) &&  $action == 'product'} product: http://ogp.me/ns/product#{/if}">
@@ -301,6 +297,7 @@
                 {/if}
             {/if}
         {/if}
+        <!-- За что отвечает ? -->
         {if $admin_edit_link}
             {include file="`$parent_theme_path`/quicklinks.html" inline}
         {/if}

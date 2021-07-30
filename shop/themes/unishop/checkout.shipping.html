@@ -3,7 +3,9 @@
 <ul class="checkout-options">
     {$external_methods = []}
     {foreach $checkout_shipping_methods as $m}
-        <li class="js-checkout-options shipping-{$m.id}{if $m.id == $shipping.id} selected{/if}{if $m.external || !empty($m.error)} disabled{/if}">
+        <li class="js-checkout-opt shipping-{$m.id}
+                    {if $m.id == $shipping.id} selected{/if}
+                    {if $m.external || !empty($m.error)} disabled{/if}">
             <h3>
                 <label>
                     {if !empty($m.logo)}<img src="{$m.logo}" class="method-logo">{/if}
@@ -24,37 +26,36 @@
                 {/if}
             </h3>
             {if empty($m.error)}
-            <div class="rate">
-                <span class="price nowrap">
-                    {if $m.rate !== null}
-                    {shop_currency_html($m.rate, $m.currency)}
-                    {elseif $m.external}
-                    {$external_methods[] = $m.id}
-                    [`Loading...`] <i class="icon16 loading"></i>
-                    {/if}
-                </span>
-                <em class="hint error comment" {if empty($m.comment)}style="display:none"{/if}>
-                    <br>{if !empty($m.comment)}{$m.comment}{/if}
-                </em>
-                <span class="hint" {if empty($m.est_delivery)}style="display:none"{/if}>
-                    [`Estimated delivery`]:
-                    <strong class="est_delivery">{if !empty($m.est_delivery)}{$m.est_delivery}{/if}</strong>
-                </span>
-            </div>
+                <div class="rate">
+                    <span class="price nowrap">
+                        {if $m.rate !== null}
+                        {shop_currency_html($m.rate, $m.currency)}
+                        {elseif $m.external}
+                        {$external_methods[] = $m.id}
+                        [`Loading...`] <i class="icon16 loading"></i>
+                        {/if}
+                    </span>
+                    <em class="hint error comment" {if empty($m.comment)}style="display:none"{/if}>
+                        <br>{if !empty($m.comment)}{$m.comment}{/if}
+                    </em>
+                    <span class="hint" {if empty($m.est_delivery)}style="display:none"{/if}>
+                        [`Estimated delivery`]:
+                        <strong class="est_delivery">{if !empty($m.est_delivery)}{$m.est_delivery}{/if}</strong>
+                    </span>
+                </div>
             {else}
-            <div class="rate error">
-                <span class="price nowrap" style="display:none"></span>
-                <em class="hint error comment" style="display:none"></em>
-                <span class="hint" style="display:none">
-                    <br>
-                    [`Estimated delivery`]:<br>
-                    <strong class="est_delivery"></strong>
-                </span>
-                <em class="shipping-error">{$m.error}</em>
-            </div>
+                <div class="rate error">
+                    <span class="price nowrap" style="display:none"></span>
+                    <em class="hint error comment" style="display:none"></em>
+                    <span class="hint" style="display:none">
+                        <br>
+                        [`Estimated delivery`]:<br>
+                        <strong class="est_delivery"></strong>
+                    </span>
+                    <em class="shipping-error">{$m.error}</em>
+                </div>
             {/if}
 
-            {if $m.description}<p class="checkout-option_desc">{$m.description}</p>{/if}
             {if !empty($m.form)}
                 <div class="wa-form wa-address" {if $m.id != $shipping.id}style="display:none"{/if}>
                     {$m.form->html()}
@@ -67,6 +68,7 @@
                     {/if}
                 </div>
             {/if}
+            {if $m.description}<p class="checkout-option_text">{$m.description}</p>{/if}
             {if !empty($m.custom_html)}
                 <div class="wa-form" {if $m.id != $shipping.id}style="display:none"{/if}>{$m.custom_html}</div>
             {/if}
@@ -188,8 +190,8 @@
                             $(this).removeData('changed');
                         }
                     }
-                    $('.js-checkout-options').removeClass('selected');
-                    $(".checkout-options input:radio:checked").closest('.js-checkout-options').addClass('selected');
+                    $('.js-checkout-opt').removeClass('selected');
+                    $(".checkout-options input:radio:checked").closest('.js-checkout-opt').addClass('selected');
                 });
 
                 $(".wa-address").find('input,select').change(function () {

@@ -12277,7 +12277,7 @@ input.error, textarea.error {
     margin: 0 10px 0 0
 }
 
-.checkout-option_desc {
+.checkout-option_text {
     font-size: 13px;
     line-height: 18px;
     color: #777
@@ -12487,19 +12487,19 @@ input.error, textarea.error {
         margin-left: 0
     }
 
-    .order-data {
+    .data-order {
         line-height: 18px
     }
 
-    .order-data td, order-data th {
+    .data-order td, data-order th {
         padding: 3px
     }
 
-    .order-data .non-mobile-only {
+    .data-order .non-mobile-only {
         display: none
     }
 
-    .order-data .large {
+    .data-order .large {
         font-size: 1em
     }
 }
@@ -16139,7 +16139,7 @@ input[type=button].storequickorder-button:hover {
 }
 
 @media (max-width: 1000px) {
-    .step-confirmation .order-data {
+    .step-confirmation .data-order {
         margin-bottom: 20px
     }
 
