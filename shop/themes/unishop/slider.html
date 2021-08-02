@@ -1,7 +1,4 @@
 {strip}
-<!-- Спросить о настройке -->
-{if (int)$theme_settings.height_slider > 0 && !$wa->isMobile()}{$slider_height = $theme_settings.height_slider}{/if}
-{$_image_background = !empty($slider_height)}
 
 {$slidersPromo = []}
 {if $theme_settings.homepage_type_slider_mode == 'promos'}
@@ -21,25 +18,21 @@
     {/if}
     {if count($slidersPromo) > 0}
         <div class="slider-outer js-slider-outer slider-outer--photos">
-            <div class="js-home-slider owl-carousel home-slider-photos" data-pause="{$theme_settings.slider_scroll_pause_auto}" data-type="{if $_image_background}promo-bg{else}promo-image{/if}">
+            <div class="js-home-slider owl-carousel home-slider-photos" data-pause="{$theme_settings.slider_scroll_pause_auto}" data-type="">
                 {foreach $slidersPromo as $item}
                     {if !empty($theme_settings.image_mainpage_preload) && !empty($item@first) && !empty($item.image)}
                         {$wa->globals('preload_image', $item.image)}
                     {/if}
 
                     <div class="home-slider-photos_el">
-                        {if $_image_background && $slider_height}
-                            {$style_slide = "height: `$slider_height`px;"}
-                            {if $item@first}{$style_slide = "`$style_slide`background-image:url(`$item.image`);"}{/if}
-                        {/if}
-                        <a class="home-slider-photos_el-content{if $_image_background && !$item@first} owl-lazy{/if}" href="{$item.link|escape}" {if $_image_background && !$item@first} data-src="{$item.image}"{/if}{if !empty($style_slide)} style="{$style_slide}"{/if}>
-                            {if !$_image_background}
+                        <a class="home-slider-photos_el-content" href="{$item.link|escape}" {if !empty($style_slide)} style="{$style_slide}"{/if}>
+
                                 {if $item@first}
                                     <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" />
                                 {else}
                                     <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
                                 {/if}
-                            {/if}
+
                         </a>
                     </div>
                 {/foreach}
@@ -81,7 +74,6 @@
         {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
     {/if}
 
-    <!--Спросить о настройке-->
     {function getSalePromoSlider price=null compare_price=null}
         {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
             {$discount = (($compare_price-$price)/$compare_price)*100}
@@ -125,7 +117,7 @@
                             {$short_list_features = $product.features}
                         {/if}
                     {/if}
-                    <div  class="main-slider_item "{if isset($slider_height)} style="height: {$slider_height}px"{/if}>
+                    <div  class="main-slider_item ">
                         <a data-position="fixed" class="main-slider_item-img " href="{$product.frontend_url}">
                             {if empty($product@first)}
                                 {$wa->shop->productImgHtml($product, '0x320', ['class' => "owl-lazy", 'alt' => $product.name, 'default' => $def_img])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}

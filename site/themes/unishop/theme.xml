@@ -218,21 +218,6 @@
       <name locale="ru_RU">Цвет кнопок, активных ссылок и др</name>
       <name locale="en_US">Color of buttons and other</name>
     </setting>
-    <setting var="body_bg" control_type="select">
-      <value>bg-lightgrey</value>
-      <name locale="en_US">Color backgtound</name>
-      <name locale="ru_RU">Цвет основного фона</name>
-      <options>
-        <option value="bg-grey">
-          <name locale="ru_RU">Серый</name>
-          <name locale="en_US">grey</name>
-        </option>
-        <option value="bg-lightgrey">
-          <name locale="ru_RU">Светло-серый</name>
-          <name locale="en_US">Light grey</name>
-        </option>
-      </options>
-    </setting>
     <setting var="font" control_type="select">
       <value>roboto</value>
       <name locale="ru_RU">Основной шрифт</name>
@@ -661,7 +646,7 @@
       <name locale="ru_RU">Слайдер</name>
     </setting>
     <setting var="homepage_type_slider_mode" control_type="select">
-      <value>products</value>
+      <value>promos</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <options>
@@ -687,13 +672,6 @@
       <name locale="ru_RU">Задержка слайдера</name>
       <description locale="en_US">Specify the value in seconds. If the value is zero, the automatic sheet turns off</description>
       <description locale="ru_RU">Указать значение в секундах. При нулевом значении, автоматическое перелистование отключается</description>
-    </setting>
-    <setting var="height_slider" control_type="text">
-      <value>416</value>
-      <name locale="en_US">Height of slider, px</name>
-      <name locale="ru_RU">Высота слайдера, px</name>
-      <description locale="ru_RU">Если оставить значение пустым, высота слайдера будет подстраиваться под контент каждого слайда</description>
-      <description locale="en_US">If you leave the value blank, the height of the slider will adjust to the content of each slide</description>
     </setting>
     <setting var="id_promo_list_slider" control_type="text">
       <value>bestsellers</value>
@@ -1748,28 +1726,7 @@
       <name locale="en_US">Subcategories</name>
       <name locale="ru_RU">Подкатегории</name>
     </setting>
-    <setting var="cat_view_subs_no_products" control_type="select">
-      <value>image</value>
-      <name locale="en_US">The list of subcategories if product list is empty</name>
-      <name locale="ru_RU">Вид подкатегорий в категории без товаров</name>
-      <description locale="ru_RU">Иконка, картинка для категории загружается через файл-менеджер и указывается в категории дополнительным параметром "icon","image". Для каждой категории можно индивидуально настроить вид подкатегорий, для этого в Дополнительных параметрах категории укажите свойство "sub_view" со значениями "icon" (вид "С Иконками"), "image" (вид "С картинками"), "no_image" (вид "Без картинок"). Если установлен плагин "Иконка, изображение и баннер для категории", иконка или картинка выводится из плагина.</description>
-      <description locale="en_US">The icon, image for the category is downloaded via the file manager and is indicated in the category with the additional option "icon","image". For each category, you can customize the appearance of the subcategories by selecting the "sub_view" property with the "icon" (view "With icon"), "image"  (view "With image"), "no_image" (view "Without pictures"). If the plugin "Icon, image and banner for category" is installed, the icon or picture is displayed from the plugin</description>
-      <options>
-        <option value="no_image">
-          <name locale="ru_RU">Без картинок</name>
-          <name locale="en_US">Without image</name>
-        </option>
-        <option value="icon">
-          <name locale="ru_RU">С иконками</name>
-          <name locale="en_US">Width icon</name>
-        </option>
-        <option value="image">
-          <name locale="ru_RU">С картинками</name>
-          <name locale="en_US">With image</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="category_view_subs_not_empty_products" control_type="select">
+    <setting var="cat_view_subs" control_type="select">
       <value>no_image</value>
       <name locale="en_US">The list of subcategories if product list is not empty</name>
       <name locale="ru_RU">Вид подкатегорий в категориии с товарами</name>

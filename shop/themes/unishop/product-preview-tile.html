@@ -47,9 +47,6 @@
 
     {$isProductTilePreviewTileGallery = $theme_settings.product_scroll_hover_gallery && !$wa->isMobile()}
     {$preview_image = $wa->shop->productImgUrl($p, '60')}
-    <!-- Спросить о настройке -->
-    {$add_order_action = $theme_settings.add_order_action}
-    {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
 
     {function getDiscountProductTile price=null compare_price=null}
         {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
@@ -147,8 +144,7 @@
                 </div>
             {/if}
         </a>
-        <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if}
-                data-after-action="{$add_order_action}" class="js-add-to-cart" method="post"
+        <form class="js-add-to-cart" method="post"
                 action="{$wa->getUrl('shop/frontendCart/add')}">
             <input type="hidden" name="product_id" value="{$p.id}">
             <div class="Product-grid_content">

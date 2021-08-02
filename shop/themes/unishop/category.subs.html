@@ -13,29 +13,16 @@
         {elseif class_exists('shopWmimageincatPlugin')}
             {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
         {/if}
-        <!-- Спросить о настройке -->
-        {if !$products}
-            {if !isset($sub_view)}
-                {$sub_view = $theme_settings.cat_view_subs_no_products}
-            {/if}
-            {if $sub_view == 'image'}
-                {include file="categories.tile.html" categories=$category.subcategories}
-            {else if $sub_view == 'icon'}
-                {include file="category.subs.icons.html"}
-            {else}
-                {include file="category.subs.noimage.html"}
-            {/if}
-         {else}
-            {if !isset($sub_view)}
-                {$sub_view = $theme_settings.category_view_subs_not_empty_products}
-            {/if}
-            {if $sub_view == 'image'}
-                {include file="categories.tile.html" categories=$category.subcategories}
-            {else if $sub_view == 'icon'}
-                {include file="category.subs.icons.html"}
-            {else}
-                {include file="category.subs.noimage.html"}
-            {/if}
+
+        {if !isset($sub_view)}
+            {$sub_view = $theme_settings.cat_view_subs}
+        {/if}
+        {if $sub_view == 'image'}
+            {include file="categories.tile.html" categories=$category.subcategories}
+        {else if $sub_view == 'icon'}
+            {include file="category.subs.icons.html"}
+        {else}
+            {include file="category.subs.noimage.html"}
         {/if}
     </div>
 {/if}

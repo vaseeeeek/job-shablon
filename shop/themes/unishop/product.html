@@ -152,7 +152,6 @@
             {if $theme_settings.name_tab_features}{$name_tab_features = $theme_settings.name_tab_features}{else}{$name_tab_features = "[`Characteristics`]"}{/if}
             {if $theme_settings.name_tab_reviews}{$name_tab_reviews = $theme_settings.name_tab_reviews}{else}{$name_tab_reviews = "[`Reviews`]"}{/if}
             {if $theme_settings.name_tab_description}{$name_tab_description = $theme_settings.name_tab_description}{else}{$name_tab_description = "[`Overview`]"}{/if}
-            <!-- Спросить о настройке -->
             <div class="content">
                 {if ($_tabs_normal || $_tabs_anchor) && count($list_product_alias_arr) > 0}
                     <ul class="tabs js-tabs clear-list">
@@ -163,16 +162,6 @@
                                 <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-options">{$name_tab_features}</li>
                             {else if $item_alias_content == 'reviews'}
                                 <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-reviews">{$name_tab_reviews} <span class="hint">({$reviews_total_count})</span></li>
-                            {else if $item_alias_content == 'comments_vk' && $theme_settings.product_info_comments_vk_app_id}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="comments-vk">
-                                    {if $theme_settings.product_info_comments_vk_title}{$theme_settings.product_info_comments_vk_title}{else}[`Discussions`]{/if}
-                                    <i class="fa fa-vk tabs_item-vk" aria-hidden="true"></i>
-                                </li>
-                            {else if $item_alias_content == 'comments_fb' && $theme_settings.product_info_comments_fb_app_id}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="comments-fb">
-                                    {if $theme_settings.product_info_comments_fb_title}{$theme_settings.product_info_comments_fb_title}{else}[`Discussions`]{/if}</span>
-                                    <i class="fa fa-facebook-f tabs_item-fb"></i>
-                                </li>
                             {else if $item_alias_content == 'pages' && count($product.pages) > 0}
                                 {foreach $product.pages as $page}
                                     <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-{$page.id}">{$page.name|escape}</li>

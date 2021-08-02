@@ -92,7 +92,7 @@
                             <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
                         </span>
                     {/if}
-                    {if $p.sku_count > 1}<!-- Спросить о настройке -->
+                    {if $p.sku_count > 1}
                         <span class="button js-card-dialog addtocart addtocart--mini fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
                     {else}
                         <input type="hidden" name="product_id" value="{$p.id}">
