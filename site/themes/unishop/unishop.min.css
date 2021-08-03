@@ -12748,7 +12748,7 @@ full-line
     padding: 0 !important
 }
 
-.btn-inner-input {
+.btn-absolute-input {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -15488,6 +15488,22 @@ article, aside, footer, header, nav, section {
     top: 5px;
     font-size: 19px;
     cursor: pointer
+}
+.Nav__horizontal--list {
+    list-style: none;
+    display: flex;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.Nav__horizontal--list.-Between {
+    justify-content: space-between;
+}
+.Nav__horizontal--link {
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.Nav__horizontal--list:not(.-Beetwen) .Nav__horizontal--item:not(:last-child){
+    margin-right:20px
 }
 .-Close {
     display: none

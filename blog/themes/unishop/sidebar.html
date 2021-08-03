@@ -1,0 +1,13 @@
+{strip}
+<aside class="js-left-sd left-sidebar">
+    {include file="`$wa_active_theme_path`/sidebar.timeline.html"}
+    {include file="`$wa_active_theme_path`/sidebar.search.html"}
+    {include file="`$wa_active_theme_path`/sidebar.plugins.html"}
+    {if $theme_settings.show_sidebar_blog_photos}
+        {include file="`$wa_parent_theme_path`/sidebar.photos.html"}
+    {/if}
+    {if $theme_settings.show_sidebar_blog_social}
+        {include file="`$wa_parent_theme_path`/sidebar.widgets.html"}
+    {/if}
+</aside>
+{/strip}

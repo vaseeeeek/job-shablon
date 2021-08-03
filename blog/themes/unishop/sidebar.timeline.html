@@ -1,0 +1,56 @@
+{strip}
+<div class="sb-wrap sidebar-timeline">
+    <div class="sb-wrap_head">
+        <span class="sdColor">[s`Blog`]</span>
+        {$rss = $wa->blog->rssUrl()}
+        {if $rss}
+            <a class="blog-rss maincolor" href="{$rss}" title="[s`RSS`]"><i class="fa fa-rss blog-rss-icon"
+                                                                            aria-hidden="true"></i></a>
+        {/if}
+    </div>
+    <div class="sb-wrap_body" id="blog-timeline">
+        {$timeline = $wa->blog->timeline()}
+        {if $timeline}
+            <div class="sb-wrap_content">
+
+                {if !empty($timeline)}
+                    <ul class="timeline">
+                    {$year=null}
+                    {foreach $timeline as $id => $item}
+                        {if $year != $item.year}
+                            {if !$item@first}
+                                </ul>
+                                </li>
+                            {/if}
+                            <li{if $item.year_selected} class="selected"{/if}>
+                            {$year=$item.year}
+                            <a href="{$item.year_link}">{$item.year|default:'NULL'}</a>
+                            <ul>
+                        {/if}
+                        <li {if $item.selected}class="selected"{/if}>
+                            <a href="{$item.link}"
+                               title="{_w("%d post","%d posts",$item.count)}">{_ws(date("F",gmmktime(0,0,0,$item.month,1)))}</a>
+                        </li>
+                        {if $item@last}
+                            </ul>
+                            </li>
+                        {/if}
+                    {/foreach}
+                    </ul>
+                {/if}
+            </div>
+        {/if}
+
+        {foreach $wa->blog->blogs() as $blog}
+            <div class="sb-wrap_bottom">
+                <a{if $wa->globals('blog_id') eq $blog.id && empty($is_search)} class="selected"{/if}
+                        href="{$blog.link}">{$blog.name}</a>
+            </div>
+            {foreachelse}
+            <div class="sb-wrap_bottom">
+                <a href="{$wa->blog->url()}">[`All posts`]</a>
+            </div>
+        {/foreach}
+    </div>
+</div>
+{strip}

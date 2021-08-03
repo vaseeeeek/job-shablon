@@ -1,0 +1,87 @@
+{strip}
+
+    {if class_exists('blogSkimagePlugin')}
+        {$sk_image = blogSkimageHelper::getImages($post.id, 'page')}
+        {if $sk_image}
+            {$post.image = $sk_image}
+        {/if}
+    {/if}
+    <div itemscope itemtype="http://schema.org/BlogPosting">
+
+        <article class="post post-box" role="main" id="post-{$post.id}">
+
+            <h1>
+                <span itemprop="headline">{$post.title}</span>
+                {if !empty($post.plugins.post_title)}
+                    {foreach $post.plugins.post_title as $plugin => $output}{$output}{/foreach}
+                {/if}
+            </h1>
+
+            <div class="post-box_credentials">
+                <span class="hint date bg-sdColor"
+                      title="{$post.datetime|wa_datetime}">{$post.datetime|wa_datetime:"humandate"}</span>
+                <meta itemprop="datePublished" content="{$post.datetime|date_format:'Y-m-d\TH:i'}">
+                <span class="post-box_author" itemscope itemtype="http://schema.org/Person" itemprop="author">
+                {if $post.contact_id}
+                    <a href="{$post.user.posts_link}">
+                        <img src="{$post.user.photo_url_20}" class="userpic" alt="{$post.user.name}">
+                    </a>
+                    <a href="{$post.user.posts_link}" class="username" itemprop="name">{$post.user.name}</a>
+
+                {else}
+
+                    <img src="{$post.user.photo_url_20}" class="userpic" alt="{$post.user.name}">
+                    <span class="username" itemprop="name">{$post.user.name}</span>
+                {/if}
+            </span>
+
+                {if $theme_settings.blog_post_share_code}
+                    <div class="post-box__share">{$theme_settings.blog_post_share_code}</div>
+                {/if}
+
+            </div>
+
+            {if !empty($post.plugins.before)}
+                <div class="text_before">
+                    {foreach $post.plugins.before as $plugin => $output}{$output}{/foreach}
+                </div>
+            {/if}
+
+            <div class="text " itemprop="articleBody">
+
+                {if isset($post.image) && !empty($post.image)}
+                    <img itemprop="image" class="post_image" src="{$post.image}" alt="{$post.title}">
+                {/if}
+
+                {$post.text}
+            </div>
+
+            {if $post.album_id && $post.album.id && $post.album.photos}
+                {include 'post.album.html' album=$post.album inline}
+            {/if}
+
+
+            {if !empty($post.plugins.after)}
+                <div class="text_after">
+                    {foreach $post.plugins.after as $plugin => $output}{$output}{/foreach}
+                </div>
+            {/if}
+
+        </article>
+
+        {* @event frontend_post.%plugin_id%.footer *}
+        {foreach $frontend_post as $plugin => $output}
+            {if !empty($output.footer)}{$output.footer}{/if}
+        {/foreach}
+
+
+        {if $show_comments && $post.comments_allowed}
+            {if $post.status eq blogPostModel::STATUS_PUBLISHED}
+                {include 'comments.html' inline}
+            {else}
+                <h4>[`Comments for non published posts are disabled`]</h4>
+            {/if}
+        {/if}
+
+    </div>
+{/strip}

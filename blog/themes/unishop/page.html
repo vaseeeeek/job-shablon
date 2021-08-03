@@ -1,0 +1,20 @@
+{strip}1111111111111111111111111111111111111
+{if $wa->get('popup')}<div id='page-popup'>{/if}
+<h1>{$page.name}</h1>
+
+{if !$wa->get('popup')}
+    {$subpages = $wa->blog->pages($page.id)}
+    {if $subpages}
+        <ul class="sub-links">
+            {foreach $subpages as $p}
+                <li><a href="{$p.url}">{$p.name}</a></li>
+            {/foreach}
+        </ul>
+    {/if}
+{/if}
+
+<div id="page" role="main">
+    {$page.content}
+</div>
+{if $wa->get('popup')}</div> {* close #page-popup *} {/if}
+{/strip}

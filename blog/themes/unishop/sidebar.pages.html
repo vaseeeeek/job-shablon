@@ -1,0 +1,27 @@
+{strip}
+{if $theme_settings.show_sidebar_blog_pages}
+    {$pages = $wa->blog->pages(0, null, true)}
+    {if count($pages)}
+        {function name=menu_tree pages=[] class="" }
+            {if count($pages)}
+                <ul {if $class}class="{$class}"{/if}>
+                {foreach $pages as $p}
+                    <li class="{if strlen($p.url)>1 && $wa->currentUrl() == $p.url}selected{/if}">
+                        <a href="{$p.url}">{$p.name}</a>
+                        {if isset($p.childs) && $p.childs && count($p.childs)}
+                            {menu_tree pages=$p.childs}
+                        {/if}
+                    </li>
+                {/foreach}
+                </ul>
+            {/if}
+        {/function}
+        <nav class="sb-wrap sidebar-pages">
+            <div class="sb-wrap_head bg-sdColor">
+                [`Information`]
+            </div>
+            {menu_tree pages=$pages class="menu-v"}
+        </nav>
+    {/if}
+{/if}
+{/strip}

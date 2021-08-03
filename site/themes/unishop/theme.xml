@@ -2244,21 +2244,6 @@
       <name locale="en_US">Sidebar of application "Blog"</name>
       <name locale="ru_RU">Сайдбар приложения "Блог"</name>
     </setting>
-    <setting var="show_sidebar_blog_photos" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Show latest photos</name>
-      <name locale="ru_RU">Показывать блок с последними фотографиями</name>
-    </setting>
-    <setting var="show_sidebar_blog_pages" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Show pages of application "Blog"</name>
-      <name locale="ru_RU">Показывать страницы приложения Блог</name>
-    </setting>
-    <setting var="show_sidebar_blog_social" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Social groups</name>
-      <name locale="ru_RU">Группы соц.сетей</name>
-    </setting>
     <setting var="blog_post_share_code" control_type="text">
       <value>&lt;script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"&gt;&lt;/script&gt; &lt;script src="https://yastatic.net/share2/share.js"&gt;&lt;/script&gt; &lt;div class="ya-share2" data-services="collections,vkontakte,facebook,odnoklassniki,moimir"&gt;&lt;/div&gt;</value>
       <name locale="en_US">Script for buttons to share in post</name>
@@ -2266,19 +2251,13 @@
       <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
       <description locale="en_US">You can generate the code on https://tech.yandex.ru/share/</description>
     </setting>
-    <setting var="blog_post_products_list" control_type="text">
-      <value locale="en_US">Recommended</value>
-      <value locale="ru_RU">Рекомендуем</value>
-      <name locale="en_US">Title of products list</name>
-      <name locale="ru_RU">Заголовок для списка товаров</name>
-    </setting>
     <setting var="divider_sidebar_app_photos" control_type="group_divider">
       <value/>
       <name locale="en_US">Sidebar of application "Photo"</name>
       <name locale="ru_RU">Сайдбар приложения "Фотогалерея"</name>
     </setting>
     <setting var="show_sidebar_app_photos" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Show sidebar</name>
       <name locale="ru_RU">Показать сайдбар</name>
     </setting>

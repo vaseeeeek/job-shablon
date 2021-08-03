@@ -1,0 +1,21 @@
+{if $post.album.photos}
+    {strip}
+        <div class="photo-album--blog">
+            {foreach $post.album.photos as $photos}
+                <figure itemscope itemtype="http://schema.org/Photograph" class="photo">
+                    {if $photos.description}
+                        {if $photos.description|strstr:'<p>'}
+                            <div itemprop="description">{$photos.description}</div>
+                        {else}
+                            <p itemprop="description">{$photos.description}</p>
+                        {/if}
+                    {/if}
+                    <input type="hidden" name="photo{$photos.id}">
+                    <img src="{$photos.thumb_big.url}" alt="{$photos.name|escape}">
+                </figure>
+            {/foreach}
+        </div>
+    {/strip}
+{/if}
+
+
