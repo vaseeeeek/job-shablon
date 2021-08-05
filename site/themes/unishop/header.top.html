@@ -1,7 +1,6 @@
 {strip}
 {$is_mobile = $wa->isMobile()}
-{* проверить работу плагина *}
-{$headButtonSeoRegionsPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin == 'seo_regions' && class_exists('shopRegionsViewHelper'))}
+
 {$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin == 'cityselect' && class_exists('shopCityselectPlugin'))}
 
 <div class="header-top--links">
@@ -13,9 +12,7 @@
         {/if}
         <div class="header-top--right">
 
-            {if $headButtonSeoRegionsPlugin}
-                <div class="header-top_region">{shopRegionsViewHelper::getWindow()}</div>
-            {elseif $headButtonCitySelectPlugin}
+            {if $headButtonCitySelectPlugin}
                 <div class="header-top_region">{shopCityselectPlugin::showCity('0')}</div>
             {/if}
 

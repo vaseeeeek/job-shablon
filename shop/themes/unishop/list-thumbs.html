@@ -93,7 +93,6 @@
                             {else}
                                 {foreach $sort_fields as $sort => $name}
                                     {if $sort_active == $sort}
-                                        {* проверить работу плагина *}
                                         {if class_exists('shopSeofilterViewHelper')}
                                             {shopSeofilterViewHelper::sortUrl($sort, $name, $sort_active)}
                                         {else}

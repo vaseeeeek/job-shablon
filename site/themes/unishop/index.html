@@ -376,6 +376,12 @@
         <script src="{$wa_theme_url}unishop.custom.js?v{$wa_theme_version}"></script>
     {/if}
 
+    {if $theme_settings.min_script_off}
+        <script src="{$wa_active_theme_url}unishop.shop.js?v{$wa_theme_version}"></script>
+    {else}
+        <script src="{$wa_active_theme_url}unishop.shop.min.js?v{$wa_theme_version}"></script>
+    {/if}
+
     {if $theme_settings.load_text_font_footer}
         {include file="`$parent_theme_path`/fonts.html"}
     {/if}

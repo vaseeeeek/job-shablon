@@ -35,7 +35,7 @@
 
 {$add_order_action = $theme_settings.add_order_action}
 {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
-    {* проверить работу плагина *}
+
 {$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click" && $theme_settings.product_show_list_fast_cart}
 
 {$_price_range = $theme_settings.price_range_in_product_list}
@@ -66,10 +66,6 @@
             {if $badge_html}{$badge_html}{/if}
             {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
             <a class="Product__Item-img js-grid-block-gallery" href="{$p.frontend_url}" title="{$p.name}">
-                {* проверить работу плагина *}
-                {if class_exists('shopProtilegalleryPlugin') && $theme_settings.product_line_tilegallery}
-                    {$blockHtmlProtilegallery = shopProtilegalleryPlugin::productItem($p)}
-                {/if}
                 {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
                     {$blockHtmlProtilegallery}
                 {else}

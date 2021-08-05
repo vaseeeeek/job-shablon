@@ -58,7 +58,6 @@
                                     <span class="js-toggle-styler radio-styler{if $value === '0'} checked{/if}">
                                         <input class="js-toggle-styler-input" type="radio" name="{$filter.code}" value="0"{if $value === '0'} checked="checked"{/if}>
                                     </span>
-                                    {* проверить работу плагина *}
                                     {$radio_filter_url = ''}
                                     {if class_exists('shopSeofilterViewHelper')}
                                         {$radio_filter_url = shopSeofilterViewHelper::getFilterUrl($filter.id, "0", $filter.code)}

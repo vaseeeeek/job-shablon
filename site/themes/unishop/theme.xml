@@ -404,19 +404,15 @@
       <name locale="en_US">Autosearch on</name>
     </setting>
     <setting var="plugin_search_pro" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Use the plugin Search Pro (Bodysite)</name>
       <name locale="ru_RU">Используется плагин Поиск Pro (Bodysite)</name>
     </setting>
     <setting var="region_plugin" control_type="select">
-      <value/>
+      <value>cityselect</value>
       <name locale="ru_RU">Плагин выбора города</name>
       <name locale="en_US">Plugin for select city</name>
       <options>
-        <option value="seo_regions">
-          <name locale="ru_RU">SEO-регионы (Bodysite)</name>
-          <name locale="en_US">SEO-regions (Bodysite)</name>
-        </option>
         <option value="cityselect">
           <name locale="ru_RU">Автоопределение и выбор города (Echo)</name>
           <name locale="en_US">Autodetect and select city (Echo)</name>
@@ -1397,11 +1393,6 @@
     <setting var="preview_stock_count" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Выводить количество товара на складе в превью</name>
-      <name locale="en_US">Display the number of goods in the warehouse in preview</name>
-    </setting>
-    <setting var="product_line_tilegallery" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Для превью товара вида "список" использовать плагин "Плиточная галерея"</name>
       <name locale="en_US">Display the number of goods in the warehouse in preview</name>
     </setting>
     <setting var="price_range_in_product_list" control_type="checkbox">
