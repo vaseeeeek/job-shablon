@@ -33,7 +33,7 @@
         {$short_list_features = $product_features_list}
     {/if}
 {/if}
-{* проверить работу плагина *}
+
 {if $theme_settings.product_page_show_brand_right}
     {if $theme_settings.use_plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
         {$_brand_pro = shopBrandViewHelper::getProductBrand($product)}
