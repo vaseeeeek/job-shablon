@@ -26,13 +26,11 @@
 
                     <div class="home-slider-photos_el">
                         <a class="home-slider-photos_el-content" href="{$item.link|escape}" {if !empty($style_slide)} style="{$style_slide}"{/if}>
-
-                                {if $item@first}
-                                    <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" />
-                                {else}
-                                    <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
-                                {/if}
-
+                            {if $item@first}
+                                <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" />
+                            {else}
+                                <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
+                            {/if}
                         </a>
                     </div>
                 {/foreach}

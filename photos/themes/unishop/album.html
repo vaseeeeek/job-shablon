@@ -1,0 +1,54 @@
+{strip}
+<h1 class="album-name">
+    <span itemprop="name">{$album.name}</span>
+    {* @event frontend_collection.%plugin_id%.name *}
+    {foreach $frontend_collection as $item}{if !empty($item.name)}{$item.name}{/if}{/foreach}
+</h1>
+{if $album.note}<span class="album-note">{$album.note}</span>{/if}
+{if $album.description}<p class="album-description">{$album.description}</p>{/if}
+
+<!-- subalbums -->
+{if $childcrumbs}
+    <ul class="album-list albums--sub">
+        {foreach $childcrumbs as $a}
+            <li class="album-item">
+                <a href="{$a.full_url}">
+                    <div class="album-item_cover">
+                        <span class="album-item_count bg-maincolor">{$a.count}</span>
+
+                        {if $a.key_photo}
+                            <img src="{$a.key_photo.thumb.url}{if $a.key_photo.edit_datetime}?{strtotime($a.key_photo.edit_datetime)}{/if}" alt="{$a.name}">
+                        {else}
+                            <img src="{$wa_app_static_url}img/album-dummy.png" alt="{$a.name}">
+                        {/if}
+
+                        <div class="album-item_title {if $a.status <= 0} gray{/if}"{if $a.status <= 0} title="[`Private album`]"{/if}>
+                            {$a.name|default:'[`(no name)`]'}
+                            {if $a.status <= 0} <i class="icon10 lock-bw"></i>{/if}
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {/foreach}
+    </ul>
+{/if}
+
+
+
+{* @event frontend_collection.%plugin_id%.content *}
+{foreach $frontend_collection as $item}
+    {if !empty($item.content)}
+        {$item.content}
+    {/if}
+{/foreach}
+
+{if !empty($photos)}
+    <div style="margin: 0 -30px; overflow: hidden;">
+        {include file='photos-thumbs.html'}
+    </div>
+{else}
+    <div class="view-plain">
+        <p>[`There are no photos in this album.`]</p>
+    </div>
+{/if}
+{/strip}

@@ -1057,7 +1057,7 @@ var fixedPanel = {
         var _this = this;
 
         var content = $("#main-content"),
-            fixedPanel = $('.js-fixed');
+            fixedPanel = $('.js-fixed-panel');
 
         if(content.length && fixedPanel.length){
 

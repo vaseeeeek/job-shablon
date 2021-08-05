@@ -5371,23 +5371,23 @@ button.owl-dot {
     border-radius: 3px
 }
 
-.corner {
+.angle {
     position: absolute
 }
 
-.corner.top {
+.angle.top {
     top: 0
 }
 
-.corner.bottom {
+.angle.bottom {
     bottom: 0
 }
 
-.corner.left {
+.angle.left {
     left: 0
 }
 
-.corner.right {
+.angle.right {
     right: 0
 }
 
@@ -5841,12 +5841,12 @@ button.owl-dot {
     height: 100%
 }
 
-ul.pages {
+ul.pages-list {
     margin: 0 0 15px;
     padding: 0
 }
 
-ul.pages li {
+ul.pages-list li {
     list-style: none;
     display: inline-block;
     padding: 0 15px 0 0;
@@ -5854,26 +5854,26 @@ ul.pages li {
     position: relative
 }
 
-ul.pages li:first-child {
+ul.pages-list li:first-child {
     padding-left: 0
 }
 
-ul.pages li:last-child:after {
+ul.pages-list li:last-child:after {
     content: ""
 }
 
-ul.pages li:after {
+ul.pages-list li:after {
     content: "|";
     position: absolute;
     right: -3px;
     top: 0
 }
 
-ul.pages li:last-child {
+ul.pages-list li:last-child {
     padding-right: 0
 }
 
-ul.pages li a {
+ul.pages-list li a {
     text-decoration: none;
     border-bottom: 1px solid
 }
@@ -6039,11 +6039,11 @@ form .wa-name, form .wa-value {
     }
 }
 
-.error-page, .error-page_icon {
+.error-box, .error-box_icon {
     text-align: center
 }
 
-.error-page_icon {
+.error-box_icon {
     font-size: 100px;
     color: #ebebed;
     height: 200px;
@@ -6058,7 +6058,7 @@ form .wa-name, form .wa-value {
         bottom: 100px
     }
 
-    .error-page_icon {
+    .error-box_icon {
         height: 100px;
         width: 100px;
         font-size: 50px;

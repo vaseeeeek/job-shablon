@@ -1,0 +1,48 @@
+{strip}
+    {if !empty($breadcrumbs)}
+        {if $wa->globals('isMyAccount')}
+            {$breadcrumbs[0] = null}
+        {/if}
+        {$position = 0}
+        <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+            {foreach $breadcrumbs as $breadcrumb}
+                {if $breadcrumb}
+                    {$position = $position + 1}
+                    <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{$breadcrumb.url}"><span
+                                    itemprop="name">{$breadcrumb.name|escape}</span></a>
+                        <span class="rarr">&rarr;</span>
+                        <meta itemprop="position" content="{$position}"/>
+                    </li>
+                {/if}
+            {/foreach}
+        </ul>
+    {/if}
+    <article class="js-content content content-box" itemscope itemtype="http://schema.org/{if $action == 'photo'}Photograph{else}WebPage{/if}">
+
+        {* @event frontend_layout.%plugin_id%.header *}
+        {foreach $frontend_layout as $item}
+            {if !empty($item.header)}
+                {$item.header}
+            {/if}
+        {/foreach}
+
+        <ul class="pages-list">
+            <li {if $wa->currentUrl() == $wa_app_url} class="selected"{/if}>
+                <a href="{$wa_app_url}">[`All photos`]</a>
+            </li>
+            <li {if $wa->param('action') neq 'page' && $wa->param('action') neq 'album' && $wa->param('hash') ==
+            'favorites'} class="selected"{/if}>
+                <a href="{$wa_app_url}favorites/">[`Editors’ choice`]</a>
+            </li>
+
+            {* @event frontend_sidebar.%plugin_id%.menu *}
+            {foreach $frontend_sidebar as $plugin_id => $item}{if !empty($item.menu)}
+                <li>{$item.menu}</li>
+            {/if}{/foreach}
+        </ul>
+
+
+        {$content}
+    </article>
+{/strip}

@@ -1,6 +1,6 @@
 {strip}
 {if $wa->shop}
-    {if $theme_settings.horizontal_menu || (!$theme_settings.sidebar_mainpage || $wa_app != 'shop' || $wa->currentUrl() != $wa_app_url)}
+    {if $wa_app == 'shop'}
         <div class="Nav__Primary-outer bg-maincolor js-moved-content">
             <div class="Nav__Primary container">
                 {if $theme_settings.horizontal_menu}

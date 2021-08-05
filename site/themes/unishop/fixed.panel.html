@@ -1,10 +1,10 @@
 {strip}
-    <div class="fixed-panel top-border-color js-fixed">
-        {if $theme_settings.favorites}
+<div class="fixed-panel top-border-color js-fixed-panel">
+    {if $theme_settings.favorites}
         {$count_favorites = 0}
         {$product_favor_arr = $wa->cookie('product_favor_arr')}
         {if $product_favor_arr && $product_favor_arr != 'null'}
-        {$count_favorites = count(","|explode:$product_favor_arr)}
+            {$count_favorites = count(","|explode:$product_favor_arr)}
         {/if}
         <div class="js-favorites-preview product-custom">
             <a class="js-products-link" href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
@@ -22,15 +22,15 @@
                 </div>
             </div>
         </div>
-        {/if}
+    {/if}
 
-        {if $theme_settings.compare}
+    {if $theme_settings.compare}
         {$in_comparison = $wa->shop->inComparison()}
         {$url = $wa->getUrl('shop/frontend/compare', ['id' => implode(',', $in_comparison)])}
 
         {if $wa->cookie('shop_compare') == 'null' || !count($in_comparison)}
-        {$in_comparison = []}
-        {$url = $wa->getUrl('shop/frontend/compare')}
+            {$in_comparison = []}
+            {$url = $wa->getUrl('shop/frontend/compare')}
         {/if}
         <div class="js-preview-compare product-custom">
             <a class="js-products-link" href="{$url}">
@@ -43,42 +43,42 @@
                 </div>
             </a>
             <div class="product-msg-added-wrap js-product-added-msg">
-                <div class="product-added-msg br-top-sdСolor shadow" >
+                <div class="product-added-msg br-top-sdСolor shadow">
                     [`Product is added to compare`]
                 </div>
             </div>
         </div>
-        {/if}
+    {/if}
 
-        {if method_exists($wa->shop, 'checkout')}
-            {$cartUrl = $wa->shop->checkout()->cartUrl()}
-        {else}
-            {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+    {if method_exists($wa->shop, 'checkout')}
+        {$cartUrl = $wa->shop->checkout()->cartUrl()}
+    {else}
+        {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+    {/if}
+    {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
+    {if $is_use_cartonestep_cart_and_order}
+        {$cartonestepUrl = $wa->getUrl('shop/frontend/checkoutone')}
+        {if !empty($cartonestepUrl) && $cartonestepUrl != '/my/'}
+            {$cartUrl = $cartonestepUrl}
         {/if}
-        {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
-        {if $is_use_cartonestep_cart_and_order}
-            {$cartonestepUrl = $wa->getUrl('shop/frontend/checkoutone')}
-            {if !empty($cartonestepUrl) && $cartonestepUrl != '/my/'}
-                {$cartUrl = $cartonestepUrl}
-            {/if}
-        {/if}
-        <div class="juniq-header-preview-cart preview-cart product-custom" data-url="{$cartUrl}">
-            <a href="{$cartUrl}">
-                {$cart_count = $wa->shop->cart->count()}
-                <div class="product-custom_icon maincolor">
-                    <i class="fi-rr-shopping-cart icon"></i>
-                    <span class="product-custom_short-count bg-sdСolor js-cart-preview-count">{$cart_count}</span>
-                </div>
-                <div class="product-custom_content">
-                    <span class="link product-custom_title ">[`Cart`]</span>
-                    <div class="js-cart-price-total-price product-custom_total">{wa_currency_html($wa->shop->cart->total(), $wa->shop->currency())}</div>
-                </div>
-            </a>
-            <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
-                <div class="product-added-msg br-top-sdСolor shadow">
-                    [`Product added to cart!`]
-                </div>
+    {/if}
+    <div class="juniq-header-preview-cart preview-cart product-custom" data-url="{$cartUrl}">
+        <a href="{$cartUrl}">
+            {$cart_count = $wa->shop->cart->count()}
+            <div class="product-custom_icon maincolor">
+                <i class="fi-rr-shopping-cart icon"></i>
+                <span class="product-custom_short-count bg-sdСolor js-cart-preview-count">{$cart_count}</span>
+            </div>
+            <div class="product-custom_content">
+                <span class="link product-custom_title ">[`Cart`]</span>
+                <div class="js-cart-price-total-price product-custom_total">{wa_currency_html($wa->shop->cart->total(), $wa->shop->currency())}</div>
+            </div>
+        </a>
+        <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
+            <div class="product-added-msg br-top-sdСolor shadow">
+                [`Product added to cart!`]
             </div>
         </div>
     </div>
+</div>
 {strip}

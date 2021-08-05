@@ -1,11 +1,5 @@
 {strip}
 
-{if $theme_settings.test_settings}
-    {if $wa->cookie("font")}
-        {$theme_settings.font = $wa->cookie("font")}
-    {/if}
-{/if}
-
 {$is_local_load_font = $theme_settings.local_load_text_font}
 {$is_display_swap = $theme_settings.load_text_font_display_swap}
 

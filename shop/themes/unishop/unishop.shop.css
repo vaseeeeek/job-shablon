@@ -1656,12 +1656,12 @@ li.category-subcat_item:last-child:after,
 }
 
 .category-pag-offset,
-.lazyloading-paging-loader{
+.lazy-paging-loader{
     text-align: center;
 }
 
 .category-pag-offset ul.pagination,
-.lazyloading-paging-loader{
+.lazy-paging-loader{
     padding: 15px 0;
 }
 
@@ -4090,7 +4090,7 @@ input[type=button].storequickorder-button:hover{
     display: block;
 }
 
-.error-page{
+.error-box{
     background: #FFF;
     border: 1px solid #ebebeb;
     padding: 25px 15px;

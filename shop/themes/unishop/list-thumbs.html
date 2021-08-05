@@ -210,7 +210,7 @@
 
 
 
-<div class="{if $theme_settings.pagination == 'lazyloading'}lazyloading-paging{else}category-pag-offset{/if}"  data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
+<div class="{if $theme_settings.pagination == 'lazyloading'}lazy-paging{else}category-pag-offset{/if}"  data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
     {if isset($pages_count) && $pages_count > 1  && !$_not_paginate}
         {if class_exists('shopSeofilterViewHelper')}
             {capture assign=pagination}

@@ -1,74 +1,78 @@
 {strip}
 
-{if (!isset($wa_parent_theme_path) || !$wa_parent_theme_path)}
-    {$parent_theme_path = $wa_active_theme_path}
-{else}
-    {$parent_theme_path = $wa_parent_theme_path}
-{/if}
-
-<!DOCTYPE html>
-<html lang="ru">
-<head prefix="og: http://ogp.me/ns#{if  isset($action) &&  $action == 'product'} product: http://ogp.me/ns/product#{/if}">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1{if $wa->isMobile()}, maximum-scale=1, user-scalable=0{/if}" />
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{$wa->title()|escape}</title>
-    <meta name="Keywords" content="{$wa->meta('keywords')|escape}" />
-    <meta name="Description" content="{$wa->meta('description')|escape}" />
-
-    {if !empty($canonical)}<link rel="canonical" href="{$canonical}"/>{/if}
-    <link rel="shortcut icon" href="/favicon.ico"/>
-    {if $wa->blog}
-        {$rss=$wa->blog->rssUrl()}
-        {if $rss}<link rel="alternate" type="application/rss+xml" title="{$wa->accountName()}" href="{$rss}">{/if}
-    {/if}
-
-    {if !empty($wa->globals('preload_image'))}
-        <link rel="preload" as="image" href="{$wa->globals('preload_image')}">
-    {/if}
-    {if !empty($wa->globals('preload_image_2'))}
-        <link rel="preload" as="image" href="{$wa->globals('preload_image_2')}">
-    {/if}
-
-    {if !$is_icon_font_include_footer}
-        {include file="`$parent_theme_path`/font-icons.css.html"}
-    {/if}
-
-    {include file="`$parent_theme_path`/global-var.js.html"}
-
-    <!-- css -->
-    {include file="colors.css.html"}
-    <link href="{$wa_theme_url}fonts/uicons-regular-rounded/css/uicons-regular-rounded.css?v{$wa_theme_version}" rel="stylesheet"/>
-    <link href="{$wa_theme_url}unishop.min.css?v{$wa_theme_version}" rel="stylesheet"/>
-
-
-    {include file="`$parent_theme_path`/add.css.html"}
-
-    <script src="{$wa_theme_url}jquery.min.js?v{$wa_theme_version}"></script>
-
-    {if !$theme_settings.plugins_js_footer}
-        {$wa->js()} {* links active plugins JS *}
-    {/if}
-
-    {include file="`$wa_active_theme_path`/head.html"}
-
-    {$wa->head()}
-    {if $theme_settings.load_custom_styles == 'top'}
-		<link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
-    {/if}
-
-
-    {if method_exists($wa->shop, 'checkout')}
-        {$cartUrl = $wa->shop->checkout()->cartUrl()}
+    {if (!isset($wa_parent_theme_path) || !$wa_parent_theme_path)}
+        {$parent_theme_path = $wa_active_theme_path}
     {else}
-        {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+        {$parent_theme_path = $wa_parent_theme_path}
     {/if}
-    {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
-</head>
 
-<body class="no-touch{if !empty($is_icons_hidden)} icondesc-hidden{/if} ">
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head prefix="og: http://ogp.me/ns#{if  isset($action) &&  $action == 'product'} product: http://ogp.me/ns/product#{/if}">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1{if $wa->isMobile()}, maximum-scale=1, user-scalable=0{/if}"/>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{$wa->title()|escape}</title>
+        <meta name="Keywords" content="{$wa->meta('keywords')|escape}"/>
+        <meta name="Description" content="{$wa->meta('description')|escape}"/>
+
+        {if !empty($canonical)}
+            <link rel="canonical" href="{$canonical}"/>{/if}
+        <link rel="shortcut icon" href="/favicon.ico"/>
+        {if $wa->blog}
+            {$rss=$wa->blog->rssUrl()}
+            {if $rss}
+                <link rel="alternate" type="application/rss+xml" title="{$wa->accountName()}" href="{$rss}">{/if}
+        {/if}
+
+        {if !empty($wa->globals('preload_image'))}
+            <link rel="preload" as="image" href="{$wa->globals('preload_image')}">
+        {/if}
+        {if !empty($wa->globals('preload_image_2'))}
+            <link rel="preload" as="image" href="{$wa->globals('preload_image_2')}">
+        {/if}
+
+        {if !$is_icon_font_include_footer}
+            {include file="`$parent_theme_path`/font-icons.css.html"}
+        {/if}
+
+        {include file="`$parent_theme_path`/global-var.js.html"}
+
+        <!-- css -->
+        {include file="colors.css.html"}
+        <link href="{$wa_theme_url}fonts/uicons-regular-rounded/css/uicons-regular-rounded.css?v{$wa_theme_version}"
+              rel="stylesheet"/>
+        <link href="{$wa_theme_url}unishop.min.css?v{$wa_theme_version}" rel="stylesheet"/>
+
+
+        {include file="`$parent_theme_path`/add.css.html"}
+
+        <script src="{$wa_theme_url}jquery.min.js?v{$wa_theme_version}"></script>
+
+        {if !$theme_settings.plugins_js_footer}
+            {$wa->js()} {* links active plugins JS *}
+        {/if}
+
+        {include file="`$wa_active_theme_path`/head.html"}
+
+        {$wa->head()}
+        {if $theme_settings.load_custom_styles == 'top'}
+            <link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
+        {/if}
+
+
+        {if method_exists($wa->shop, 'checkout')}
+            {$cartUrl = $wa->shop->checkout()->cartUrl()}
+        {else}
+            {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+        {/if}
+        {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
+    </head>
+
+    <body class="no-touch{if !empty($is_icons_hidden)} icondesc-hidden{/if} ">
 
     {include file="info.message.html"}
 
@@ -79,13 +83,15 @@
                 {$is_logo = $theme_settings.logo}
                 <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" href="{$wa_url}">
                     {if $is_logo}
-                        <img{if $theme_settings.logo_retina} class="js-retina-logo" data-atretina="{$wa_theme_url}{$theme_settings.logo_retina}"{/if} src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo" />
+                        <img{if $theme_settings.logo_retina} class="js-retina-logo" data-atretina="{$wa_theme_url}{$theme_settings.logo_retina}"{/if}
+                                src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
                     {else}
                         {$wa->accountName()}
                     {/if}
                 </a>
                 <div class="nav-cat js-dd-outer">
-                    <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor fa-icon-before">[`Catalog`]</div>
+                    <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor fa-icon-before">[`Catalog`]
+                    </div>
                 </div>
             </div>
             <div class="header--right">
@@ -97,9 +103,12 @@
                             {shopSearchproPluginViewHelper::field()}
                         </div>
                     {else}
-                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}" class="js-Nav-search Nav-search_form">
+                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
+                              class="js-Nav-search Nav-search_form">
                             <div class="inp-search">
-                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-auto-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if} type="text" name="query" value="{$wa->get('query')|escape}" placeholder="[`Search in catalog`]" />
+                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-auto-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
+                                       type="text" name="query" value="{$wa->get('query')|escape}"
+                                       placeholder="[`Search in catalog`]"/>
                                 {if $theme_settings.auto_search}
                                     <div class="auto-search-result js-auto-search-result"></div>
                                 {/if}
@@ -116,6 +125,34 @@
                 </div>
 
                 <div class="Nav-product-custom">
+                    {if $theme_settings.lk_icon_header && $wa->isAuthEnabled()}
+                        <div class="product-custom--lk product-custom">
+                            <a class="js-products-link product-custom--link" href="/my">
+                                <div class="product-custom_icon maincolor">
+                                    <i class="fi-rr-user icon"></i>
+                                </div>
+                                {if $wa->user()->isAuth()}
+                                    {$wa->user('firstname')|default:'[`My account`]'}
+                                {else}
+                                    <span>Войти</span>
+                                {/if}
+                            </a>
+                        </div>
+                    {/if}
+                    {if $theme_settings.lk_icon_header && $wa->isAuthEnabled()}
+                        <div class="product-custom--lk product-custom">
+                            <a class="js-products-link product-custom--link" href="/my">
+                                <div class="product-custom_icon maincolor">
+                                    <i class="fi-rr-user icon"></i>
+                                </div>
+                                {if $wa->user()->isAuth()}
+                                    {$wa->user('firstname')|default:'[`My account`]'}
+                                {else}
+                                    <span>Войти</span>
+                                {/if}
+                            </a>
+                        </div>
+                    {/if}
                     {if $theme_settings.favorites}
                         {$count_favorites = 0}
                         {$product_favor_arr = $wa->cookie('product_favor_arr')}
@@ -123,11 +160,13 @@
                             {$count_favorites = count(","|explode:$product_favor_arr)}
                         {/if}
                         <div class="js-favorites-preview product-custom">
-                            <a class="js-products-link" href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
+                            <a class="js-products-link product-custom--link"
+                               href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
                                 <div class="product-custom_icon maincolor">
                                     <i class="fi-rr-heart icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{$count_favorites}</span>
                                 </div>
+                                <span>Избранное</span>
                             </a>
                             <div class="product-msg-added-wrap js-product-added-msg">
                                 <div class="product-added-msg br-top-sdСolor shadow">
@@ -146,14 +185,15 @@
                             {$url = $wa->getUrl('shop/frontend/compare')}
                         {/if}
                         <div class="js-preview-compare product-custom">
-                            <a class="js-products-link" href="{$url}">
+                            <a class="js-products-link product-custom--link" href="{$url}">
                                 <div class="product-custom_icon maincolor">
                                     <i class="fa fa-files-o icon "></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
                                 </div>
+                                <span>Сравнение</span>
                             </a>
                             <div class="product-msg-added-wrap js-product-added-msg">
-                                <div class="product-added-msg br-top-sdСolor shadow" >
+                                <div class="product-added-msg br-top-sdСolor shadow">
                                     [`Product is added to compare`]
                                 </div>
                             </div>
@@ -168,12 +208,14 @@
                             {$cartPopupUrl = $cartonestepUrl}
                         {/if}
                     {/if}
-                    <div class="header__cart juniq-header-preview-cart js-cart-header"  data-url="{$cartPopupUrl}">
-                        <a href="{$cartUrl}">
+                    <div class="header__cart juniq-header-preview-cart js-cart-header product-custom"
+                         data-url="{$cartPopupUrl}">
+                        <a class="product-custom--link" href="{$cartUrl}">
                             <div class="header__cart-icon">
                                 <i class="icon fi-rr-shopping-cart sdСolor"></i>
                                 <span class="js-cart-preview-count header__cart-count bg-maincolor">{$wa->shop->cart->count()}</span>
                             </div>
+                            <span>Корзина</span>
                         </a>
                         <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
                             <div class="product-added-msg br-top-sdСolor shadow">
@@ -181,7 +223,9 @@
                             </div>
                         </div>
                         {if !$is_use_cartonestep_cart_and_order && (!isset($action) || (isset($action) && $action != 'cart' && $action != 'checkout' && $action != 'checkoutone'))}
-                            {if $theme_settings.popup_cart && !$wa->isMobile()}<div class="js-cart-popup cart-popup"></div>{/if}
+                            {if $theme_settings.popup_cart && !$wa->isMobile()}
+                                <div class="js-cart-popup cart-popup"></div>
+                            {/if}
                         {/if}
                     </div>
                 </div>
@@ -191,21 +235,21 @@
     {include file="header.nav.html"}
 
     {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
-       <div class="inner-wrap">
-            <div class="container">
-    {/if}
+    <div class="inner-wrap">
+        <div class="container">
+            {/if}
 
-    {if !$wa->globals('isMyAccount')}
-        {include file="`$wa_active_theme_path`/header.html" inline}
-    {/if}
+            {if !$wa->globals('isMyAccount')}
+                {include file="`$wa_active_theme_path`/header.html" inline}
+            {/if}
 
-    <main id="main-content">
-        {include file="`$wa_active_theme_path`/main.html" inline}
-    </main>
+            <main id="main-content">
+                {include file="`$wa_active_theme_path`/main.html" inline}
+            </main>
 
-    {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
-            </div>
+            {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
         </div>
+    </div>
     {/if}
 
     <!-- FOOTER -->
@@ -217,28 +261,41 @@
                     {if $theme_settings.logo_footer}
                         <div class="footer_logo">
                             <a href="{$wa_url}">
-                                <img src="{$wa_theme_url}{$theme_settings.logo_footer}" alt="{$wa->shop->settings('name')}" />
+                                <img src="{$wa_theme_url}{$theme_settings.logo_footer}"
+                                     alt="{$wa->shop->settings('name')}"/>
                             </a>
                         </div>
                     {/if}
                     <div class="footer-social">
                         {if !empty($theme_settings.facebook)}
-                            <a target="_blank" class="footer-social_item" href="{$theme_settings.facebook}"><i class="fa fa-facebook-square sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.facebook}">
+                                <i class="fa fa-facebook-square sdСolor" aria-hidden="true"></i>
+                            </a>
                         {/if}
                         {if !empty($theme_settings.twitter)}
-                            <a target="_blank" class="footer-social_item" href="{$theme_settings.twitter}"><i class="fa fa-twitter-square sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.twitter}">
+                                <i class="fa fa-twitter-square sdСolor" aria-hidden="true"></i>
+                            </a>
                         {/if}
                         {if !empty($theme_settings.vk)}
-                            <a target="_blank" class="footer-social_item" href="{$theme_settings.vk}"><i class="fa fa-vk sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.vk}">
+                                <i class="fa fa-vk sdСolor" aria-hidden="true"></i>
+                            </a>
                         {/if}
                         {if !empty($theme_settings.odnoclassniki)}
-                        <a target="_blank" class="footer-social_item" href="{$theme_settings.odnoclassniki}"><i class="fa fa-odnoklassniki sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.odnoclassniki}">
+                                <i class="fa fa-odnoklassniki sdСolor" aria-hidden="true"></i>
+                            </a>
                         {/if}
                         {if !empty($theme_settings.instagram)}
-                            <a target="_blank" class="footer-social_item" href="{$theme_settings.instagram}"><i class="fa fa-instagram sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.instagram}">
+                                <i class="fa fa-instagram sdСolor" aria-hidden="true"></i>
+                            </a>
                         {/if}
                         {if !empty($theme_settings.youtube)}
-                            <a target="_blank" class="footer-social_item" href="{$theme_settings.youtube}"><i class="fa fa-youtube-square sdСolor" aria-hidden="true"></i></a>
+                            <a target="_blank" class="footer-social_item" href="{$theme_settings.youtube}">
+                                <i class="fa fa-youtube-square sdСolor" aria-hidden="true"></i>
+                            </a>
                         {/if}
                     </div>
                 </div>
@@ -273,7 +330,7 @@
                                 <img src="{$option.logo}" alt="{$option.name}">
                                 {$_cnt = $_cnt + 1}
                             {/if}
-                        {foreachelse}
+                            {foreachelse}
                         {/foreach}
                     </div>
                 {/if}
@@ -297,7 +354,7 @@
                 {/if}
             {/if}
         {/if}
-        <!-- За что отвечает ? -->
+
         {if $admin_edit_link}
             {include file="`$parent_theme_path`/quicklinks.html" inline}
         {/if}
@@ -318,15 +375,13 @@
         {$wa->js()} {* links active plugins JS *}
     {/if}
     <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 
     {*<script src="{$wa_theme_url}unishop.js?v{$wa_theme_version}"></script>*}
     <script src="{$wa_theme_url}unishop.min.js?v{$wa_theme_version}"></script>
-
-    {include file="`$wa_active_theme_path`/sources.js.html" inline}
 
     {if $theme_settings.load_custom_styles}
         <link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
@@ -342,6 +397,6 @@
     {if $is_icon_font_include_footer}
         {include file="`$parent_theme_path`/font-icons.css.html"}
     {/if}
-</body>
-</html>
+    </body>
+    </html>
 {/strip}

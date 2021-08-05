@@ -9150,10 +9150,6 @@ iframe {
     line-height: 15px
 }
 
-.footer_logo img, .header_logo img {
-    max-width: 103px
-}
-
 .footer_logo a {
     text-decoration: none
 }
@@ -9467,11 +9463,6 @@ iframe {
     position: relative
 }
 
-.product-custom a {
-    display: block;
-    white-space: nowrap
-}
-
 .product-msg-added-wrap {
     position: absolute;
     top: 100%;
@@ -9524,7 +9515,6 @@ iframe {
 
 .product-custom_icon {
     display: inline-block;
-    margin: 0 7px 0 0;
     position: relative;
     vertical-align: middle
 }
@@ -9947,13 +9937,13 @@ iframe {
     content: "\f00d"
 }
 
-input.Nav-inp-search {
-    height: 41px;
+.Nav-search input.Nav-inp-search {
+    height: 40px;
     line-height: 41px;
     padding: 0 50px 0 15px;
     position: relative;
-    border: none;
-    border-radius: 5px
+    border-radius: 3px;
+    border: 2px solid #4169E1;
 }
 
 .auto-search {
@@ -12293,23 +12283,23 @@ full-line
     border-radius: 3px
 }
 
-.corner {
+.angle {
     position: absolute
 }
 
-.corner.top {
+.angle.top {
     top: 0
 }
 
-.corner.bottom {
+.angle.bottom {
     bottom: 0
 }
 
-.corner.left {
+.angle.left {
     left: 0
 }
 
-.corner.right {
+.angle.right {
     right: 0
 }
 
@@ -12766,12 +12756,12 @@ full-line
     height: 100%
 }
 
-ul.pages {
+ul.pages-list {
     margin: 0 0 15px;
     padding: 0
 }
 
-ul.pages li {
+ul.pages-list li {
     list-style: none;
     display: inline-block;
     padding: 0 15px 0 0;
@@ -12779,26 +12769,26 @@ ul.pages li {
     position: relative
 }
 
-ul.pages li:first-child {
+ul.pages-list li:first-child {
     padding-left: 0
 }
 
-ul.pages li:last-child:after {
+ul.pages-list li:last-child:after {
     content: ""
 }
 
-ul.pages li:after {
+ul.pages-list li:after {
     content: "|";
     position: absolute;
     right: -3px;
     top: 0
 }
 
-ul.pages li:last-child {
+ul.pages-list li:last-child {
     padding-right: 0
 }
 
-ul.pages li a {
+ul.pages-list li a {
     text-decoration: none;
     border-bottom: 1px solid
 }
@@ -12950,11 +12940,11 @@ ul.pages li a {
     }
 }
 
-.error-page, .error-page_icon {
+.error-box, .error-box_icon {
     text-align: center
 }
 
-.error-page_icon {
+.error-box_icon {
     font-size: 100px;
     color: #ebebed;
     height: 200px;
@@ -12969,7 +12959,7 @@ ul.pages li a {
         bottom: 100px
     }
 
-    .error-page_icon {
+    .error-box_icon {
         height: 100px;
         width: 100px;
         font-size: 50px;
@@ -15028,7 +15018,11 @@ article, aside, footer, header, nav, section {
 .checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields, blockquote {
     border: 1px solid #ebebeb
 }
-
+.style-check {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 5px;
+}
 /* font */
 
 .fa-icon {
@@ -15159,7 +15153,7 @@ article, aside, footer, header, nav, section {
     align-items: center;
 }
 .header--right {
-    width: calc(100% - 250px);
+    width: calc(100% - 298.2px);
     text-align: right;
     box-sizing: border-box;
     display: flex;
@@ -15244,6 +15238,7 @@ article, aside, footer, header, nav, section {
 }
 
 .header__cart-icon {
+    height: 31px;
     position: relative
 }
 
@@ -15255,10 +15250,6 @@ article, aside, footer, header, nav, section {
 
 .header__cart-content {
     text-align: left
-}
-
-.header__cart-content .link, .header__cart a {
-    color: #5d5d5d
 }
 
 .header__cart-content, .header__cart-content a {
@@ -15281,11 +15272,21 @@ article, aside, footer, header, nav, section {
 .product-custom {
     line-height: 14px;
     position: relative;
-    height: 32px;
-    padding: 0 0 0 24px;
+    padding: 0 0 0 40px;
     display: inline-block
 }
 
+
+.product-custom--link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.product-custom--link>span{
+    font-size: 12px;
+}
 .preview-cart.product-custom {
     display: none
 }
@@ -15437,19 +15438,15 @@ article, aside, footer, header, nav, section {
 .header_login {
     display: flex;
 }
-
-.header__cart-icon .icon {
-    font-size: 31px
-}
 .header__cart {
     padding-left: 24px;
-    height: 32px;
 }
 .Nav-contact-info {
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0 0 24px;
+    padding: 0 0 0 40px;
 }
 .Nav-contact-info p {
     margin: 0;
@@ -15473,7 +15470,7 @@ article, aside, footer, header, nav, section {
      padding: 1px;
      cursor: pointer;
      position: relative;
-     display: inline-block
+     display: inline-flex;
  }
 
 .checked-list_toggle {
@@ -15485,7 +15482,7 @@ article, aside, footer, header, nav, section {
 .inp-search .btn {
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 10px;
     font-size: 19px;
     cursor: pointer
 }

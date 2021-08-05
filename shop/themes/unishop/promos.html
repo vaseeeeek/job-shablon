@@ -16,8 +16,7 @@
     {$_image_bg = $theme_settings.view_promo_bg}
     <div class="promo-col{count($promo_list)} wrap-beetwen">
         {foreach $promo_list as $promo_item}
-            {strip}
-                <!-- За что отвечает ? -->
+            {strip}<!-- Спросить о настройке -->
                 {if $promo_item@first && $wa->isMobile() && !empty($theme_settings.image_mainpage_preload)}
                     {$wa->globals('preload_image_2', $promo_item.image)}
                 {/if}

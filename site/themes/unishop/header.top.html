@@ -74,7 +74,7 @@
                 </div>
             {/if}
 
-            {if $wa->isAuthEnabled()}
+            {if $wa->isAuthEnabled() && !$theme_settings.lk_icon_header}
                 <div class="header_login">
                     {if $wa->user()->isAuth()}
                         {if $wa->myUrl()}

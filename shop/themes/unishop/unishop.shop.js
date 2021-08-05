@@ -363,7 +363,7 @@ var lazyloadingPagination = {
         var _this = this;
 
         if ($.fn.lazyLoad) {
-            var paging = $('.lazyloading-paging');
+            var paging = $('.lazy-paging');
             if (!paging.length) {
                 return;
             }
@@ -390,7 +390,7 @@ var lazyloadingPagination = {
                     load: function () {
                         win.lazyLoad('sleep');
 
-                        var paging = $('.lazyloading-paging').hide();
+                        var paging = $('.lazy-paging').hide();
 
                         // determine actual current and next item for getting actual url
                         var current = paging.find('li.selected');
@@ -401,13 +401,13 @@ var lazyloadingPagination = {
                             return;
                         }
                         var product_list = $('.js-product-ajax-list .js-cat-list');
-                        var loading = $('<div class="lazyloading-paging-loader"><i class="icon16 loading"></i>'+loading_str+'</div>').insertAfter('.js-product-ajax-list');
+                        var loading = $('<div class="lazy-paging-loader"><i class="icon16 loading"></i>'+loading_str+'</div>').insertAfter('.js-product-ajax-list');
 
                         $.get(url, function (html) {
                             var tmp = $('<div></div>').html(html);
                             productsPreviewList.images(tmp.find('.js-preview-products'));
                             product_list.append(tmp.find('.js-product-ajax-list .js-cat-list').children());
-                            var tmp_paging = tmp.find('.lazyloading-paging').hide();
+                            var tmp_paging = tmp.find('.lazy-paging').hide();
                             paging.replaceWith(tmp_paging);
                             paging = tmp_paging;
 

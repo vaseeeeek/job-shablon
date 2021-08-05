@@ -1,0 +1,11 @@
+{strip}
+
+<link href="{$wa_active_theme_url}unishop.photos.css?v{$wa_theme_version}" rel="stylesheet" type="text/css">
+
+{if $nofollow}
+    <meta name="robots" content="nofollow" />
+{/if}
+
+{* @event frontend_assets.%plugin_id% *}
+{foreach $frontend_assets as $item}{if !empty($item)}{$item}{/if}{/foreach}
+{/strip}
