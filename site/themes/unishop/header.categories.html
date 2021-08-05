@@ -6,10 +6,7 @@
     {$categories = $wa->menu->get($id_menu)}
 {else if $theme_settings.get_menu_from == 'catalog'}
     {$categories = $wa->shop->categories(0, null, true, true)}
-    {* проверить работу плагина *}
-    {if class_exists('shopSkcatimagePlugin')}
-        {$skImages = shopSkcatimageHelper::getImages()}
-    {elseif class_exists('shopWmimageincatPlugin')}
+    {if class_exists('shopWmimageincatPlugin')}
         {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
     {/if}
 {/if}

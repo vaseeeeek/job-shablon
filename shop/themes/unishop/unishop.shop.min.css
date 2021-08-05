@@ -16504,7 +16504,7 @@ label {
     display: flex;
 }
 .header--right {
-    width: calc(100% - 298.2px);
+    flex: 1 1;
     text-align: right;
     box-sizing: border-box;
     display: flex;

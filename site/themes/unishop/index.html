@@ -69,7 +69,6 @@
         {else}
             {$cartUrl = $wa->getUrl('shop/frontend/cart')}
         {/if}
-        {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
     </head>
 
     <body class="no-touch{if !empty($is_icons_hidden)} icondesc-hidden{/if} ">
@@ -95,7 +94,6 @@
                 </div>
             </div>
             <div class="header--right">
-                {* проверить работу плагина *}
                 <div class="Nav-search juniq-header-search">
                     <i class="btn Nav-search_btn-show fa-icon-before js-show-Nav-search"></i>
                     {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
@@ -199,15 +197,8 @@
                             </div>
                         </div>
                     {/if}
-                    {* проверить работу плагина *}
+
                     {$cartPopupUrl = $wa->getUrl('shop/frontend/cart')}
-                    {if $is_use_cartonestep_cart_and_order}
-                        {$cartonestepUrl = $wa->getUrl('shop/frontend/checkoutone')}
-                        {if !empty($cartonestepUrl) && $cartonestepUrl != '/my/'}
-                            {$cartUrl = $cartonestepUrl}
-                            {$cartPopupUrl = $cartonestepUrl}
-                        {/if}
-                    {/if}
                     <div class="header__cart juniq-header-preview-cart js-cart-header product-custom"
                          data-url="{$cartPopupUrl}">
                         <a class="product-custom--link" href="{$cartUrl}">
@@ -222,11 +213,6 @@
                                 [`Product added to cart!`]
                             </div>
                         </div>
-                        {if !$is_use_cartonestep_cart_and_order && (!isset($action) || (isset($action) && $action != 'cart' && $action != 'checkout' && $action != 'checkoutone'))}
-                            {if $theme_settings.popup_cart && !$wa->isMobile()}
-                                <div class="js-cart-popup cart-popup"></div>
-                            {/if}
-                        {/if}
                     </div>
                 </div>
             </div>

@@ -25,10 +25,7 @@
             {* @event frontend_category.%plugin_id% *}
             {foreach $frontend_category as $_}{$_}{/foreach}
 
-            {if class_exists('shopSkcatimagePlugin')}
-                {$category_banner = shopSkcatimageHelper::getImages($category.id, 'banner')}
-                {if !empty($category_banner)}{$category.params.banner = $category_banner}{/if}
-            {elseif class_exists('shopWmimageincatPlugin')}
+            {if class_exists('shopWmimageincatPlugin')}
                 {$category_banner = shopWmimageincatPlugin::getCategoryImage($category.id, 'banner')}
                 {if !empty($category_banner)}{$category.params.banner = $category_banner}{/if}
             {/if}

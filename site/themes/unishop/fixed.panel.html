@@ -55,13 +55,6 @@
     {else}
         {$cartUrl = $wa->getUrl('shop/frontend/cart')}
     {/if}
-    {$is_use_cartonestep_cart_and_order = class_exists('shopCartonestepPlugin') && $theme_settings.use_cartonestep_cart_and_order}
-    {if $is_use_cartonestep_cart_and_order}
-        {$cartonestepUrl = $wa->getUrl('shop/frontend/checkoutone')}
-        {if !empty($cartonestepUrl) && $cartonestepUrl != '/my/'}
-            {$cartUrl = $cartonestepUrl}
-        {/if}
-    {/if}
     <div class="juniq-header-preview-cart preview-cart product-custom" data-url="{$cartUrl}">
         <a href="{$cartUrl}">
             {$cart_count = $wa->shop->cart->count()}

@@ -21,9 +21,7 @@
 {else if $theme_settings.sb_cat_content == 'catalog'}
     {$categories = $wa->shop->categories(0, null, true, true)}
 
-    {if class_exists('shopSkcatimagePlugin')}
-        {$skImages = shopSkcatimageHelper::getImages()}
-    {elseif class_exists('shopWmimageincatPlugin')}
+    {if class_exists('shopWmimageincatPlugin')}
         {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
     {/if}
 {/if}

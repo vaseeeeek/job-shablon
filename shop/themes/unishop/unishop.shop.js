@@ -19,7 +19,7 @@ var filter = {
         title.on("click", function (){
             var filterItem = $(this).closest('.js-filter-el'),
                 options = filterItem.find('.js-filter-options');
-
+            console.log('eeeeeeeeeeee')
             if(!options.is(':visible')){
                 options.slideDown();
                 filterItem.removeClass('close');

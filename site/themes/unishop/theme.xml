@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="56">
+<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="63">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
@@ -301,13 +301,13 @@
       <name locale="ru_RU">«Шапка» сайта</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1628090272</value>
+      <value>img/logo.png?v1628154718</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="logo_retina" control_type="image">
-      <value>img/logo@2x.png?v1628090272</value>
+      <value>img/logo@2x.png?v1628150607</value>
       <filename>img/logo@2x.*</filename>
       <name locale="en_US">Logo for retina</name>
       <name locale="ru_RU">Логотип для ретина дисплеев</name>
@@ -404,7 +404,7 @@
       <name locale="en_US">Autosearch on</name>
     </setting>
     <setting var="plugin_search_pro" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="en_US">Use the plugin Search Pro (Bodysite)</name>
       <name locale="ru_RU">Используется плагин Поиск Pro (Bodysite)</name>
     </setting>
@@ -2208,11 +2208,6 @@
       <name locale="ru_RU">Используется плагин "Заказ в 1 шаг" в режиме "Оформление заказа в корзине"</name>
       <description locale="ru_RU">от разработчика Bodysite</description>
       <description locale="en_US">from developer Bodysite</description>
-    </setting>
-    <setting var="use_cartonestep_cart_and_order" control_type="checkbox">
-      <value/>
-      <name locale="en_US">The plugin "Cart + order in 1 step" is used with the option "checkout + cart"</name>
-      <name locale="ru_RU">Используется плагин "Корзина + заказ в 1 шаг" с вариантом вывода "оформление заказа + корзина"</name>
     </setting>
     <setting var="divider_sidebar_pages" control_type="group_divider">
       <value/>

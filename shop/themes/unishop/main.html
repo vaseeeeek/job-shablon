@@ -23,17 +23,18 @@
     {/if}
 
     {if $wa->currentUrl(false, true) != $wa_app_url
-    && $action != 'checkout'
-    && $action != 'category'
-    && $action != 'product'
-    && $action != 'compare'
-    && $action != 'cart'
-    && $action != 'order'
-    && $action != 'productReviews'
-    && !$wa->globals('isMyAccount')
-    && $wa->currentUrl(false, true) != '/my/orders/'
-    && $wa->currentUrl(false, true) != '/signup/'
-    && $wa->currentUrl(false, true) != '/login/'
+        && $action != 'checkout'
+        && $action != 'category'
+        && $action != 'product'
+        && $action != 'compare'
+        && $action != 'cart'
+        && $action != 'order'
+        && $action != 'productReviews'
+        && $action == 'search' && class_exists('shopSearchproPluginViewHelper') && $theme_settings.plugin_search_pro
+        && !$wa->globals('isMyAccount')
+        && $wa->currentUrl(false, true) != '/my/orders/'
+        && $wa->currentUrl(false, true) != '/signup/'
+        && $wa->currentUrl(false, true) != '/login/'
     }
         {$cols = 1}
         {$sb_left = 0}
@@ -47,7 +48,6 @@
                     {include file="`$wa_active_theme_path`/sidebar-left.html"}
                 {/if}
             </div>
-            {* проверить работу плагина *}
             {if $wa->globals('isSearchProPage') && isset($filters) && !empty($filters)}{$class = "`$class` searchpro-page-with-sidebar"}{/if}
             {$is_search_products_template = $wa->globals('isSearchPage') && ($action == 'search' || $action == 'brand' || $action == 'tag')}
             <div class="js-content content{if !$is_search_products_template} content-box{/if} {if $sb_left} with-sidebar{/if} {$class}">

@@ -29,9 +29,7 @@
         {if count($categories) > 0}
             <div class="container">
                 <div class="homepage-categories">
-                    {if class_exists('shopSkcatimagePlugin')}
-                        {$skImages = shopSkcatimageHelper::getImages()}
-                    {elseif class_exists('shopWmimageincatPlugin')}
+                    {if class_exists('shopWmimageincatPlugin')}
                         {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
                     {/if}
 
