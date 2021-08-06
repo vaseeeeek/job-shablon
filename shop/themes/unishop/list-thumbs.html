@@ -1,224 +1,230 @@
 {strip}
-{if !isset($isViewSwitch)}{$isViewSwitch = 0}{/if}
-{if !isset($ulclass)}{$ulclass = ''}{/if}
-{if !isset($_not_paginate)}{$_not_paginate = 0}{/if}
+    {if !isset($isViewSwitch)}{$isViewSwitch = 0}{/if}
+    {if !isset($ulclass)}{$ulclass = ''}{/if}
+    {if !isset($_not_paginate)}{$_not_paginate = 0}{/if}
 
-<!-- products thumbnail list view -->
-{if !isset($CategoryViewProducts) || empty($CategoryViewProducts)}
-    {$CategoryViewProducts = 'tile'}
-{/if}
-{$views_count = 0}
-{$_isView_tile = false}
-{$_isView_list = false}
-{$_isView_tbl = false}
-
-{if $isViewSwitch}
-    {if (!$wa->isMobile() && !empty($theme_settings.product_preview_tile)) || ($wa->isMobile() && !empty($theme_settings.product_preview_tile_mobile))}
-        {$views_count = $views_count+1}
-        {$_isView_tile = true}
-        {if !$wa->isMobile()}
-            {if $theme_settings.product_preview_type_default == 'tile'}{$CategoryViewProducts = 'tile'}{/if}
-        {else}
-            {if $theme_settings.product_preview_type_default_mobile == 'tile'}{$CategoryViewProducts = 'tile'}{/if}
-        {/if}
+    <!-- products thumbnail list view -->
+    {if !isset($CategoryViewProducts) || empty($CategoryViewProducts)}
+        {$CategoryViewProducts = 'tile'}
     {/if}
-    {if (!$wa->isMobile() && !empty($theme_settings.product_preview_list)) || ($wa->isMobile() && !empty($theme_settings.product_preview_list_mobile))}
-        {$views_count = $views_count+1}
-        {$_isView_list = true}
-        {if !$wa->isMobile()}
-            {if $theme_settings.product_preview_type_default == 'list'}{$CategoryViewProducts = 'list'}{/if}
-        {else}
-            {if $theme_settings.product_preview_type_default_mobile == 'list'}{$CategoryViewProducts = 'list'}{/if}
-        {/if}
-    {/if}
+    {$views_count = 0}
+    {$_isView_tile = false}
+    {$_isView_list = false}
+    {$_isView_tbl = false}
 
-    {if (!$wa->isMobile() && !empty($theme_settings.product_preview_tbl)) || ($wa->isMobile() && !empty($theme_settings.product_preview_tbl_mobile))}
-        {$views_count = $views_count+1}
-        {$_isView_tbl = true}
-        {if !$wa->isMobile()}
-            {if $theme_settings.product_preview_type_default == 'tbl'}{$CategoryViewProducts = 'tbl'}{/if}
-        {else}
-            {if $theme_settings.product_preview_type_default_mobile == 'tbl'}{$CategoryViewProducts = 'tbl'}{/if}
-        {/if}
-    {/if}
-
-    {$cookieProductView = $wa->cookie('CategoryViewProducts')}
-    {if ($cookieProductView == 'tile' && $_isView_tile)
-     || ($cookieProductView == 'tbl' && $_isView_tbl)
-     || ($cookieProductView == 'list' && $_isView_list)}
-         {$CategoryViewProducts = $wa->cookie('CategoryViewProducts')}
-    {/if}
-{/if}
-
-{* selected filters *}
-{if $theme_settings.filter_selected}{include file="category.select-filters.html"}{/if}
-
-{if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
-    <div class="cat-panel">
-        <div class="dt-block">
-            {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
-                <div class="cat-onpage">
-                    <span class="cat-onpage-title">[`Display`]:</span>
-                    <select id="set-per-page" class="cat-onpage_select">
-                        {$current_per_page = $wa->cookie('products_per_page')}
-                        {foreach [24,48,64] as $count}
-                        <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
-                        {/foreach}
-                    </select>
-                </div>
+    {if $isViewSwitch}
+        {if (!$wa->isMobile() && !empty($theme_settings.product_preview_tile)) || ($wa->isMobile() && !empty($theme_settings.product_preview_tile_mobile))}
+            {$views_count = $views_count+1}
+            {$_isView_tile = true}
+            {if !$wa->isMobile()}
+                {if $theme_settings.pr_prev_type_default == 'tile'}{$CategoryViewProducts = 'tile'}{/if}
+            {else}
+                {if $theme_settings.pr_prev_type_default_mobile == 'tile'}{$CategoryViewProducts = 'tile'}{/if}
             {/if}
+        {/if}
+        {if (!$wa->isMobile() && !empty($theme_settings.product_preview_list)) || ($wa->isMobile() && !empty($theme_settings.product_preview_list_mobile))}
+            {$views_count = $views_count+1}
+            {$_isView_list = true}
+            {if !$wa->isMobile()}
+                {if $theme_settings.pr_prev_type_default == 'list'}{$CategoryViewProducts = 'list'}{/if}
+            {else}
+                {if $theme_settings.pr_prev_type_default_mobile == 'list'}{$CategoryViewProducts = 'list'}{/if}
+            {/if}
+        {/if}
 
-            {if !empty($sorting)}
-                <!-- sorting -->
-                {$sort_fields = [
+        {if (!$wa->isMobile() && !empty($theme_settings.product_preview_tbl)) || ($wa->isMobile() && !empty($theme_settings.product_preview_tbl_mobile))}
+            {$views_count = $views_count+1}
+            {$_isView_tbl = true}
+            {if !$wa->isMobile()}
+                {if $theme_settings.pr_prev_type_default == 'tbl'}{$CategoryViewProducts = 'tbl'}{/if}
+            {else}
+                {if $theme_settings.pr_prev_type_default_mobile == 'tbl'}{$CategoryViewProducts = 'tbl'}{/if}
+            {/if}
+        {/if}
+
+        {$cookieProductView = $wa->cookie('CategoryViewProducts')}
+        {if ($cookieProductView == 'tile' && $_isView_tile)
+        || ($cookieProductView == 'tbl' && $_isView_tbl)
+        || ($cookieProductView == 'list' && $_isView_list)}
+            {$CategoryViewProducts = $wa->cookie('CategoryViewProducts')}
+        {/if}
+    {/if}
+
+    {* selected filters *}
+    {if $theme_settings.filter_selected}{include file="category.select-filters.html"}{/if}
+
+    {if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
+        <div class="cat-panel">
+            <div class="dt-block">
+                {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
+                    <div class="cat-onpage">
+                        <span class="cat-onpage-title">[`Display`]:</span>
+                        <select id="set-per-page" class="cat-onpage_select">
+                            {$current_per_page = $wa->cookie('products_per_page')}
+                            {foreach [24,48,64] as $count}
+                                <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                {/if}
+
+                {if !empty($sorting)}
+                    <!-- sorting -->
+                    {$sort_fields = [
                     'name' => '[`Name`]',
                     'price' => '[`Price`]',
                     'total_sales' => '[`Bestsellers`]',
                     'rating' => '[`Customer rating`]',
                     'create_datetime'=>'[`Date added`]',
                     'stock' => '[`In stock`]']}
-                {if !isset($sort_active)}
-                    {$sort_active = $wa->get('sort', 'create_datetime')}
-                {/if}
+                    {if !isset($sort_active)}
+                        {$sort_active = $wa->get('sort', 'create_datetime')}
+                    {/if}
 
-                {$default_sort = false}
-                {if isset($category.sort_products) && !empty($category.sort_products)}
-                    {$default_sort = " "|explode:$category.sort_products}
-                {/if}
-                <div class="cat-sort">
-                    <div class="checked-list js-selecList cat-sort_select">
-                        <div class="js-checked-toggle checked-list_toggle">
-                            {if !$sort_active || !isset($sort_fields[$sort_active])}
-                                <a href="{$wa->currentUrl(0, 1)}">[`New & Popular`]</a>
-                            {else}
+                    {$default_sort = false}
+                    {if isset($category.sort_products) && !empty($category.sort_products)}
+                        {$default_sort = " "|explode:$category.sort_products}
+                    {/if}
+                    <div class="cat-sort">
+                        <div class="checked-list js-selecList cat-sort_select">
+                            <div class="js-checked-toggle checked-list_toggle">
+                                {if !$sort_active || !isset($sort_fields[$sort_active])}
+                                    <a href="{$wa->currentUrl(0, 1)}">[`New & Popular`]</a>
+                                {else}
+                                    {foreach $sort_fields as $sort => $name}
+                                        {if $sort_active == $sort}
+                                            {if class_exists('shopSeofilterViewHelper')}
+                                                {shopSeofilterViewHelper::sortUrl($sort, $name, $sort_active)}
+                                            {else}
+                                                {$wa->shop->sortUrl($sort, $name, $sort_active)}
+                                            {/if}
+                                        {/if}
+                                    {/foreach}
+                                {/if}
+                                <div class="jq-checked__arrow-trigger"></div>
+                            </div>
+                            <ul class="js-select-items checked-list__items">
+                                {if !empty($category) && !isset($sort_fields[$default_sort[0]])}
+                                    <li{if !$sort_active} class="selected"{/if}><a href="{$wa->currentUrl(0, 1)}">[`New
+                                            & Popular`]</a></li>
+                                {/if}
                                 {foreach $sort_fields as $sort => $name}
-                                    {if $sort_active == $sort}
+                                    <li{if $sort_active == $sort} class="selected"{/if}>
                                         {if class_exists('shopSeofilterViewHelper')}
                                             {shopSeofilterViewHelper::sortUrl($sort, $name, $sort_active)}
                                         {else}
                                             {$wa->shop->sortUrl($sort, $name, $sort_active)}
                                         {/if}
-                                    {/if}
+                                    </li>
+                                    {if $wa->get('sort') == $sort}{$wa->title( $wa->title()|cat:' — '|cat:$name)}{/if}
                                 {/foreach}
-                            {/if}
-                            <div class="jq-checked__arrow-trigger"></div>
+                            </ul>
                         </div>
-                        <ul class="js-select-items checked-list__items">
-                            {if !empty($category) && !isset($sort_fields[$default_sort[0]])}
-                                <li{if !$sort_active} class="selected"{/if}><a href="{$wa->currentUrl(0, 1)}">[`New & Popular`]</a></li>
-                            {/if}
-                            {foreach $sort_fields as $sort => $name}
-                                <li{if $sort_active == $sort} class="selected"{/if}>
-                                    {if class_exists('shopSeofilterViewHelper')}
-                                        {shopSeofilterViewHelper::sortUrl($sort, $name, $sort_active)}
-                                    {else}
-                                        {$wa->shop->sortUrl($sort, $name, $sort_active)}
-                                    {/if}
-                                </li>
-                                {if $wa->get('sort') == $sort}{$wa->title( $wa->title()|cat:' — '|cat:$name)}{/if}
-                            {/foreach}
-                        </ul>
                     </div>
-                </div>
+                {/if}
+
+                {if $views_count > 1}
+                    <div class="cat-views">
+                        {if $_isView_tile == true}
+                            <i data-view="tile"
+                               class="js-switch-product-view cat-views__el fa fa-th-large{if $CategoryViewProducts == 'tile'} selected{/if}"
+                               aria-hidden="true"></i>
+                        {/if}
+                        {if $_isView_list == true}
+                            <i data-view="list"
+                               class="js-switch-product-view cat-views__el fa fa-th-list{if $CategoryViewProducts == 'list'} selected{/if}"
+                               aria-hidden="true"></i>
+                        {/if}
+                        {if $_isView_tbl == true}
+                            <i data-view="tbl"
+                               class="js-switch-product-view cat-views__el fa fa-align-justify{if $CategoryViewProducts == 'tbl'} selected{/if}"
+                               aria-hidden="true"></i>
+                        {/if}
+                    </div>
+                {/if}
+            </div>
+        </div>
+    {/if}
+
+    {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
+    {if !isset($isCategoryViewProductsList)}{$isCategoryViewProductsList = 0}{/if}
+
+    {$isPreviewProductGalleryTile = (($theme_settings.product_scroll_hover_gallery && $CategoryViewProducts == 'tile') || ($theme_settings.preview_product_list_gallerytile && $CategoryViewProducts == 'list')) && $products && !$wa->isMobile()}
+
+    {if $isPreviewProductGalleryTile}
+        {$products_ids = ""}
+        {foreach $products as $p}
+            {if $p.id}{$products_ids[] = $p.id}{/if}
+        {/foreach}
+        {$size_image = '0x340'} {if $CategoryViewProducts == 'list'}{$size_image = '180'}{/if}
+        {$products_images = $wa->shop->images($products_ids, $size_image)}
+    {/if}
+
+    {$is_preview_grid_mini = $wa->isMobile() && $CategoryViewProducts == 'tile' && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
+    <div class="products-{$CategoryViewProducts}-outer">
+        <div data-retina="{$wa->shop->config('enable_2x')}"
+             data-image-lazy="{$theme_settings.product_preview_images_lazy}"
+             class="js-preview-products products-{$CategoryViewProducts} {if $is_preview_grid_mini} products-{$CategoryViewProducts}--mini{/if} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
+            {$features = []}
+            {$_features_product_list = !empty($theme_settings.product_show_list_features) && $CategoryViewProducts == 'list'}
+            {if !$wa->isMobile()}
+                {$_features_product_tile = !empty($theme_settings.product_show_tile_features) && $CategoryViewProducts == 'tile'}
+            {else}
+                {$_features_product_tile = !empty($theme_settings.product_show_tile_mobile_features) && $CategoryViewProducts == 'tile'}
             {/if}
 
-            {if $views_count > 1}
-                <div class="cat-views">
-                    {if $_isView_tile == true}
-                        <i data-view="tile" class="js-switch-product-view cat-views__el fa fa-th-large{if $CategoryViewProducts == 'tile'} selected{/if}" aria-hidden="true"></i>
-                    {/if}
-                    {if $_isView_list == true}
-                        <i data-view="list"  class="js-switch-product-view cat-views__el fa fa-th-list{if $CategoryViewProducts == 'list'} selected{/if}" aria-hidden="true"></i>
-                    {/if}
-                    {if $_isView_tbl == true}
-                        <i data-view="tbl"  class="js-switch-product-view cat-views__el fa fa-align-justify{if $CategoryViewProducts == 'tbl'} selected{/if}" aria-hidden="true"></i>
-                    {/if}
-                </div>
+            {if $_features_product_list || $_features_product_tile}
+                {$features = $wa->shop->features($products)}
+            {/if}
+
+            {$favorites = $wa->cookie('product_favor_arr')}
+            {if $favorites}
+                {$product_favor_arr = ","|explode:$favorites}
+            {else}
+                {$product_favor_arr = []}
+            {/if}
+
+            {if ($theme_settings.show_grid_sku && $CategoryViewProducts == 'tile')
+            || ($theme_settings.show_sku_list && $CategoryViewProducts == 'list')
+            || ($theme_settings.show_sku_product-tbl && $CategoryViewProducts == 'tbl')}
+                {$all_skus = $wa->shop->skus(array_keys($products))}
+            {/if}
+
+            {foreach $products as $p}
+                {if isset($all_skus) && !empty($all_skus) && isset($all_skus[$p.id])}
+                    {$skus = $all_skus[$p.id]}
+                    {$p.skus_list = reset($skus)}
+                {/if}
+
+                {if $CategoryViewProducts == 'list'}
+                    {include file="product-preview-line.html" product=$p features=$features favorites=$product_favor_arr}
+                {else if $CategoryViewProducts == 'tbl'}
+                    {include file="product-preview-tbl.html" product=$p favorites=$product_favor_arr}
+                {else}
+                    {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr}
+                {/if}
+            {/foreach}
+
+            {if $isPreviewProductGalleryTile}
+                <script>
+                    $(function () {
+                        new productTileGallery();
+                    });
+                </script>
             {/if}
         </div>
     </div>
-{/if}
-
-{if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
-{if !isset($isCategoryViewProductsList)}{$isCategoryViewProductsList = 0}{/if}
-
-{$isPreviewProductGalleryTile = (($theme_settings.product_scroll_hover_gallery && $CategoryViewProducts == 'tile') || ($theme_settings.preview_product_list_gallerytile && $CategoryViewProducts == 'list')) && $products && !$wa->isMobile()}
-
-{if $isPreviewProductGalleryTile}
-    {$products_ids = ""}
-    {foreach $products as $p}
-        {if $p.id}{$products_ids[] = $p.id}{/if}
-    {/foreach}
-    {$size_image = '0x340'} {if $CategoryViewProducts == 'list'}{$size_image = '180'}{/if}
-    {$products_images = $wa->shop->images($products_ids, $size_image)}
-{/if}
-
-{$is_preview_grid_mini = $wa->isMobile() && $CategoryViewProducts == 'tile' && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
-<div class="products-{$CategoryViewProducts}-outer">
-    <div data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.product_preview_images_lazy}" class="js-preview-products products-{$CategoryViewProducts} {if $is_preview_grid_mini} products-{$CategoryViewProducts}--mini{/if} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
-        {$features = []}
-        {$_features_product_list = !empty($theme_settings.product_show_list_features) && $CategoryViewProducts == 'list'}
-        {if !$wa->isMobile()}
-            {$_features_product_tile = !empty($theme_settings.product_show_tile_features) && $CategoryViewProducts == 'tile'}
-        {else}
-            {$_features_product_tile = !empty($theme_settings.product_show_tile_mobile_features) && $CategoryViewProducts == 'tile'}
-        {/if}
-
-        {if $_features_product_list || $_features_product_tile}
-            {$features = $wa->shop->features($products)}
-        {/if}
-
-        {$favorites = $wa->cookie('product_favor_arr')}
-        {if $favorites}
-            {$product_favor_arr = ","|explode:$favorites}
-        {else}
-            {$product_favor_arr = []}
-        {/if}
-
-        {if ($theme_settings.show_grid_sku && $CategoryViewProducts == 'tile')
-         || ($theme_settings.show_sku_list && $CategoryViewProducts == 'list')
-         || ($theme_settings.show_sku_product-tbl && $CategoryViewProducts == 'tbl')}
-            {$all_skus = $wa->shop->skus(array_keys($products))}
-        {/if}
-
-        {foreach $products as $p}
-            {if isset($all_skus) && !empty($all_skus) && isset($all_skus[$p.id])}
-                {$skus = $all_skus[$p.id]}
-                {$p.skus_list = reset($skus)}
-            {/if}
-
-            {if $CategoryViewProducts == 'list'}
-                {include file="product-preview-line.html" product=$p features=$features favorites=$product_favor_arr}
-            {else if $CategoryViewProducts == 'tbl'}
-                {include file="product-preview-tbl.html" product=$p favorites=$product_favor_arr}
+    <div class="{if $theme_settings.pagination == 'lazyloading'}lazy-paging{else}category-pag-offset{/if}"
+         data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
+        {if isset($pages_count) && $pages_count > 1  && !$_not_paginate}
+            {if class_exists('shopSeofilterViewHelper')}
+                {capture assign=pagination}
+                    {wa_pagination total=$pages_count attrs=['class' => "pagination"]}
+                {/capture}
+                {shopSeofilterViewHelper::paginationDecorate($pagination)}
             {else}
-                {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr}
+                {wa_pagination total=$pages_count attrs=['class' => "pagination"]}
             {/if}
-        {/foreach}
-
-        {if $isPreviewProductGalleryTile}
-            <script>
-                $(function(){
-                    new productTileGallery();
-                });
-            </script>
         {/if}
     </div>
-</div>
-
-
-
-
-<div class="{if $theme_settings.pagination == 'lazyloading'}lazy-paging{else}category-pag-offset{/if}"  data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
-    {if isset($pages_count) && $pages_count > 1  && !$_not_paginate}
-        {if class_exists('shopSeofilterViewHelper')}
-            {capture assign=pagination}
-                {wa_pagination total=$pages_count attrs=['class' => "pagination"]}
-            {/capture}
-            {shopSeofilterViewHelper::paginationDecorate($pagination)}
-        {else}
-            {wa_pagination total=$pages_count attrs=['class' => "pagination"]}
-        {/if}
-    {/if}
-</div>
 {/strip}

@@ -9723,7 +9723,7 @@ ul.pages-list li a {
     cursor: pointer
 }
 
-.currency_item.fa-icon-after:after {
+.currency_item.free-icon-after:after {
     content: "\f0d7";
     margin: 0 0 0 5px
 }

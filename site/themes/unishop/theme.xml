@@ -1231,22 +1231,12 @@
       <name locale="en_US">List preview product</name>
       <name locale="ru_RU">Превью продуктов списком</name>
     </setting>
-    <setting var="product_preview_list_mobile" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">List preview product for mobile</name>
-      <name locale="ru_RU">Превью продуктов списком для моб.устройств</name>
-    </setting>
     <setting var="product_preview_tbl" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Table preview product</name>
       <name locale="ru_RU">Превью продуктов таблицей</name>
     </setting>
-    <setting var="product_preview_tbl_mobile" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Table preview product for mobile</name>
-      <name locale="ru_RU">Превью продуктов таблицей для моб.устройств</name>
-    </setting>
-    <setting var="product_preview_type_default" control_type="select">
+    <setting var="pr_prev_type_default" control_type="select">
       <value>list</value>
       <name locale="en_US">Default type preview product</name>
       <name locale="ru_RU">Вид превью товара по умолчанию</name>
@@ -1265,7 +1255,7 @@
         </option>
       </options>
     </setting>
-    <setting var="product_preview_type_default_mobile" control_type="select">
+    <setting var="pr_prev_type_default_mobile" control_type="select">
       <value>list</value>
       <name locale="en_US">Default type preview product for mobile</name>
       <name locale="ru_RU">Вид превью товара по умолчанию  для моб.устройств</name>
