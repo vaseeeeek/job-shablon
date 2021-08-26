@@ -13,34 +13,19 @@
     {$_isView_tbl = false}
 
     {if $isViewSwitch}
-        {if (!$wa->isMobile() && !empty($theme_settings.product_preview_tile)) || ($wa->isMobile() && !empty($theme_settings.product_preview_tile_mobile))}
+        {if !empty($theme_settings.product_preview_tile)}
             {$views_count = $views_count+1}
             {$_isView_tile = true}
-            {if !$wa->isMobile()}
-                {if $theme_settings.pr_prev_type_default == 'tile'}{$CategoryViewProducts = 'tile'}{/if}
-            {else}
-                {if $theme_settings.pr_prev_type_default_mobile == 'tile'}{$CategoryViewProducts = 'tile'}{/if}
-            {/if}
         {/if}
-        {if (!$wa->isMobile() && !empty($theme_settings.product_preview_list)) || ($wa->isMobile() && !empty($theme_settings.product_preview_list_mobile))}
+        {if !empty($theme_settings.product_preview_list)}
             {$views_count = $views_count+1}
             {$_isView_list = true}
-            {if !$wa->isMobile()}
-                {if $theme_settings.pr_prev_type_default == 'list'}{$CategoryViewProducts = 'list'}{/if}
-            {else}
-                {if $theme_settings.pr_prev_type_default_mobile == 'list'}{$CategoryViewProducts = 'list'}{/if}
-            {/if}
         {/if}
-
-        {if (!$wa->isMobile() && !empty($theme_settings.product_preview_tbl)) || ($wa->isMobile() && !empty($theme_settings.product_preview_tbl_mobile))}
+        {if !empty($theme_settings.product_preview_tbl)}
             {$views_count = $views_count+1}
             {$_isView_tbl = true}
-            {if !$wa->isMobile()}
-                {if $theme_settings.pr_prev_type_default == 'tbl'}{$CategoryViewProducts = 'tbl'}{/if}
-            {else}
-                {if $theme_settings.pr_prev_type_default_mobile == 'tbl'}{$CategoryViewProducts = 'tbl'}{/if}
-            {/if}
         {/if}
+        {$CategoryViewProducts = $theme_settings.pr_prev_type_default}
 
         {$cookieProductView = $wa->cookie('CategoryViewProducts')}
         {if ($cookieProductView == 'tile' && $_isView_tile)
@@ -159,12 +144,10 @@
         {$size_image = '0x340'} {if $CategoryViewProducts == 'list'}{$size_image = '180'}{/if}
         {$products_images = $wa->shop->images($products_ids, $size_image)}
     {/if}
-
-    {$is_preview_grid_mini = $wa->isMobile() && $CategoryViewProducts == 'tile' && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
     <div class="products-{$CategoryViewProducts}-outer">
         <div data-retina="{$wa->shop->config('enable_2x')}"
              data-image-lazy="{$theme_settings.product_preview_images_lazy}"
-             class="js-preview-products products-{$CategoryViewProducts} {if $is_preview_grid_mini} products-{$CategoryViewProducts}--mini{/if} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
+             class="js-preview-products products-{$CategoryViewProducts} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
             {$features = []}
             {$_features_product_list = !empty($theme_settings.product_show_list_features) && $CategoryViewProducts == 'list'}
             {if !$wa->isMobile()}

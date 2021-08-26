@@ -1183,25 +1183,6 @@
       <name locale="en_US">Tile preview product</name>
       <name locale="ru_RU">Превью продуктов плиткой</name>
     </setting>
-    <setting var="product_preview_tile_mobile" control_type="select">
-      <value>mini_tile</value>
-      <name locale="en_US">Tile preview product for mobile</name>
-      <name locale="ru_RU">Превью продуктов плиткой для моб.устройств</name>
-      <options>
-        <option value="">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US">None</name>
-        </option>
-        <option value="usually_tile">
-          <name locale="ru_RU">Обычной плиткой</name>
-          <name locale="en_US">Usually tiled</name>
-        </option>
-        <option value="mini_tile">
-          <name locale="ru_RU">Мини-плиткой</name>
-          <name locale="en_US">Mini tiled</name>
-        </option>
-      </options>
-    </setting>
     <setting var="product_preview_list" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">List preview product</name>
@@ -1216,25 +1197,6 @@
       <value>list</value>
       <name locale="en_US">Default type preview product</name>
       <name locale="ru_RU">Вид превью товара по умолчанию</name>
-      <options>
-        <option value="list">
-          <name locale="ru_RU">Списком</name>
-          <name locale="en_US">List</name>
-        </option>
-        <option value="tile">
-          <name locale="ru_RU">Плиткой</name>
-          <name locale="en_US">tile</name>
-        </option>
-        <option value="tbl">
-          <name locale="ru_RU">Таблицей</name>
-          <name locale="en_US">table</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="pr_prev_type_default_mobile" control_type="select">
-      <value>list</value>
-      <name locale="en_US">Default type preview product for mobile</name>
-      <name locale="ru_RU">Вид превью товара по умолчанию  для моб.устройств</name>
       <options>
         <option value="list">
           <name locale="ru_RU">Списком</name>

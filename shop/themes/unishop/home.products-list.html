@@ -34,10 +34,9 @@
                 {/if}
                 <div class="container">
                     <div class="products-grid-outer">
-                        {$is_preview_grid_mini = $wa->isMobile() && $theme_settings.product_preview_tile_mobile == 'mini_tile'}
                         <div data-retina="{$wa->shop->config('enable_2x')}"
                              data-image-lazy="{$theme_settings.product_preview_images_lazy}"
-                             class="js-home-products js-preview-products products-tile {if $is_preview_grid_mini} products-grid--mini{/if}"
+                             class="js-home-products js-preview-products products-tile "
                              data-count-line="2">
                             {foreach $list as $p}
                                 {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr}
