@@ -13,22 +13,6 @@
 {$_show_description = strpos($product_alias_str, 'description') !== false && $product.description}
 {$_show_features =  strpos($product_alias_str, 'features') !== false && $product.features}
 
-{function getDiscountCard price=null compare_price=null}
-    {if $theme_settings.product_discount_percentage == 1}
-        {if $compare_price > $price}
-            {$discount = (($compare_price-$price)/$compare_price)*100}
-            {if $theme_settings.product_discount_percentage_round == "ceil"}
-                {$discount = ceil($discount)}
-            {else if $theme_settings.product_discount_percentage_round == "floor"}
-                {$discount = floor($discount)}
-            {else}
-                {$discount = round($discount)}
-            {/if}
-        {/if}
-        {$productDiscount = isset($discount) && $discount >= (int)$theme_settings.product_discount_percentage_minimal && $price > 0}
-        <div data-round="{$theme_settings.product_discount_percentage_round}" data-minimal="{$theme_settings.product_discount_percentage_minimal}" class="js-product-discount product-discount product-card__discount{if !$productDiscount} -Close{/if}">{if $productDiscount}-{$discount}%{/if}</div>
-    {/if}
-{/function}
 
 <div class="cols-{$cols}">
     <div class="out_sidebars">
@@ -74,7 +58,15 @@
                                     {/if}
                                     <span class="js-product-discounts product-price-saving{if empty($product_price_saving)} -Close{/if}">{shop_currency_html($product_price_saving)}</span>
                                 {/if}
-                                {getDiscountCard price=$product.price compare_price=$product.compare_price}
+
+                                {if $theme_settings.product_discount_percentage == 1}
+                                    {if $compare_price > $price}
+                                        {$discount = (($compare_price-$price)/$compare_price)*100}
+                                        {$discount = ceil($discount)}
+                                    {/if}
+                                    {$productDiscount = isset($discount) && $discount >= (int)$theme_settings.product_discount_percentage_minimal && $price > 0}
+                                    <div data-round="{$theme_settings.product_discount_percentage_round}" data-minimal="3" class="js-product-discount product-discount product-card__discount{if !$productDiscount} -Close{/if}">{if $productDiscount}-{$discount}%{/if}</div>
+                                {/if}
                             </div>
                         {/if}
 

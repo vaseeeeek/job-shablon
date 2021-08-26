@@ -41,22 +41,6 @@
 {$_price_range = $theme_settings.price_range_in_product_list}
 {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
 
-{function getDiscountProductList price=null compare_price=null}
-    {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
-        {$discount = (($compare_price-$price)/$compare_price)*100}
-        {if $theme_settings.product_discount_percentage_round == "ceil"}
-            {$discount = ceil($discount)}
-        {else if $theme_settings.product_discount_percentage_round == "floor"}
-            {$discount = floor($discount)}
-        {else}
-            {$discount = round($discount)}
-        {/if}
-        {if $discount >= (int)$theme_settings.product_discount_percentage_minimal && $price > 0}
-            <div class="product-discount">-{$discount}%</div>
-        {/if}
-    {/if}
-{/function}
-
 {$_tileGelleryProductListPreviewy = $theme_settings.preview_product_list_gallerytile && !$wa->isMobile()}
 {$preview_image = $wa->shop->productImgUrl($p, '60')}
 <div class="Product__Item js-product-line js-preview-cart{if $_tileGelleryProductListPreviewy} grid-gallery js-grid-gallery{/if}">
@@ -110,7 +94,14 @@
                                 {$product_price_saving = $product.price - $product.compare_price}
                                 <span class="product-price-saving">{shop_currency_html($product_price_saving)}</span>
                             {/if}
-                            {getDiscountProductList price=$product.price compare_price=$product.compare_price}
+
+                            {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
+                                {$discount = (($compare_price-$price)/$compare_price)*100}
+                                {$discount = ceil($discount)}
+                                {if $price > 0}
+                                    <div class="product-discount">-{$discount}%</div>
+                                {/if}
+                            {/if}
                         </div>
                     {/if}
 

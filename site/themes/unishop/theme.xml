@@ -1056,30 +1056,6 @@
       <name locale="ru_RU">Цвет для стикера скидки</name>
       <name locale="en_US">Color of sticker discount</name>
     </setting>
-    <setting var="product_discount_percentage_minimal" control_type="text">
-      <value>3</value>
-      <name locale="en_US">Minimum discount amount to display sticker with a discount</name>
-      <name locale="ru_RU">Минимальный размер скидки, для показа стикера со скидкой</name>
-    </setting>
-    <setting var="product_discount_percentage_round" control_type="select">
-      <value>round</value>
-      <name locale="en_US">Rounding discount</name>
-      <name locale="ru_RU">Округление скидки</name>
-      <options>
-        <option value="floor">
-          <name locale="ru_RU">В меньшую сторону</name>
-          <name locale="en_US">Down the road</name>
-        </option>
-        <option value="ceil">
-          <name locale="ru_RU">В большую сторону</name>
-          <name locale="en_US">In a big way</name>
-        </option>
-        <option value="round">
-          <name locale="ru_RU">В ближайшую сторону</name>
-          <name locale="en_US">In the near side</name>
-        </option>
-      </options>
-    </setting>
     <setting var="badge_saving" control_type="select">
       <value>1</value>
       <name locale="ru_RU">Стикер экономии</name>
