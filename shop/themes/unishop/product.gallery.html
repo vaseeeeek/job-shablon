@@ -30,10 +30,8 @@
     </div>
 {/if}
 
-{$def_img = "`$wa_theme_url`img/dummy200.png"}
-{if !empty($theme_settings.def_img)}
-    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
-{/if}
+
+
 
 <div class="product-page_main-left">
     {$wa->shop->badgeHtml($product.badge)}
@@ -73,7 +71,7 @@
                         {$position = $position + 1}
                     {/if}
                 {else}
-                    <img src="{$def_img}" alt="{$product.name|escape}"/>
+                    <img src="/wa-data/public/shop/themes/unishop/img/dummy96.png" alt="{$product.name|escape}"/>
                 {/if}
             </div>
         </div>

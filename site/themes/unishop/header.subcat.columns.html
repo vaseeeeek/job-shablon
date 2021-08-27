@@ -20,10 +20,8 @@
     {$type_subcategory_image = $theme_settings.type_dd_menu_subcat_img}
 {/if}
 
-{$def_img = "`$wa_theme_url`img/dummy200.png"}
-{if !empty($theme_settings.def_img)}
-    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
-{/if}
+
+
 
 <div class="menu-subcategory cols-{ceil(count($cat.childs) / $total_childs_col)} menu-subcategory--disclosed js-subcategory-menu">
     <div class="sub-category_cols">
@@ -57,9 +55,9 @@
                                 {/if}
                                 <a href="{$catChild_2.url}" class="subcat-opened__el-img">
                                     {if $theme_settings.menu_cat_img_lazy}
-                                        <img class="js-submenu-category-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($catChild_2.params.image)}{$catChild_2.params.image}{else}{$def_img}{/if}" alt="{$catChild_2.name}" />
+                                        <img class="js-submenu-category-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($catChild_2.params.image)}{$catChild_2.params.image}{else} /wa-data/public/shop/themes/unishop/img/dummy96.png{/if}" alt="{$catChild_2.name}" />
                                     {else}
-                                        <img class="js-submenu-category-image" src="{if isset($catChild_2.params.image)}{$catChild_2.params.image}{else}{$def_img}{/if}" alt="{$catChild_2.name}" />
+                                        <img class="js-submenu-category-image" src="{if isset($catChild_2.params.image)}{$catChild_2.params.image}{else} /wa-data/public/shop/themes/unishop/img/dummy96.png{/if}" alt="{$catChild_2.name}" />
                                     {/if}
                                 </a>
                             {/if}

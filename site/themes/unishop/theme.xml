@@ -1150,14 +1150,6 @@
       <description locale="ru_RU">Укажите коды характеристики через запятую, без пробелов. Узнать код: приложение Магазин - Настройки - Типы и характеристики товаров. Если полe пустое, выводятся все характеристики товара</description>
       <description locale="en_US">Specify codes characteristics. separated by a comma, without spaces. Know code: the app Store - Configure - Types and characteristics of the goods. If empty, display all the characteristics of the product</description>
     </setting>
-    <setting var="def_img" control_type="image">
-      <value/>
-      <filename>img/def_img.*</filename>
-      <name locale="ru_RU">Заглушка для товаров и категорий</name>
-      <name locale="en_US">Default images for product and categories</name>
-      <description locale="ru_RU">Рекомендуется размер 400px * 400px</description>
-      <description locale="en_US">Recommended size 400px * 400px</description>
-    </setting>
     <setting var="cat_list_img_lazy" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Lazy images of categories in content</name>

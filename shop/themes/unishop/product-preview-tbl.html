@@ -1,9 +1,4 @@
 {strip}
-{$def_img = "`$wa_theme_url`img/dummy96.png"}
-{if !empty($theme_settings.def_img)}
-    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
-{/if}
-
 {$add_order_action = $theme_settings.add_order_action}
 {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
 
@@ -13,7 +8,7 @@
 <div class="Product-table js-preview-cart">
     <div class="Product-table-img">
         <a href="{$p.frontend_url}" title="{$p.name}">
-            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $def_img])}
+            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/unishop/img/dummy96.png'])}
             {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
                 {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
             {/if}
@@ -96,7 +91,7 @@
                         <span class="button js-card-dialog addtocart addtocart--mini fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
                     {else}
                         <input type="hidden" name="product_id" value="{$p.id}">
-                        <span class="button js-btn-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
+                        <span class="button js-submit-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
                     {/if}
                 </form>
             {/if}

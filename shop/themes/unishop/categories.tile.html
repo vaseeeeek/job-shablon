@@ -1,9 +1,7 @@
     {strip}
 {if isset($categories) && count($categories)}
-    {$def_img = "`$wa_theme_url`img/dummy200.png"}
-    {if !empty($theme_settings.def_img)}
-        {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
-    {/if}
+
+
 
     {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
     {$_lazy = $theme_settings.cat_list_img_lazy}
@@ -19,9 +17,9 @@
                             {$cat.params.image = $skImages[$cat.id].image}
                         {/if}
                         {if $_lazy}
-                            <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($cat.params.image)}{$cat.params.image}{else}{$def_img}{/if}" alt="{$cat.name}" />
+                            <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($cat.params.image)}{$cat.params.image}{else} /wa-data/public/shop/themes/unishop/img/dummy96.png{/if}" alt="{$cat.name}" />
                         {else}
-                            <img class="js-cat-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else}{$def_img}{/if}" alt="{$cat.name}" />
+                            <img class="js-cat-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else} /wa-data/public/shop/themes/unishop/img/dummy96.png{/if}" alt="{$cat.name}" />
                         {/if}
                     </div>
                     <div class="cat-tile_name sdColor">

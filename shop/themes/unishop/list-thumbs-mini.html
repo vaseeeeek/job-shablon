@@ -4,11 +4,6 @@
 {if !isset($class)}{$class = ""}{/if}
 {$index = 0}
 
-{$def_img = "`$wa_theme_url`img/dummy96.png"}
-{if !empty($theme_settings.def_img)}
-    {$def_img = "`$wa_parent_theme_url``$theme_settings.def_img`"}
-{/if}
-
 {$_price_range = $theme_settings.price_range_in_product_list}
 <div class="sb-wrap_content">
 {foreach $products as $p}
@@ -19,7 +14,7 @@
 
     <div class="sb-product">
         <a class="sb-product_img" href="{$p.frontend_url}" title="{$p.name}">
-            {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $def_img])}
+            {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => '/wa-data/public/shop/themes/unishop/img/dummy96.png'])}
         </a>
         <div class="sb-product_content">
             <a class="sb-product_name" href="{$p.frontend_url}">{$p.name}</a>
