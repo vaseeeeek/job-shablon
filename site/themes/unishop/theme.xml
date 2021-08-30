@@ -260,7 +260,7 @@
       <name locale="ru_RU">Информационное сообщение</name>
     </setting>
     <setting var="head_info_message" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выводить информационное сообщение верхним баннером</name>
       <name locale="en_US">Display informational message top banner</name>
       <description locale="ru_RU">Можно использовать для показа сообщений о сборе cookie, неполадках на сайте и других важных сообщениях, которые увидят все пользователи</description>
@@ -1180,7 +1180,7 @@
       <name locale="en_US">List preview product</name>
       <name locale="ru_RU">Превью продуктов списком</name>
     </setting>
-    <setting var="product_preview_tbl" control_type="checkbox">
+    <setting var="product_preview_table" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Table preview product</name>
       <name locale="ru_RU">Превью продуктов таблицей</name>

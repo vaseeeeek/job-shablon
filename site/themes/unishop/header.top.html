@@ -1,13 +1,10 @@
 {strip}
-{$is_mobile = $wa->isMobile()}
 
 {$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin == 'cityselect' && class_exists('shopCityselectPlugin'))}
 
 <div class="header-top--links">
     <div class="container">
-        {if $is_mobile}
-            {include file="header.top.menu-mobile.html"}
-        {else}
+        {if !$wa->isMobile()}
             {include file="header.top.menu-desktop.html"}
         {/if}
         <div class="header-top--right">
@@ -68,40 +65,6 @@
                             <a class="js-language header_lang-el" data-value="{$language}" href="{$language}">{$language_text}</a>
                         {/if}
                     {/foreach}
-                </div>
-            {/if}
-
-            {if $wa->isAuthEnabled() && !$theme_settings.lk_icon_header}
-                <div class="header_login">
-                    {if $wa->user()->isAuth()}
-                        {if $wa->myUrl()}
-                            <div class="header_login-content">
-                                <div class="header_login__profile">
-                                    <a href="{$wa->myUrl()}" {if $wa->globals('isMyAccount')}class="selected"{/if}>{$wa->user('firstname')|default:'[`My account`]'}</a>
-                                </div>
-                                <div class="header_login-logout">
-                                    <i class="fa fa-sign-out icon" aria-hidden="true"></i>
-                                    <a href="?logout">[s`Log out`]</a>
-                                </div>
-                            </div>
-                        {else}
-                            <div class="header_login-content">
-                                {$wa->user('firstname')|default:'[`My account`]'}
-                                <div class="header_login-logout">
-                                    <i class="fa fa-sign-out icon" aria-hidden="true"></i>
-                                    <a href="?logout">[s`Log out`]</a>
-                                </div>
-                            </div>
-                        {/if}
-                    {else}
-                        <div class="header_login-content">
-                            <div class="header_login-sign">
-                                <i class="fa fa-sign-in icon" aria-hidden="true"></i>
-                                <a class="{if $theme_settings.auth_popup} js-form-login-popupp{/if}" href="{$wa->loginUrl()}">[s`Log in`]</a>
-                            </div>
-                            <a href="{$wa->signupUrl()}">[s`Sign up`]</a>
-                        </div>
-                    {/if}
                 </div>
             {/if}
         </div>

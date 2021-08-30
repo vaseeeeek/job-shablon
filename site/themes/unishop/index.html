@@ -45,7 +45,7 @@
         {include file="colors.css.html"}
         <link href="{$wa_theme_url}fonts/uicons-regular-rounded/css/uicons-regular-rounded.css?v{$wa_theme_version}"
               rel="stylesheet"/>
-        <link href="{$wa_theme_url}unishop.min.css?v{$wa_theme_version}" rel="stylesheet"/>
+        <link href="{$wa_theme_url}free.site.css?v{$wa_theme_version}" rel="stylesheet"/>
 
 
         {include file="`$parent_theme_path`/add.css.html"}
@@ -88,10 +88,12 @@
                         {$wa->accountName()}
                     {/if}
                 </a>
-                <div class="nav-cat js-dd-outer">
-                    <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor fa-icon-before">[`Catalog`]
+                {if !$wa->isMobile()}
+                    <div class="nav-cat js-dd-outer">
+                        <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor fa-icon-before">[`Catalog`]
+                        </div>
                     </div>
-                </div>
+                {/if}
             </div>
             <div class="header--right">
                 <div class="Nav-search juniq-header-search">
@@ -326,7 +328,9 @@
 
     {if $theme_settings.scroll_top}<span class="btn-top fa-icon-before sdСolor" id="move-to-top"></span>{/if}
 
-    {if $wa->isMobile()}{include file="fixed.panel.html" inline}{/if}
+    {if $wa->isMobile()}
+        {include file="fixed.panel.html" inline}
+    {/if}
 
     {if $theme_settings.show_link_admin_edit && $wa->user()->isAuth() && !$wa->isMobile()}
         {$admin_edit_link = false}

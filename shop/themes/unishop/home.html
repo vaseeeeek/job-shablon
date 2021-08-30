@@ -9,7 +9,7 @@
             {/if}
         </div>
 
-        <div class="with-sidebar cols-2">
+        <div class="with-sidebar cols-2"> 
     {/if}
 
     {include file="slider.html"}
@@ -43,54 +43,17 @@
             </div>
         {/if}
     {/if}
-    {if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_1"}
-        </div> <!-- .with-sidebar -->
-    </div> <!-- .container clearfix -->
-    {/if}
-
-{$is_with_sidebar_list_1 = false}
-{$is_with_sidebar_list_2 = false}
-{$is_with_sidebar_list_3 = false}
-{if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_2"}
-    {$is_with_sidebar_list_1 = true}
-{/if}
-
-{if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_3"}
-    {$is_with_sidebar_list_1 = true}
-    {$is_with_sidebar_list_2 = true}
-{/if}
-
-{if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "bullets"}
-    {$is_with_sidebar_list_1 = true}
-    {$is_with_sidebar_list_2 = true}
-    {$is_with_sidebar_list_3 = true}
-{/if}
 
 {if $theme_settings.homepage_product_view == "carousel"}
     {$product_list_file = "home.products-carousel.html"}
 {else}
     {$product_list_file = "home.products-list.html"}
 {/if}
-<!-- product list#1 -->
-{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title is_with_sidebar_list=$is_with_sidebar_list_1}
-{if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_2"}
-    </div> <!-- .with-sidebar -->
-</div> <!-- .container clearfix -->
-{/if}
 
-<!-- product list#2 -->
-{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_2 list_title=$theme_settings.homepage_product_list_2_title is_with_sidebar_list=$is_with_sidebar_list_2}
-{if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "product_list_3"}
-    </div> <!-- .with-sidebar -->
-</div> <!-- .container clearfix -->
-{/if}
+{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title}
+{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_2 list_title=$theme_settings.homepage_product_list_2_title}
+{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_3 list_title=$theme_settings.homepage_product_list_3_title}
 
-<!-- product list#3 -->
-{include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_3 list_title=$theme_settings.homepage_product_list_3_title is_with_sidebar_list=$is_with_sidebar_list_3}
-{if $theme_settings.sidebar_mainpage && $theme_settings.sidebar_end == "bullets"}
-    </div> <!-- .with-sidebar -->
-</div> <!-- .container clearfix -->
-{/if}
 
 <div class="container">
 

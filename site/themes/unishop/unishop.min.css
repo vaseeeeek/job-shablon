@@ -15033,6 +15033,8 @@ article, aside, footer, header, nav, section {
     font: normal normal normal 16px/1 FontAwesome;
     align-items: center;
 }
+
+
 .container {
     margin: 0 auto;
     max-width: 1400px;
@@ -15067,26 +15069,6 @@ article, aside, footer, header, nav, section {
     background: #ebebeb
 }
 
-@media print {
-    .header_top {
-        display: none
-    }
-}
-
-.header_top .shop-push-subscribe {
-    float: right;
-    margin-top: 7px
-}
-
-@media (max-width: 850px) {
-    .header_top .shop-push-subscribe {
-        display: none
-    }
-
-    .header .shop-push-subscribe {
-        display: inline-block
-    }
-}
 .MobileMenu {
     line-height: 28px;
 }

@@ -123,7 +123,6 @@
             {foreach $cat_result as $cat}
                 {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
                     {$view_subcat = $cat.params.submenu_columns}
-                    <!-- Спросить о настройке -->
                 {else if $theme_settings.col_menu_subcat}
                     {$view_subcat = $theme_settings.col_menu_subcat}
                 {/if}

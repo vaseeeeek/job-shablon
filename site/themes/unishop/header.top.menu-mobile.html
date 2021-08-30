@@ -1,53 +1,135 @@
 {strip}
-<div class="MobileMenu">
-    <div data-id="header_menu-nav" class="MobileMenu-btn  fa-icon js-nav-button"></div>
-    {*остановился*}
-    {$_links = []}
+    <div class="MobileMenu">
+        {if $theme_settings.header_top_links == 'site-pages'}
+            {if $wa->site}{$_links = $wa->site->pages()}{/if}
+        {elseif $theme_settings.header_top_links == 'shop-pages'}
+            {if $wa->shop}{$_links = $wa->shop->pages()}{/if}
+        {elseif $theme_settings.header_top_links == 'blog-pages'}
+            {if $wa->blog}{$_links = $wa->blog->pages()}{/if}
+        {elseif $theme_settings.header_top_links == 'photos-pages'}
+            {if $wa->photos}{$_links = $wa->photos->pages()}{/if}
+        {elseif $theme_settings.header_top_links == 'hub-pages'}
+            {if $wa->hub}{$_links = $wa->hub->pages()}{/if}
+        {elseif $theme_settings.header_top_links == 'app-menu'}
+            {if $wa->menu && !empty($theme_settings.id_app_header-top_menu) && (int)$theme_settings.id_app_header-top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header-top_menu)}{/if}
+        {elseif $theme_settings.header_top_links != 'none'}
+            {$_links = $wa->apps()}
+        {/if}
 
-    {if $theme_settings.header_top_links == 'site-pages'}
-        {if $wa->site}{$_links = $wa->site->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'shop-pages'}
-        {if $wa->shop}{$_links = $wa->shop->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'blog-pages'}
-        {if $wa->blog}{$_links = $wa->blog->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'photos-pages'}
-        {if $wa->photos}{$_links = $wa->photos->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'hub-pages'}
-        {if $wa->hub}{$_links = $wa->hub->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'app-menu'}
-        {if $wa->menu && !empty($theme_settings.id_app_header-top_menu) && (int)$theme_settings.id_app_header-top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header-top_menu)}{/if}
-    {elseif $theme_settings.header_top_links != 'none'}
-        {$_links = $wa->apps()}
-    {/if}
 
-    {if count($_links) > 0}
         <nav id="header_menu-nav" class="MobileMenu_nav-m">
-            <ul>
-                {foreach $_links as $link}
-                    {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
-                        {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
-                        {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
-                        <li class="juniq-header-top-nav-el">
-                            <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
-                                {$link.name}
-                            </a>
-                            {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
-                                <i class="js-top-nav-caret nav-caret fa-icon"></i>
-                                <div class="MobileMenu_nav-m-sub">
-                                    <ul class="top-border-color">
-                                        {foreach $link.childs as $child}
-                                            {if !isset($child.top_menu_hide)}
-                                                <li><a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if} href="{$child.url}">{$child.name}</a></li>
-                                            {/if}
-                                        {/foreach}
-                                    </ul>
-                                </div>
-                            {/if}
-                        </li>
+            {if count($_links) > 0}
+                <h2>Информация</h2>
+                <ul>
+                    {foreach $_links as $link}
+                        {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
+                            {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
+                            {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
+                            <li class="juniq-header-top-nav-el">
+                                <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if}
+                                        href="{$link.url}">
+                                    {$link.name}
+                                </a>
+                                {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
+                                    <i class="js-top-nav-caret nav-caret fa-icon"></i>
+                                    <div class="MobileMenu_nav-m-sub">
+                                        <ul class="top-border-color">
+                                            {foreach $link.childs as $child}
+                                                {if !isset($child.top_menu_hide)}
+                                                    <li>
+                                                        <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if}
+                                                                href="{$child.url}">{$child.name}</a></li>
+                                                {/if}
+                                            {/foreach}
+                                        </ul>
+                                    </div>
+                                {/if}
+                            </li>
+                        {/if}
+                    {/foreach}
+                </ul>
+            {/if}
+            <h2>Категории</h2>
+            {if $theme_settings.get_menu_from == 'app-menu'}
+                {$categories = $wa->menu->get($theme_settings.id_app_menu_cat)}
+            {else}
+                {$categories = $wa->shop->categories(0, null, true, true)}
+            {/if}
+            {$cat_result = $categories}
+
+            <div class="category-menu js-category-menu-wrap">
+                {foreach $cat_result as $cat}
+                    {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
+                        {$view_subcat = $cat.params.submenu_columns}
+                    {else if $theme_settings.col_menu_subcat}
+                        {$view_subcat = $theme_settings.col_menu_subcat}
                     {/if}
+                    {if !isset($view_subcat) || ($view_subcat != "columns")}
+                        {$view_subcat = "one_column"}
+                    {/if}
+
+
+
+                    {$_subcat = 0}
+                    {if count($cat.childs) && $theme_settings.max_cat_lvl > 1}
+                        {foreach $cat.childs as $child}
+                            {$_subcat = 1}
+                        {/foreach}
+                    {/if}
+                    {if $cat.id == 'else'}
+                        {$_subcat = 1}
+                    {/if}
+                    <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
+                        {if $_subcat}
+                            <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
+                        {/if}
+
+                        {if $cat.id == 'else'}
+                            <div class="cat-menu__item-link">
+                    <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
+                        [`Else categories`]
+                    </span>
+                            </div>
+                        {else}
+                            <a class="cat-menu__item-link" href="{$cat.url}">
+                                <!-- Спросить о настройке -->
+                                {if $theme_settings.icon_dd_menu_subcat}
+                                    {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
+                                        {$cat.params.icon = $Wmimages[$cat.id].icon}
+                                    {/if}
+                                    {if isset($skImages[$cat.id].icon)}
+                                        {$cat.params.icon = $skImages[$cat.id].icon}
+                                    {/if}
+                                    {if isset($cat.params.icon)}
+                                        <div class="cat-menu__item-icon">
+                                            {if $theme_settings.menu_cat_img_lazy}
+                                                <img class="js-category-menu-image" alt="{$cat.name}"
+                                                     src="{$wa_theme_url}img/lazy-image.png"
+                                                     data-src="{$cat.params.icon}"/>
+                                            {else}
+                                                <img class="js-category-menu-image" alt="{$cat.name}"
+                                                     src="{$cat.params.icon}"/>
+                                            {/if}
+                                        </div>
+                                    {/if}
+                                {/if}
+                                <div class="cat-menu__item-title">
+                                    {$cat.name}
+                                </div>
+                            </a>
+                        {/if}
+                        {if $_subcat}
+                            {if isset($wa_parent_theme_path)}
+                                {$subcatFile = "`$wa_parent_theme_path`/header.subcat.`$view_subcat`.html"}
+                            {else}
+                                {$subcatFile = "header.subcat.`$view_subcat`.html"}
+                            {/if}
+                            {include file=$subcatFile}
+                        {/if}
+                    </div>
                 {/foreach}
-            </ul>
+            </div>
         </nav>
-    {/if}
-</div>
+
+    </div>
 {/strip}
