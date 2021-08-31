@@ -117,6 +117,9 @@ article, aside, footer, header, nav, section {
   }
 }
 
+.category-menu .MobileMenu_nav-header{
+  display: none;
+}
 .MobileMenu {
   line-height: 28px;
 
@@ -254,7 +257,6 @@ article, aside, footer, header, nav, section {
     flex-direction: column;
   }
 }
-
 .header-top--links {
   .container {
     display: flex;
