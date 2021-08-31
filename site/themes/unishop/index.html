@@ -74,8 +74,9 @@
     <body class="no-touch{if !empty($is_icons_hidden)} icondesc-hidden{/if} ">
 
     {include file="info.message.html"}
-
-    {include file="header.top.html"}
+    {if !$wa->isMobile()}
+        {include file="header.top.html"}
+    {/if}
     <header class="header">
         <div class="container">
             <div class="header--left">
@@ -97,7 +98,6 @@
             </div>
             <div class="header--right">
                 <div class="Nav-search juniq-header-search">
-                    <i class="btn Nav-search_btn-show fa-icon-before js-show-Nav-search"></i>
                     {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
                         <div class="Nav-search_form js-Nav-search">
                             {shopSearchproPluginViewHelper::field()}
@@ -119,6 +119,9 @@
                 </div>
 
                 <div class="Nav-contact-info">
+                    <div class="Nav-contact-phone-btn">
+                        <i class="fa fa-phone icon" aria-hidden="true"></i>
+                    </div>
                     <p class="Nav-contact-phone">{$theme_settings.header_company_phone}</p>
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
                     <p class="Nav-contact-callback js-sk-callback-open">Обратный звонок</p>

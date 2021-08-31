@@ -65,7 +65,13 @@ label {
   max-width: 1400px;
   min-width: 300px;
   padding: 0 10px;
-  width:100%;
+  width: 100%;
+}
+
+@media (max-width: 1460px) {
+  .container {
+    width: initial;
+  }
 }
 
 .head_info-massage {
@@ -91,71 +97,6 @@ label {
     right: 0;
     top: 20px;
     font-size: 40px;
-  }
-}
-
-.MobileMenu-btn {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.MobileMenu-btn:before {
-  font-size: 30px;
-  content: "";
-}
-
-.MobileMenu {
-  line-height: 28px;
-
-
-  .MobileMenu_nav-m {
-    margin: 0;
-    background: #fff;
-    border-top: 1px solid #ebebeb;
-    position: fixed;
-    left: -100%;
-    top: 0;
-    width: 100%;
-    height: calc(100% - 56px);
-    z-index: 100;
-  }
-
-  .MobileMenu_nav-m.show {
-    left: 0;
-    display: block;
-  }
-
-  .MobileMenu_nav-m > ul > li {
-    display: block;
-    padding: 0 10px;
-    border-bottom: 1px solid #ebebeb;
-    position: relative;
-  }
-
-  .MobileMenu_nav-m > ul > li:last-child {
-    border-bottom: none;
-  }
-
-  .MobileMenu_nav-m .nav-caret {
-    display: block;
-  }
-
-  .MobileMenu_nav-m a {
-    border-bottom: none;
-    display: block;
-    height: 29px;
-    margin: 0 30px 0 0;
-    text-decoration: none;
-  }
-
-  .MobileMenu_nav-m-sub {
-    margin: 0 0 0 20px;
-    display: none;
-  }
-
-  .MobileMenu_nav-m > ul > li.open .MobileMenu_nav-m-sub {
-    display: block;
   }
 }
 
@@ -262,10 +203,12 @@ label {
   .header-top_nav-sub .header-top_nav-sub, .nav-caret {
     display: none
   }
-  .header-top--right{
+
+  .header-top--right {
     display: flex;
   }
-  .header_currency , .header_lang{
+
+  .header_currency, .header_lang {
     margin-left: 30px;
   }
 }
@@ -351,18 +294,22 @@ label {
   .Nav-contact-info {
     margin-left: 30px;
   }
-  p.Nav-contact-phone{
+
+  p.Nav-contact-phone {
     white-space: nowrap;
     text-align: center;
   }
-  p.Nav-contact-callback{
+
+  p.Nav-contact-callback {
     white-space: nowrap;
     text-align: center;
     margin-bottom: 0;
   }
-  &> .container {
+
+  & > .container {
     display: flex;
     justify-content: space-between;
+    width: 100%;
   }
 
   .header--left {
@@ -377,6 +324,10 @@ label {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+
+  .Nav-contact-phone-btn {
+    display: none;
   }
 
   .header_login-logout .icon {
@@ -470,8 +421,26 @@ label {
 
 @media (max-width: 1000px) {
   .header {
-    .Nav-product-custom {
+    .Nav-product-custom > * {
       display: none
+    }
+
+    .Nav-contact-info {
+      margin-left: 10px;
+    }
+
+    .Nav-product-custom .header__cart {
+      margin-left: 10px;
+      margin-right: 10px;
+      display: block;
+    }
+
+    .product-custom {
+      padding-left: 0;
+    }
+
+    .product-custom--link > span {
+      display: none;
     }
   }
 }
@@ -483,18 +452,6 @@ label {
       border-right: 0
     }
 
-    .header--left {
-      width: 200px
-    }
-
-    .header--right {
-      width: calc(100% - 200px)
-    }
-  }
-}
-
-@media (max-width: 550px) {
-  .header {
     text-align: center;
 
     .header_login {
@@ -524,40 +481,51 @@ label {
       display: none
     }
 
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-
     .header--left {
-      margin: 0 0 10px
+      margin-right: 10px;
     }
 
     .header--left, .header--right {
-      width: 100%;
       text-align: center;
       justify-content: center;
     }
 
     .Nav-contact-info {
-      min-width: 250px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 0 0 40px;
     }
 
-    .Nav-contact-info p {
+    .Nav-contact-info > p {
+      display: none;
       margin: 0;
       line-height: 1;
       font-weight: 600;
       color: #333333;
+      padding: 0 0 0 40px;
     }
 
+    .header_logo img {
+      max-width: 100px
+    }
+
+    .Nav-contact-phone-btn {
+      display: block;
+      font-size: 25px;
+    }
   }
 }
 
 @media (max-width: 500px) {
+  .header {
+    .nav-cat {
+      display: none;
+    }
+
+    .header--left {
+      width: 100px;
+    }
+  }
   .Nav-product-custom .preview-cart .product-msg-added-wrap {
     left: auto;
     right: 10px
@@ -568,18 +536,6 @@ label {
   }
 }
 
-.fixed-panel {
-  display: flex;
-  justify-content: space-evenly;
-
-  .preview-cart.product-custom {
-    display: inline-block
-  }
-
-  .product-custom {
-    padding: 7px 10px
-  }
-}
 .product_print {
   order: 2;
   margin-left: auto;
@@ -684,21 +640,35 @@ label {
 }
 
 @media (max-width: 825px) {
-  .previews_gallery {
-    flex: 1 1 100%;
-  }
-  .product-page_main-left {
-    flex: 1 1 100%;
-  }
-  .product-page_main-right {
-    flex: 1 1 calc(100%);
-  }
-  .image-preview {
-    display: inline-flex;
-    margin: 0px 5px;
-  }
-  .product_action, .product_action-desc {
-    padding: 0 0 0 0;
+  .product_page {
+    .previews_gallery {
+      flex: 1 1 100%;
+    }
+
+    .product-page_main-left {
+      flex: 1 1 100%;
+    }
+
+    .product-page_main-right {
+      flex: 1 1 calc(100%);
+    }
+
+    .image-preview {
+      display: inline-flex;
+      margin: 0px 5px;
+    }
+
+    .product_action, .product_action-desc {
+      padding: 0 0 0 0;
+    }
+
+    .image-preview-list {
+      padding-left: 0;
+    }
+
+    .product_action, .product_action-desc {
+      padding: 0;
+    }
   }
 }
 
@@ -841,6 +811,7 @@ label {
   flex-direction: column;
   margin-right: 15px;
 }
+
 .owl-carousel .Product-grid > a, .owl-carousel .Product-grid > form {
   width: 200px !important;
 }
@@ -1251,6 +1222,56 @@ i.wa-icon.arrow-left {
   margin: 5px 10px 0;
 }
 
+
+.fixed-panel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  background: #fff;
+  border-top-width: 1px;
+  border-top-style: solid;
+  min-width: 300px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .preview-cart.product-custom {
+    display: inline-block
+  }
+
+  .product-custom {
+    padding: 10px 10px
+  }
+
+  .preview-cart .product-custom_icon .icon {
+    font-size: 24px;
+  }
+
+  .product-custom a {
+    font-size: 13px;
+    line-height: 13px;
+    display: block;
+  }
+}
+@media (min-width:1000px) {
+  .fixed-panel{
+    display: none!important;
+  }
+}
+.MobileMenu-btn {
+  line-height: 24px;
+  font-size: 24px;
+  height: 24px;
+}
+
+
+.sab-cat-header {
+  display: none;
+}
 
 .-Close {
   display: none;

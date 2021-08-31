@@ -1,7 +1,8 @@
 {strip}
+
 {include file="header.top.menu-mobile.html"}
 <div class="fixed-panel top-border-color js-fixed-panel">
-    <div data-id="header_menu-nav" class="MobileMenu-btn  fa-icon js-nav-button"></div>
+    <i data-id="header_menu-nav" class="MobileMenu-btn icon fi-rr-menu-burger js-nav-button"></i>
     {if $theme_settings.favorites}
         {$count_favorites = 0}
         {$product_favor_arr = $wa->cookie('product_favor_arr')}

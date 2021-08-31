@@ -404,7 +404,7 @@
       <name locale="en_US">Autosearch on</name>
     </setting>
     <setting var="plugin_search_pro" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="en_US">Use the plugin Search Pro (Bodysite)</name>
       <name locale="ru_RU">Используется плагин Поиск Pro (Bodysite)</name>
     </setting>
@@ -462,7 +462,7 @@
       <description locale="en_US">The icon for the category is downloaded via the file manager and is indicated in the category with the additional option icon. If the plugin "Icon, image and banner for category" is installed, the icon is displayed from the plugin. </description>
     </setting>
     <setting var="col_menu_subcat" control_type="select">
-      <value>columns</value>
+      <value>one_column</value>
       <name locale="ru_RU">Вид подменю категорий</name>
       <name locale="en_US">View sub-categories</name>
       <description locale="ru_RU">Для каждой категории первого уровня можно индивидуально настроить вид выпадающего подменю, указав Дополнительный параметр "submenu_columns" со значениями: "one_column" (1 колонка), "columns" (несколько колонок)</description>

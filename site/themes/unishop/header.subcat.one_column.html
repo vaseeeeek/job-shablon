@@ -1,5 +1,10 @@
 {strip}
 <div class="menu-subcategory js-subcategory-menu">
+    <div class="MobileMenu_nav-header">
+        <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
+        <div class="cat-title">{$cat.name}</div>
+        <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+    </div>
     {foreach $cat.childs as $keyCatChild => $catChild_2}
         {if !isset($catChild_2.params.menu_hide)}
             {$_subcat_lvl2 = false}
@@ -18,6 +23,12 @@
                 <a href="{$catChild_2.url}">{$catChild_2.name}</a>
                 {if $_subcat_lvl2}
                     <div class="menu-subcategory js-subcategory-menu">
+
+                        <div class="MobileMenu_nav-header">
+                            <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
+                            <div class="cat-title">{$catChild_2.name}</div>
+                            <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                        </div>
                         {foreach $catChild_2.childs as $catChild_3}
                             {if !isset($catChild_3.params.menu_hide)}
                                 <div class="subcat-menu__item">
