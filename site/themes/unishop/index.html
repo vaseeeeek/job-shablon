@@ -120,9 +120,11 @@
                     </div>
                 {/if}
                 <div class="Nav-contact-info">
-                    <div class="Nav-contact-phone-btn">
-                        <i class="fa fa-phone icon" aria-hidden="true"></i>
-                    </div>
+                    {if $theme_settings.header_company_phone}
+                        <a class="Nav-contact-phone-btn" href="tel:{$theme_settings.header_company_phone}">
+                            <i class="fa fa-phone icon" aria-hidden="true"></i>
+                        </a>
+                    {/if}
                     <p class="Nav-contact-phone">{$theme_settings.header_company_phone}</p>
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
                     <p class="Nav-contact-callback js-sk-callback-open">Обратный звонок</p>

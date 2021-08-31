@@ -200,7 +200,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>linear-gradient( 45deg , #6D39ED, #3E3BF7, #4169E1,#3B9CF7, #39C5ED )</value>
+      <value>#000000</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Base color</name>
       <description locale="ru_RU">Цвет панели с поиском, иконок и тд</description>
@@ -214,7 +214,7 @@
       <description locale="en_US">If not selected, the color is taken from the "Base Color"</description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>linear-gradient( 45deg , #6D39ED, #3E3BF7, #4169E1,#3B9CF7, #39C5ED )</value>
+      <value>#000000</value>
       <name locale="ru_RU">Цвет кнопок, активных ссылок и др</name>
       <name locale="en_US">Color of buttons and other</name>
     </setting>

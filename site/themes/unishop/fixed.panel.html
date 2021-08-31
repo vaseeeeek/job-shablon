@@ -95,11 +95,11 @@
                         </div>
                     </div>
                 {/if}
-                {if $btn == 'phone'}
+                {if $btn == 'phone' && $theme_settings.header_company_phone}
                     <div class="product-custom">
-                        <div class="product-custom_icon maincolor">
+                        <a class="product-custom_icon maincolor" href="tel:{$theme_settings.header_company_phone}">
                             <i class="fa fa-phone icon"></i>
-                        </div>
+                        </a>
                     </div>
                 {/if}
             {/foreach}
