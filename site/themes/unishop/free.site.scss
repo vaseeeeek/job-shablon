@@ -117,9 +117,10 @@ article, aside, footer, header, nav, section {
   }
 }
 
-.category-menu .MobileMenu_nav-header{
+.category-menu .MobileMenu_nav-header {
   display: none;
 }
+
 .MobileMenu {
   line-height: 28px;
 
@@ -255,8 +256,13 @@ article, aside, footer, header, nav, section {
   .mob-menu-lk {
     display: flex;
     flex-direction: column;
+
+    a {
+      border-bottom: 1px solid #ebebeb;
+    }
   }
 }
+
 .header-top--links {
   .container {
     display: flex;
@@ -469,6 +475,10 @@ article, aside, footer, header, nav, section {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    & > .Nav-search {
+      display: none;
+    }
   }
 
   .header--left {
@@ -564,12 +574,27 @@ article, aside, footer, header, nav, section {
 
 @media (max-width: 1024px) {
   .header {
-    .header_login-icon .icon, .header_login-icon .userpic {
+    .container {
+      flex-wrap: wrap;
+
+      &>.Nav-search {
+        display: block;
+      }
+    }
+
+    .header_login-icon .icon,
+    .header_login-icon .userpic {
       display: none
     }
 
     .header_login {
       width: 90px
+    }
+
+    .header--right {
+      & > .Nav-search {
+        display: none;
+      }
     }
 
     .header_address {
@@ -606,12 +631,12 @@ article, aside, footer, header, nav, section {
 
 @media (max-width: 950px) {
   .header {
+    text-align: center;
+
     .header_login {
       padding-right: 0;
       border-right: 0
     }
-
-    text-align: center;
 
     .header_login {
       width: initial;
@@ -644,11 +669,6 @@ article, aside, footer, header, nav, section {
       margin-right: 10px;
     }
 
-    .header--left, .header--right {
-      text-align: center;
-      justify-content: center;
-    }
-
     .Nav-contact-info {
       display: flex;
       flex-direction: column;
@@ -662,10 +682,6 @@ article, aside, footer, header, nav, section {
       font-weight: 600;
       color: #333333;
       padding: 0 0 0 40px;
-    }
-
-    .header_logo img {
-      max-width: 100px
     }
 
     .Nav-contact-phone-btn {
@@ -682,7 +698,7 @@ article, aside, footer, header, nav, section {
     }
 
     .header--left {
-      width: 100px;
+      width: 140px;
     }
   }
   .Nav-product-custom .preview-cart .product-msg-added-wrap {
@@ -727,21 +743,24 @@ article, aside, footer, header, nav, section {
   }
 
   .product-custom {
-    padding: 10px 10px
+    padding: 10px 10px;
+  }
+  .product-custom_icon{
+    line-height: 1;
   }
 
-  .preview-cart .product-custom_icon .icon {
+  .product-custom_icon .icon {
+    display: flex;
     font-size: 24px;
+    line-height: 1;
   }
-
   .product-custom a {
     font-size: 13px;
     line-height: 13px;
     display: block;
   }
 }
-
-@media (min-width: 1000px) {
+@media (min-width: 1024px) {
   .fixed-panel {
     display: none !important;
   }

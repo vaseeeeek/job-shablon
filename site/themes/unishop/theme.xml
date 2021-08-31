@@ -404,7 +404,7 @@
       <name locale="en_US">Autosearch on</name>
     </setting>
     <setting var="plugin_search_pro" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Use the plugin Search Pro (Bodysite)</name>
       <name locale="ru_RU">Используется плагин Поиск Pro (Bodysite)</name>
     </setting>
@@ -2512,6 +2512,11 @@
     <setting var="header_company_email" control_type="text">
       <value/>
       <name locale="ru_RU">Почта</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="fixed_panel_array" control_type="text">
+      <value>burger,cart,compare,favorite,filter,phone</value>
+      <name locale="ru_RU">Кнопки в фиксированной панеле на моб.устройстве</name>
       <name locale="en_US"/>
     </setting>
   </settings>

@@ -97,27 +97,28 @@
                 {/if}
             </div>
             <div class="header--right">
-                <div class="Nav-search juniq-header-search">
-                    {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
-                        <div class="Nav-search_form js-Nav-search">
-                            {shopSearchproPluginViewHelper::field()}
-                        </div>
-                    {else}
-                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
-                              class="js-Nav-search Nav-search_form">
-                            <div class="inp-search">
-                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-auto-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
-                                       type="text" name="query" value="{$wa->get('query')|escape}"
-                                       placeholder="[`Search in catalog`]"/>
-                                {if $theme_settings.auto_search}
-                                    <div class="auto-search-result js-auto-search-result"></div>
-                                {/if}
-                                <i class="fa fa-search btn maincolor js-btn-form"></i>
+                {if !$wa->isMobile()}
+                    <div class="Nav-search juniq-header-search">
+                        {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
+                            <div class="Nav-search_form js-Nav-search">
+                                {shopSearchproPluginViewHelper::field()}
                             </div>
-                        </form>
-                    {/if}
-                </div>
-
+                        {else}
+                            <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
+                                  class="js-Nav-search Nav-search_form">
+                                <div class="inp-search">
+                                    <input class="Nav-inp-search{if $theme_settings.auto_search} js-auto-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
+                                           type="text" name="query" value="{$wa->get('query')|escape}"
+                                           placeholder="[`Search in catalog`]"/>
+                                    {if $theme_settings.auto_search}
+                                        <div class="auto-search-result js-auto-search-result"></div>
+                                    {/if}
+                                    <i class="fa fa-search btn maincolor js-btn-form"></i>
+                                </div>
+                            </form>
+                        {/if}
+                    </div>
+                {/if}
                 <div class="Nav-contact-info">
                     <div class="Nav-contact-phone-btn">
                         <i class="fa fa-phone icon" aria-hidden="true"></i>
@@ -221,6 +222,29 @@
                     </div>
                 </div>
             </div>
+
+            {if $wa->isMobile()}
+                <div class="Nav-search juniq-header-search">
+                    {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
+                        <div class="Nav-search_form js-Nav-search">
+                            {shopSearchproPluginViewHelper::field()}
+                        </div>
+                    {else}
+                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
+                              class="js-Nav-search Nav-search_form">
+                            <div class="inp-search">
+                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-auto-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
+                                       type="text" name="query" value="{$wa->get('query')|escape}"
+                                       placeholder="[`Search in catalog`]"/>
+                                {if $theme_settings.auto_search}
+                                    <div class="auto-search-result js-auto-search-result"></div>
+                                {/if}
+                                <i class="fa fa-search btn maincolor js-btn-form"></i>
+                            </div>
+                        </form>
+                    {/if}
+                </div>
+            {/if}
         </div>
     </header>
     {include file="header.nav.html"}
