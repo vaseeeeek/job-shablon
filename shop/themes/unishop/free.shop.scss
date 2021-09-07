@@ -439,6 +439,274 @@ label {
   }
 }
 
+
+.owl-stage-outer {
+  box-sizing: border-box
+}
+
+.owl-stage {
+  margin: 0 auto
+}
+
+.owl-carousel {
+  display: block
+}
+
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 1
+}
+
+.products-tile .owl-stage {
+  margin: 0
+}
+
+.owl-next, .owl-prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 40px;
+  bottom: 0;
+  outline: none;
+  user-select: none;
+  background: none;
+  cursor: pointer
+}
+
+.owl-next {
+  left: auto;
+  right: 0
+}
+
+.owl-prev:after {
+  content: "\f053"
+}
+
+.owl-next:after {
+  content: "\f054"
+}
+
+.owl-next.disabled, .owl-next.disabled:hover, .owl-prev.disabled, .owl-prev.disabled:hover {
+  color: #ebebed;
+  cursor: default
+}
+
+.owl-carousel .owl-item img {
+  width: auto;
+  max-width: 100%;
+  display: inline-block
+}
+
+.bx-next, .bx-prev {
+  text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  margin: -25px 0 0;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px
+}
+
+.bx-next {
+  left: auto;
+  right: 3%
+}
+
+.slider-outer button {
+  background: 0 0;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer
+}
+
+.slider-outer .bx-prev {
+  left: 10px
+}
+
+.slider-outer .bx-next {
+  right: 10px
+}
+
+.bx-next:after {
+  content: "\f054"
+}
+
+.bx-next:after, .bx-prev:after {
+  font: normal normal normal 16px/1 FontAwesome
+}
+
+.bx-prev:after {
+  content: "\f053"
+}
+
+.carousel-vertical {
+  padding: 30px 0
+}
+
+.carousel-vertical .bx-next, .carousel-vertical .bx-prev {
+  right: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  line-height: 24px
+}
+
+.carousel-vertical .bx-prev {
+  top: 0;
+  bottom: auto
+}
+
+.carousel-vertical .bx-next {
+  bottom: 0;
+  top: auto
+}
+
+.carousel-vertical .bx-prev:after {
+  content: "\f139";
+  font-size: 24px
+}
+
+.carousel-vertical .bx-next:after {
+  content: "\f13a";
+  font-size: 24px
+}
+
+.carousel-vertical .bx-next.disabled, .carousel-vertical .bx-prev.disabled {
+  cursor: default
+}
+
+.carousel-vertical .bx-next.disabled:after, .carousel-vertical .bx-prev.disabled:after {
+  color: #ebebeb
+}
+
+.bx-next:hover, .bx-prev:hover {
+  background: hsla(0, 0%, 100%, .3)
+}
+
+.bx-pager {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  right: 0;
+  left: 0
+}
+
+.bx-pager, .owl-dots {
+  text-align: center
+}
+
+.bx-pager-item, .bx-pager-item > a, .owl-dot, .owl-dot > span {
+  display: inline-block;
+  line-height: 10px
+}
+
+button.owl-dot:hover {
+  box-shadow: none
+}
+
+button.owl-dot {
+  line-height: normal;
+  height: auto;
+  z-index: 2
+}
+
+.bx-pager-item > a, .owl-dot > span {
+  background: #fff;
+  text-indent: -9999px;
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  outline: 0;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%
+}
+
+.slider-outer .owl-next, .slider-outer .owl-prev {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 2;
+  top: calc(50% - 25px);
+}
+
+.slider-outer--photos .owl-next, .slider-outer--photos .owl-prev {
+  color: #fff !important
+}
+
+.slider-outer--photos .owl-dot > span {
+  border: 1px solid #fff;
+  background: none
+}
+
+.slider-outer--photos .owl-dot.active > span {
+  background: #fff
+}
+
+.slider-outer .owl-next {
+  right: 10px
+}
+
+.slider-outer .owl-prev {
+  left: 10px
+}
+
+.slider-outer .owl-dots {
+  position: absolute;
+  height: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2
+}
+@media (max-width: 800px) {
+  .slider-outer .owl-next, .slider-outer .owl-prev {
+    width: 30px;
+    height: 30px;
+    top: calc(50% - 15px);
+  }
+
+  .slider-outer .owl-prev {
+    left: 0
+  }
+
+  .slider-outer .owl-next {
+    right: 0
+  }
+}
+@media (max-width: 600px) {
+  .slider-outer .bx-next, .slider-outer .bx-prev {
+    width: 30px;
+    height: 30px;
+    line-height: 30px
+  }
+
+  .slider-outer .bx-prev {
+    left: 0
+  }
+
+  .slider-outer .bx-next {
+    right: 0
+  }
+
+  .main-slider_el-title {
+    font-size: 20px
+  }
+}
+
+.owl-carousel.main-slider {
+  display: block
+}
+
 .product_cross-products {
   .product_cross-title__outer {
     display: flex;
@@ -970,12 +1238,6 @@ i.wa-icon.arrow-left {
   line-height: 30px;
   border-radius: 0;
   margin: 5px 10px 0;
-}
-
-@media (min-width: 1000px) {
-  .fixed-panel {
-    display: none !important;
-  }
 }
 
 .MobileMenu-btn {
