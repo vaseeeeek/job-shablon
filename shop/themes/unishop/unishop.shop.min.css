@@ -6052,12 +6052,12 @@ iframe {
 	display: none;
 }
 
-.Nav__Primary .dt-block {
+.Nav__Primary .df-block {
 	-ms-flex-wrap: nowrap;
 	    flex-wrap: nowrap;
 }
 
-.dt-block {
+.df-block {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;

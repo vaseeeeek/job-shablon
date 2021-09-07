@@ -8909,10 +8909,10 @@ iframe {
 .hide {
     display: none
 }
-.Nav__Primary .dt-block {
+.Nav__Primary .df-block {
     flex-wrap: nowrap;
 }
-.dt-block {
+.df-block {
     display: flex;
     align-items: center;
     width: 100%;

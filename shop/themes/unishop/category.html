@@ -10,8 +10,8 @@
 {/if}
 
 
-<div class="cols-{$cols}">
-    <div class="out_sidebars">
+<div class="category">
+    <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
         {if $sb_left}
             {include file='sidebar-left.html' filter=$filters}
         {/if}

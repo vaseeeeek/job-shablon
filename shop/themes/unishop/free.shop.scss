@@ -994,7 +994,7 @@ i.wa-icon.arrow-left {
     left: -100%;
     top: 0;
     width: 100%;
-    height: calc(100% - 48px);
+    height: calc(100% - 45px);
     z-index: 100;
     overflow: auto;
     padding: 10px;
@@ -1009,7 +1009,12 @@ i.wa-icon.arrow-left {
   display: none;
 }
 
-.-Close {
-  display: none;
+.category{
+  display: flex;
+  .content {
+    margin-left: 0;
+  }
+  .out_sidebars.-mr{
+    margin-right:20px;
+  }
 }
-

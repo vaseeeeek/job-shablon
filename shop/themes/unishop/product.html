@@ -25,10 +25,10 @@
         <article class="js-product-page product_page" itemscope itemtype="http://schema.org/Product">
             <div class="content">
                 <div class="content-box">
-                    <div class="dt-block">
+                    <div class="df-block">
                         <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
                     </div>
-                    <div class="dt-block">
+                    <div class="df-block">
                         {if $theme_settings.product_ratings}
                             {if $product.rating > 0}
                                 <span class="product_rating rating nowrap" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" title="{sprintf('[`Average user rating: %s / 5`]', $product.rating)}">
