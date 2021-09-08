@@ -56,14 +56,14 @@
         {if $theme_settings.favorites}
             <div class="js-button Product-grid_action{if $theme_settings.compare} margin{/if}">
             <span data-product="{$p.id}"
-                  class="js-favorites-add product-action add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
+                  class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
                 <i class="fi-rr-heart"></i>
             </span>
             </div>
         {/if}
         {if $theme_settings.compare}
             <div class="js-button Product-grid_action">
-            <span class="js-compare-add product-action add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
+            <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
                   data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
                 <i class="fa fa-files-o"></i>
             </span>
@@ -72,9 +72,10 @@
 
         {if $theme_settings.product_preview_dialog}
             <div class="js-dialog Product-grid_dialog Product-grid_action">
-            <span class="js-card-dialog product-action"
+            <span class="js-card-dialog product-action bg-sdСolor"
                   data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
                 <i class="fa fi-rr-zoom-in"></i>
+
             </span>
             </div>
         {/if}

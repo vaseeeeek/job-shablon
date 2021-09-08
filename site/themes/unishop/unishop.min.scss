@@ -5453,17 +5453,9 @@ img.mfp-img {
 }
 
 .product-custom_icon {
-  display: inline-block;
+  display: inline-flex;
+  height: 29px;
   position: relative;
-  vertical-align: middle
-}
-
-.product-custom_icon .icon {
-  font-size: 31px
-}
-
-.preview-cart .product-custom_icon .icon {
-  font-size: 37px
 }
 
 .product-custom_content {
@@ -6975,7 +6967,7 @@ ul.pages-list li a {
 
 .btn-top {
   position: fixed;
-  bottom: 106px;
+  bottom: 156px;
   opacity: .4;
   width: 0;
   height: 0;
@@ -6986,8 +6978,7 @@ ul.pages-list li a {
 }
 
 .btn-top:before {
-  content: "\f01b";
-  font-size: 50px
+  font-size: 30px
 }
 
 @media print {

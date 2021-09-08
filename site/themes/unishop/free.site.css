@@ -5525,17 +5525,11 @@ img.mfp-img {
 }
 
 .product-custom_icon {
-	display: inline-block;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	height: 29px;
 	position: relative;
-	vertical-align: middle;
-}
-
-.product-custom_icon .icon {
-	font-size: 31px;
-}
-
-.preview-cart .product-custom_icon .icon {
-	font-size: 37px;
 }
 
 .product-custom_content {
@@ -7037,7 +7031,7 @@ ul.pages-list li a {
 
 .btn-top {
 	position: fixed;
-	bottom: 106px;
+	bottom: 156px;
 	opacity: 0.4;
 	width: 0;
 	height: 0;
@@ -7048,8 +7042,7 @@ ul.pages-list li a {
 }
 
 .btn-top:before {
-	content: "";
-	font-size: 50px;
+	font-size: 30px;
 }
 
 @media print {
@@ -7517,6 +7510,11 @@ article, aside, footer, header, nav, section {
 	padding: 0 10px;
 }
 
+@media (max-width: 1460px) {
+	.container {
+		width: initial;
+	}
+}
 .inp-search .btn {
 	position: absolute;
 	right: 10px;
@@ -7924,13 +7922,31 @@ article, aside, footer, header, nav, section {
 	width: 50px;
 	border: 1px solid #ebebeb;
 }
+.header .product-custom_icon .icon {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	font-size: 24px;
+	color: #202020;
+	line-height: 1;
+	height: 29px;
+}
 .header .header__cart-icon {
-	height: 31px;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
 	position: relative;
+}
+.header .header__cart-icon .icon {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	font-size: 24px;
 }
 .header .header__cart-content, .header .header__cart-icon {
 	display: inline-block;
 	vertical-align: top;
+	font-size: 37px;
 }
 .header .header__cart-content, .header .header__cart-content a {
 	color: #5d5d5d;
@@ -8172,10 +8188,11 @@ article, aside, footer, header, nav, section {
 	line-height: 1;
 }
 .fixed-panel .product-custom_icon .icon {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
 	font-size: 24px;
+	color: #202020;
 	line-height: 1;
 }
 .fixed-panel .product-custom a {

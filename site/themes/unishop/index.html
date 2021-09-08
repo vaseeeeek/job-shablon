@@ -71,7 +71,7 @@
         {/if}
     </head>
 
-    <body class="no-touch{if !empty($is_icons_hidden)} icondesc-hidden{/if} ">
+    <body class="{if !empty($is_icons_hidden)} icondesc-hidden{/if}">
 
     {include file="info.message.html"}
     {if !$wa->isMobile()}
@@ -83,8 +83,7 @@
                 {$is_logo = $theme_settings.logo}
                 <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" href="{$wa_url}">
                     {if $is_logo}
-                        <img{if $theme_settings.logo_retina} class="js-retina-logo" data-atretina="{$wa_theme_url}{$theme_settings.logo_retina}"{/if}
-                                src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
+                        <img src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
                     {else}
                         {$wa->accountName()}
                     {/if}
@@ -113,7 +112,19 @@
                                     {if $theme_settings.auto_search}
                                         <div class="auto-search-result js-auto-search-result"></div>
                                     {/if}
-                                    <i class="fa fa-search btn maincolor js-btn-form"></i>
+{*                                    <i class="fa fa-search btn maincolor js-btn-form"></i>*}
+
+                                    {literal}
+                                        <img id="svgFind" src="/img/search.svg" alt="" >
+                                    <style>
+                                        #svgFind{
+                                            position: absolute;
+                                            width: 21px;
+                                            right: 7px;
+                                            top: 8px;
+                                        }
+                                    </style>
+                                    {/literal}
                                 </div>
                             </form>
                         {/if}
@@ -138,7 +149,7 @@
                                     <i class="fi-rr-user icon"></i>
                                 </div>
                                 {if $wa->user()->isAuth()}
-                                    {$wa->user('firstname')|default:'[`My account`]'}
+                                    <span>{$wa->user('firstname')|default:'[`My account`]'}</span>
                                 {else}
                                     <span>Войти</span>
                                 {/if}
@@ -152,7 +163,7 @@
                                     <i class="fi-rr-user icon"></i>
                                 </div>
                                 {if $wa->user()->isAuth()}
-                                    {$wa->user('firstname')|default:'[`My account`]'}
+                                    <span>{$wa->user('firstname')|default:'[`My account`]'}</span>
                                 {else}
                                     <span>Войти</span>
                                 {/if}
@@ -193,7 +204,21 @@
                         <div class="js-preview-compare product-custom">
                             <a class="js-products-link product-custom--link" href="{$url}">
                                 <div class="product-custom_icon maincolor">
-                                    <i class="fa fa-files-o icon "></i>
+{*                                    <i class="fa fa-files-o icon "></i>*}
+                                    {literal}
+                                    <svg version="1.1" id="svgCompare" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 695 718" style="enable-background:new 0 0 695 718;" xml:space="preserve">
+                                        <path d="M62,718H33c-18.2,0-33-14.8-33-33V220c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v465C95,703.2,80.2,718,62,718z"/>
+                                        <path d="M362,717h-29c-18.2,0-33-14.8-33-33V33c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v651C395,702.2,380.2,717,362,717z"/>
+                                        <path d="M662,717h-29c-18.2,0-33-14.8-33-33V429c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v255C695,702.2,680.2,717,662,717z"/>
+                                    </svg>
+                                    {/literal}
+                                    <style>
+                                        #svgCompare{
+                                            width:24px;
+                                        }
+                                    </style>
+
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
                                 </div>
                                 <span>Сравнение</span>
@@ -210,7 +235,7 @@
                     <div class="header__cart juniq-header-preview-cart js-cart-header product-custom"
                          data-url="{$cartPopupUrl}">
                         <a class="product-custom--link" href="{$cartUrl}">
-                            <div class="header__cart-icon">
+                            <div class="product-custom_icon">
                                 <i class="icon fi-rr-shopping-cart sdСolor"></i>
                                 <span class="js-cart-preview-count header__cart-count bg-maincolor">{$wa->shop->cart->count()}</span>
                             </div>
@@ -355,7 +380,28 @@
         </div>
     </footer>
 
-    {if $theme_settings.scroll_top}<span class="btn-top fa-icon-before sdСolor" id="move-to-top"></span>{/if}
+    {if $theme_settings.scroll_top}<span class="btn-top {*icon fi-rr-angle-up *}sdСolor" id="move-to-top">
+
+            {literal}
+                <svg version="1.1" id="svgSrollToTop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 418 228.3" style="enable-background:new 0 0 418 228.3;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill:none;stroke:#000000;stroke-width:53;stroke-linecap:round;stroke-miterlimit:10;}
+                </style>
+                <g id="Слой_1_1_">
+                    <path class="st0" d="M26.5,201.8L202.8,29.1c3.6-3.5,9.4-3.5,13,0l175.7,172.6"/>
+                </g>
+                <g id="Слой_2_1_">
+                </g>
+                </svg>
+                <style>
+                    #svgSrollToTop{
+                        width: 25px;
+                    }
+                </style>
+            {/literal}
+
+        </span>{/if}
 
     {if $wa->isMobile()}
         {include file="fixed.panel.html" inline}

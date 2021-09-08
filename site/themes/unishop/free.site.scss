@@ -83,6 +83,12 @@ article, aside, footer, header, nav, section {
   padding: 0 10px;
 }
 
+@media (max-width: 1460px) {
+  .container {
+    width: initial;
+  }
+}
+
 .inp-search .btn {
   position: absolute;
   right: 10px;
@@ -513,15 +519,28 @@ article, aside, footer, header, nav, section {
     border: 1px solid #ebebeb
   }
 
-  .header__cart-icon {
-    height: 31px;
-    position: relative
+  .product-custom_icon .icon {
+    display: inline-flex;
+    font-size: 24px;
+    color: #202020;
+    line-height: 1;
+    height: 29px;
   }
 
+  .header__cart-icon {
+    display: inline-flex;
+    position: relative;
+    .icon {
+      display: inline-flex;
+      font-size: 24px;
+    }
+  }
   .header__cart-content, .header__cart-icon {
     display: inline-block;
-    vertical-align: top
+    vertical-align: top;
+    font-size: 37px
   }
+
 
   .header__cart-content, .header__cart-content a {
     color: #5d5d5d
@@ -779,8 +798,9 @@ article, aside, footer, header, nav, section {
   }
 
   .product-custom_icon .icon {
-    display: flex;
+    display: inline-flex;
     font-size: 24px;
+    color: #202020;
     line-height: 1;
   }
   .product-custom a {

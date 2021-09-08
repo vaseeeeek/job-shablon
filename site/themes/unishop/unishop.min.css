@@ -9519,10 +9519,6 @@ iframe {
     vertical-align: middle
 }
 
-.product-custom_icon .icon {
-    font-size: 31px
-}
-
 .preview-cart .product-custom_icon .icon {
     font-size: 37px
 }
@@ -12930,7 +12926,6 @@ ul.pages-list li a {
 }
 
 .btn-top:before {
-    content: "\f01b";
     font-size: 50px
 }
 

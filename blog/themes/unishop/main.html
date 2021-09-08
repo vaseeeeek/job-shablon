@@ -66,7 +66,7 @@
 
         {include file="`$wa_active_theme_path`/sidebar.html"}
 
-        <div class="js-content content{if !(isset($action) && $action == 'default')} content-box{/if} with-sidebar"
+        <div class="content{if !(isset($action) && $action == 'default')} content-box{/if} with-sidebar"
              itemscope itemtype="http://schema.org/WebPage">
 
             {if empty($posts) && $wa->currentUrl() == $wa_app_url}

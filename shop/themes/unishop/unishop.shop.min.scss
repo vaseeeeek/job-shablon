@@ -725,9 +725,8 @@
 
 .product-discount {
   background: #fff;
-  line-height: 19px;
+  line-height: 24px;
   color: #ea0010;
-  border: 1px solid;
   box-sizing: border-box;
   border-radius: 2px
 }
@@ -830,9 +829,8 @@
   height: 30px;
   line-height: 30px;
   text-align: center;
-  background: hsla(0, 0%, 100%, .7);
   display: inline-block;
-  color: #8a8a8a
+  color: #fff
 }
 
 .Product-grid_dialog {
@@ -1071,7 +1069,8 @@
 
 .Product-grid_sku {
   height: 20px;
-  line-height: 20px
+  line-height: 20px;
+  font-size: 9px;
 }
 
 .product-day .Product-grid_name {
@@ -3823,13 +3822,6 @@ img.pswp__img {
   max-width: none
 }
 
-.product_action-dialog {
-  white-space: nowrap;
-  font-size: 0;
-  display: flex;
-  flex-wrap: wrap
-}
-
 .modal-content--dialog-options .product_action-dialog {
   display: block;
   font-size: 14px
@@ -3848,10 +3840,15 @@ img.pswp__img {
   box-sizing: border-box;
   font-size: 14px
 }
-
+@media (max-width:1150px) {
+  .product_action-dialog-right {
+    width: 100%;
+  }
+}
 .dialog_discounts {
   margin: -10px 0 15px;
-  height: 24px
+  height: 24px;
+  display: flex;
 }
 
 .product_action-dialog .product_name {

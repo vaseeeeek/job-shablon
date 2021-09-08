@@ -3,11 +3,11 @@
 
     {if $wa->get('ajax')}
         {include file="popup.cart.html" inline}
-    {else if $wa->get('fixed')}<!-- За что отвечает ? -->
+    {else if $wa->get('fixed')}
         {include file="fixed.cart.html" inline}
     {else}
         <div class="cols-1">
-            <div class="js-content content ">
+            <div class="content ">
                 <div class="content-box">
                     {if !$cart.count}
                         <div class="cart">

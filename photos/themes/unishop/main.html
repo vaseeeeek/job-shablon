@@ -18,7 +18,7 @@
             {/foreach}
         </ul>
     {/if}
-    <article class="js-content content content-box" itemscope itemtype="http://schema.org/{if $action == 'photo'}Photograph{else}WebPage{/if}">
+    <article class="content content-box" itemscope itemtype="http://schema.org/{if $action == 'photo'}Photograph{else}WebPage{/if}">
 
         {* @event frontend_layout.%plugin_id%.header *}
         {foreach $frontend_layout as $item}

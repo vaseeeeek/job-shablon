@@ -1,5 +1,5 @@
 {strip}
-    <aside class="left-sidebar js-left-sd">
+    <aside class="left-sidebar ">
         {if $theme_settings.show_sb_filter == 'sidebar_left' && !empty($filters)}
             {if !isset($filters)}{$filters = []}{/if}
             {include file="`$wa_active_theme_path`/sidebar.filter.html" filter=$filters}
