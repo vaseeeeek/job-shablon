@@ -70,7 +70,7 @@ article, aside, footer, header, nav, section {
 }
 
 .fa-icon-before:before {
-  font: normal normal normal 16px/1 FontAwesome;
+  font: normal normal normal 18px/1 FontAwesome;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -276,7 +276,7 @@ article, aside, footer, header, nav, section {
   }
 
   .header-top_menu {
-    flex: 1;
+    width: calc(100% - 327px);
     margin: 0 !important;
   }
 
@@ -374,6 +374,8 @@ article, aside, footer, header, nav, section {
 
   .header-top--right {
     display: flex;
+    white-space: nowrap;
+    width: 327px;
   }
 
   .header_currency, .header_lang {
@@ -458,23 +460,36 @@ article, aside, footer, header, nav, section {
 
 .header {
   background: #fff;
-  padding: 20px 0;
   display: flex;
   align-items: center;
+  padding: 12px 0;
+  margin: 0px 0 15px 0;
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
 
   .Nav-contact-info {
     margin-left: 30px;
+    p:not(:last-child) {
+      margin-bottom: 4px;
+    }
   }
 
   p.Nav-contact-phone {
     white-space: nowrap;
     text-align: center;
+    color:#101a3a;
+    font-size:15px;
   }
 
   p.Nav-contact-callback {
     white-space: nowrap;
     text-align: center;
     margin-bottom: 0;
+    color:#5a6c7d;
+    border-bottom: 1px dashed;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400;
+    transition: .3s all;
   }
 
   & > .container {
@@ -530,6 +545,8 @@ article, aside, footer, header, nav, section {
   .header__cart-icon {
     display: inline-flex;
     position: relative;
+    height: 24px;
+
     .icon {
       display: inline-flex;
       font-size: 24px;
@@ -557,13 +574,17 @@ article, aside, footer, header, nav, section {
   }
 
   .Nav-product-custom .product-custom_icon {
-    color: #fff
+    color: #fff;
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   .product-custom {
     line-height: 14px;
     position: relative;
-    padding: 0 0 0 40px;
+    padding: 0 0 0 20px;
     display: inline-block
   }
 
@@ -590,7 +611,6 @@ article, aside, footer, header, nav, section {
     margin-right: 20px;
   }
 }
-
 @media (max-width: 1024px) {
   .header {
     .container {
@@ -598,6 +618,7 @@ article, aside, footer, header, nav, section {
 
       &>.Nav-search {
         display: block;
+        margin-top: 10px;
       }
     }
 
@@ -741,6 +762,11 @@ article, aside, footer, header, nav, section {
   }
 }
 
+.Nav__Primary-outer {
+  background: #fff;
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
+  margin-bottom: 15px;
+}
 .fixed-panel.show {
   display: block
 }

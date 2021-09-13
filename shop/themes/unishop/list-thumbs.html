@@ -86,7 +86,9 @@
                                         {/if}
                                     {/foreach}
                                 {/if}
-                                <div class="jq-checked__arrow-trigger"></div>
+                                <div class="jq-checked__arrow-trigger">
+                                    <i class=" icon fi-rr-caret-down"></i>
+                                </div>
                             </div>
                             <ul class="js-select-items checked-list__items">
                                 {if !empty($category) && !isset($sort_fields[$default_sort[0]])}
@@ -110,20 +112,35 @@
 
                 {if $views_count > 1}
                     <div class="cat-views">
-                        {if $_isView_tile == true}
+                        {if $_isView_tile == true}{literal}
                             <i data-view="tile"
-                               class="js-switch-product-view cat-views__el fa fa-th-large{if $CategoryViewProducts == 'tile'} selected{/if}"
-                               aria-hidden="true"></i>
+                               class="js-switch-product-view cat-views__el {*fa fa-th-large*}{if $CategoryViewProducts == 'tile'} selected{/if}"
+                               aria-hidden="true">
+                                <img id="svgViewList" src="/img/chetyrekvadrata.svg" alt="">
+                            </i>
+                        {/literal}
                         {/if}
                         {if $_isView_list == true}
+                        {literal}
                             <i data-view="list"
-                               class="js-switch-product-view cat-views__el fa fa-th-list{if $CategoryViewProducts == 'list'} selected{/if}"
-                               aria-hidden="true"></i>
+                               class="js-switch-product-view cat-views__el {*fa fa-th-list*}{if $CategoryViewProducts == 'list'} selected{/if}"
+                               aria-hidden="true">
+                                <img id="svgViewList" src="/img/trikvadratatripryamo.svg" alt="">
+                            </i>
+                        {/literal}
                         {/if}
-                        {if $_isView_tbl == true}
+                        {if $_isView_tbl == true}{literal}
                             <i data-view="tbl"
-                               class="js-switch-product-view cat-views__el fa fa-align-justify{if $CategoryViewProducts == 'tbl'} selected{/if}"
-                               aria-hidden="true"></i>
+                               class="js-switch-product-view cat-views__el {*fa fa-align-justify*}{if $CategoryViewProducts == 'tbl'} selected{/if}"
+                               aria-hidden="true">
+                                <img id="svgViewList" src="/img/chetyrecherta.svg" alt="">
+                                <style>
+                                    #svgViewList {
+                                        width: 18px;
+                                    }
+                                </style>
+                            </i>
+                        {/literal}
                         {/if}
                     </div>
                 {/if}

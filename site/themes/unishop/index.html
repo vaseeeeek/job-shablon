@@ -142,16 +142,14 @@
                 </div>
 
                 <div class="Nav-product-custom">
-                    {if $theme_settings.lk_icon_header && $wa->isAuthEnabled()}
-                        <div class="product-custom--lk product-custom">
-                            <a class="js-products-link product-custom--link" href="/my">
+                    {if $theme_settings.five_icon_img_header || $theme_settings.five_icon_text_header}
+                        <div class="product-custom">
+                            <a class="product-custom--link" href="/my">
                                 <div class="product-custom_icon maincolor">
-                                    <i class="fi-rr-user icon"></i>
+                                    {$theme_settings.five_icon_img_header}
                                 </div>
-                                {if $wa->user()->isAuth()}
-                                    <span>{$wa->user('firstname')|default:'[`My account`]'}</span>
-                                {else}
-                                    <span>Войти</span>
+                                {if $theme_settings.five_icon_text_header}
+                                    <span>{$theme_settings.five_icon_text_header}</span>
                                 {/if}
                             </a>
                         </div>
@@ -215,7 +213,7 @@
                                     {/literal}
                                     <style>
                                         #svgCompare{
-                                            width:24px;
+                                            width:20px;
                                         }
                                     </style>
 

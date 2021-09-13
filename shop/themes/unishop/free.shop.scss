@@ -622,11 +622,12 @@ button.owl-dot {
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  word-spacing: 0;
+  font-size: 0;
 }
 
 .Product-grid_bottom {
   padding: 10px;
-  height: 48px;
   border-top: 1px solid transparent;
   margin-top: auto;
 }
@@ -635,6 +636,16 @@ button.owl-dot {
   background: #fff;
   position: relative;
   box-sizing: border-box;
+  .rating.-zero {
+    display: flex;
+    .icon10.star{
+      color: #e8e8e8;
+      cursor: pointer;
+      &:hover{
+        color: #000;
+      }
+    }
+  }
 }
 
 .Product-grid_img {
@@ -697,7 +708,7 @@ button.owl-dot {
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 320px) {
   .products-grid-outer .Product-grid.-three,
   .products-grid-outer .Product-grid.-four,
   .products-grid-outer .Product-grid.-five,
@@ -735,25 +746,25 @@ button.owl-dot {
   padding-left: 24px;
 }
 
-.Nav__horizontal--list {
-  list-style: none;
-  display: flex;
-  overflow: hidden;
-  padding-bottom: 10px;
-}
+.Nav__horizontal {
+  &--list {
+    list-style: none;
+    display: flex;
+    overflow: hidden;
+    padding-bottom: 10px;
 
-.Nav__horizontal--list {
+  }
   &.-Between {
     justify-content: space-between;
   }
 
-  .Nav__horizontal--link {
+  &--link {
     text-decoration: none;
     text-transform: capitalize;
+    font-size: 15px;
   }
-
-  &:not(.-Beetwen) &:not(:last-child) {
-    margin-right: 20px
+  &--list:not(.-Beetwen) &--item:not(:last-child) {
+    margin-right: 40px;
   }
 }
 
@@ -946,8 +957,21 @@ i.wa-icon.arrow-left {
 
 .checked-list_toggle {
   position: relative;
-  padding: 0 15px;
-  cursor: pointer
+  padding:  0 0 0 15px;
+  cursor: pointer;
+  display: flex;
+
+  a {
+    font-size:12px;
+  }
+
+  .jq-checked__arrow-trigger {
+    display: flex;
+    align-items: center;
+    i {
+      display: flex;
+    }
+  }
 }
 
 .inp-search .btn {
@@ -1020,3 +1044,5 @@ i.wa-icon.arrow-left {
     margin-right:20px;
   }
 }
+
+

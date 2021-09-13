@@ -156,10 +156,32 @@
                                 {/if}
                             </div>
                         {/if}
+                        {$p.rating}
                         {if $p.rating > 0 && $theme_settings.product_ratings}
                             <span class="rating nowrap">
-                            {$wa->shop->ratingHtml($p.rating, 10)}
-                        </span>
+                                {$wa->shop->ratingHtml($p.rating, 10)}
+                            </span>
+                        {elseif $p.rating == 0 && $theme_settings.product_ratings}
+                            <div class="rating -zero">
+                                <div class="" >
+                                    <i class="icon10 star"></i>
+                                </div>
+                                <div class="">
+                                    <i class="icon10 star"></i>
+                                </div>
+                                <div class="">
+                                    <i class="icon10 star"></i>
+                                </div>
+                                <div class="">
+                                    <i class="icon10 star"></i>
+                                </div>
+                                <div class="">
+                                    <i class="icon10 star"></i>
+                                </div>
+                            </div>
+                            <span class="rating nowrap">1111111
+                                {$wa->shop->ratingHtml($p.rating, 10)}
+                            </span>
                         {/if}
                         {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
                             <i data-href="{$p.video_url}" class="js-video-popup Product-grid_video fi-rr-video-camera"

@@ -7,8 +7,8 @@ html {
 
 body {
   margin: 0;
-  background-color: #f5f5f6;
-  color: #4d4d4d;
+  background-color: #ffffff;
+  color: #202020;
   min-width: 320px;
   font-size: 14px;
   line-height: 24px
@@ -36,6 +36,19 @@ hr {
 pre {
   font-family: monospace, monospace;
   font-size: 1em
+}
+.icon {
+  font-family: uicons-regular-rounded !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.link, a {
+  color: #404040;
+  text-decoration: none;
 }
 
 a {
@@ -4455,15 +4468,6 @@ a.button:hover {
   height: 100%
 }
 
-.jq-checked__arrow-trigger {
-  position: absolute;
-  top: 50%;
-  margin: -2px 0 0;
-  right: 0;
-  width: 0;
-  height: 0
-}
-
 .jq-selectbox__dropdown, .checked-list__items {
   left: 0;
   min-width: 100%;
@@ -5494,19 +5498,21 @@ img.mfp-img {
 
 .nav-cat-btn {
   display: inline-block;
-  line-height: 55px;
-  height: 55px;
-  padding: 0 25px;
-  font-size: 18px;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius:6px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
   color: #fff;
   white-space: nowrap;
-  width: 210px
+  width: auto;
 }
 
 .nav-cat-btn:before {
   content: "\f0c9";
-  margin: 0 15px 0 0;
+  margin: 0 10px 0 0;
   font-size: 18px
 }
 
@@ -5863,14 +5869,14 @@ img.mfp-img {
 
 .product-custom_short-count, .header__cart-count {
   position: absolute;
-  top: 0;
-  right: -5px;
-  font-size: 11px;
   text-align: center;
-  padding: 0 5px;
-  line-height: 16px;
   border-radius: 100px;
-  color: #fff
+  color: #fff;
+  top: -5px;
+  right: -10px;
+  font-size: 11px;
+  padding: 0px 5px;
+  line-height: 14px;
 }
 
 .header__cart-count {
@@ -6124,10 +6130,6 @@ img.mfp-img {
   display: block
 }
 
-.Product-grid_stock {
-  height: 27px
-}
-
 .footer {
   background: #dbd8d8;
   padding: 45px 0 25px;
@@ -6312,7 +6314,6 @@ img.mfp-img {
 
 .content {
   background: #fff;
-  border: 1px solid #ebebeb
 }
 
 .content img {
@@ -6327,7 +6328,6 @@ img.mfp-img {
 .sb-wrap {
   background: #fff;
   margin: 0 0 24px;
-  border: 1px solid #ebebeb
 }
 
 .sb-wrap:last-child {
@@ -6478,13 +6478,11 @@ img.mfp-img {
 }
 
 .content-block {
-  padding: 25px 15px;
   border-bottom: 1px solid #ebebeb
 }
 
 @media print {
   .content-block {
-    padding: 0;
     border-bottom: none
   }
 }
@@ -6974,7 +6972,8 @@ ul.pages-list li a {
   text-decoration: none;
   right: 50px;
   display: none;
-  z-index: 100
+  z-index: 100;
+  cursor: pointer;
 }
 
 .btn-top:before {

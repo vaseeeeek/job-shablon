@@ -2458,7 +2458,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value></value>
+      <value>app</value>
       <name locale="en_US"/>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <options>
@@ -2477,7 +2477,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
       <name locale="en_US">Display quick edit links (for site administrator)</name>
     </setting>
@@ -2504,6 +2504,16 @@
     <setting var="fixed_panel_array" control_type="text">
       <value>burger,cart,compare,favorite,filter,phone</value>
       <name locale="ru_RU">Кнопки в фиксированной панеле на моб.устройстве</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="five_icon_img_header" control_type="text">
+      <value>&lt;img src="/img/search.svg" alt=""&gt;</value>
+      <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="five_icon_text_header" control_type="text">
+      <value>Подпись</value>
+      <name locale="ru_RU">Подпись пятной кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>
   </settings>
