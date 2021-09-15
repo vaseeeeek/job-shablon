@@ -158,7 +158,7 @@
         {foreach $products as $p}
             {if $p.id}{$products_ids[] = $p.id}{/if}
         {/foreach}
-        {$size_image = '0x340'} {if $CategoryViewProducts == 'list'}{$size_image = '180'}{/if}
+        {$size_image = '0x260'} {if $CategoryViewProducts == 'list'}{$size_image = '180'}{/if}
         {$products_images = $wa->shop->images($products_ids, $size_image)}
     {/if}
     <div class="products-{$CategoryViewProducts}-outer">
@@ -295,9 +295,9 @@
             $('.Product-grid_img').bind("touchend", function() {
                 let mobileProductWrapDotted = product.find('.dotted-img__item');
                 let startSrc = $(this).find('.js-product-preview-img').attr("src");
+                console.log(imgObjProducts[productId]);
                 imgObjProducts[productId].forEach((element, index) => {
-                    console.log(element)
-                    console.log(startSrc)
+                    console.log(`${element} - ${startSrc}`);
                     if (startSrc == element) {
                         startSrcIndex = index;
                         if (startCoords.clientX < endCoords.clientX){ // назад

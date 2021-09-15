@@ -123,7 +123,7 @@
             <script>
                 imgObjProducts[{$p.id}] = [];
                 {foreach $images as $image}
-                    imgObjProducts[{$p.id}].push("{$image['url_0x340']}");
+                    imgObjProducts[{$p.id}].push("{$image['url_0x260']}");
                 {/foreach}
             </script>
 
@@ -153,6 +153,7 @@
                 {/for}
             </ul>
         </div>
+
         <form class="js-add-to-cart" method="post"
                 action="{$wa->getUrl('shop/frontendCart/add')}">
             <input type="hidden" name="product_id" value="{$p.id}">
