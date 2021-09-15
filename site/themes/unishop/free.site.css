@@ -8163,13 +8163,13 @@ article, aside, footer, header, nav, section {
 	color: #2b2b2b;
 }
 
-.fixed-panel .product-msg-added-wrap {
-	margin: 0 0 1px -90px;
-	top: auto;
-	bottom: 100%;
-	left: 50%;
+@media (min-width: 1150px) {
+	.fixed-panel .product-msg-added-wrap {
+		margin: 0 0 1px -90px;
+		top: auto;
+		bottom: 100%;
+	}
 }
-
 .fixed-panel .product-added-msg {
 	-webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 	        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -8236,11 +8236,6 @@ article, aside, footer, header, nav, section {
 	}
 }
 @media (max-width: 500px) {
-	.fixed-panel .product-msg-added-wrap {
-		margin-left: -58px;
-		left: 0;
-	}
-
 	.fixed-panel .product-added-msg:after {
 		left: 20px;
 	}

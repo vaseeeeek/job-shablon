@@ -43,42 +43,46 @@
         {$images = array_values($products_images[$p.id])}
     {/if}
 
-    {$isProductTilePreviewTileGallery = $theme_settings.product_scroll_hover_gallery && !$wa->isMobile()}
+    {if $theme_settings.product_scroll_hover_gallery}
+        {$isProductTilePreviewTileGallery = true}
+    {/if}
+
     {$preview_image = $wa->shop->productImgUrl($p, '60')}
 
-    <div class="Product-grid -{$theme_settings.count_product_row} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if}"
-         data-product-id="{$p.id}">
+    <div class="Product-grid -{$theme_settings.count_product_row} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if}" data-product-id="{$p.id}">
         {$badge_html = $wa->shop->badgeHtml($p.badge)}
         {if $badge_html}
             {$badge_html}
         {/if}
+        {if !$wa->isMobile()}
+            {if $theme_settings.favorites}
+                <div class="js-button Product-grid_action{if $theme_settings.compare} margin{/if}">
+                <span data-product="{$p.id}"
+                      class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
+                    <i class="fi-rr-heart"></i>
+                </span>
+                </div>
+            {/if}
+            {if $theme_settings.compare}
+                <div class="js-button Product-grid_action">
+                <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
+                      data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                    <i class="fa fa-files-o"></i>
+                </span>
+                </div>
+            {/if}
 
-        {if $theme_settings.favorites}
-            <div class="js-button Product-grid_action{if $theme_settings.compare} margin{/if}">
-            <span data-product="{$p.id}"
-                  class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
-                <i class="fi-rr-heart"></i>
-            </span>
-            </div>
-        {/if}
-        {if $theme_settings.compare}
-            <div class="js-button Product-grid_action">
-            <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
-                  data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
-                <i class="fa fa-files-o"></i>
-            </span>
-            </div>
+            {if $theme_settings.product_preview_dialog}
+                <div class="js-dialog Product-grid_dialog Product-grid_action">
+                <span class="js-card-dialog product-action bg-sdСolor"
+                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
+                    <i class="fa fi-rr-zoom-in"></i>
+
+                </span>
+                </div>
+            {/if}
         {/if}
 
-        {if $theme_settings.product_preview_dialog}
-            <div class="js-dialog Product-grid_dialog Product-grid_action">
-            <span class="js-card-dialog product-action bg-sdСolor"
-                  data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
-                <i class="fa fi-rr-zoom-in"></i>
-
-            </span>
-            </div>
-        {/if}
 
         <a class="Product-grid_img js-grid-block-gallery" href="{$p.frontend_url}">
             {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
@@ -105,15 +109,23 @@
                 {if (int)$theme_settings.preview_gallerytile_count_product && count($images) > (int)$theme_settings.preview_gallerytile_count_product}
                     {$tile_length = (int)$theme_settings.preview_gallerytile_count_product}
                 {/if}
-                <span class="grid-gallery__list js-grid-gallery-items">
-                    {if count($images) > 1}
-                        {for $iteration=1 to $tile_length}
-                            <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1].url_0x340}"
-                                  style="width: calc(100%/{$tile_length});"></span>
-                        {/for}
-                    {/if}
-                </span>
+                {if !$wa->isMobile()}
+                    <span class="grid-gallery__list js-grid-gallery-items">
+                        {if count($images) > 1}
+                            {for $iteration=1 to $tile_length}
+                                <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1].url_0x340}"
+                                      style="width: calc(100%/{$tile_length});" data-id="{$iteration}"></span>
+                            {/for}
+                        {/if}
+                    </span>
+                {/if}
             {/if}
+            <script>
+                imgObjProducts[{$p.id}] = [];
+                {foreach $images as $image}
+                    imgObjProducts[{$p.id}].push("{$image['url_0x340']}");
+                {/foreach}
+            </script>
 
             {$_badge_saving = ($theme_settings.badge_saving == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
             {$_badge_percent = ($theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
@@ -134,6 +146,13 @@
                 </div>
             {/if}
         </a>
+        <div class="dotted-img">
+            <ul class="dotted-img__list">
+                {for $iteration=1 to $tile_length}
+                    <li class="dotted-img__item {if $iteration == 1}-Active{/if}" data-id="{$iteration}"></li>
+                {/for}
+            </ul>
+        </div>
         <form class="js-add-to-cart" method="post"
                 action="{$wa->getUrl('shop/frontendCart/add')}">
             <input type="hidden" name="product_id" value="{$p.id}">
@@ -271,6 +290,24 @@
                 </div>
             </div>
         </form>
+        {if $wa->isMobile()}
+            <div class="Product-grid_mobile-action">
+                {if $theme_settings.favorites}
+                    <span data-product="{$p.id}"
+                          class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
+                        <i class="fi-rr-heart"></i>
+                        Сравнение
+                    </span>
+                {/if}
+                {if $theme_settings.compare}
+                    <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
+                          data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                        <i class="fa fa-files-o"></i>
+                        Избранное
+                    </span>
+                {/if}
+            </div>
+        {/if}
     </div>
 {/strip}
 

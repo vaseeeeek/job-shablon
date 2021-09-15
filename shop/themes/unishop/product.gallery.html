@@ -78,6 +78,6 @@
 
         {if $theme_settings.product_gallery-images_display_description && $product.images}<div class="product_gallery-images-title js-product_gallery-images-title">{if !empty($image_description)}{$image_description}{/if}</div>{/if}
     </div>
-    {if $_photoSwipeOn}{include file="photoswipe.html" inline}{/if}
+    {*if $_photoSwipeOn}{include file="photoswipe.html" inline}{/if*}
 </div>
 {/strip}

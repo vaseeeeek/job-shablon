@@ -10,7 +10,7 @@
         {$features = $wa->shop->features($products)}
     {/if}
 
-    {$isPreviewProductGalleryTile = ($theme_settings.product_scroll_hover_gallery && !$wa->isMobile())}
+    {$isPreviewProductGalleryTile = $theme_settings.product_scroll_hover_gallery}
     {if $isPreviewProductGalleryTile}
         {$products_ids = ""}
         {foreach $products as $p}
@@ -19,6 +19,9 @@
         {$size_image = '0x340'}
         {$products_images = $wa->shop->images($products_ids, $size_image)}
     {/if}
+    <script>
+        let imgObjProducts = new Object();
+    </script>
     <section class="js-owl-carousel-product product_cross__carousel">
         <div class="product_cross-title__outer">
             <h3 class="product_cross-title">{$product_list_title}</h3>
@@ -36,3 +39,100 @@
     </section>
 {/if}
 {/strip}
+{if !$wa->isMobile()}
+    <style>
+        .grid-gallery__list {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        span.grid-gallery__el.js-grid-gallery-item {
+            z-index: 2;
+        }
+        ._tile-active .grid-gallery__el {
+            position: relative;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(".grid-gallery__el").hover(function() {
+                let _this = $(this);
+                let id = _this.attr('data-id');
+                console.log(id);
+                let wrap = _this.closest('.Product-grid');
+                wrap.find('.dotted-img__item').each(function() {
+                    if ($(this).attr('data-id') == id) {
+                        $(this).addClass('-Active');
+                    } else {
+                        $(this).removeClass('-Active');
+                    }
+                });
+            });
+            $('.Product-grid_img').mouseout(function() {
+                $('.dotted-img__item').each(function() {
+                    if ($(this).attr('data-id') == 1) {
+                        $(this).addClass('-Active');
+                    } else {
+                        $(this).removeClass('-Active');
+                    }
+                });
+            })
+        })
+    </script>
+{else}
+    <script>
+        var startCoords = {},
+            endCoords = {};
+        let productId = '';
+        let product = '';
+        $('.Product-grid_img').bind("touchstart", function(event) {
+            startCoords = endCoords = event.originalEvent.targetTouches[0];
+            product = $(this).closest('.Product-grid');
+            productId = $(this).closest('.Product-grid').attr("data-product-num");
+        });
+        $('.Product-grid_img').bind("touchmove", function(event) {
+            endCoords = event.originalEvent.targetTouches[0];
+        });
+        {literal}
+        $('.Product-grid_img').bind("touchend", function() {
+            let mobileProductWrapDotted = product.find('.dotted-img__item');
+            let startSrc = $(this).find('.js-product-preview-img').attr("src");
+            imgObjProducts[productId].forEach((element, index) => {
+                if (startSrc == element) {
+                    startSrcIndex = index;
+                    if (startCoords.clientX < endCoords.clientX){ // назад
+                        endSrcIndex = startSrcIndex - 1;
+                        $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
+                        mobileProductWrapDotted.each(function() {
+                            if (endSrcIndex >= 0) {
+                                if ($(this).attr('data-id') == endSrcIndex + 1) {
+                                    $(this).addClass('-Active');
+                                } else {
+                                    $(this).removeClass('-Active');
+                                }
+                            }
+                        });
+                    }
+                    if (startCoords.clientX > endCoords.clientX){ // след
+                        endSrcIndex = startSrcIndex + 1;
+                        $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
+                        mobileProductWrapDotted.each(function() {
+                            if (endSrcIndex < mobileProductWrapDotted.length) {
+                                if ($(this).attr('data-id') == endSrcIndex + 1) {
+                                    $(this).addClass('-Active');
+                                } else {
+                                    $(this).removeClass('-Active');
+                                }
+                            }
+                        });
+                    }
+                }
+            })
+        });
+        {/literal}
+    </script>
+{/if}

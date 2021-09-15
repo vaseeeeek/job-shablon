@@ -422,10 +422,6 @@
     display: inline-block
   }
 
-  .fixed-panel .product-msg-added-wrap {
-    margin-left: -58px;
-    left: 0
-  }
 
   .fixed-panel .product-added-msg:after {
     left: 20px
@@ -973,6 +969,7 @@
 
 .Product-grid_stock {
   display: flex;
+  flex-wrap:wrap;
 }
 
 .Product-grid .rating, .Product-grid_stock .Product-stock {
@@ -1079,6 +1076,7 @@
 
 .Product-grid_prices-cart {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   width: 100%;
 }
