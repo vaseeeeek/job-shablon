@@ -295,9 +295,7 @@
             $('.Product-grid_img').bind("touchend", function() {
                 let mobileProductWrapDotted = product.find('.dotted-img__item');
                 let startSrc = $(this).find('.js-product-preview-img').attr("src");
-                console.log(imgObjProducts[productId]);
                 imgObjProducts[productId].forEach((element, index) => {
-                    console.log(`${element} - ${startSrc}`);
                     if (startSrc == element) {
                         startSrcIndex = index;
                         if (startCoords.clientX < endCoords.clientX){ // назад
