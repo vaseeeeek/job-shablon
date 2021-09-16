@@ -199,7 +199,7 @@
                                     <i class="icon10 star"></i>
                                 </div>
                             </div>
-                            <span class="rating nowrap">1111111
+                            <span class="rating nowrap">
                                 {$wa->shop->ratingHtml($p.rating, 10)}
                             </span>
                         {/if}
@@ -297,14 +297,14 @@
                     <span data-product="{$p.id}"
                           class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
                         <i class="fi-rr-heart"></i>
-                        Сравнение
+                        Избранное
                     </span>
                 {/if}
                 {if $theme_settings.compare}
                     <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
                           data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
                         <i class="fa fa-files-o"></i>
-                        Избранное
+                        Сравнение
                     </span>
                 {/if}
             </div>

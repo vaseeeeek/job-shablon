@@ -862,10 +862,6 @@
 	color: #575858;
 }
 
-.Product-grid.next-hover {
-	border-right: 1px solid #fff;
-}
-
 .Product-grid.hide {
 	display: none;
 }
