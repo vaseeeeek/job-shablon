@@ -59,10 +59,6 @@
         {include file="`$wa_active_theme_path`/head.html"}
 
         {$wa->head()}
-        {if $theme_settings.load_custom_styles == 'top'}
-            <link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
-        {/if}
-
 
         {if method_exists($wa->shop, 'checkout')}
             {$cartUrl = $wa->shop->checkout()->cartUrl()}
@@ -430,8 +426,6 @@
     {$wa->block("custom_styles")}
     {$wa->block("footer_settings")}
 
-    <script src="{$wa_theme_url}vendor.min.js?v{$wa_theme_version}"></script>
-
 
     {$wa->css()}
     {if $theme_settings.plugins_js_footer}
@@ -442,22 +436,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-    {*<script src="{$wa_theme_url}unishop.js?v{$wa_theme_version}"></script>*}
-    <script src="{$wa_theme_url}unishop.min.js?v{$wa_theme_version}"></script>
+    <script src="{$wa_theme_url}free.js?v{$wa_theme_version}"></script>
 
     {if $theme_settings.load_custom_styles}
-        <link href="{$wa_theme_url}unishop.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
+        <link href="{$wa_theme_url}free.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
     {/if}
     {if $theme_settings.load_custom_js}
-        <script src="{$wa_theme_url}unishop.custom.js?v{$wa_theme_version}"></script>
+        <script src="{$wa_theme_url}free.custom.js?v{$wa_theme_version}"></script>
     {/if}
 
-    {if $theme_settings.min_script_off}
-        <script src="{$wa_active_theme_url}unishop.shop.js?v{$wa_theme_version}"></script>
-    {else}
-        <script src="{$wa_active_theme_url}unishop.shop.min.js?v{$wa_theme_version}"></script>
-    {/if}
+    <script src="{$wa_active_theme_url}unishop.shop.min.js?v{$wa_theme_version}"></script>
+
 
     {if $theme_settings.load_text_font_footer}
         {include file="`$parent_theme_path`/fonts.html"}

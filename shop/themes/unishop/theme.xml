@@ -8,19 +8,17 @@
         </file>
     <file path="unishop.css" parent="1">
         </file>
-    <file path="unishop.plugins.custom.css" parent="1">
-    </file>
-    <file path="unishop.custom.css" parent="1">
+    <file path="free.custom.css" parent="1">
     </file>
     <file path="unishop.shop.css">
         </file>
     <file path="unishop.js" parent="1">
         </file>
-    <file path="unishop.custom.js" parent="1">
+    <file path="free.custom.js" parent="1">
     </file>
     <file path="unishop.shop.js">
         </file>
-    <file path="unishop.shop.min.js">
+    <file path="free.shop.min.js">
     </file>
     <file path="order.js">
     </file>
@@ -47,10 +45,6 @@
     <file path="category.html">
       <description locale="en_US">Wrapper for a category page</description>
       <description locale="ru_RU">Обертка для страницы категории</description>
-    </file>
-    <file path="category.description.html">
-      <description locale="en_US">Description of category</description>
-      <description locale="ru_RU">Описание категории</description>
     </file>
     <file path="category.select-filters.html">
       <description locale="en_US">Select filter</description>
@@ -107,10 +101,6 @@
     <file path="product.comments.vk.html">
       <description locale="en_US">Comments Vk in product card</description>
       <description locale="ru_RU">Комментарии Vk в карточке товара</description>
-    </file>
-    <file path="product.bullets.html">
-      <description locale="en_US">Infoblocks in product cart</description>
-      <description locale="ru_RU">Инфоблоки в карточке товара</description>
     </file>
     <file path="product.page.html">
       <description locale="en_US">Product static subpage content</description>
@@ -210,10 +200,6 @@
       <description locale="en_US">Static page content</description>
       <description locale="ru_RU">Содержимое информационной страницы</description>
     </file>
-    <file path="bullets.html">
-      <description locale="en_US">Content of information blocks from the theme settings</description>
-      <description locale="ru_RU">Содержимое инфоблоков из настроек темы</description>
-    </file>
     <file path="categories.disclosed.html">
       <description locale="en_US">Content of list disclosed categories</description>
       <description locale="ru_RU">Содержимое списка раскрытых категорий</description>
@@ -242,10 +228,6 @@
       <description locale="en_US">Content of list brands Pro on mainpage</description>
       <description locale="ru_RU">Содержимое списка брендов Pro на главной странице</description>
     </file>
-    <file path="home.reviews.html">
-      <description locale="en_US">Content of last reviews about products on mainpage</description>
-      <description locale="ru_RU">Содержимое последних отзывов о товарах на главной</description>
-    </file>
     <file path="home.Products-list.html">
       <description locale="en_US">Product list on homepage</description>
       <description locale="ru_RU">Список товаров на главной</description>
@@ -273,14 +255,6 @@
     <file path="sidebar.filter.html" custom="0">
       <description locale="ru_RU">Содержимое фильтров в сайдбаре</description>
       <description locale="en_US">Content of filters in sidebar</description>
-    </file>
-    <file path="sidebar.lastview.html" custom="0">
-      <description locale="ru_RU">Содержимое последний просмотреных товаров в сайдбаре</description>
-      <description locale="en_US">Content of last view products in sidebar</description>
-    </file>
-    <file path="sidebar.pages.html" custom="0">
-      <description locale="ru_RU">Меню страниц в сайдбаре</description>
-      <description locale="en_US">Menu pages in sidebar</description>
     </file>
     <file path="sidebar.plugins.html" custom="0">
       <description locale="ru_RU">Плагины в сайдбаре</description>
@@ -317,10 +291,6 @@
     <file path="reviews.js">
       <description locale="en_US">Reviews JS</description>
       <description locale="ru_RU">Скрипты отзывов</description>
-    </file>
-    <file path="sources.js.html" custom="0">
-      <description locale="en_US">Includes js, css files</description>
-      <description locale="ru_RU"/>
     </file>
   </files>
   <thumbs>

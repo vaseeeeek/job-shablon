@@ -28,10 +28,6 @@
       <description locale="en_US">App specific sidebar content</description>
       <description locale="ru_RU">Содержимое сайдбара приложения</description>
     </file>
-    <file path="sidebar.pages.html">
-      <description locale="en_US">Navigate through the pages of the application in sidebar</description>
-      <description locale="ru_RU">Навигация по страницам приложения в сайдбаре</description>
-    </file>
     <file path="sidebar.plugins.html">
       <description locale="en_US">Plugins of the application in sidebar</description>
       <description locale="ru_RU">Плагины в сайдбаре</description>
@@ -99,10 +95,6 @@
       <description locale="ru_RU">Содержимое футера приложения</description>
     </file>
     <file path="unishop.js" parent="1">
-        </file>
-    <file path="sources.js.html" custom="0">
-      <description locale="en_US">Includes js, css files</description>
-      <description locale="ru_RU">Js, css файлы</description>
     </file>
   </files>
 </theme>

@@ -76,10 +76,6 @@
         </file>
     <file path="unishop.js" parent="1">
         </file>
-    <file path="sources.js.html" custom="0">
-      <description locale="en_US">Includes js, css files</description>
-      <description locale="ru_RU">Js, css файлы</description>
-    </file>
   </files>
   <thumbs>
     <thumb>180x0</thumb>

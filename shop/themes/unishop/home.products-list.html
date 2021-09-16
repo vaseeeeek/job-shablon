@@ -18,7 +18,7 @@
                 {foreach $list as $product}
                     {if $product.id}{$products_ids[] = $product.id}{/if}
                 {/foreach}
-                {$size_image = '0x340'}
+                {$size_image = '0x260'}
                 {$products_images = $wa->shop->images($products_ids, $size_image)}
             {/if}
 

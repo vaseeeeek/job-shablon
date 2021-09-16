@@ -16,20 +16,16 @@
     </file>
     <file path="unishop.js" custom="0">
         </file>
-    <file path="unishop.min.js" custom="0">
+    <file path="free.js" custom="0">
     </file>
-    <file path="unishop.custom.css" custom="0" modified="1">
+    <file path="free.custom.css" custom="0" modified="1">
       <description locale="ru_RU"/>
     </file>
-    <file path="unishop.custom.js" custom="0">
+    <file path="free.custom.js" custom="0">
     </file>
     <file path="add.css.html" custom="0">
       <description locale="en_US">Add css-styles of settings theme</description>
       <description locale="ru_RU">Дополнительные стили из настроек темы</description>
-    </file>
-    <file path="cart.add.popup.html" custom="0">
-      <description locale="en_US">Popup after adding to cart</description>
-      <description locale="ru_RU">Всплывающее окошко после добавление в корзину</description>
     </file>
     <file path="fonts.html" custom="0">
       <description locale="en_US">Includes and font styles</description>
@@ -59,10 +55,6 @@
     <file path="header.top.menu-desktop.html" custom="0">
       <description locale="en_US">Contents of the top menu (desktop)</description>
       <description locale="ru_RU">Содержимое верхнего меню (десктопная версия)</description>
-    </file>
-    <file path="header.top.menu-mobile.html" custom="0">
-      <description locale="en_US">Contents of the top menu (mobile)</description>
-      <description locale="ru_RU">Содержимое верхнего меню (мобильная версия)</description>
     </file>
     <file path="header.html" custom="0">
       <description locale="en_US">App specific header content</description>
@@ -100,22 +92,6 @@
       <description locale="en_US">Content of sidebar</description>
       <description locale="ru_RU">Содержимое сайдбара</description>
     </file>
-    <file path="sidebar.pages.html" custom="0">
-      <description locale="en_US">Contents of navigation in the sidebar</description>
-      <description locale="ru_RU">Содержимое навигации в сайдбаре</description>
-    </file>
-    <file path="sidebar.news.html" custom="0">
-      <description locale="en_US">Last news content in the sidebar</description>
-      <description locale="ru_RU">Содержимое последних новостей в сайдбаре</description>
-    </file>
-    <file path="sidebar.photos.html" custom="0">
-      <description locale="en_US">The content of the latest photos (from the Photogallery application) in the sidebar</description>
-      <description locale="ru_RU">Содержимое последних фотографий (из приложения Фотогалерея) в сайдбаре</description>
-    </file>
-    <file path="sidebar.widgets.html" custom="0">
-      <description locale="en_US">Social widget in sidebar</description>
-      <description locale="ru_RU">Виджет соц. сетей в сайдбаре</description>
-    </file>
     <file path="page.html" custom="0">
       <description locale="en_US">Static page content and navigation</description>
       <description locale="ru_RU">Содержимое открытой страницы и навигация по страницам</description>
@@ -144,17 +120,9 @@
       <description locale="en_US">404 and other errors</description>
       <description locale="ru_RU">404 и другие ошибки</description>
     </file>
-    <file path="sources.js.html" custom="0">
-      <description locale="en_US">Includes js, css files</description>
-      <description locale="ru_RU">Js, css файлы</description>
-    </file>
     <file path="quicklinks.html" custom="0">
       <description locale="en_US">Quick links</description>
       <description locale="ru_RU">Быстрые ссылки</description>
-    </file>
-    <file path="popup.advert.html" custom="0">
-      <description locale="en_US">Widget advert</description>
-      <description locale="ru_RU">Виджет акции</description>
     </file>
   </files>
   <about locale="en_US">
@@ -2121,11 +2089,6 @@
       <value/>
       <name locale="en_US">ID Blog</name>
       <name locale="ru_RU">идентификатор блога</name>
-    </setting>
-    <setting var="show_sidebar_pages_photos" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Show latest photos</name>
-      <name locale="ru_RU">Показывать блок с последними фотографиями</name>
     </setting>
     <setting var="show_sidebar_pages_social" control_type="checkbox">
       <value/>
