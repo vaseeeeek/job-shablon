@@ -750,7 +750,7 @@
       </options>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
-      <value>3</value>
+      <value><![CDATA[3]]></value>
       <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
       <name locale="en_US">Maximum number of subcategories</name>
     </setting>
@@ -2477,7 +2477,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
       <name locale="en_US">Display quick edit links (for site administrator)</name>
     </setting>
