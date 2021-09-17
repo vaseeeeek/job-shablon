@@ -218,7 +218,7 @@ var filter = {
             navText: ["", ""],
             lazyLoad: !0,
             dots: !1,
-            responsive: {0: {items: 1}, 401: {items: 2}, 801: {items: 3}, 1001: {items: 4}, 1201: {items: 5}},
+            responsive: {0: {items: 1}, 401: {items: 2}, 801: {items: 3}, 1001: {items: 4}, 1201: {items: 8}},
             onInitialize: function (e) {
                 brandsCarousel.brandsWrap.find(".js-carousel-brands-on-initialized").remove()
             },

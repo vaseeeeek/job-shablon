@@ -15,6 +15,12 @@
     </li>
 {/if}
 
+{if $my_app == $wa->app()}
+    <li class="shop">
+        <a href="?logout">Выйти</a>
+    </li>
+{/if}
+
 <!-- plugin hook: 'frontend_my_nav' -->
 {* @event frontend_my_nav.%plugin_id% *}
 {foreach $frontend_my_nav as $_plugin => $_}

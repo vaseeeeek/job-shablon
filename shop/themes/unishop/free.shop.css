@@ -832,7 +832,8 @@
 	line-height: 30px;
 	text-align: center;
 	display: inline-block;
-	color: #fff;
+	color: #7b7b7b;
+	background: rgba(255, 255, 255, 0.9);
 }
 
 .Product-grid_dialog {
@@ -1003,10 +1004,10 @@
 }
 
 .Product-grid_video {
-	display: inline-block;
-	vertical-align: middle;
-	cursor: pointer;
-	font-size: 19px;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	width: 16px;
 }
 
 .Product-grid_features {
@@ -1074,14 +1075,18 @@
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
 	width: 100%;
 }
 
+@media (max-width: 1025px) {
+	.Product-grid_prices-cart {
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+	}
+}
 .Product-grid_zero-price {
 	font-weight: 700;
 	font-size: 12px;
@@ -1219,10 +1224,11 @@
 	background: #fff;
 	margin: 0 -1px 0 0;
 	position: relative;
+	text-align: center;
 }
 
 .home-products--carousel .home-products_head {
-	text-align: left;
+	text-align: center;
 	padding-left: 40px;
 	padding-right: 40px;
 	margin: 0;
@@ -1437,8 +1443,6 @@
 	line-height: 17px;
 	text-align: center;
 	font-size: 14px;
-	border: 1px solid #aeaeae;
-	border-radius: 50%;
 	display: inline-block;
 }
 
@@ -2794,7 +2798,7 @@ h1 .order-status {
 
 .homepage-brands_el {
 	height: 200px;
-	width: 20%;
+	min-width: calc(100% / 8);
 	line-height: 150px;
 	padding: 20px 0;
 	margin: 0 auto;
@@ -2807,22 +2811,22 @@ h1 .order-status {
 
 @media (max-width: 1200px) {
 	.homepage-brands_el {
-		width: 25%;
+		min-width: 25%;
 	}
 }
 @media (max-width: 1000px) {
 	.homepage-brands_el {
-		width: 33.33%;
+		min-width: 33.33%;
 	}
 }
 @media (max-width: 800px) {
 	.homepage-brands_el {
-		width: 50%;
+		min-width: 50%;
 	}
 }
 @media (max-width: 400px) {
 	.homepage-brands_el {
-		width: 100%;
+		min-width: 100%;
 	}
 }
 .owl-item .homepage-brands_el {
@@ -2830,7 +2834,7 @@ h1 .order-status {
 }
 
 .homepage-brands_el img {
-	max-width: 150px !important;
+	max-width: 100px !important;
 	max-height: 100%;
 	vertical-align: middle;
 }
@@ -3851,6 +3855,10 @@ img.pswp__img {
 		display: none;
 	}
 }
+.image-preview.image-preview--video img {
+	width: 45px;
+}
+
 @media (max-width: 800px) {
 	.product_action-dialog {
 		padding-top: 15px;
@@ -4380,6 +4388,9 @@ img.pswp__img {
 
 .product_add-services {
 	margin: 0 0 15px;
+	border: 1px solid #ebebeb;
+	padding: 15px;
+	border-radius: 3px;
 }
 
 @media print {
@@ -6904,6 +6915,18 @@ button.owl-dot {
 	        align-items: center;
 }
 
+.product-action.add-to-favorite.active .fi-rr-heart {
+	color: red;
+}
+
+.product-action.add-to-compare.active .fa-files-o {
+	color: #4169e1;
+}
+
+.Product-grid_action .product-action.add-to-compare.active .fa-files-o {
+	color: #000;
+}
+
 .product-action.add-to-favorite .fi-rr-heart {
 	font-size: 13px;
 	display: -webkit-box;
@@ -7031,18 +7054,6 @@ button.owl-dot {
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
 }
-.Product-grid .rating.-zero {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.Product-grid .rating.-zero .icon10.star {
-	color: #e8e8e8;
-	cursor: pointer;
-}
-.Product-grid .rating.-zero .icon10.star:hover {
-	color: #000;
-}
 .Product-grid_img {
 	display: block;
 	text-align: center;
@@ -7092,6 +7103,20 @@ button.owl-dot {
 }
 .Product-grid .dotted-img__list li.dotted-img__item.-Active {
 	background: #000;
+}
+
+.rating.-zero {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	cursor: pointer;
+	text-decoration: none;
+}
+.rating.-zero .icon10.star {
+	color: #e8e8e8;
+}
+.rating.-zero .icon10.star:hover {
+	color: #000;
 }
 
 .touch .Product-grid_img {
@@ -7204,9 +7229,13 @@ button.owl-dot {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	    -ms-flex-pack: center;
-	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	width: 100%;
 }
 

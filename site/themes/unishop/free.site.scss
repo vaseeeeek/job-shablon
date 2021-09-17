@@ -4515,7 +4515,9 @@ a.button:hover {
 .jq-radio, .radio-styler {
   border-radius: 50%;
   width: 15px;
-  height: 15px
+  height: 15px;
+  margin-right: 5px;
+  top: 3px;
 }
 
 .style-check.checked:before, .jq-checkbox.checked:before, .jq-radio.checked:before, .radio-styler.checked:before {
@@ -7374,7 +7376,7 @@ button.mfp-arrow:hover, button.mfp-close:hover {
 ul, li {
   margin: 0;
   padding: 0;
-  list-style: 0;
+  list-style: none;
 }
 
 article, aside, footer, header, nav, section {

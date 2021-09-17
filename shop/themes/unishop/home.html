@@ -33,7 +33,16 @@
                         {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
                     {/if}
 
-                    <!-- Спросить о настройке -->
+                    {if $theme_settings.home_categories_title}
+                        <div class="home-products_head-outer">
+                            <div class="container">
+                                <div class="home-products_head">
+                                    <div class="home-products__title">{$theme_settings.home_categories_title}</div>
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
+
                     {if $theme_settings.total_max_maxcat_homepage}
                         {include file="categories.disclosed.html" categories=$categories}
                     {else}

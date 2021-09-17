@@ -46,7 +46,7 @@
     {elseif $wa->get('query') == ''}
         {$h1 = "[`Search by request`]"}
     {/if}
-
+    {wa_dumpc($frontend_search)}
     {if !$isSearchPro || count($frontend_search) > 0}
         <div class="content-box{if $wa->get('list')} search-title-list{/if}">
             <h1>{$h1}</h1>

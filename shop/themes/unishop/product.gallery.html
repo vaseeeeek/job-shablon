@@ -21,7 +21,7 @@
             {if $video}
                 <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
                     <a href="{$video.url}">
-                        <i class="fi-rr-video-camera" aria-hidden="true"></i>
+                        <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                     </a>
                 </div>
                 {$position = $position + 1}

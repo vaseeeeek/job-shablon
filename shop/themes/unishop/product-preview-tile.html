@@ -74,7 +74,7 @@
 
             {if $theme_settings.product_preview_dialog}
                 <div class="js-dialog Product-grid_dialog Product-grid_action">
-                <span class="js-card-dialog product-action bg-sdСolor"
+                <span class="js-card-dialog product-action "
                       data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
                     <i class="fa fi-rr-zoom-in"></i>
 
@@ -204,8 +204,10 @@
                             </span>
                         {/if}
                         {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
-                            <i data-href="{$p.video_url}" class="js-video-popup Product-grid_video fi-rr-video-camera"
-                               aria-hidden="true"></i>
+                            <a href="{$p.video_url}" class="js-video-popup Product-grid_video fi-rr-video-camera"
+                               aria-hidden="true">
+                                <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                            </a>
                         {/if}
                     </div>
                 {/if}

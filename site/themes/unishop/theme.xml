@@ -630,7 +630,7 @@
       <description locale="ru_RU">Указать значение в секундах. При нулевом значении, автоматическое перелистование отключается</description>
     </setting>
     <setting var="id_promo_list_slider" control_type="text">
-      <value>bestsellers</value>
+      <value/>
       <name locale="en_US">Slider product set ID</name>
       <name locale="ru_RU">Идентификатор списка товаров в слайдере</name>
       <description locale="ru_RU">Идентификатор списка товаров в слайдере. Товары из этого списка будут показаны в слайдере, если так указано в настройке слайдера выше.</description>
@@ -686,7 +686,7 @@
       <name locale="ru_RU">Вывести промокарточки</name>
     </setting>
     <setting var="ids_promos_list" control_type="text">
-      <value>0,1,2,3</value>
+      <value><![CDATA[2,3,4,5]]></value>
       <name locale="ru_RU">Промо-карточки в списке</name>
       <name locale="en_US">Promo cards in list</name>
       <description locale="ru_RU">Укажите номера промокарточек, через запятую без пробелов. Номер карточки соответствует позиции в списке, начиная с нуля.</description>
@@ -701,6 +701,10 @@
       <value/>
       <name locale="en_US">Categories list</name>
       <name locale="ru_RU">Список категорий</name>
+    </setting>
+    <setting var="home_categories_title" control_type="text">
+      <value>Категории</value>
+      <name locale="ru_RU">Загаловок категорий</name>
     </setting>
     <setting var="categories_home_page" control_type="select">
       <value>1</value>
@@ -718,7 +722,7 @@
       </options>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
-      <value><![CDATA[3]]></value>
+      <value>3</value>
       <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
       <name locale="en_US">Maximum number of subcategories</name>
     </setting>
@@ -833,7 +837,7 @@
       </options>
     </setting>
     <setting var="home_brands_ids" control_type="text">
-      <value>212,213,216,215,243,244,214</value>
+      <value></value>
       <name locale="en_US"/>
       <name locale="ru_RU">Id брендов на главной</name>
     </setting>
