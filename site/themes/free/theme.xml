@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="63">
+<theme id="free" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="63">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop, Blog, Photos.</description>
   <description locale="ru_RU">Современная, удобная, адаптивная тема дизайна, разработанная для приложений Сайт, Магазин, Блог, Фотогалерея</description>
   <files>
     <file path="index.html" custom="0">
-      <description locale="en_US">Core layout of Unishop theme family</description>
-      <description locale="ru_RU">Основной макет тем дизайна семейства «Unishop»</description>
+      <description locale="en_US">Core layout of free theme family</description>
+      <description locale="ru_RU">Основной макет тем дизайна семейства «free»</description>
     </file>
-    <file path="unishop.css" custom="0">
-      <description locale="en_US">Core CSS of the Unishop theme family</description>
-      <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна «Unishop»</description>
+    <file path="free.css" custom="0">
+      <description locale="en_US">Core CSS of the free theme family</description>
+      <description locale="ru_RU">Основной файл CSS-стилей семейства тем дизайна «free»</description>
     </file>
-    <file path="unishop.js" custom="0">
+    <file path="free.js" custom="0">
         </file>
     <file path="free.js" custom="0">
     </file>
@@ -847,12 +847,12 @@
       <name locale="ru_RU">Приветственный текст</name>
     </setting>
     <setting var="home_text_head" control_type="text">
-      <value>Добро пожаловать в интернет-магазин Unishop</value>
+      <value>Добро пожаловать в интернет-магазин free</value>
       <name locale="en_US">Head welcome head</name>
       <name locale="ru_RU">Заголовок приветствия</name>
     </setting>
     <setting var="home_text_note" control_type="text">
-      <value>&lt;p&gt;Интернет-магазин Unishop предоставляет широкий ассортимент товаров c более двухсот разделов и 2000 наименований. Мы работаем по всей России, а также по странам СНГ, выполняя самую быструю доставку в любой населенный пункт.&lt;/p&gt;  &lt;p&gt; За пять лет работы мы нарастили большую клиентскую базу.3000 клиентов, которые повторно обращаются за нашими услугами. &lt;/p&gt;  &lt;p&gt; У нас самые низкие цены на товары, Но если Вы найдете дешевле, мы обязательно снизим цену! Так же у нас постоянно проводятся акции и распродажи на разные группы товаров. &lt;/p&gt;</value>
+      <value>&lt;p&gt;Интернет-магазин free предоставляет широкий ассортимент товаров c более двухсот разделов и 2000 наименований. Мы работаем по всей России, а также по странам СНГ, выполняя самую быструю доставку в любой населенный пункт.&lt;/p&gt;  &lt;p&gt; За пять лет работы мы нарастили большую клиентскую базу.3000 клиентов, которые повторно обращаются за нашими услугами. &lt;/p&gt;  &lt;p&gt; У нас самые низкие цены на товары, Но если Вы найдете дешевле, мы обязательно снизим цену! Так же у нас постоянно проводятся акции и распродажи на разные группы товаров. &lt;/p&gt;</value>
       <name locale="en_US">Welcome note (HTML)</name>
       <name locale="ru_RU">Приветствие (HTML)</name>
     </setting>
@@ -1061,12 +1061,6 @@
           <name locale="en_US">Off</name>
         </option>
       </options>
-    </setting>
-    <setting var="plugin_oneclick_button_text" control_type="text">
-      <value locale="ru_RU">Купить в 1 клик</value>
-      <value locale="en_US">Fact order</value>
-      <name locale="ru_RU">Title on button Fast order (from Skilbe)</name>
-      <name locale="ru_RU">Текст на кнопке плагина "Покупка в 1 клик (от Skilbe)" </name>
     </setting>
     <setting var="text_zero_price" control_type="text">
       <value locale="ru_RU">Цена по запросу</value>

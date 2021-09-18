@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="blog" parent_theme_id="site:unishop" version="1.5.1">
-  <name locale="en_US">Unishop</name>
-  <name locale="ru_RU">Unishop</name>
+<theme id="free" system="0" vendor="1039853" author="ardoz" app="blog" parent_theme_id="site:free" version="1.5.1">
+  <name locale="en_US">free</name>
+  <name locale="ru_RU">free</name>
   <files>
     <file path="index.html" parent="1">
         </file>
-    <file path="unishop.css" parent="1">
+    <file path="free.css" parent="1">
         </file>
-    <file path="unishop.blog.js" custom="0">
+    <file path="free.blog.js" custom="0">
         </file>
-    <file path="unishop.blog.css" custom="0">
+    <file path="free.blog.css" custom="0">
         </file>
     <file path="head.html" custom="0">
       <description locale="en_US">Blog app's &lt;head&gt; instructions</description>
@@ -94,7 +94,7 @@
       <description locale="en_US">App specific footer content</description>
       <description locale="ru_RU">Содержимое футера приложения</description>
     </file>
-    <file path="unishop.js" parent="1">
+    <file path="free.js" parent="1">
     </file>
   </files>
 </theme>

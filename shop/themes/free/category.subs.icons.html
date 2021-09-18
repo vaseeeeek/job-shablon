@@ -15,9 +15,9 @@
                         {$sc.params.icon = $skImages[$sc.id].icon}
                     {/if}
                     {if $theme_settings.cat_list_img_lazy}
-                        <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else} /wa-data/public/shop/themes/unishop/img/dummy96.png{/if}" alt="{$sc.name}" />
+                        <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else} /wa-data/public/shop/themes/free/img/dummy96.png{/if}" alt="{$sc.name}" />
                     {else}
-                        <img class="js-cat-item-image" src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else} /wa-data/public/shop/themes/unishop/img/dummy96.png{/if}" alt="{$sc.name}">
+                        <img class="js-cat-item-image" src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else} /wa-data/public/shop/themes/free/img/dummy96.png{/if}" alt="{$sc.name}">
                     {/if}
                 </div>
                 <div class="category-subcat-icon_name">

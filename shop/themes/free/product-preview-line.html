@@ -51,7 +51,7 @@
                 {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
                     {$blockHtmlProtilegallery}
                 {else}
-                    {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/unishop/img/dummy96.png'])}
+                    {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
                     {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
                         {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                     {/if}

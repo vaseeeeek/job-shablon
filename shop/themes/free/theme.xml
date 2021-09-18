@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="unishop" system="0" vendor="1039853" author="skilbe" app="shop" parent_theme_id="site:unishop" version="3.0.0" edition="0">
-  <name locale="en_US">Unishop</name>
-  <name locale="ru_RU">Unishop</name>
+<theme id="free" system="0" vendor="1039853" author="ardoz" app="shop" parent_theme_id="site:free" version="3.0.0" edition="0">
+  <name locale="en_US">free</name>
+  <name locale="ru_RU">free</name>
   <files>
     <file path="index.html" parent="1">
         </file>
-    <file path="unishop.css" parent="1">
+    <file path="free.css" parent="1">
         </file>
     <file path="free.custom.css" parent="1">
     </file>
-    <file path="unishop.shop.css">
+    <file path="free.shop.css">
         </file>
-    <file path="unishop.js" parent="1">
+    <file path="free.js" parent="1">
         </file>
     <file path="free.custom.js" parent="1">
     </file>
-    <file path="unishop.shop.js">
+    <file path="free.shop.js">
         </file>
     <file path="free.shop.min.js">
     </file>

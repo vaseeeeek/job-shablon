@@ -65,7 +65,7 @@
                         {foreach $products as $p name=product_names}
                             <td width="{$tableTdWidth}%">
                                 <a href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">
-                                    {$wa->shop->productImgHtml($p, '70', ['itemprop' => 'image', 'id' => 'product-image', 'default' => '/wa-data/public/shop/themes/unishop/img/dummy96.png', 'title' => $p.name|cat:' ':strip_tags($p.summary)|escape])}
+                                    {$wa->shop->productImgHtml($p, '70', ['itemprop' => 'image', 'id' => 'product-image', 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png', 'title' => $p.name|cat:' ':strip_tags($p.summary)|escape])}
                                 </a>
                                 <div class="name-outer">
                                     <a class="name-link" href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">{$p.name}</a>

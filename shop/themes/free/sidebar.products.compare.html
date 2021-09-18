@@ -27,7 +27,7 @@
                     {foreach $products as $p}
                         <div data-product="{$p.id}" class="js-compare-product sb-product">
                             <a class="sb-product_img" href="{$p.frontend_url}" title="{$p.name}">
-                                {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => '/wa-data/public/shop/themes/unishop/img/dummy96.png'])}
+                                {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
                             </a>
                             <div class="sb-product_content">
                                 <a class="sb-product_name" href="{$p.frontend_url}">{$p.name}</a>

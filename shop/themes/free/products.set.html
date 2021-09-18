@@ -45,7 +45,7 @@
     {$products = $wa->shop->productSet($list_id)}
     {if count($products)}
         {if !isset($theme_path) && empty($theme_path)}
-            {$theme_path = $wa->shop->themePath('unishop')}
+            {$theme_path = $wa->shop->themePath('free')}
         {/if}
         <div class="js-preview-products products-tile products-tile--custom" data-retina="{$wa->shop->config('enable_2x')}" data-image-lazy="{$theme_settings.product_preview_images_lazy}">
             {foreach $products as $p}
