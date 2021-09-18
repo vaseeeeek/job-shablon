@@ -17,7 +17,7 @@
     {if $wa->get('list') == 'favorites' || $wa->get('list') == 'viewed'}
         {$_not_paginate = 1}
 		{$sorting=false}
-        {$list = $wa->cookie("`$wa->get('list')`_list")}
+        {$list = $wa->cookie('product_favor_arr')}
         {if $list}
             {$list_arr = ","|explode:$list}
             {$products = $wa->shop->products($list_arr)}
@@ -46,7 +46,7 @@
     {elseif $wa->get('query') == ''}
         {$h1 = "[`Search by request`]"}
     {/if}
-    {wa_dumpc($frontend_search)}
+
     {if !$isSearchPro || count($frontend_search) > 0}
         <div class="content-box{if $wa->get('list')} search-title-list{/if}">
             <h1>{$h1}</h1>

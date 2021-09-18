@@ -1602,7 +1602,7 @@
       <name locale="ru_RU">Подкатегории</name>
     </setting>
     <setting var="cat_view_subs" control_type="select">
-      <value>no_image</value>
+      <value>image</value>
       <name locale="en_US">The list of subcategories if product list is not empty</name>
       <name locale="ru_RU">Вид подкатегорий в категориии с товарами</name>
       <description locale="ru_RU">Иконка, картинка для категории загружается через файл-менеджер и указывается в категории дополнительным параметром  "icon","image". Для каждой категории можно индивидуально настроить вид подкатегорий, для этого в Дополнительных параметрах категории укажите свойство "sub_view" со значениями "icon" (вид "С Иконками"), "image" (вид "С картинками"), "no_image" (вид "Без картинок"). Если установлен плагин "Иконка, изображение и баннер для категории", иконка или картинка выводится из плагина.</description>

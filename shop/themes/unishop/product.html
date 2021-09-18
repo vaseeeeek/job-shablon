@@ -37,7 +37,7 @@
                                     <span itemprop="reviewCount" style="display: none;">{$reviews_total_count}</span>
                                 </span>
                             {else}
-                                <a class="rating -zero" href="#otzivi">
+                                <div class="rating -zero">
                                     <div class="" >
                                         <i class="icon10 star"></i>
                                     </div>
@@ -53,7 +53,15 @@
                                     <div class="">
                                         <i class="icon10 star"></i>
                                     </div>
-                                </a>
+                                </div>
+                                <script>
+                                    $('.rating.-zero').click(() => {
+                                        $('.js-tab[data-tab-content="product-reviews"]').click();
+                                        $([document.documentElement, document.body]).animate({
+                                            scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
+                                        }, 700);
+                                    })
+                                </script>
                             {/if}
                         {/if}
 
@@ -489,3 +497,12 @@
 {/strip}
 
 
+
+{if $wa->get('reviews')}
+    <script>
+        $('.js-tab[data-tab-content="product-reviews"]').click();
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
+        }, 700);
+    </script>
+{/if}

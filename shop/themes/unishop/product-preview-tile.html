@@ -182,7 +182,7 @@
                                 {$wa->shop->ratingHtml($p.rating, 10)}
                             </span>
                         {elseif $p.rating == 0 && $theme_settings.product_ratings}
-                            <div class="rating -zero">
+                            <a class="rating -zero" href="{$p.frontend_url}?reviews=scroll">
                                 <div class="" >
                                     <i class="icon10 star"></i>
                                 </div>
@@ -198,7 +198,7 @@
                                 <div class="">
                                     <i class="icon10 star"></i>
                                 </div>
-                            </div>
+                            </a>
                             <span class="rating nowrap">
                                 {$wa->shop->ratingHtml($p.rating, 10)}
                             </span>
