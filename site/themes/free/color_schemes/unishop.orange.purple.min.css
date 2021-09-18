@@ -2792,7 +2792,7 @@ input.Nav-search-input {
     border-radius: 5px
 }
 
-.auto-search {
+.ajax-search {
     background: #fff;
     color: #4d4d4d;
     border-top-style: solid;
@@ -2801,15 +2801,15 @@ input.Nav-search-input {
     margin: 4px 0 0
 }
 
-.auto-search-all {
+.ajax-search-all {
     padding: 0 15px 15px
 }
 
-.auto-search .link, .auto-search .link:hover, .auto-search a, .auto-search a:hover {
+.ajax-search .link, .ajax-search .link:hover, .ajax-search a, .ajax-search a:hover {
     color: #000
 }
 
-.auto-search-result {
+.ajax-search-result {
     position: absolute;
     z-index: 100;
     width: 100%
@@ -3385,7 +3385,7 @@ button.owl-dot {
         top: 3px
     }
 
-    .auto-search {
+    .ajax-search {
         margin-top: 0
     }
 
@@ -5577,13 +5577,13 @@ button.owl-dot {
     margin: 0 0 0 5px
 }
 
-.auto-search .sb-product {
+.ajax-search .sb-product {
     padding: 0 0 8px;
     margin: 0 0 8px;
     border-bottom: 1px solid #ebebeb
 }
 
-.auto-search .sb-product:last-child {
+.ajax-search .sb-product:last-child {
     margin: 0
 }
 

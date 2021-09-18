@@ -2,34 +2,34 @@
 {if $wa->get('ajax')}{* ajax request, for autosearch *}
     {if $products}
         <div>
-            <div class="js-auto-search auto-search br-top-sdColor">
+            <div class="js-ajax-search ajax-search">
                 {include file='list-thumbs-mini.html' class="products-mini--search" limit=8 }
-                <div class="auto-search-all"><a class="link" href="{$wa->getUrl('shop/frontend/search')}?query={$wa->get('query')}">[`View all`]</a> ({$products_count}) &rarr; </div>
+                <div class="ajax-search-all"><a class="link" href="{$wa->getUrl('shop/frontend/search')}?query={$wa->get('query')}">[`View all`]</a> ({$products_count}) &rarr; </div>
             </div>
         </div>
     {/if}
 {else}
-    {$class_product_list = "js-cat-list products--category"}
+    {$class_product_list = "js-cat-list cat--list"}
     {$_not_paginate = 0}
-	{$sorting=true}
-    {$isSearchPro = $theme_settings.plugin_search_pro && strpos($wa->currentUrl(false, true), '/search/' ) === 0 && class_exists('shopSearchproPluginViewHelper') && !$wa->get('list')}
-    {if $isSearchPro}{$sorting=false}{/if}
+	{$_is_sorting=true}
+    {$_is_search_pro = $theme_settings.search_pro_plugin && strpos($wa->currentUrl(false, true), '/search/' ) === 0 && class_exists('shopSearchproPluginViewHelper') && !$wa->get('list')}
+    {if $_is_search_pro}{$_is_sorting=false}{/if}
     {if $wa->get('list') == 'favorites' || $wa->get('list') == 'viewed'}
         {$_not_paginate = 1}
-		{$sorting=false}
+		{$_is_sorting=false}
         {$list = $wa->cookie('product_favor_arr')}
         {if $list}
-            {$list_arr = ","|explode:$list}
-            {$products = $wa->shop->products($list_arr)}
-            {$products_result = []}
-            {foreach $list_arr as $id}
+            {$products_arr = ","|explode:$list}
+            {$products = $wa->shop->products($products_arr)}
+            {$summary_product_list = []}
+            {foreach $products_arr as $id}
                 {foreach $products as $product}
                     {if $product.id == $id}
-                        {$products_result[$id] = $product}
+                        {$summary_product_list[$id] = $product}
                     {/if}
                 {/foreach}
             {/foreach}
-            {$products = $products_result}
+            {$products = $summary_product_list}
         {else}
             {$products = []}
         {/if}
@@ -47,7 +47,7 @@
         {$h1 = "[`Search by request`]"}
     {/if}
 
-    {if !$isSearchPro || count($frontend_search) > 0}
+    {if !$_is_search_pro || count($frontend_search) > 0}
         <div class="content-box{if $wa->get('list')} search-title-list{/if}">
             <h1>{$h1}</h1>
             {if $wa->get('list') && $products}
@@ -75,12 +75,12 @@
     {else}
         <div class="js-product-ajax-list-loader -Close content-box"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
         <div class="js-product-ajax-list">
-            {include file='list-thumbs.html' sorting=$sorting isViewSwitch=true ulclass=$class_product_list}
+            {include file='list-thumbs.html' _is_sorting=$_is_sorting isViewSwitch=true ulclass=$class_product_list}
         </div>
     {/if}
 
 {/if}
 
 {$wa->globals('isSearchPage', true)}
-{if $isSearchPro}{$wa->globals('isSearchProPage', true)}{/if}
+{if $_is_search_pro}{$wa->globals('_is_search_proPage', true)}{/if}
 {/strip}

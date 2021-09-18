@@ -30,7 +30,7 @@
         && $action != 'cart'
         && $action != 'order'
         && $action != 'productReviews'
-        && $action == 'search' && class_exists('shopSearchproPluginViewHelper') && $theme_settings.plugin_search_pro
+        && $action == 'search' && class_exists('shopSearchproPluginViewHelper') && $theme_settings.search_pro_plugin
         && !$wa->globals('isMyAccount')
         && $wa->currentUrl(false, true) != '/my/orders/'
         && $wa->currentUrl(false, true) != '/signup/'

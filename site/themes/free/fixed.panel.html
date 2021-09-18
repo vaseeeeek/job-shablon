@@ -243,12 +243,17 @@
                         <div class="js-preview-compare product-custom">
                             <a class="js-products-link" href="{$url}">
                                 <div class="product-custom_icon maincolor">
-                                    <i class="fa fa-files-o icon "></i>
+{*                                    <i class="fa fa-files-o icon "></i>*}
+                                    {literal}
+                                        <svg version="1.1" id="svgCompare" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                             viewBox="0 0 695 718" style="enable-background:new 0 0 695 718;" xml:space="preserve">
+                                        <path d="M62,718H33c-18.2,0-33-14.8-33-33V220c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v465C95,703.2,80.2,718,62,718z"/>
+                                            <path d="M362,717h-29c-18.2,0-33-14.8-33-33V33c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v651C395,702.2,380.2,717,362,717z"/>
+                                            <path d="M662,717h-29c-18.2,0-33-14.8-33-33V429c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v255C695,702.2,680.2,717,662,717z"/>
+                                    </svg>
+                                    {/literal}
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
                                 </div>
-                                {*                <div class="product-custom_content">*}
-                                {*                    <span class="link product-custom_title">[`Compare`]</span>*}
-                                {*                </div>*}
                             </a>
                             <div class="product-msg-added-wrap js-product-added-msg">
                                 <div class="product-added-msg br-top-sdСolor shadow">

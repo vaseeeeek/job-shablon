@@ -2214,6 +2214,10 @@
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
+    <setting var="text_affter_logo_footer" control_type="text">
+      <value locale="ru_RU">Текст под логотипом</value>
+      <name locale="ru_RU">Текст под логотипом</name>
+    </setting>
     <setting var="facebook" control_type="text">
       <value locale="en_US">https://www.facebook.com/Webasyst</value>
       <value locale="ru_RU">https://www.facebook.com/Webasyst.RU</value>
@@ -2468,7 +2472,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="five_icon_img_header" control_type="text">
-      <value>&lt;img src="/img/search.svg" alt=""&gt;</value>
+      <value>&lt;img src="/wa-data/public/site/themes/free/img/forFonts/search.svg" alt=""&gt;</value>
       <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>

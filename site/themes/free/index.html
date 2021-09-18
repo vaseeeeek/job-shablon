@@ -94,7 +94,7 @@
             <div class="header--right">
                 {if !$wa->isMobile()}
                     <div class="Nav-search juniq-header-search">
-                        {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
+                        {if $wa->shop && $theme_settings.search_pro_plugin && class_exists('shopSearchproPluginViewHelper')}
                             <div class="Nav-search_form js-Nav-search">
                                 {shopSearchproPluginViewHelper::field()}
                             </div>
@@ -102,24 +102,24 @@
                             <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
                                   class="js-Nav-search Nav-search_form">
                                 <div class="inp-search">
-                                    <input class="Nav-inp-search{if $theme_settings.auto_search} js-auto-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
+                                    <input class="Nav-inp-search{if $theme_settings.auto_search} js-ajax-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
                                            type="text" name="query" value="{$wa->get('query')|escape}"
                                            placeholder="[`Search in catalog`]"/>
                                     {if $theme_settings.auto_search}
-                                        <div class="auto-search-result js-auto-search-result"></div>
+                                        <div class="ajax-search-result js-ajax-search-result"></div>
                                     {/if}
 {*                                    <i class="fa fa-search btn maincolor js-btn-form"></i>*}
 
+                                    <img id="svgFind" src="/wa-data/public/site/themes/free/img/forFonts/search.svg" alt="" >
                                     {literal}
-                                        <img id="svgFind" src="/img/search.svg" alt="" >
-                                    <style>
-                                        #svgFind{
-                                            position: absolute;
-                                            width: 21px;
-                                            right: 7px;
-                                            top: 8px;
-                                        }
-                                    </style>
+                                        <style>
+                                            #svgFind{
+                                                position: absolute;
+                                                width: 21px;
+                                                right: 7px;
+                                                top: 8px;
+                                            }
+                                        </style>
                                     {/literal}
                                 </div>
                             </form>
@@ -246,7 +246,7 @@
 
             {if $wa->isMobile()}
                 <div class="Nav-search juniq-header-search">
-                    {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
+                    {if $wa->shop && $theme_settings.search_pro_plugin && class_exists('shopSearchproPluginViewHelper')}
                         <div class="Nav-search_form js-Nav-search">
                             {shopSearchproPluginViewHelper::field()}
                         </div>
@@ -254,11 +254,11 @@
                         <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
                               class="js-Nav-search Nav-search_form">
                             <div class="inp-search">
-                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-auto-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
+                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-ajax-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
                                        type="text" name="query" value="{$wa->get('query')|escape}"
                                        placeholder="[`Search in catalog`]"/>
                                 {if $theme_settings.auto_search}
-                                    <div class="auto-search-result js-auto-search-result"></div>
+                                    <div class="ajax-search-result js-ajax-search-result"></div>
                                 {/if}
                                 <i class="fa fa-search btn maincolor js-btn-form"></i>
                             </div>
@@ -292,7 +292,6 @@
     <footer class="footer" itemscope itemtype="http://schema.org/Organization">
         <meta itemprop="name" content="{$wa->shop->settings('name')}">
         <div class="footer-box container">
-            <div class="clearfix">
                 <div class="footer-box_col">
                     {if $theme_settings.logo_footer}
                         <div class="footer_logo">
@@ -302,6 +301,55 @@
                             </a>
                         </div>
                     {/if}
+                    {if $theme_settings.text_affter_logo_footer}
+                        <div class="footer_logo_text">
+                            <span>{$theme_settings.text_affter_logo_footer}</span>
+                        </div>
+                    {/if}
+                    <div class="footer_payment">
+                        <div class="footer_payment_list">
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                            <div class="footer_payment_item">
+                                <span class="footer_payment_svg">
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="footer-social">
                         {if !empty($theme_settings.facebook)}
                             <a target="_blank" class="footer-social_item" href="{$theme_settings.facebook}">
