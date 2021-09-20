@@ -187,7 +187,7 @@
       <name locale="en_US">Color of buttons and other</name>
     </setting>
     <setting var="font" control_type="select">
-      <value>roboto</value>
+      <value>firasans</value>
       <name locale="ru_RU">Основной шрифт</name>
       <options>
         <option value="opensans">
@@ -2316,11 +2316,6 @@
       <name locale="en_US">&lt;br&gt;&lt;br&gt;Text font</name>
       <name locale="ru_RU">&lt;br&gt;&lt;br&gt;Текстовый шрифт</name>
     </setting>
-    <setting var="load_text_font_footer" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Load text font style file </name>
-      <name locale="ru_RU">Загружать файл стилей текстового шрифта</name>
-    </setting>
     <setting var="local_load_text_font" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Local load font</name>
@@ -2462,7 +2457,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="header_company_email" control_type="text">
-      <value><![CDATA[free@mail.ru]]></value>
+      <value>free@mail.ru</value>
       <name locale="ru_RU">Почта</name>
       <name locale="en_US"/>
     </setting>
