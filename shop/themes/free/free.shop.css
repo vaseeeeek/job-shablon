@@ -827,9 +827,10 @@
 
 .Product-grid_action .product-action {
 	border-radius: 50px;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
+	line-height: 36px;
+	width: 40px;
+	height: 40px;
+	font-size: 18px;
 	text-align: center;
 	display: inline-block;
 	color: #7b7b7b;
@@ -838,17 +839,13 @@
 
 .Product-grid_dialog {
 	position: absolute;
-	top: 90px;
+	width: 40px;
+	height: 40px;
+	top: calc(50% - 20px);
 	left: 50%;
 	margin: 0 0 0 -15px;
 	display: none;
-}
-
-.Product-grid_dialog .product-action {
-	line-height: 36px;
-	width: 40px;
-	height: 40px;
-	font-size: 18px;
+	line-height: 1;
 }
 
 .touch .Product-grid_dialog {
@@ -1403,11 +1400,11 @@
 	text-decoration: none;
 	display: block;
 	margin: 0 25px 0 0;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 .sidebar-cats_title {
-	padding: 15px 0;
+	padding: 7px 0;
 }
 
 .sidebar-cats_icon, .sidebar-cats_title {
@@ -1655,23 +1652,6 @@
 
 .grid-gallery._tile-active .grid-gallery__el {
 	position: relative;
-}
-
-.grid-gallery._tile-active .grid-gallery__el:before {
-	content: "";
-	height: 4px;
-	display: block;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	margin: 0 1px;
-	-webkit-transition: background 0.2s;
-	transition: background 0.2s;
-}
-
-.grid-gallery._tile-active:hover .grid-gallery__el:before {
-	background: #dfe3e5;
 }
 
 .grid-gallery._tile-active .grid-gallery__el:first-child:before {

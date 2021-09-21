@@ -500,9 +500,13 @@
 
 {if $wa->get('reviews')}
     <script>
-        $('.js-tab[data-tab-content="product-reviews"]').click();
-        $([document.documentElement, document.body]).animate({
-            scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
-        }, 700);
+        $(document).ready(function() {
+            setTimeout(function (){
+                $('.js-tab[data-tab-content="product-reviews"]').click();
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
+                }, 700);
+            }, 200);
+        });
     </script>
 {/if}

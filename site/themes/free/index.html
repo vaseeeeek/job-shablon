@@ -35,10 +35,6 @@
             <link rel="preload" as="image" href="{$wa->globals('preload_image_2')}">
         {/if}
 
-        {if !$is_icon_font_include_footer}
-            {include file="`$parent_theme_path`/font-icons.css.html"}
-        {/if}
-
         {include file="`$parent_theme_path`/global-var.js.html"}
 
         <!-- css -->
@@ -477,12 +473,10 @@
 
     <script src="{$wa_active_theme_url}free.shop.js?v{$wa_theme_version}"></script>
 
-
     {include file="`$parent_theme_path`/fonts.html"}
 
-    {if $is_icon_font_include_footer}
-        {include file="`$parent_theme_path`/font-icons.css.html"}
-    {/if}
+    {include file="`$parent_theme_path`/font-icons.css.html"}
+
     </body>
     </html>
 {/strip}

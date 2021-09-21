@@ -47,7 +47,7 @@ pre {
   -webkit-font-smoothing: antialiased;
 }
 .link, a {
-  color: #404040;
+  color: #000;
   text-decoration: none;
 }
 
@@ -3758,12 +3758,6 @@ p {
   margin-bottom: 0
 }
 
-.link, a {
-  color: #000;
-  text-decoration: underline;
-  cursor: pointer
-}
-
 .link-half, a.link-half {
   text-decoration: none;
   border-bottom: 1px dashed;
@@ -5203,6 +5197,23 @@ img.mfp-img {
       margin-right: 5px;
     }
   }
+  &-col-title {
+    font-weight: 600;
+    text-decoration: underline;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer{
+    &-box.container{
+      flex-wrap: wrap;
+    }
+    &-box_col{
+      min-width: 280px;
+      margin-bottom: 15px;
+    }
+  }
 }
 .header-top_nav {
   white-space: nowrap;
@@ -5502,7 +5513,7 @@ img.mfp-img {
 }
 
 .nav-cat {
-  padding: 0 24px 0 24px;
+  padding: 0 35px 0 35px;
   white-space: nowrap;
   vertical-align: middle;
   z-index: 101
@@ -5547,7 +5558,7 @@ img.mfp-img {
 .left-sidebar .nav-cat_wrap {
   position: relative;
   left: 0;
-  margin: -18px 0 0
+  margin: -15px 0 0;
 }
 
 .left-sidebar .dd-wrap {
@@ -7741,7 +7752,8 @@ article, aside, footer, header, nav, section {
   box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
 
   .Nav-contact-info {
-    margin-left: 30px;
+    margin-left: 35px;
+    margin-right: 35px;
     p:not(:last-child) {
       margin-bottom: 4px;
     }
@@ -7858,8 +7870,10 @@ article, aside, footer, header, nav, section {
   .product-custom {
     line-height: 14px;
     position: relative;
+    display: inline-block;
+  }
+  .product-custom:not(:first-child) {
     padding: 0 0 0 20px;
-    display: inline-block
   }
 
   .product-custom--link, {

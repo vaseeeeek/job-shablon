@@ -17,13 +17,15 @@
                         {elseif $theme_settings.horizontal_menu == 'app' && $theme_settings.horizontal_menu_app_id}
                             {$appMenuId = $theme_settings.horizontal_menu_app_id}
                             {$items = $wa->menu->get($appMenuId)}
-                            {foreach $items as $id => $cat}
-                                <li class="Nav__horizontal--item">
-                                    <a class="Nav__horizontal--link" href="{$cat.url}">
-                                        {$cat.name}
-                                    </a>
-                                </li>
-                            {/foreach}
+                            {if $items}
+                                {foreach $items as $id => $cat}
+                                    <li class="Nav__horizontal--item">
+                                        <a class="Nav__horizontal--link" href="{$cat.url}">
+                                            {$cat.name}
+                                        </a>
+                                    </li>
+                                {/foreach}
+                            {/if}
                         {/if}
                     </ul>
                 {/if}

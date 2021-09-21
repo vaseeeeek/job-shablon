@@ -247,10 +247,10 @@ var formFunc = {
     init: function () {
         var _this = this;
 
-        _this.formStyler();
-        _this.submit();
+        _this.formAppearance();
+        _this.formSend();
     },
-    formStyler: function () {
+    formAppearance: function () {
         $('body').on('change', 'input[type="checkbox"]', function () {
             if ($(this).is(':checked')) {
                 $(this).closest('.jq-checkbox, .js-style-check').addClass('checked');
@@ -275,19 +275,19 @@ var formFunc = {
             });
         });
 
-        if (!globalThemeSettings.isFormStylerInit) {
+        if (!globalThemeSettings.isformAppearanceInit) {
             return false;
         }
 
-        var inputStyler = $('input[type="checkbox"]:not(.js-style-check-input):not(.js-none-styler):not(.shop-sk-callback__checkbox), input[type="radio"]:not(.js-toggle-styler-input):not(.buy1step-auth__variant):not(.js-none-styler), .js-select');
-        if (!inputStyler.length) {
+        var inputAppearance = $('input[type="checkbox"]:not(.js-style-check-input):not(.js-none-styler):not(.shop-sk-callback__checkbox), input[type="radio"]:not(.js-toggle-styler-input):not(.buy1step-auth__variant):not(.js-none-styler), .js-select');
+        if (!inputAppearance.length) {
             return false;
         }
-        inputStyler.styler();
+        inputAppearance.styler();
         $('input[type="checkbox"], input[type="radio"], .js-select').styler();
         $('.js-addgifts__cart-el input[type="radio"], .searchpro__page-filters input[type="checkbox"], .searchpro__page-filters input[type="radio"], .searchpro__page-filters .js-select').styler('destroy');
     },
-    submit: function () {
+    formSend: function () {
         $('body').on("click", ".js-submit-form", function () {
             var $this = $(this),
                 form = $this.closest("form");
@@ -299,24 +299,19 @@ var formFunc = {
     }
 };
 
-var selectList = {
+var formSelectList = {
     init: function () {
-        var _this = this;
-
         $('body').on("click", '.js-checked-toggle', function () {
             var items = $(this).closest('.js-selecList').find('.js-select-items');
-
             if (items.is(':visible')) {
                 items.hide();
             } else {
                 items.show();
             }
         });
-
         $('body').on("click", '.js-checked-toggle a', function (event) {
             event.preventDefault();
         });
-
     }
 };
 
@@ -3847,7 +3842,7 @@ $(function () {
     tabs.init();
     tabsAcc.init();
     formFunc.init();
-    selectList.init();
+    formSelectList.init();
     menu.init();
     slider.init();
     photoGallery.init();

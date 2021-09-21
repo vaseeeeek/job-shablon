@@ -1,90 +1,75 @@
 {strip}
-
-{$is_local_load_font = $theme_settings.local_load_text_font}
-{$is_display_swap = $theme_settings.load_text_font_display_swap}
-
-{$display_swap = null}
-{if $is_display_swap}
-    {$display_swap = "&display=swap"}
-{/if}
-
-{$font_name = "sans-serif"}
-{$is_ruble_arial = true}
-{if $theme_settings.font == "opensans"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-opensans.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i`$display_swap`&subset=cyrillic"}
+    {if $theme_settings.font == "roboto"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "opensans"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "Montserrat"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "robotocondensed"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "sourcesanspro"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "oswald"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "notosans"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "robotomono"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "raleway"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "ubuntu"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "nunito"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "robotoslab"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "ptsans"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "merriweather"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "playfairdisplay"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "lora"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "opensanscondensed"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "rubik"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "inter"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "nunitosans"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "firasans"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "ptserif"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "notoserif"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"}
+        <link href="{$font_link}" rel="stylesheet">
+    {elseif $theme_settings.font == "yanonekaffeesatz"}
+        {$font_link = "https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@400;700&display=swap"}
         <link href="{$font_link}" rel="stylesheet">
     {/if}
-    {$font_name = "'Open Sans', sans-serif"}
-{elseif $theme_settings.font == "ubuntu"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-ubuntu.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500,500i,700,700i`$display_swap`&subset=cyrillic"}
-        <link href="{$font_link}" rel="stylesheet">
-    {/if}
-    {$font_name = "'Ubuntu', sans-serif"}
-{elseif $theme_settings.font == "exo2"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-exo2.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=Exo+2:400,400i,500,500i,600,600i,700,700i`$display_swap`&subset=cyrillic"}
-        <link href="{$font_link}" rel="stylesheet">
-    {/if}
-    {$font_name = "'Exo 2', sans-serif"}
-    {$is_ruble_arial = false}
-{elseif $theme_settings.font == "arial"}
-    {$font_name = "'Arial', sans-serif"}
-{elseif $theme_settings.font == "roboto"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-roboto.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i`$display_swap`&subset=cyrillic"}
-        <link href="{$font_link}" rel="stylesheet">
-    {/if}
-    {$font_name = "'Roboto', sans-serif"}
-    {$is_ruble_arial = false}
-{elseif $theme_settings.font == "firasans"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-firasans.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i`$display_swap`&subset=cyrillic"}
-        <link href="{$font_link}" rel="stylesheet">
-    {/if}
-    {$font_name = "'Fira Sans', sans-serif"}
-    {$is_ruble_arial = false}
-{elseif $theme_settings.font == "montserrat"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-montserrat.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i`$display_swap`&subset=cyrillic"}
-        <link href="{$font_link}" rel="stylesheet">
-    {/if}
-    {$font_name = "'Montserrat', sans-serif"}
-    {$is_ruble_arial = false}
-{elseif $theme_settings.font == "helvetica"}
-    {$font_name = "'Helvetica', sans-serif"}
-{elseif $theme_settings.font == "ptsans"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-ptsans.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i`$display_swap`&subset=cyrillic"}
-        <link href="{$font_link}" rel="stylesheet">
-    {/if}
-    {$font_name = "'PT Sans', sans-serif"}
-    {$is_ruble_arial = false}
-{elseif $theme_settings.font == "play"}
-    {if $is_local_load_font}
-        {include file="`$parent_theme_path`/font-play.css.html"}
-    {else}
-        {$font_link = "https://fonts.googleapis.com/css?family=Play:400,700`$display_swap`&subset=cyrillic"}
-        <link href="{$font_link}" rel="stylesheet">
-    {/if}
-    {$font_name = "'Play', sans-serif"}
-    {$is_ruble_arial = false}
-{/if}
-
-
 {/strip}
