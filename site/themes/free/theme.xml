@@ -1478,25 +1478,6 @@
       <name locale="en_US">Catalog sidebar</name>
       <name locale="ru_RU">Сайдбар каталога</name>
     </setting>
-    <setting var="show_sb_category" control_type="select">
-      <value>sidebar_left</value>
-      <name locale="ru_RU">Категории в сайдбаре</name>
-      <name locale="en_US">Categories in sidebar</name>
-      <options>
-        <option value="sidebar_left">
-          <name locale="ru_RU">В сайдбаре слева</name>
-          <name locale="en_US">In left sidebar</name>
-        </option>
-        <option value="sidebar_right">
-          <name locale="ru_RU">В сайдбаре справа</name>
-          <name locale="en_US">In right sidebar</name>
-        </option>
-        <option value="">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
-    </setting>
     <setting var="sb_cat_content" control_type="select">
       <value>catalog</value>
       <name locale="ru_RU">Источник ссылок</name>
@@ -1517,86 +1498,20 @@
       <name locale="en_US">Identifier from applications Menu</name>
       <name locale="ru_RU">Идентификатор из приложения Управление меню</name>
     </setting>
-    <setting var="show_sb_filter" control_type="select">
-      <value>sidebar_left</value>
-      <name locale="ru_RU">Фильтр</name>
-      <name locale="en_US">Filter</name>
-      <options>
-        <option value="sidebar_left">
-          <name locale="ru_RU">В сайдбаре слева</name>
-          <name locale="en_US">In left sidebar</name>
-        </option>
-        <option value="sidebar_right">
-          <name locale="ru_RU">В сайдбаре справа</name>
-          <name locale="en_US">In right sidebar</name>
-        </option>
-        <option value="none">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
+    <setting var="show_tags_sb" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывод тегов</name>
     </setting>
-    <setting var="show_tags_sb" control_type="select">
-      <value>sidebar_left</value>
-      <name locale="ru_RU">Теги в сайдбаре</name>
-      <name locale="en_US">Tags in sidebar</name>
-      <options>
-        <option value="sidebar_left">
-          <name locale="ru_RU">В сайдбаре слева</name>
-          <name locale="en_US">In left sidebar</name>
-        </option>
-        <option value="sidebar_right">
-          <name locale="ru_RU">В сайдбаре справа</name>
-          <name locale="en_US">In right sidebar</name>
-        </option>
-        <option value="">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="show_plugins_sb" control_type="select">
-      <value>sidebar_right</value>
+
+    <setting var="show_plugins_sb" control_type="checkbox">
+      <value>1</value>
       <name locale="ru_RU">Блоки плагинов в сайдбаре</name>
       <name locale="en_US">Blocks of plugins in sidebar</name>
-      <options>
-        <option value="sidebar_left">
-          <name locale="ru_RU">В сайдбаре слева</name>
-          <name locale="en_US">In left sidebar</name>
-        </option>
-        <option value="sidebar_right">
-          <name locale="ru_RU">В сайдбаре справа</name>
-          <name locale="en_US">In right sidebar</name>
-        </option>
-        <option value="">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
     </setting>
     <setting var="count_el_plugins_sb" control_type="text">
       <value>12</value>
       <name locale="ru_RU">Количество раскрытых элементов при выводе плагинов в сайдбаре</name>
       <name locale="en_US">The number of disclosed elements in the derivation of plug-ins in the sidebar</name>
-    </setting>
-    <setting var="show_lastview_sb" control_type="select">
-      <value>sidebar_left</value>
-      <name locale="ru_RU">"Вы смотрели" в сайдбаре</name>
-      <name locale="en_US">"Last view" in sidebar</name>
-      <options>
-        <option value="sidebar_left">
-          <name locale="ru_RU">В сайдбаре слева</name>
-          <name locale="en_US">In left sidebar</name>
-        </option>
-        <option value="sidebar_right">
-          <name locale="ru_RU">В сайдбаре справа</name>
-          <name locale="en_US">In right sidebar</name>
-        </option>
-        <option value="">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US">None</name>
-        </option>
-      </options>
     </setting>
     <setting var="cat_sb_left" control_type="checkbox">
       <value>1</value>

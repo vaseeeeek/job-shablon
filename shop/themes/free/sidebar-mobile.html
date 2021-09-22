@@ -1,5 +1,5 @@
 {strip}
-{if $theme_settings.show_sb_filter != 'none' && !empty($filters)}
+{if !empty($filters)}
     <div class="sidear-mobile">
         {if !isset($filters)}{$filters = []}{/if}
         {include file="`$wa_active_theme_path`/sidebar.filter.html" filter=$filters}
