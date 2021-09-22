@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="77">
+<theme id="free" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="78">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop,
@@ -321,7 +321,7 @@
       <name locale="ru_RU">«Шапка» сайта</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1632206108</value>
+      <value>img/logo.png?v1632221726</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -585,7 +585,7 @@
       </options>
     </setting>
     <setting var="cat_hover_dd_delay" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Hover delay to category</name>
       <name locale="ru_RU">Задержка при наведении на категорию</name>
     </setting>
@@ -595,7 +595,7 @@
       <name locale="ru_RU">При наведение на меню категорий затемнять фон</name>
     </setting>
     <setting var="get_menu_from" control_type="select">
-      <value>catalog</value>
+      <value>app-menu</value>
       <name locale="ru_RU">Источник ссылок</name>
       <name locale="en_US">Link Source</name>
       <options>
@@ -1227,7 +1227,7 @@
       <name locale="en_US">Disabled button to cart at zero price</name>
     </setting>
     <setting var="text_product_not_available" control_type="text">
-      <value>нет нихуя идите в другой магазин</value>
+      <value>Отсутствует</value>
       <name locale="ru_RU">Текст вместо надписи "Нет в наличии"</name>
       <name locale="en_US">Text instead "Out of stock"</name>
     </setting>
@@ -1258,7 +1258,7 @@
       <name locale="en_US">Dropdown subcategories in breadcrumbs</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value>obrezka,obem,sun,</value>
+      <value><![CDATA[obrezka,obem,sun]]></value>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
                 right)
@@ -1639,7 +1639,7 @@
       <name locale="ru_RU">Показывать правый сайдбар на странице поиска</name>
     </setting>
     <setting var="product_sidebar_left" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Show left sidebar on product page</name>
       <name locale="ru_RU">Показывать левый сайдбар на странице продукта</name>
     </setting>
@@ -2326,10 +2326,7 @@
       <name locale="ru_RU">Сайдбар приложения "Блог"</name>
     </setting>
     <setting var="blog_post_share_code" control_type="text">
-      <value><![CDATA[<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script> <script
-                src="https://yastatic.net/share2/share.js"></script> <div class="ya-share2"
-                data-services="collections,vkontakte,facebook,odnoklassniki,moimir"></div>
-            ]]></value>
+      <value><![CDATA[]]></value>
       <name locale="en_US">Script for buttons to share in post</name>
       <name locale="ru_RU">Скрипт для кнопок поделиться в посте</name>
       <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
@@ -2447,7 +2444,7 @@
             </description>
     </setting>
     <setting var="logo_footer" control_type="image">
-      <value>img/logo_footer.png?v1632145244</value>
+      <value>img/logo_footer.png?v1632221726</value>
       <filename>img/logo_footer.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>

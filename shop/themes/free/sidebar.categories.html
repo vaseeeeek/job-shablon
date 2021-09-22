@@ -40,9 +40,6 @@
                         {/foreach}
                     {/if}
                     <li class="sidebar-subcategories_el{if $category_selected == $subcat.id} selected{/if}"{if $category_selected == $subcat.id} data-is-open="1"{/if}>
-                        {if $_has_childs && count($subcat.childs)}
-                            <span class="sidebar-subcategories_el-open sdColor js-subcat-open{if $category_selected == $subcat.id || isset($subcat.params.sidebar_open)} selected{/if}"></span>
-                        {/if}
                         <a href="{$subcat.url}">{$subcat.name}</a>
                         {if $_has_childs}{getSubcategories subcategories=$subcat.childs parent=$subcat}{/if}
                     </li>

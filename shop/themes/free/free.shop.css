@@ -827,10 +827,9 @@
 
 .Product-grid_action .product-action {
 	border-radius: 50px;
-	line-height: 36px;
-	width: 40px;
-	height: 40px;
-	font-size: 18px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
 	text-align: center;
 	display: inline-block;
 	color: #7b7b7b;
@@ -846,6 +845,13 @@
 	margin: 0 0 0 -15px;
 	display: none;
 	line-height: 1;
+}
+
+.Product-grid_dialog .product-action {
+	line-height: 36px;
+	width: 40px;
+	height: 40px;
+	font-size: 18px;
 }
 
 .touch .Product-grid_dialog {
@@ -1463,6 +1469,10 @@
 	position: relative;
 }
 
+.sidebar-subcategories_el.selected .sidebar-subcategories_el a {
+	color: #999;
+}
+
 .sidebar-subcategories_el-open {
 	cursor: pointer;
 	position: absolute;
@@ -1805,7 +1815,6 @@
 
 .fixed-cart__remove {
 	color: #ccc;
-	border: 1px solid;
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -2496,7 +2505,6 @@ input.error, textarea.error {
 
 .checkout-option_title {
 	font-size: 16px;
-	border-bottom: 1px dashed;
 	font-weight: 700;
 	margin: 0 10px 0 0;
 }
@@ -5245,14 +5253,14 @@ img.pswp__img {
 	vertical-align: top;
 	position: relative;
 	width: 18%;
-	margin: 0 1% 15px;
+	margin: 0 1% 10px;
+	background-color: #FAFAFA;
 	text-align: center;
-	border: 1px solid #d6d6d6;
 	overflow: hidden;
-	border-radius: 10px;
+	border-radius: 6px;
 	font-size: 14px;
 	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .cols-3 .categories-tile {
@@ -5285,7 +5293,6 @@ img.pswp__img {
 .cat-tile_name {
 	padding: 10px 0;
 	margin: 0 10px;
-	border-top: 1px solid #ebebeb;
 	line-height: 16px;
 }
 
@@ -5747,7 +5754,6 @@ input[type=button].storequickorder-button:hover {
 .onestep-cart input[name=use_affiliate] {
 	background: none;
 	padding: 0;
-	border-bottom: 1px dashed;
 	border-radius: 0;
 	line-height: 18px;
 	height: auto;
@@ -5880,7 +5886,6 @@ input[type=button].storequickorder-button:hover {
 
 .wa-affiliate-section .wa-active-state .wa-button {
 	font-size: 12px;
-	border-bottom: 1px dashed;
 	border-radius: 0;
 	padding: 0;
 	margin: 0 0 0 10px;
@@ -6404,6 +6409,10 @@ input[type=button].storequickorder-button:hover {
 	-webkit-box-flex: 0;
 	    -ms-flex: 0 1 100px;
 	        flex: 0 1 100px;
+	position: relative;
+}
+.product_page .previews_gallery .bx-wrapper {
+	position: relative;
 }
 .product_page .image-preview-list {
 	display: -webkit-box;

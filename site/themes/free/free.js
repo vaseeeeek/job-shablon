@@ -315,16 +315,18 @@ var formSelectList = {
     }
 };
 
+// остановился
+
 var menu = {
     init: function () {
         var _this = this;
 
-        _this.responsiveMenu();
+        _this.respMenu();
         _this.resizeMenu();
         _this.headerMenuHover();
         _this.sidebar();
     },
-    responsiveMenu: function () {
+    respMenu: function () {
         var _this = this, items = $(".js-resp-nav-top");
 
         if (!items.length) {
@@ -343,7 +345,7 @@ var menu = {
         }
 
         $(window).resize(function () {
-            _this.responsiveMenu();
+            _this.respMenu();
         });
     },
     responsived: function (menu) {
@@ -2292,10 +2294,9 @@ var infoMessage = {
         }
     },
     checkOpen: function (container) {
-        var _this = this,
-            id = container.data('id');
+        var _this = this;
 
-        if (!$.cookie("info_massage_close_" + id)) {
+        if (!$.cookie("info_massage_close")) {
             return true;
         }
 
@@ -3064,7 +3065,7 @@ var productGallery = {
         if (images.length) {
             images.bxSlider({
                 mode: 'vertical',
-                slideWidth: 60,
+                slideWidth: 100,
                 minSlides: images.data('min-items'),
                 slideMargin: 6,
                 pager: false,

@@ -18,6 +18,7 @@
         <title>{$wa->title()|escape}</title>
         <meta name="Keywords" content="{$wa->meta('keywords')|escape}"/>
         <meta name="Description" content="{$wa->meta('description')|escape}"/>
+        <link rel="stylesheet" href="https://i.icomoon.io/public/temp/b5170a7ca6/UntitledProject/style.css">
 
         {if !empty($canonical)}
             <link rel="canonical" href="{$canonical}"/>{/if}
@@ -65,7 +66,10 @@
 
     <body class="{if !empty($is_icons_hidden)} icondesc-hidden{/if}">
 
-    {include file="info.message.html"}
+    {if $theme_settings.head_info_message && $theme_settings.head_info_message_text && !$wa->cookie("info_massage_close_`$theme_settings.head_info_message_id`")}
+        {$wa->block("cookie.block")}
+    {/if}
+
     {if !$wa->isMobile()}
         {include file="header.top.html"}
     {/if}
@@ -311,7 +315,7 @@
                         </div>
                         <div class="footer_payment_item">
                             <span class="footer_payment_svg">
-                                <svg id="megashop-icon_visa" viewBox="0 0 30 30"><path fill="#fff" d="M12.88 18.48h-1.86l1.17-6.96h1.86l-1.17 6.96zm-3.42-6.96l-1.78 4.79-.2-1.03-.63-3.13s-.08-.63-.88-.63H3.03l-.03.12s.9.18 1.95.8l1.61 6.04H8.5l2.96-6.96h-2zm14.63 6.96h1.71l-1.49-6.96h-1.5c-.68 0-.85.52-.85.52l-2.78 6.44h1.94l.39-1.03h2.36l.22 1.03zm-2.05-2.46l.98-2.6.55 2.6h-1.53zm-2.71-2.82l.26-1.5s-.82-.3-1.67-.3c-.92 0-3.12.4-3.12 2.3 0 1.8 2.58 1.82 2.58 2.77 0 .94-2.31.77-3.07.18l-.28 1.56s.83.39 2.1.39 3.18-.64 3.18-2.38c0-1.81-2.6-1.98-2.6-2.76 0-.8 1.82-.69 2.62-.26z"></path><path fill="#E6A540" d="M7.47 15.23l-.62-3.09s-.08-.62-.88-.62H3.03l-.03.12s1.41.28 2.76 1.33c1.3 1 1.72 2.26 1.72 2.26z"></path></svg>
+                                <svg id="megashop-icon_visa" viewBox="0 0 30 30"><path fill="#000" d="M12.88 18.48h-1.86l1.17-6.96h1.86l-1.17 6.96zm-3.42-6.96l-1.78 4.79-.2-1.03-.63-3.13s-.08-.63-.88-.63H3.03l-.03.12s.9.18 1.95.8l1.61 6.04H8.5l2.96-6.96h-2zm14.63 6.96h1.71l-1.49-6.96h-1.5c-.68 0-.85.52-.85.52l-2.78 6.44h1.94l.39-1.03h2.36l.22 1.03zm-2.05-2.46l.98-2.6.55 2.6h-1.53zm-2.71-2.82l.26-1.5s-.82-.3-1.67-.3c-.92 0-3.12.4-3.12 2.3 0 1.8 2.58 1.82 2.58 2.77 0 .94-2.31.77-3.07.18l-.28 1.56s.83.39 2.1.39 3.18-.64 3.18-2.38c0-1.81-2.6-1.98-2.6-2.76 0-.8 1.82-.69 2.62-.26z"></path><path fill="#E6A540" d="M7.47 15.23l-.62-3.09s-.08-.62-.88-.62H3.03l-.03.12s1.41.28 2.76 1.33c1.3 1 1.72 2.26 1.72 2.26z"></path></svg>
                             </span>
                         </div>
                         <div class="footer_payment_item">

@@ -839,10 +839,13 @@
 
 .Product-grid_dialog {
   position: absolute;
-  top: 90px;
+  width: 40px;
+  height: 40px;
+  top: calc(50% - 20px);
   left: 50%;
   margin: 0 0 0 -15px;
-  display: none
+  display: none;
+  line-height: 1;
 }
 
 .Product-grid_dialog .product-action {
@@ -1400,11 +1403,11 @@
   text-decoration: none;
   display: block;
   margin: 0 25px 0 0;
-  font-size: 16px
+  font-size: 15px;
 }
 
 .sidebar-cats_title {
-  padding: 15px 0
+  padding: 7px 0
 }
 
 .sidebar-cats_icon, .sidebar-cats_title {
@@ -1462,7 +1465,9 @@
   margin-left: 20px;
   position: relative
 }
-
+.sidebar-subcategories_el.selected .sidebar-subcategories_el a{
+  color: #999;
+}
 .sidebar-subcategories_el-open {
   cursor: pointer;
   position: absolute;
@@ -1654,22 +1659,6 @@
   position: relative
 }
 
-.grid-gallery._tile-active .grid-gallery__el:before {
-  content: "";
-  height: 4px;
-  display: block;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0 1px;
-  transition: background .2s
-}
-
-.grid-gallery._tile-active:hover .grid-gallery__el:before {
-  background: #dfe3e5
-}
-
 .grid-gallery._tile-active .grid-gallery__el:first-child:before {
   margin-left: 0
 }
@@ -1821,7 +1810,6 @@
 
 .fixed-cart__remove {
   color: #ccc;
-  border: 1px solid;
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -2516,7 +2504,6 @@ input.error, textarea.error {
 
 .checkout-option_title {
   font-size: 16px;
-  border-bottom: 1px dashed;
   font-weight: 700;
   margin: 0 10px 0 0
 }
@@ -3857,7 +3844,6 @@ img.pswp__img {
 }
 
 @media print {
-
   .previews_gallery {
     display: none
   }
@@ -5315,13 +5301,14 @@ img.pswp__img {
   vertical-align: top;
   position: relative;
   width: 18%;
-  margin: 0 1% 15px;
+  margin: 0 1% 10px;
+  background-color: #FAFAFA;
   text-align: center;
-  border: 1px solid #d6d6d6;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 14px;
-  box-sizing: border-box
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .cols-3 .categories-tile {
@@ -5353,8 +5340,7 @@ img.pswp__img {
 .cat-tile_name {
   padding: 10px 0;
   margin: 0 10px;
-  border-top: 1px solid #ebebeb;
-  line-height: 16px
+  line-height: 16px;
 }
 
 .categories-tile a {
@@ -5810,7 +5796,6 @@ input[type=button].storequickorder-button:hover {
 .onestep-cart input[name=use_affiliate] {
   background: none;
   padding: 0;
-  border-bottom: 1px dashed;
   border-radius: 0;
   line-height: 18px;
   height: auto
@@ -5943,7 +5928,6 @@ input[type=button].storequickorder-button:hover {
 
 .wa-affiliate-section .wa-active-state .wa-button {
   font-size: 12px;
-  border-bottom: 1px dashed;
   border-radius: 0;
   padding: 0;
   margin: 0 0 0 10px
@@ -6470,6 +6454,10 @@ input[type=button].storequickorder-button:hover {
 
   .previews_gallery {
     flex: 0 1 100px;
+    position: relative;
+    .bx-wrapper{
+      position: relative;
+    }
   }
 
   .image-preview-list {
