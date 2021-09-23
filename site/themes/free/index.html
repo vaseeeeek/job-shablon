@@ -66,8 +66,17 @@
 
     <body class="{if !empty($is_icons_hidden)} icondesc-hidden{/if}">
 
-    {if $theme_settings.head_info_message && $theme_settings.head_info_message_text && !$wa->cookie("info_massage_close_`$theme_settings.head_info_message_id`")}
-        {$wa->block("cookie.block")}
+    {if $wa->block("cookie.block") && !$wa->cookie('info_massage_close')}
+        <div class="head_info-massage js-head-info-massage">
+            <div class="head_info-massage__wrap container">
+                <div class="head_info-massage__content">
+                    <div>
+                        {$wa->block("cookie.block")}
+                    </div>
+                </div>
+                <span class="head_info-massage__closeку js-head_info-message-close"><span class="info-massage__close-name">&times;</span></span>
+            </div>
+        </div>
     {/if}
 
     {if !$wa->isMobile()}
@@ -301,11 +310,6 @@
                         </a>
                     </div>
                 {/if}
-                {if $theme_settings.text_affter_logo_footer}
-                    <div class="footer_logo_text">
-                        <span>{$theme_settings.text_affter_logo_footer}</span>
-                    </div>
-                {/if}
                 <div class="footer_payment">
                     <div class="footer_payment_list">
                         <div class="footer_payment_item">
@@ -404,7 +408,7 @@
         </div>
     </footer>
 
-    {if $theme_settings.scroll_top}<span class="btn-top {*icon fi-rr-angle-up *}sdСolor" id="move-to-top">
+    <span class="btn-top {*icon fi-rr-angle-up *}sdСolor" id="move-to-top">
 
             {literal}
                 <svg version="1.1" id="svgSrollToTop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -425,7 +429,7 @@
                 </style>
             {/literal}
 
-        </span>{/if}
+        </span>
 
     {if $wa->isMobile()}
         {include file="fixed.panel.html" inline}

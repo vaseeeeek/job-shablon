@@ -1,7 +1,7 @@
 {strip}
     {if count($categories)}
         {$total_max_subcat = $theme_settings.total_max_maxcat_homepage}
-        {$_lazy = $theme_settings.cat_list_img_lazy}
+        {$_lazy = true}
         <ul class="js-list-categories categories" data-lazy="{$_lazy}">
             {foreach $categories as $category}
                 <li class="categories-el">
@@ -14,12 +14,8 @@
                     {if isset($category.params.image)}
                         <div class="categories-el-image">
                             <a href="{$category.url}">
-                                {if $theme_settings.cat_list_img_lazy}
-                                    <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png"
-                                         data-src="{$category.params.image}" alt="{$category.name}"/>
-                                {else}
-                                    <img class="js-cat-item-image" src="{$category.params.image}" alt="{$category.name}"/>
-                                {/if}
+                                <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png"
+                                     data-src="{$category.params.image}" alt="{$category.name}"/>
                             </a>
                         </div>
                     {/if}

@@ -3,7 +3,7 @@
 
 
     {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
-    {$_lazy = $theme_settings.cat_list_img_lazy}
+    {$_lazy = true}
     <ul class="js-list-categories category-subcat-icon clear-list" data-retina="{$_retina}" data-lazy="{$_lazy}">
         {foreach $category.subcategories as $sc}
             <li class="category-subcat-icon_item">
@@ -14,11 +14,7 @@
                     {if isset($skImages[$sc.id].icon)}
                         {$sc.params.icon = $skImages[$sc.id].icon}
                     {/if}
-                    {if $theme_settings.cat_list_img_lazy}
-                        <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else} /wa-data/public/shop/themes/free/img/dummy96.png{/if}" alt="{$sc.name}" />
-                    {else}
-                        <img class="js-cat-item-image" src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else} /wa-data/public/shop/themes/free/img/dummy96.png{/if}" alt="{$sc.name}">
-                    {/if}
+                    <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($sc.params.icon) && $sc.params.icon}{$sc.params.icon}{else} /wa-data/public/shop/themes/free/img/dummy96.png{/if}" alt="{$sc.name}" />
                 </div>
                 <div class="category-subcat-icon_name">
                     <a href="{$sc.url}" class="js-cat-link">{$sc.name|escape}</a> <span class="hint">({$sc.count})</span>{/if}

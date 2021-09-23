@@ -20,81 +20,9 @@
 {/if}
 
 {$max_count_categories = 0}
-{if ($wa->currentUrl(false, true) == $wa_app_url && $wa_app == 'shop') && $theme_settings.sidebar_mainpage}
-    {$menu_static = true}
-    {if $theme_settings.max_num_cat_sb}
-        {$max_count_categories = $theme_settings.max_num_cat_sb}
-    {/if}
-{else}
-    {$menu_static = false}
-    {if $theme_settings.max_num_cat_dd}
-        {$max_count_categories = $theme_settings.max_num_cat_dd}
-    {/if}
-{/if}
 
-
-{if $theme_settings.added_cat_menu_links}
-    {$links_add = []}
-    {$links_add_res = []}
-    {if $theme_settings.added_cat_menu_links == 'app-menu' && $theme_settings.get_menu_from != 'app-menu' && $wa->menu && (int)$theme_settings.id_app_menu_cat > 0}
-        {$id_menu = $theme_settings.id_app_menu_cat}
-        {$links_add_res = $wa->menu->get($id_menu)}
-    {else}
-        {if $theme_settings.added_cat_menu_links == 'site-pages'}
-            {if $wa->site}{$links_add = $wa->site->pages()}{/if}
-        {elseif $theme_settings.added_cat_menu_links == 'shop-pages'}
-            {if $wa->shop}{$links_add = $wa->shop->pages()}{/if}
-        {elseif $theme_settings.added_cat_menu_links == 'blog-pages'}
-            {if $wa->blog}{$links_add = $wa->blog->pages()}{/if}
-        {elseif $theme_settings.added_cat_menu_links == 'photos-pages'}
-            {if $wa->photos}{$links_add = $wa->photos->pages()}{/if}
-        {elseif $theme_settings.added_cat_menu_links == 'hub-pages'}
-            {if $wa->hub}{$links_add = $wa->hub->pages()}{/if}
-        {/if}
-
-        {$ids = ","|explode:$theme_settings.added_cat_menu_links_ids}
-        {if count($links_add) > 0 && count($ids) > 0}
-            {foreach $links_add as $link_add}
-                {if in_array($link_add.id, $ids)}
-                    {$linkId_add = "add`$link_add.id`"}
-                    {$link_add = ['name' => $link_add.title, 'url' => $link_add.url, 'childs' => [], 'id' => $linkId_add, 'page'=>1]}
-                    {if isset($link_add.childs) && $link_add.childs && count($link_add.childs)}
-                        {$link_add['childs'] = $link_add.childs}
-                        {foreach $link_add.childs as $key => $child}
-                            {$link_add.childs[$key]["page"] = 1}
-                            {if !isset($link_add.childs[$key]['childs'])}{$link_add.childs[$key]['childs'] = []}{/if}
-                            {if isset($link_add.childs[$key]['icon'])}
-                                {$link_add.childs[$key]['params']['icon'] = $link_add.childs[$key]['icon']}
-                            {/if}
-                            {if isset($link_add.childs[$key]['image'])}
-                                {$link_add.childs[$key]['params']['image'] = $link_add.childs[$key]['image']}
-                            {/if}
-                        {/foreach}
-                    {/if}
-                    {if isset($link_add.icon)}
-                        {$link_add['params']['icon'] = $link_add.icon}
-                    {/if}
-                    {if isset($link_add.submenu_columns)}
-                        {$link_add['params']['submenu_columns'] = $link_add.submenu_columns}
-                    {/if}
-                    {if isset($link_add.submenu_pic)}
-                        {$link_add['params']['submenu_pic'] = $link_add.submenu_pic}
-                    {/if}
-                    {if strlen($link_add.url)>1 && $wa->currentUrl() == $link_add.url}
-                        {$category_selected=$linkId_add}
-                    {/if}
-                    {$links_add_res[] = $link_add}
-                {/if}
-            {/foreach}
-        {/if}
-    {/if}
-    {if count($links_add_res) > 0}
-        {if $theme_settings.added_cat_menu_links_end}
-            {$categories = $categories|@array_merge:$links_add_res}
-        {else}
-            {$categories = $links_add_res|@array_merge:$categories}
-        {/if}
-    {/if}
+{if $theme_settings.max_num_cat_dd}
+    {$max_count_categories = $theme_settings.max_num_cat_dd}
 {/if}
 
 {* hide lasted categories to ELSE link *}
@@ -115,9 +43,8 @@
 {else}
     {$cat_result = $categories}
 {/if}
-
-<div id="nav-cat"{if $theme_settings.cat_hover_dd_delay} data-delay="1"{/if} class="nav-cat_wrap js-dd-wrap{if $menu_static} desktop-show{/if}" data-retina="{$_retina}" data-lazy="{$theme_settings.menu_cat_img_lazy}">
-    {if !$menu_static && $theme_settings.cat_hover_bg}<div class="js-bg cat-nav-bg mfp-bg mfp-ready"></div>{/if}
+<div id="nav-cat" class="nav-cat_wrap js-dd-wrap" data-retina="{$_retina}" data-lazy="1">
+    <div class="js-bg cat-nav-bg mfp-bg mfp-ready"></div>
     <div class="dd-wrap">
         <div class="category-menu js-category-menu-wrap">
             {foreach $cat_result as $cat}
@@ -154,24 +81,6 @@
                         </div>
                     {else}
                         <a class="cat-menu__item-link" href="{$cat.url}">
-                            <!-- Спросить о настройке -->
-                            {if $theme_settings.icon_dd_menu_subcat}
-                                {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
-                                    {$cat.params.icon = $Wmimages[$cat.id].icon}
-                                {/if}
-                                {if isset($skImages[$cat.id].icon)}
-                                    {$cat.params.icon = $skImages[$cat.id].icon}
-                                {/if}
-                                {if isset($cat.params.icon)}
-                                    <div class="cat-menu__item-icon">
-                                        {if $theme_settings.menu_cat_img_lazy}
-                                            <img class="js-category-menu-image" alt="{$cat.name}" src="{$wa_theme_url}img/lazy-image.png" data-src="{$cat.params.icon}" />
-                                        {else}
-                                            <img class="js-category-menu-image" alt="{$cat.name}" src="{$cat.params.icon}" />
-                                        {/if}
-                                    </div>
-                                {/if}
-                            {/if}
                             <div class="cat-menu__item-title">
                                 {$cat.name}
                             </div>
@@ -190,5 +99,4 @@
         </div>
     </div>
 </div>
-{if $menu_static && $theme_settings.cat_hover_bg && $theme_settings.max_cat_lvl > 1}<div class="js-bg cat-nav-bg mfp-bg mfp-ready"></div>{/if}
 {/strip}

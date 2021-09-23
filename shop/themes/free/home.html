@@ -2,28 +2,8 @@
 {$mPromoCards = $wa->shop->promos()|array_values}
 
 <div class="container">
-    {if $theme_settings.sidebar_mainpage}
-        <div class="left-sidebar mainpage-sidebar">
-            {if $theme_settings.sidebar_mainpage}
-                {include file="`$wa_parent_theme_path`/header.categories.html"}
-            {/if}
-        </div>
-
-        <div class="with-sidebar cols-2"> 
-    {/if}
-
     {include file="slider.html"}
-    {if !$theme_settings.sidebar_mainpage}
-        </div>
-    {else}
-            </div>
-        </div>
-    {/if}
-
-    {if $theme_settings.is_homepage_promos}
-        <div class="container">{include file="promos.html"}</div>
-    {/if}
-
+</div>
     {if $theme_settings.categories_home_page}
         {$categories = $wa->shop->categories(0, null, true, true)}
         {if count($categories) > 0}

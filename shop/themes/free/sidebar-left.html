@@ -5,9 +5,7 @@
             {include file="`$wa_active_theme_path`/sidebar.filter.html" filter=$filters}
         {/if}
 
-        {if $theme_settings.show_sb_category == 'sidebar_left'}
-            {include file="`$wa_active_theme_path`/sidebar.categories.html"}
-        {/if}
+        {include file="`$wa_active_theme_path`/sidebar.categories.html"}
 
         {if $theme_settings.show_plugins_sb == 'sidebar_left'}
             {include file="`$wa_active_theme_path`/sidebar.plugins.html"}

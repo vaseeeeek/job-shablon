@@ -1,9 +1,4 @@
 {strip}
-{$cols = 1} {$sb_left = 0}
-{if $theme_settings.product_sidebar_left && !$wa->isMobile()}
-    {$cols = $cols + 1}
-    {$sb_left = 1}
-{/if}
 
 {if $wa->isMobile()}
     {$product_alias_str = $theme_settings.product_page_main_description_mobile}
@@ -13,8 +8,6 @@
 {$_show_description = strpos($product_alias_str, 'description') !== false && $product.description}
 {$_show_features =  strpos($product_alias_str, 'features') !== false && $product.features}
 
-
-<div class="cols-{$cols}">
     <div class="out_sidebars">
         {if $sb_left}
             {include file='sidebar-left.html'}
@@ -410,7 +403,7 @@
             {$products_view = $theme_settings.pr_list_view_type}
         {/if}
 
-        {if $crossselling || $upselling || ( $theme_settings.show_list_viewed_products && $theme_settings.product_page_views_products && $viewed_product_list)}
+        {if $crossselling || $upselling }
             <div class="content product_cross-products">
                 {if $crossselling}
                     {$product_list_title = sprintf('C "%s" так же берут', $product.name|escape)}
@@ -431,36 +424,10 @@
                         {include file="product.products-list.html" products=$upselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
                     {/if}
                 {/if}
-
-                {if $theme_settings.show_list_viewed_products && $viewed_product_list && ($theme_settings.product_page_views_products || $wa->isMobile())}
-                    {$viewed_product_list_arr = ","|explode:$viewed_product_list}
-                    {$viewed_product_list_arr_lasted = []}
-                    {$counter = 1}
-                    {foreach $viewed_product_list_arr as $id}
-                        {$viewed_product_list_arr_lasted[] = $id}
-                        {if $counter++ == 10}
-                            {break}
-                        {/if}
-                    {/foreach}
-                    {$products = $wa->shop->products($viewed_product_list_arr_lasted)}
-                    {$products_result = []}
-                    {foreach $viewed_product_list_arr as $id}
-                        {foreach $products as $product}
-                            {if $product.id == $id}
-                                {$products_result[$id] = $product}
-                            {/if}
-                        {/foreach}
-                    {/foreach}
-                    {if $products_view == "tile-carousel" && !$wa->isMobile()}
-                        {include file="product.products-carousel.html" products=$products_result product_list_title="[`Viewed products`]"}
-                    {else}
-                        {include file="product.products-list.html" products=$products_result product_list_title="[`Viewed products`]" CategoryViewProducts=$products_view}
-                    {/if}
-                {/if}
             </div>
         {/if}
     </div>
-</div>
+
 
 <script>
     ( function($) {

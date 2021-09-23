@@ -2314,7 +2314,7 @@ var infoMessage = {
 
         close.on("click", function () {
             container.detach();
-            $.cookie("info_massage_close_" + id, 1, {path: '/', expires: 365});
+            $.cookie("info_massage_close", 1);
         });
     }
 };

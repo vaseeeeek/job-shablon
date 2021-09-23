@@ -180,20 +180,17 @@
                                     <span class="main-slider_item-oldpr old-price">{shop_currency_html($product.compare_price)}</span>
                                 {/if}
 
-                                {$_hide_btn = empty($product.price) && !empty($theme_settings.disabled_button_cart_zero_price)}
-                                {if !$_hide_btn}
-                                    {$available = $wa->shop->settings('ignore_stock_count') || $product.count === null || $product.count > 0}
-                                    {if $available}
-                                        {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
-                                        {if $product.sku_count > 1}
-                                            <span class="button main-slider_item-btn js-card-dialog addtocart fi-rr-shopping-cart addtocart--large" data-href="{$product.frontend_url}{if strpos($product.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
-                                        {else}
-                                            {$preview_image = $wa->shop->productImgUrl($product, '60')}
-                                            <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$product.name|escape}" data-price="{shop_currency_html($product.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart main-slider_item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
-                                                <input type="hidden" name="product_id" value="{$product.id}">
-                                                <span class="button main-slider_item-btn js-btn-form addtocart fi-rr-shopping-cart addtocart--large">{$add2label_cart}</span>
-                                            </form>
-                                        {/if}
+                                {$available = $wa->shop->settings('ignore_stock_count') || $product.count === null || $product.count > 0}
+                                {if $available}
+                                    {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
+                                    {if $product.sku_count > 1}
+                                        <span class="button main-slider_item-btn js-card-dialog addtocart fi-rr-shopping-cart addtocart--large" data-href="{$product.frontend_url}{if strpos($product.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
+                                    {else}
+                                        {$preview_image = $wa->shop->productImgUrl($product, '60')}
+                                        <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$product.name|escape}" data-price="{shop_currency_html($product.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart main-slider_item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
+                                            <input type="hidden" name="product_id" value="{$product.id}">
+                                            <span class="button main-slider_item-btn js-btn-form addtocart fi-rr-shopping-cart addtocart--large">{$add2label_cart}</span>
+                                        </form>
                                     {/if}
                                 {/if}
                             </div>

@@ -168,7 +168,7 @@
                             <div class="Product-stock nowrap">
                                 {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
                                     <div class="Product-stock_item Product-stock_item-critical">
-                                        {if !empty($theme_settings.text_product_preorder)}{$theme_settings.text_product_preorder}{else}{$text_product_preorder_only}{/if}
+                                        {$text_product_preorder_only}
                                     </div>
                                 {else}
                                     <div class="Product-stock_item Product-stock_item-high">
@@ -275,18 +275,15 @@
                     </div>
                     <div class="Product-grid_cart">
                         {if $available}
-                            {$_hide_btn = empty($p.price) && !empty($theme_settings.disabled_button_cart_zero_price)}
-                            {if !$_hide_btn}
-                                {if $p.sku_count > 1}
-                                    {if $wa_app == 'shop'}
-                                        <span class="button js-card-dialog addtocart fi-rr-shopping-cart"
-                                              data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
-                                    {else}
-                                        <a class="button addtocart fi-rr-shopping-cart" href="{$p.frontend_url}"></a>
-                                    {/if}
+                            {if $p.sku_count > 1}
+                                {if $wa_app == 'shop'}
+                                    <span class="button js-card-dialog addtocart fi-rr-shopping-cart"
+                                          data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
                                 {else}
-                                    <span class="button js-submit-form addtocart fi-rr-shopping-cart"></span>
+                                    <a class="button addtocart fi-rr-shopping-cart" href="{$p.frontend_url}"></a>
                                 {/if}
+                            {else}
+                                <span class="button js-submit-form addtocart fi-rr-shopping-cart"></span>
                             {/if}
                         {else}
                             <div class="Product-stock-out nowrap">

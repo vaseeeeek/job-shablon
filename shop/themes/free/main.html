@@ -1,9 +1,9 @@
 {strip}
     {$class = ''}
-    {if $action == 'onestep' && $theme_settings.onepage_order_custom_css}
+    {if $action == 'onestep'}
         {$class = ' custom-onestep'}
     {/if}
-    {if $action == 'checkoutone' && $theme_settings.cart_onepage_order_custom_css}
+    {if $action == 'checkoutone'}
         {$class = ' custom-cartonestep'}
     {/if}
     {if $action == 'brands'}
@@ -30,7 +30,7 @@
         && $action != 'cart'
         && $action != 'order'
         && $action != 'productReviews'
-        && $action == 'search' && class_exists('shopSearchproPluginViewHelper') && $theme_settings.search_pro_plugin
+        && $action != 'search'
         && !$wa->globals('isMyAccount')
         && $wa->currentUrl(false, true) != '/my/orders/'
         && $wa->currentUrl(false, true) != '/signup/'

@@ -91,27 +91,6 @@
                             </div>
                         {else}
                             <a class="cat-menu__item-link" href="{$cat.url}">
-                                <!-- Спросить о настройке -->
-                                {if $theme_settings.icon_dd_menu_subcat}
-                                    {if isset($Wmimages[$cat.id].icon) && !isset($cat.page)}
-                                        {$cat.params.icon = $Wmimages[$cat.id].icon}
-                                    {/if}
-                                    {if isset($skImages[$cat.id].icon)}
-                                        {$cat.params.icon = $skImages[$cat.id].icon}
-                                    {/if}
-                                    {if isset($cat.params.icon)}
-                                        <div class="cat-menu__item-icon">
-                                            {if $theme_settings.menu_cat_img_lazy}
-                                                <img class="js-category-menu-image" alt="{$cat.name}"
-                                                     src="{$wa_theme_url}img/lazy-image.png"
-                                                     data-src="{$cat.params.icon}"/>
-                                            {else}
-                                                <img class="js-category-menu-image" alt="{$cat.name}"
-                                                     src="{$cat.params.icon}"/>
-                                            {/if}
-                                        </div>
-                                    {/if}
-                                {/if}
                                 <div class="cat-menu__item-title">
                                     {$cat.name}
                                 </div>

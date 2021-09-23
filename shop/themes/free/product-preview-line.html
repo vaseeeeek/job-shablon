@@ -160,44 +160,41 @@
                 {/if}
             </div>
             {if $available}
-                {$_hide_btn = empty($p.price) && !empty($theme_settings.disabled_button_cart_zero_price)}
-                {if !$_hide_btn}
-                    <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart Product__Item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
+                <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart Product__Item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
 
+                    {if $theme_settings.show_number_item_add_in_list}
+                        <span class="js-qty Cart__Qty Cart__Qty--mini">
+                            <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
+                            <input type="text" name="quantity" value="1" class="js-number">
+                            <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
+                        </span>
+                    {/if}
+
+                    {if $p.sku_count > 1}
+                        <input type="hidden" name="product_id" value="{$p.id}">
                         {if $theme_settings.show_number_item_add_in_list}
-                            <span class="js-qty Cart__Qty Cart__Qty--mini">
-                                <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
-                                <input type="text" name="quantity" value="1" class="js-number">
-                                <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
-                            </span>
-                        {/if}
-
-                        {if $p.sku_count > 1}
-                            <input type="hidden" name="product_id" value="{$p.id}">
-                            {if $theme_settings.show_number_item_add_in_list}
-                                <span class="button js-card-dialog addtocart addtocart--mini  fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
-                            {else}
-                                <span class="button js-card-dialog addtocart addtocart--large fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
-                            {/if}
+                            <span class="button js-card-dialog addtocart addtocart--mini  fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
                         {else}
-                            <input type="hidden" name="product_id" value="{$p.id}">
-                            {if $theme_settings.show_number_item_add_in_list}
-                                <span class="button js-submit-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
-                            {else}
-                                <span class="button js-submit-form addtocart addtocart--large fi-rr-shopping-cart">{$add2label_cart}</span>
-                            {/if}
+                            <span class="button js-card-dialog addtocart addtocart--large fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
                         {/if}
+                    {else}
+                        <input type="hidden" name="product_id" value="{$p.id}">
+                        {if $theme_settings.show_number_item_add_in_list}
+                            <span class="button js-submit-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
+                        {else}
+                            <span class="button js-submit-form addtocart addtocart--large fi-rr-shopping-cart">{$add2label_cart}</span>
+                        {/if}
+                    {/if}
 
-                        {if $_buy1click}
-                            {shopBuy1clickViewHelper::getButton($p.id)}
-                        {/if}
-                    </form>
-                {/if}
+                    {if $_buy1click}
+                        {shopBuy1clickViewHelper::getButton($p.id)}
+                    {/if}
+                </form>
                 {if $theme_settings.preview_stock}
                     <div class="Product-stock product-line-stock">
                         {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
                             <div class="Product-stock_item Product-stock_item-critical">
-                                {if !empty($theme_settings.text_product_preorder)}{$theme_settings.text_product_preorder}{else}[`Pre-order only`]{/if}
+                                [`Pre-order only`]
                             </div>
                         {else}
                             <div class="Product-stock_item Product-stock_item-high">

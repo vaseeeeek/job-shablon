@@ -4,7 +4,7 @@
 
 
     {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
-    {$_lazy = $theme_settings.cat_list_img_lazy}
+    {$_lazy = true}
     <ul class="js-list-categories categories cat-tile-list" data-retina="{$_retina}" data-lazy="{$_lazy}">
         {foreach $categories as $cat}
             <li class="categories-tile">
