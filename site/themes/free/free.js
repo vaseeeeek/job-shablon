@@ -322,9 +322,8 @@ var menu = {
         var _this = this;
 
         _this.respMenu();
-        _this.resizeMenu();
+        _this.flexMenu();
         _this.headerMenuHover();
-        _this.sidebar();
     },
     respMenu: function () {
         var _this = this, items = $(".js-resp-nav-top");
@@ -334,10 +333,10 @@ var menu = {
         }
 
         jQuery.each(items, function () {
-            _this.responsived($(this));
+            _this.resp($(this));
         });
     },
-    resizeMenu: function () {
+    flexMenu: function () {
         var _this = this, items = $(".js-resp-nav-top");
 
         if (!items.length) {
@@ -348,29 +347,29 @@ var menu = {
             _this.respMenu();
         });
     },
-    responsived: function (menu) {
+    resp: function (menu) {
         var _this = this,
-            menuWidth = menu.width(),
-            menuItems = menu.children('.js-resp-nav-top-el'),
-            ItemElse = menu.find('.js-resp-nav-top-else'),
-            ItemElseWidth = parseFloat(ItemElse.removeClass('hide').outerWidth(true)),
-            submenuElse = ItemElse.find('.js-resp-subnav-else'),
-            allItemsWidth = 0;
+            width = menu.width(),
+            items = menu.children('.js-resp-nav-top-el'),
+            Else = menu.find('.js-resp-nav-top-else'),
+            ElseWidth = parseFloat(Else.removeClass('hide').outerWidth(true)),
+            ElseSub = Else.find('.js-resp-subnav-else'),
+            sumWidthItems = 0;
 
-        ItemElse.addClass('hide');
-        submenuElse.html("");
-        menuItems.removeClass('hide');
+        Else.addClass('hide');
+        ElseSub.html("");
+        items.removeClass('hide');
 
-        jQuery.each(menuItems, function () {
+        jQuery.each(items, function () {
             var $this = $(this),
-                elWidth = parseFloat($this.outerWidth(true));
+                itemWidth = parseFloat($this.outerWidth(true));
 
-            if ((allItemsWidth + elWidth + ItemElseWidth) > menuWidth) {
-                ItemElse.removeClass('hide');
-                $this.clone().appendTo(submenuElse);
+            if ((sumWidthItems + itemWidth + ElseWidth) > width) {
+                Else.removeClass('hide');
+                $this.clone().appendTo(ElseSub);
                 $this.addClass('hide');
             }
-            allItemsWidth += $this.outerWidth(true);
+            sumWidthItems += $this.outerWidth(true);
         });
     },
     headerMenuHover: function () {
@@ -396,97 +395,67 @@ var menu = {
                 subMenuWrap.hide();
             });
         }
-    },
-    sidebar: function () {
-        var _this = this;
-
-        _this.sidebarInit();
-
-        var openBtn = $('.js-menu-v-open');
-
-        openBtn.click(function () {
-            var $this = $(this), subs = $($this.parent().find('.js-menu-v-submenu')[0]);
-
-            if (!subs.is(':visible')) {
-                subs.show();
-                $this.addClass('selected');
-            } else {
-                subs.hide();
-                $this.removeClass('selected');
-            }
-        });
-    },
-    sidebarInit: function () {
-        var treeCats = $('.js-sidebar-menu'),
-            currentCat = treeCats.find('.selected'),
-            outWrap = currentCat.parents(".js-menu-v-submenu");
-
-        outWrap.removeClass('hide');
-        outWrap.each(function () {
-            $(this).parent().find('.js-menu-v-open').first().addClass('selected');
-        });
     }
 };
 
 
 var slider = {
-    sliderContainer: $('.js-home-slider'),
+    sliderBox: $('.js-home-slider'),
     init: function () {
         var _this = this;
 
-        if (_this.sliderContainer.length) {
-            _this.sliderAuto();
+        if (_this.sliderBox.length) {
+            _this.autoScroll();
 
-            _this.sliderInteraction();
+            _this.sliderAction();
         }
     },
-    sliderAuto: function () {
+    autoScroll: function () {
         var _this = this;
+        var pauseScroll = parseInt(_this.sliderBox.data("pause")) * 1000;
 
-        var pause = parseInt(_this.sliderContainer.data("pause")) * 1000;
-
-        if (pause > 0) {
+        if (pauseScroll > 0) {
             setTimeout(function () {
-                _this.sliderInit(null, pause);
-            }, pause);
+                _this.initializationSlider(null, pauseScroll);
+            }, pauseScroll);
         }
     },
-    sliderInteraction: function () {
+    sliderAction: function () {
         var _this = this;
 
         var sliderNav = $('.js-slider-init-action');
         sliderNav.on("click", function () {
-            _this.sliderInit($(this).data("index"), false);
-            _this.sliderContainer.trigger('stop.owl.autoplay');
+            _this.initializationSlider($(this).data("index"), false);
+            _this.sliderBox.trigger('stop.owl.autoplay');
         });
 
-        if (is_touch_device()) {
-            _this.sliderContainer.swipe({
+        if (checkTouchDevice()) {
+            _this.sliderBox.swipe({
                 allowPageScroll: "auto",
                 threshold: 20,
                 swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
                     if (direction == 'left') {
-                        _this.sliderInit("next", false);
+                        _this.initializationSlider("next", false);
                     } else if (direction == 'right') {
-                        _this.sliderInit("prev", false);
+                        _this.initializationSlider("prev", false);
                     }
-                    if (_this.sliderContainer.hasClass("owl-loaded")) {
-                        _this.sliderContainer.trigger('stop.owl.autoplay');
+                    if (_this.sliderBox.hasClass("owl-loaded")) {
+                        _this.sliderBox.trigger('stop.owl.autoplay');
                     }
                 }
             });
         }
     },
-    sliderInit: function (goToSlid, pause) {
+    initializationSlider: function (goToSlid, pause) {
         var _this = this;
 
-        if (_this.sliderContainer.hasClass("owl-loaded")) {
+        if (_this.sliderBox.hasClass("owl-loaded")) {
             return false;
         }
 
         var auto = (pause) ? true : false,
-            navWrap = _this.sliderContainer.closest(".js-slider-outer").find('.js-nav-slider'),
-            dotsWrap = _this.sliderContainer.closest(".js-slider-outer").find('.js-dots-slider');
+            navWrap = _this.sliderBox.closest(".js-slider-outer").find('.js-nav-slider'),
+            dotsWrap = _this.sliderBox.closest(".js-slider-outer").find('.js-dots-slider');
 
         var params = {
             loop: true,
@@ -504,7 +473,7 @@ var slider = {
                 dotsWrap.html("");
             },
             onLoadedLazy: function (data) {
-                if (_this.sliderContainer.data('type') == "product") {
+                if (_this.sliderBox.data('type') == "product") {
                     data.element.retina();
                 }
             }
@@ -516,20 +485,20 @@ var slider = {
             params["autoplayHoverPause"] = true;
         }
 
-        _this.sliderContainer.owlCarousel(params);
+        _this.sliderBox.owlCarousel(params);
 
         $('.js-home-slider .owl-prev, .js-home-slider .owl-next, .js-home-slider owl-dot').on('click', function (e) {
-            _this.sliderContainer.trigger('stop.owl.autoplay');
+            _this.sliderBox.trigger('stop.owl.autoplay');
         });
 
 
         if (goToSlid) {
             if (goToSlid == "prev") {
-                _this.sliderContainer.trigger("prev.owl.carousel");
+                _this.sliderBox.trigger("prev.owl.carousel");
             } else if (goToSlid == "next") {
-                _this.sliderContainer.trigger("next.owl.carousel");
+                _this.sliderBox.trigger("next.owl.carousel");
             } else {
-                _this.sliderContainer.trigger("to.owl.carousel", [parseInt(goToSlid)]);
+                _this.sliderBox.trigger("to.owl.carousel", [parseInt(goToSlid)]);
             }
         }
     }
@@ -561,20 +530,20 @@ var photoGallery = {
     }
 };
 
-var modalForm = {
+var formModal = {
     init: function () {
         var _this = this;
 
-        _this.loadContentForm('a.js-form-login-popupp');
-        _this.loadContentForm('.js-ajax-form a[href="/login/"]');
-        _this.loadContentForm('.js-ajax-form a[href="/forgotpassword/"]');
+        _this.loadForm('a.js-form-login-popupp');
+        _this.loadForm('.js-ajax-form a[href="/login/"]');
+        _this.loadForm('.js-ajax-form a[href="/forgotpassword/"]');
         _this.submitForm();
     },
-    loadContentForm: function (selectorBtnElement) {
+    loadForm: function (btnElem) {
         var _this = this;
         var selectorContent = '.js-ajax-form';
 
-        $('body').on("click", selectorBtnElement, function (event) {
+        $('body').on("click", btnElem, function (event) {
             event.preventDefault();
             var url = $(this).attr('href') + "?ajax=1";
 
@@ -1077,111 +1046,6 @@ var fixedPanel = {
     }
 };
 
-var subscribeForm = {
-    init: function () {
-        // MAILER app email subscribe form
-        $('#mailer-subscribe-form input.charset').val(document.charset || document.characterSet);
-        $('#mailer-subscribe-form').submit(function () {
-            var form = $(this);
-
-            var email_input = form.find('input[name="username"]'); // => input[name="email"] after check on valid email//
-            var email_submit = form.find('.js-submit-form');
-            var email_agree = form.find('input[name="agree"]');
-            var loader = form.find('.js-subscribe-load');
-            var error = false;
-
-            email_input.removeClass('error');
-            email_agree.closest('.js-subscribe-agree').removeClass('error');
-
-            if (email_agree.length > 0 && !email_agree.is(':checked')) {
-                email_agree.closest('.js-subscribe-agree').addClass('error');
-                error = true;
-            }
-            if (!email_input.val()) {
-                email_input.addClass('error');
-                error = true;
-            } else {
-                if (!validateEmail(email_input.val())) {
-                    email_input.addClass('error');
-                    error = true;
-                } else {
-                    email_input.attr('name', 'email');
-                }
-            }
-            if (error === false) {
-                email_submit.hide();
-                loader.show();
-                $('#mailer-subscribe-error').hide();
-
-                $.post(form.attr("action"), form.serialize(), function (response) {
-                    email_input.attr('name', 'username');
-                    if (response.status == "ok") {
-                        $('.js-subscribe-inputs').hide();
-                        if (response.data.html) {
-                            $('#mailer-subscribe-thankyou').html(response.data.html);
-                        }
-                        $('#mailer-subscribe-thankyou').show();
-                        $('#mailer-subscribe-error').hide();
-                    } else {
-                        $('#mailer-subscribe-error').show();
-                    }
-                    email_submit.show();
-                    loader.hide();
-                });
-            } else {
-                email_input.attr('name', 'username');
-            }
-
-
-            return false;
-        })
-    }
-};
-
-var versionSite = {
-    init: function () {
-        var _this = this;
-
-        _this.switchVersion();
-        _this.removeLink();
-    },
-    switchVersion: function () {
-        $('.js-switch-version-link').on("click", function (event) {
-            event.preventDefault();
-
-            if ($.cookie("is_desktop_for_mobile")) {
-                $.cookie("is_desktop_for_mobile", "", {path: '/', expires: 5});
-            } else {
-                $.cookie("is_desktop_for_mobile", 1, {path: '/', expires: 5});
-            }
-            location.reload();
-        })
-    },
-    removeLink: function () {
-        $('.js-switch-version-remove').on("click", function (event) {
-            event.preventDefault();
-
-            $.cookie("is_hide_link_version_site", 1, {path: '/', expires: 1});
-            $('.js-switch-version').remove();
-        })
-    }
-};
-
-var openMap = {
-    init: function () {
-        var _this = this;
-
-        $('.js-open-map').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
-    }
-};
-
 var tags = {
     init: function () {
         var _this = this;
@@ -1207,23 +1071,23 @@ var tags = {
     }
 };
 
-var skCallback = {
+var freeCallBack = {
     init: function () {
         var _this = this;
 
-        _this.openModal();
-        _this.onTriggerClose();
+        _this.showModal();
+        _this.closeTriggerOn();
     },
-    openModal: function () {
+    showModal: function () {
         var _this = this,
-            buttons = $('.js-sk-callback-open'),
-            block = $('.js-sk-callback-block');
+            buttons = $('.js-callback-open'),
+            block = $('.js-callback-block');
 
         if (buttons.size() && block.size()) {
             buttons.magnificPopup({
                 items: [
                     {
-                        src: '.js-sk-callback-block',
+                        src: '.js-callback-block',
                         type: 'inline'
                     }
                 ],
@@ -1244,9 +1108,9 @@ var skCallback = {
         $(".js-popup").hide();
         $("body").removeClass("_popup-open");
     },
-    onTriggerClose: function () {
+    closeTriggerOn: function () {
         var _this = this,
-            block = $('.js-sk-callback-block');
+            block = $('.js-callback-block');
 
         $(block).on("run-close", function () {
             $(this).find(".mfp-close").click();
@@ -1509,7 +1373,7 @@ var cart = {
                             productListCustom.viewed(productCard.data('id'));
                         }
 
-                        if (!is_touch_device()) {
+                        if (!checkTouchDevice()) {
                             productGallery.productImageZoom(this.content.find(".js-product_gallery-images-main"));
                         }
                         productGallery.swipeLargePhoto(this.content.find('.js-product_gallery-images-main'));
@@ -2148,7 +2012,7 @@ var productsCarousel = {
             _this.carousel(carousel, $(this).data("index"));
         });
 
-        if (is_touch_device()) {
+        if (checkTouchDevice()) {
             $('.js-owl-carousel-product .owl-carousel').each(function () {
                 var $productList = $(this);
 
@@ -3057,7 +2921,7 @@ var productGallery = {
             productGallery.changeLargeImage($(this), false);
         });
 
-        if (!is_touch_device()) {
+        if (!checkTouchDevice()) {
             _this.productImageZoom($('.js-product_gallery-images-main'));
         }
     },
@@ -3110,7 +2974,7 @@ var productGallery = {
                     }
                 },
                 onInitialized: function () {
-                    if (!is_touch_device()) {
+                    if (!checkTouchDevice()) {
                         _this.productImageZoom(mainGallery);
                     }
                     _this.displayImageTitle(mainGallery);
@@ -3178,7 +3042,7 @@ var productGallery = {
         }
     },
     swipeLargePhoto: function (mainGallery) {
-        if (is_touch_device()) {
+        if (checkTouchDevice()) {
             mainGallery.swipe({
                 allowPageScroll: "auto",
                 threshold: 20,
@@ -3847,7 +3711,7 @@ $(function () {
     menu.init();
     slider.init();
     photoGallery.init();
-    modalForm.init();
+    formModal.init();
     dropDownWrap.init();
     categoriesMainMenu.init();
     mobileMenuBtn.init();
@@ -3858,7 +3722,7 @@ $(function () {
     versionSite.init();
     openMap.init();
     tags.init();
-    skCallback.init();
+    freeCallBack.init();
     pagePopup.init();
     cart.init();
     specialProducts.init();
@@ -3898,7 +3762,7 @@ jQuery.fn.outerHTML = function (s) {
         : jQuery("<p>").append(this.eq(0).clone()).html();
 };
 
-function is_touch_device() {
+function checkTouchDevice() {
     return 'ontouchstart' in window || navigator.maxTouchPoints;
 };
 
