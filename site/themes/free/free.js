@@ -322,9 +322,8 @@ var menu = {
         var _this = this;
 
         _this.respMenu();
-        _this.resizeMenu();
+        _this.flexMenu();
         _this.headerMenuHover();
-        _this.sidebar();
     },
     respMenu: function () {
         var _this = this, items = $(".js-resp-nav-top");
@@ -334,10 +333,10 @@ var menu = {
         }
 
         jQuery.each(items, function () {
-            _this.responsived($(this));
+            _this.resp($(this));
         });
     },
-    resizeMenu: function () {
+    flexMenu: function () {
         var _this = this, items = $(".js-resp-nav-top");
 
         if (!items.length) {
@@ -348,26 +347,26 @@ var menu = {
             _this.respMenu();
         });
     },
-    responsived: function (menu) {
+    resp: function (menu) {
         var _this = this,
-            menuWidth = menu.width(),
-            menuItems = menu.children('.js-resp-nav-top-el'),
-            ItemElse = menu.find('.js-resp-nav-top-else'),
-            ItemElseWidth = parseFloat(ItemElse.removeClass('hide').outerWidth(true)),
-            submenuElse = ItemElse.find('.js-resp-subnav-else'),
+            width = menu.width(),
+            items = menu.children('.js-resp-nav-top-el'),
+            Else = menu.find('.js-resp-nav-top-else'),
+            ElseWidth = parseFloat(Else.removeClass('hide').outerWidth(true)),
+            ElseSub = Else.find('.js-resp-subnav-else'),
             allItemsWidth = 0;
 
-        ItemElse.addClass('hide');
-        submenuElse.html("");
-        menuItems.removeClass('hide');
+        Else.addClass('hide');
+        ElseSub.html("");
+        items.removeClass('hide');
 
-        jQuery.each(menuItems, function () {
+        jQuery.each(items, function () {
             var $this = $(this),
                 elWidth = parseFloat($this.outerWidth(true));
 
-            if ((allItemsWidth + elWidth + ItemElseWidth) > menuWidth) {
-                ItemElse.removeClass('hide');
-                $this.clone().appendTo(submenuElse);
+            if ((allItemsWidth + elWidth + ElseWidth) > width) {
+                Else.removeClass('hide');
+                $this.clone().appendTo(ElseSub);
                 $this.addClass('hide');
             }
             allItemsWidth += $this.outerWidth(true);
@@ -396,97 +395,68 @@ var menu = {
                 subMenuWrap.hide();
             });
         }
-    },
-    sidebar: function () {
-        var _this = this;
-
-        _this.sidebarInit();
-
-        var openBtn = $('.js-menu-v-open');
-
-        openBtn.click(function () {
-            var $this = $(this), subs = $($this.parent().find('.js-menu-v-submenu')[0]);
-
-            if (!subs.is(':visible')) {
-                subs.show();
-                $this.addClass('selected');
-            } else {
-                subs.hide();
-                $this.removeClass('selected');
-            }
-        });
-    },
-    sidebarInit: function () {
-        var treeCats = $('.js-sidebar-menu'),
-            currentCat = treeCats.find('.selected'),
-            outWrap = currentCat.parents(".js-menu-v-submenu");
-
-        outWrap.removeClass('hide');
-        outWrap.each(function () {
-            $(this).parent().find('.js-menu-v-open').first().addClass('selected');
-        });
     }
 };
 
 
 var slider = {
-    sliderContainer: $('.js-home-slider'),
+    sliderBox: $('.js-home-slider'),
     init: function () {
         var _this = this;
 
-        if (_this.sliderContainer.length) {
-            _this.sliderAuto();
+        if (_this.sliderBox.length) {
+            _this.autoScroll();
 
-            _this.sliderInteraction();
+            _this.sliderAction();
         }
     },
-    sliderAuto: function () {
+    autoScroll: function () {
         var _this = this;
 
-        var pause = parseInt(_this.sliderContainer.data("pause")) * 1000;
+        var pauseScroll = parseInt(_this.sliderBox.data("pause")) * 1000;
 
-        if (pause > 0) {
+        if (pauseScroll > 0) {
             setTimeout(function () {
-                _this.sliderInit(null, pause);
-            }, pause);
+                _this.initializationSlider(null, pauseScroll);
+            }, pauseScroll);
         }
     },
-    sliderInteraction: function () {
+    sliderAction: function () {
         var _this = this;
 
         var sliderNav = $('.js-slider-init-action');
         sliderNav.on("click", function () {
-            _this.sliderInit($(this).data("index"), false);
-            _this.sliderContainer.trigger('stop.owl.autoplay');
+            _this.initializationSlider($(this).data("index"), false);
+            _this.sliderBox.trigger('stop.owl.autoplay');
         });
 
-        if (is_touch_device()) {
-            _this.sliderContainer.swipe({
+        if (checkTouchDevice()) {
+            _this.sliderBox.swipe({
                 allowPageScroll: "auto",
                 threshold: 20,
                 swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
                     if (direction == 'left') {
-                        _this.sliderInit("next", false);
+                        _this.initializationSlider("next", false);
                     } else if (direction == 'right') {
-                        _this.sliderInit("prev", false);
+                        _this.initializationSlider("prev", false);
                     }
-                    if (_this.sliderContainer.hasClass("owl-loaded")) {
-                        _this.sliderContainer.trigger('stop.owl.autoplay');
+                    if (_this.sliderBox.hasClass("owl-loaded")) {
+                        _this.sliderBox.trigger('stop.owl.autoplay');
                     }
                 }
             });
         }
     },
-    sliderInit: function (goToSlid, pause) {
+    initializationSlider: function (goToSlid, pause) {
         var _this = this;
 
-        if (_this.sliderContainer.hasClass("owl-loaded")) {
+        if (_this.sliderBox.hasClass("owl-loaded")) {
             return false;
         }
 
         var auto = (pause) ? true : false,
-            navWrap = _this.sliderContainer.closest(".js-slider-outer").find('.js-nav-slider'),
-            dotsWrap = _this.sliderContainer.closest(".js-slider-outer").find('.js-dots-slider');
+            navWrap = _this.sliderBox.closest(".js-slider-outer").find('.js-nav-slider'),
+            dotsWrap = _this.sliderBox.closest(".js-slider-outer").find('.js-dots-slider');
 
         var params = {
             loop: true,
@@ -504,7 +474,7 @@ var slider = {
                 dotsWrap.html("");
             },
             onLoadedLazy: function (data) {
-                if (_this.sliderContainer.data('type') == "product") {
+                if (_this.sliderBox.data('type') == "product") {
                     data.element.retina();
                 }
             }
@@ -516,20 +486,20 @@ var slider = {
             params["autoplayHoverPause"] = true;
         }
 
-        _this.sliderContainer.owlCarousel(params);
+        _this.sliderBox.owlCarousel(params);
 
         $('.js-home-slider .owl-prev, .js-home-slider .owl-next, .js-home-slider owl-dot').on('click', function (e) {
-            _this.sliderContainer.trigger('stop.owl.autoplay');
+            _this.sliderBox.trigger('stop.owl.autoplay');
         });
 
 
         if (goToSlid) {
             if (goToSlid == "prev") {
-                _this.sliderContainer.trigger("prev.owl.carousel");
+                _this.sliderBox.trigger("prev.owl.carousel");
             } else if (goToSlid == "next") {
-                _this.sliderContainer.trigger("next.owl.carousel");
+                _this.sliderBox.trigger("next.owl.carousel");
             } else {
-                _this.sliderContainer.trigger("to.owl.carousel", [parseInt(goToSlid)]);
+                _this.sliderBox.trigger("to.owl.carousel", [parseInt(goToSlid)]);
             }
         }
     }
@@ -561,20 +531,20 @@ var photoGallery = {
     }
 };
 
-var modalForm = {
+var formModal = {
     init: function () {
         var _this = this;
 
-        _this.loadContentForm('a.js-form-login-popupp');
-        _this.loadContentForm('.js-ajax-form a[href="/login/"]');
-        _this.loadContentForm('.js-ajax-form a[href="/forgotpassword/"]');
-        _this.submitForm();
+        _this.loadForm('a.js-form-login-popupp');
+        _this.loadForm('.js-ajax-form a[href="/login/"]');
+        _this.loadForm('.js-ajax-form a[href="/forgotpassword/"]');
+        _this.btnForm();
     },
-    loadContentForm: function (selectorBtnElement) {
+    loadForm: function (btnElem) {
         var _this = this;
         var selectorContent = '.js-ajax-form';
 
-        $('body').on("click", selectorBtnElement, function (event) {
+        $('body').on("click", btnElem, function (event) {
             event.preventDefault();
             var url = $(this).attr('href') + "?ajax=1";
 
@@ -585,11 +555,11 @@ var modalForm = {
                 $('.js-loading-bg').remove();
 
                 var content = $(data).find(selectorContent);
-                _this.openModal(content, url);
+                _this.showModal(content, url);
             });
         });
     },
-    openModal: function (content, url) {
+    showModal: function (content, url) {
         var _this = this;
 
         $(content).find('form').attr("action", url);
@@ -605,13 +575,13 @@ var modalForm = {
 
     },
 
-    submitForm: function () {
+    btnForm: function () {
         var _this = this;
 
         $('body').on("submit", '.js-ajax-form form', function (event) {
-            var wrapForm = $(this).closest('.js-ajax-form');
+            var containerForm = $(this).closest('.js-ajax-form');
 
-            if (!wrapForm.find('.wa-login-form-wrapper').length && !wrapForm.find('.wa-forgotpassword-form-wrapper').length) {
+            if (!containerForm.find('.wa-login-form-wrapper').length && !containerForm.find('.wa-forgotpassword-form-wrapper').length) {
                 event.preventDefault();
 
                 var url = $(this).attr("action"),
@@ -624,7 +594,7 @@ var modalForm = {
                 $.post(url, data, function (data) {
                     var content = $(data).find('.js-ajax-form');
                     if (content.length > 0) {
-                        _this.openModal(content, url);
+                        _this.showModal(content, url);
                         btn.show();
                         $(this).find(".js-loading").remove();
                     } else {
@@ -637,48 +607,48 @@ var modalForm = {
 
 };
 
-var dropDownWrap = {
+var ddBox = {
     init: function () {
         var _this = this;
 
-        var selectorButton = '.js-btnDrop-down',
-            selectorWrap = '.js-dd-wrap',
-            selectorOuter = '.js-dd-outer';
+        var ddSelectBtn = '.js-btnDrop-down',
+            ddSelectWrap = '.js-dd-wrap',
+            ddSelectOuter = '.js-dd-outer';
 
         $(document).click(function (event) {
-            if ((!$(event.target).closest(selectorWrap).length && !$(event.target).closest(selectorOuter).length) || $(event.target).hasClass('js-bg')) {
-                $(selectorWrap).each(function () {
+            if ((!$(event.target).closest(ddSelectWrap).length && !$(event.target).closest(ddSelectOuter).length) || $(event.target).hasClass('js-bg')) {
+                $(ddSelectWrap).each(function () {
                     $(this).removeClass('show');
                 });
             }
         });
 
-        $(selectorButton).on("click", function () {
+        $(ddSelectBtn).on("click", function () {
             var $this = $(this),
                 wrap = $('#' + $(this).data("id"));
 
             if (wrap.is(':visible')) {
                 wrap.removeClass('show');
             } else {
-                $(selectorWrap).each(function () {
+                $(ddSelectWrap).each(function () {
                     $(this).removeClass('show');
                 });
                 _this.open($this, wrap);
             }
         });
     },
-    open: function (btn, wrap) {
-        if (wrap.is(':visible')) {
-            wrap.animate({opacity: 0}, 200, function () {
-                wrap.removeClass('show');
+    open: function (btn, btnWrap) {
+        if (btnWrap.is(':visible')) {
+            btnWrap.animate({opacity: 0}, 200, function () {
+                btnWrap.removeClass('show');
             });
 
             btn.removeClass('active');
         } else {
-            wrap.css("padding-top", "20px");
-            wrap.css("opacity", "0");
-            wrap.addClass('show');
-            wrap.animate({paddingTop: "0", opacity: 1}, 200);
+            btnWrap.css("padding-top", "20px");
+            btnWrap.css("opacity", "0");
+            btnWrap.addClass('show');
+            btnWrap.animate({paddingTop: "0", opacity: 1}, 200);
 
             btn.addClass('active');
         }
@@ -689,52 +659,44 @@ var categoriesMainMenu = {
     init: function () {
         var _this = this;
 
-        _this.dropDownDisclosed();
-        _this.dropDown();
-        _this.mobileShowSubmenu();
-        _this.mobileHideSubmenu();
-        _this.showBg();
-        _this.headerCategoriesImages();
+        _this.ddShow();
+        _this.dd();
+        _this.showSubInMob();
+        _this.hiderSubInMob();
+        _this.outerBg();
     },
-    dropDownDisclosed: function () {
+    ddShow: function () {
         var _this = this;
 
         var item = $(".js-cat-subs-disclosed"),
-            headerCategoriesMenu = $('#nav-cat'),
-            isHoverDelay = headerCategoriesMenu.data("delay"),
-            isLazyImages = headerCategoriesMenu.data("lazy"),
-            isRetinaImages = headerCategoriesMenu.data("retina");
+            topCatMenu = $('#nav-cat'),
+            hoverTime = topCatMenu.data("delay");
 
         item.hover(function () {
             var $this = $(this),
                 submenu = $this.find('.js-subcategory-menu').first(),
-                isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                isCategoriesPositionAbsolute = headerCategoriesMenu.css("position") == 'absolute',
+                subMenuPos = submenu.css("position") == 'absolute',
+                catMenuPos = topCatMenu.css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap');
 
-            if (isLazyImages) {
-                categoriesImages.lazyImages(submenu.find('.js-submenu-category-image'), isRetinaImages);
-            } else if (isRetinaImages) {
-                categoriesImages.retinaImages(submenu.find('.js-submenu-category-image'));
-            }
-            if (isSubmenuAbsolute) {
+            if (subMenuPos) {
                 if (submenu.length > 0) {
-                    if (isHoverDelay) {
+                    if (hoverTime) {
                         submenu.stop(true).delay(150).fadeIn(1, function () {
-                            var submenuWidth = submenu.outerWidth(true);
+                            var subwidth = submenu.outerWidth(true);
                             if (!item.hasClass("pos-rel")) {
-                                catMenuWrap.css("padding-right", submenuWidth + "px");
-                                if (isCategoriesPositionAbsolute) {
+                                catMenuWrap.css("padding-right", subwidth + "px");
+                                if (catMenuPos) {
                                     _this.calcHeight(catMenuWrap, submenu);
                                 }
                             }
                         });
                     } else {
                         submenu.show();
-                        var submenuWidth = submenu.outerWidth(true);
+                        var subwidth = submenu.outerWidth(true);
                         if (!item.hasClass("pos-rel")) {
-                            catMenuWrap.css("padding-right", submenuWidth + "px");
-                            if (isCategoriesPositionAbsolute) {
+                            catMenuWrap.css("padding-right", subwidth + "px");
+                            if (catMenuPos) {
                                 _this.calcHeight(catMenuWrap, submenu);
                             }
                         }
@@ -744,11 +706,11 @@ var categoriesMainMenu = {
         }, function () {
             var $this = $(this),
                 submenu = $this.find('.js-subcategory-menu').first(),
-                isSubmenuAbsolute = submenu.css("position") == 'absolute',
+                subMenuPos = submenu.css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap');
 
-            if (isSubmenuAbsolute) {
-                if (isHoverDelay) {
+            if (subMenuPos) {
+                if (hoverTime) {
                     submenu.stop(true).delay(150).fadeOut(1, function () {
                         catMenuWrap.removeAttr('style');
                     });
@@ -760,24 +722,24 @@ var categoriesMainMenu = {
             }
         });
     },
-    dropDown: function () {
+    dd: function () {
         var _this = this;
 
         var item = $(".js-cat-subs-dropdown"),
-            isHoverDelay = $('#nav-cat').data("delay");
+            hoverTime = $('#nav-cat').data("delay");
 
         item.hover(function () {
             var $this = $(this),
                 submenu = $this.find('.js-subcategory-menu').first(),
-                isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                isCategoriesPositionAbsolute = $('#nav-cat').css("position") == 'absolute',
+                subMenuPos = submenu.css("position") == 'absolute',
+                catMenuPos = $('#nav-cat').css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap'),
                 catMenuMarginRight = 0;
 
-            if (isSubmenuAbsolute) {
+            if (subMenuPos) {
                 if (submenu.length) {
                     catMenuMarginRight += 258;
-                    if (isHoverDelay) {
+                    if (hoverTime) {
                         submenu.stop(true).delay(150).fadeIn(1);
                     } else {
                         submenu.show();
@@ -785,7 +747,7 @@ var categoriesMainMenu = {
                 }
                 if (!item.hasClass("pos-rel")) {
                     catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
-                    if (isCategoriesPositionAbsolute) {
+                    if (catMenuPos) {
                         _this.calcHeight(catMenuWrap, submenu);
                     }
                 }
@@ -793,11 +755,11 @@ var categoriesMainMenu = {
         }, function () {
             var $this = $(this),
                 submenu = $this.find('.js-subcategory-menu'),
-                isSubmenuAbsolute = submenu.css("position") == 'absolute',
+                subMenuPos = submenu.css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap');
 
-            if (isSubmenuAbsolute) {
-                if (isHoverDelay) {
+            if (subMenuPos) {
+                if (hoverTime) {
                     submenu.stop(true).delay(150).fadeOut(1, function () {
                         catMenuWrap.removeAttr('style');
                     });
@@ -812,17 +774,17 @@ var categoriesMainMenu = {
         itemSub.hover(function () {
             var $this = $(this),
                 submenu = $this.find('.js-subcategory-menu').first(),
-                isSubmenuAbsolute = submenu.css("position") == 'absolute',
-                isCategoriesPositionAbsolute = $('#nav-cat').css("position") == 'absolute',
+                subMenuPos = submenu.css("position") == 'absolute',
+                catMenuPos = $('#nav-cat').css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap'),
                 catMenuMarginRight = 518;
 
-            if (isSubmenuAbsolute) {
-                if (isHoverDelay) {
+            if (subMenuPos) {
+                if (hoverTime) {
                     submenu.stop(true).delay(150).fadeIn(1, function () {
                         if (!itemSub.hasClass("pos-rel")) {
                             catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
-                            if (isCategoriesPositionAbsolute) {
+                            if (catMenuPos) {
                                 _this.calcHeight(catMenuWrap, submenu);
                             }
                         }
@@ -831,7 +793,7 @@ var categoriesMainMenu = {
                     submenu.show();
                     if (!itemSub.hasClass("pos-rel")) {
                         catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
-                        if (isCategoriesPositionAbsolute) {
+                        if (catMenuPos) {
                             _this.calcHeight(catMenuWrap, submenu);
                         }
                     }
@@ -840,14 +802,14 @@ var categoriesMainMenu = {
         }, function () {
             var $this = $(this),
                 submenu = $this.find('.js-subcategory-menu').first(),
-                isSubmenuAbsolute = submenu.css("position") == 'absolute',
+                subMenuPos = submenu.css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap'),
                 catMenuMarginRight = 258,
                 parent = $this.closest('.js-cat-subs-dropdown');
 
 
-            if (isSubmenuAbsolute) {
-                if (isHoverDelay) {
+            if (subMenuPos) {
+                if (hoverTime) {
                     submenu.stop(true).delay(150).fadeOut(1, function () {
                         if (!itemSub.hasClass("pos-rel")) {
                             catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
@@ -863,14 +825,14 @@ var categoriesMainMenu = {
         });
     },
     calcHeight: function (wrap, submenuWrap) {
-        var submenuWrapHeight = submenuWrap.outerHeight(true),
+        var subHeightWrap = submenuWrap.outerHeight(true),
             wrapHeight = wrap.outerHeight(true);
 
-        if (submenuWrapHeight > wrapHeight) {
-            wrap.css("height", submenuWrapHeight + 'px');
+        if (subHeightWrap > wrapHeight) {
+            wrap.css("height", subHeightWrap + 'px');
         }
     },
-    mobileShowSubmenu: function () {
+    showSubInMob: function () {
         var caret = $('.js-cat-item-caret');
 
         caret.on("click", function () {
@@ -892,7 +854,7 @@ var categoriesMainMenu = {
             }
         });
     },
-    mobileHideSubmenu: function () {
+    hiderSubInMob: function () {
         var caret = $('.js-btn-close-submenu');
 
         caret.on("click", function () {
@@ -905,12 +867,12 @@ var categoriesMainMenu = {
             parentMenuItem.removeClass('open');
         });
     },
-    showBg: function () {
+    outerBg: function () {
         var menuWrap = $('#nav-cat.desktop-show'),
             bg = $('#nav-cat.desktop-show ~ .js-bg');
-        isHoverDelay = $('#nav-cat').data("delay");
+        hoverTime = $('#nav-cat').data("delay");
 
-        if (isHoverDelay) {
+        if (hoverTime) {
             menuWrap.hover(function () {
                 bg.stop(true).delay(150).fadeIn(1);
             }, function () {
@@ -923,17 +885,6 @@ var categoriesMainMenu = {
                 bg.hide();
             });
         }
-    },
-    headerCategoriesImages: function () {
-        var headerCategoriesMenu = $('#nav-cat'),
-            isLazyImages = headerCategoriesMenu.data("lazy"),
-            isRetinaImages = headerCategoriesMenu.data("retina");
-
-        if (isLazyImages) {
-            categoriesImages.lazyImages(headerCategoriesMenu.find('.js-category-menu-image'), isRetinaImages);
-        } else if (isRetinaImages) {
-            categoriesImages.retinaImages(headerCategoriesMenu.find('.js-category-menu-image'));
-        }
     }
 };
 
@@ -941,21 +892,21 @@ var mobileMenuBtn = {
     init: function () {
         var _this = this;
 
-        _this.hideShow();
-        _this.showSubmenu();
+        _this.closeOpen();
+        _this.openSub();
     },
-    hideShow: function () {
+    closeOpen: function () {
         var _this = this,
-            mobileMenuBtnOpen = $(".js-nav-button"),
-            mobileMenuSubCatCloseBtn = $(".menu-close");
+            phoneBtnShow = $(".js-nav-button"),
+            phoneSubCatHideBtn = $(".menu-close");
 
 
-        mobileMenuBtnOpen.on("click", function () {
+        phoneBtnShow.on("click", function () {
             var $this = $(this),
                 menu = $('#' + $this.data('id'));
 
-            subCatMenu = $('.MobileMenu_nav-m .js-subcategory-menu');
-            subCatMenu.each(function () {
+            subCat = $('.MobileMenu_nav-m .js-subcategory-menu');
+            subCat.each(function () {
                 if ($(this).css("display") == 'block') {
                     $(this).hide();
                 }
@@ -968,25 +919,25 @@ var mobileMenuBtn = {
                 $this.addClass('show');
             }
         });
-        mobileMenuSubCatCloseBtn.on("click", function () {
+        phoneSubCatHideBtn.on("click", function () {
             var $this = $(this),
                 menu = $(this).closest('.MobileMenu_nav-m'),
                 catSubsDD = $(this).closest('.js-cat-subs-dropdown'),
-                subCatMenu = $('.MobileMenu_nav-m .js-subcategory-menu');
+                subCat = $('.MobileMenu_nav-m .js-subcategory-menu');
             if (menu.hasClass('show')) {
                 menu.removeClass('show');
             }
             if (catSubsDD.hasClass('open')) {
                 catSubsDD.removeClass('open');
             }
-            subCatMenu.each(function () {
+            subCat.each(function () {
                 if ($(this).css("display") == 'block') {
                     $(this).hide();
                 }
             });
         });
     },
-    showSubmenu: function () {
+    openSub: function () {
         var _this = this,
             btn = $('.js-top-nav-caret');
 
@@ -1004,7 +955,7 @@ var mobileMenuBtn = {
     }
 };
 
-var mobileSearch = {
+var phoneSearch = {
     init: function () {
         var btn = $('.js-show-Nav-search'),
             form = $('.js-Nav-search');
@@ -1021,7 +972,7 @@ var mobileSearch = {
     }
 };
 
-var mobileSidebar = {
+var phoneSbar = {
     init: function () {
         var btn = $('.js-filter-fixed-btn'),
             form = $('#filter-body');
@@ -1043,142 +994,37 @@ var fixedPanel = {
         var _this = this;
 
         var content = $("#main-content"),
-            fixedPanel = $('.js-fixed-panel');
+            phoneBtnPanel = $('.js-fixed-panel');
 
-        if (content.length && fixedPanel.length) {
+        if (content.length && phoneBtnPanel.length) {
 
-            _this.fixPanel(content, fixedPanel);
+            _this.bottomPanel(content, phoneBtnPanel);
 
             $(window).scroll(function () {
-                _this.fixPanel(content, fixedPanel);
+                _this.bottomPanel(content, phoneBtnPanel);
             });
 
             $(window).resize(function () {
-                _this.fixPanel(content, fixedPanel);
+                _this.bottomPanel(content, phoneBtnPanel);
             });
         }
     },
-    fixPanel: function (content, fixedPanel) {
+    bottomPanel: function (content, phoneBtnPanel) {
         var t = $(document).scrollTop();
         var contentTopX = content.offset().top;
         var viewp = viewport();
 
         if (t >= contentTopX || viewp.width <= 1000) {
-            if (!fixedPanel.is(":visible")) {
-                fixedPanel.css("padding", "3px 0");
-                fixedPanel.css("bottom", "-50px");
-                fixedPanel.addClass("show");
-                fixedPanel.animate({bottom: "0"}, 200);
-                fixedPanel.animate({"padding": "0"}, 300);
+            if (!phoneBtnPanel.is(":visible")) {
+                phoneBtnPanel.css("padding", "3px 0");
+                phoneBtnPanel.css("bottom", "-50px");
+                phoneBtnPanel.addClass("show");
+                phoneBtnPanel.animate({bottom: "0"}, 200);
+                phoneBtnPanel.animate({"padding": "0"}, 300);
             }
         } else {
-            fixedPanel.removeClass("show");
+            phoneBtnPanel.removeClass("show");
         }
-    }
-};
-
-var subscribeForm = {
-    init: function () {
-        // MAILER app email subscribe form
-        $('#mailer-subscribe-form input.charset').val(document.charset || document.characterSet);
-        $('#mailer-subscribe-form').submit(function () {
-            var form = $(this);
-
-            var email_input = form.find('input[name="username"]'); // => input[name="email"] after check on valid email//
-            var email_submit = form.find('.js-submit-form');
-            var email_agree = form.find('input[name="agree"]');
-            var loader = form.find('.js-subscribe-load');
-            var error = false;
-
-            email_input.removeClass('error');
-            email_agree.closest('.js-subscribe-agree').removeClass('error');
-
-            if (email_agree.length > 0 && !email_agree.is(':checked')) {
-                email_agree.closest('.js-subscribe-agree').addClass('error');
-                error = true;
-            }
-            if (!email_input.val()) {
-                email_input.addClass('error');
-                error = true;
-            } else {
-                if (!validateEmail(email_input.val())) {
-                    email_input.addClass('error');
-                    error = true;
-                } else {
-                    email_input.attr('name', 'email');
-                }
-            }
-            if (error === false) {
-                email_submit.hide();
-                loader.show();
-                $('#mailer-subscribe-error').hide();
-
-                $.post(form.attr("action"), form.serialize(), function (response) {
-                    email_input.attr('name', 'username');
-                    if (response.status == "ok") {
-                        $('.js-subscribe-inputs').hide();
-                        if (response.data.html) {
-                            $('#mailer-subscribe-thankyou').html(response.data.html);
-                        }
-                        $('#mailer-subscribe-thankyou').show();
-                        $('#mailer-subscribe-error').hide();
-                    } else {
-                        $('#mailer-subscribe-error').show();
-                    }
-                    email_submit.show();
-                    loader.hide();
-                });
-            } else {
-                email_input.attr('name', 'username');
-            }
-
-
-            return false;
-        })
-    }
-};
-
-var versionSite = {
-    init: function () {
-        var _this = this;
-
-        _this.switchVersion();
-        _this.removeLink();
-    },
-    switchVersion: function () {
-        $('.js-switch-version-link').on("click", function (event) {
-            event.preventDefault();
-
-            if ($.cookie("is_desktop_for_mobile")) {
-                $.cookie("is_desktop_for_mobile", "", {path: '/', expires: 5});
-            } else {
-                $.cookie("is_desktop_for_mobile", 1, {path: '/', expires: 5});
-            }
-            location.reload();
-        })
-    },
-    removeLink: function () {
-        $('.js-switch-version-remove').on("click", function (event) {
-            event.preventDefault();
-
-            $.cookie("is_hide_link_version_site", 1, {path: '/', expires: 1});
-            $('.js-switch-version').remove();
-        })
-    }
-};
-
-var openMap = {
-    init: function () {
-        var _this = this;
-
-        $('.js-open-map').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
     }
 };
 
@@ -1509,7 +1355,7 @@ var cart = {
                             productListCustom.viewed(productCard.data('id'));
                         }
 
-                        if (!is_touch_device()) {
+                        if (!checkTouchDevice()) {
                             productGallery.productImageZoom(this.content.find(".js-product_gallery-images-main"));
                         }
                         productGallery.swipeLargePhoto(this.content.find('.js-product_gallery-images-main'));
@@ -2148,7 +1994,7 @@ var productsCarousel = {
             _this.carousel(carousel, $(this).data("index"));
         });
 
-        if (is_touch_device()) {
+        if (checkTouchDevice()) {
             $('.js-owl-carousel-product .owl-carousel').each(function () {
                 var $productList = $(this);
 
@@ -3057,7 +2903,7 @@ var productGallery = {
             productGallery.changeLargeImage($(this), false);
         });
 
-        if (!is_touch_device()) {
+        if (!checkTouchDevice()) {
             _this.productImageZoom($('.js-product_gallery-images-main'));
         }
     },
@@ -3110,7 +2956,7 @@ var productGallery = {
                     }
                 },
                 onInitialized: function () {
-                    if (!is_touch_device()) {
+                    if (!checkTouchDevice()) {
                         _this.productImageZoom(mainGallery);
                     }
                     _this.displayImageTitle(mainGallery);
@@ -3178,7 +3024,7 @@ var productGallery = {
         }
     },
     swipeLargePhoto: function (mainGallery) {
-        if (is_touch_device()) {
+        if (checkTouchDevice()) {
             mainGallery.swipe({
                 allowPageScroll: "auto",
                 threshold: 20,
@@ -3847,16 +3693,13 @@ $(function () {
     menu.init();
     slider.init();
     photoGallery.init();
-    modalForm.init();
-    dropDownWrap.init();
+    formModal.init();
+    ddBox.init();
     categoriesMainMenu.init();
     mobileMenuBtn.init();
-    mobileSearch.init();
-    mobileSidebar.init();
+    phoneSearch.init();
+    phoneSbar.init();
     fixedPanel.init();
-    subscribeForm.init();
-    versionSite.init();
-    openMap.init();
     tags.init();
     skCallback.init();
     pagePopup.init();
@@ -3898,7 +3741,7 @@ jQuery.fn.outerHTML = function (s) {
         : jQuery("<p>").append(this.eq(0).clone()).html();
 };
 
-function is_touch_device() {
+function checkTouchDevice() {
     return 'ontouchstart' in window || navigator.maxTouchPoints;
 };
 

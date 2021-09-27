@@ -500,7 +500,7 @@ function productMainImageCarousel(previewsBxSlider){
                 }
             },
             onInitialized: function(){
-                if(!is_touch_device()){
+                if(!checkTouchDevice()){
                     productImageZoom(mainGallery);
                 }
             },
@@ -790,6 +790,6 @@ function productImageNavCheckDisabled(previewImageWrap){
     }
 }
 
-function is_touch_device() {
+function checkTouchDevice() {
     return 'ontouchstart' in window || navigator.maxTouchPoints;
 };

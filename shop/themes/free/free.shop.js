@@ -199,7 +199,7 @@ var filter = {
         var e = this;
         $(".js-carousel-brands-on-initialized").on("click", function () {
             e.brandsCarousel($(this).data("index"))
-        }), is_touch_device() && e.brandsWrap.find(".owl-carousel").swipe({
+        }), checkTouchDevice() && e.brandsWrap.find(".owl-carousel").swipe({
             allowPageScroll: "auto",
             threshold: 20,
             swipe: function (e, t, a, i, r, s) {
@@ -280,7 +280,7 @@ var filter = {
         var e = this;
         $(".js-carousel-reviews-on-initialized").on("click", function () {
             e.reviewsCarousel($(this).data("index"))
-        }), is_touch_device() && e.reviewsWrap.find(".owl-carousel").swipe({
+        }), checkTouchDevice() && e.reviewsWrap.find(".owl-carousel").swipe({
             allowPageScroll: "auto",
             threshold: 20,
             swipe: function (e, t, a, i, r, s) {
