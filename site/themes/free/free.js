@@ -354,11 +354,7 @@ var menu = {
             Else = menu.find('.js-resp-nav-top-else'),
             ElseWidth = parseFloat(Else.removeClass('hide').outerWidth(true)),
             ElseSub = Else.find('.js-resp-subnav-else'),
-<<<<<<< HEAD
             allItemsWidth = 0;
-=======
-            sumWidthItems = 0;
->>>>>>> 9949b6bdf9df291b42e683745070f722cbf1f6c5
 
         Else.addClass('hide');
         ElseSub.html("");
@@ -366,18 +362,14 @@ var menu = {
 
         jQuery.each(items, function () {
             var $this = $(this),
-                itemWidth = parseFloat($this.outerWidth(true));
+                elWidth = parseFloat($this.outerWidth(true));
 
-<<<<<<< HEAD
             if ((allItemsWidth + elWidth + ElseWidth) > width) {
-=======
-            if ((sumWidthItems + itemWidth + ElseWidth) > width) {
->>>>>>> 9949b6bdf9df291b42e683745070f722cbf1f6c5
                 Else.removeClass('hide');
                 $this.clone().appendTo(ElseSub);
                 $this.addClass('hide');
             }
-            sumWidthItems += $this.outerWidth(true);
+            allItemsWidth += $this.outerWidth(true);
         });
     },
     headerMenuHover: function () {
@@ -420,13 +412,9 @@ var slider = {
     },
     autoScroll: function () {
         var _this = this;
+
         var pauseScroll = parseInt(_this.sliderBox.data("pause")) * 1000;
 
-<<<<<<< HEAD
-        var pauseScroll = parseInt(_this.sliderBox.data("pause")) * 1000;
-
-=======
->>>>>>> 9949b6bdf9df291b42e683745070f722cbf1f6c5
         if (pauseScroll > 0) {
             setTimeout(function () {
                 _this.initializationSlider(null, pauseScroll);
@@ -550,11 +538,7 @@ var formModal = {
         _this.loadForm('a.js-form-login-popupp');
         _this.loadForm('.js-ajax-form a[href="/login/"]');
         _this.loadForm('.js-ajax-form a[href="/forgotpassword/"]');
-<<<<<<< HEAD
         _this.btnForm();
-=======
-        _this.submitForm();
->>>>>>> 9949b6bdf9df291b42e683745070f722cbf1f6c5
     },
     loadForm: function (btnElem) {
         var _this = this;
@@ -1069,23 +1053,23 @@ var tags = {
     }
 };
 
-var freeCallBack = {
+var skCallback = {
     init: function () {
         var _this = this;
 
-        _this.showModal();
-        _this.closeTriggerOn();
+        _this.openModal();
+        _this.onTriggerClose();
     },
-    showModal: function () {
+    openModal: function () {
         var _this = this,
-            buttons = $('.js-callback-open'),
-            block = $('.js-callback-block');
+            buttons = $('.js-sk-callback-open'),
+            block = $('.js-sk-callback-block');
 
         if (buttons.size() && block.size()) {
             buttons.magnificPopup({
                 items: [
                     {
-                        src: '.js-callback-block',
+                        src: '.js-sk-callback-block',
                         type: 'inline'
                     }
                 ],
@@ -1106,9 +1090,9 @@ var freeCallBack = {
         $(".js-popup").hide();
         $("body").removeClass("_popup-open");
     },
-    closeTriggerOn: function () {
+    onTriggerClose: function () {
         var _this = this,
-            block = $('.js-callback-block');
+            block = $('.js-sk-callback-block');
 
         $(block).on("run-close", function () {
             $(this).find(".mfp-close").click();
@@ -3710,18 +3694,14 @@ $(function () {
     slider.init();
     photoGallery.init();
     formModal.init();
-<<<<<<< HEAD
     ddBox.init();
-=======
-    dropDownWrap.init();
->>>>>>> 9949b6bdf9df291b42e683745070f722cbf1f6c5
     categoriesMainMenu.init();
     mobileMenuBtn.init();
     phoneSearch.init();
     phoneSbar.init();
     fixedPanel.init();
     tags.init();
-    freeCallBack.init();
+    skCallback.init();
     pagePopup.init();
     cart.init();
     specialProducts.init();
