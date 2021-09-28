@@ -285,12 +285,9 @@
                 </span>
             </div>
 
-            {$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click"}
-
-            {if $_buy1click}
-                <div class="product__fastorder">{shopBuy1clickViewHelper::getButton($product.id, $product.sku_id)}</div>
+            {if $theme_settings.fastorder == "buy1click" && class_exists('shopBuy1clickViewHelper')}
+                    <div class="product__fastorder">{shopBuy1clickViewHelper::getButton($product.id, $product.sku_id)}</div>
             {/if}
-
             <!-- plugin hook: 'frontend_product.cart' -->
             {* @event frontend_product.%plugin_id%.cart *}
             {foreach $frontend_product as $_}

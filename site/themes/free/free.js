@@ -1053,285 +1053,63 @@ var tags = {
     }
 };
 
-var skCallback = {
+var freeCallback = {
     init: function () {
         var _this = this;
 
-        _this.openModal();
-        _this.onTriggerClose();
+        _this.showModal();
+        _this.triggerCloce();
     },
-    openModal: function () {
+    showModal: function () {
         var _this = this,
-            buttons = $('.js-sk-callback-open'),
-            block = $('.js-sk-callback-block');
+            btn = $('.js-callback-open'),
+            box = $('.js-callback-block');
 
-        if (buttons.size() && block.size()) {
-            buttons.magnificPopup({
+        if (btn.size() && box.size()) {
+            btn.magnificPopup({
                 items: [
                     {
-                        src: '.js-sk-callback-block',
+                        src: '.js-callback-block',
                         type: 'inline'
                     }
                 ],
                 midClick: true,
                 callbacks: {
                     open: function () {
-                        _this.closeCustomModals();
-                        block.trigger("event-open");
+                        _this.closeModal();
+                        box.trigger("event-open");
                     },
                     close: function () {
-                        block.trigger("event-close");
+                        box.trigger("event-close");
                     }
                 }
             });
         }
     },
-    closeCustomModals: function () {
+    closeModal: function () {
         $(".js-popup").hide();
         $("body").removeClass("_popup-open");
     },
-    onTriggerClose: function () {
+    triggerCloce: function () {
         var _this = this,
-            block = $('.js-sk-callback-block');
+            box = $('.js-callback-block');
 
-        $(block).on("run-close", function () {
+        $(box).on("run-close", function () {
             $(this).find(".mfp-close").click();
         });
     }
 };
 
-var pagePopup = {
-    init: function () {
-        var _this = this;
-
-        _this.loadContent();
-    },
-    loadContent: function () {
-        var _this = this;
-
-        $('body').on("click", '.js-page-popup', function (event) {
-            event.preventDefault();
-
-            var $this = $(this),
-                href = $this.attr('href');
-
-            if (!href) {
-                href = $this.data('href');
-            }
-
-            $.magnificPopup.close();
-            $('body').prepend("<div class='js-loading-bg mfp-bg mfp-ready'><div class='mfp-preloader'></div></div>");
-
-            $.get(href + "?popup=1", function (data) {
-                $('.js-loading-bg').remove();
-                var content = false;
-                if ($(data)) {
-                    if ($(data).attr("id") == 'page-popup') {
-                        content = $(data);
-                    } else if ($(data).find('#page-popup').length) {
-                        content = $(data).find('#page-popup');
-                    }
-                    if (content) {
-                        _this.openModal(content);
-                    } else {
-                        location.href = href;
-                    }
-                }
-            });
-        });
-    },
-    openModal: function (content) {
-        $.magnificPopup.open({
-            items: {
-                src: "<div class='modal-content modal-content--page'>" + content.outerHTML() + "</div>"
-            },
-            type: 'inline'
-        }, 0);
-
-    },
-};
-
-if (!window.SkOneclick) {
-
-    SkOneclick = (function ($) {
-
-        'use strict';
-
-        var SkOneclick = function (params) {
-
-            this.init(params);
-
-
-        };
-
-        SkOneclick.prototype = {
-
-            _config: {
-                buttons: '.js-sk-oneclick-open',
-                cart: '.js-sk-oneclick-open-cart',
-                popup: '.js-sk-oneclick-popup',
-                block: '.js-sk-oneclick-block',
-                content: '.js-sk-oneclick-content',
-                close: '.js-sk-oneclick-close',
-                preload: '.js-sk-oneclick-preload'
-            },
-
-            init: function (params) {
-                var that = this;
-
-                that.params = $.extend({}, that._config, params);
-
-                that.initElements();
-
-                if (!that.elements.block.size()) {
-                    return false;
-                }
-
-                that.initButtons();
-
-
-                that.initCart();
-
-                that.onClose();
-
-                that.onTriggerClose();
-
-                that.onEventLoading();
-
-            },
-
-            initElements: function () {
-                var that = this,
-                    elements = {};
-
-                elements.popup = $(that.params.popup);
-                elements.block = elements.popup.find(that.params.block);
-                elements.content = elements.popup.find(that.params.content);
-                elements.close = elements.popup.find(that.params.close);
-                elements.preload = elements.block.find(that.params.preload);
-
-                that.elements = elements;
-            },
-
-            initButtons: function () {
-                var that = this,
-                    elements = that.elements;
-
-                $("body").on("click", that.params.buttons, function () {
-                    var button = $(this),
-                        type = button.data("type");
-
-                    if (typeof type == "undefined" && type != "product" && type != "cart") {
-                        return true;
-                    }
-
-                    elements.preload.show();
-                    elements.popup.show();
-                    $("body").addClass("_popup-open");
-
-                    var params = {
-                        form: button.closest("form"),
-                        type: "product"
-                    };
-
-                    if (!params.form.size()) {
-                        console.log("Форма не найдена");
-                        return false;
-                    }
-
-                    elements.block.trigger("event-open", params);
-
-                });
-
-            },
-
-            initCart: function () {
-                var that = this,
-                    elements = that.elements;
-
-                $("body").on("click", that.params.cart, function () {
-                    var button = $(this),
-                        type = button.data("type");
-
-                    if (typeof type == "undefined" && type != "product" && type != "cart") {
-                        return true;
-                    }
-
-                    elements.preload.show();
-                    elements.popup.show();
-                    $("body").addClass("_popup-open");
-
-                    var params = {
-                        form: button.closest("form"),
-                        type: "cart"
-                    };
-
-                    if (!params.form.size()) {
-                        console.log("Форма не найдена");
-                        return false;
-                    }
-
-                    elements.block.trigger("event-open", params);
-
-                });
-            },
-
-            onClose: function () {
-                var that = this,
-                    elements = that.elements;
-
-                elements.close.on("click", function () {
-                    elements.block.trigger("event-close");
-                    that.closePopup()
-                });
-            },
-
-            onTriggerClose: function () {
-                var that = this,
-                    block = that.elements.block;
-
-                block.on("run-close", function () {
-                    that.closePopup()
-                });
-            },
-
-            closePopup: function () {
-                var that = this,
-                    elements = that.elements;
-
-                elements.popup.hide();
-                elements.preload.show();
-                elements.content.html("");
-                $("body").removeClass("_popup-open");
-
-            },
-
-            onEventLoading: function () {
-                var that = this;
-
-                that.elements.block.on("event-load", function (object, params) {
-                    that.elements.preload.hide();
-                });
-            }
-
-        };
-
-        return SkOneclick;
-
-    })(jQuery);
-
-}
-
 var cart = {
     init: function () {
         var _this = this;
 
-        _this.addToCart();
-        _this.cartDialog();
-        _this.selectQuantity();
-        _this.countQty();
+        _this.addProductToCart();
+        _this.addToCartDialog();
+        _this.btnQuantity();
+        _this.countQuantity();
     },
-    cartDialog: function () {
+    addToCartDialog: function () {
         var _this = this;
 
         $('body').on("click", ".js-card-dialog", function () {
@@ -1341,12 +1119,12 @@ var cart = {
                 },
                 type: 'ajax',
                 callbacks: {
-                    parseAjax: function (mfpResponse) {
-                        if (typeof mfpResponse.data === 'string' || mfpResponse.data instanceof String) {
-                            var outer = "<div>" + mfpResponse.data + "</div>";
-                            mfpResponse.data = $(outer).find(".js-modal-content");
+                    parseAjax: function (block) {
+                        if (typeof block.data === 'string' || block.data instanceof String) {
+                            var outer = "<div>" + block.data + "</div>";
+                            block.data = $(outer).find(".js-modal-content");
                         } else {
-                            mfpResponse.data = $(mfpResponse.data);
+                            block.data = $(block.data);
                         }
                     },
                     ajaxContentAdded: function () {
@@ -1373,7 +1151,7 @@ var cart = {
             }, 0);
         });
     },
-    addToCart: function () {
+    addProductToCart: function () {
         var _this = this;
 
         $('body').on('submit', '.js-add-to-cart', function (event) {
@@ -1384,7 +1162,7 @@ var cart = {
                 data = $this.serialize(),
                 previewCartCount = $('.js-cart-preview-count'),
                 previewCartTotal = $('.js-cart-price-total-price'),
-                cartDialog = $('#cart-form-dialog'),
+                addToCartDialog = $('#cart-form-dialog'),
                 btn = $this.find(".js-submit-form");
 
 
@@ -1397,7 +1175,7 @@ var cart = {
                     previewCartTotal.html(response.data.total);
 
                     productListCustom.showAddedMsg($('.juniq-header-preview-cart'));
-                    if (cartDialog.length > 0) {
+                    if (addToCartDialog.length > 0) {
                         $.magnificPopup.close();
                     }
 
@@ -1487,7 +1265,7 @@ var cart = {
             $.magnificPopup.close();
         });
     },
-    selectQuantity: function () {
+    btnQuantity: function () {
         var _this = this;
 
         $('body').on("click", '.js-pr-count-action', function () {
@@ -1507,7 +1285,7 @@ var cart = {
             inputQuantity.change();
         });
     },
-    countQty: function () {
+    countQuantity: function () {
         $('body').on("click", ".js-qty-button", function () {
             var $this = $(this),
                 wrapOut = $this.closest('.js-qty'),
@@ -1531,72 +1309,6 @@ var cart = {
 
             input.val(currentQty);
             input.change();
-        });
-    }
-
-};
-
-var messages = {
-
-    notifySuccess: function (text, offset) {
-        if (!text) text = 'Sent!';
-        $.notify({
-            message: text,
-            icon: 'fa fa-check'
-        }, {
-            delay: 5000,
-            type: 'success',
-            placement: {
-                align: "right",
-                from: 'bottom'
-            }
-        });
-    },
-    notifyRemoveElement: function (text) {
-        if (!text) text = 'Deleted!';
-        $.notify({
-            message: text
-        }, {
-            delay: 5000,
-            placement: {
-                align: "right",
-                from: 'bottom'
-            }
-        });
-    },
-    notifyDanger: function (text) {
-        if (!text) text = 'An error has occurred!';
-        $.notify({
-            message: text,
-            icon: 'fa fa-exclamation-circle'
-        }, {
-            delay: 5000,
-            type: 'danger',
-            placement: {
-                align: "right",
-                from: 'bottom'
-            }
-        });
-    }
-
-};
-
-var specialProducts = {
-    init: function () {
-        var _this = this;
-
-        $('.js-special-list').bxSlider({
-            slideWidth: 244,
-            minSlides: 1,
-            maxSlides: 5,
-            slideMargin: 15,
-            moveSlides: 1,
-            pager: false,
-            nextText: '',
-            prevText: '',
-            infiniteLoop: false,
-            hideControlOnEnd: true
-
         });
     }
 };
@@ -3701,10 +3413,8 @@ $(function () {
     phoneSbar.init();
     fixedPanel.init();
     tags.init();
-    skCallback.init();
-    pagePopup.init();
+    freeCallback.init();
     cart.init();
-    specialProducts.init();
     productTile.init();
     productListCustom.init();
     productsHome.init();
@@ -3720,8 +3430,6 @@ $(function () {
     displayFontAwesome.init();
     demoSettings.init();
     productGallery.init();
-
-    new SkOneclick({buttons: '.js-sk-oneclick-open'});
     new SocialWidgets({container: ".js-social-widgets", timeAutoSwitch: 5000});
     new productTileGallery();
 });
