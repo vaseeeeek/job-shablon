@@ -551,7 +551,11 @@
       </options>
     </setting>
     <setting var="slider_scroll_pause_auto" control_type="text">
+<<<<<<< HEAD
       <value>2</value>
+=======
+      <value><![CDATA[4]]></value>
+>>>>>>> 9949b6bdf9df291b42e683745070f722cbf1f6c5
       <name locale="en_US">Slider pause</name>
       <name locale="ru_RU">Задержка слайдера</name>
       <description locale="en_US">Specify the value in seconds. If the value is zero, the automatic sheet turns
