@@ -983,7 +983,7 @@
       <name locale="ru_RU">Показывать рейтинги продуктов</name>
     </setting>
     <setting var="fastorder" control_type="select">
-      <value></value>
+      <value/>
       <name locale="en_US">Plugin fast order</name>
       <name locale="ru_RU">Плагин Быстрого заказа</name>
       <options>

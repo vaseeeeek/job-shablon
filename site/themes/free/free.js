@@ -1382,8 +1382,7 @@ var productViewListCustom = {
         _this.list(
             'shop_compare',
             $(".js-preview-compare"),
-            '.js-compare-add',
-            compareProductSidebar.list
+            '.js-compare-add'
         );
     },
     favorites: function () {
@@ -1507,40 +1506,40 @@ var productViewListCustom = {
     }
 };
 
-var productsHome = {
+var listHome = {
     init: function () {
         var _this = this;
 
-        var productsList = $(".js-home-products");
+        var homeList = $(".js-home-products");
 
-        if (productsList.length) {
-            productsList.each(function () {
-                _this.carousel($(this));
+        if (homeList.length) {
+            homeList.each(function () {
+                _this.slider($(this));
             });
         }
     },
-    carousel: function (productsList) {
+    slider: function (homeList) {
         var _this = this;
 
-        productsList.removeClass("active");
-        productsList.parent().find('.js-home-products-more').remove();
-        productsList.after('<span class="home-products-more js-home-products-more"></span>');
+        homeList.removeClass("active");
+        homeList.parent().find('.js-home-products-more').remove();
+        homeList.after('<span class="home-products-more js-home-products-more"></span>');
 
-        var products = productsList.find('.js-Product-grid');
+        var products = homeList.find('.js-Product-grid');
         products.removeClass('hide');
         if (products.length) {
-            var firstProduct = products.first(),
-                firstProductOffsetTop = firstProduct.offset().top,
-                countLine = productsList.data("count-line") ? parseInt(productsList.data("count-line")) : 1,
+            var firstItem = products.first(),
+                firstItemOffsetTop = firstItem.offset().top,
+                countLine = homeList.data("count-line") ? parseInt(homeList.data("count-line")) : 1,
                 indexLine = 0,
-                prevProductOffsetTop = 0,
+                prevItemOffsetTop = 0,
                 countInLine = 0;
 
             products.each(function () {
-                var currentProduct = $(this),
-                    currentProductOffsetTop = currentProduct.offset().top;
+                var currentItem = $(this),
+                    currentItemOffsetTop = currentItem.offset().top;
 
-                if (currentProductOffsetTop != prevProductOffsetTop) {
+                if (currentItemOffsetTop != prevItemOffsetTop) {
                     indexLine++;
                 }
 
@@ -1548,43 +1547,43 @@ var productsHome = {
                     countInLine++;
                 }
 
-                if (firstProductOffsetTop < currentProductOffsetTop && indexLine <= countLine) {
-                    firstProductOffsetTop = currentProductOffsetTop;
+                if (firstItemOffsetTop < currentItemOffsetTop && indexLine <= countLine) {
+                    firstItemOffsetTop = currentItemOffsetTop;
                 }
 
-                if (firstProductOffsetTop < currentProductOffsetTop && countInLine > 2) {
-                    currentProduct.addClass("hide");
-                    productsList.addClass("active");
+                if (firstItemOffsetTop < currentItemOffsetTop && countInLine > 2) {
+                    currentItem.addClass("hide");
+                    homeList.addClass("active");
                 }
-                prevProductOffsetTop = currentProductOffsetTop;
+                prevItemOffsetTop = currentItemOffsetTop;
             });
-            _this.showElements(productsList, countInLine);
+            _this.showElements(homeList, countInLine);
         }
     },
-    showElements: function (productsList, countInLine) {
-        var btnShowMore = productsList.parent().find('.js-home-products-more');
+    showElements: function (homeList, countInLine) {
+        var btnShowMore = homeList.parent().find('.js-home-products-more');
 
         btnShowMore.on("click", function () {
-            var products = productsList.find('.js-Product-grid');
-            var productsHide = productsList.find('.js-Product-grid.hide');
+            var products = homeList.find('.js-Product-grid');
+            var itemsHide = homeList.find('.js-Product-grid.hide');
 
             var index = 0;
-            productsHide.each(function () {
-                var currentProduct = $(this);
+            itemsHide.each(function () {
+                var currentItem = $(this);
 
                 if (index < countInLine) {
-                    currentProduct.removeClass("hide");
-                    currentProduct.find(".js-product-preview-img").removeAttr("height").removeAttr("width");
+                    currentItem.removeClass("hide");
+                    currentItem.find(".js-product-preview-img").removeAttr("height").removeAttr("width");
                 }
 
                 index++;
             });
 
-            var currentProductsHide = productsList.find('.js-Product-grid.hide');
-            if (currentProductsHide.length) {
-                productsList.addClass("active");
+            var currentItemsHide = homeList.find('.js-Product-grid.hide');
+            if (currentItemsHide.length) {
+                homeList.addClass("active");
             } else {
-                productsList.removeClass("active");
+                homeList.removeClass("active");
             }
 
             if (typeof $.autobadgeFrontend !== 'undefined') {
@@ -1594,53 +1593,53 @@ var productsHome = {
     }
 };
 
-var productsCarousel = {
-    carouselProductsWrap: $('.js-owl-carousel-product'),
+var productsSlider = {
+    carouseItemsWrap: $('.js-owl-carousel-product'),
     init: function () {
         var _this = this;
 
-        if (!_this.carouselProductsWrap.length) {
+        if (!_this.carouseItemsWrap.length) {
             return false;
         }
 
-        _this.prepareProductListCarousels();
-        _this.carouselInteraction();
+        _this.prepareListCarousels();
+        _this.carouselAction();
 
-        $(window).one('resize', _this.carouselsInit);
+        $(window).one('resize', _this.carouselsInitialization);
     },
-    carouselsInit: function () {
+    carouselsInitialization: function () {
         var _this = this;
 
-        productsCarousel.carouselProductsWrap.each(function () {
+        productsSlider.carouseItemsWrap.each(function () {
             var $this = $(this);
 
-            productsCarousel.carousel($this);
+            productsSlider.carousel($this);
         });
     },
-    prepareProductListCarousels: function () {
+    prepareListCarousels: function () {
         var _this = this;
 
-        _this.carouselProductsWrap.each(function () {
-            var carousel = $(this).find('.owl-carousel'),
-                carouselWidth = carousel.outerWidth(),
-                itemCarousel = $(this).find(".js-Product-grid"),
-                countItems = itemCarousel.length,
-                widthItem = itemCarousel.first().outerWidth(true),
-                widthAllItems = widthItem * countItems,
-                isButtons = widthAllItems > carouselWidth;
+        _this.carouseItemsWrap.each(function () {
+            var sliderProducts = $(this).find('.owl-carousel'),
+                sliderWidth = sliderProducts.outerWidth(),
+                itemSlider = $(this).find(".js-Product-grid"),
+                itenLingth = itemSlider.length,
+                itemWidth = itemSlider.first().outerWidth(true),
+                widthFullListIems = itemWidth * itenLingth,
+                isActions = widthFullListIems > sliderWidth;
 
-            if (isButtons) {
-                var wrapButtons = $(this).find(".js-carousel-direction");
+            if (isActions) {
+                var wrapActions = $(this).find(".js-carousel-direction");
 
-                wrapButtons.append('<div data-index="prev" class="js-slider-init-action owl-prev disabled"></div>');
-                wrapButtons.append('<div data-index="next" class="js-slider-init-action owl-next"></div>');
+                wrapActions.append('<div data-index="prev" class="js-slider-init-action owl-prev disabled"></div>');
+                wrapActions.append('<div data-index="next" class="js-slider-init-action owl-next"></div>');
             }
 
-            var carouselOffsetRight = carousel.offset().left + carousel.outerWidth();
-            itemCarousel.slice(0, 5).each(function () {
-                var itemOffsetLeft = $(this).offset().left;
+            var sliderOffsetRight = sliderProducts.offset().left + sliderProducts.outerWidth();
+            itemSlider.slice(0, 5).each(function () {
+                var productOffsetLeft = $(this).offset().left;
 
-                if (itemOffsetLeft < carouselOffsetRight) {
+                if (productOffsetLeft < sliderOffsetRight) {
                     $(this).find(".owl-lazy").Lazy({
                         afterLoad: function (element) {
                             element.removeClass("owl-lazy");
@@ -1653,62 +1652,62 @@ var productsCarousel = {
             });
         });
     },
-    carouselInteraction: function () {
+    carouselAction: function () {
         var _this = this,
-            productCarouselNav = $('.js-slider-init-action');
+            sliderNav = $('.js-slider-init-action');
 
-        productCarouselNav.on("click", function () {
-            var carousel = $(this).closest('.js-owl-carousel-product');
+        sliderNav.on("click", function () {
+            var slider = $(this).closest('.js-owl-carousel-product');
 
-            _this.carousel(carousel, $(this).data("index"));
+            _this.slider(slider, $(this).data("index"));
         });
 
         if (checkTouchDevice()) {
             $('.js-owl-carousel-product .owl-carousel').each(function () {
-                var $productList = $(this);
+                var $items = $(this);
 
-                $productList.swipe({
+                $items.swipe({
                     allowPageScroll: "auto",
                     threshold: 20,
                     swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-                        var $productListCarousel = $(this).closest(".js-owl-carousel-product");
+                        var $itemsSlider = $(this).closest(".js-owl-carousel-product");
 
                         if (direction == 'left') {
-                            _this.carousel($productListCarousel, "next");
+                            _this.slider($itemsSlider, "next");
                         } else if (direction == 'right') {
-                            _this.carousel($productListCarousel, "prev");
+                            _this.slider($itemsSlider, "prev");
                         }
                     }
                 });
             });
         }
     },
-    carousel: function (productsList, goToSlide) {
-        if (productsList.hasClass("carousel-init")) {
+    slider: function (homeList, goToSlide) {
+        if (homeList.hasClass("carousel-init")) {
             return false;
         }
-        var productList = productsList.find('.owl-carousel'),
-            navigation = productsList.find('.js-carousel-direction'),
-            isMouseSwipe = productsList.data("swipe"),
-            isMobilePreviewMini = productList.data("type-mobile-preview"),
+        var productList = homeList.find('.owl-carousel'),
+            navigation = homeList.find('.js-carousel-direction'),
+            isMouseSwipe = homeList.data("swipe"),
+            isViewMobileMini = productList.data("type-mobile-preview"),
             is2Cols = productList.closest(".cols-2").length,
             is3Cols = productList.closest(".cols-3").length,
             responsive = {};
 
         if (is3Cols) {
-            if (isMobilePreviewMini) {
+            if (isViewMobileMini) {
                 responsive = {0: {items: 2}, 700: {items: 3}};
             } else {
                 responsive = {0: {items: 1}, 400: {items: 2}, 700: {items: 3}};
             }
         } else if (is2Cols) {
-            if (isMobilePreviewMini) {
+            if (isViewMobileMini) {
                 responsive = {0: {items: 2}, 700: {items: 3}, 1250: {items: 4}};
             } else {
                 responsive = {0: {items: 1}, 400: {items: 2}, 700: {items: 3}, 1250: {items: 4}};
             }
         } else {
-            if (isMobilePreviewMini) {
+            if (isViewMobileMini) {
                 responsive = {0: {items: 2}, 700: {items: 3}, 1000: {items: 4}, 1250: {items: 5}};
             } else {
                 responsive = {0: {items: 1}, 400: {items: 2}, 700: {items: 3}, 1000: {items: 4}, 1250: {items: 5}};
@@ -1728,10 +1727,10 @@ var productsCarousel = {
             autoWidth: true,
             lazyLoad: false,
             onInitialize: function (event) {
-                productsList.find(".js-slider-init-action").remove();
+                homeList.find(".js-slider-init-action").remove();
             },
             onInitialized: function (event) {
-                productsList.addClass("carousel-init");
+                homeList.addClass("carousel-init");
             },
             onDragged: function (event) {
                 if (typeof $.autobadgeFrontend !== 'undefined') {
@@ -3374,8 +3373,8 @@ $(function () {
     cart.init();
     productViewGrid.init();
     productViewListCustom.init();
-    productsHome.init();
-    productsCarousel.init();
+    listHome.init();
+    productsSlider.init();
     videoPopup.init();
     lazyImages.init();
     productsPreviewList.init();
