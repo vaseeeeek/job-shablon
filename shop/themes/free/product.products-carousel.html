@@ -62,7 +62,7 @@
             $(".grid-gallery__el").hover(function() {
                 let _this = $(this);
                 let id = _this.attr('data-id');
-                console.log(id);
+
                 let wrap = _this.closest('.Product-grid');
                 wrap.find('.dotted-img__item').each(function() {
                     if ($(this).attr('data-id') == id) {

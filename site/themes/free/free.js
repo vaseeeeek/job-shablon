@@ -1130,7 +1130,7 @@ var cart = {
                     ajaxContentAdded: function () {
                         var productCard = this.content.find('#product-cart');
                         if (productCard.length && productCard.data('id')) {
-                            productListCustom.viewed(productCard.data('id'));
+                            productViewListCustom.viewed(productCard.data('id'));
                         }
 
                         if (!checkTouchDevice()) {
@@ -1174,7 +1174,7 @@ var cart = {
                     previewCartCount.html(response.data.count);
                     previewCartTotal.html(response.data.total);
 
-                    productListCustom.showAddedMsg($('.juniq-header-preview-cart'));
+                    productViewListCustom.showAddedMsg($('.juniq-header-preview-cart'));
                     if (addToCartDialog.length > 0) {
                         $.magnificPopup.close();
                     }
@@ -1221,7 +1221,7 @@ var cart = {
         }, 650, function () {
             productBlockCopy.remove();
 
-            productListCustom.showAddedMsg($('.juniq-header-preview-cart'));
+            productViewListCustom.showAddedMsg($('.juniq-header-preview-cart'));
         });
     },
     popupAddCart: function (form) {
@@ -1313,24 +1313,24 @@ var cart = {
     }
 };
 
-var productTile = {
+var productViewGrid = {
     init: function () {
         var product = $('.js-Product-grid'), timeOut;
 
         product.hover(function () {
             var $this = $(this),
                 prevProduct = $this.prev(),
-                btnActions = $this.find('.js-button'),
+                btn = $this.find('.js-button'),
                 dialog = $this.find('.js-dialog');
 
-            btnActions.css({marginTop: "15px", opacity: 0});
+            btn.css({marginTop: "15px", opacity: 0});
 
             $this.addClass('hover');
-            btnActions.first().show();
-            btnActions.first().animate({marginTop: "0", opacity: 1}, 300);
+            btn.first().show();
+            btn.first().animate({marginTop: "0", opacity: 1}, 300);
             timeOut = setTimeout(function () {
-                btnActions.last().show();
-                btnActions.last().animate({marginTop: "0", opacity: 1}, 150);
+                btn.last().show();
+                btn.last().animate({marginTop: "0", opacity: 1}, 150);
             }, 150);
 
             dialog.fadeIn();
@@ -1341,15 +1341,15 @@ var productTile = {
         }, function () {
             var $this = $(this),
                 prevProduct = $this.prev(),
-                btnActions = $this.find('.js-button'),
+                btn = $this.find('.js-button'),
                 dialog = $this.find('.js-dialog');
 
             clearTimeout(timeOut);
             prevProduct.removeClass('next-hover');
             $this.removeClass('hover');
-            btnActions.first().stop();
-            btnActions.last().stop();
-            btnActions.hide();
+            btn.first().stop();
+            btn.last().stop();
+            btn.hide();
             dialog.hide();
 
             var img = $this.find('.js-product-preview-img');
@@ -1360,7 +1360,7 @@ var productTile = {
     }
 };
 
-var productListCustom = {
+var productViewListCustom = {
     init: function () {
         var _this = this;
 
@@ -1395,42 +1395,42 @@ var productListCustom = {
             '.js-favorites-add'
         );
     },
-    list: function (listName, listPreviewWrap, elAddToListBtn, callbackFunction) {
+    list: function (productsArrName, arrPrevWrap, itemAddToListButton, cbFunc) {
         var _this = this;
 
-        $("body").on('click', elAddToListBtn, function (event) {
+        $("body").on('click', itemAddToListButton, function (event) {
             event.preventDefault();
             var $this = $(this),
                 countInList = 0,
                 isAdded = true,
-                countPreviewView = listPreviewWrap.find('.js-products-count'),
-                linPreviewView = listPreviewWrap.find('.js-products-link'),
+                countPreviewView = arrPrevWrap.find('.js-products-count'),
+                linPreviewView = arrPrevWrap.find('.js-products-link'),
                 productId = $(this).data('product');
 
             if (!$this.hasClass('active')) {
-                countInList = _this.add(listName, productId);
+                countInList = _this.add(productsArrName, productId);
             } else {
-                countInList = _this.remove(listName, productId);
+                countInList = _this.remove(productsArrName, productId);
                 isAdded = false;
             }
-            var url = (countInList > 0) ? linPreviewView.attr('href').replace(/compare\/.*$/, 'compare/' + _this.get(listName) + '/') : '/compare/';
+            var url = (countInList > 0) ? linPreviewView.attr('href').replace(/compare\/.*$/, 'compare/' + _this.get(productsArrName) + '/') : '/compare/';
 
             linPreviewView.attr('href', url);
             countPreviewView.html(countInList);
 
             if (isAdded) {
-                _this.showAddedMsg(listPreviewWrap);
+                _this.showAddedMsg(arrPrevWrap);
             }
 
-            $(elAddToListBtn + "[data-product='" + productId + "']").toggleClass('active');
+            $(itemAddToListButton + "[data-product='" + productId + "']").toggleClass('active');
 
-            if (callbackFunction) {
-                callbackFunction({that: $this, url: url, productId: productId, isAdded: isAdded});
+            if (cbFunc) {
+                cbFunc({that: $this, url: url, productId: productId, isAdded: isAdded});
             }
         });
     },
-    add: function (listName, productId, limit) {
-        var _this = this, list = $.cookie(listName), listArr = [];
+    add: function (productsArrName, productId, limit) {
+        var _this = this, list = $.cookie(productsArrName), listArr = [];
 
         if (list && list != "null" && list != "0") {
             list = list.replace(",null", "");
@@ -1448,12 +1448,12 @@ var productListCustom = {
             listArr.splice(limit);
         }
 
-        _this.save(listArr, listName);
+        _this.save(listArr, productsArrName);
 
         return listArr.length;
     },
-    remove: function (listName, productId) {
-        var _this = this, list = $.cookie(listName);
+    remove: function (productsArrName, productId) {
+        var _this = this, list = $.cookie(productsArrName);
 
         if (list) {
             list = list.split(',');
@@ -1465,14 +1465,14 @@ var productListCustom = {
             list.splice(i, 1);
         }
 
-        _this.save(list, listName);
+        _this.save(list, productsArrName);
 
         return list.length;
     },
-    get: function (listName) {
-        return $.cookie(listName);
+    get: function (productsArrName) {
+        return $.cookie(productsArrName);
     },
-    save: function (list, listName) {
+    save: function (list, productsArrName) {
         if (list.length > 0) {
             for (var i = 0; i < list.length; i++) {
                 if (!parseInt(list[i])) {
@@ -1481,9 +1481,9 @@ var productListCustom = {
             }
         }
         if (list.length > 0) {
-            $.cookie(listName, list.join(','), {expires: 30, path: '/'});
+            $.cookie(productsArrName, list.join(','), {expires: 30, path: '/'});
         } else {
-            $.cookie(listName, null, {path: '/'});
+            $.cookie(productsArrName, null, {path: '/'});
         }
     },
     clear: function () {
@@ -1492,61 +1492,18 @@ var productListCustom = {
         btn.on("click", function () {
             var $this = $(this),
                 list = [],
-                listName = $this.data("list") + "_list";
+                productsArrName = $this.data("list") + "_list";
 
-            _this.save(list, listName);
+            _this.save(list, productsArrName);
             location.reload();
 
         });
     },
-    showAddedMsg: function (listPreviewWrap) {
-        listPreviewWrap.addClass('active');
+    showAddedMsg: function (arrPrevWrap) {
+        arrPrevWrap.addClass('active');
         setTimeout(function () {
-            listPreviewWrap.removeClass('active');
+            arrPrevWrap.removeClass('active');
         }, 3000);
-    }
-};
-
-var compareProductSidebar = {
-    list: function (params) {
-        var $this = params.that,
-            url = params.url,
-            productId = params.productId,
-            isAdded = params.isAdded,
-            productsFullWrap = $('.js-compare-products-full'),
-            productsEmptyWrap = $('.js-compare-products-empty'),
-            productsList = $('.js-compare-products-list'),
-            template = $('.js-compare-template');
-
-        $('.js-sidebar-compare-link').attr("href", url);
-
-        if (!isAdded) {
-            var product = $('.js-compare-product[data-product="' + productId + '"]');
-            product.remove();
-        } else {
-            if (productsList.length && $this.data('name') && template) {
-                var addedProduct = template.clone();
-                addedProduct.removeClass('js-compare-template').addClass('js-compare-product');
-                addedProduct.attr("data-product", productId);
-                addedProduct.find('.js-compare-add').attr("data-product", productId).addClass('active');
-                addedProduct.find('.js-compare-name').text($this.data('name'));
-                addedProduct.find('.js-compare-name').attr("href", $this.data('url'));
-                addedProduct.find('.js-compare-img').attr("href", $this.data('url'));
-                if ($this.data('img')) {
-                    addedProduct.find('.js-compare-img').html("<img src='" + $this.data('img') + "'>");
-                }
-                template.after(addedProduct);
-                addedProduct.show();
-            }
-        }
-
-        if ($('.js-compare-product').length) {
-            productsEmptyWrap.hide();
-            productsFullWrap.show();
-        } else {
-            productsEmptyWrap.show();
-            productsFullWrap.hide();
-        }
     }
 };
 
@@ -3415,8 +3372,8 @@ $(function () {
     tags.init();
     freeCallback.init();
     cart.init();
-    productTile.init();
-    productListCustom.init();
+    productViewGrid.init();
+    productViewListCustom.init();
     productsHome.init();
     productsCarousel.init();
     videoPopup.init();
