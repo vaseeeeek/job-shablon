@@ -1613,7 +1613,7 @@ var productsSlider = {
         productsSlider.carouseItemsWrap.each(function () {
             var $this = $(this);
 
-            productsSlider.carousel($this);
+            productsSlider.slider($this);
         });
     },
     prepareListCarousels: function () {
@@ -1690,17 +1690,17 @@ var productsSlider = {
             navigation = homeList.find('.js-carousel-direction'),
             isMouseSwipe = homeList.data("swipe"),
             isViewMobileMini = productList.data("type-mobile-preview"),
-            is2Cols = productList.closest(".cols-2").length,
-            is3Cols = productList.closest(".cols-3").length,
+            thowCols = productList.closest(".cols-2").length,
+            threeCols = productList.closest(".cols-3").length,
             responsive = {};
 
-        if (is3Cols) {
+        if (threeCols) {
             if (isViewMobileMini) {
                 responsive = {0: {items: 2}, 700: {items: 3}};
             } else {
                 responsive = {0: {items: 1}, 400: {items: 2}, 700: {items: 3}};
             }
-        } else if (is2Cols) {
+        } else if (thowCols) {
             if (isViewMobileMini) {
                 responsive = {0: {items: 2}, 700: {items: 3}, 1250: {items: 4}};
             } else {
