@@ -1760,7 +1760,7 @@ var productsSlider = {
     }
 };
 
-var videoPopup = {
+var videoModal = {
     init: function () {
         $("body").on("click", '.js-video-popup', function (e) {
             e.preventDefault();
@@ -1791,49 +1791,46 @@ var videoPopup = {
     },
 };
 
-/*
- * Информационное сообщение
- */
-var infoMessage = {
-    init: function (container) {
+var cookieMessage = {
+    init: function (box) {
         var _this = this;
 
-        if (!container.length) {
+        if (!box.length) {
             return false;
         }
 
-        if (_this.checkOpen(container)) {
-            _this.runOpen(container);
-            _this.onClose(container);
+        if (_this.messageBox(box)) {
+            _this.boxOpen(box);
+            _this.onClose(box);
         }
     },
-    checkOpen: function (container) {
+    messageBox: function (box) {
         var _this = this;
 
-        if (!$.cookie("info_massage_close")) {
+        if (!$.cookie("closeCookie")) {
             return true;
         }
 
         return false;
     },
-    runOpen: function (container) {
+    boxOpen: function (box) {
         var _this = this;
 
-        container.show();
+        box.show();
     },
-    onClose: function (container) {
+    onClose: function (box) {
         var _this = this,
-            id = container.data('id'),
-            close = container.find('.js-head_info-message-close');
+            id = box.data('id'),
+            close = box.find('.js-cookie-information');
 
         close.on("click", function () {
-            container.detach();
-            $.cookie("info_massage_close", 1);
+            box.detach();
+            $.cookie("closeCookie", 1);
         });
     }
 };
 
-var lazyImages = {
+var lazyLoadImg = {
     init: function () {
         var _this = this;
 
@@ -1841,20 +1838,20 @@ var lazyImages = {
     }
 };
 
-var productsPreviewList = {
+var itemsViewList = {
     init: function () {
         var _this = this,
-            productList = $('.js-preview-products');
+            itemList = $('.js-preview-products');
 
-        productList.each(function () {
+        itemList.each(function () {
             _this.images($(this));
         });
     },
-    images: function (productList) {
+    images: function (itemList) {
         var _this = this,
-            isRetina = productList.data('retina'),
-            isLazy = productList.data('image-lazy'),
-            productImage = productList.find(".js-product-preview-img:not(.owl-lazy)");
+            isRetina = itemList.data('retina'),
+            isLazy = itemList.data('image-lazy'),
+            productImage = itemList.find(".js-product-preview-img:not(.owl-lazy)");
 
         if (isLazy) {
             productImage.lazy({
@@ -2235,13 +2232,13 @@ var categoriesImages = {
                 images = $this.find('.js-cat-item-image');
 
             if (isLazy) {
-                _this.lazyImages(images, isRetina);
+                _this.lazyLoadImg(images, isRetina);
             } else if (isRetina) {
                 _this.retinaImages(images);
             }
         });
     },
-    lazyImages: function (images, isRetina) {
+    lazyLoadImg: function (images, isRetina) {
         var _this = this;
 
         images.lazy({
@@ -3375,10 +3372,10 @@ $(function () {
     productViewListCustom.init();
     listHome.init();
     productsSlider.init();
-    videoPopup.init();
-    lazyImages.init();
-    productsPreviewList.init();
-    infoMessage.init($('.js-head-info-massage'));
+    videoModal.init();
+    lazyLoadImg.init();
+    itemsViewList.init();
+    cookieMessage.init($('.js-head-info-massage'));
     categoriesImages.init();
     customGalleryPopup.init();
     contentPopup.init();

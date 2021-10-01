@@ -131,7 +131,7 @@ var filter = {
         var r = e.indexOf("?") < 0 ? e + "?_" : e;
         r += "&_=_" + (new Date).getTime() + Math.random(), $.get(r, function (r) {
             var s = $("<div></div>").html(r);
-            a.html(s.find(".js-product-ajax-list").html()), productsPreviewList.images(a.find(".js-preview-products")), i.hide(), history.pushState && void 0 !== history.state && t && ("?" == e && (e = window.location.pathname), window.history.pushState({}, "", e)), $(window).lazyLoad && $(window).lazyLoad("reload"), $(window).on("popstate", function (e) {
+            a.html(s.find(".js-product-ajax-list").html()), itemsViewList.images(a.find(".js-preview-products")), i.hide(), history.pushState && void 0 !== history.state && t && ("?" == e && (e = window.location.pathname), window.history.pushState({}, "", e)), $(window).lazyLoad && $(window).lazyLoad("reload"), $(window).on("popstate", function (e) {
                 location.reload()
             }), productTile.init(), void 0 !== $.autobadgeFrontend && $.autobadgeFrontend.reinit(), void 0 !== $.pluginprotilegallery && $.pluginprotilegallery.lazyload(), filter.smartfilterRefreshHideParams()
         })
@@ -156,7 +156,7 @@ var filter = {
                         l = $('<div class="lazy-paging-loader"><i class="icon16 loading"></i>' + a + "</div>").insertAfter(".js-product-ajax-list");
                     $.get(n, function (a) {
                         var i = $("<div></div>").html(a);
-                        productsPreviewList.images(i.find(".js-preview-products")), o.append(i.find(".js-product-ajax-list .js-cat-list").children());
+                        itemsViewList.images(i.find(".js-preview-products")), o.append(i.find(".js-product-ajax-list .js-cat-list").children());
                         var s = i.find(".lazy-paging").hide();
                         e.replaceWith(s), e = s, e.find("li.selected").next().length ? !isNaN(t) && t <= 0 ? (r.lazyLoad("sleep"), $(".lazyloading-load-more").length || $('<a href="#" class="lazyloading-load-more">' + link_text + "</a>").insertAfter(e).click(function () {
                             return l.show(), t = 1, r.lazyLoad("wake"), r.lazyLoad("force"), !1
@@ -243,7 +243,7 @@ var filter = {
         })
     }, sidebarCategoriesImages: function () {
         var e = $(".js-sidebar-cats"), t = e.data("lazy"), a = e.data("retina");
-        t ? categoriesImages.lazyImages(e.find(".js-sidebar-cat-image"), a) : a && categoriesImages.retinaImages(e.find(".js-sidebar-cat-image"))
+        t ? categoriesImages.lazyLoadImg(e.find(".js-sidebar-cat-image"), a) : a && categoriesImages.retinaImages(e.find(".js-sidebar-cat-image"))
     }
 }, categoryText = {
     readMore: function () {

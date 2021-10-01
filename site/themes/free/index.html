@@ -66,7 +66,7 @@
 
     <body class="{if !empty($is_icons_hidden)} icondesc-hidden{/if}">
 
-    {if $wa->block("cookie.block") && !$wa->cookie('info_massage_close')}
+    {if $wa->block("cookie.block") && !$wa->cookie('closeCookie')}
         <div class="head_info-massage js-head-info-massage">
             <div class="head_info-massage__wrap container">
                 <div class="head_info-massage__content">
@@ -74,7 +74,7 @@
                         {$wa->block("cookie.block")}
                     </div>
                 </div>
-                <span class="head_info-massage__closeку js-head_info-message-close"><span class="info-massage__close-name">&times;</span></span>
+                <span class="head_info-massage__closeку js-cookie-information"><span class="info-massage__close-name">&times;</span></span>
             </div>
         </div>
     {/if}
