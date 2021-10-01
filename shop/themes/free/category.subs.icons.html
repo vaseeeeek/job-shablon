@@ -1,10 +1,8 @@
 {strip}
 {if $category.subcategories}
 
-
-    {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
     {$_lazy = true}
-    <ul class="js-list-categories category-subcat-icon clear-list" data-retina="{$_retina}" data-lazy="{$_lazy}">
+    <ul class="js-list-categories category-subcat-icon clear-list" data-lazy="{$_lazy}">
         {foreach $category.subcategories as $sc}
             <li class="category-subcat-icon_item">
                 <div class="category-subcat-icon_img">

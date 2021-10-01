@@ -27,7 +27,7 @@
             <h3 class="product_cross-title">{$product_list_title}</h3>
         </div>
         <div class="products-grid-outer">
-            <div data-retina="{$wa->shop->config('enable_2x')}" class="js-preview-products products-tile">
+            <div class="js-preview-products products-tile">
                 <div class="owl-carousel owl-theme"{if $is_preview_grid_mini} data-type-mobile-preview="mini"{/if}>
                     {foreach $products as $p}
                         {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy" isOwlSlider='true'}

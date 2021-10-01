@@ -1,11 +1,8 @@
     {strip}
 {if isset($categories) && count($categories)}
 
-
-
-    {$_retina = $theme_settings.cat_list_img_retina && !empty($skImages)}
     {$_lazy = true}
-    <ul class="js-list-categories categories cat-tile-list" data-retina="{$_retina}" data-lazy="{$_lazy}">
+    <ul class="js-list-categories categories cat-tile-list" data-lazy="{$_lazy}">
         {foreach $categories as $cat}
             <li class="categories-tile">
                 <a href="{$cat.url}" class="js-cat-link">

@@ -1849,21 +1849,15 @@ var itemsViewList = {
     },
     images: function (itemList) {
         var _this = this,
-            isRetina = itemList.data('retina'),
             isLazy = itemList.data('image-lazy'),
             productImage = itemList.find(".js-product-preview-img:not(.owl-lazy)");
 
         if (isLazy) {
             productImage.lazy({
                 afterLoad: function (element) {
-                    if (isRetina) {
-                        element.retina();
-                    }
                     new productTileGallery();
                 },
             });
-        } else if (isRetina) {
-            productImage.retina();
         }
     },
 };
