@@ -1905,54 +1905,28 @@ if (!window.productGridGallery) {
     })(jQuery);
 }
 
-var categoriesImages = {
+var catImgs = {
     init: function () {
         var _this = this;
 
-        _this.categoriesList();
+        _this.catList();
     },
-    categoriesList: function () {
+    catList: function () {
         var _this = this,
-            categories = $('.js-list-categories');
+            cats = $('.js-list-categories');
 
-        categories.each(function () {
+        cats.each(function () {
             var $this = $(this),
-                isRetina = $this.data('retina'),
-                isLazy = $this.data('lazy'),
-                images = $this.find('.js-cat-item-image');
+                lazy = $this.data('lazy'),
+                img = $this.find('.js-cat-item-image');
 
-            if (isLazy) {
-                _this.lazyLoadImg(images, isRetina);
-            } else if (isRetina) {
-                _this.retinaImages(images);
+            if (lazy) {
+                _this.lazyLoadImg(img);
             }
         });
     },
-    lazyLoadImg: function (images, isRetina) {
-        var _this = this;
-
-        images.lazy({
-            onFinishedAll: function (element) {
-                if (isRetina) {
-                    _this.retinaImages(images);
-                }
-            },
-        });
-    },
-    retinaImages: function (images) {
-        images.each(function () {
-            var $this = $(this),
-                imgUrl = $this.attr('src');
-
-            if (imgUrl.indexOf("?") >= 0) {
-                var fileExtensionWithGet = imgUrl.substring(imgUrl.lastIndexOf('.') + 1),
-                    imgUrl2x = imgUrl.replace("." + fileExtensionWithGet, "@2x." + fileExtensionWithGet);
-
-                $this.attr("data-atretina", imgUrl2x);
-            }
-        }).promise().done(function () {
-            images.retina();
-        });
+    lazyLoadImg: function (images) {
+        images.lazy();
     }
 };
 
@@ -3066,7 +3040,7 @@ $(function () {
     lazyLoadImg.init();
     itemsViewList.init();
     cookieMessage.init($('.js-head-info-massage'));
-    categoriesImages.init();
+    catImgs.init();
     customGalleryPopup.init();
     contentPopup.init();
     fixedCart.init();

@@ -230,7 +230,7 @@ var filter = {
 }, categories = {
     init: function () {
         var e = this;
-        e.sidebar(), e.sidebarCategoriesImages()
+        e.sidebar()
     }, sidebar: function () {
         this.sidebarInit(), $(".js-subcat-open").click(function () {
             var e = $(this), t = $(e.parent().find(".js-subcat")[0]);
@@ -241,9 +241,6 @@ var filter = {
         a.removeClass("hide"), a.each(function () {
             $(this).parent().find(".js-subcat-open").first().addClass("selected")
         })
-    }, sidebarCategoriesImages: function () {
-        var e = $(".js-sidebar-cats"), t = e.data("lazy"), a = e.data("retina");
-        t ? categoriesImages.lazyLoadImg(e.find(".js-sidebar-cat-image"), a) : a && categoriesImages.retinaImages(e.find(".js-sidebar-cat-image"))
     }
 }, categoryText = {
     readMore: function () {
