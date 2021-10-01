@@ -1855,357 +1855,53 @@ var itemsViewList = {
         if (isLazy) {
             productImage.lazy({
                 afterLoad: function (element) {
-                    new productTileGallery();
+                    new productGridGallery();
                 },
             });
         }
     },
 };
 
-/*
- * Виджет социальные группы
- */
-if (!window.SocialWidgets) {
+if (!window.productGridGallery) {
 
-    var SocialWidgets = (function ($) {
+    productGridGallery = (function ($) {
 
-        'use strict';
-
-        /**
-         * Конструктор виджета "Социальные группы"
-         *
-         * @constructor SocialWidgets
-         *
-         * @param {Object} params параметры
-         */
-        var SocialWidgets = function (params) {
-            this.init(params);
+        var productGridGallery = function (parameter) {
+            this.init(parameter);
         };
 
-        SocialWidgets.prototype = {
-            _params: {
-                container: ".js-social-widgets",
-                timeAutoSwitch: 5000,
-                autoSwitch: false
-            },
-
-            /**
-             * Получение параметров
-             *
-             * @method getParams
-             * @return {Array} Объект с настройками
-             */
-            getParams: function () {
-                return this._params;
-            },
-
-            /**
-             * Получение параметра
-             *
-             * @method getParam
-             * @return {String} Объект с настройками
-             */
-            getParam: function (name) {
-                return this._params[name];
-            },
-            /**
-             * Установка параметра
-             *
-             * @method setParam
-             *
-             * @param {String} name Наименование параметров
-             * @param {String} value Значение параметрра
-             *
-             * @return {String} Объект с настройками
-             */
-            setParam: function (name, value) {
-                this._params[name] = value;
-            },
-            /**
-             * Инициализируем плагин
-             *
-             * @method init
-             *
-             * @param {Object} params
-             */
-            init: function (params) {
-                var that = this;
-
-                that.autoTimer = null;
-
-                that._params = $.extend({}, that._params, params);
-                that._params.preload = "switch";
-
-                that.initElements();
-
-                if (typeof vivaSocialWidgetsData === "undefined") return false;
-
-                that.data = vivaSocialWidgetsData;
-                that.dataInst = vivaSocialWidgetsInst;
-
-                if (!that.elements.container.size()) return false;
-
-                that.active = Object.keys(that.elements.contentsArray)[0];
-                that.autoSwitch = that.elements.container.data("auto");
-
-                if (parseInt(that.elements.container.data("time"))) {
-                    that._params.timeAutoSwitch = parseInt(that.elements.container.data("time"));
-                }
-                if (that.elements.container.data("preload")) {
-                    that._params.preload = that.elements.container.data("preload");
-                }
-                that.initTabs();
-
-                setTimeout(function () {
-                    that.initAuto();
-                }, 3000)
-            },
-
-            /**
-             * Инициализируем элементы
-             *
-             * @method initElements
-             *
-             */
-            initElements: function () {
-                var that = this,
-                    elements = {};
-
-                that.elements = elements;
-
-                elements.container = $(that._params.container);
-                if (!elements.container.size()) return false;
-
-                elements.tabs = elements.container.find(".js-social-widgets-tab");
-                elements.tabsArray = {};
-                elements.tabs.each(function () {
-                    elements.tabsArray[$(this).attr("data-tab")] = $(this);
-                });
-                elements.contents = elements.container.find(".js-social-widgets-content");
-                elements.contentsArray = {};
-                elements.contents.each(function () {
-                    elements.contentsArray[$(this).attr("data-content")] = $(this);
-                });
-                that.elements = elements;
-            },
-            /**
-             * Инициализируем табы переключения
-             *
-             * @method initTabs
-             *
-             */
-            initTabs: function () {
-
-                var that = this,
-                    elements = that.elements,
-                    $container = elements.container;
-
-                $container.hover(
-                    function () {
-                        that.pauseAuto();
-                    }, function () {
-                        that.initAuto();
-                    }
-                );
-                for (var key in that.data) {
-                    if (typeof elements.contentsArray[key] === "undefined") {
-                        continue;
-                    }
-                    if (key == "instagram") {
-                        that.runInstagram();
-                    } else {
-                        elements.contentsArray[key].html(that.data[key]);
-                    }
-                    if (that._params.preload == "switch") break;
-                }
-                $container.find("[data-tab]").on("click", function () {
-                    var $tab = $(this),
-                        socialCurrent = elements.tabs.filter("._active").attr("data-tab"),
-                        socialNew = $tab.attr("data-tab");
-
-                    if (socialCurrent != socialNew) {
-                        that.stopAuto();
-                        that.switch(socialNew);
-                    }
-                });
-            },
-            /**
-             * Переключение соц.сети
-             *
-             * @method switch
-             *
-             * @param {String} social
-             *
-             */
-            switch: function (social) {
-                var that = this,
-                    elements = that.elements,
-                    $tab = elements.tabsArray[social],
-                    $content = elements.contentsArray[social];
-
-                that.active = social;
-                elements.tabs.removeClass("_active");
-                $tab.addClass("_active");
-                elements.contents.removeClass("_show");
-
-                if (!$content.html()) {
-                    if (social == "instagram") {
-                        that.runInstagram();
-                    } else {
-                        $content.append(that.data[social]);
-                    }
-                }
-                $content.addClass("_show");
-            },
-            /**
-             * Инициализируем автоматическое переключение
-             *
-             * @method initAuto
-             *
-             */
-            initAuto: function () {
-                var that = this,
-                    elements = that.elements,
-                    timeAuto = that.getParam("timeAutoSwitch");
-
-                if (!that.autoSwitch) return false;
-
-                that.autoTimer = setInterval(function () {
-                    var activeSocial = that.active,
-                        $nextElement = elements.tabsArray[activeSocial].next(".js-social-widgets-tab");
-
-                    if (!$nextElement.size())
-                        $nextElement = elements.tabs.first();
-
-                    var socialNext = $nextElement.attr("data-tab");
-                    that.active = socialNext;
-                    that.switch(socialNext)
-                }, timeAuto);
-
-            },
-            /**
-             * Инициализируем паузу автоматического переключения
-             *
-             * @method pauseAuto
-             *
-             */
-            pauseAuto: function () {
-                var that = this;
-
-                clearInterval(that.autoTimer);
-            },
-            /**
-             * Инициализируем остановку автоматического переключения
-             *
-             * @method pauseAuto
-             *
-             */
-            stopAuto: function () {
-                var that = this;
-
-                clearInterval(that.autoTimer);
-                that.autoSwitch = false;
-            },
-
-            /**
-             * Запуск виджета инстаграм
-             *
-             * @method runInstagram
-             *
-             */
-            runInstagram: function () {
-                var that = this,
-                    id = "#social-widgets-content-instagram";
-
-                $(id).html("<div id='list-instagram' class='list-instagram'></div>");
-
-                if (typeof Instafeed !== "undefined" && that.dataInst) {
-                    var feed = new Instafeed({
-                        get: 'user',
-                        userId: that.dataInst.userId,
-                        target: 'list-instagram',
-                        clientId: that.dataInst.clientId,
-                        accessToken: that.dataInst.accessToken,
-                        limit: that.dataInst.limit,
-                        template: '<div class="list-instagram__item"><a class="list-instagram__link" href="{{link}}" target="_blank"><img class="list-instagram__img" src="{{image}}" alt="{{caption}}" /></a></div>'
-                    });
-                    feed.run();
-                }
-            }
-        };
-        return SocialWidgets;
-    })(jQuery);
-}
-
-/*
- * Плиточная галерея
- */
-if (!window.productTileGallery) {
-
-    productTileGallery = (function ($) {
-
-        var productTileGallery = function (params) {
-            this.init(params);
-        };
-
-        productTileGallery.prototype = {
+        productGridGallery.prototype = {
             _config: {
-                images: {},
-                heightFixed: true
+                images: {}
             },
-            init: function (params) {
+            init: function (parameter) {
                 var that = this;
                 if ($("body").hasClass("touch")) {
                     return false;
                 }
-                that.params = $.extend({}, that._config, params);
-                that.runGallery();
+                that.params = $.extend({}, that._config, parameter);
+                that.launchGallery();
             },
-            runGallery: function () {
-                var that = this;
-                var elements = $('.js-grid-gallery');
-                elements.each(function () {
-                    var element = $(this),
-                        block = element.find(".js-grid-block-gallery"),
-                        image = element.find(".js-product-preview-img"),
-                        length = element.find('.js-grid-gallery-item').length;
+            launchGallery: function () {
+                var items = $('.js-grid-gallery');
+                items.each(function () {
+                    var item = $(this),
+                        img = item.find(".js-product-preview-img");
 
-                    if (!image.data("src")) {
-                        image.attr("data-src", image.attr("src"))
+                    if (!img.data("src")) {
+                        img.attr("data-src", img.attr("src"))
                     }
 
-                    var src_default = image.data("src");
-
-                    if (!element.size() || !block.size() || !image.size() || length < 2 || element.hasClass("_tile-active")) {
-                        return true;
-                    }
-
-                    element.addClass("_tile-active");
-
-                    block.removeAttr("style");
-                    if (that.params.heightFixed) {
-                        block.on("mouseenter", function () {
-                            block.css("height", block.height() + "px");
-                            block.css("line-height", block.height() + "px");
-                        });
-                    }
-
-                    element.find(".js-grid-gallery-item").on("mouseenter", function () {
+                    item.find(".js-grid-gallery-item").on("mouseenter", function () {
                         var src = $(this).data("img");
                         $('<img>').attr('src', src).load(function () {
-                            image.attr("src", src);
-                            image.retina();
+                            img.attr("src", src);
                         });
-                    });
-
-                    block.on("mouseleave", function () {
-                        image.attr("src", src_default);
-                        image.retina();
                     });
                 });
             }
         };
-        return productTileGallery;
+        return productGridGallery;
     })(jQuery);
 }
 
@@ -3377,8 +3073,7 @@ $(function () {
     displayFontAwesome.init();
     demoSettings.init();
     productGallery.init();
-    new SocialWidgets({container: ".js-social-widgets", timeAutoSwitch: 5000});
-    new productTileGallery();
+    new productGridGallery();
 });
 
 $.fn.elementRealWidth = function () {
