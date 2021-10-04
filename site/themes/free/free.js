@@ -1182,7 +1182,7 @@ var cart = {
                     if ($this.data('after-action') == 'popup') {
                         _this.popupAddCart($this);
                     } else if ($this.data('after-action') == 'fixed') {
-                        fixedCart.show();
+                        fixOrder.open();
                     } else if ($this.data('after-action') == 'move') {
                         _this.animationMoveToCart($this);
                     }
@@ -1930,288 +1930,34 @@ var catImgs = {
     }
 };
 
-var customGalleryPopup = {
-    init: function () {
-        var _this = this,
-            galleryImage = $('.js-custom-gallery');
-
-        galleryImage.on("click", function (e) {
-            e.preventDefault();
-            var images = [],
-                current = $(this),
-                currentGroup = $(this).data('group'),
-                position = 0,
-                galleryImages = [];
-
-            if (currentGroup) {
-                galleryImages = $('.js-custom-gallery[data-group="' + currentGroup + '"]');
-            }
-
-            if (galleryImages.length > 1) {
-                galleryImages.each(function (index) {
-                    var href = $(this).attr('href'),
-                        title = $(this).attr('title');
-
-                    if (href) {
-                        if (current.attr('href') == href) {
-                            position = index;
-                        }
-                        images.push({href: href, title: title});
-                    }
-                });
-                _this.openGallery(images, position);
-            } else {
-                var href = current.attr('href'),
-                    title = current.attr('title');
-
-                if (href) {
-                    images.push({href: href, title: title});
-                    _this.openGallery(images);
-                }
-            }
-        });
-    },
-    openGallery: function (images, position) {
-        $.swipebox(images, {
-            useSVG: false,
-            hideBarsDelay: false,
-            initialIndexOnArray: position,
-            afterOpen: function () {
-                $('#swipebox-overlay').addClass('opacity-black');
-                $('#swipebox-bottom-bar').addClass("swipebox-bottom-bar--pos-center");
-                $('#swipebox-arrows').addClass("swipebox-arrows--pos-center");
-
-                $(document).on("scroll", closeSwipe);
-
-                function closeSwipe() {
-                    var $closeButton = $("#swipebox-close");
-                    if ($closeButton.length) {
-                        $closeButton.trigger("click");
-                    }
-                    $(document).off("scroll", closeSwipe);
-                }
-            }
-        });
-    }
-};
-
-var contentPopup = {
-    init: function () {
-        var _this = this;
-
-        _this.loadPage();
-        _this.loadInline();
-    },
-    loadPage: function () {
-        var _this = this;
-
-        $('body').on("click", '.js-page-popup', function (event) {
-            event.preventDefault();
-
-            var $this = $(this),
-                href = $this.attr('href');
-
-            if (!href) {
-                href = $this.data('href');
-            }
-
-            $.magnificPopup.close();
-            $('body').prepend("<div class='js-loading-bg mfp-bg mfp-ready'><div class='mfp-preloader'></div></div>");
-
-            $.get(href + "?popup=1", function (data) {
-                $('.js-loading-bg').remove();
-                var content = false,
-                    data = $("<div>").append(data);
-
-                if ($(data)) {
-                    if ($(data).find('#page-popup').length) {
-                        content = $(data).find('#page-popup');
-                    }
-                    if (content) {
-                        _this.openModal(content, 'page');
-                    } else {
-                        location.href = href;
-                    }
-                }
-            });
-        });
-    },
-    loadInline: function () {
-        var _this = this;
-
-        $('body').on("click", '.js-content-popup', function (event) {
-            event.preventDefault();
-
-            var id = $(this).data("href");
-
-            if (id) {
-                var content = $("#" + id).clone();
-                if (content.length) {
-                    content.removeClass("-Close");
-                    _this.openModal(content, "custom");
-                }
-            }
-        });
-    },
-    openModal: function (content, type) {
-        var addClass = null
-        if (type) {
-            addClass = " modal-content--" + type;
-        }
-        $.magnificPopup.open({
-            items: {
-                src: "<div class='modal-content" + addClass + "'>" + content.outerHTML() + "</div>"
-            },
-            type: 'inline'
-        }, 0);
-
-    },
-};
-
-var fixedCart = {
+var fixOrder = {
     init: function () {
         var _this = this;
 
         _this.close();
     },
-    show: function () {
-        var wrapFixedCart = $('.js-fixed-cart-outer');
+    open: function () {
+        var wrapfixOrder = $('.js-fixed-cart-outer');
 
-        if (wrapFixedCart.length) {
-            var cartUrl = wrapFixedCart.data("cart-url") + "?fixed=1";
+        if (wrapfixOrder.length) {
+            var cartUrl = wrapfixOrder.data("cart-url") + "?fixed=1";
 
-            wrapFixedCart.html("");
+            wrapfixOrder.html("");
             $.get(cartUrl, function (html) {
                 var cartContent = $("<div>" + html + "</div>");
 
                 if (cartContent.find('.js-fixed-cart').length) {
-                    wrapFixedCart.html(html);
+                    wrapfixOrder.html(html);
                 }
             });
         }
     },
     close: function () {
         $('body').on("click", '.js-cart-fixed-close', function () {
-            var wrapFixedCart = $('.js-fixed-cart-outer');
+            var wrapfixOrder = $('.js-fixed-cart-outer');
 
-            wrapFixedCart.html("");
+            wrapfixOrder.html("");
         });
-    }
-};
-
-var displayFontAwesome = {
-    init: function () {
-        var isHiddenIcons = $('body').hasClass('icondesc-hidden');
-
-        if (isHiddenIcons) {
-            if ($.isFunction(window.fontSpy)) {
-                fontSpy("FontAwesome", {
-                    glyphs: '\ue81a\ue82d\ue823',
-                    success: function () {
-                        $('body').removeClass("icondesc-hidden");
-                    },
-                    failure: function () {
-                        $('body').removeClass("icondesc-hidden");
-                    }
-                });
-            } else {
-                setTimeout(function () {
-                    $('body').removeClass("icondesc-hidden");
-                }, 3000);
-            }
-        }
-    }
-};
-
-var demoSettings = {
-    init: function () {
-        var _this = this;
-
-        if (!$('#test-settings').length) {
-            return false;
-        }
-
-        $('#open-test-settings').on("click", function (event) {
-            event.preventDefault();
-
-            $.magnificPopup.open({
-                items: {
-                    src: '#test-settings'
-                },
-                type: 'inline'
-            });
-        });
-
-        $('#open-test-settings').one("click", function (event) {
-            event.preventDefault();
-
-            _this.settings();
-        });
-    },
-    settings: function () {
-        var settings = [
-            "color_scheme",
-            "base_color",
-            "bg_color_navogation",
-            "second_color",
-            "homepage_type_slider_mode",
-            "homepage_product_view",
-            "body_bg",
-            "font"
-        ];
-
-        $('.js-color-select').on("click", function () {
-            $("#" + $(this).data('id')).val("#ffffff");
-        });
-
-        $('#settings-form').submit(function (event) {
-            event.preventDefault();
-
-            var $this = $(this),
-                settingsForm = $this.serializeArray();
-
-            saveSettings(settingsForm);
-        });
-
-        $('.js-select-setting-color').on("click", function () {
-            var $this = $(this),
-                value = $this.data("value"),
-                input = $('.js-setting-color');
-
-            input.val(value);
-            $('.js-select-setting-color').removeClass("selected");
-            $this.addClass("selected");
-        });
-
-        $('.js-clear-test-settings').on("click", function () {
-            clearTestSettings(settings);
-        });
-
-        function clearTestSettings() {
-            settings.forEach(function (name) {
-                $.removeCookie(name, {path: '/'});
-            });
-            window.location.reload();
-        }
-
-        function saveSettings(values) {
-            settings.forEach(function (name) {
-                var setting = values.find(function (item) {
-                    return item.name == name;
-                });
-
-                if (setting.value == "#ffffff") {
-                    setting.value = null;
-                }
-
-                if (setting) {
-                    var date = new Date(), minutes = 30;
-                    date.setTime(date.getTime() + (minutes * 60 * 1000));
-                    $.cookie(name, setting.value, {expires: date, path: '/'});
-                }
-                window.location.reload();
-            });
-        }
     }
 };
 
@@ -3041,11 +2787,7 @@ $(function () {
     itemsViewList.init();
     cookieMessage.init($('.js-head-info-massage'));
     catImgs.init();
-    customGalleryPopup.init();
-    contentPopup.init();
-    fixedCart.init();
-    displayFontAwesome.init();
-    demoSettings.init();
+    fixOrder.init();
     productGallery.init();
     new productGridGallery();
 });
