@@ -202,6 +202,14 @@
                     {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr}
                 {/if}
             {/foreach}
+
+            {if $isPreviewProductGalleryTile}
+                <script>
+                    $(function () {
+                        new productGridGallery();
+                    });
+                </script>
+            {/if}
         </div>
     </div>
     <div class="{if $theme_settings.pagination == 'lazyloading'}lazy-paging{else}category-pag-offset{/if}"
