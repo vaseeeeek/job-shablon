@@ -1,27 +1,16 @@
 ( function($) { "use strict";
 
-    var ShopOrderPage = ( function($) {
+    var orderPage = ( function($) {
 
-        ShopOrderPage = function(options) {
+        orderPage = function(options) {
             var that = this;
-
-            // DOM
             that.$wrapper = options["$wrapper"];
-
-            // VARS
             that.urls = options["urls"];
-
-            // DYNAMIC VARS
-
-            // INIT
             that.initClass();
         };
 
-        ShopOrderPage.prototype.initClass = function() {
+        orderPage.prototype.initClass = function() {
             var that = this;
-
-            /* that.initUI(); */
-
             that.initThemeCart();
 
             that.$wrapper.on("click", ".js-cart-delete-product", function() {
@@ -38,7 +27,7 @@
             });
         };
 
-        ShopOrderPage.prototype.initUI = function() {
+        orderPage.prototype.initUI = function() {
             var that = this;
 
             initUI();
@@ -143,7 +132,7 @@
             }
         };
 
-        ShopOrderPage.prototype.initThemeCart = function() {
+        orderPage.prototype.initThemeCart = function() {
             var that = this;
 
             var $cart = $("#cart");
@@ -216,7 +205,7 @@
             });
         };
 
-        return ShopOrderPage;
+        return orderPage;
 
         function getCartController($wrapper) {
             var result = null;
@@ -235,6 +224,6 @@
 
     })(jQuery);
 
-    window.ShopOrderPage = ShopOrderPage;
+    window.orderPage = orderPage;
 
 })(jQuery);

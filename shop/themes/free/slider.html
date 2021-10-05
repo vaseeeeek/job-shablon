@@ -54,7 +54,6 @@
     {$add_order_action = $theme_settings.add_order_action}
     {if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
 
-    <!-- Спросить о настройке -->
     {$_price_range = $theme_settings.price_range_in_product_list}
     {$homeProductsPromo = $wa->shop->productSet( $theme_settings.id_promo_list_slider )}
 

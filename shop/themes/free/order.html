@@ -105,7 +105,7 @@
             <script>
                 (function ($) {
 
-                    (typeof window.ShopOrderPage === "function" ? init() : load().then(init));
+                    (typeof window.orderPage === "function" ? init() : load().then(init));
 
                     function load() {
                         var deferred = $.Deferred();
@@ -118,7 +118,7 @@
                     }
 
                     function init() {
-                        new window.ShopOrderPage({
+                        new window.orderPage({
                             $wrapper: $("#js-page-order"),
                             urls: {
                                 "checkbox-icon": "{$wa_app_static_url}img/frontend/order/svg/sprite.svg#checkbox-yes"

@@ -114,7 +114,6 @@
                                 {$is_hideshow_el = false}
                                 {if $filter.type == 'color'}
                                     <div class="filter-el_opts-el">
-                                        <!-- Спросить о настройке -->
                                         {if $theme_settings.sort_filter_option}{$filter_valueues_tmp = asort($filter.values)}{/if}
                                         {$count_show_variants = $theme_settings.max_num_colors_sb}
                                         {foreach $filter.values as $value_id => $value}

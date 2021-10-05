@@ -186,7 +186,9 @@
             {/if}
 
             <script>
-                let imgObjProducts = new Object();
+                if (typeof(imgObjProducts) != "undefined" && imgObjProducts !== null) {
+                    let imgObjProducts = new Object();
+                }
             </script>
             {foreach $products as $p}
                 {if isset($all_skus) && !empty($all_skus) && isset($all_skus[$p.id])}

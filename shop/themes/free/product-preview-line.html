@@ -80,7 +80,6 @@
                     <i class="Product__Item-video ion-social-youtube-outline"></i>
                 {/if}
             </div>
-            <!-- Спросить о настройке -->
             {$_badge_saving = ($theme_settings.badge_saving == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
             {$_badge_percent = ($theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
             {$_rating = ($p.rating > 0 && $theme_settings.product_ratings)}

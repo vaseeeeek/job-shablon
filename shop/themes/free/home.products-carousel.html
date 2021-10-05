@@ -24,7 +24,9 @@
         {/if}
 
         <script>
-            let imgObjProducts = new Object();
+            if (typeof(imgObjProducts) != "undefined" && imgObjProducts !== null) {
+                let imgObjProducts = new Object();
+            }
         </script>
         <div class="home-products home-products--carousel js-owl-carousel-product">
             {if $list_title}

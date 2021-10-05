@@ -121,12 +121,6 @@
                     </span>
                 {/if}
             {/if}
-            <script>
-                imgObjProducts[{$p.id}] = [];
-                {foreach $images as $image}
-                    imgObjProducts[{$p.id}].push("{$image['url_0x260']}");
-                {/foreach}
-            </script>
 
             {$_badge_saving = ($theme_settings.badge_saving == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
             {$_badge_percent = ($theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}

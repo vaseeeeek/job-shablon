@@ -18,10 +18,10 @@
         <title>{$wa->title()|escape}</title>
         <meta name="Keywords" content="{$wa->meta('keywords')|escape}"/>
         <meta name="Description" content="{$wa->meta('description')|escape}"/>
-        <link rel="stylesheet" href="https://i.icomoon.io/public/temp/b5170a7ca6/UntitledProject/style.css">
 
         {if !empty($canonical)}
-            <link rel="canonical" href="{$canonical}"/>{/if}
+            <link rel="canonical" href="{$canonical}"/>
+        {/if}
         <link rel="shortcut icon" href="/favicon.ico"/>
         {if $wa->blog}
             {$rss=$wa->blog->rssUrl()}
@@ -36,7 +36,16 @@
             <link rel="preload" as="image" href="{$wa->globals('preload_image_2')}">
         {/if}
 
-        {include file="`$parent_theme_path`/global-var.js.html"}
+        {strip}
+            {$is_mainpage = ($wa->currentUrl(false, true) == $wa_app_url || $wa->currentUrl(false, true) == "/")}
+            {$isFormStylerInit = (!empty($theme_settings.form_styler_full) || (!empty($action) && !$is_mainpage && !in_array($action, ['category', 'product', 'brand', 'brands', 'search'])))}
+            <script>
+                var globalThemeSettings = {
+                    isMobile: {(int)(!empty($wa->isMobile()))},
+                    isFormStylerInit: {(int)(!empty($isFormStylerInit))}
+                };
+            </script>
+        {/strip}
 
         <!-- css -->
         {include file="colors.css.html"}
