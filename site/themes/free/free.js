@@ -2561,7 +2561,7 @@ Product.prototype.updateSkuServices = function (sku_id) {
 
 Product.prototype.updatePrice = function (price, compare_price) {
     if (price === undefined) {
-        var input_checked = this.form.find(".skus input:radio:checked, .skus option:selected");
+        var input_checked = this.formWrap.find(".skus input:radio:checked, .skus option:selected");
         if (input_checked.length) {
             var price = parseFloat(input_checked.data('price'));
             var compare_price = parseFloat(input_checked.data('compare-price'));
