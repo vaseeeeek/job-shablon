@@ -841,13 +841,15 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  top: calc(50% - 20px);
+  top: 114.5px;
   left: 50%;
   margin: 0 0 0 -15px;
   display: none;
   line-height: 1;
 }
-
+.products-grid-outer .Product-grid_dialog {
+  top: 80px;
+}
 .Product-grid_dialog .product-action {
   line-height: 36px;
   width: 40px;

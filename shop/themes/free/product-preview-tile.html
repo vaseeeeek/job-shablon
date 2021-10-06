@@ -71,10 +71,6 @@
                 </span>
                 </div>
             {/if}
-        {/if}
-
-
-        <a class="Product-grid_img js-grid-block-gallery" href="{$p.frontend_url}">
             {if $theme_settings.product_preview_dialog}
                 <div class="js-dialog Product-grid_dialog Product-grid_action">
                 <span class="js-card-dialog product-action "
@@ -83,6 +79,10 @@
                 </span>
                 </div>
             {/if}
+        {/if}
+
+
+        <a class="Product-grid_img js-grid-block-gallery" href="{$p.frontend_url}">
             {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
             {if $wa_app == 'shop' && class_exists('shopProtilegalleryPlugin')}
                 {$blockHtmlProtilegallery = shopProtilegalleryPlugin::productItem($p)}

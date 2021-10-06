@@ -1108,6 +1108,7 @@ var cart = {
         _this.addToCartDialog();
         _this.btnQuantity();
         _this.countQuantity();
+
     },
     addToCartDialog: function () {
         var _this = this;
