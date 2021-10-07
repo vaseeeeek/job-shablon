@@ -257,7 +257,7 @@
                                                             {$_max_post_size_mb = floor($_max_post_size * 10/(1024))/10}
                                                             {$_max_file_size_mb = floor($_max_file_size * 10/(1024))/10}
 
-                                                            new ReviewImagesSection({
+                                                            new reviewsImageBox({
                                                                 $wrapper: $("#jreview-images-box"),
                                                                 max_post_size: {$_max_post_size|json_encode},
                                                                 max_file_size: {$_max_file_size|json_encode},

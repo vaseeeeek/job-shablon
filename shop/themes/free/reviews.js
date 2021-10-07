@@ -1,6 +1,6 @@
-var ReviewImagesSection = ( function($) {
+var reviewsImageBox = ( function($) {
 
-    ReviewImagesSection = function(options) {
+    reviewsImageBox = function(options) {
         var that = this;
 
         // DOM
@@ -27,7 +27,7 @@ var ReviewImagesSection = ( function($) {
         that.init();
     };
 
-    ReviewImagesSection.prototype.init = function() {
+    reviewsImageBox.prototype.init = function() {
         var that = this,
             $document = $(document);
 
@@ -162,7 +162,7 @@ var ReviewImagesSection = ( function($) {
         }
     };
 
-    ReviewImagesSection.prototype.addFile = function(file) {
+    reviewsImageBox.prototype.addFile = function(file) {
         var that = this,
             file_size = file.size;
 
@@ -248,7 +248,7 @@ var ReviewImagesSection = ( function($) {
         }
     };
 
-    ReviewImagesSection.prototype.reset = function() {
+    reviewsImageBox.prototype.reset = function() {
         var that = this;
 
         that.post_size = 0;
@@ -259,7 +259,7 @@ var ReviewImagesSection = ( function($) {
         that.$errors_wrapper.html("");
     };
 
-    ReviewImagesSection.prototype.getSerializedArray = function() {
+    reviewsImageBox.prototype.getSerializedArray = function() {
         var that = this,
             result = [];
 
@@ -285,7 +285,7 @@ var ReviewImagesSection = ( function($) {
         return result;
     };
 
-    ReviewImagesSection.prototype.renderErrors = function(errors) {
+    reviewsImageBox.prototype.renderErrors = function(errors) {
         var that = this,
             result = [];
 
@@ -304,7 +304,7 @@ var ReviewImagesSection = ( function($) {
         return result;
     };
 
-    return ReviewImagesSection;
+    return reviewsImageBox;
 
 })(jQuery);
 
