@@ -644,7 +644,9 @@ $html-font-size: 14px;
 .product-action {
   color: #8e8e8e;
   cursor: pointer;
-  white-space: nowrap
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 
 .product-action:hover {
@@ -1970,6 +1972,7 @@ $html-font-size: 14px;
 }
 
 span.rating {
+  margin-right: 10px;
   white-space: nowrap
 }
 
@@ -2704,6 +2707,14 @@ h1 .order-status {
   text-align: left
 }
 
+.homepage-brands {
+  .owl-next {
+    top: initial;
+  }
+  .owl-prev {
+    top: initial;
+  }
+}
 @media (max-width: 800px) {
   .homepage-brands_el img {
     max-width: calc(100% - 30px) !important
@@ -6187,6 +6198,10 @@ input[type=button].storequickorder-button:hover {
   .product-page_main {
     display: flex;
     flex-wrap: wrap;
+
+    .owl-carousel {
+      padding: 0;
+    }
   }
 
   .previews_gallery, .product-page_main-left, .product-page_main-right {
@@ -6293,15 +6308,14 @@ input[type=button].storequickorder-button:hover {
 
 @media (max-width: 600px) {
   .product_page {
-    .product_action-btn {
-      margin-left: initial;
+    .product_rating {
+      display: flex;
     }
-
-    .product-card_discounts, .product_action-btn, .product_nav, .product_rating {
-      margin: 0 15px 10px 0;
-      display: inline-block
+    .product-action{
+      #svgCompare{
+        width: 14px;
+      }
     }
-
     .product_action-btn .product-action {
       margin: 0 15px 0 0
     }
@@ -6342,7 +6356,6 @@ input[type=button].storequickorder-button:hover {
   top: calc(50% - 20px);
   z-index:2;
 }
-
 .owl-next {
   left: auto;
   right: 10px
@@ -6819,6 +6832,7 @@ button.owl-dot {
   display: flex;
   cursor: pointer;
   text-decoration: none;
+  margin-right: 10px;
 
   .icon10.star {
     color: #e8e8e8;
@@ -7226,6 +7240,14 @@ i.wa-icon.arrow-left {
 }
 @media (max-width:1000px) {
   .category {
+    flex-direction: column;
+  }
+}
+#main-content .cols-2{
+  display: flex;
+}
+@media (max-width:1000px) {
+  #main-content .cols-2 {
     flex-direction: column;
   }
 }

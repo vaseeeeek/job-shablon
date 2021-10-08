@@ -640,6 +640,12 @@
 		color: #8e8e8e;
 		cursor: pointer;
 		white-space: nowrap;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 }
 
 .product-action:hover {
@@ -1973,6 +1979,7 @@
 }
 
 span.rating {
+		margin-right: 10px;
 		white-space: nowrap;
 }
 
@@ -2701,6 +2708,13 @@ h1 .order-status {
 		left: 100%;
 		width: 120px;
 		text-align: left;
+}
+
+.homepage-brands .owl-next {
+		top: initial;
+}
+.homepage-brands .owl-prev {
+		top: initial;
 }
 
 @media (max-width: 800px) {
@@ -6153,6 +6167,9 @@ input[type=button].storequickorder-button:hover {
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap;
 }
+.product_page .product-page_main .owl-carousel {
+		padding: 0;
+}
 .product_page .previews_gallery, .product_page .product-page_main-left, .product_page .product-page_main-right {
 		padding-top: 20px;
 }
@@ -6269,12 +6286,13 @@ input[type=button].storequickorder-button:hover {
 		}
 }
 @media (max-width: 600px) {
-		.product_page .product_action-btn {
-				margin-left: initial;
+		.product_page .product_rating {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
 		}
-		.product_page .product-card_discounts, .product_page .product_action-btn, .product_page .product_nav, .product_page .product_rating {
-				margin: 0 15px 10px 0;
-				display: inline-block;
+		.product_page .product-action #svgCompare {
+				width: 14px;
 		}
 		.product_page .product_action-btn .product-action {
 				margin: 0 15px 0 0;
@@ -6837,6 +6855,7 @@ button.owl-dot {
 		display: flex;
 		cursor: pointer;
 		text-decoration: none;
+		margin-right: 10px;
 }
 .rating.-zero .icon10.star {
 		color: #e8e8e8;
@@ -7266,6 +7285,20 @@ i.wa-icon.arrow-left {
 
 @media (max-width: 1000px) {
 		.category {
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				    -ms-flex-direction: column;
+				        flex-direction: column;
+		}
+}
+#main-content .cols-2 {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+}
+
+@media (max-width: 1000px) {
+		#main-content .cols-2 {
 				-webkit-box-orient: vertical;
 				-webkit-box-direction: normal;
 				    -ms-flex-direction: column;

@@ -1,21 +1,21 @@
-var reviewsImageBox = ( function($) {
+var ReviewImagesSection = ( function($) {
 
-    reviewsImageBox = function(params) {
+    ReviewImagesSection = function(options) {
         var that = this;
 
         // DOM
-        that.$wrapper = params["$wrapper"];
+        that.$wrapper = options["$wrapper"];
         that.$file_field = that.$wrapper.find(".js-file-field");
         that.$files_wrapper = that.$wrapper.find(".js-attached-files-box");
         that.$errors_wrapper = that.$wrapper.find(".js-errors-box");
         /*остановился*/
         // CONST
-        that.max_post_size = params["max_post_size"];
-        that.max_file_size = params["max_file_size"];
-        that.max_files = params["max_files"];
-        that.templates = params["templates"];
-        that.patterns = params["patterns"];
-        that.locales = params["locales"];
+        that.max_post_size = options["max_post_size"];
+        that.max_file_size = options["max_file_size"];
+        that.max_files = options["max_files"];
+        that.templates = options["templates"];
+        that.patterns = options["patterns"];
+        that.locales = options["locales"];
 
         // DYNAMIC VARS
         that.post_size = 0;
@@ -27,7 +27,7 @@ var reviewsImageBox = ( function($) {
         that.init();
     };
 
-    reviewsImageBox.prototype.init = function() {
+    ReviewImagesSection.prototype.init = function() {
         var that = this,
             $document = $(document);
 
@@ -162,7 +162,7 @@ var reviewsImageBox = ( function($) {
         }
     };
 
-    reviewsImageBox.prototype.addFile = function(file) {
+    ReviewImagesSection.prototype.addFile = function(file) {
         var that = this,
             file_size = file.size;
 
@@ -248,7 +248,7 @@ var reviewsImageBox = ( function($) {
         }
     };
 
-    reviewsImageBox.prototype.reset = function() {
+    ReviewImagesSection.prototype.reset = function() {
         var that = this;
 
         that.post_size = 0;
@@ -259,7 +259,7 @@ var reviewsImageBox = ( function($) {
         that.$errors_wrapper.html("");
     };
 
-    reviewsImageBox.prototype.getSerializedArray = function() {
+    ReviewImagesSection.prototype.getSerializedArray = function() {
         var that = this,
             result = [];
 
@@ -285,7 +285,7 @@ var reviewsImageBox = ( function($) {
         return result;
     };
 
-    reviewsImageBox.prototype.renderErrors = function(errors) {
+    ReviewImagesSection.prototype.renderErrors = function(errors) {
         var that = this,
             result = [];
 
@@ -304,7 +304,7 @@ var reviewsImageBox = ( function($) {
         return result;
     };
 
-    return reviewsImageBox;
+    return ReviewImagesSection;
 
 })(jQuery);
 

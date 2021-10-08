@@ -4595,7 +4595,14 @@ iframe {
   font: normal normal normal 16px/1 FontAwesome;
   vertical-align: middle
 }
-
+.star-rating-empty{
+  &.star{
+    color: #fc0;
+  }
+  &.star-hover{
+    color: #fc0;
+  }
+}
 .wa-icon.star.size-11 {
   width: 17px !important;
   height: 14px !important
@@ -4615,11 +4622,6 @@ iframe {
 }
 
 .star-rating-empty.icon16, .star-half.icon16, .star-hover.icon16, .star.icon16 {
-  font-size: rem(22px);
-  text-indent: 0;
-  width: 20px;
-  height: 22px;
-  background: none;
   margin: 0 2px
 }
 
@@ -6219,8 +6221,8 @@ img.mfp-img {
   max-width: 100%
 }
 
-.with-sidebar {
-  margin-left: 284px
+.out_sidebars {
+  margin-right: 20px;
 }
 
 
