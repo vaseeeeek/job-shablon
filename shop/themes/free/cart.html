@@ -355,8 +355,8 @@
                                         </div>
                                         <div class="col cart-el_right">
                                             <div class="col cart-el_qty"></div>
-                                            <div class="col cart-el_price affiliate-discount"{if $use_affiliate} data-use="1"{/if}>
-                                                &minus; {if $use_affiliate}{shop_currency_html(shopAffiliate::convertBonus($used_affiliate_bonus))}{else}0{/if}</div>
+                                            <div class="col cart-el_price 1 affiliate-discount"{if $use_affiliate} data-use="1"{/if}>
+                                                &minus; {if $use_affiliate}{shop_currency_html(shopAffiliate::convertBonus($used_affiliate_bonus))}{else}0 <span class="ruble">₽</span>{/if}</div>
                                         </div>
                                     </div>
                                 {/if}

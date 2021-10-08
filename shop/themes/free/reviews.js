@@ -1,21 +1,21 @@
 var reviewsImageBox = ( function($) {
 
-    reviewsImageBox = function(options) {
+    reviewsImageBox = function(params) {
         var that = this;
 
         // DOM
-        that.$wrapper = options["$wrapper"];
+        that.$wrapper = params["$wrapper"];
         that.$file_field = that.$wrapper.find(".js-file-field");
         that.$files_wrapper = that.$wrapper.find(".js-attached-files-box");
         that.$errors_wrapper = that.$wrapper.find(".js-errors-box");
-
+        /*остановился*/
         // CONST
-        that.max_post_size = options["max_post_size"];
-        that.max_file_size = options["max_file_size"];
-        that.max_files = options["max_files"];
-        that.templates = options["templates"];
-        that.patterns = options["patterns"];
-        that.locales = options["locales"];
+        that.max_post_size = params["max_post_size"];
+        that.max_file_size = params["max_file_size"];
+        that.max_files = params["max_files"];
+        that.templates = params["templates"];
+        that.patterns = params["patterns"];
+        that.locales = params["locales"];
 
         // DYNAMIC VARS
         that.post_size = 0;

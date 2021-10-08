@@ -1201,7 +1201,7 @@
       <name locale="ru_RU">Показывать кнопку на попап-видео</name>
     </setting>
     <setting var="product_scroll_hover_gallery" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="en_US">Tiled gallery in the goods type "tile"</name>
       <name locale="ru_RU">Плиточная галерея в товарах вида "плиткой"</name>
     </setting>

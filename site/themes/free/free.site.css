@@ -4303,6 +4303,7 @@ input.error, textarea.error {
 		font-size: 1rem;
 		word-spacing: normal;
 		white-space: normal;
+		max-width: 100%;
 }
 
 .row.border-none {
@@ -4635,12 +4636,12 @@ iframe {
 }
 
 .price {
-		font-size: 1.714rem;
+		font-size: 1.429rem;
 		color: #000;
 }
 
 .old-price {
-		font-size: 1.143rem;
+		font-size: 1rem;
 		color: #666;
 		text-decoration: line-through;
 }
@@ -5232,6 +5233,9 @@ img.mfp-img {
 .footer .footer_logo a {
 		text-decoration: none;
 }
+.footer .footer-col__item {
+		margin-bottom: 8px;
+}
 .footer_payment_list {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -5249,7 +5253,10 @@ img.mfp-img {
 .footer-col-title {
 		font-weight: 600;
 		text-decoration: underline;
-		margin-bottom: 5px;
+		margin-bottom: 10px;
+}
+.footer li {
+		margin-bottom: 8px;
 }
 
 @media (max-width: 767px) {
@@ -5265,7 +5272,6 @@ img.mfp-img {
 .header-top_nav {
 		white-space: nowrap;
 		word-spacing: 0;
-		font-size: 0;
 }
 
 .header-top_nav-sub > ul, .header-top_nav-sub > ul > li, .header-top_nav > ul, .header-top_nav > ul > li {
@@ -5278,7 +5284,6 @@ img.mfp-img {
 		display: inline-block;
 		margin: 0 20px 0 0;
 		position: relative;
-		font-size: 1rem;
 }
 
 .header-top_nav > ul > li > .link, .header-top_nav > ul > li > a {
@@ -6276,6 +6281,7 @@ img.mfp-img {
 .sb-wrap {
 		background: #fff;
 		margin: 0 0 24px;
+		font-size: 14px;
 }
 
 .sb-wrap:last-child {
@@ -6290,6 +6296,7 @@ img.mfp-img {
 		border-bottom: 1px solid #ebebeb;
 		font-size: 1.286rem;
 		font-weight: 700;
+		margin-bottom: 10px;
 }
 
 .sb-wrap_head.bg-maincolor, .sb-wrap_head.bg-sdСolor {
@@ -6331,6 +6338,20 @@ img.mfp-img {
 
 .sb-wrap_btn.show:after {
 		content: "";
+}
+
+.sb-wrap .Category__Item--List.-Child {
+		display: inline-block;
+		text-decoration: none;
+		border-style: solid;
+		border-width: 1px;
+		padding: 3px 10px;
+		margin: 0 10px 10px 0;
+		opacity: 1 !important;
+		font-size: 100% !important;
+		background: #fff;
+		border-radius: 100px;
+		text-align: center;
 }
 
 @media (max-width: 1250px) {
@@ -7560,6 +7581,8 @@ article, aside, footer, header, nav, section {
 		-webkit-box-pack: justify;
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
+		font-size: 0.857rem;
+		line-height: 2.2;
 }
 .header-top--links .header-top_menu {
 		width: calc(100% - 327px);
@@ -7581,7 +7604,6 @@ article, aside, footer, header, nav, section {
 		display: inline-block;
 		margin: 0 20px 0 0;
 		position: relative;
-		font-size: 1rem;
 }
 .header-top--links .header-top_nav > ul > li.hide {
 		display: none;

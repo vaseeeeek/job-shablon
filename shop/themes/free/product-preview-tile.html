@@ -141,36 +141,40 @@
                 </div>
             {/if}
         </a>
-        <div class="dotted-img">
-            <ul class="dotted-img__list">
-                {for $iteration=1 to $tile_length}
-                    <li class="dotted-img__item {if $iteration == 1}-Active{/if}" data-id="{$iteration}"></li>
-                    {if $iteration == 7}
-                        {break}
-                    {/if}
-                {/for}
-            </ul>
-        </div>
 
+        {if !$wa->isMobile() && $isProductTilePreviewTileGallery}
+            <div class="dotted-img">
+                <ul class="dotted-img__list">
+                    {for $iteration=1 to $tile_length}
+                        <li class="dotted-img__item {if $iteration == 1}-Active{/if}" data-id="{$iteration}"></li>
+                        {if $iteration == 7}
+                            {break}
+                        {/if}
+                    {/for}
+                </ul>
+            </div>
+        {/if}
         <form class="js-add-to-cart" method="post"
                 action="{$wa->getUrl('shop/frontendCart/add')}">
             <input type="hidden" name="product_id" value="{$p.id}">
             <div class="Product-grid_content">
-                {if ($available && $theme_settings.preview_stock) || ($p.rating > 0 && $theme_settings.product_ratings) || ($theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url))}
+                {if $theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || ($theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url))}
                     <div class="Product-grid_stock">
-                        {if $available && $theme_settings.preview_stock}
+                        {if $theme_settings.preview_stock}
                             <div class="Product-stock nowrap">
-                                {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
-                                    <div class="Product-stock_item Product-stock_item-critical">
-                                        {$text_product_preorder_only}
-                                    </div>
-                                {else}
-                                    <div class="Product-stock_item Product-stock_item-high">
-                                        {$text_in_stock}
-                                        {if $theme_settings.preview_stock_count && $p.count !== null}
-                                            : {$p.count} {$text_unit}
-                                        {/if}
-                                    </div>
+                                {if $available}
+                                    {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
+                                        <div class="Product-stock_item Product-stock_item-critical">
+                                            {$text_product_preorder_only}
+                                        </div>
+                                    {else}
+                                        <div class="Product-stock_item Product-stock_item-high">
+                                            {$text_in_stock}
+                                            {if $theme_settings.preview_stock_count && $p.count !== null}
+                                                : {$p.count} {$text_unit}
+                                            {/if}
+                                        </div>
+                                    {/if}
                                 {/if}
                             </div>
                         {/if}
