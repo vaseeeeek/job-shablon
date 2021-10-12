@@ -6770,6 +6770,12 @@ button.owl-dot {
   position: relative;
   word-spacing: 0;
   font-size: 0;
+
+  form.js-add-to-cart {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .Product-grid_bottom {
@@ -6781,6 +6787,8 @@ button.owl-dot {
   background: #fff;
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 
   &_img {
     display: block;
@@ -7257,4 +7265,3 @@ i.wa-icon.arrow-left {
     flex-direction: column;
   }
 }
-

@@ -6789,6 +6789,18 @@ button.owl-dot {
 		word-spacing: 0;
 		font-size: 0;
 }
+.products-tile form.js-add-to-cart {
+		-webkit-box-flex: 1;
+		    -ms-flex: 1 1;
+		        flex: 1 1;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+}
 
 .Product-grid_bottom {
 		padding: 20px 10px 10px 10px;
@@ -6801,6 +6813,13 @@ button.owl-dot {
 		position: relative;
 		-webkit-box-sizing: border-box;
 		        box-sizing: border-box;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
 }
 .Product-grid_img {
 		display: block;

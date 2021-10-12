@@ -1,0 +1,57 @@
+{$sku = $product.skus[$product.sku_id]}
+{$product_available = $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
+
+{if $product.services}
+  <div class="Product__Box--Services">
+    {if $theme_settings.detail_heading_services|default:false}
+      <h2 class="Single__Title--H3">
+        [`Services`]
+        {if $theme_settings.detail_dummy_seo|default:false and $theme_settings.detail_dummy_seo_services|default:false}
+          <span class="Single__Text--Dummy-Seo {$theme_settings.detail_dummy_new_line}">{$product.name|trim|escape}</span>
+        {/if}
+      </h2>
+    {/if}
+    <div class="Single__List--Service services">
+      {foreach $product.services as $s}
+        <div class="Single__Item--Service service-{$s.id}">
+          <label class="Single__Label--Service {if $theme_settings.third_party_advancedservices_absolute|default:false}advancedservices_plugin_label--absolute{/if}">
+            <input
+                data-price="{shop_currency($s.price, $s.currency, null, 0)}"
+                {if !$product_available}disabled="disabled"{/if}
+                type="checkbox"
+                class="Single__Input--Checkbox"
+                name="services[]"
+                value="{$s.id}">
+            <span></span>
+            <span class="Single__Name--Service">{$s.name|escape}</span>
+            {if $s.price && !isset($s.variants)}
+              <span class="Single__Price--Service service-price">(+{shop_currency_html($s.price, $s.currency)})</span>
+            {/if}
+          </label>
+          {if isset($s.variants)}
+            {if false and $theme_settings.detail_alternative_services_selects|default:false} {* Do not use it, not implemented yet *}
+              <input class="service-variants" type="hidden" data-variant-id="{$s.variant_id}" name="service_variant[{$s.id}]">
+              {foreach $s.variants as $v}
+                <span class="Single__Input--Service-Inline{if $s.variant_id == $v.id}selected{/if}" data-price="{shop_currency($v.price, $s.currency, null, 0)}" data-value="{$v.id}">
+                  {$v.name|escape} (+{shop_currency($v.price, $s.currency)}) {$v.id}
+                </span>
+              {/foreach}
+            {else}
+              <select data-variant-id="{$s.variant_id}" class="Single__Select--Service service-variants" name="service_variant[{$s.id}]" disabled>
+                {foreach $s.variants as $v}
+                  <option {if $s.variant_id == $v.id}selected{/if}
+                          data-price="{shop_currency($v.price, $s.currency, null, 0)}"
+                          value="{$v.id}">
+                    {$v.name|escape} (+{shop_currency($v.price, $s.currency)})
+                  </option>
+                {/foreach}
+              </select>
+            {/if}
+          {else}
+            <input type="hidden" name="service_variant[{$s.id}]" value="{$s.variant_id}">
+          {/if}
+        </div>
+      {/foreach}
+    </div>
+  </div>
+{/if}
