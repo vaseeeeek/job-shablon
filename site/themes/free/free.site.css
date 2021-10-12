@@ -6977,14 +6977,12 @@ ul.pages-list li a {
 .admin-edit-links__el, .btn-settings {
 		width: 50px;
 		height: 50px;
-		border-radius: 50%;
 		font-size: 2.143rem;
 		text-align: center;
 		line-height: 45px;
-		opacity: 0.3;
 		display: block;
 		color: #fff;
-		z-index: 110;
+		z-index: 1100;
 }
 
 @media (max-width: 700px) {
@@ -6993,7 +6991,7 @@ ul.pages-list li a {
 		}
 }
 .admin-edit-links__el {
-		background: #ff00ea;
+		background: linear-gradient(45deg, #390DFF, #0C1FE8, #005BFF, #0C93E8, #0DE1FF);
 }
 
 .admin-edit-links__el:hover, .btn-settings:hover {
@@ -7417,28 +7415,25 @@ article, aside, footer, header, nav, section {
 .head_info-massage .head_info-massage__wrap {
 		padding: 10px 0;
 		position: relative;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
 }
 .head_info-massage .head_info-massage__content {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		padding-right: 40px;
+		width: calc(100% - 40px);
+		text-align: center;
 }
-.head_info-massage .head_info-massage__image-block {
-		width: 50px;
-		margin-right: 10px;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-align: center;
-		    -ms-flex-align: center;
-		        align-items: center;
-}
-.head_info-massage .head_info-massage__close {
+.head_info-massage .head_info-massage__closeку {
 		position: absolute;
 		right: 0;
-		top: 20px;
-		font-size: 2.857rem;
+		top: calc(50% - 15px);
+		font-size: 1.786rem;
 }
 
 .category-menu .MobileMenu_nav-header {

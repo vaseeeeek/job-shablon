@@ -8,7 +8,6 @@ var ReviewImagesSection = ( function($) {
         that.$file_field = that.$wrapper.find(".js-file-field");
         that.$files_wrapper = that.$wrapper.find(".js-attached-files-box");
         that.$errors_wrapper = that.$wrapper.find(".js-errors-box");
-        /*остановился*/
         // CONST
         that.max_post_size = options["max_post_size"];
         that.max_file_size = options["max_file_size"];

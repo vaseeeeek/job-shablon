@@ -831,7 +831,11 @@ $html-font-size: 14px;
 .Product-grid_stock .Product-stock{
   min-height: 19px;
 }
-.Product-grid .rating, .Product-grid_stock .Product-stock {
+.Product-grid .rating  {
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+.Product-grid_stock .Product-stock {
   display: inline-block;
   margin: 0 10px 0 0;
   width: 100%;

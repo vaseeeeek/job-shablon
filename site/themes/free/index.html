@@ -478,8 +478,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script src="{$wa_theme_url}free.js?v{$wa_theme_version}"></script>
-
     {if $theme_settings.load_custom_styles}
         <link href="{$wa_theme_url}free.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
     {/if}
@@ -487,7 +485,20 @@
         <script src="{$wa_theme_url}free.custom.js?v{$wa_theme_version}"></script>
     {/if}
 
-    <script src="{$wa_active_theme_url}free.shop.js?v{$wa_theme_version}"></script>
+    <script src="{$wa_theme_url}free.js?v{$wa_theme_version}"></script>
+
+    {if $wa_app == 'shop'}
+        <script src="{$wa_active_theme_url}free.shop.js?v{$wa_theme_version}"></script>
+        {if $theme_settings.plugins_shop_js_footer}
+            {foreach $frontend_head as $_}{$_}{/foreach}
+        {/if}
+    {elseif $wa_app == 'blog'}
+        <script src="{$wa_active_theme_url}free.blog.js?v{$wa_theme_version}"></script>
+    {elseif $wa_app == 'photos'}
+        <script src="{$wa_active_theme_url}js/jquery.wookmark.min.js?v{$wa->version(true)}"></script>
+        <script src="{$wa_active_theme_url}js/jquery.waitforimages.min.js?v{$wa->version(true)}"></script>
+        <script src="{$wa_active_theme_url}free.photo.js?v={$wa->version(true)}"></script>
+    {/if}
 
     {include file="`$parent_theme_path`/fonts.html"}
 

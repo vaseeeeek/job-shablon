@@ -315,8 +315,6 @@ var formSelectList = {
     }
 };
 
-// остановился
-
 var menu = {
     init: function () {
         var _this = this;

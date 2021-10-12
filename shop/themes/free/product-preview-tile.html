@@ -102,7 +102,7 @@
             {/if}
             {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
                 {$blockHtmlProtilegallery}
-            {else}
+            {else}111111111111111111111111111
                 {$class_img = "js-product-preview-img"}
                 {if !empty($lazy_class) && $theme_settings.product_preview_images_lazy && !empty($p.image_id)}{$class_img = "`$class_img` $lazy_class"}{/if}
                 {if $isOwlSlider}
@@ -110,9 +110,9 @@
                 {else}
                     {$image = $wa->shop->productImgHtml($p, '0x260', ['class' => $class_img, 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
                 {/if}
-                {*            {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}*}
-                {*                {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}*}
-                {*            {/if}*}
+                {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
+                    {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                {/if}
                 {$image}
             {/if}
             {if $isProductTilePreviewTileGallery}
