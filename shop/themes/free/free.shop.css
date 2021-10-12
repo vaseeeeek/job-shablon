@@ -647,6 +647,9 @@
 		    -ms-flex-align: center;
 		        align-items: center;
 }
+.product-action #svgCompare {
+		margin-right: 5px;
+}
 
 .product-action:hover {
 		color: #616161;

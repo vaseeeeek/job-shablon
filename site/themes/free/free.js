@@ -1635,7 +1635,7 @@ var productsSlider = {
             }
 
             var sliderOffsetRight = sliderProducts.offset().left + sliderProducts.outerWidth();
-            itemSlider.slice(0, 5).each(function () {
+            itemSlider.slice(0, 7).each(function () {
                 var productOffsetLeft = $(this).offset().left;
 
                 if (productOffsetLeft < sliderOffsetRight) {
@@ -1689,28 +1689,12 @@ var productsSlider = {
             navigation = homeList.find('.js-carousel-direction'),
             isMouseSwipe = homeList.data("swipe"),
             isViewMobileMini = productList.data("type-mobile-preview"),
-            thowCols = productList.closest(".cols-2").length,
-            threeCols = productList.closest(".cols-3").length,
             responsive = {};
 
-        if (threeCols) {
-            if (isViewMobileMini) {
-                responsive = {0: {items: 2}, 700: {items: 3}};
-            } else {
-                responsive = {0: {items: 1}, 400: {items: 2}, 700: {items: 3}};
-            }
-        } else if (thowCols) {
-            if (isViewMobileMini) {
-                responsive = {0: {items: 2}, 700: {items: 3}, 1250: {items: 4}};
-            } else {
-                responsive = {0: {items: 1}, 400: {items: 2}, 700: {items: 3}, 1250: {items: 4}};
-            }
+        if (isViewMobileMini) {
+            responsive = {0: {items: 4}, 700: {items: 5}, 1000: {items: 6}, 1250: {items: 7}};
         } else {
-            if (isViewMobileMini) {
-                responsive = {0: {items: 2}, 700: {items: 3}, 1000: {items: 4}, 1250: {items: 5}};
-            } else {
-                responsive = {0: {items: 1}, 400: {items: 2}, 700: {items: 3}, 1000: {items: 4}, 1250: {items: 5}};
-            }
+            responsive = {0: {items: 3}, 400: {items: 4}, 700: {items: 5}, 1000: {items: 6}, 1250: {items: 7}};
         }
 
         productList.owlCarousel({
@@ -1722,9 +1706,9 @@ var productsSlider = {
             navText: ['', ''],
             navElement: "div",
             navContainer: navigation,
-            responsive: false,
+            responsive: responsive,
             autoWidth: true,
-            lazyLoad: false,
+            lazyLoad: true,
             onInitialize: function (event) {
                 homeList.find(".js-slider-init-action").remove();
             },

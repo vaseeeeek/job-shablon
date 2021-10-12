@@ -647,6 +647,10 @@ $html-font-size: 14px;
   white-space: nowrap;
   display: flex;
   align-items: center;
+
+  #svgCompare {
+    margin-right: 5px;
+  }
 }
 
 .product-action:hover {
@@ -6168,10 +6172,8 @@ input[type=button].storequickorder-button:hover {
     align-items: center;
     flex-wrap: wrap;
   }
-
   .product_action-btn .product-action {
     margin: 0 0 0 15px;
-
     .fi-rr-zoom-in {
       line-height: 0;
     }
