@@ -4493,7 +4493,6 @@ a.button:hover {
 }
 
 .jq-radio, .radio-styler {
-  border-radius: 50%;
   width: 15px;
   height: 15px;
   margin-right: 5px;
@@ -4523,9 +4522,8 @@ a.button:hover {
   left: 0;
   right: 0;
   content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   margin: auto
 }
 
@@ -5856,7 +5854,7 @@ img.mfp-img {
   padding: 0 50px 0 15px;
   position: relative;
   border-radius: 3px;
-  border: 2px solid #4169E1;
+  border-width: 2px;
 }
 
 .ajax-search {
@@ -6939,10 +6937,6 @@ ul.pages-list li a {
   .btn-settings {
     display: none
   }
-}
-
-.admin-edit-links__el {
-  background: linear-gradient( 45deg , #390DFF, #0C1FE8, #005BFF,#0C93E8, #0DE1FF)
 }
 
 .admin-edit-links__el:hover, .btn-settings:hover {

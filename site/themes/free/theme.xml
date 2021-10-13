@@ -134,7 +134,7 @@
       <name locale="ru_RU">Оформление</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/orange.green.png</value>
+      <value>img/themesettings/red.yellow.green.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -164,7 +164,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>linear-gradient( 45deg , #390DFF, #0C1FE8, #005BFF,#0C93E8, #0DE1FF)</value>
+      <value>#4169e1</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Base color</name>
       <description locale="ru_RU">Цвет панели с поиском, иконок и тд</description>

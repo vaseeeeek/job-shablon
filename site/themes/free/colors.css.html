@@ -116,18 +116,15 @@
     {$panelBgColor=$selectColors.panelBgColor}
 
     <style>
-        .call-b-header{
-            background: {$maincolor} !important;
-        }
-
         .bg-maincolor,
         input[type="button"].bg-maincolor,
         input[type="submit"].bg-maincolor,
-        .bx-pager-item>a.active,
-        .owl-dot.active>span{
-            background: {$maincolor};
+        .admin-edit-links__el{
+            background: {$scColor};
         }
-
+        .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit], .Product-grid_cart .button{
+            color: {$maincolor};
+        }
         .bg-sdСolor,
         .button, .button.disabled:hover,
         button, button.disabled:hover,
@@ -146,19 +143,6 @@
             background: {$scColor} !important;
         }
 
-        .br-maincolor,
-        .Product-grid_action .pr-action.active,
-        .tags.cloud a, .tags.tile a,
-        .bx-pager-item>a,
-        .owl-dot>span{
-            border-color: {$maincolor};
-        }
-
-        .top-border-color,
-        ul.top-border-color{
-            border-top-color: {$maincolor};
-        }
-
         input[type="text"],
         input[type="search"],
         input[type="email"],
@@ -168,16 +152,12 @@
         select,
         .jq-selectbox
         {
-            border: 1px solid #d1d1d1;
+            border: 1px solid {$maincolor};
         }
 
         .jq-checked__arrow-trigger{
             border-right: 5px solid transparent;
             border-left: 5px solid transparent;
-        }
-
-        .header-top_nav-sub > ul:before{
-            border-bottom: 5px solid {$maincolor};
         }
 
         input[type="button"].bg-maincolor:hover,
@@ -189,11 +169,6 @@
         .dd-wrap:after
         {
             border: 5px solid transparent;
-        }
-
-        .add-to-favorite.active,
-        .add-to-compare.active{
-            color: {$maincolor} !important;
         }
 
         .step-item.is-completed,
@@ -208,63 +183,29 @@
             background: #FFF;
         }
 
-        .storequickorder-button,
-        .button-fastorder__sk-oneclick{
-            color: {$maincolor} !important;
-            border-color: {$maincolor} !important;
+        .radio-styler.checked,
+        .jq-radio.checked{
+            border-color: {$maincolor};
         }
 
         .radio-styler.checked:before,
         .jq-radio.checked:before{
-            background: {$scColor};
-        }
-
-        .slider-outer--products .owl-next,
-        .slider-outer--products .owl-prev{
-            color: {$maincolor} !important;
-        }
-
-        .shop-push-modal__btn_blue{
-            background: {$maincolor} !important;
-            border-color: {$maincolor} !important;
-        }
-
-        .shop-push-subscribe,
-        button.shop-push-subscribe{
-            color: {$maincolor} ;
-        }
-
-        .shop-sk-callback__slider .ui-slider-range{
-            background: {$scColor};
+            background: {$maincolor};
         }
 
         .grid-gallery._tile-active .grid-gallery__el:hover:before {
             background: {$scColor} !important;
         }
 
-        .product_options .select-v-inline a{
-            border: 1px solid {$maincolor};
-            color: {$maincolor};
-        }
-
         .product_options .select-v-inline a.selected{
-            background: {$maincolor};
+            background: {$scColor};
         }
 
-        .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant{
-            border: 1px solid {$maincolor} !important;
-            color: {$maincolor} !important;
-        }
         .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant.selected{
             background: {$maincolor} !important;
         }
 
         .protilegallery_wrapper .protilegallery_tiles .protilegallery_tile:hover:before{
-            background: {$scColor} !important;
-        }
-
-        input.cartOS__couponButton,
-        .cartOS__button{
             background: {$scColor} !important;
         }
 
