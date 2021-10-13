@@ -17,280 +17,136 @@
     <file path="free.custom.js" parent="1">
     </file>
     <file path="free.shop.js">
-        </file>
+    </file>
     <file path="free.shop.min.js">
     </file>
     <file path="order.js">
     </file>
     <file path="head.html">
-      <description locale="en_US">Shop-Script's &lt;head&gt; instructions</description>
-      <description locale="en_US">Блок &lt;head&gt; приложения Shop-Script</description>
     </file>
     <file path="header.html" custom="0">
-      <description locale="en_US">App specific header content</description>
-      <description locale="ru_RU">Содержимое «шапки» приложения</description>
     </file>
     <file path="main.html">
-      <description locale="en_US">Main storefront layout and navigation</description>
-      <description locale="ru_RU">Основное макет вывода содержимого и навигации в интернет-магазине</description>
     </file>
     <file path="breadcrumbs.html">
-      <description locale="en_US">Breadcrumbs</description>
-      <description locale="ru_RU">Хлебный крошки</description>
     </file>
     <file path="footer.html">
-      <description locale="en_US">App specific footer content</description>
-      <description locale="ru_RU">Содержимое футера приложения</description>
     </file>
     <file path="category.html">
-      <description locale="en_US">Wrapper for a category page</description>
-      <description locale="ru_RU">Обертка для страницы категории</description>
     </file>
     <file path="category.select-filters.html">
-      <description locale="en_US">Select filter</description>
-      <description locale="ru_RU">Выбранные фильтры</description>
     </file>
     <file path="list-thumbs.html">
-      <description locale="en_US">Product list thumbnail view</description>
-      <description locale="ru_RU">Список товаров эскизами</description>
     </file>
     <file path="list-thumbs-mini.html">
-      <description locale="en_US">Recommended product list (mini thumbnails)</description>
-      <description locale="ru_RU">Список рекомендуемых товаров (маленькими эскизами)</description>
     </file>
     <file path="product-preview-line.html">
-      <description locale="en_US">Preview of product line view</description>
-      <description locale="ru_RU">Превью товара вид списком</description>
     </file>
     <file path="product-preview-tbl.html">
-      <description locale="en_US">Preview of product line table</description>
-      <description locale="ru_RU">Превью товара вид таблицей</description>
     </file>
     <file path="product-preview-tile.html">
-      <description locale="en_US">Preview of product tile view</description>
-      <description locale="ru_RU">Превью товара вид плиткой</description>
-    </file>
-    <file path="products.set.html">
-      <description locale="en_US">List of products for withdrawal on pages of Applications</description>
-      <description locale="ru_RU">Список товаров для вывода на стрнаицах Приложений</description>
     </file>
     <file path="product.html">
-      <description locale="en_US">Dedicated product page</description>
-      <description locale="ru_RU">Шаблон основной страницы товара</description>
     </file>
     <file path="product.gallery.html">
-      <description locale="en_US">Product gallery</description>
-      <description locale="ru_RU">Галерея картинок товара</description>
     </file>
     <file path="product.gallery.previews.html" custom="0">
-      <description locale="en_US">Previews of product gallery</description>
-      <description locale="ru_RU"/>
     </file>
     <file path="photoswipe.html">
-      <description locale="en_US">Modal window of the gallery of goods in the mobile version</description>
-      <description locale="ru_RU">Модальное окно галереи товаров в мобильной версии</description>
     </file>
     <file path="product.cart.html">
-      <description locale="en_US">Product add to cart block</description>
-      <description locale="ru_RU">Блок добавления товара в корзину</description>
     </file>
     <file path="product.comments.fb.html">
-      <description locale="en_US">Comments Facebook in product card</description>
-      <description locale="ru_RU">Комментарии Facebook в карточке товара</description>
     </file>
     <file path="product.comments.vk.html">
-      <description locale="en_US">Comments Vk in product card</description>
-      <description locale="ru_RU">Комментарии Vk в карточке товара</description>
     </file>
     <file path="product.page.html">
-      <description locale="en_US">Product static subpage content</description>
-      <description locale="ru_RU">Информационная подстраница товара</description>
     </file>
     <file path="product.short.description.html">
-      <description locale="en_US">Content of short description and short list features on product page</description>
-      <description locale="ru_RU">Содержимое краткого описания и краткого списка характеристик на странице товара</description>
     </file>
     <file path="review.html">
-      <description locale="en_US">A single product review template</description>
-      <description locale="ru_RU">Шаблон вывода одного отзыва о товаре</description>
     </file>
     <file path="reviews.html">
-      <description locale="en_US">Product review list</description>
-      <description locale="ru_RU">Список отзывов о товаре</description>
     </file>
     <file path="compare.html">
-      <description locale="en_US">Product comparison</description>
-      <description locale="ru_RU">Сравнение товаров</description>
     </file>
     <file path="cart.html">
-      <description locale="en_US">Shopping cart page</description>
-      <description locale="ru_RU">Страница с товарами корзины</description>
-    </file>
-    <file path="cart.js">
-      <description locale="en_US">Cart JS</description>
-      <description locale="ru_RU">JS-скрипты корзины</description>
     </file>
     <file path="popup.cart.html">
-      <description locale="en_US">Preview with cart products</description>
-      <description locale="ru_RU">Превью с товарами корзины</description>
     </file>
     <file path="fixed.cart.html">
-      <description locale="en_US">Fixed block with products of cart</description>
-      <description locale="ru_RU">Фиксированный блок с товарами корзины</description>
     </file>
     <file path="checkout.html">
-      <description locale="en_US">Checkout core wrapper</description>
-      <description locale="ru_RU">Единый шаблон страниц оформления заказа</description>
     </file>
     <file path="checkout.shipping.html">
-      <description locale="en_US">Checkout: shipping option selection</description>
-      <description locale="ru_RU">Оформление заказа: выбор способа доставки</description>
     </file>
     <file path="checkout.payment.html">
-      <description locale="en_US">Checkout: payment option selection</description>
-      <description locale="ru_RU">Оформление заказа: выбор способа доставки</description>
     </file>
     <file path="checkout.contactinfo.html">
-      <description locale="en_US">Checkout: customer contact information form</description>
-      <description locale="ru_RU">Оформление заказа: выбор способа доставки</description>
     </file>
     <file path="checkout.confirmation.html">
-      <description locale="en_US">Checkout: order confirmation</description>
-      <description locale="ru_RU">Оформление заказа: выбор способа доставки</description>
     </file>
     <file path="checkout.success.html">
-      <description locale="en_US">Checkout: thank you page</description>
-      <description locale="ru_RU">Оформление заказа: выбор способа доставки</description>
     </file>
     <file path="checkout.error.html">
-      <description locale="en_US">Checkout: error page</description>
-      <description locale="ru_RU">Оформление заказа: выбор способа доставки</description>
     </file>
     <file path="my.nav.html">
-      <description locale="en_US">Customer account navigation menu</description>
-      <description locale="ru_RU">Меню навигации в личном кабинете покупателя</description>
     </file>
     <file path="my.affiliate.html">
-      <description locale="en_US">Customer account interface: affiliate program</description>
-      <description locale="ru_RU">Личный кабинет покупателя: партнерская программа</description>
     </file>
     <file path="my.profile.html" parent="1">
-        </file>
+    </file>
     <file path="my.orders.html">
-      <description locale="en_US">Customer account interface: order list</description>
-      <description locale="ru_RU">Личный кабинет покупателя: список заказов</description>
     </file>
     <file path="my.order.html">
-      <description locale="en_US">Customer account interface: single order information</description>
-      <description locale="ru_RU">Личный кабинет покупателя: информация о заказе</description>
     </file>
     <file path="order.html">
-      <description locale="en_US">Single page ordering</description>
-      <description locale="ru_RU">Одностраничное оформление заказа</description>
     </file>
     <file path="home.html">
-      <description locale="en_US">Storefront homepage</description>
-      <description locale="ru_RU"/>
     </file>
     <file path="search.html">
-      <description locale="en_US">Wrapper for product search (filtering) results, e.g. by name, tag, or manufacturer</description>
-      <description locale="ru_RU">Обертка для страницы поиска (фильтрации) товаров, например, по тегу, ключевому слову или производителю</description>
     </file>
     <file path="page.html">
-      <description locale="en_US">Static page content</description>
-      <description locale="ru_RU">Содержимое информационной страницы</description>
     </file>
     <file path="categories.disclosed.html">
-      <description locale="en_US">Content of list disclosed categories</description>
-      <description locale="ru_RU">Содержимое списка раскрытых категорий</description>
     </file>
     <file path="categories.tile.html">
-      <description locale="en_US">Content of list categories (without subcategories)</description>
-      <description locale="ru_RU"/>
     </file>
     <file path="category.subs.html">
-      <description locale="en_US">Content of list subcategories in category</description>
-      <description locale="ru_RU">Содержимое списка подкатегорий в категории</description>
     </file>
     <file path="category.subs.icons.html">
-      <description locale="en_US">Content of list subcategories in category (view "width icons")</description>
-      <description locale="ru_RU">Содержимое списка подкатегорий в категории (вид "с иконками")</description>
     </file>
     <file path="category.subs.noimage.html">
-      <description locale="en_US">Content of list subcategories in category (view "without images")</description>
-      <description locale="ru_RU">Содержимое списка подкатегорий в категории (вид "без картинок")</description>
     </file>
     <file path="home.brands.html">
-      <description locale="en_US">Content of list brands on mainpage</description>
-      <description locale="ru_RU">Содержимое списка брендов на главной странице</description>
     </file>
     <file path="home.brand-pro.html">
-      <description locale="en_US">Content of list brands Pro on mainpage</description>
-      <description locale="ru_RU">Содержимое списка брендов Pro на главной странице</description>
     </file>
-    <file path="home.Products-list.html">
-      <description locale="en_US">Product list on homepage</description>
-      <description locale="ru_RU">Список товаров на главной</description>
+    <file path="home.products-list.html">
     </file>
     <file path="home.products-carousel.html">
-      <description locale="en_US">Carousel list on homepage</description>
-      <description locale="ru_RU">Карусель товаров на главной</description>
     </file>
     <file path="sidebar-left.html" custom="0">
-      <description locale="ru_RU">Содержимое левого сайдбара</description>
-      <description locale="en_US">Content of left sidebar</description>
-    </file>
-    <file path="sidebar-right.html" custom="0">
-      <description locale="ru_RU">Содержимое правого сайдбара</description>
-      <description locale="en_US">Content of right sidebar</description>
-    </file>
-    <file path="sidebar-mobile.html" custom="0">
-      <description locale="ru_RU">Содержимое сайдбара для мобильной версии</description>
-      <description locale="en_US">Content of sidebar for right version</description>
     </file>
     <file path="sidebar.categories.html" custom="0">
-      <description locale="ru_RU">Содержимое списка категорий в сайдбаре</description>
-      <description locale="en_US">Content of list categories in sidebar</description>
     </file>
     <file path="sidebar.filter.html" custom="0">
-      <description locale="ru_RU">Содержимое фильтров в сайдбаре</description>
-      <description locale="en_US">Content of filters in sidebar</description>
     </file>
     <file path="sidebar.plugins.html" custom="0">
-      <description locale="ru_RU">Плагины в сайдбаре</description>
-      <description locale="en_US">Plugins in sidebar</description>
-    </file>
-    <file path="sidebar.products.compare.html" custom="0">
-      <description locale="ru_RU">Товары в сравнении в сайдбаре</description>
-      <description locale="en_US">Products in compare in sidebar</description>
     </file>
     <file path="sidebar.tags.html" custom="0">
-      <description locale="ru_RU">Теги в сайдбаре</description>
-      <description locale="en_US">Tags in sidebar</description>
-    </file>
-    <file path="sidebar.cart.html" custom="0">
-      <description locale="ru_RU">Корзина в сайдбаре</description>
-      <description locale="en_US">Cart content in sidebar</description>
     </file>
     <file path="slider.html" custom="0">
-      <description locale="ru_RU">Содержиоме слайдера</description>
-      <description locale="en_US">Content of slider</description>
-    </file>
-    <file path="promos.html" custom="0">
-      <description locale="ru_RU">Содержиоме промокарточек</description>
-      <description locale="en_US">Content of promos</description>
     </file>
     <file path="login.html" parent="1">
-        </file>
+    </file>
     <file path="signup.html" parent="1">
-        </file>
+    </file>
     <file path="forgotpassword.html" parent="1">
         </file>
     <file path="error.html" parent="1">
-        </file>
+    </file>
     <file path="reviews.js">
-      <description locale="en_US">Reviews JS</description>
-      <description locale="ru_RU">Скрипты отзывов</description>
     </file>
   </files>
   <thumbs>

@@ -41,7 +41,6 @@
         {$_brand = shopProductbrandsPlugin::productBrand($product.id)}
     {/if}
 {/if}
-
 {if count($short_list_features) > 0 || isset($_brand) || isset($_brand_pro) || ($product.summary && $theme_settings.product_page_show_short_description)}
     <div class="product_action-desc">
         {if isset($_brand_pro) && !empty($_brand_pro) && $_brand_pro.image_url}

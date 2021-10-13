@@ -49,7 +49,7 @@
 
     {$preview_image = $wa->shop->productImgUrl($p, '60')}
 
-    <div class="Product-grid -{$theme_settings.count_product_row} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if} {if class_exists(shopSaleskuPluginView)}salesku_plugin-product{/if}" data-product-id="{$p.id}">
+    <div class="Product-grid -{$theme_settings.count_product_row} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if} {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}salesku_plugin-product{/if}" data-product-id="{$p.id}">
         {$badge_html = $wa->shop->badgeHtml($p.badge)}
         {if $badge_html}
             {$badge_html}
@@ -265,13 +265,20 @@
                     </div>
                 {/if}
             </div>
-            {shopSaleskuPluginView::displayOptions($p)}
+            {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}
+                {shopSaleskuPluginView::displayOptions($p)}
+            {/if}
             <div class="Product-grid_bottom">
                 <div class="Product-grid_prices-cart">
                     <div class="Product-grid_prices">
                         {if empty($p.price) && !empty($theme_settings.text_zero_price)}
                             <span class="Product-grid_zero-price">{$theme_settings.text_zero_price}</span>
-                        {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)  && !class_exists(shopSaleskuPluginView)}
+                        {elseif
+                            $_price_range
+                            && ($p.max_price
+                            && $p.min_price
+                            && $p.max_price > $p.min_price)
+                            && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
                             <span class="small-price"><span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span
                                         class="nowrap">{shop_currency_html($p.max_price)}</span></span>
                         {else}
@@ -283,7 +290,8 @@
                     </div>
                     <div class="Product-grid_cart">
                         {if $available}
-                            {if $p.sku_count > 1 && !class_exists(shopSaleskuPluginView)}
+                            {if $p.sku_count > 1
+                                && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
                                 {if $wa_app == 'shop'}
                                     <span class="button js-card-dialog addtocart fi-rr-shopping-cart"
                                           data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
