@@ -1,7 +1,5 @@
 .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat {
     color: #fff;
-    border-color: #333;
-    background-color: #333;
 }
 .Single__Label--Flat.-Alternative .Single__Name--Flat {
     border: 1px solid #dfdfdf;

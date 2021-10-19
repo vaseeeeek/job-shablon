@@ -119,7 +119,8 @@
         .bg-maincolor,
         input[type="button"].bg-maincolor,
         input[type="submit"].bg-maincolor,
-        .admin-edit-links__el{
+        .admin-edit-links__el,
+        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat{
             background: {$scColor};
         }
         .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit], .Product-grid_cart .button{
@@ -150,9 +151,10 @@
         input[type="number"],
         textarea,
         select,
+        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat,
         .jq-selectbox
         {
-            border: 1px solid {$maincolor};
+            border: 1px solid {$maincolor}!important;
         }
 
         .jq-checked__arrow-trigger{

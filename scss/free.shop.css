@@ -168,10 +168,6 @@
 	min-width: 70px;
 }
 
-.addtocart.cart-loading.ion-android-cart:before, .addtocart.cart-loading:before {
-	content: "";
-}
-
 .addtocart--large:before {
 	display: inline-block;
 	margin: 0 10px 0 0;

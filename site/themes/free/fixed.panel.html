@@ -16,48 +16,9 @@
             {$_links = $wa->apps()}
         {/if}
         <nav id="header_menu-nav" class="MobileMenu_nav-m">
-            <div class="MobileMenu_nav-header">
-                {$is_logo = $theme_settings.logo}
-                <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" href="{$wa_url}">
-                    {if $is_logo}
-                        <img src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
-                    {else}
-                        {$wa->accountName()}
-                    {/if}
-                </a>
+            <div class="MobileMenu_nav-header--absolute">
                 <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
             </div>
-            {if count($_links) > 0}
-                <h4>Информация</h4>
-                <ul>
-                    {foreach $_links as $link}
-                        {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
-                            {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
-                            {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
-                            <li class="juniq-header-top-nav-el">
-                                <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if}
-                                        href="{$link.url}">
-                                    {$link.name}
-                                </a>
-                                {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
-                                    <i class="js-top-nav-caret nav-caret fa-icon"></i>
-                                    <div class="MobileMenu_nav-m-sub">
-                                        <ul class="top-border-color">
-                                            {foreach $link.childs as $child}
-                                                {if !isset($child.top_menu_hide)}
-                                                    <li>
-                                                        <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if}
-                                                                href="{$child.url}">{$child.name}</a></li>
-                                                {/if}
-                                            {/foreach}
-                                        </ul>
-                                    </div>
-                                {/if}
-                            </li>
-                        {/if}
-                    {/foreach}
-                </ul>
-            {/if}
             <h4>Категории</h4>
             {if $theme_settings.get_menu_from == 'app-menu'}
                 {$categories = $wa->menu->get($theme_settings.id_app_menu_cat)}
@@ -78,7 +39,7 @@
                     {if $cat.id == 'else'}
                         {$_subcat = 1}
                     {/if}
-                    <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
+                    <div class="menu-element {if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
                         {if $_subcat}
                             <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                         {/if}
@@ -107,16 +68,47 @@
                     </div>
                 {/foreach}
             </div>
+            {if count($_links) > 0}
+                <h4>Информация</h4>
+                <ul>
+                    {foreach $_links as $link}
+                        {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
+                            {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
+                            {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
+                            <li class="menu-element juniq-header-top-nav-el">
+                                <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if}
+                                        href="{$link.url}">
+                                    {$link.name}
+                                </a>
+                                {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
+                                    <i class="js-top-nav-caret nav-caret icon"></i>
+                                    <div class="MobileMenu_nav-m-sub">
+                                        <ul class="top-border-color">
+                                            {foreach $link.childs as $child}
+                                                {if !isset($child.top_menu_hide)}
+                                                    <li>
+                                                        <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if}
+                                                                href="{$child.url}">{$child.name}</a></li>
+                                                {/if}
+                                            {/foreach}
+                                        </ul>
+                                    </div>
+                                {/if}
+                            </li>
+                        {/if}
+                    {/foreach}
+                </ul>
+            {/if}
             <h4>Личный кабинет</h4>
             <div class="mob-menu-lk">
-                <a href="/my">
+                <a class="menu-element" href="/my">
                     {if $wa->user()->isAuth()}
                         {$wa->user('firstname')|default:'[`My account`]'}
                     {else}
                         <span>Войти</span>
                     {/if}
                 </a>
-                {if shopAffiliate::isEnabled()}<a href="/my/affiliate/">Партнерская программа</a>{/if}
+                {if shopAffiliate::isEnabled()}<a class="menu-element" href="/my/affiliate/">Партнерская программа</a>{/if}
             </div>
 
             {if $wa_app == 'shop' && $theme_settings.currency_toggle}
@@ -223,8 +215,8 @@
                             <a class="js-products-link" href="{$url}">
                                 <div class="product-custom_icon maincolor">
                                     {literal}
-                                        <svg version="1.1" id="svgCompare" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                             viewBox="0 0 695 718" style="enable-background:new 0 0 695 718;" xml:space="preserve">
+                                        <svg version="1.1" id="svgCompareFixed" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                             viewBox="0 0 695 718" style="enable-background:new 0 0 695 718;width:20px" xml:space="preserve">
                                         <path d="M62,718H33c-18.2,0-33-14.8-33-33V220c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v465C95,703.2,80.2,718,62,718z"/>
                                             <path d="M362,717h-29c-18.2,0-33-14.8-33-33V33c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v651C395,702.2,380.2,717,362,717z"/>
                                             <path d="M662,717h-29c-18.2,0-33-14.8-33-33V429c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v255C695,702.2,680.2,717,662,717z"/>

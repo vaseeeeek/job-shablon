@@ -134,6 +134,12 @@
                 background: {$theme_settings.color_badge_saving_font};
             }
         {/if}
+
+        {if $theme_settings.border_radius}
+            .nav-cat-btn, .admin-edit-links__el, .product_options .select-v-inline a.selected, .product_add2cart .addtocart, .wa-submit-button, .addtocart--mini, .filter-el--btns input[type="submit"] {
+                border-radius: {$theme_settings.border_radius}px;
+            }
+        {/if}
     </style>
 {/strip}
 

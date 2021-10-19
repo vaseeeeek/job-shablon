@@ -650,7 +650,7 @@
       </options>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
-      <value>3</value>
+      <value/>
       <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
       <name locale="en_US">Maximum number of subcategories</name>
     </setting>
@@ -2250,6 +2250,11 @@
     <setting var="five_icon_text_header" control_type="text">
       <value>Подпись</value>
       <name locale="ru_RU">Подпись пятной кнопки в шапке</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="border_radius" control_type="text">
+      <value><![CDATA[5]]></value>
+      <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
   </settings>
