@@ -116,7 +116,6 @@ $html-font-size: 14px;
 
 .small-price {
   font-size: rem(16px);
-  color: #000;
   font-weight: 500;
   display: flex;
   flex-wrap: wrap;
@@ -541,8 +540,8 @@ $html-font-size: 14px;
   }
 }
 .product-discount {
-  background: #fff;
-  color: #ea0010;
+  background: #ea0010;
+  color: #ffffff;
   box-sizing: border-box;
   border-radius: 2px
 }
@@ -1045,7 +1044,6 @@ $html-font-size: 14px;
   font-size: rem(32px);
   padding: rem(24px) 0;
   text-align: center;
-  color: #000;
   background: #fff;
   margin: 0 rem(-1px) 0 0;
   position: relative;
@@ -1924,8 +1922,6 @@ $html-font-size: 14px;
 
 .services {
   margin-bottom: rem(15px);
-  padding: 0 0 rem(15px);
-  border-bottom: 1px solid #ebebeb
 }
 
 .aux {
@@ -3116,6 +3112,12 @@ input.filter-range_el {
   vertical-align: middle
 }
 
+.product-price-saving{
+  background:#ea0010;
+  color: #fff;
+  padding-left: 10px;
+}
+
 .Product__Item-video {
   margin: 0 0 0 rem(10px);
   cursor: pointer
@@ -3482,11 +3484,6 @@ input.filter-range_el {
 
 .product_gallery-images {
   text-align: center
-}
-
-.product_action-desc {
-  border-top: 1px solid #ebebeb;
-  margin: rem(15px) 0 0
 }
 
 @media print {
@@ -3927,13 +3924,11 @@ img.pswp__img {
 }
 
 .Product__features-value {
-  color: #000;
   padding-left: 5%;
   max-width: 130px
 }
 
 .Product__features-title {
-  color: #888;
   position: relative
 }
 
@@ -6793,13 +6788,8 @@ button.owl-dot {
       width: 6px;
       height: 6px;
       background: #fff;
-      border: 1px solid #000;
       border-radius: 50%;
       margin: 0 rem(3px);
-    }
-
-    li.dotted-img__item.-Active {
-      background: #000;
     }
   }
 }
@@ -6812,10 +6802,6 @@ button.owl-dot {
 
   .icon10.star {
     color: #e8e8e8;
-
-    &:hover {
-      color: #000;
-    }
   }
 }
 

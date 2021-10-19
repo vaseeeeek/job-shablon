@@ -140,6 +140,18 @@
                 border-radius: {$theme_settings.border_radius}px;
             }
         {/if}
+
+        {if $theme_settings.text_color_scheme}
+            body, .link, a, .price, .rating.-zero icon10.star:hover, .star-rating-empty.star, .star-rating-empty.star-hover, .rating.-zero .icon10.star:hover, select, input  {
+                color: {$theme_settings.text_color_scheme};
+            }
+            .Product-grid .dotted-img__list li.dotted-img__item.-Active  {
+                background-color: {$theme_settings.text_color_scheme};
+            }
+            .Product-grid .dotted-img__list li.dotted-img__item {
+                border: 1px solid {$theme_settings.text_color_scheme};
+            }
+        {/if}
     </style>
 {/strip}
 

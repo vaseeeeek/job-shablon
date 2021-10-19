@@ -2257,6 +2257,11 @@
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
+    <setting var="text_color_scheme" control_type="text">
+      <value>#001a34</value>
+      <name locale="ru_RU">Цвет шрифта</name>
+      <name locale="en_US"/>
+    </setting>
   </settings>
   <locales>
     <locale>
