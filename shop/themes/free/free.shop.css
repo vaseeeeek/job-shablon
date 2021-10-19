@@ -480,84 +480,58 @@
 				margin: 0 0 0.357rem;
 		}
 }
-.homepage-text-outer {
-		margin: 3.429rem 0 0;
-		border-top: 1px solid #ebebeb;
-		border-bottom: 1px solid #ebebeb;
-		background: #fff;
-}
-
 .homepage-text {
-		padding: 2.143rem 0;
-		border-bottom: 1px solid #ebebeb;
+		margin-bottom: 2.857rem;
 }
 
-.homepage-text h1 {
-		font-size: 2rem;
-		margin: 0 0 2.143rem;
+.homepage-text-outer {
+		margin-bottom: 2.857rem;
 }
 
 .home-prev-news {
-		padding: 2.143rem 0;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		margin: 0 -0.714rem;
 }
-
-.home-prev-news_item, li.home-prev-news_item {
-		display: inline-block;
-		width: 31%;
-		vertical-align: top;
-		margin: 0 2% 0 0;
+.home-prev-news_item__wrap {
+		width: 20%;
+		margin-bottom: 0.357rem;
+		padding: 0 10px;
 }
-
-.home-prev-news_item:last-child, li.home-prev-news_item:last-child {
-		margin: 0;
-}
-
 .home-prev-news_item-date {
-		color: #6e6e6e;
-		font-size: 0.857rem;
-		margin: 0 0.357rem 0 0;
+		color: #cc3333;
+		margin: 0.429rem 0 0.286rem 0;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
 }
-
-.home-prev-news_item-name {
-		margin: 0 0 0.714rem;
-		font-size: 1.143rem;
-}
-
 .home-prev-news_item-image {
-		width: 150px;
-		text-align: center;
-		float: left;
-		margin: 0.357rem 0 0;
+		line-height: 1;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
 }
-
-.home-prev-news_item-image img {
-		max-width: 100%;
-		border-radius: 10px;
+.home-prev-news_item-more {
+		margin-top: 0.357rem;
 }
-
-.home-prev-news_item-image + .home-prev-news_item-info {
-		margin: 0 0 0 11.786rem;
+.home-prev-news_item-name a {
+		display: block;
+		font-size: 1rem;
+		font-weight: 600;
+		margin-bottom: 0.357rem;
 }
 
 @media (max-width: 1200px) {
-		.home-prev-news_item-image {
-				width: 100px;
-				margin: 0 0.714rem 0 0;
-		}
-
-		.home-prev-news_item-image + .home-prev-news_item-info {
-				margin: 0;
+		.home-prev-news_item__wrap {
+				width: 25%;
 		}
 }
-@media (max-width: 900px) {
-		.home-prev-news_item, li.home-prev-news_item {
-				width: 100%;
-				margin-right: 2%;
-				margin-bottom: 1.786rem;
-		}
-
-		.home-prev-news_item:last-child, li.home-prev-news_item:last-child {
-				margin-bottom: 0;
+@media (max-width: 768px) {
+		.home-prev-news_item__wrap {
+				width: 50%;
 		}
 }
 .product-discount {
@@ -2718,7 +2692,7 @@ h1 .order-status {
 .all_brands {
 		font-size: 1rem;
 		position: absolute;
-		bottom: 0;
+		top: calc(50% - 6px);
 		left: 100%;
 		width: 120px;
 		text-align: left;

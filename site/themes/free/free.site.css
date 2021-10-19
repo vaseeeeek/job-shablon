@@ -7823,7 +7823,6 @@ article, aside, footer, header, nav, section {
 		display: inline-flex;
 		font-size: 1.714rem;
 		color: #202020;
-		height: 29px;
 }
 .header .header__cart-icon {
 		display: -webkit-inline-box;
@@ -8101,6 +8100,7 @@ article, aside, footer, header, nav, section {
 .fixed-panel .product-custom a {
 		font-size: 0.929rem;
 		display: block;
+		height: 29px;
 }
 
 @media (min-width: 1024px) {

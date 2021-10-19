@@ -484,89 +484,62 @@ $html-font-size: 14px;
     margin: 0 0 rem(5px);
   }
 }
-
-.homepage-text-outer {
-  margin: rem(48px) 0 0;
-  border-top: 1px solid #ebebeb;
-  border-bottom: 1px solid #ebebeb;
-  background: #fff
+.homepage-text{
+  margin-bottom: rem(40px);
 }
-
-.homepage-text {
-  padding: rem(30px) 0;
-  border-bottom: 1px solid #ebebeb
+.homepage-text-outer{
+  margin-bottom: rem(40px);
 }
+.home-prev-news{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 rem(-10px);
 
-.homepage-text h1 {
-  font-size: rem(28px);
-  margin: 0 0 rem(30px)
+  &_item{
+    &__wrap {
+      width: 20%;
+      margin-bottom: rem(5px);
+      padding: 0 10px;
+    }
+
+    &-date {
+      color: #cc3333;
+      margin: rem(6px) 0 rem(4px) 0;
+      display: flex;
+    }
+    &-image {
+      line-height: 1;
+      display: flex;
+    }
+    &-more {
+      margin-top: rem(5px);
+    }
+    &-name a {
+      display: block;
+      font-size:rem(14px);
+      font-weight: 600;
+      margin-bottom: rem(5px);
+    }
+  }
 }
-
-.home-prev-news {
-  padding: rem(30px) 0
-}
-
-.home-prev-news_item, li.home-prev-news_item {
-  display: inline-block;
-  width: 31%;
-  vertical-align: top;
-  margin: 0 2% 0 0
-}
-
-.home-prev-news_item:last-child, li.home-prev-news_item:last-child {
-  margin: 0
-}
-
-.home-prev-news_item-date {
-  color: #6e6e6e;
-  font-size: rem(12px);
-  margin: 0 rem(5px) 0 0
-}
-
-.home-prev-news_item-name {
-  margin: 0 0 rem(10px);
-  font-size: rem(16px)
-}
-
-.home-prev-news_item-image {
-  width: 150px;
-  text-align: center;
-  float: left;
-  margin: rem(5px) 0 0
-}
-
-.home-prev-news_item-image img {
-  max-width: 100%;
-  border-radius: 10px
-}
-
-.home-prev-news_item-image + .home-prev-news_item-info {
-  margin: 0 0 0 rem(165px)
-}
-
 @media (max-width: 1200px) {
-  .home-prev-news_item-image {
-    width: 100px;
-    margin: 0 rem(10px) 0 0
-  }
-
-  .home-prev-news_item-image + .home-prev-news_item-info {
-    margin: 0
-  }
-}
-
-@media (max-width: 900px) {
-  .home-prev-news_item, li.home-prev-news_item {
-    width: 100%;
-    margin-right: 2%;
-    margin-bottom: rem(25px)
-  }
-
-  .home-prev-news_item:last-child, li.home-prev-news_item:last-child {
-    margin-bottom: 0
+  .home-prev-news{
+    &_item{
+      &__wrap {
+        width: 25%;
+      }
+    }
   }
 }
-
+@media (max-width: 768px) {
+  .home-prev-news{
+    &_item{
+      &__wrap {
+        width: 50%;
+      }
+    }
+  }
+}
 .product-discount {
   background: #fff;
   color: #ea0010;
@@ -2702,12 +2675,12 @@ h1 .order-status {
 }
 
 .all_brands {
-  font-size: rem(14px);
+  font-size: 1rem;
   position: absolute;
-  bottom: 0;
+  top: calc(50% - 6px);
   left: 100%;
   width: 120px;
-  text-align: left
+  text-align: left;
 }
 
 .homepage-brands {

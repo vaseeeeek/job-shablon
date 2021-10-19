@@ -7798,7 +7798,6 @@ article, aside, footer, header, nav, section {
     display: inline-flex;
     font-size: rem(24px);
     color: #202020;
-    height: 29px;
   }
 
   .header__cart-icon {
@@ -8094,6 +8093,7 @@ article, aside, footer, header, nav, section {
   .product-custom a {
     font-size: rem(13px);
     display: block;
+    height: 29px;
   }
 }
 

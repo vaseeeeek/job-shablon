@@ -1572,7 +1572,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>normal_tabs</value>
+      <value>acc_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в десктопной версии</name>
       <name locale="en_US">Type view in main content of product in desktop version</name>
       <options>
@@ -2253,7 +2253,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value><![CDATA[5]]></value>
+      <value>5</value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
