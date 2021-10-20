@@ -262,7 +262,6 @@
                                         {else}
                                             {$product_features_items = $product.features}
                                         {/if}
-
                                         {if class_exists('shopGroupattrPlugin')}
                                             {$product_features_items = shopGroupattrPlugin::process($product, $features_items)}
                                         {/if}
@@ -270,8 +269,9 @@
                                             {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}
                                         {/if}
                                         {foreach $product_features_items as $f_code => $f_value}
+                                            {if $features_items[$f_code].type == 'divider'}{continue}{/if}
                                             {if !empty($features_items[$f_code])}
-                                                <tr class="Product__features-item {if $features_items[$f_code].type == 'divider'} divider{/if}">
+                                                <tr class="Product__features-item">
                                                     <td class="Product__features-title">
                                                         <span>{$features_items[$f_code].name|escape}</span>
                                                     </td>
