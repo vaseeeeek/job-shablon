@@ -141,26 +141,6 @@
         <option value="img/themesettings/orange.green.png"/>
         <option value="img/themesettings/yellow.green.png"/>
         <option value="img/themesettings/green.brown.png"/>
-        <option value="img/themesettings/black.green.png"/>
-        <option value="img/themesettings/red2.blue2.png"/>
-        <option value="img/themesettings/yellow.brown.png"/>
-        <option value="img/themesettings/green.pink.png"/>
-        <option value="img/themesettings/red.black.png"/>
-        <option value="img/themesettings/pink.black.png"/>
-        <option value="img/themesettings/orange.black.png"/>
-        <option value="img/themesettings/pink.green.png"/>
-        <option value="img/themesettings/blue.red.png"/>
-        <option value="img/themesettings/bluelight.blue.png"/>
-        <option value="img/themesettings/brown.green.png"/>
-        <option value="img/themesettings/red.blue.png"/>
-        <option value="img/themesettings/brown.beige.png"/>
-        <option value="img/themesettings/purple.pink.png"/>
-        <option value="img/themesettings/bluelight.blue.pink.png"/>
-        <option value="img/themesettings/red.yellow.green.png"/>
-        <option value="img/themesettings/green.greenlight.blue.png"/>
-        <option value="img/themesettings/orange.purple.png"/>
-        <option value="img/themesettings/greenlight.green.purple.png"/>
-        <option value="img/themesettings/bluelight.blue2.png"/>
       </options>
     </setting>
     <setting var="main_color" control_type="color">
