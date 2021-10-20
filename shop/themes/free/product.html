@@ -121,8 +121,12 @@
                 </div>
 
                 <div class="product-page_main js-product">
+                    {$video = $product->video}
+                    {if count($product.images) > 1 || (count($product.images) === 1 && $video)}
+                        {$productGalleryOn = true}
+                    {/if}
                     {include file="product.gallery.html" inline}
-                    <div class="product-page_main-right">
+                    <div class="product-page_main-right {if $productGalleryOn}-threeCols{/if}">
                             <div class="cart ">
                                 {include file="product.cart.html" inline}
                             </div>

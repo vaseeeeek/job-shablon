@@ -319,7 +319,6 @@
                             </strong>
                         {elseif $n > 0}
                             <strong class="stock-critical Product-stock_item Product-stock_item-critical">
-                                <i class="fa fa-exclamation icon" aria-hidden="true"></i>
                                 {if $theme_settings.product_show_stock_count_critical}
                                     {_w("Only %d left in stock", "Only %d left in stock", $n)}
                                 {else}
@@ -329,7 +328,6 @@
                         {else}
                             {if $wa->shop->settings('ignore_stock_count')}
                                 <strong class="stock-none Product-stock_item Product-stock_item-critical">
-                                    <i class="fa fa-exclamation icon" aria-hidden="true"></i>
                                     {$text_product_preorder}
                                 </strong>
                             {else}
