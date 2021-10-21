@@ -1434,7 +1434,6 @@ var productViewListCustom = {
     },
     add: function (productsArrName, productId, limit) {
         var _this = this, list = $.cookie(productsArrName), listArr = [];
-
         if (list && list != "null" && list != "0") {
             list = list.replace(",null", "");
             list = list.replace(",0", "");
@@ -1491,15 +1490,13 @@ var productViewListCustom = {
     },
     clear: function () {
         var _this = this, btn = $('.js-clear-pr-list');
-
         btn.on("click", function () {
             var $this = $(this),
                 list = [],
-                productsArrName = $this.data("list") + "_list";
-
+                productsArrName = $this.data("list");
+                console.log(productsArrName);
             _this.save(list, productsArrName);
             location.reload();
-
         });
     },
     showAddedMsg: function (arrPrevWrap) {
