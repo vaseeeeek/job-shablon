@@ -16,11 +16,11 @@
             {$sub_view = $theme_settings.cat_view_subs}
         {/if}
         {if $sub_view == 'image'}
-            {include file="categories.tile.html" categories=$category.subcategories}
+            {include file="categories.grid.html" categories=$category.subcategories}
         {else if $sub_view == 'icon'}
-            {include file="category.subs.icons.html"}
+            {include file="sabcat.icons.html"}
         {else}
-            {include file="category.subs.noimage.html"}
+            {include file="sabcat.noimage.html"}
         {/if}
     </div>
 {/if}

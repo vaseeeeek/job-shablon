@@ -3,8 +3,7 @@
 {$_popupOn = empty($theme_settings.disable_popup_gallery)}
 {$_popupOnThumbs = $theme_settings.view_preview_popup_thumbs}
 {$_zoomOn = $theme_settings.zoom_gallery__product && !$wa->isMobile()}
-{$_photoSwipeOn = !empty($wa->isMobile())}
-{$class_popup="js-image-popup-swipebox"}{if $_photoSwipeOn}{$class_popup="js-image-popup-photoswipe"}{/if}
+{$class_popup="js-image-popup-swipebox"}
 {if count($product.images) > 1 || (count($product.images) === 1 && $video)}
     {$_carouselOn = count($product.images) > 6 && !$wa->isMobile()}
     {$productThreeColums = true}
@@ -76,6 +75,5 @@
 
         {if $theme_settings.product_gallery-images_display_description && $product.images}<div class="product_gallery-images-title js-product_gallery-images-title">{if !empty($image_description)}{$image_description}{/if}</div>{/if}
     </div>
-    {*if $_photoSwipeOn}{include file="photoswipe.html" inline}{/if*}
 </div>
 {/strip}

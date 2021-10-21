@@ -1,0 +1,18 @@
+{strip}
+    <aside class="left-sidebar ">
+        {if !empty($filters)}
+            {if !isset($filters)}{$filters = []}{/if}
+            {include file="`$wa_active_theme_path`/sb.filter.html" filter=$filters}
+        {/if}
+
+        {include file="`$wa_active_theme_path`/sidebar.cat.html"}
+
+        {if $theme_settings.show_plugins_sb}
+            {include file="`$wa_active_theme_path`/sb.plugins.html"}
+        {/if}
+
+        {if $theme_settings.show_tags_sb}
+            {include file="`$wa_active_theme_path`/sb.tags.html"}
+        {/if}
+    </aside>
+{/strip}

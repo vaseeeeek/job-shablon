@@ -10,7 +10,7 @@
 
     <div class="out_sidebars">
         {if $sb_left}
-            {include file='sidebar-left.html'}
+            {include file='sidebar.html'}
         {/if}
     </div>
 
@@ -125,7 +125,7 @@
                     {if count($product.images) > 1 || (count($product.images) === 1 && $video)}
                         {$productGalleryOn = true}
                     {/if}
-                    {include file="product.gallery.html" inline}
+                    {include file="product.mini-gallery.html" inline}
                     <div class="product-page_main-right {if $productGalleryOn}-threeCols{/if}">
                             <div class="cart ">
                                 {include file="product.cart.html" inline}
@@ -426,9 +426,9 @@
                 {if $crossselling}
                     {$product_list_title = sprintf('C "%s" так же берут', $product.name|escape)}
                     {if $products_view == "tile-carousel" && !$wa->isMobile()}
-                        {include file="product.products-carousel.html" products=$crossselling product_list_title=$product_list_title}
+                        {include file="product.list.view-carousel.html" products=$crossselling product_list_title=$product_list_title}
                     {else}
-                        {include file="product.products-list.html" products=$crossselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
+                        {include file="product.list.view-list.html" products=$crossselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
                     {/if}
                 {/if}
 
@@ -437,9 +437,9 @@
                     {$onClick = "javascript:window.location='{$wa->getUrl('/frontend/compare', ['id' => implode(',', $compare_ids)])}';"}
                     {$product_list_title = "[`See also`] <a class='product_cross-compare sdColor link-half' onClick=`$onClick`>[`Compare all`]</a>"}
                     {if $products_view == "tile-carousel" && !$wa->isMobile()}
-                        {include file="product.products-carousel.html" products=$upselling product_list_title=$product_list_title}
+                        {include file="product.list.view-carousel.html" products=$upselling product_list_title=$product_list_title}
                     {else}
-                        {include file="product.products-list.html" products=$upselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
+                        {include file="product.list.view-list.html" products=$upselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
                     {/if}
                 {/if}
             </div>

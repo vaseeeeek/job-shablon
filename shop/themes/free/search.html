@@ -67,7 +67,7 @@
 
 
     {if isset($brand) && $wa->isMobile() && !($wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version)}
-        {include file="sidebar-mobile.html"}
+        {include file="sb-mobile.html"}
     {/if}
 
     {if !$products}

@@ -13,7 +13,7 @@
 <div class="category">
     <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
         {if $sb_left}
-            {include file='sidebar-left.html' filter=$filters}
+            {include file='sidebar.html' filter=$filters}
         {/if}
     </div>
 
@@ -52,12 +52,12 @@
             {/if}
 
             <!-- subcategories -->
-            {include file="category.subs.html"}
+            {include file="sabcat.html"}
 
         </div>
 
         {if $wa->isMobile() }
-            {include file="sidebar-mobile.html"}
+            {include file="sb-mobile.html"}
         {/if}
         <div class="js-product-ajax-list">
             {if !$products}

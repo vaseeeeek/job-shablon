@@ -224,11 +224,6 @@
     </script>
 {/literal}
 {strip}
-    {if $wa->get('ajax')}
-        {include file="popup.cart.html" inline}
-    {else if $wa->get('fixed')}
-        {include file="fixed.cart.html" inline}
-    {else}
         <div class="cols-1">
             <div class="content ">
                 <div class="content-box">
@@ -415,5 +410,4 @@
 
             </div>
         </div>
-    {/if}
 {/strip}

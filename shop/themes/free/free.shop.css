@@ -538,7 +538,6 @@
 		color: #ffffff;
 		-webkit-box-sizing: border-box;
 		        box-sizing: border-box;
-		border-radius: 2px;
 }
 
 .badge {
@@ -6135,7 +6134,6 @@ input[type=button].storequickorder-button:hover {
 		background: #ea0010;
 		color: #fff;
 		margin: 0 0.357rem 0 0;
-		border-radius: 2px;
 }
 .product_page .product-discount, .product_page .product-price-saving {
 		font-size: 0.857rem;

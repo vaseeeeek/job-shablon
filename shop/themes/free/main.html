@@ -45,7 +45,7 @@
         <div class="cols-{$cols}">
             <div class="out_sidebars">
                 {if $sb_left}
-                    {include file="`$wa_active_theme_path`/sidebar-left.html"}
+                    {include file="`$wa_active_theme_path`/sidebar.html"}
                 {/if}
             </div>
             {if $wa->globals('isSearchProPage') && isset($filters) && !empty($filters)}{$class = "`$class` searchpro-page-with-sidebar"}{/if}

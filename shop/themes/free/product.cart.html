@@ -17,7 +17,7 @@
         {$product.features = $product->features}
         {$products = [$product.id => $product->data]}
         {$features =  $wa->shop->features($products)}
-        {include file="product.gallery.html" inline}
+        {include file="product.mini-gallery.html" inline}
         <div class="product_action-dialog-right">
             <a class="product_action-dialog-link" href="{$wa->shop->productUrl($product)}">[`Product page`]  &rarr;</a>
             <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
@@ -367,7 +367,7 @@
         </div>
     </div>
 
-    {if !$_is_dialog_select_options}{include file="product.short.description.html"}{/if}
+    {if !$_is_dialog_select_options}{include file="product.mini.desc.html"}{/if}
 
     {if $_is_dialog && !$_is_dialog_select_options}
         </div>

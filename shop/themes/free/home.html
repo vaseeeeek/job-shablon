@@ -24,9 +24,9 @@
                     {/if}
 
                     {if $theme_settings.total_max_maxcat_homepage}
-                        {include file="categories.disclosed.html" categories=$categories}
+                        {include file="home.scat.html" categories=$categories}
                     {else}
-                        {include file="categories.tile.html" categories=$categories}
+                        {include file="categories.grid.html" categories=$categories}
                     {/if}
                 </div>
             </div>
@@ -34,9 +34,9 @@
     {/if}
 
 {if $theme_settings.homepage_product_view == "carousel"}
-    {$product_list_file = "home.products-carousel.html"}
+    {$product_list_file = "home.products.view-carousel.html"}
 {else}
-    {$product_list_file = "home.products-list.html"}
+    {$product_list_file = "home.products.view-list.html"}
 {/if}
 
 {include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title}
@@ -47,9 +47,9 @@
 <div class="container">
 
     {if $theme_settings.use_plugin_brands == 'brands_pro'}
-        {include file="home.brand-pro.html"}
+        {include file="home.brands-pro.block.html"}
     {else if $theme_settings.use_plugin_brands == 'brands'}
-        {include file="home.brands.html"}
+        {include file="home.brands.block.html"}
     {/if}
 
     <!-- plugin hook: 'frontend_homepage' -->

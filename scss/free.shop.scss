@@ -542,8 +542,7 @@ $html-font-size: 14px;
 .product-discount {
   background: #ea0010;
   color: #ffffff;
-  box-sizing: border-box;
-  border-radius: 2px
+  box-sizing: border-box
 }
 
 .badge {
@@ -6146,8 +6145,7 @@ input[type=button].storequickorder-button:hover {
   .product-price-saving {
     background: #ea0010;
     color: #fff;
-    margin: 0 rem(5px) 0 0;
-    border-radius: 2px
+    margin: 0 rem(5px) 0 0
   }
 
   .product-discount, .product-price-saving {

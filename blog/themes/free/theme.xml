@@ -28,7 +28,7 @@
       <description locale="en_US">App specific sidebar content</description>
       <description locale="ru_RU">Содержимое сайдбара приложения</description>
     </file>
-    <file path="sidebar.plugins.html">
+    <file path="sb.plugins.html">
       <description locale="en_US">Plugins of the application in sidebar</description>
       <description locale="ru_RU">Плагины в сайдбаре</description>
     </file>

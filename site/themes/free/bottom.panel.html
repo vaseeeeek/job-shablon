@@ -59,9 +59,9 @@
                         {/if}
                         {if $_subcat}
                             {if isset($wa_parent_theme_path)}
-                                {$subcatFile = "`$wa_parent_theme_path`/header.subcat.`$view_subcat`.html"}
+                                {$subcatFile = "`$wa_parent_theme_path`/nav.`$view_subcat`.scat.html"}
                             {else}
-                                {$subcatFile = "header.subcat.`$view_subcat`.html"}
+                                {$subcatFile = "nav.`$view_subcat`.scat.html"}
                             {/if}
                             {include file=$subcatFile}
                         {/if}

@@ -38,21 +38,15 @@
     </file>
     <file path="product.html">
     </file>
-    <file path="product.gallery.html">
-    </file>
-    <file path="product.gallery.previews.html" custom="0">
+    <file path="product.mini-gallery.html">
     </file>
     <file path="photoswipe.html">
     </file>
     <file path="product.cart.html">
     </file>
-    <file path="product.comments.fb.html">
-    </file>
-    <file path="product.comments.vk.html">
-    </file>
     <file path="product.page.html">
     </file>
-    <file path="product.short.description.html">
+    <file path="product.mini.desc.html">
     </file>
     <file path="review.html">
     </file>
@@ -61,10 +55,6 @@
     <file path="compare.html">
     </file>
     <file path="cart.html">
-    </file>
-    <file path="popup.cart.html">
-    </file>
-    <file path="fixed.cart.html">
     </file>
     <file path="checkout.html">
     </file>
@@ -84,8 +74,6 @@
     </file>
     <file path="my.affiliate.html">
     </file>
-    <file path="my.profile.html" parent="1">
-    </file>
     <file path="my.orders.html">
     </file>
     <file path="my.order.html">
@@ -98,33 +86,33 @@
     </file>
     <file path="page.html">
     </file>
-    <file path="categories.disclosed.html">
+    <file path="home.scat.html">
     </file>
-    <file path="categories.tile.html">
+    <file path="categories.grid.html">
     </file>
-    <file path="category.subs.html">
+    <file path="sabcat.html">
     </file>
-    <file path="category.subs.icons.html">
+    <file path="sabcat.icons.html">
     </file>
-    <file path="category.subs.noimage.html">
+    <file path="sabcat.noimage.html">
     </file>
-    <file path="home.brands.html">
+    <file path="home.brands.block.html">
     </file>
-    <file path="home.brand-pro.html">
+    <file path="home.brands-pro.block.html">
     </file>
-    <file path="home.products-list.html">
+    <file path="home.products.view-list.html">
     </file>
-    <file path="home.products-carousel.html">
+    <file path="home.products.view-carousel.html">
     </file>
-    <file path="sidebar-left.html" custom="0">
+    <file path="sidebar.html" custom="0">
     </file>
-    <file path="sidebar.categories.html" custom="0">
+    <file path="sidebar.cat.html" custom="0">
     </file>
-    <file path="sidebar.filter.html" custom="0">
+    <file path="sb.filter.html" custom="0">
     </file>
-    <file path="sidebar.plugins.html" custom="0">
+    <file path="sb.plugins.html" custom="0">
     </file>
-    <file path="sidebar.tags.html" custom="0">
+    <file path="sb.tags.html" custom="0">
     </file>
     <file path="slider.html" custom="0">
     </file>
