@@ -48,13 +48,13 @@
         {/strip}
 
         <!-- css -->
-        {include file="colors.css.html"}
+        {include file="color-settings.css.html"}
         <link href="{$wa_theme_url}fonts/uicons-regular-rounded/css/uicons-regular-rounded.css?v{$wa_theme_version}"
               rel="stylesheet"/>
         <link href="{$wa_theme_url}free.site.css?v{$wa_theme_version}" rel="stylesheet"/>
 
 
-        {include file="`$parent_theme_path`/add.css.html"}
+        {include file="`$parent_theme_path`/style-settings.css.html"}
 
         <script src="{$wa_theme_url}jquery.min.js?v{$wa_theme_version}"></script>
 
@@ -89,7 +89,7 @@
     {/if}
 
     {if !$wa->isMobile()}
-        {include file="header.top.html"}
+        {include file="header.links.html"}
     {/if}
     <header class="header">
         <div class="container">
@@ -285,7 +285,7 @@
             {/if}
         </div>
     </header>
-    {include file="header.nav.html"}
+    {include file="nav.html"}
 
     {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
     <div class="inner-wrap">
@@ -440,7 +440,7 @@
         </span>
 
     {if $wa->isMobile()}
-        {include file="fixed.panel.html" inline}
+        {include file="bottom.panel.html" inline}
     {/if}
 
     {if $theme_settings.show_link_admin_edit && $wa->user()->isAuth() && !$wa->isMobile()}
@@ -457,7 +457,7 @@
         {/if}
 
         {if $admin_edit_link}
-            {include file="`$parent_theme_path`/quicklinks.html" inline}
+            {include file="`$parent_theme_path`/admin.btn.html" inline}
         {/if}
     {/if}
 
@@ -501,8 +501,6 @@
     {/if}
 
     {include file="`$parent_theme_path`/fonts.html"}
-
-    {include file="`$parent_theme_path`/font-icons.css.html"}
 
     </body>
     </html>

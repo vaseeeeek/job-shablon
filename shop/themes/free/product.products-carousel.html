@@ -32,7 +32,7 @@
             <div class="js-preview-products products-tile">
                 <div class="owl-carousel owl-theme"{if $is_preview_grid_mini} data-type-mobile-preview="mini"{/if}>
                     {foreach $products as $p}
-                        {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy"}
+                        {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy"}
                     {/foreach}
                 </div>
                 <div class="product_cross__direction js-carousel-direction"></div>

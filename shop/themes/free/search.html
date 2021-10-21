@@ -3,7 +3,7 @@
     {if $products}
         <div>
             <div class="js-ajax-search ajax-search">
-                {include file='list-thumbs-mini.html' class="products-mini--search" limit=8 }
+                {include file='list-thumbs-mobile.html' class="products-mini--search" limit=8 }
                 <div class="ajax-search-all"><a class="link" href="{$wa->getUrl('shop/frontend/search')}?query={$wa->get('query')}">[`View all`]</a> ({$products_count}) &rarr; </div>
             </div>
         </div>

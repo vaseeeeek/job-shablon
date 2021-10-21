@@ -5,20 +5,10 @@
   <name locale="ru_RU">free</name>
   <files>
     <file path="index.html" parent="1">
-        </file>
-    <file path="free.css" parent="1">
-        </file>
-    <file path="free.custom.css" parent="1">
     </file>
     <file path="free.shop.css">
-        </file>
-    <file path="free.js" parent="1">
-        </file>
-    <file path="free.custom.js" parent="1">
     </file>
     <file path="free.shop.js">
-    </file>
-    <file path="free.shop.min.js">
     </file>
     <file path="order.js">
     </file>
@@ -34,17 +24,17 @@
     </file>
     <file path="category.html">
     </file>
-    <file path="category.select-filters.html">
+    <file path="selected-filters.html">
     </file>
     <file path="list-thumbs.html">
     </file>
-    <file path="list-thumbs-mini.html">
+    <file path="list-thumbs-mobile.html">
     </file>
-    <file path="product-preview-line.html">
+    <file path="list-thumbs-view-line.html">
     </file>
-    <file path="product-preview-tbl.html">
+    <file path="list-thumbs-view-tbl.html">
     </file>
-    <file path="product-preview-tile.html">
+    <file path="list-thumbs-view-grid.html">
     </file>
     <file path="product.html">
     </file>
@@ -143,22 +133,12 @@
     <file path="signup.html" parent="1">
     </file>
     <file path="forgotpassword.html" parent="1">
-        </file>
+    </file>
     <file path="error.html" parent="1">
     </file>
     <file path="reviews.js">
     </file>
   </files>
-  <thumbs>
-    <thumb>Макс. ширина и высота - 50px</thumb>
-    <thumb>Макс. ширина и высота - 70px</thumb>
-    <thumb>Макс. ширина и высота - 96px</thumb>
-    <thumb>Макс. ширина и высота - 180px</thumb>
-    <thumb>Авто ширина и Макс. высота 340px</thumb>
-    <thumb>Авто ширина и Макс. высота 320px</thumb>
-    <thumb>Макс. ширина и высота - 650px</thumb>
-    <thumb>Макс. ширина и высота - 970px</thumb>
-  </thumbs>
   <locales>
     <locale>
       <msgid>E.g. %s</msgid>

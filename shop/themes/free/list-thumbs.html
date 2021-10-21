@@ -36,7 +36,7 @@
     {/if}
 
     {* selected filters *}
-    {if $theme_settings.filter_selected}{include file="category.select-filters.html"}{/if}
+    {if $theme_settings.filter_selected}{include file="selected-filters.html"}{/if}
 
     {if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
         <div class="cat-panel">
@@ -258,11 +258,11 @@
                 {/if}
 
                 {if $CategoryViewProducts == 'list'}
-                    {include file="product-preview-line.html" product=$p features=$features favorites=$product_favor_arr}
+                    {include file="list-thumbs-view-line.html" product=$p features=$features favorites=$product_favor_arr}
                 {else if $CategoryViewProducts == 'tbl'}
-                    {include file="product-preview-tbl.html" product=$p favorites=$product_favor_arr}
+                    {include file="list-thumbs-view-tbl.html" product=$p favorites=$product_favor_arr}
                 {else}
-                    {include file="product-preview-tile.html" product=$p favorites=$product_favor_arr}
+                    {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr}
                 {/if}
             {/foreach}
 
