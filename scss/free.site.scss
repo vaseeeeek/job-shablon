@@ -5840,9 +5840,9 @@ img.mfp-img {
   padding: 0 rem(50px) 0 rem(15px);
   position: relative;
   border-radius: 3px;
-  border-width: 2px;
+  border-width: 2px!important;
 }
-
+ 
 .ajax-search {
   background: #fff;
   color: #4d4d4d;

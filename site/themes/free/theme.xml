@@ -568,7 +568,7 @@
       </options>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
       <name locale="en_US">Maximum number of subcategories</name>
     </setting>
@@ -798,7 +798,7 @@
       <name locale="ru_RU">Каталог</name>
     </setting>
     <setting var="pagination" control_type="select">
-      <value>lazyloading</value>
+      <value>paging</value>
       <name locale="en_US">Long lists display</name>
       <name locale="ru_RU">Длинные списки</name>
       <options>
@@ -1490,7 +1490,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>acc_tabs</value>
+      <value>none_tabs</value>
       <name locale="ru_RU">Оформление основного содержимого товара в десктопной версии</name>
       <name locale="en_US">Type view in main content of product in desktop version</name>
       <options>
@@ -1557,11 +1557,6 @@
       <value>1</value>
       <name locale="ru_RU">Теги в карточке товара</name>
       <name locale="en_US">Tags in product card</name>
-    </setting>
-    <setting var="product_show_categories" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Доп. категории</name>
-      <name locale="en_US">Additional categories</name>
     </setting>
     <setting var="desc_product_options" control_type="paragraph">
       <value/>

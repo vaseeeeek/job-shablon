@@ -5902,7 +5902,7 @@ img.mfp-img {
 		padding: 0 3.571rem 0 1.071rem;
 		position: relative;
 		border-radius: 3px;
-		border-width: 2px;
+		border-width: 2px !important;
 }
 
 .ajax-search {
