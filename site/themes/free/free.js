@@ -1580,7 +1580,7 @@ var itemGallery = {
         if (img.length) {
             img.bxSlider({
                 mode: 'vertical',
-                slideWidth: 100,
+                slideWidth: 70,
                 minSlides: img.data('min-items'),
                 slideMargin: 6,
                 pager: false,
