@@ -5139,6 +5139,9 @@ img.mfp-img {
 .header_lang-el {
 		margin: 0 0 0 0.214rem;
 }
+.header_lang-el:not(.js-language) {
+		font-weight: 600;
+}
 
 .header_lang-el:first-child {
 		margin: 0;
@@ -7651,6 +7654,9 @@ article, aside, footer, header, nav, section {
 		display: flex;
 		white-space: nowrap;
 		width: 327px;
+		-webkit-box-pack: end;
+		    -ms-flex-pack: end;
+		        justify-content: flex-end;
 }
 .header-top--links .header_currency, .header-top--links .header_lang {
 		margin-left: 2.143rem;

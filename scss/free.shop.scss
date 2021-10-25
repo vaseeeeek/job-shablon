@@ -823,16 +823,7 @@ $html-font-size: 14px;
   font-size: rem(16px);
   overflow: hidden;
   position: relative;
-  line-height: 1.25;
-}
-
-.Product-grid_name:hover {
-  overflow: visible
-}
-
-.Product-grid_name:hover a {
-  background: hsla(0, 0%, 100%, .8);
-  border-radius: 5px
+  line-height: 1;
 }
 
 .Product-grid_video {
@@ -6127,6 +6118,7 @@ input[type=button].storequickorder-button:hover {
 
   .product_name {
     order: 1;
+    font-size: rem(31px);
   }
 
   .product_action-btn {

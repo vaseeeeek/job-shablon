@@ -5069,7 +5069,11 @@ img.mfp-img {
 }
 
 .header_lang-el {
-  margin: 0 0 0 rem(3px)
+  margin: 0 0 0 rem(3px);
+
+  &:not(.js-language){
+    font-weight:600;
+  }
 }
 
 .header_lang-el:first-child {
@@ -7622,6 +7626,7 @@ article, aside, footer, header, nav, section {
     display: flex;
     white-space: nowrap;
     width: 327px;
+    justify-content: flex-end;
   }
 
   .header_currency, .header_lang {

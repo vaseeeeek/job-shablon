@@ -834,16 +834,7 @@
 		font-size: 1.143rem;
 		overflow: hidden;
 		position: relative;
-		line-height: 1.25;
-}
-
-.Product-grid_name:hover {
-		overflow: visible;
-}
-
-.Product-grid_name:hover a {
-		background: rgba(255, 255, 255, 0.8);
-		border-radius: 5px;
+		line-height: 1;
 }
 
 .Product-grid_video {
@@ -6112,6 +6103,7 @@ input[type=button].storequickorder-button:hover {
 		-webkit-box-ordinal-group: 2;
 		    -ms-flex-order: 1;
 		        order: 1;
+		font-size: 2.214rem;
 }
 .product_page .product_action-btn {
 		margin-left: auto;

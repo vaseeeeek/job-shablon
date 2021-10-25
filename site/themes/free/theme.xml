@@ -1030,14 +1030,14 @@
       <name locale="ru_RU">Показывать характеристики в превью товара вид "плиткой"</name>
     </setting>
     <setting var="tile_preview_name_height" control_type="text">
-      <value>40</value>
+      <value><![CDATA[35]]></value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
       <name locale="ru_RU">Высота блока с наименованием в превью (вид плиткой)</name>
       <description locale="ru_RU">В пикселях</description>
       <description locale="en_US">Pixels</description>
     </setting>
     <setting var="tile_preview_description_height" control_type="text">
-      <value/>
+      <value>35</value>
       <name locale="en_US">The height of the main block with the name and features (view tile)</name>
       <name locale="ru_RU">Высота общего блока с наименованием и характеристиками в превью (вид плиткой)</name>
       <description locale="ru_RU">В пикселях</description>
@@ -1049,7 +1049,7 @@
       <name locale="ru_RU">Показывать характеристики в превью товара вид "плиткой" (моб. версия)</name>
     </setting>
     <setting var="tile_mobile_preview_name_height" control_type="text">
-      <value>40</value>
+      <value>35</value>
       <name locale="en_US">The height of the block with the name view tile (mobile)</name>
       <name locale="ru_RU">Высота блока с наименованием в превью плиткой (моб. версия)</name>
       <description locale="ru_RU">В пикселях</description>
