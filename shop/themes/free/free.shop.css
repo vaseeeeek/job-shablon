@@ -3534,6 +3534,7 @@ input.filter-range_el {
 		vertical-align: middle;
 		min-width: 100%;
 		white-space: normal;
+		line-height: normal;
 }
 
 .product_gallery-images-main-el {
