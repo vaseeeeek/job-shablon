@@ -215,7 +215,15 @@
         {foreach $products as $p}
             {if $p.id}{$products_ids[] = $p.id}{/if}
         {/foreach}
-        {$size_image = '0x260'} {if $CategoryViewProducts == 'list'}{$size_image = '180'}{/if}
+        {$img_width = $theme_settings.width_grid_img|trim|default:'380'}
+        {$img_size = "`$img_width`x0"}
+        {if $CategoryViewProducts == 'tile'}
+            {$img_width_with_set = $theme_settings.width_grid_img|trim|default:'380'}
+            {$size_image = "`$img_width`x0"}
+        {/if}
+        {if $CategoryViewProducts == 'list'}
+            {$size_image = '180'}
+        {/if}
         {$products_images = $wa->shop->images($products_ids, $size_image)}
     {/if}
     <div class="products-{$CategoryViewProducts}-outer">

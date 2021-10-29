@@ -6003,7 +6003,7 @@ img.mfp-img {
     display: none
   }
 
-  .subcat-opened__el-icon ~ .sub-category-opened__subs, .sub-category-opened__subs, .menu-subcategory {
+  .subcat-opened__el-icon ~ .sub-category-opened__subs, .sub-category-opened__subs, .pos-rel .menu-subcategory {
     padding: 0 0 0 rem(15px);
     margin: 0
   }

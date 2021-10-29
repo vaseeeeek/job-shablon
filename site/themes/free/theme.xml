@@ -414,7 +414,7 @@
       </options>
     </setting>
     <setting var="get_menu_from" control_type="select">
-      <value>app-menu</value>
+      <value>catalog</value>
       <name locale="ru_RU">Источник ссылок</name>
       <name locale="en_US">Link Source</name>
       <options>
@@ -429,7 +429,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value>83</value>
+      <value>0</value>
       <name locale="en_US">Identifier from applications Menu</name>
       <name locale="ru_RU">Идентификатор из приложения Управление меню</name>
     </setting>
@@ -948,7 +948,7 @@
       <name locale="ru_RU">Превью товара</name>
     </setting>
     <setting var="product_preview_images_lazy" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Lazy images</name>
       <name locale="ru_RU">Ленивая загрузка картинок</name>
     </setting>
@@ -1030,7 +1030,7 @@
       <name locale="ru_RU">Показывать характеристики в превью товара вид "плиткой"</name>
     </setting>
     <setting var="tile_preview_name_height" control_type="text">
-      <value><![CDATA[35]]></value>
+      <value>35</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
       <name locale="ru_RU">Высота блока с наименованием в превью (вид плиткой)</name>
       <description locale="ru_RU">В пикселях</description>
@@ -2174,6 +2174,80 @@
       <value>#001a34</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
+    </setting>
+    <setting var="width_grid_img" control_type="text">
+      <value>300</value>
+      <name locale="ru_RU">Ширина изображения в списке товаров</name>
+    </setting>
+    <setting var="category_image_contain" control_type="select">
+      <value/>
+      <name locale="ru_RU">
+        Вместить фото
+      </name>
+      <tooltip locale="ru_RU">Фотография будет сжата до размеров контейнера</tooltip>
+      <options>
+        <option value="">
+          <name locale="ru_RU">Нет</name>
+        </option>
+        <option value="-Contain">
+          <name locale="ru_RU">Да</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_image_valign" control_type="select">
+      <value/>
+      <name locale="ru_RU">
+        Прижать фото
+      </name>
+      <tooltip locale="ru_RU">Прижать фото к верхней части контейнера</tooltip>
+      <options>
+        <option value="">
+          <name locale="ru_RU">Нет</name>
+        </option>
+        <option value="-Top">
+          <name locale="ru_RU">Да</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_image_size" control_type="select">
+      <value>manual</value>
+      <name locale="ru_RU">
+        Контейнер фото
+      </name>
+      <tooltip locale="ru_RU">Высота контейнера фотографии. Режим "Авто" работает только в тех магазинах, в которых владельцы следят за фотографиями. Т.е. все оригиналы фотографий обрабатываются заранее по заданным стандартам.</tooltip>
+      <options>
+        <option value="manual">
+          <name locale="ru_RU">Произвольный</name>
+        </option>
+        <option value="auto">
+          <name locale="ru_RU">Авто</name>
+        </option>
+        <option value="xs">
+          <name locale="ru_RU">XS</name>
+        </option>
+        <option value="s">
+          <name locale="ru_RU">S</name>
+        </option>
+        <option value="m">
+          <name locale="ru_RU">M</name>
+        </option>
+        <option value="l">
+          <name locale="ru_RU">L</name>
+        </option>
+        <option value="xl">
+          <name locale="ru_RU">XL</name>
+        </option>
+        <option value="xxl">
+          <name locale="ru_RU">XXL</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_image_size_manual" control_type="text">
+      <value><![CDATA[100%]]></value>
+      <name locale="ru_RU">
+        Контейнер фото (произвольный)
+      </name>
+      <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
   </settings>
   <locales>

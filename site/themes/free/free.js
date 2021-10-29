@@ -1933,7 +1933,6 @@ var productViewGrid = {
             dialog.fadeIn();
 
             var img = $this.find('.js-product-preview-img');
-            img.animate({maxHeight: "100%", maxWidth: "100%"}, 150);
 
         }, function () {
             var $this = $(this),
