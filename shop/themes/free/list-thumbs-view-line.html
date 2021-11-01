@@ -44,7 +44,7 @@
 <div class="Product__Item js-product-line js-preview-cart{if $_tileGelleryProductListPreviewy} grid-gallery js-grid-gallery{/if}">
     <div class="Product__Item-row Product__Item-top">
         <div class="Product__Item-left">
-            {$badge_html = $wa->shop->badgeHtml($p.badge)}
+            {$badge_html = $wa->shop->badgeHtml($p.badge)}2
             {if $badge_html}{$badge_html}{/if}
             {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
             <a class="Product__Item-img js-grid-block-gallery" href="{$p.frontend_url}" title="{$p.name}">

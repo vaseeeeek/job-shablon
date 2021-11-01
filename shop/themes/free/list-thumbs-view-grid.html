@@ -42,7 +42,6 @@
     {if isset($products_images[$p.id]) && !empty($products_images[$p.id])}
         {$images = array_values($products_images[$p.id])}
     {/if}
-
     {if $theme_settings.product_scroll_hover_gallery}
         {$isProductTilePreviewTileGallery = true}
     {/if}
@@ -149,9 +148,8 @@
                     </div>
                 {/if}
             </a>
-
         </div>
-        {if !$wa->isMobile() && $isProductTilePreviewTileGallery}
+        {if $isProductTilePreviewTileGallery}
             <div class="dotted-img">
                 <ul class="dotted-img__list">
                     {for $iteration=1 to $tile_length}
