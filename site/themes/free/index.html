@@ -49,7 +49,7 @@
 
         <!-- css -->
         {include file="color-settings.css.html"}
-        <link href="{$wa_theme_url}fonts/uicons-regular-rounded/css/uicons-regular-rounded.css?v{$wa_theme_version}"
+        <link href="{$wa_theme_url}fonts/free/style.css?v{$wa_theme_version}"
               rel="stylesheet"/>
         <link href="{$wa_theme_url}free.site.css?v{$wa_theme_version}" rel="stylesheet"/>
 
@@ -126,19 +126,7 @@
                                     {if $theme_settings.auto_search}
                                         <div class="ajax-search-result js-ajax-search-result"></div>
                                     {/if}
-{*                                    <i class="fa fa-search btn maincolor js-btn-form"></i>*}
-
-                                    <img id="svgFind" src="/wa-data/public/site/themes/free/img/forFonts/search.svg" alt="" >
-                                    {literal}
-                                        <style>
-                                            #svgFind{
-                                                position: absolute;
-                                                width: 21px;
-                                                right: 7px;
-                                                top: 8px;
-                                            }
-                                        </style>
-                                    {/literal}
+                                    <i class="fi-rr-search js-btn-form"></i>
                                 </div>
                             </form>
                         {/if}
@@ -216,20 +204,7 @@
                         <div class="js-preview-compare product-custom">
                             <a class="js-products-link product-custom--link" href="{$url}">
                                 <div class="product-custom_icon maincolor">
-                                    {literal}
-                                        <svg version="1.1" id="svgCompareHeader" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                             viewBox="0 0 695 718" style="enable-background:new 0 0 695 718;" xml:space="preserve">
-                                            <path d="M62,718H33c-18.2,0-33-14.8-33-33V220c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v465C95,703.2,80.2,718,62,718z"/>
-                                            <path d="M362,717h-29c-18.2,0-33-14.8-33-33V33c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v651C395,702.2,380.2,717,362,717z"/>
-                                            <path d="M662,717h-29c-18.2,0-33-14.8-33-33V429c0-18.2,14.8-33,33-33h29c18.2,0,33,14.8,33,33v255C695,702.2,680.2,717,662,717z"/>
-                                        </svg>
-                                    {/literal}
-                                    <style>
-                                        .Nav-product-custom #svgCompareHeader{
-                                            width:20px;
-                                        }
-                                    </style>
-
+                                    <div class="fi-rr-compare icon"></div>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
                                 </div>
                                 <span>Сравнение</span>
@@ -416,7 +391,7 @@
         </div>
     </footer>
 
-    <span class="btn-top {*icon fi-rr-angle-up *}sdСolor" id="move-to-top">
+    <span class="btn-top sdСolor" id="move-to-top">
 
             {literal}
                 <svg version="1.1" id="svgSrollToTop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

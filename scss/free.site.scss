@@ -41,16 +41,6 @@ pre {
   font-size: 1em
 }
 
-.icon {
-  font-family: uicons-regular-rounded !important;
-  font-style: normal;
-  font-weight: normal !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
 .link, a {
   color: #000;
   text-decoration: none;
@@ -4490,7 +4480,7 @@ a.button:hover {
   width: 15px;
   height: 15px;
   margin-right: rem(5px);
-  top: 3px;
+  top: -2px;
 }
 
 .style-check.checked:before, .jq-checkbox.checked:before, .jq-radio.checked:before, .radio-styler.checked:before {
@@ -5824,6 +5814,12 @@ img.mfp-img {
   vertical-align: middle;
 }
 
+.inp-search>i{
+  position: absolute;
+  font-size: rem(20px);
+  right: rem(10px);
+  top: rem(10px);
+}
 .Nav-search_btn-show {
   display: none;
   cursor: pointer;
@@ -5846,7 +5842,7 @@ img.mfp-img {
   border-radius: 3px;
   border-width: 2px!important;
 }
- 
+
 .ajax-search {
   background: #fff;
   color: #4d4d4d;
@@ -6909,7 +6905,8 @@ ul.pages-list li a {
 .admin-edit-links {
   position: fixed;
   bottom: 60px;
-  left: 20px
+  left: 20px;
+  z-index: 1100
 }
 
 .admin-edit-links__el, .btn-settings {
@@ -6922,7 +6919,9 @@ ul.pages-list li a {
   color: #fff;
   z-index: 1100
 }
-
+.admin-edit-links__el i{
+  line-height: 50px;
+}
 @media (max-width: 700px) {
   .btn-settings {
     display: none

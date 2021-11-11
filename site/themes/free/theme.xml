@@ -3,11 +3,9 @@
 <theme id="free" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="78">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
-  <description locale="en_US">Modern, comfortable, adaptive theme of design, developed for applications Site, Shop,
-        Blog, Photos.
+  <description locale="en_US">The Free family of themes for Webasyst applications.
     </description>
-  <description locale="ru_RU">Современная, удобная, адаптивная тема дизайна, разработанная для приложений Сайт,
-        Магазин, Блог, Фотогалерея
+  <description locale="ru_RU">Семейство тем Free для приложений Webasyst.
     </description>
   <files>
     <file path="index.html" custom="0">
@@ -68,11 +66,11 @@
   <settings>
     <setting var="divider_colors" control_type="group_divider">
       <value/>
-      <name locale="en_US">Decor</name>
-      <name locale="ru_RU">Оформление</name>
+      <name locale="en_US">Colors and font</name>
+      <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/red.yellow.green.png</value>
+      <value>img/themesettings/yellow.green.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -81,28 +79,33 @@
         <option value="img/themesettings/green.brown.png"/>
       </options>
     </setting>
-    <setting var="main_color" control_type="color">
-      <value>#4169e1</value>
-      <name locale="ru_RU">Основной цвет</name>
-      <name locale="en_US">Base color</name>
-      <description locale="ru_RU">Цвет панели с поиском, иконок и тд</description>
-      <description locale="en_US">Color of panel width search, icons and other</description>
-    </setting>
-    <setting var="bg_color_navogation" control_type="color">
-      <value>#ffffff</value>
-      <name locale="ru_RU">Цвет панели с поиском</name>
-      <name locale="en_US">Color of panel width catalog button and search form</name>
-      <description locale="ru_RU">Если не выбран то цвет берется из настройки "Основной цвет"</description>
-      <description locale="en_US">If not selected, the color is taken from the "Base Color"</description>
-    </setting>
     <setting var="second_color" control_type="color">
       <value>linear-gradient( 45deg , #390DFF, #0C1FE8, #005BFF,#0C93E8, #0DE1FF)</value>
-      <name locale="ru_RU">Цвет кнопок, активных ссылок и др</name>
-      <name locale="en_US">Color of buttons and other</name>
+      <name locale="ru_RU">Основной цвет</name>
+      <name locale="en_US">Main color</name>
+      <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8, #005BFF,#0C93E8, #0DE1FF)</description>
+      <description locale="en_US">You can use gradients - linear-gradient( 45deg , #390DFF, #0C1FE8, #005BFF,#0C93E8, #0DE1FF)</description>
+    </setting>
+    <setting var="main_color" control_type="color">
+      <value>#4169e1</value>
+      <name locale="ru_RU">Доп. цвет </name>
+      <name locale="en_US">Additional color</name>
+      <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
+      <description locale="en_US">It can be set the same as the main one if it is not a gradient.</description>
+    </setting>
+    <setting var="bg_color_navogation" control_type="color">
+      <value>#000</value>
+      <name locale="ru_RU">Цвет фона</name>
+      <name locale="en_US">Background color</name>
+    </setting>
+    <setting var="text_color_scheme" control_type="text">
+      <value>#000</value>
+      <name locale="ru_RU">Цвет шрифта</name>
+      <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
       <value>roboto</value>
-      <name locale="ru_RU">Основной шрифт</name>
+      <name locale="ru_RU">Шрифт</name>
       <options>
         <option value="helvetica">
           <name locale="ru_RU">Helvetica</name>
@@ -187,7 +190,7 @@
     <setting var="divider_header" control_type="group_divider">
       <value/>
       <name locale="en_US">Header</name>
-      <name locale="ru_RU">«Шапка» сайта</name>
+      <name locale="ru_RU">Шапка</name>
     </setting>
     <setting var="logo" control_type="image">
       <value>img/logo.png?v1632221726</value>
@@ -208,12 +211,12 @@
     <setting var="language_toggle" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Show language selector</name>
-      <name locale="ru_RU">Переключатель языка</name>
+      <name locale="ru_RU">Выбор языка</name>
     </setting>
     <setting var="currency_toggle" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Show currency selector</name>
-      <name locale="ru_RU">Переключатель валюты</name>
+      <name locale="ru_RU">Выбор валюты</name>
     </setting>
     <setting var="show_currency_flag" control_type="checkbox">
       <value>1</value>
@@ -222,14 +225,11 @@
     </setting>
     <setting var="header_top_links" control_type="select">
       <value>shop-pages</value>
-      <name locale="ru_RU">Ссылки в верхнем меню</name>
-      <name locale="en_US">Header links</name>
-      <description locale="ru_RU">Ссылки верхнего меню навигации могут определяться либо основной структурой сайта
-        (меню {$wa-&gt;apps()} настраивается в приложении «Сайт» в разделе «Настройки»), либо информационным
-        страницами выбранного приложения
+      <name locale="ru_RU">Ссылки на инф. страницы</name>
+      <name locale="en_US">Links to information pages</name>
+      <description locale="ru_RU">Из какого приложения брать ссылки на инф. страницы.
     </description>
-      <description locale="en_US">Top header menu links will be displayed according to the site core structure (as
-        defined in the Site app &gt; Settings &gt; {$wa-&gt;apps()}) or the list of selected app info pages
+      <description locale="en_US">From which application to take links to information pages.
     </description>
       <options>
         <option value="wa-apps">
@@ -264,64 +264,52 @@
     </setting>
     <setting var="id_app_header-top_menu" control_type="text">
       <value>83</value>
-      <name locale="en_US">Identifier from applications Menu for output in the top menu</name>
-      <name locale="ru_RU">идентификатор из приложения Меню для вывода в верхнем меню</name>
-      <description locale="ru_RU">Опция доступна при выбранном варианте "Из приложения меню" для опции "Ссылки в
-        верхнем меню"
+      <name locale="en_US">Application ID Menu</name>
+      <name locale="ru_RU">ID приложению Меню</name>
+      <description locale="ru_RU">Указать если выбран пункт "Из приложения меню" в настройке выше.
     </description>
-      <description locale="en_US">The option is available when the option "From app menu" is selected for the
-        option "Header links"
+      <description locale="en_US">Specify if the "From the application menu" option is selected in the settings above.
     </description>
     </setting>
     <setting var="display_header_top_menu_submenu" control_type="checkbox">
       <value>1</value>
-      <name locale="en_US">Display sub menu of header links</name>
-      <name locale="ru_RU">Выпадающие подпункты в верхнем меню</name>
+      <name locale="en_US">Sub-items in inf. pages</name>
+      <name locale="ru_RU">Подпункты в инф. страницах</name>
     </setting>
     <setting var="auth_popup" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Login in popup window</name>
-      <name locale="ru_RU">Авторизация в модальном окне</name>
+      <name locale="ru_RU">Авторизация во всплывающем окне</name>
     </setting>
     <setting var="plugin_callback" control_type="checkbox">
       <value>1</value>
-      <name locale="en_US">Display in the header the link "Request a call"</name>
-      <name locale="ru_RU">Вывести в шапке ссылку "Заказать звонок"</name>
+      <name locale="en_US">Request a call</name>
+      <name locale="ru_RU">Заказать звонок</name>
     </setting>
     <setting var="auto_search" control_type="checkbox">
       <value>1</value>
-      <name locale="ru_RU">Включить автопоиск</name>
-      <name locale="en_US">Autosearch on</name>
+      <name locale="ru_RU">Автопоиск</name>
+      <name locale="en_US">Autosearch</name>
     </setting>
     <setting var="plugin_search_pro" control_type="checkbox">
       <value/>
-      <name locale="en_US">Use the plugin Search Pro (Bodysite)</name>
-      <name locale="ru_RU">Используется плагин Поиск Pro (Bodysite)</name>
+      <name locale="en_US">Search Pro</name>
+      <name locale="ru_RU">Поиск Pro</name>
     </setting>
-    <setting var="region_plugin" control_type="select">
-      <value>cityselect</value>
-      <name locale="ru_RU">Плагин выбора города</name>
-      <name locale="en_US">Plugin for select city</name>
-      <options>
-        <option value="cityselect">
-          <name locale="ru_RU">Автоопределение и выбор города (Echo)</name>
-          <name locale="en_US">Autodetect and select city (Echo)</name>
-        </option>
-        <option value="">
-          <name locale="ru_RU">Нет</name>
-          <name locale="en_US">No</name>
-        </option>
-      </options>
+    <setting var="region_plugin" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU"> Плагин "Автоопределение и выбор города"</name>
+      <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
     <setting var="divider_main_categories" control_type="group_divider">
       <value/>
-      <name locale="en_US">Dropdown categories menu</name>
-      <name locale="ru_RU">Выпадающее меню категорий</name>
+      <name locale="en_US">Product categories ("Catalog" button)</name>
+      <name locale="ru_RU">Меню категорий товаров (кнопка "Каталог")</name>
     </setting>
     <setting var="max_cat_lvl" control_type="select">
       <value>3</value>
-      <name locale="en_US">Number of levels in the category menu in the header</name>
-      <name locale="ru_RU">Количество уровней в выпадающем меню категорий</name>
+      <name locale="en_US">Depth of subcategories</name>
+      <name locale="ru_RU">Глубина подкатегорий</name>
       <options>
         <option value="1">
           <name locale="ru_RU">1</name>
@@ -339,41 +327,39 @@
     </setting>
     <setting var="max_num_cat_dd" control_type="text">
       <value>10</value>
-      <name locale="ru_RU">Максимальное количество категорий в выпадающем меню категорий</name>
-      <name locale="en_US">Maximum number of categories in the drop-down list</name>
-      <description locale="ru_RU">Остальные категории скроются за пунктом "Еще". Если поле пустое, выводятся все
-        категории.
+      <name locale="ru_RU">Кол-во категорий до кнопки "Ещё"</name>
+      <name locale="en_US">Number of categories before the "More" button</name>
+      <description locale="ru_RU">Оставьте пустым, чтобы вывести все.
     </description>
-      <description locale="en_US">Other categories will be hidden behind the "More". If the empty field displays
-        all categories
+      <description locale="en_US">Leave it blank to output everything.
     </description>
     </setting>
     <setting var="col_menu_subcat" control_type="select">
       <value>one_column</value>
-      <name locale="ru_RU">Вид подменю категорий</name>
-      <name locale="en_US">View sub-categories</name>
+      <name locale="ru_RU">Разбивать категории на колонки</name>
+      <name locale="en_US">Break categories into columns</name>
       <description locale="ru_RU">Для каждой категории первого уровня можно индивидуально настроить вид
         выпадающего подменю, указав Дополнительный параметр "submenu_columns" со значениями: "one_column" (1
-        колонка), "columns" (несколько колонок)
+        колонка), "columns" (несколько колонок)!!!
     </description>
       <description locale="en_US">For each category of the first level, you can customize the appearance of the
         drop-down submenu by specifying an optional parameter "submenu_columns" with the values: "one_column",
-        "columns"
+        "columns"!!!
     </description>
       <options>
         <option value="one_column">
-          <name locale="ru_RU">В одну колонку</name>
-          <name locale="en_US">One column</name>
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">None</name>
         </option>
         <option value="columns">
-          <name locale="ru_RU">В несколько колонок</name>
-          <name locale="en_US">Columns</name>
+          <name locale="ru_RU">Да</name>
+          <name locale="en_US">Yes</name>
         </option>
       </options>
     </setting>
     <setting var="type_menu_subcat" control_type="select">
       <value>column</value>
-      <name locale="ru_RU">Выравнивание подменю категорий</name>
+      <name locale="ru_RU">Выравнивание подменю категорий!!!</name>
       <name locale="en_US">Alignment sub-categories</name>
       <description locale="ru_RU">Настройка доступна если для опции "Вид подменю категорий" выбрано "В несколько
         колонок"
@@ -394,33 +380,27 @@
     </setting>
     <setting var="cat_menu_dd_relative" control_type="select">
       <value>parent</value>
-      <name locale="ru_RU">Вывод выпадающего списка подкатегорий</name>
-      <name locale="en_US">Output of a drop-down list of subcategories</name>
-      <description locale="ru_RU">Рекомендуется выбрать "Относительно родительской категории" если первый уровень
-        категорий очень длинный.
-    </description>
-      <description locale="en_US">It is recommended that you select "Relative to the parent category" if in the
-        first level of categories is very long.
-    </description>
+      <name locale="ru_RU">Позиция выпадающего списка категорий</name>
+      <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
-        <option value="all">
-          <name locale="ru_RU">Относительно всего блока</name>
-          <name locale="en_US">Relatively the whole block</name>
-        </option>
         <option value="parent">
-          <name locale="ru_RU">Относительно родительской категории</name>
-          <name locale="en_US">Relatively the parent category</name>
+          <name locale="ru_RU">Рядом с выбранной категории</name>
+          <name locale="en_US">Next to the selected category</name>
+        </option>
+        <option value="all">
+          <name locale="ru_RU">Блок в полную высоту категорий</name>
+          <name locale="en_US">Block in full height categories</name>
         </option>
       </options>
     </setting>
     <setting var="get_menu_from" control_type="select">
       <value>catalog</value>
-      <name locale="ru_RU">Источник ссылок</name>
-      <name locale="en_US">Link Source</name>
+      <name locale="ru_RU">Категории брать из</name>
+      <name locale="en_US">Categories to take from</name>
       <options>
         <option value="catalog">
-          <name locale="ru_RU">Категории каталога</name>
-          <name locale="en_US">Categories</name>
+          <name locale="ru_RU">Дерева категорий в админке</name>
+          <name locale="en_US">Category tree in the admin panel</name>
         </option>
         <option value="app-menu">
           <name locale="ru_RU">Из приложения Управление меню</name>
@@ -430,13 +410,13 @@
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
       <value>0</value>
-      <name locale="en_US">Identifier from applications Menu</name>
-      <name locale="ru_RU">Идентификатор из приложения Управление меню</name>
+      <name locale="en_US">ID from applications Menu</name>
+      <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="divider_mainpage" control_type="group_divider">
       <value/>
-      <name locale="en_US">Mainpage</name>
-      <name locale="ru_RU">Главная страница</name>
+      <name locale="en_US">Main</name>
+      <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="desc_mainpage_slider" control_type="paragraph">
       <value/>
@@ -447,31 +427,29 @@
       <value>promos</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
+      <description locale="ru_RU">ID для опции "Товары из списка" задавать в настройке ниже.
+            </description>
+      <description locale="en_US">The ID for the "Products from the list" option is set in the settings below.
+            </description>
       <options>
         <option value="promos">
-          <name locale="ru_RU">Промо</name>
-          <name locale="en_US">Promos</name>
+          <name locale="ru_RU">Акции из раздела маркетинг</name>
+          <name locale="en_US">Promotions from the marketing section</name>
         </option>
         <option value="products">
-          <name locale="ru_RU">Товары</name>
-          <name locale="en_US">Products</name>
-          <description locale="ru_RU">В слайдере будут показаны товары из списка, идентификатор которого задан
-                настройкой ниже. Новые списки товаров создаются в разделе Товары &gt; Списки.
-            </description>
-          <description locale="en_US">Slider will present products from a product set which ID is specified in
-                the setting below. New product sets can be created in Products &gt; Sets.
-            </description>
+          <name locale="ru_RU">Товары из списка</name>
+          <name locale="en_US">Products from the list</name>
         </option>
         <option value="hidden">
-          <name locale="ru_RU">Не показывать слайдер</name>
-          <name locale="en_US">Don’t show the slider</name>
+          <name locale="ru_RU">Не показывать</name>
+          <name locale="en_US">None</name>
         </option>
       </options>
     </setting>
     <setting var="slider_scroll_pause_auto" control_type="text">
       <value>2</value>
       <name locale="en_US">Slider pause</name>
-      <name locale="ru_RU">Задержка слайдера</name>
+      <name locale="ru_RU">Задержка слайдера!!!вырезать</name>
       <description locale="en_US">Specify the value in seconds. If the value is zero, the automatic sheet turns
         off
     </description>
@@ -480,20 +458,18 @@
     </description>
     </setting>
     <setting var="id_promo_list_slider" control_type="text">
-      <value/>
+      <value>bestsellers</value>
       <name locale="en_US">Slider product set ID</name>
-      <name locale="ru_RU">Идентификатор списка товаров в слайдере</name>
-      <description locale="ru_RU">Идентификатор списка товаров в слайдере. Товары из этого списка будут показаны в
-        слайдере, если так указано в настройке слайдера выше.
+      <name locale="ru_RU">ID списка товаров в слайдере</name>
+      <description locale="ru_RU">Работает в паре с настройкой выше.
     </description>
-      <description locale="en_US">Products from this list will be shown in the storefront slider if it is setup
-        that way in the setting above.
+      <description locale="en_US">Works in conjunction with the setting above.
     </description>
     </setting>
     <setting var="size_slider_feat" control_type="select">
       <value>full</value>
       <name locale="en_US">Characteristics of goods in the slider</name>
-      <name locale="ru_RU">Характеристики товаров в слайдер</name>
+      <name locale="ru_RU">Характеристики товаров в слайдер!!!вырезать</name>
       <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик
         в списках товаров и в карточку товара (блок справа)". Если выбран вариант "Первые характеристики", то
         необходимо заполнить опцию "Количество выводимых характеристик"
@@ -523,7 +499,7 @@
     </setting>
     <setting var="size_slider_feat_count" control_type="text">
       <value>3</value>
-      <name locale="ru_RU">Количество выводимых характеристик</name>
+      <name locale="ru_RU">Количество выводимых характеристик!!!вырезать</name>
       <name locale="en_US">Number of output characteristics</name>
       <description locale="ru_RU">Доступно, если для опции "Характеристики товаров в слайдер" выбран вариант
         "Первые характеристики"
@@ -534,7 +510,7 @@
     </setting>
     <setting var="id_slider_promo" control_type="text">
       <value>0,1</value>
-      <name locale="ru_RU">Промо-карточки в слайдере</name>
+      <name locale="ru_RU">Промо-карточки в слайдере!!!вырезать, проверить что без этой настройки выводятся все активные акции</name>
       <name locale="en_US">Promo cards in slider</name>
       <description locale="ru_RU">Укажите номера промокарточек, через запятую без пробелов. Номер карточки
         соответствует позиции в списке, начиная с нуля.
@@ -545,16 +521,16 @@
     </setting>
     <setting var="desc_mainpage_categories" control_type="paragraph">
       <value/>
-      <name locale="en_US">Categories list</name>
-      <name locale="ru_RU">Список категорий</name>
+      <name locale="en_US">Categories</name>
+      <name locale="ru_RU">Категории</name>
     </setting>
     <setting var="home_categories_title" control_type="text">
       <value>Категории</value>
-      <name locale="ru_RU">Загаловок категорий</name>
+      <name locale="ru_RU">Загаловок</name>
     </setting>
     <setting var="categories_home_page" control_type="select">
-      <value>1</value>
-      <name locale="ru_RU">Выводить список категорий в контенте на главной</name>
+      <value/>
+      <name locale="ru_RU">Выводить список категорий в контенте на главной!!!вырезать</name>
       <name locale="en_US">Show categories in content on mainpage</name>
       <options>
         <option value="1">
@@ -569,8 +545,8 @@
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
       <value/>
-      <name locale="ru_RU">Максимальное кол-во подкатегорий</name>
-      <name locale="en_US">Maximum number of subcategories</name>
+      <name locale="ru_RU">Кол-во категорий 2 уровня</name>
+      <name locale="en_US">Number of categories of level 2</name>
     </setting>
     <setting var="desc_mainpage_lists" control_type="paragraph">
       <value/>
@@ -579,18 +555,18 @@
     </setting>
     <setting var="homepage_product_list_1_title" control_type="text">
       <value>Лучшие предложения</value>
-      <name locale="en_US">Title above the product list #1 on mainpage</name>
-      <name locale="ru_RU">Заголовок над списком товаров #1 на главной</name>
+      <name locale="en_US">The title of the sales hits</name>
+      <name locale="ru_RU">Заголовок хитов продаж</name>
     </setting>
     <setting var="homepage_product_list_1" control_type="text">
       <value>bestsellers</value>
-      <name locale="en_US">ID product list #1 on mainpage</name>
-      <name locale="ru_RU">Идентификатор списка #1 на главной</name>
+      <name locale="en_US">ID of the list of sales hits</name>
+      <name locale="ru_RU">ID списка хиты продаж</name>
     </setting>
     <setting var="homepage_product_list_1_line" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">By default, print 2 lines in the list #1</name>
-      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #1</name>
+      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #1!!!вырезать, всегда слайдер как в карточке товара</name>
       <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант
         "Списком"
     </description>
@@ -600,18 +576,18 @@
     </setting>
     <setting var="homepage_product_list_2_title" control_type="text">
       <value>Новинки</value>
-      <name locale="en_US">Title above the product list #2 on mainpage</name>
-      <name locale="ru_RU">Заголовок над списком товаров #2 на главной</name>
+      <name locale="en_US">Title of new products</name>
+      <name locale="ru_RU">Заголовок новинок</name>
     </setting>
     <setting var="homepage_product_list_2" control_type="text">
       <value>new</value>
-      <name locale="en_US">ID product list #2 on mainpage</name>
-      <name locale="ru_RU">Идентификатор списка #2 на главной</name>
+      <name locale="en_US">ID of the novelty list</name>
+      <name locale="ru_RU">ID списка новинки</name>
     </setting>
     <setting var="homepage_product_list_2_line" control_type="checkbox">
       <value/>
       <name locale="en_US">By default, print 2 lines in the list #2</name>
-      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #2</name>
+      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #2!!!вырезать, всегда слайдер как в карточке товара</name>
       <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант
         "Списком"
     </description>
@@ -621,18 +597,18 @@
     </setting>
     <setting var="homepage_product_list_3_title" control_type="text">
       <value/>
-      <name locale="en_US">Title above the product list #3 on mainpage</name>
-      <name locale="ru_RU">Заголовок над списком товаров #3 на главной</name>
+      <name locale="en_US">Sale Title</name>
+      <name locale="ru_RU">Заголовок распродажи</name>
     </setting>
     <setting var="homepage_product_list_3" control_type="text">
       <value/>
-      <name locale="en_US">ID product list #3 on mainpage</name>
-      <name locale="ru_RU">Идентификатор списка #3 на главной</name>
+      <name locale="en_US">ID of the sale list</name>
+      <name locale="ru_RU">ID списка распродажи</name>
     </setting>
     <setting var="homepage_product_list_3_line" control_type="checkbox">
       <value/>
       <name locale="en_US">By default, print 2 lines in the list #3</name>
-      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #3</name>
+      <name locale="ru_RU">По умолчанию выводить 2 строки в списке #3!!!вырезать, всегда слайдер как в карточке товара</name>
       <description locale="ru_RU">Опция доступна, если в опции "Оформление списков на главной" выбран вариант
         "Списком"
     </description>
@@ -643,7 +619,7 @@
     <setting var="homepage_product_view" control_type="select">
       <value>carousel</value>
       <name locale="en_US">View of products lists on the main</name>
-      <name locale="ru_RU">Оформление списков товаров на главной</name>
+      <name locale="ru_RU">Оформление списков товаров на главной!!!вырезать, всегда слайдер как в карточке товара</name>
       <options>
         <option value="carousel">
           <name locale="ru_RU">Карусель</name>
@@ -663,26 +639,26 @@
     <setting var="use_plugin_brands" control_type="select">
       <value>brands</value>
       <name locale="en_US">Plugin of Brands</name>
-      <name locale="ru_RU">Использование плагина Брендов</name>
+      <name locale="ru_RU">Плагин брендов</name>
       <options>
         <option value="brands_pro">
-          <name locale="ru_RU">Бренды PRO (Bodysite)</name>
-          <name locale="en_US">Brands Pro (Bodysite)</name>
+          <name locale="ru_RU">Бренды PRO</name>
+          <name locale="en_US">Brands Pro</name>
         </option>
         <option value="brands">
-          <name locale="ru_RU">Бренды с картинками и описаниями (wa-apps)</name>
-          <name locale="en_US">Brands with images and descriptions (wa-apps)</name>
+          <name locale="ru_RU">Бренды с картинками и описаниями wa-apps.ru</name>
+          <name locale="en_US">Brands with images and descriptions wa-apps.ru</name>
         </option>
         <option value="">
-          <name locale="ru_RU">Не используется</name>
-          <name locale="en_US">Not use</name>
+          <name locale="ru_RU">Нет</name>
+          <name locale="en_US">None</name>
         </option>
       </options>
     </setting>
     <setting var="brands_mainpage" control_type="select">
       <value>all</value>
       <name locale="en_US">Brands on homepage</name>
-      <name locale="ru_RU">Бренды на главной</name>
+      <name locale="ru_RU">Бренды на главной!!че это за настройка, почему недостаточно той что выше</name>
       <options>
         <option value="all">
           <name locale="ru_RU">Выводить все</name>
@@ -697,33 +673,28 @@
     <setting var="home_brands_ids" control_type="text">
       <value/>
       <name locale="en_US"/>
-      <name locale="ru_RU">Id брендов на главной</name>
+      <name locale="ru_RU">ID брендов на главной</name>
     </setting>
     <setting var="desc_mainpage_welcome" control_type="paragraph">
       <value/>
-      <name locale="en_US">Welcome text</name>
-      <name locale="ru_RU">Приветственный текст</name>
+      <name locale="en_US">Text on the main page</name>
+      <name locale="ru_RU">Текст на главной</name>
     </setting>
     <setting var="home_text_head" control_type="text">
-      <value>Добро пожаловать в интернет-магазин free</value>
-      <name locale="en_US">Head welcome head</name>
-      <name locale="ru_RU">Заголовок приветствия</name>
+      <value>Интернет-магазин на шаблоне Free</value>
+      <name locale="en_US">The title of the text on the main page</name>
+      <name locale="ru_RU">Заголовок текста на главной</name>
     </setting>
     <setting var="home_text_note" control_type="text">
-      <value><![CDATA[<p>Интернет-магазин free предоставляет широкий ассортимент товаров c более двухсот разделов и
-                2000 наименований. Мы работаем по всей России, а также по странам СНГ, выполняя самую быструю доставку в
-                любой населенный пункт.</p> <p> За пять лет работы мы нарастили большую клиентскую базу.3000
-                клиентов, которые повторно обращаются за нашими услугами. </p> <p> У нас самые низкие цены
-                на товары, Но если Вы найдете дешевле, мы обязательно снизим цену! Так же у нас постоянно проводятся
-                акции и распродажи на разные группы товаров. </p>
+      <value><![CDATA[<p>Разрабатываем шаблоны и плагины на движке Shop-Script. Оказываем услуги разработки, верстки, дизайна, парсинга и немного продвижения. Обращайтесь по любым вопросам на почту info@ardoz.ru.</p>
             ]]></value>
-      <name locale="en_US">Welcome note (HTML)</name>
-      <name locale="ru_RU">Приветствие (HTML)</name>
+      <name locale="en_US">The text on the main page. You can use html.</name>
+      <name locale="ru_RU">Текст на главной. Можно использовать html.</name>
     </setting>
     <setting var="widget_code_1" control_type="text">
       <value/>
       <name locale="en_US">Widget Plugin code #1</name>
-      <name locale="ru_RU">Виджет #1</name>
+      <name locale="ru_RU">Виджет #1!!!вырезать</name>
       <description locale="en_US">Embed your Facebook page badge code here or any other social network
     </description>
       <description locale="ru_RU">Поместите в это поле код виджета вашей страницы на Фейсбуке или другой соц.
@@ -733,7 +704,7 @@
     <setting var="widget_code_2" control_type="text">
       <value/>
       <name locale="en_US">Widget Plugin code #2</name>
-      <name locale="ru_RU">Виджет #2</name>
+      <name locale="ru_RU">Виджет #2!!!вырезать</name>
       <description locale="en_US">Embed your Facebook page badge code here or any other social network
     </description>
       <description locale="ru_RU">Поместите в это поле код виджета вашей страницы на Фейсбуке или другой соц.
@@ -743,7 +714,7 @@
     <setting var="desc_mainpage_blog" control_type="paragraph">
       <value/>
       <name locale="en_US">Last news</name>
-      <name locale="ru_RU">Последние новости</name>
+      <name locale="ru_RU">Последние новости!!!временно вырезаем все что касается блога</name>
     </setting>
     <setting var="home_lastposts" control_type="checkbox">
       <value>1</value>
@@ -794,43 +765,43 @@
     </setting>
     <setting var="divider_catalog" control_type="group_divider">
       <value/>
-      <name locale="en_US">Catalog</name>
-      <name locale="ru_RU">Каталог</name>
+      <name locale="en_US">List of products</name>
+      <name locale="ru_RU">Список товаров</name>
     </setting>
     <setting var="pagination" control_type="select">
       <value>paging</value>
-      <name locale="en_US">Long lists display</name>
-      <name locale="ru_RU">Длинные списки</name>
+      <name locale="en_US">Uploading a list of products</name>
+      <name locale="ru_RU">Подгрузка товаров</name>
       <options>
         <option value="lazyloading">
-          <name locale="ru_RU">Lazy loading: автоматическая подгрузка при скролле</name>
-          <name locale="en_US">Lazy loading: auto load on scroll</name>
+          <name locale="ru_RU">Автоматически при скролле (lazy load)</name>
+          <name locale="en_US">Automatically when scrolling (lazy load)</name>
         </option>
         <option value="paging">
-          <name locale="ru_RU">1 2 3 4: Постраничная навигация</name>
-          <name locale="en_US">1 2 3 4: Paginated lists</name>
+          <name locale="ru_RU">Постранично</name>
+          <name locale="en_US">Page by page</name>
         </option>
       </options>
     </setting>
     <setting var="compare" control_type="checkbox">
       <value>1</value>
-      <name locale="en_US">Allow product comparison</name>
-      <name locale="ru_RU">Разрешить сравнение товаров</name>
+      <name locale="en_US">Comparison</name>
+      <name locale="ru_RU">Сравнение</name>
     </setting>
     <setting var="favorites" control_type="checkbox">
       <value>1</value>
-      <name locale="en_US">Allow to add products to Favorites</name>
-      <name locale="ru_RU">Разрешить добавление товаров в избранное</name>
+      <name locale="en_US">Favourites</name>
+      <name locale="ru_RU">Избранное</name>
     </setting>
     <setting var="product_preview_dialog" control_type="checkbox">
       <value>1</value>
-      <name locale="en_US">Preview Dialog Item Card</name>
-      <name locale="ru_RU">Предпросмотр карточки товара</name>
+      <name locale="en_US">Quick View</name>
+      <name locale="ru_RU">Быстрый просмотр</name>
     </setting>
     <setting var="product_addtocart_mini_dialog" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Minimum type of product option selection</name>
-      <name locale="ru_RU">Минимальный вид выбора опций товара</name>
+      <name locale="ru_RU">Минимальный вид выбора опций товара!!!</name>
       <description locale="en_US">This means the output of a modal window with a choice of options when adding a
         product from the lists
     </description>
@@ -840,23 +811,23 @@
     </setting>
     <setting var="color_sticker_hit" control_type="color">
       <value/>
-      <name locale="ru_RU">Цвет для стикера Хит!</name>
-      <name locale="en_US">Color of sticker Hit!</name>
+      <name locale="ru_RU">Наклейка хит</name>
+      <name locale="en_US">Sticker hit</name>
     </setting>
     <setting var="color_sticker_new" control_type="color">
       <value/>
-      <name locale="ru_RU">Цвет для стикера New!</name>
-      <name locale="en_US">Color of sticker New!</name>
+      <name locale="ru_RU">Наклейка новинка</name>
+      <name locale="en_US">The sticker is new</name>
     </setting>
     <setting var="color_sticker_discount" control_type="color">
       <value/>
-      <name locale="ru_RU">Цвет для стикера Скидка!</name>
-      <name locale="en_US">Color of sticker Discount!</name>
+      <name locale="ru_RU">Наклейка скидка</name>
+      <name locale="en_US">Sticker discount</name>
     </setting>
     <setting var="product_discount_percentage" control_type="select">
       <value>1</value>
-      <name locale="ru_RU">Стикер скидки, %</name>
-      <name locale="en_US">Badge of discount, %</name>
+      <name locale="ru_RU">Включить скидку в процентах</name>
+      <name locale="en_US">Include a discount as a percentage</name>
       <options>
         <option value="1">
           <name locale="ru_RU">Да</name>
@@ -870,12 +841,12 @@
     </setting>
     <setting var="color_badge_discount" control_type="color">
       <value/>
-      <name locale="ru_RU">Цвет для стикера скидки</name>
-      <name locale="en_US">Color of sticker discount</name>
+      <name locale="ru_RU">Наклейка скидки в процентах</name>
+      <name locale="en_US">Sticker discounts as a percentage</name>
     </setting>
     <setting var="badge_saving" control_type="select">
       <value>1</value>
-      <name locale="ru_RU">Стикер экономии</name>
+      <name locale="ru_RU">Стикер экономии!!!вырезать</name>
       <name locale="en_US">A badge of benefit</name>
       <options>
         <option value="1">
@@ -889,25 +860,25 @@
       </options>
     </setting>
     <setting var="color_badge_saving_font" control_type="color">
-      <value/>
-      <name locale="ru_RU">Цвет стикера экономии</name>
+      <value>#c33434</value>
+      <name locale="ru_RU">Цвет стикера экономии!!!вырезать</name>
       <name locale="en_US">Color of sticker benefit</name>
       <description locale="ru_RU">.</description>
       <description locale="en_US">.</description>
     </setting>
     <setting var="product_ratings" control_type="checkbox">
       <value>1</value>
-      <name locale="en_US">Show rates products</name>
-      <name locale="ru_RU">Показывать рейтинги продуктов</name>
+      <name locale="en_US">Product rating</name>
+      <name locale="ru_RU">Рейтинг товара</name>
     </setting>
     <setting var="fastorder" control_type="select">
-      <value/>
+      <value>quickorder</value>
       <name locale="en_US">Plugin fast order</name>
       <name locale="ru_RU">Плагин Быстрого заказа</name>
       <options>
-        <option value="buy1click">
-          <name locale="ru_RU">Купить в 1 клик (от Bodysite)</name>
-          <name locale="en_US">Buy in 1 click (from Bodysite)</name>
+        <option value="quickorder">
+          <name locale="ru_RU">Купить в 1 клик - quickorder</name>
+          <name locale="en_US">Buy in 1 click - quickorder</name>
         </option>
         <option value="">
           <name locale="ru_RU">Отключить</name>
@@ -916,19 +887,19 @@
       </options>
     </setting>
     <setting var="text_zero_price" control_type="text">
-      <value locale="ru_RU">Цена по запросу</value>
-      <value locale="en_US">Price by request</value>
-      <name locale="ru_RU">Текст вместо нулевой цены</name>
-      <name locale="en_US">Text instead of zero price</name>
+      <value locale="ru_RU">По запросу</value>
+      <value locale="en_US">By request</value>
+      <name locale="ru_RU">Текст при нулевой цене</name>
+      <name locale="en_US">Text at zero price</name>
     </setting>
     <setting var="text_product_preorder" control_type="text">
       <value locale="ru_RU"/>
       <value locale="en_US"/>
-      <name locale="ru_RU">Текст вместо надписи "Под заказ"</name>
-      <name locale="en_US">Text instead "Pre-order only"</name>
+      <name locale="ru_RU">Текст надписи "Под заказ"</name>
+      <name locale="en_US">Text of the inscription "Under the order"</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value>obrezka,obem,sun</value>
+      <value></value>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
         right)
@@ -2170,11 +2141,6 @@
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
-    <setting var="text_color_scheme" control_type="text">
-      <value>#001a34</value>
-      <name locale="ru_RU">Цвет шрифта</name>
-      <name locale="en_US"/>
-    </setting>
     <setting var="width_grid_img" control_type="text">
       <value>300</value>
       <name locale="ru_RU">Ширина изображения в списке товаров</name>
@@ -2243,7 +2209,7 @@
       </options>
     </setting>
     <setting var="category_image_size_manual" control_type="text">
-      <value><![CDATA[100%]]></value>
+      <value>100%</value>
       <name locale="ru_RU">
         Контейнер фото (произвольный)
       </name>

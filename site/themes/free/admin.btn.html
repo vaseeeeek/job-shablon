@@ -44,32 +44,7 @@
     <div class="admin-edit-links">
         {foreach $quick_links_arr as $link}
             <a class="admin-edit-links__el" target="_blank" href="{$link.href}" title="{$link.name}">
-{*                <i class="fa fa-pencil" aria-hidden="true"></i>*}
-                {literal}
-                    <svg version="1.1" id="svgPen" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                     y="0px" viewBox="0 0 677 677" style="enable-background:new 0 0 677 677;" xml:space="preserve">
-                    <style type="text/css">
-                        .admin-edit-links__el .st0{fill:none;stroke:#000000;stroke-width:35;stroke-miterlimit:10;}
-                    </style>
-                                            <path class="st0" d="M659.5,338.5v263c0,32-26,58-58,58H75.4c-32,0-57.9-26-57.9-58V75.9c0-32,25.9-57.9,57.9-57.9l273.1-0.4"/>
-                                            <path class="st0" d="M219,489.8l99.3-30.5c4.8-1.5,9.3-4.3,13-8.1l219.4-231.7c10.3-10.9,10.9-26.8,1.4-35.4l-78.1-70.9
-                        c-9.2-8.4-24.6-6.8-34.7,3.6L217.6,344.5c-4.2,4.3-7,9.7-8,15.3l-18.9,105.5C187.5,482.5,202,495,219,489.8z"/>
-                                            <polyline class="st0" points="268.8,403.6 213,349.2 324.7,458.1 "/>
-                    </svg>
-                    <style>
-                        #svgPen{
-                            width: 25px;
-                        }
-                        #svgPen * {
-                            stroke: #fff;
-                        }
-                        .admin-edit-links__el {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        }
-                    </style>
-                {/literal}
+                <i class="fi-rr-pen"></i>
             </a>
         {/foreach}
     </div>

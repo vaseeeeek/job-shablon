@@ -159,7 +159,7 @@ $html-font-size: 14px;
 
 .addtocart--large {
   height: 30px;
-  line-height: 30px
+  line-height: 25px;
 }
 
 .addtocart--mini {
@@ -6257,10 +6257,6 @@ input[type=button].storequickorder-button:hover {
 
     .ruble {
       position: relative;
-
-      &:before {
-        position: absolute;
-      }
     }
   }
 
@@ -6743,7 +6739,7 @@ button.owl-dot {
   color: #000;
 }
 
-.product-action.add-to-favorite .fi-rr-heart {
+.product-action.add-to-compare i, .product-action.add-to-favorite i{
   font-size: rem(13px);
   display: flex;
   align-items: center;
@@ -6869,7 +6865,7 @@ button.owl-dot {
 
   .dotted-img {
     padding-bottom: rem(5px);
-    min-height: 8px;
+    min-height: rem(8px);
   }
 
   .grid-gallery__list {
