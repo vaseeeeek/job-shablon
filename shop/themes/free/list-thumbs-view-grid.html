@@ -122,15 +122,9 @@
                     {/if}
                 {/if}
 
-                {$_badge_saving = ($theme_settings.badge_saving == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
                 {$_badge_percent = ($theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
-                {if $_badge_saving || $_badge_percent}
+                {if $_badge_percent}
                     <div class="Product-grid_discounts">
-                        {if $_badge_saving}
-                            {$product_price_saving = $product.price - $product.compare_price}
-                            <span class="product-price-saving">{shop_currency_html($product_price_saving)}</span>
-                        {/if}
-
                         {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
                             {$discount = (($compare_price-$price)/$compare_price)*100}
                             {$discount = ceil($discount)}

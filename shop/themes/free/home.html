@@ -4,40 +4,34 @@
 <div class="container">
     {include file="slider.html"}
 </div>
-    {if $theme_settings.categories_home_page}
-        {$categories = $wa->shop->categories(0, null, true, true)}
-        {if count($categories) > 0}
-            <div class="container">
-                <div class="homepage-categories">
-                    {if class_exists('shopWmimageincatPlugin')}
-                        {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
-                    {/if}
+    {$categories = $wa->shop->categories(0, null, true, true)}
+    {if count($categories) > 0}
+        <div class="container">
+            <div class="homepage-categories">
+                {if class_exists('shopWmimageincatPlugin')}
+                    {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+                {/if}
 
-                    {if $theme_settings.home_categories_title}
-                        <div class="home-products_head-outer">
-                            <div class="container">
-                                <div class="home-products_head">
-                                    <div class="home-products__title">{$theme_settings.home_categories_title}</div>
-                                </div>
+                {if $theme_settings.home_categories_title}
+                    <div class="home-products_head-outer">
+                        <div class="container">
+                            <div class="home-products_head">
+                                <div class="home-products__title">{$theme_settings.home_categories_title}</div>
                             </div>
                         </div>
-                    {/if}
+                    </div>
+                {/if}
 
-                    {if $theme_settings.total_max_maxcat_homepage}
-                        {include file="home.scat.html" categories=$categories}
-                    {else}
-                        {include file="categories.grid.html" categories=$categories}
-                    {/if}
-                </div>
+                {if $theme_settings.total_max_maxcat_homepage}
+                    {include file="home.scat.html" categories=$categories}
+                {else}
+                    {include file="categories.grid.html" categories=$categories}
+                {/if}
             </div>
-        {/if}
+        </div>
     {/if}
 
-{if $theme_settings.homepage_product_view == "carousel"}
-    {$product_list_file = "home.products.view-carousel.html"}
-{else}
-    {$product_list_file = "home.products.view-list.html"}
-{/if}
+{$product_list_file = "home.products.view-carousel.html"}
 
 {include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_1 list_title=$theme_settings.homepage_product_list_1_title}
 {include file=$product_list_file products_list_id=$theme_settings.homepage_product_list_2 list_title=$theme_settings.homepage_product_list_2_title}
@@ -56,16 +50,6 @@
     {* @event frontend_homepage.%plugin_id% *}
     {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
 </div>
-
-{$is_news = false}
-{if ($theme_settings.home_lastposts && $wa->blog)}
-    {$blog_id = (int)$theme_settings.homepage_blog_id}
-    {if empty($blog_id)}{$blog_id = null}{/if}
-    {$blog_posts = $wa->blog->posts($blog_id,5)}
-    {if !empty($blog_posts) && count($blog_posts)}
-        {$is_news = true}
-    {/if}
-{/if}
 
 {if !empty($theme_settings.home_text_head) || !empty($theme_settings.home_text_note) || !empty($is_news) || $countWidgets > 0}
     <div class="homepage-text-outer">

@@ -36,18 +36,15 @@
 }
 .fi-rr-chetyrecherta:before {
   content: "\e900";
-  color: #e8e8e8;
 }
 .fi-rr-chetyrekvadrata:before {
   content: "\e901";
-  color: #e8e8e8;
 }
 .fi-rr-search:before {
   content: "\e902";
 }
 .fi-rr-trikvadratatripryamo:before {
   content: "\e903";
-  color: #e8e8e8;
 }
 .fi-rr-add:before {
   content: "\e904";

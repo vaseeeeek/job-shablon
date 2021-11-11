@@ -85,18 +85,9 @@
                                 {/if}
                             {/if}
                         {/if}
-
-                        {$_badge_saving = $theme_settings.badge_saving == 1}
                         {$_badge_percent = $theme_settings.product_discount_percentage == 1}
-                        {if $_badge_saving || $_badge_percent}
+                        {if $_badge_percent}
                             <div class="product-card_discounts">
-                                {if $_badge_saving}
-                                    {$product_price_saving = 0}
-                                    {if $product.compare_price > $product.price  &&  $product.price != 0}
-                                        {$product_price_saving = $product.price - $product.compare_price}
-                                    {/if}
-                                    <span class="js-product-discounts product-price-saving{if empty($product_price_saving)} -Close{/if}">{shop_currency_html($product_price_saving)}</span>
-                                {/if}
 
                                 {if $theme_settings.product_discount_percentage == 1}
                                     {if $compare_price > $price}

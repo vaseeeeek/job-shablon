@@ -1,9 +1,6 @@
 {strip}
 
 {$type_align_subcat = 'column'}
-{if isset($theme_settings.type_menu_subcat)}
-    {$type_align_subcat = $theme_settings.type_menu_subcat}
-{/if}
 
 {$totalColumns = 4}
 {if count($cat.childs) <= $totalColumns}

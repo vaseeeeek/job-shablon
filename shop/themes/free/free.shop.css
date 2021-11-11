@@ -3055,6 +3055,11 @@ input.filter-range_el {
 		display: -ms-inline-flexbox;
 		display: inline-flex;
 		cursor: pointer;
+		color: #e8e8e8;
+}
+
+.cat-views__el.selected {
+		color: #0b0b0b;
 }
 
 .cat-onpage_select, .cat-sort_select {
@@ -5231,19 +5236,6 @@ input[type=button].storequickorder-button:hover {
 		padding: 0 1.429rem;
 }
 
-.product__fastorder .button-fastorder__sk-oneclick, .product__fastorder .buy1click-open-button, .storequickorder_product_button {
-		width: 255px !important;
-}
-
-.product__fastorder {
-		margin: 1.071rem 0 0;
-}
-
-@media (max-width: 550px) {
-		.product__fastorder .button-fastorder__sk-oneclick, .product__fastorder .buy1click-open-button, .storequickorder_product_button {
-				width: 160px !important;
-		}
-}
 .Product__Item-cart .button-fastorder__sk-oneclick, .Product__Item-cart .buy1click-open-button, .Product__Item-cart .storequickorder_product_button {
 		width: auto !important;
 		font-size: 0.929rem;

@@ -1,25 +1,9 @@
 {strip}
-
-{$slidersPromo = []}
 {if $theme_settings.homepage_type_slider_mode == 'promos'}
-    {if $theme_settings.id_slider_promo}
-        {$promo_ids = ","|explode:$theme_settings.id_slider_promo}
-        {if count($promo_ids) > 0}
-            {foreach $promo_ids as $num}
-                {if isset($mPromoCards[$num])}
-                    {$slidersPromo[] = $mPromoCards[$num]}
-                {/if}
-            {/foreach}
-        {/if}
-    {/if}
-
-    {if empty($slidersPromo)}
-        {$slidersPromo = $mPromoCards}
-    {/if}
-    {if count($slidersPromo) > 0}
+    {if count($mPromoCards) > 0}
         <div class="slider-outer js-slider-outer slider-outer--photos">
-            <div class="js-home-slider owl-carousel home-slider-photos" data-pause="{$theme_settings.slider_scroll_pause_auto}" data-type="">
-                {foreach $slidersPromo as $item}
+            <div class="js-home-slider owl-carousel home-slider-photos" data-pause="0" data-type="">
+                {foreach $mPromoCards as $item}
                     {if !empty($theme_settings.image_mainpage_preload) && !empty($item@first) && !empty($item.image)}
                         {$wa->globals('preload_image', $item.image)}
                     {/if}
@@ -36,9 +20,9 @@
                 {/foreach}
             </div>
 
-            {if count($slidersPromo) > 1}
+            {if count($mPromoCards) > 1}
                 <div class="js-dots-slider owl-dots">
-                    {foreach $slidersPromo as $item}
+                    {foreach $mPromoCards as $item}
                         <button data-index="{$item@index}" class="js-slider-init-action owl-dot{if $item@first} active{/if}"><span></span></button>
                     {/foreach}
                 </div>
@@ -59,43 +43,11 @@
 
     {$homeProductsPromo_features = []}
     {$id_features = []}
-    {if $theme_settings.size_slider_feat}
-        {if !empty($theme_settings.codes_features_list)}
-            {$id_features = ","|explode:$theme_settings.codes_features_list}
-        {/if}
-        {$homeProductsPromo_features = $wa->shop->features($homeProductsPromo)}
-    {/if}
-
-
-
 
     {if count($homeProductsPromo) > 0}
         <div class="js-preview-cart slider-outer slider-outer--products js-slider-outer">
-            <article class="js-home-slider owl-carousel main-slider" data-pause="{$theme_settings.slider_scroll_pause_auto}" data-type="product">
+            <article class="js-home-slider owl-carousel main-slider" data-pause="0" data-type="product">
                 {foreach $homeProductsPromo as $product}
-                    {$short_list_features = []}
-                    {if isset($product.features) && !empty($product.features) && !empty($theme_settings.size_slider_feat)}
-                        {if $theme_settings.size_slider_feat == 'short'}
-                            {if !empty($theme_settings.codes_features_list)}
-                                {$set_code = ","|explode:$theme_settings.codes_features_list}
-                                {foreach $product.features as $f_code => $f_value}
-                                    {if in_array($f_code, $set_code)}
-                                        {$short_list_features[$f_code] = $f_value}
-                                    {/if}
-                                {/foreach}
-                            {/if}
-                        {else if $theme_settings.size_slider_feat == 'first'}
-                            {$count_output_short_features = (int) $theme_settings.size_slider_feat_count}
-                            {if $count_output_short_features}
-                                {foreach $product.features as $f_code => $f_value}
-                                    {if $f_value@iteration > $count_output_short_features}{break}{/if}
-                                    {$short_list_features[$f_code] = $f_value}
-                                {/foreach}
-                            {/if}
-                        {else}
-                            {$short_list_features = $product.features}
-                        {/if}
-                    {/if}
                     <div  class="main-slider_item ">
                         <a data-position="fixed" class="main-slider_item-img " href="{$product.frontend_url}">
                             {if empty($product@first)}
@@ -117,14 +69,9 @@
                                 <a title="{$product.name}{if $product.summary} &ndash; {strip_tags($product.summary)|escape}{/if}" href="{$product.frontend_url}">{$product.name}</a>
                             </h3>
                             <div class="main-slider_item-desc">
-                                {$_badge_saving = ($theme_settings.badge_saving == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
                                 {$_badge_percent = ($theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
-                                {if $_badge_saving || $_badge_percent}
+                                {if $_badge_percent}
                                     <div class="main-slider_item_discounts">
-                                        {if $_badge_saving}
-                                            {$product_price_saving = $product.price - $product.compare_price}
-                                            <span class="product-price-saving">{shop_currency_html($product_price_saving)}</span>
-                                        {/if}
 
                                         {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
                                             {$discount = (($compare_price-$price)/$compare_price)*100}
@@ -142,28 +89,6 @@
                                     {$product.summary}
                                 {/if}
 
-                                {if (!$wa->isMobile() || ($wa->isMobile() && empty($product.summary))) && (count($short_list_features) > 0)}
-                                    <table class="main-slider_item-features Product__features">
-                                        {foreach $short_list_features as $f_code => $f_value}
-                                            <tr class="Product__features-item {if $homeProductsPromo_features[$f_code].type == 'divider'} divider{/if}">
-                                                <td class="Product__features-title">
-                                                    <span>{$homeProductsPromo_features[$f_code].name|escape}</span>
-                                                </td>
-                                                <td class="Product__features-value">
-                                                    {if is_array($f_value)}
-                                                        {if $homeProductsPromo_features[$f_code].type == 'color'}
-                                                            {implode('<br /> ', $f_value)}
-                                                        {else}
-                                                            {implode(', ', $f_value)}
-                                                        {/if}
-                                                    {else}
-                                                        {$f_value}
-                                                    {/if}
-                                                </td>
-                                            </tr>
-                                        {/foreach}
-                                    </table>
-                                {/if}
                             </div>
                             <div class="main-slider_item-prs">
                                 <span class="main-slider_item-pr">
