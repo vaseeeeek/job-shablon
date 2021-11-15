@@ -9,7 +9,8 @@
     <div class="Product-table-img">
         <a href="{$p.frontend_url}" title="{$p.name}">
             {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
-            {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
+            {$product_preview_images_lazy = true}
+            {if $product_preview_images_lazy && !empty($p.image_id)}
                 {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
             {/if}
             {$image}
@@ -28,7 +29,10 @@
             <a href="{$p.frontend_url}">{$p.name}</a>
 
             {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
-                <i class="Product__Item-video ion-social-youtube-outline"></i>
+                <a data-href="{$p.video_url}" class="js-video-popup Product-grid_video"
+                   aria-hidden="true">
+                    <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                </a>
             {/if}
 
             {if $theme_settings.preview_stock}

@@ -31,10 +31,9 @@
                 {/foreach}
             {/if}
         {else}
-            {$short_list_features = $product.features}
+            {$short_list_features = $p.features}
         {/if}
     {/if}
-
 
 
 
@@ -94,9 +93,10 @@
                         {$blockHtmlProtilegallery}
                     {else}
                         {$class_img = "js-product-preview-img"}
-                        {if !empty($lazy_class) && $theme_settings.product_preview_images_lazy && !empty($p.image_id)}{$class_img = "`$class_img` $lazy_class"}{/if}
+                        {$product_preview_images_lazy = true}
+                        {if !empty($lazy_class) && $product_preview_images_lazy && !empty($p.image_id)}{$class_img = "`$class_img` $lazy_class"}{/if}
                         {$image = $wa->shop->productImgHtml($p, "{$img_size}", ['class' => $class_img, 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
-                        {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
+                        {if $product_preview_images_lazy && !empty($p.image_id)}
                             {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                         {/if}
                         {$image}
@@ -172,7 +172,6 @@
                                 {/if}
                             </div>
                         {/if}
-                        {$p.rating}
                         {if $p.rating > 0 && $theme_settings.product_ratings}
                             <span class="rating nowrap">
                                 {$wa->shop->ratingHtml($p.rating, 10)}
@@ -199,8 +198,8 @@
                                 {$wa->shop->ratingHtml($p.rating, 10)}
                             </span>
                         {/if}
-                        {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
-                            <a href="{$p.video_url}" class="js-video-popup Product-grid_video fi-rr-video-camera"
+                        {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}111
+                            <a data-href="{$p.video_url}" class="js-video-popup Product-grid_video"
                                aria-hidden="true">
                                 <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                             </a>

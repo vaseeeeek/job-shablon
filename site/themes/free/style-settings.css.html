@@ -96,24 +96,37 @@
 
         {if $wa_app != 'shop'}
             {$product_tile_name_height = 40}
-            {$product_tile_desc_height = false}
         {else}
             {if !$wa->isMobile()}
-                {$product_tile_name_height = $theme_settings.tile_preview_name_height}
-                {$product_tile_desc_height = $theme_settings.tile_preview_description_height}
+                {if $theme_settings.tile_preview_name_height == 'one'}
+                    {$product_tile_name_height = 1.2}
+                {elseif $theme_settings.tile_preview_name_height == 'two'}
+                    {$product_tile_name_height = 2.4}
+                {elseif $theme_settings.tile_preview_name_height == 'three'}
+                    {$product_tile_name_height = 3.5}
+                {elseif $theme_settings.tile_preview_name_height == 'four'}
+                    {$product_tile_name_height = 4.6}
+                {elseif $theme_settings.tile_preview_name_height == 'five'}
+                    {$product_tile_name_height = 5.8}
+                {/if}
             {else}
-                {$product_tile_name_height = $theme_settings.tile_mobile_preview_name_height}
-                {$product_tile_desc_height = $theme_settings.tile_mobile_preview_description_height}
+                {if $theme_settings.tile_mobile_preview_name_height == 'one'}
+                    {$product_tile_name_height = 1.2}
+                {elseif $theme_settings.tile_mobile_preview_name_height == 'two'}
+                    {$product_tile_name_height = 2.4}
+                {elseif $theme_settings.tile_mobile_preview_name_height == 'three'}
+                    {$product_tile_name_height = 3.5}
+                {elseif $theme_settings.tile_mobile_preview_name_height == 'four'}
+                    {$product_tile_name_height = 4.6}
+                {elseif $theme_settings.tile_mobile_preview_name_height == 'five'}
+                    {$product_tile_name_height = 5.8}
+                {/if}
             {/if}
-        {/if}
-        {if $product_tile_desc_height}
-            .Product-grid_description {
-                height: {$product_tile_desc_height}px;
-            }
         {/if}
         {if $product_tile_name_height}
             .Product-grid_name {
-                height: {$product_tile_name_height}px;
+                height: {$product_tile_name_height}rem;
+                overflow: hidden;
             }
         {/if}
 

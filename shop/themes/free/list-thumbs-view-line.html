@@ -51,8 +51,9 @@
                 {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
                     {$blockHtmlProtilegallery}
                 {else}
+                    {$product_preview_images_lazy = true}
                     {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
-                    {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
+                    {if $product_preview_images_lazy && !empty($p.image_id)}
                         {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                     {/if}
                     {$image}
@@ -77,7 +78,10 @@
             <div class="Product__Item-name">
                 <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}" href="{$p.frontend_url}">{$p.name}</a>
                 {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
-                    <i class="Product__Item-video ion-social-youtube-outline"></i>
+                    <a data-href="{$p.video_url}" class="js-video-popup Product-grid_video"
+                       aria-hidden="true">
+                        <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                    </a>
                 {/if}
             </div>
 
