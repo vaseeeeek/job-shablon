@@ -702,7 +702,7 @@
       <name locale="en_US">Text of the inscription "Under the order"</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value/>
+      <value>obrezka</value>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
                 right)
@@ -742,7 +742,7 @@
       <name locale="ru_RU">Вид списка - "таблица"</name>
     </setting>
     <setting var="pr_prev_type_default" control_type="select">
-      <value>tile</value>
+      <value>tbl</value>
       <name locale="en_US">Default list view</name>
       <name locale="ru_RU">Вид списка по умолчанию</name>
       <options>
@@ -761,7 +761,7 @@
       </options>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>first</value>
+      <value>short</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров!!!не забыть внести правки</name>
       <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик
@@ -786,6 +786,12 @@
           <name locale="en_US">The first N pieces (the value in the settings below)</name>
         </option>
       </options>
+    </setting>
+    <setting var="codes_features_product" control_type="text">
+      <value>obrezka</value>
+      <name locale="ru_RU">Коды выводимых характеристик в карточку товара (блок справа)</name>
+      <name locale="en_US">
+      </name>
     </setting>
     <setting var="preview_features_product_count" control_type="text">
       <value>5</value>
@@ -1170,16 +1176,16 @@
       <name locale="en_US">Show short description in block of right</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>full</value>
+      <value>short</value>
       <name locale="en_US">Features in the right box</name>
       <name locale="ru_RU">Характеристики в правом блоке</name>
       <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик
-                в списках товаров и в карточку товара (блок справа)". Если выбран вариант "Первые характеристики", то
-                необходимо заполнить опцию "Количество выводимых характеристик"
-            </description>
+        в списках товаров и в карточку товара (блок справа)". Если выбран вариант "Первые характеристики", то
+        необходимо заполнить опцию "Количество выводимых характеристик"
+      </description>
       <description locale="en_US">For short list necessary to fill out the setting "Codes of output
-                characteristics in the lists of goods and in the product card (block on the right)"
-            </description>
+        characteristics in the lists of goods and in the product card (block on the right)"
+      </description>
       <options>
         <option value="">
           <name locale="ru_RU">Не выводить</name>
