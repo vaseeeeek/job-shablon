@@ -130,12 +130,6 @@
             }
         {/if}
 
-        {if $theme_settings.count_el_plugins_sb && (int)$theme_settings.count_el_plugins_sb > 0}
-            .sb-wrap--plugin .menu-v li:nth-child({$theme_settings.count_el_plugins_sb}) ~ li {
-                display: none;
-            }
-        {/if}
-
         {if $theme_settings.color_badge_discount}
             .product-discount {
                 color: {$theme_settings.color_badge_discount};

@@ -28,8 +28,8 @@
         <div class="Product-table-name">
             <a href="{$p.frontend_url}">{$p.name}</a>
 
-            {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
-                <a data-href="{$p.video_url}" class="js-video-popup Product-grid_video"
+            {if isset($p.video_url) && !empty($p.video_url)}
+                <a class="js-video-popup Product-grid_video"
                    aria-hidden="true">
                     <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                 </a>

@@ -39,7 +39,7 @@
 {$_price_range = $theme_settings.price_range_in_product_list}
 {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
 
-{$_tileGelleryProductListPreviewy = $theme_settings.preview_product_list_gallerytile && !$wa->isMobile()}
+{$_tileGelleryProductListPreviewy = !$wa->isMobile()}
 {$preview_image = $wa->shop->productImgUrl($p, '60')}
 <div class="Product__Item js-product-line js-preview-cart{if $_tileGelleryProductListPreviewy} grid-gallery js-grid-gallery{/if}">
     <div class="Product__Item-row Product__Item-top">
@@ -77,8 +77,8 @@
         <div class="Product__Item-center">
             <div class="Product__Item-name">
                 <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}" href="{$p.frontend_url}">{$p.name}</a>
-                {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
-                    <a data-href="{$p.video_url}" class="js-video-popup Product-grid_video"
+                {if isset($p.video_url) && !empty($p.video_url)}
+                    <a class="js-video-popup Product-grid_video"
                        aria-hidden="true">
                         <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                     </a>

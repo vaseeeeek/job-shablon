@@ -1339,22 +1339,9 @@ $html-font-size: 14px;
   height: 16px;
   margin: rem(15px) 0 0
 }
-
-.sidebar-cats_el-open:after {
-  font-style: normal;
-  content: "\f10f";
-  height: 16px;
-  width: 16px;
-  line-height: 17px;
-  text-align: center;
-  font-size: rem(14px);
-  display: inline-block
+.sidebar-cats_el-open.selected{
+  transform: rotate(180deg);
 }
-
-.sidebar-cats_el-open.selected:after {
-  content: "\f112";
-}
-
 .sidebar-cats ul {
   margin: 0;
   list-style: none;
@@ -2832,22 +2819,22 @@ ul.menu-v.brands li a {
 
 .filter-el_title {
   font-size: rem(14px);
-  font-weight: 600;
   padding: 0 rem(25px) 0 0;
   position: relative;
   cursor: pointer;
 }
 
-.filter-el_title:after {
-  content: "\f106";
+.filter-el_title:before {
   position: absolute;
   right: 0
 }
-
-.close .filter-el_title:after {
-  content: "\f107"
+.filter-el .fi-rr-angle-small-down{
+  position: absolute;
+  right: 0;
 }
-
+.filter-el.close .fi-rr-angle-small-down{
+  transform: rotate(180deg);
+}
 .filter-el_opts {
   margin: rem(10px) 0 0
 }
@@ -2931,11 +2918,10 @@ input.filter-range_el {
 }
 
 .filter-reset:before {
-  content: "\f057";
-  font-size: rem(16px);
+  font-size: rem(13px);
   position: absolute;
-  left: -17px;
-  font-weight: 700
+  left: rem(-17px);
+  top: rem(1.2px);
 }
 
 .filter-opt-show-btn {

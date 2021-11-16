@@ -3,8 +3,9 @@
     {$filters = []}
 {/if}
 
-{$cols = 3} {$sb_left = 1}
-{if !$theme_settings.cat_sb_left || $wa->isMobile()}
+{$cols = 3}
+{$sb_left = 1}
+{if $wa->isMobile()}
     {$cols = $cols - 1}
     {$sb_left = 0}
 {/if}
@@ -61,7 +62,6 @@
         {/if}
         <div class="js-product-ajax-list">
             {if !$products}
-                {* selected filters *}
                 {if $theme_settings.filter_selected}{include file="selected-filters.html"}{/if}
                 <div class="content-box">
                     {if !empty($filters)}

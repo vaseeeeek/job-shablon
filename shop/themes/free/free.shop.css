@@ -1328,19 +1328,9 @@
 		margin: 1.071rem 0 0;
 }
 
-.sidebar-cats_el-open:after {
-		font-style: normal;
-		content: "";
-		height: 16px;
-		width: 16px;
-		line-height: 17px;
-		text-align: center;
-		font-size: 1rem;
-		display: inline-block;
-}
-
-.sidebar-cats_el-open.selected:after {
-		content: "";
+.sidebar-cats_el-open.selected {
+		-webkit-transform: rotate(180deg);
+		        transform: rotate(180deg);
 }
 
 .sidebar-cats ul {
@@ -2809,20 +2799,24 @@ ul.menu-v.brands li a {
 
 .filter-el_title {
 		font-size: 1rem;
-		font-weight: 600;
 		padding: 0 1.786rem 0 0;
 		position: relative;
 		cursor: pointer;
 }
 
-.filter-el_title:after {
-		content: "";
+.filter-el_title:before {
 		position: absolute;
 		right: 0;
 }
 
-.close .filter-el_title:after {
-		content: "";
+.filter-el .fi-rr-angle-small-down {
+		position: absolute;
+		right: 0;
+}
+
+.filter-el.close .fi-rr-angle-small-down {
+		-webkit-transform: rotate(180deg);
+		        transform: rotate(180deg);
 }
 
 .filter-el_opts {
@@ -2910,11 +2904,10 @@ input.filter-range_el {
 }
 
 .filter-reset:before {
-		content: "";
-		font-size: 1.143rem;
+		font-size: 0.929rem;
 		position: absolute;
-		left: -17px;
-		font-weight: 700;
+		left: -1.214rem;
+		top: 0.086rem;
 }
 
 .filter-opt-show-btn {
@@ -3055,11 +3048,6 @@ input.filter-range_el {
 		display: -ms-inline-flexbox;
 		display: inline-flex;
 		cursor: pointer;
-		color: #e8e8e8;
-}
-
-.cat-views__el.selected {
-		color: #0b0b0b;
 }
 
 .cat-onpage_select, .cat-sort_select {
@@ -5236,6 +5224,19 @@ input[type=button].storequickorder-button:hover {
 		padding: 0 1.429rem;
 }
 
+.product__fastorder .button-fastorder__sk-oneclick, .product__fastorder .buy1click-open-button, .storequickorder_product_button {
+		width: 255px !important;
+}
+
+.product__fastorder {
+		margin: 1.071rem 0 0;
+}
+
+@media (max-width: 550px) {
+		.product__fastorder .button-fastorder__sk-oneclick, .product__fastorder .buy1click-open-button, .storequickorder_product_button {
+				width: 160px !important;
+		}
+}
 .Product__Item-cart .button-fastorder__sk-oneclick, .Product__Item-cart .buy1click-open-button, .Product__Item-cart .storequickorder_product_button {
 		width: auto !important;
 		font-size: 0.929rem;

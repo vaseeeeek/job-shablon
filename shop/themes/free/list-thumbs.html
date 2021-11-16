@@ -35,7 +35,6 @@
         {/if}
     {/if}
 
-    {* selected filters *}
     {if $theme_settings.filter_selected}{include file="selected-filters.html"}{/if}
 
     {if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
@@ -139,7 +138,7 @@
     {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
     {if !isset($isCategoryViewProductsList)}{$isCategoryViewProductsList = 0}{/if}
 
-    {$isPreviewProductGalleryTile = (($theme_settings.product_scroll_hover_gallery && $CategoryViewProducts == 'tile') || ($theme_settings.preview_product_list_gallerytile && $CategoryViewProducts == 'list')) && $products}
+    {$isPreviewProductGalleryTile = (($CategoryViewProducts == 'tile') || ($CategoryViewProducts == 'list')) && $products}
 
     {if $isPreviewProductGalleryTile}
         {$products_ids = ""}
