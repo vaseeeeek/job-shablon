@@ -6272,6 +6272,11 @@ img.mfp-img {
 		margin: 0 0 1.714rem;
 		font-size: 14px;
 }
+.sb-wrap--pages #sidebar-nav li {
+		margin: 0;
+		border-bottom: 0;
+		padding: 0.5rem 0;
+}
 
 .sb-wrap:last-child {
 		margin: 0;

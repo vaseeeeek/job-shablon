@@ -3,7 +3,7 @@
 {* @event frontend_footer.%plugin_id% *}
 {foreach $frontend_footer as $_}{$_}{/foreach}
 
-{if !$theme_settings.hide_wa_links}
+{if $theme_settings.hide_wa_links}
     <div>
         [`<a href="http://www.shop-script.com/">Ecommerce software</a> by Webasyst`]
     </div>

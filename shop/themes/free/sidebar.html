@@ -1,5 +1,32 @@
 {strip}
-    <aside class="left-sidebar ">
+    <aside class="left-sidebar">
+        {if $theme_settings.other_page_sidebar_left}
+            {strip}
+                {function name=menu_tree pages=[] class="" }
+                    {if count($pages)}
+                        <ul {if $id}id="{$id}"{/if} {if $class}class="{$class}"{/if}>
+                            {foreach $pages as $p}
+                                {if !isset($p.sidebar_menu_hide)}
+                                    <li>
+                                        <a{if strlen($p.url)>1 && $wa->currentUrl() == $p.url} class="selected"{/if} href="{$p.url}">{$p.name}</a>
+                                        {if isset($p.childs) && $p.childs && count($p.childs)}
+                                            {menu_tree pages=$p.childs}
+                                        {/if}
+                                    </li>
+                                {/if}
+                            {/foreach}
+                        </ul>
+                    {/if}
+                {/function}
+
+                {$pages = $wa->shop->pages()}
+                {if count($pages)}
+                    <nav class="sb-wrap sb-wrap--pages">
+                        {menu_tree pages=$pages id="sidebar-nav" class="menu-v"}
+                    </nav>
+                {/if}
+            {/strip}
+        {/if}
         {if !empty($filters)}
             {if !isset($filters)}{$filters = []}{/if}
             {include file="`$wa_active_theme_path`/sb.filter.html" filter=$filters}

@@ -158,12 +158,6 @@
                                                     <label>[`Email`]</label>
                                                     <input type="text" name="email" id="review-email">
                                                 </p>
-                                                {if !$theme_settings.product_reviews_site_field_off}
-                                                    <p class="add-review-field">
-                                                        <label>[`Website`]</label>
-                                                        <input type="text" name="site" id="review-site">
-                                                    </p>
-                                                {/if}
                                             </div>
                                             {if !empty($auth_adapters[$current_auth_source])}
                                                 {$adapter = $auth_adapters[$current_auth_source]}

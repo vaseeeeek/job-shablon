@@ -6214,6 +6214,11 @@ img.mfp-img {
   background: #fff;
   margin: 0 0 rem(24px);
   font-size: 14px;
+  &--pages #sidebar-nav li{
+    margin: 0;
+    border-bottom: 0;
+    padding: 0.5rem 0 ;
+  }
 }
 
 .sb-wrap:last-child {

@@ -1,7 +1,7 @@
 {strip}
 {$video = $product->video}
-{$_popupOn = empty($theme_settings.disable_popup_gallery)}
-{$_popupOnThumbs = $theme_settings.view_preview_popup_thumbs}
+{$_popupOn = true}
+{$_popupOnThumbs = true}
 {$_zoomOn = $theme_settings.zoom_gallery__product && !$wa->isMobile()}
 {$class_popup="js-image-popup-swipebox"}
 {if count($product.images) > 1 || (count($product.images) === 1 && $video)}

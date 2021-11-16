@@ -6976,11 +6976,11 @@ button.owl-dot {
     overflow: hidden;
     padding-bottom: rem(10px);
 
+    &.-Between {
+      justify-content: space-between;
+    }
   }
 
-  &.-Between {
-    justify-content: space-between;
-  }
 
   &--link {
     text-decoration: none;

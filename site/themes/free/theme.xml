@@ -1042,37 +1042,17 @@
     <setting var="other_page_sidebar_left" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Sidebar on other pages</name>
-      <name locale="ru_RU">Сайдбар на других страницах!!!нужно добавить меню информационных страниц, они должны быть выше на информ разделах</name>
-    </setting>
-    <setting var="other_page_sidebar_right" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Show right sidebar on other pages</name>
-      <name locale="ru_RU">Показывать правый сайдбар на других страницах!!!вырезать</name>
+      <name locale="ru_RU">Сайдбар на других страницах</name>
     </setting>
     <setting var="divider_product" control_type="group_divider">
       <value/>
       <name locale="en_US">Product page</name>
       <name locale="ru_RU">Страница товара</name>
     </setting>
-    <setting var="disable_popup_gallery" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Отключить popup галерею!!!вырезать, всегда включена. Но как закрывать картинку которая всплыла?</name>
-      <name locale="en_US">Disable popup gallery</name>
-    </setting>
-    <setting var="view_preview_popup_thumbs" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Выводить превьюшки картинок в popup-окне галереи!!!вырезать, всегда есть миниатюры во всплывашке</name>
-      <name locale="en_US">Display thumbnails of images in the gallery</name>
-    </setting>
     <setting var="zoom_gallery__product" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Zoom при наведении</name>
       <name locale="en_US">Zoom on hover</name>
-    </setting>
-    <setting var="product_gallery_display_description" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Описание картинки!!!вырезать</name>
-      <name locale="en_US">Description of product</name>
     </setting>
     <setting var="product_page_show_short_description" control_type="checkbox">
       <value>1</value>
@@ -1165,20 +1145,6 @@
                 pages - additional pages of product.
             </description>
     </setting>
-    <setting var="product_page_main_description_mobile" control_type="text">
-      <value>description,features,reviews,add,pages</value>
-      <name locale="ru_RU">Вывод основного описания в мобильной версии!!!наверно вырезать, зачем разделение на мобилы и компы?</name>
-      <name locale="en_US">Display main description in mobile</name>
-    </setting>
-    <setting var="product_page_show_brand_content" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Показывать бренд в блоке описания!!!вырезать</name>
-      <name locale="en_US">Show brand in block of discription</name>
-      <description locale="ru_RU">Настройка доступна если установлен плагин "Бренды с картинками и описаниями"
-            </description>
-      <description locale="en_US">Setting is available if the plugin "Brands with pictures and descriptions"
-            </description>
-    </setting>
     <setting var="plugin_hook_block_in_product" control_type="select">
       <value>content</value>
       <name locale="en_US">Display hook addition information</name>
@@ -1264,9 +1230,9 @@
       <name locale="en_US">Tags under reviews</name>
     </setting>
     <setting var="is_product_option_color_text" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">The color of the text in the article</name>
-      <name locale="ru_RU">Цвет текстом около кружка у артикула!!!проверить работособность</name>
+      <name locale="ru_RU">Цвет текстом около кружка у артикула</name>
     </setting>
     <setting var="product_show_multi_sku" control_type="checkbox">
       <value>1</value>
@@ -1278,35 +1244,20 @@
       <name locale="ru_RU">Артикулы в выпадающем списке</name>
       <name locale="en_US">Articles in the drop-down list</name>
     </setting>
-    <setting var="desc_product_skus" control_type="paragraph">
-      <value/>
-      <name locale="ru_RU">Варианты покупок товаров!!!как работает</name>
-      <name locale="en_US">Shopping options of product</name>
-    </setting>
     <setting var="product_select_skus" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Вид выбора артикулов продукта - селектом!!!как работает</name>
+      <value>1</value>
+      <name locale="ru_RU">Вид выбора артикулов продукта - селектом</name>
       <name locale="en_US">View product selection skus - Select</name>
     </setting>
     <setting var="product_show_multi_radio_sku_separately" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок!!!как работает</name>
+      <value></value>
+      <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок!!!как работает - просто показывает артикул рядом с селектом</name>
       <name locale="en_US">Remove items separately from purchase options</name>
     </setting>
     <setting var="hide_option_not_available" control_type="checkbox">
       <value/>
       <name locale="en_US">Hide articles inaccessible articles</name>
-      <name locale="ru_RU">Скрыть артикулы недоступные артикулы!!!проверить</name>
-    </setting>
-    <setting var="many_skus_count_max" control_type="text">
-      <value/>
-      <name locale="ru_RU">Кол-во раскрытых Вариантов покупок!!!вырезать, всегда раскрытые</name>
-      <name locale="en_US">Number of Shopping Options Revealed</name>
-      <description locale="ru_RU">Доступно при отключенной опцией "Вид выбора артикулов продукта - селектом"
-            </description>
-      <description locale="en_US">Available with disabled option "Type of product selection - select" is
-                disabled.
-            </description>
+      <name locale="ru_RU">Скрыть артикулы недоступные артикулы</name>
     </setting>
     <setting var="product_sku_url" control_type="checkbox">
       <value>1</value>
@@ -1323,13 +1274,6 @@
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>
-    <setting var="product_show_stock_count_critical" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Кол-во товара при критическом уровне!!!вырезать</name>
-      <name locale="en_US">Output the quantity of goods at a critical level</name>
-      <description locale="ru_RU">.</description>
-      <description locale="en_US">.</description>
-    </setting>
     <setting var="product_page_views_products" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Недавно просмотренные</name>
@@ -1345,99 +1289,6 @@
       <name locale="en_US">Number of similar products(upselling)</name>
       <name locale="ru_RU">Кол-во похожих товаров(upselling)</name>
     </setting>
-    <setting var="pr_list_view_type" control_type="select">
-      <value>tile</value>
-      <name locale="en_US">View of list products in product card</name>
-      <name locale="ru_RU">Вид списка товаров в карточке товара!!!вырезать, всегда плитка с каруселью</name>
-      <description locale="ru_RU">Опция доступна для десктопной версии. Для рекомендуемых, перекресных и
-                просмотренных списков товаров
-            </description>
-      <description locale="en_US">Option available for desktop version. For recommended, cross-selling and viewed
-                product lists
-            </description>
-      <options>
-        <option value="tile">
-          <name locale="ru_RU">Плитками</name>
-          <name locale="en_US">Tile</name>
-        </option>
-        <option value="tile-carousel">
-          <name locale="ru_RU">Плитками, с каруселью</name>
-          <name locale="en_US">Tile, with carousel</name>
-        </option>
-        <option value="tbl">
-          <name locale="ru_RU">Таблицей</name>
-          <name locale="en_US">Table</name>
-        </option>
-        <option value="list">
-          <name locale="ru_RU">Списком</name>
-          <name locale="en_US">List</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="desc_product_comments_vk" control_type="paragraph">
-      <value/>
-      <name locale="en_US">Widgets comments Vk</name>
-      <name locale="ru_RU">Виджет комментариев Vk!!!вырезать</name>
-    </setting>
-    <setting var="product_info_comments_vk_title" control_type="text">
-      <value/>
-      <name locale="ru_RU">Наименование вкладки!!!вырезать</name>
-      <name locale="en_US">Title of tab</name>
-    </setting>
-    <setting var="product_info_comments_vk_app_id" control_type="text">
-      <value>5477265</value>
-      <name locale="ru_RU">Идентификатор приложения!!!вырезать</name>
-      <name locale="en_US">id off app</name>
-    </setting>
-    <setting var="product_info_comments_vk_count" control_type="text">
-      <value>20</value>
-      <name locale="ru_RU">Количество комментариев!!!вырезать</name>
-      <name locale="en_US">Count comments</name>
-      <description locale="ru_RU">Минимум - 5, Максимум - 100</description>
-      <description locale="en_US">Minimum - 5, Maximum - 100</description>
-    </setting>
-    <setting var="product_info_comments_vk_photos" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Разрешить добавлять фотографии!!!вырезать</name>
-      <name locale="en_US">Allow Promotional Photos</name>
-    </setting>
-    <setting var="product_info_comments_vk_link" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Разрешить добавлять ссылки!!!вырезать</name>
-      <name locale="en_US">Allow adding links</name>
-      <description locale="ru_RU">.</description>
-      <description locale="en_US">.</description>
-    </setting>
-    <setting var="desc_product_comments_fb" control_type="paragraph">
-      <value/>
-      <name locale="en_US">Widgets comments Facebook!!!вырезать</name>
-      <name locale="ru_RU">Виджет комментариев Facebook</name>
-    </setting>
-    <setting var="product_info_comments_fb_title" control_type="text">
-      <value/>
-      <name locale="ru_RU">Наименование вкладки!!!вырезать</name>
-      <name locale="en_US">Title of tab</name>
-    </setting>
-    <setting var="product_info_comments_fb_app_id" control_type="text">
-      <value>1196008783873070</value>
-      <name locale="ru_RU">Идентификатор приложения!!!вырезать</name>
-      <name locale="en_US">Id of app</name>
-    </setting>
-    <setting var="product_info_comments_fb_count" control_type="text">
-      <value>15</value>
-      <name locale="ru_RU">Кол-во комментариев!!!вырезать</name>
-      <name locale="en_US">Count of comments</name>
-    </setting>
-    <setting var="desc_product_reviews_form" control_type="paragraph">
-      <value/>
-      <name locale="en_US">Feedback Submission Form</name>
-      <name locale="ru_RU">Форма отправки отзыва!!!вырезать</name>
-    </setting>
-    <setting var="product_reviews_site_field_off" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Отключить поле "Сайт"!!!вырезать</name>
-      <name locale="en_US">Disable the Site field</name>
-    </setting>
     <setting var="divider_cart" control_type="group_divider">
       <value/>
       <name locale="en_US">Cart</name>
@@ -1446,7 +1297,7 @@
     <setting var="cart_crossselling" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Cross-selling in cart</name>
-      <name locale="ru_RU">Рекомендуемые товары в корзине!!!сделать всегда?это же вроде зависит от настроек оформления заказа?</name>
+      <name locale="ru_RU">Рекомендуемые товары в корзине!!!сделать всегда?это же вроде зависит от настроек оформления заказа? - как я понимаю это для пошаговой, она не вебасистовская</name>
     </setting>
     <setting var="checkout_cart_items" control_type="checkbox">
       <value>1</value>
@@ -1461,7 +1312,7 @@
     <setting var="hide_wa_links" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Links to webasyst</name>
-      <name locale="ru_RU">Ссылки на webasyst!!!инвертировать настройку, была "Удалить ссылки на webasyst"</name>
+      <name locale="ru_RU">Ссылки на webasyst</name>
     </setting>
     <setting var="dislay_payment_footer" control_type="checkbox">
       <value>1</value>
@@ -1633,59 +1484,10 @@
                 экране
             </description>
     </setting>
-    <setting var="plugins_js_footer" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Load {$wa-&gt;js()} at the bottom of the page</name>
-      <name locale="ru_RU">Загружать {$wa-&gt;js()} в нижней части страницы!!!вырезать, только наверху</name>
-      <description locale="en_US">The option is not compatible with all plugins</description>
-      <description locale="ru_RU">Опция совместима не со всеми плагинами</description>
-    </setting>
-    <setting var="plugins_shop_js_footer" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Load plugin hook frontend_head at the bottom of the page</name>
-      <name locale="ru_RU">Загружать plugin hook frontend_head в нижней части страницы!!!вырезать, только наверху</name>
-      <description locale="en_US">The option is not compatible with all plugins</description>
-      <description locale="ru_RU">Опция совместима не со всеми плагинами</description>
-    </setting>
-    <setting var="form_styler_full" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Enable the form Styler for all pages</name>
-      <name locale="ru_RU">Включить стилизатор форм для всех страниц!!!видимо вырезать?</name>
-      <description locale="en_US">This option is recommended only if the site interface contains non-stylized form
-                elements (for example, from the plugin interface)
-            </description>
-      <description locale="ru_RU">Опция рекомендуется только в том случае, если в интерфейсе сайта есть не
-                стилизованные элементы формы (например, из интерфейсов плагинов)
-            </description>
-    </setting>
-    <setting var="local_load_text_font" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Local load font</name>
-      <name locale="ru_RU">Локальная загрузка шрифта!!!как работает?</name>
-    </setting>
-    <setting var="load_text_font_display_swap" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Display text without waiting for the text font to load</name>
-      <name locale="ru_RU">Отображение текста без ожидания загрузки текстового шрифта!!!как работает?</name>
-      <description locale="en_US">property font-display: swap</description>
-      <description locale="ru_RU">свойство font-display: swap</description>
-    </setting>
-    <setting var="load_icon_font_footer" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Load icon font style file at the bottom of the page</name>
-      <name locale="ru_RU">Загружать файл стилей иконочного шрифта в нижней части страницы!!!всегда да или всегда нет?</name>
-    </setting>
-    <setting var="load_icon_font_display_swap" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Display text without waiting for the icon font to load</name>
-      <name locale="ru_RU">Отображение текста без ожидания загрузки иконочного шрифта!!!всегда да или всегда нет?</name>
-      <description locale="en_US">property font-display: swap</description>
-      <description locale="ru_RU">свойство font-display: swap</description>
-    </setting>
     <setting var="load_custom_styles" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Load file custom styles</name>
-      <name locale="ru_RU">Загружать файл кастомных стилей!!!всегда да?</name>
+      <name locale="ru_RU">Загружать файл кастомных стилей!!!всегда да? - а нах если пустой а человек будет писать в кустом в блоках</name>
       <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks -
                 Block custom_styles
             </description>
@@ -1696,18 +1498,13 @@
     <setting var="load_custom_js" control_type="checkbox">
       <value/>
       <name locale="en_US">Load file custom js scripts</name>
-      <name locale="ru_RU">Загружать файл кастомных js-скриптов!!!всегда да?</name>
+      <name locale="ru_RU">Загружать файл кастомных js-скриптов!!!всегда да? - а нах если пустой</name>
       <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks -
                 Block footer_codes
             </description>
       <description locale="ru_RU">Кастомные скрипты рекомендуется добавлять через прилоежние Сайт - Блоки - Блок с
                 id footer_codes
             </description>
-    </setting>
-    <setting var="generation_style_off" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Отключить минимизированные файлы стилей!!!всегда минимизированные?</name>
-      <name locale="en_US">Disable the minimized style files</name>
     </setting>
     <setting var="divider_other" control_type="group_divider">
       <value/>
@@ -1769,9 +1566,9 @@
       </options>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Растянуть горизонтальное меню!!!не работает?</name>
-      <name locale="en_US">Display quick edit links (for site administrator)</name>
+      <value>1</value>
+      <name locale="ru_RU">Растянуть горизонтальное меню</name>
+      <name locale="en_US"></name>
     </setting>
     <setting var="lk_icon_header" control_type="checkbox">
       <value>1</value>

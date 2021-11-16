@@ -6987,7 +6987,7 @@ button.owl-dot {
 		overflow: hidden;
 		padding-bottom: 0.714rem;
 }
-.Nav__horizontal.-Between {
+.Nav__horizontal--list.-Between {
 		-webkit-box-pack: justify;
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;

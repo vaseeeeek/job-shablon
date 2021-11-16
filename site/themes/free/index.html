@@ -38,11 +38,9 @@
 
         {strip}
             {$is_mainpage = ($wa->currentUrl(false, true) == $wa_app_url || $wa->currentUrl(false, true) == "/")}
-            {$isFormStylerInit = (!empty($theme_settings.form_styler_full) || (!empty($action) && !$is_mainpage && !in_array($action, ['category', 'product', 'brand', 'brands', 'search'])))}
             <script>
                 var globalThemeSettings = {
                     isMobile: {(int)(!empty($wa->isMobile()))},
-                    isFormStylerInit: {(int)(!empty($isFormStylerInit))}
                 };
             </script>
         {/strip}
@@ -58,9 +56,7 @@
 
         <script src="{$wa_theme_url}jquery.min.js?v{$wa_theme_version}"></script>
 
-        {if !$theme_settings.plugins_js_footer}
-            {$wa->js()} {* links active plugins JS *}
-        {/if}
+        {$wa->js()}
 
         {include file="`$wa_active_theme_path`/head.html"}
 
@@ -445,9 +441,7 @@
 
 
     {$wa->css()}
-    {if $theme_settings.plugins_js_footer}
-        {$wa->js()} {* links active plugins JS *}
-    {/if}
+
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -464,9 +458,6 @@
 
     {if $wa_app == 'shop'}
         <script src="{$wa_active_theme_url}free.shop.js?v{$wa_theme_version}"></script>
-        {if $theme_settings.plugins_shop_js_footer}
-            {foreach $frontend_head as $_}{$_}{/foreach}
-        {/if}
     {elseif $wa_app == 'blog'}
         <script src="{$wa_active_theme_url}free.blog.js?v{$wa_theme_version}"></script>
     {elseif $wa_app == 'photos'}

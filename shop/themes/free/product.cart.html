@@ -132,7 +132,7 @@
                     {/if}
 
 
-                    {if $theme_settings.product_select_skus}
+                    {if !$theme_settings.product_select_skus}
                         <div class="skus">
                             {foreach $product.skus as $sku}
                                 {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
@@ -161,12 +161,11 @@
                         </div>
                     {else}
                         <ul class="skus js-product-skus">
-                            {$max_count_skus = (int) $theme_settings.many_skus_count_max}
                             {$skus_index = 0}
                             {foreach $product.skus as $sku}
                                 {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
                                 {if $sku_available || empty($theme_settings.hide_option_not_available)}
-                                    <li {if $max_count_skus && $skus_index >= $max_count_skus}class="js-product-skus-item hide" {/if}itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                    <li itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                                         <label{if !$sku_available} class="disabled"{/if}>
                                             <meta itemprop="price" content="{$sku.price}">
                                             <meta itemprop="priceCurrency" content="{$product.currency}">
@@ -187,15 +186,6 @@
                                 {/if}
                                 {$pd_available = $pd_available or $sku_available}
                             {/foreach}
-                            {if $max_count_skus && $skus_index > $max_count_skus}
-                                <li>
-                                    <span class="open-all-btn sdColor js-product-skus-show">
-                                        <i class="fa fa-plus icon js-icon-plus" aria-hidden="true"></i>
-                                        <i class="fa fa-minus icon js-icon-minus hide" aria-hidden="true"></i>
-                                        <span class="link-half link-half--act">[`Show all`]</span>
-                                    </span>
-                                </li>
-                            {/if}
                         </ul>
                     {/if}
                 {else}
@@ -305,11 +295,7 @@
                             </strong>
                         {elseif $n > 0}
                             <strong class="stock-critical Product-stock_item Product-stock_item-critical">
-                                {if $theme_settings.product_show_stock_count_critical}
-                                    {_w("Only %d left in stock", "Only %d left in stock", $n)}
-                                {else}
-                                    {_w("Only a few items left")}
-                                {/if}
+                                {_w("Only a few items left")}
                             </strong>
                         {else}
                             {if $wa->shop->settings('ignore_stock_count')}

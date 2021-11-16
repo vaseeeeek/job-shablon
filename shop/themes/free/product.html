@@ -1,18 +1,8 @@
 {strip}
 
-{if $wa->isMobile()}
-    {$product_alias_str = $theme_settings.product_page_main_description_mobile}
-{else}
-    {$product_alias_str = $theme_settings.product_page_main_description_desktop}
-{/if}
+{$product_alias_str = $theme_settings.product_page_main_description_desktop}
 {$_show_description = strpos($product_alias_str, 'description') !== false && $product.description}
 {$_show_features =  strpos($product_alias_str, 'features') !== false && $product.features}
-
-    <div class="out_sidebars">
-        {if $sb_left}
-            {include file='sidebar.html'}
-        {/if}
-    </div>
 
     <div id="page-content" class="{if $sb_left} with-sidebar{/if}">
         <article class="js-product-page product_page" itemscope itemtype="http://schema.org/Product">
@@ -224,21 +214,6 @@
                                     {if !$_tabs_normal && !$_tabs_acc}
                                         <div class="product-tab_title"><h2>{$name_tab_description}</h2></div>
                                     {/if}
-                                    {if $theme_settings.product_page_show_brand_content && $theme_settings.use_plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
-                                        {$_brand_pro = shopBrandViewHelper::getProductBrand($product)}
-                                        {if !empty($_brand_pro) && $_brand_pro.image_url}
-                                            <div class="product_desc-brand">
-                                                <a class="brand_product-img" href="{$_brand_pro.frontend_url}"><img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}"></a>
-                                            </div>
-                                        {/if}
-                                    {else if $theme_settings.product_page_show_brand_content && $theme_settings.use_plugin_brands == 'brands' && class_exists('shopProductbrandsPlugin')}
-                                        {$_b = shopProductbrandsPlugin::productBrand($product.id)}
-                                        {if !empty($_b) && $_b.image}
-                                            <div class="product_desc-brand">
-                                                <a class="brand_product-img" href="{$_b.url}"><img alt="{$_b.name|escape}" src="{$wa_url}wa-data/public/shop/brands/{$_b.id}/{$_b.id}.200{$_b.image}"></a>
-                                            </div>
-                                        {/if}
-                                    {/if}
                                     <div itemprop="description">{$product.description}</div>
                                 </div>
                             {else if $item_alias_content == 'features' && $product.features}
@@ -422,30 +397,18 @@
 
         {$viewed_product_list = $wa->cookie('viewed_product_list')}
 
-        {if isset($theme_settings.pr_list_view_type) && !empty($theme_settings.pr_list_view_type)}
-            {$products_view = $theme_settings.pr_list_view_type}
-        {/if}
-
         {if $crossselling || $upselling }
             <div class="content product_cross-products">
                 {if $crossselling}
                     {$product_list_title = sprintf('C "%s" так же берут', $product.name|escape)}
-                    {if $products_view == "tile-carousel" && !$wa->isMobile()}
-                        {include file="product.list.view-carousel.html" products=$crossselling product_list_title=$product_list_title}
-                    {else}
-                        {include file="product.list.view-list.html" products=$crossselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
-                    {/if}
+                    {include file="product.list.view-carousel.html" products=$crossselling product_list_title=$product_list_title}
                 {/if}
 
                 {if $upselling}
                     {$compare_ids = array_merge(array($product.id), array_keys($upselling))}
                     {$onClick = "javascript:window.location='{$wa->getUrl('/frontend/compare', ['id' => implode(',', $compare_ids)])}';"}
                     {$product_list_title = "[`See also`] <a class='product_cross-compare sdColor link-half' onClick=`$onClick`>[`Compare all`]</a>"}
-                    {if $products_view == "tile-carousel" && !$wa->isMobile()}
-                        {include file="product.list.view-carousel.html" products=$upselling product_list_title=$product_list_title}
-                    {else}
-                        {include file="product.list.view-list.html" products=$upselling product_list_title=$product_list_title CategoryViewProducts=$products_view}
-                    {/if}
+                    {include file="product.list.view-carousel.html" products=$upselling product_list_title=$product_list_title}
                 {/if}
             </div>
         {/if}
