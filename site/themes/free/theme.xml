@@ -79,7 +79,7 @@
         <option value="img/themesettings/green.brown.png"/>
       </options>
     </setting>
-    <setting var="second_color" control_type="color">
+    <setting var="main_color" control_type="color">
       <value>#cb11ab</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
@@ -90,14 +90,14 @@
                 #005BFF,#0C93E8, #0DE1FF)
             </description>
     </setting>
-    <setting var="main_color" control_type="color">
+    <setting var="second_color" control_type="color">
       <value>#cb11ab</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
       <description locale="en_US">It can be set the same as the main one if it is not a gradient.</description>
     </setting>
-    <setting var="bg_color_navogation" control_type="color">
+    <setting var="background_color" control_type="color">
       <value>#fff</value>
       <name locale="ru_RU">Цвет фона</name>
       <name locale="en_US">Background color</name>
@@ -217,12 +217,12 @@
       <name locale="en_US">Logo width with screen size less than 950 pixels, px</name>
       <name locale="ru_RU">Ширина логотипа при размере экрана менее 950 пикселей, px</name>
     </setting>
-    <setting var="language_toggle" control_type="checkbox">
+    <setting var="language_selector" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Show language selector</name>
       <name locale="ru_RU">Выбор языка</name>
     </setting>
-    <setting var="currency_toggle" control_type="checkbox">
+    <setting var="currency_selector" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Show currency selector</name>
       <name locale="ru_RU">Выбор валюты</name>
@@ -232,7 +232,7 @@
       <name locale="en_US">Show currency flags</name>
       <name locale="ru_RU">Флаги в валютах</name>
     </setting>
-    <setting var="header_top_links" control_type="select">
+    <setting var="links_information_pages" control_type="select">
       <value>shop-pages</value>
       <name locale="ru_RU">Ссылки на инф. страницы</name>
       <name locale="en_US">Links to information pages</name>
@@ -281,17 +281,12 @@
                 above.
             </description>
     </setting>
-    <setting var="display_header_top_menu_submenu" control_type="checkbox">
+    <setting var="sub_items_inf_pages" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Sub-items in inf. pages</name>
       <name locale="ru_RU">Подпункты в инф. страницах</name>
     </setting>
-    <setting var="auth_popup" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Login in popup window</name>
-      <name locale="ru_RU">Авторизация во всплывающем окне</name>
-    </setting>
-    <setting var="plugin_callback" control_type="checkbox">
+    <setting var="request_call" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
@@ -316,7 +311,7 @@
       <name locale="en_US">Product categories ("Catalog" button)</name>
       <name locale="ru_RU">Меню категорий товаров (кнопка "Каталог")</name>
     </setting>
-    <setting var="max_cat_lvl" control_type="select">
+    <setting var="depth_subcategories" control_type="select">
       <value>3</value>
       <name locale="en_US">Depth of subcategories</name>
       <name locale="ru_RU">Глубина подкатегорий</name>
@@ -335,7 +330,7 @@
         </option>
       </options>
     </setting>
-    <setting var="max_num_cat_dd" control_type="text">
+    <setting var="cat_before_more" control_type="text">
       <value>10</value>
       <name locale="ru_RU">Кол-во категорий до кнопки "Ещё"</name>
       <name locale="en_US">Number of categories before the "More" button</name>
@@ -344,7 +339,7 @@
       <description locale="en_US">Leave it blank to output everything.
             </description>
     </setting>
-    <setting var="col_menu_subcat" control_type="select">
+    <setting var="break_categories_columns" control_type="select">
       <value>columns</value>
       <name locale="ru_RU">Разбивать категории на колонки</name>
       <name locale="en_US">Break categories into columns</name>
@@ -368,8 +363,8 @@
         </option>
       </options>
     </setting>
-    <setting var="cat_menu_dd_relative" control_type="select">
-      <value>parent</value>
+    <setting var="position_drop_down_categories" control_type="select">
+      <value>all</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -1250,7 +1245,7 @@
       <name locale="en_US">View product selection skus - Select</name>
     </setting>
     <setting var="product_show_multi_radio_sku_separately" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок!!!как работает - просто показывает артикул рядом с селектом</name>
       <name locale="en_US">Remove items separately from purchase options</name>
     </setting>
@@ -1568,7 +1563,7 @@
     <setting var="horizontal_menu_between" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
-      <name locale="en_US"></name>
+      <name locale="en_US"/>
     </setting>
     <setting var="lk_icon_header" control_type="checkbox">
       <value>1</value>
@@ -1686,6 +1681,12 @@
                 Контейнер фото (произвольный)
             </name>
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
+    </setting>
+    <setting var="font_size_html" control_type="text">
+      <value><![CDATA[14px]]></value>
+      <name locale="ru_RU">
+        Основной размер шрифта (Рекомендуемый 14px)
+      </name>
     </setting>
   </settings>
   <locales>

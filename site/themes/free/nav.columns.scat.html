@@ -18,7 +18,7 @@
             {foreach $cat.childs as $keyCatChild => $catChild_2}
                 {if !isset($catChild_2.params.menu_hide)}
                     {$_subcat_lvl2 = 0}
-                    {if count($catChild_2.childs) && $theme_settings.max_cat_lvl > 2 && $wa->isMobile()}
+                    {if count($catChild_2.childs) && $theme_settings.depth_subcategories > 2 && $wa->isMobile()}
                         {$_subcat_lvl2 = 1}
                     {/if}
 

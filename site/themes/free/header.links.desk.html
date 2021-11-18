@@ -3,19 +3,19 @@
 <div class="header-top_menu">
     <div data-id="header_menu-nav" class="header-top_menu-btn fa-icon js-nav-button"></div>
     {$_links = []}
-    {if $theme_settings.header_top_links == 'site-pages'}
+    {if $theme_settings.links_information_pages == 'site-pages'}
         {if $wa->site}{$_links = $wa->site->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'shop-pages'}
+    {elseif $theme_settings.links_information_pages == 'shop-pages'}
         {if $wa->shop}{$_links = $wa->shop->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'blog-pages'}
+    {elseif $theme_settings.links_information_pages == 'blog-pages'}
         {if $wa->blog}{$_links = $wa->blog->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'photos-pages'}
+    {elseif $theme_settings.links_information_pages == 'photos-pages'}
         {if $wa->photos}{$_links = $wa->photos->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'hub-pages'}
+    {elseif $theme_settings.links_information_pages == 'hub-pages'}
         {if $wa->hub}{$_links = $wa->hub->pages()}{/if}
-    {elseif $theme_settings.header_top_links == 'app-menu'}
+    {elseif $theme_settings.links_information_pages == 'app-menu'}
         {if $wa->menu && !empty($theme_settings.id_app_header-top_menu) && (int)$theme_settings.id_app_header-top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header-top_menu)}{/if}
-    {elseif $theme_settings.header_top_links != 'none'}
+    {elseif $theme_settings.links_information_pages != 'none'}
         {$_links = $wa->apps()}
     {/if}
 
@@ -30,7 +30,7 @@
                             <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
                                 {$link.name}
                             </a>
-                            {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
+                            {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.sub_items_inf_pages}
                                 <i class="js-top-nav-caret nav-caret fa-icon"></i>
                                 <div class="juniq-header_menu-nav-sub header-top_nav-sub">
                                     <ul class="top-border-color">

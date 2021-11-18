@@ -7,7 +7,7 @@
     {/if}
 
     <!DOCTYPE html>
-    <html lang="ru">
+    <html lang="ru" style="font-size: {$theme_settings.font_size_html}!important;">
     <head prefix="og: http://ogp.me/ns#{if  isset($action) &&  $action == 'product'} product: http://ogp.me/ns/product#{/if}">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -88,6 +88,7 @@
         {include file="header.links.html"}
     {/if}
     <header class="header">
+        <i class="fi-rr-cross"></i>111111111111111111
         <div class="container">
             <div class="header--left">
                 {$is_logo = $theme_settings.logo}
@@ -431,7 +432,7 @@
         {/if}
     {/if}
 
-    {if $wa->shop && $theme_settings.plugin_callback && class_exists('shopCallbPlugin')}
+    {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
         {shopCallbPlugin::display()}
     {/if}
 

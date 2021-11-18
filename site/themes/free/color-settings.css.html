@@ -21,14 +21,14 @@
 
     {$selectColors = $colors[$_color_scheme]}
 
-    {if !empty($theme_settings.main_color)}
-        {$selectColors['maincolor'] = $theme_settings.main_color}
-    {/if}
-    {if !empty($theme_settings.bg_color_navogation)}
-        {$selectColors['panelBgColor'] = $theme_settings.bg_color_navogation}
-    {/if}
     {if !empty($theme_settings.second_color)}
-        {$selectColors['scColor'] = $theme_settings.second_color}
+        {$selectColors['maincolor'] = $theme_settings.second_color}
+    {/if}
+    {if !empty($theme_settings.background_color)}
+        {$selectColors['panelBgColor'] = $theme_settings.background_color}
+    {/if}
+    {if !empty($theme_settings.main_color)}
+        {$selectColors['scColor'] = $theme_settings.main_color}
     {/if}
 
     {$maincolor=$selectColors.maincolor}

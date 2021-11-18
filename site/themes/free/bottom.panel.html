@@ -1,18 +1,18 @@
 {strip}
     <div class="MobileMenu">
-        {if $theme_settings.header_top_links == 'site-pages'}
+        {if $theme_settings.links_information_pages == 'site-pages'}
             {if $wa->site}{$_links = $wa->site->pages()}{/if}
-        {elseif $theme_settings.header_top_links == 'shop-pages'}
+        {elseif $theme_settings.links_information_pages == 'shop-pages'}
             {if $wa->shop}{$_links = $wa->shop->pages()}{/if}
-        {elseif $theme_settings.header_top_links == 'blog-pages'}
+        {elseif $theme_settings.links_information_pages == 'blog-pages'}
             {if $wa->blog}{$_links = $wa->blog->pages()}{/if}
-        {elseif $theme_settings.header_top_links == 'photos-pages'}
+        {elseif $theme_settings.links_information_pages == 'photos-pages'}
             {if $wa->photos}{$_links = $wa->photos->pages()}{/if}
-        {elseif $theme_settings.header_top_links == 'hub-pages'}
+        {elseif $theme_settings.links_information_pages == 'hub-pages'}
             {if $wa->hub}{$_links = $wa->hub->pages()}{/if}
-        {elseif $theme_settings.header_top_links == 'app-menu'}
+        {elseif $theme_settings.links_information_pages == 'app-menu'}
             {if $wa->menu && !empty($theme_settings.id_app_header-top_menu) && (int)$theme_settings.id_app_header-top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header-top_menu)}{/if}
-        {elseif $theme_settings.header_top_links != 'none'}
+        {elseif $theme_settings.links_information_pages != 'none'}
             {$_links = $wa->apps()}
         {/if}
         <nav id="header_menu-nav" class="MobileMenu_nav-m">
@@ -31,7 +31,7 @@
                 {foreach $cat_result as $cat}
                     {$view_subcat = "one_column"}
                     {$_subcat = 0}
-                    {if count($cat.childs) && $theme_settings.max_cat_lvl > 1}
+                    {if count($cat.childs) && $theme_settings.depth_subcategories > 1}
                         {foreach $cat.childs as $child}
                             {$_subcat = 1}
                         {/foreach}
@@ -39,7 +39,7 @@
                     {if $cat.id == 'else'}
                         {$_subcat = 1}
                     {/if}
-                    <div class="menu-element {if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
+                    <div class="menu-element {if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
                         {if $_subcat}
                             <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                         {/if}
@@ -79,7 +79,7 @@
                                 <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
                                     {$link.name}
                                 </a>
-                                {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.display_header_top_menu_submenu}
+                                {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.sub_items_inf_pages}
                                     <i class="js-top-nav-caret nav-caret icon"></i>
                                     <div class="MobileMenu_nav-m-sub">
                                         <ul class="top-border-color">
@@ -109,7 +109,7 @@
                 {if shopAffiliate::isEnabled()}<a class="menu-element" href="/my/affiliate/">Партнерская программа</a>{/if}
             </div>
 
-            {if $wa_app == 'shop' && $theme_settings.currency_toggle}
+            {if $wa_app == 'shop' && $theme_settings.currency_selector}
                 {$currencies = $wa->shop->currencies()}
                 {$currency = $wa->shop->currency()}
                 {if count($currencies) > 1}
@@ -151,7 +151,7 @@
                 {/if}
             {/if}
 
-            {if $wa_app == 'shop' && $theme_settings.language_toggle}
+            {if $wa_app == 'shop' && $theme_settings.language_selector}
                 <div class="header_lang">
                     <span class="header_lang-ttl">[`Language`]:</span>
                     {foreach waLocale::getAll('name') as $language => $lang_name}

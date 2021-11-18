@@ -13,7 +13,7 @@
                 <div class="header-top_region">{shopCityselectPlugin::showCity('0')}</div>
             {/if}
 
-            {if $wa_app == 'shop' && $theme_settings.currency_toggle}
+            {if $wa_app == 'shop' && $theme_settings.currency_selector}
                 {$currencies = $wa->shop->currencies()}
                 {$currency = $wa->shop->currency()}
                 {if count($currencies) > 1}
@@ -54,7 +54,7 @@
                 {/if}
             {/if}
 
-            {if $wa_app == 'shop' && $theme_settings.language_toggle}
+            {if $wa_app == 'shop' && $theme_settings.language_selector}
                 <div class="header_lang">
                     <span  class="header_lang-ttl">[`Language`]:</span>
                     {foreach waLocale::getAll('name') as $language => $lang_name}
