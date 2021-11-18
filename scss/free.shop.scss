@@ -2832,8 +2832,11 @@ ul.menu-v.brands li a {
   position: absolute;
   right: 0;
 }
-.filter-el.close .fi-rr-angle-small-down{
+.filter-el .fi-rr-angle-small-down{
   transform: rotate(180deg);
+}
+.filter-el.close .fi-rr-angle-small-down{
+  transform: rotate(0deg);
 }
 .filter-el_opts {
   margin: rem(10px) 0 0
@@ -3055,6 +3058,10 @@ input.filter-range_el {
   margin: 0 0 0 rem(8px);
   display: inline-flex;
   cursor: pointer;
+  color: #ebebeb;
+  &.selected{
+    color: #000;
+  }
 }
 
 .cat-onpage_select, .cat-sort_select {

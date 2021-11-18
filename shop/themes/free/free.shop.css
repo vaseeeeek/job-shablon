@@ -2814,9 +2814,14 @@ ul.menu-v.brands li a {
 		right: 0;
 }
 
-.filter-el.close .fi-rr-angle-small-down {
+.filter-el .fi-rr-angle-small-down {
 		-webkit-transform: rotate(180deg);
 		        transform: rotate(180deg);
+}
+
+.filter-el.close .fi-rr-angle-small-down {
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
 }
 
 .filter-el_opts {
@@ -3048,6 +3053,10 @@ input.filter-range_el {
 		display: -ms-inline-flexbox;
 		display: inline-flex;
 		cursor: pointer;
+		color: #ebebeb;
+}
+.cat-views__el.selected {
+		color: #000;
 }
 
 .cat-onpage_select, .cat-sort_select {
