@@ -1,9 +1,6 @@
 {strip}
 {if count($category.subcategories) > 0}
-    {$_subcat_filter_save = true}
-    {$subcategory_filter_aliases = true}
-
-    <div class="js-cat_sub"{if $_subcat_filter_save} data-save-filters="true"{if $subcategory_filter_aliases} data-save-filters-aliases="{$subcategory_filter_aliases}"{/if}{/if}>
+    <div class="js-cat_sub" data-save-filters="true">
         {if isset($category.params.sub_view) && !empty($category.params.sub_view)}
             {$sub_view = $category.params.sub_view}
         {/if}
