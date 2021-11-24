@@ -47,8 +47,6 @@
 
         <!-- css -->
         {include file="color-settings.css.html"}
-        <link href="{$wa_theme_url}fonts/free/style.css?v{$wa_theme_version}"
-              rel="stylesheet"/>
         <link href="{$wa_theme_url}free.site.css?v{$wa_theme_version}" rel="stylesheet"/>
 
 
@@ -70,7 +68,6 @@
     </head>
 
     <body>
-
     {if $wa->block("cookie.block") && !$wa->cookie('closeCookie')}
         <div class="head_info-massage js-head-info-massage">
             <div class="head_info-massage__wrap container">
@@ -88,7 +85,6 @@
         {include file="header.links.html"}
     {/if}
     <header class="header">
-        <i class="fi-rr-cross"></i>111111111111111111
         <div class="container">
             <div class="header--left">
                 {$is_logo = $theme_settings.logo}
@@ -101,7 +97,7 @@
                 </a>
                 {if !$wa->isMobile()}
                     <div class="nav-cat js-dd-outer">
-                        <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor fa-icon-before">[`Catalog`]
+                        <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor "> <i class="fi-rr-align-justify"></i>[`Catalog`]
                         </div>
                     </div>
                 {/if}
@@ -137,7 +133,7 @@
                     {/if}
                     <p><a href="tel:{$theme_settings.header_company_phone}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></p>
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
-                    <p class="Nav-contact-callback js-callback-open">Обратный звонок</p>
+                    <p class="Nav-contact-callback js-callback-open">[`Feedback`]</p>
                 </div>
 
                 <div class="Nav-product-custom">
@@ -180,7 +176,7 @@
                                     <i class="fi-rr-heart icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{$count_favorites}</span>
                                 </div>
-                                <span>Избранное</span>
+                                <span>[`Favorites`]</span>
                             </a>
                             <div class="product-msg-added-wrap js-product-added-msg">
                                 <div class="product-added-msg br-top-sdСolor shadow">
@@ -204,7 +200,7 @@
                                     <div class="fi-rr-compare icon"></div>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
                                 </div>
-                                <span>Сравнение</span>
+                                <span>[`Compare`]</span>
                             </a>
                             <div class="product-msg-added-wrap js-product-added-msg">
                                 <div class="product-added-msg br-top-sdСolor shadow">
@@ -222,7 +218,7 @@
                                 <i class="icon fi-rr-shopping-cart sdСolor"></i>
                                 <span class="js-cart-preview-count header__cart-count bg-maincolor">{$wa->shop->cart->count()}</span>
                             </div>
-                            <span>Корзина</span>
+                            <span>[`Cart`]</span>
                         </a>
                         <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
                             <div class="product-added-msg br-top-sdСolor shadow">
@@ -352,32 +348,32 @@
                         <div class="footer-social">
                             {if !empty($theme_settings.facebook)}
                                 <a target="_blank" class="footer-social_item" href="{$theme_settings.facebook}">
-                                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                    <i class="fa fi-rr-fb" aria-hidden="true"></i>
                                 </a>
                             {/if}
                             {if !empty($theme_settings.twitter)}
                                 <a target="_blank" class="footer-social_item" href="{$theme_settings.twitter}">
-                                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                    <i class="fa fi-rr-twitter" aria-hidden="true"></i>
                                 </a>
                             {/if}
                             {if !empty($theme_settings.vk)}
                                 <a target="_blank" class="footer-social_item" href="{$theme_settings.vk}">
-                                    <i class="fa fa-vk" aria-hidden="true"></i>
+                                    <i class="fa fi-rr-vk" aria-hidden="true"></i>
                                 </a>
                             {/if}
                             {if !empty($theme_settings.odnoclassniki)}
                                 <a target="_blank" class="footer-social_item" href="{$theme_settings.odnoclassniki}">
-                                    <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
+                                    <i class="fa fi-rr-odnok" aria-hidden="true"></i>
                                 </a>
                             {/if}
                             {if !empty($theme_settings.instagram)}
                                 <a target="_blank" class="footer-social_item" href="{$theme_settings.instagram}">
-                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                    <i class="fa fi-rr-inst" aria-hidden="true"></i>
                                 </a>
                             {/if}
                             {if !empty($theme_settings.youtube)}
                                 <a target="_blank" class="footer-social_item" href="{$theme_settings.youtube}">
-                                    <i class="fa fa-youtube-square" aria-hidden="true"></i>
+                                    <i class="fa fi-rr-yt" aria-hidden="true"></i>
                                 </a>
                             {/if}
                         </div>

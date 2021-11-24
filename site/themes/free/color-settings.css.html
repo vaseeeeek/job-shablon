@@ -36,6 +36,11 @@
     {$panelBgColor=$selectColors.panelBgColor}
 
     <style>
+
+        body, .Product__features-title span, .tags.cloud a, .category-menu,.menu-subcategory, .inp-search input,.modal-content, .product-added-msg, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found{
+            background: {$panelBgColor}!important;
+        }
+
         .bg-maincolor,
         input[type="button"].bg-maincolor,
         input[type="submit"].bg-maincolor,
@@ -56,10 +61,12 @@
         .filters .ui-state-hover,
         .filters .ui-widget-content .ui-state-default,
         .filters .ui-widget-content .ui-state-hover,
-        .compare-list-switch li.selected, .owl-dot.active > span {
+        .compare-list-switch li.selected, .owl-dot.active > span, .Brands__Link--Categories {
             background: {$scColor};
         }
-
+        .style-check.checked:before, .jq-checkbox.checked:before{
+            color: {$scColor};
+        }
         .call-b-input input[type="submit"]{
             background: {$scColor} !important;
         }

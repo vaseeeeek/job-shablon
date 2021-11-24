@@ -116,9 +116,9 @@
                     <div class="header_currency js-dd-outer">
                         {if count($currencies) > 1}
                             [`Currency`]:
-                            <span data-id="currency-list" class="js-btnDrop-down currency_item free-icon-after">
+                            <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
                             {if !empty($theme_settings.show_currency_flag)}
-                                <img src="{$wa_theme_url}img/currency/{$currency}.png" alt="{$currency}"/>
+                                <img src="{$wa_theme_url}img/currency/{$currency}.png" alt="{$currency}" width="18px"/>
                             {/if}
                                 {$currency}
                         </span>

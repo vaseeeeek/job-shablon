@@ -702,7 +702,7 @@
       <name locale="en_US">Text of the inscription "Under the order"</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value>obrezka</value>
+      <value><![CDATA[]]></value>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
                 right)
@@ -1596,7 +1596,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="five_icon_img_header" control_type="text">
-      <value>&lt;img src="/wa-data/public/site/themes/free/img/forFonts/search.svg" alt=""&gt;</value>
+      <value>&lt;i class="fi-rr-search icon"&gt;&lt;/i&gt;</value>
       <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>
@@ -1683,25 +1683,13 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="font_size_html" control_type="text">
-      <value><![CDATA[14px]]></value>
+      <value>14px</value>
       <name locale="ru_RU">
         Основной размер шрифта (Рекомендуемый 14px)
       </name>
     </setting>
   </settings>
   <locales>
-    <locale>
-      <msgid>Follow us</msgid>
-      <msgstr locale="ru_RU">Подписаться на новости</msgstr>
-    </locale>
-    <locale>
-      <msgid>Subscribe to our email newsletter</msgid>
-      <msgstr locale="ru_RU">Подписаться на рассылку</msgstr>
-    </locale>
-    <locale>
-      <msgid>Or follow us on Facebook and Twitter</msgid>
-      <msgstr locale="ru_RU">Или подписывайтесь в соцсетях</msgstr>
-    </locale>
     <locale>
       <msgid>Currency</msgid>
       <msgstr locale="ru_RU">Валюта</msgstr>
@@ -1735,18 +1723,6 @@
       <msgstr locale="ru_RU">Обратная связь</msgstr>
     </locale>
     <locale>
-      <msgid>Company</msgid>
-      <msgstr locale="ru_RU">Компания</msgstr>
-    </locale>
-    <locale>
-      <msgid>Sections</msgid>
-      <msgstr locale="ru_RU">Разделы</msgstr>
-    </locale>
-    <locale>
-      <msgid>Product of the day</msgid>
-      <msgstr locale="ru_RU">Товар дня</msgstr>
-    </locale>
-    <locale>
       <msgid>All categories</msgid>
       <msgstr locale="ru_RU">Все категории</msgstr>
     </locale>
@@ -1755,32 +1731,12 @@
       <msgstr locale="ru_RU">Смотреть все</msgstr>
     </locale>
     <locale>
-      <msgid>Photo gallery</msgid>
-      <msgstr locale="ru_RU">Фотогалерея</msgstr>
-    </locale>
-    <locale>
       <msgid>Home</msgid>
       <msgstr locale="ru_RU">Главная</msgstr>
     </locale>
     <locale>
-      <msgid>Information</msgid>
-      <msgstr locale="ru_RU">Информация</msgstr>
-    </locale>
-    <locale>
       <msgid>Read more</msgid>
       <msgstr locale="ru_RU">Читать далее</msgstr>
-    </locale>
-    <locale>
-      <msgid>Reed all</msgid>
-      <msgstr locale="ru_RU">Читать все</msgstr>
-    </locale>
-    <locale>
-      <msgid>Go to the photo gallery</msgid>
-      <msgstr locale="ru_RU">Перейти в фотогалерею</msgstr>
-    </locale>
-    <locale>
-      <msgid>Photo gallery</msgid>
-      <msgstr locale="ru_RU">Фотогалерея</msgstr>
     </locale>
     <locale>
       <msgid>View</msgid>
@@ -1795,22 +1751,6 @@
       <msgstr locale="ru_RU">Быстрый просмотр</msgstr>
     </locale>
     <locale>
-      <msgid>Products in comparison</msgid>
-      <msgstr locale="ru_RU">Товары в сравнении</msgstr>
-    </locale>
-    <locale>
-      <msgid>In comparison</msgid>
-      <msgstr locale="ru_RU">В сравнении</msgstr>
-    </locale>
-    <locale>
-      <msgid>Go to comparison</msgid>
-      <msgstr locale="ru_RU">Перейти к сравнению</msgstr>
-    </locale>
-    <locale>
-      <msgid>Products in compare no</msgid>
-      <msgstr locale="ru_RU">Товаров в сравнении нет</msgstr>
-    </locale>
-    <locale>
       <msgid>Compare</msgid>
       <msgstr locale="ru_RU">Сравнение</msgstr>
     </locale>
@@ -1819,16 +1759,8 @@
       <msgstr locale="ru_RU">Товар добавлен в корзину!</msgstr>
     </locale>
     <locale>
-      <msgid>Product in cart!</msgid>
-      <msgstr locale="ru_RU">Товар в корзине!</msgstr>
-    </locale>
-    <locale>
       <msgid>Cart</msgid>
       <msgstr locale="ru_RU">Корзина</msgstr>
-    </locale>
-    <locale>
-      <msgid>Go to cart</msgid>
-      <msgstr locale="ru_RU">Перейти в корзину</msgstr>
     </locale>
     <locale>
       <msgid>To cart</msgid>
@@ -1839,36 +1771,12 @@
       <msgstr locale="ru_RU">Товар добавлен в список сравнения</msgstr>
     </locale>
     <locale>
-      <msgid>Product in compare</msgid>
-      <msgstr locale="ru_RU">Товар в сравнении</msgstr>
-    </locale>
-    <locale>
-      <msgid>The product is removed from compare</msgid>
-      <msgstr locale="ru_RU">Товар удален из списка сравнения</msgstr>
-    </locale>
-    <locale>
-      <msgid>Go to compare</msgid>
-      <msgstr locale="ru_RU">Перейти в список сравнения</msgstr>
-    </locale>
-    <locale>
       <msgid>To favorites</msgid>
       <msgstr locale="ru_RU">В избранное</msgstr>
     </locale>
     <locale>
       <msgid>The product has been added to favorites</msgid>
       <msgstr locale="ru_RU">Товар добавлен в список избранных</msgstr>
-    </locale>
-    <locale>
-      <msgid>The product in favorites</msgid>
-      <msgstr locale="ru_RU">Товар в избранных</msgstr>
-    </locale>
-    <locale>
-      <msgid>The product is removed from favorites</msgid>
-      <msgstr locale="ru_RU">Товар удален из списка избранных</msgstr>
-    </locale>
-    <locale>
-      <msgid>Go to favorites</msgid>
-      <msgstr locale="ru_RU">Перейти в список избранных</msgstr>
     </locale>
     <locale>
       <msgid>Favorites</msgid>
@@ -1879,16 +1787,8 @@
       <msgstr locale="ru_RU">Избранные товары</msgstr>
     </locale>
     <locale>
-      <msgid>Up</msgid>
-      <msgstr locale="ru_RU">Вверх</msgstr>
-    </locale>
-    <locale>
       <msgid>Viewed products</msgid>
       <msgstr locale="ru_RU">Просмотренные товары</msgstr>
-    </locale>
-    <locale>
-      <msgid>Viewed</msgid>
-      <msgstr locale="ru_RU">Просмотренные</msgstr>
     </locale>
     <locale>
       <msgid>Review</msgid>
@@ -1919,10 +1819,6 @@
       <msgstr locale="ru_RU">Подробные характеристики</msgstr>
     </locale>
     <locale>
-      <msgid>You watched</msgid>
-      <msgstr locale="ru_RU">Вы смотрели</msgstr>
-    </locale>
-    <locale>
       <msgid>Delete</msgid>
       <msgstr locale="ru_RU">Удалить</msgstr>
     </locale>
@@ -1937,10 +1833,6 @@
     <locale>
       <msgid>Product page</msgid>
       <msgstr locale="ru_RU">Страница товара</msgstr>
-    </locale>
-    <locale>
-      <msgid>Order call</msgid>
-      <msgstr locale="ru_RU">Заказать звонок</msgstr>
     </locale>
     <locale>
       <msgid>Is not filled</msgid>
@@ -1963,26 +1855,6 @@
       <msgstr locale="ru_RU">сек</msgstr>
     </locale>
     <locale>
-      <msgid>Go to mainpage</msgid>
-      <msgstr locale="ru_RU">Перейти на главную</msgstr>
-    </locale>
-    <locale>
-      <msgid>Settings theme</msgid>
-      <msgstr locale="ru_RU">Настройки темы</msgstr>
-    </locale>
-    <locale>
-      <msgid>Reset settigs</msgid>
-      <msgstr locale="ru_RU">Сбросить настройки</msgstr>
-    </locale>
-    <locale>
-      <msgid>Buy theme</msgid>
-      <msgstr locale="ru_RU">Купить тему</msgstr>
-    </locale>
-    <locale>
-      <msgid>Select color</msgid>
-      <msgstr locale="ru_RU">Выбрать цвет</msgstr>
-    </locale>
-    <locale>
       <msgid>Hide</msgid>
       <msgstr locale="ru_RU">Скрыть</msgstr>
     </locale>
@@ -2003,40 +1875,8 @@
       <msgstr locale="ru_RU">Обратная связь</msgstr>
     </locale>
     <locale>
-      <msgid>Subscribe newsleter</msgid>
-      <msgstr locale="ru_RU">Подписка на новости</msgstr>
-    </locale>
-    <locale>
-      <msgid>I agree</msgid>
-      <msgstr locale="ru_RU">Я согласен(a)</msgstr>
-    </locale>
-    <locale>
-      <msgid>with the policy of processing personal data</msgid>
-      <msgstr locale="ru_RU">с политикой обработки персональных данных</msgstr>
-    </locale>
-    <locale>
-      <msgid>Enter your e-mail</msgid>
-      <msgstr locale="ru_RU">Введите вашy эл.почту</msgstr>
-    </locale>
-    <locale>
-      <msgid>Form submission error</msgid>
-      <msgstr locale="ru_RU">Ошибка отправки формы</msgstr>
-    </locale>
-    <locale>
-      <msgid>Last reviews</msgid>
-      <msgstr locale="ru_RU">Последние отзывы</msgstr>
-    </locale>
-    <locale>
       <msgid>Contacts</msgid>
       <msgstr locale="ru_RU">Контакты</msgstr>
-    </locale>
-    <locale>
-      <msgid>Mobile version of the site</msgid>
-      <msgstr locale="ru_RU">Мобильная версия сайта</msgstr>
-    </locale>
-    <locale>
-      <msgid>Full version of site</msgid>
-      <msgstr locale="ru_RU">Полная версия сайта</msgstr>
     </locale>
     <locale>
       <msgid>No sku</msgid>
@@ -2045,10 +1885,6 @@
     <locale>
       <msgid>unit</msgid>
       <msgstr locale="ru_RU">шт.</msgstr>
-    </locale>
-    <locale>
-      <msgid>There are very few items left</msgid>
-      <msgstr locale="ru_RU">Осталось очень мало</msgstr>
     </locale>
     <locale>
       <msgid>Our brands</msgid>
@@ -2063,24 +1899,12 @@
       <msgstr locale="ru_RU">Состав заказа</msgstr>
     </locale>
     <locale>
-      <msgid>Go to cart</msgid>
-      <msgstr locale="ru_RU">Перейти в корзину</msgstr>
-    </locale>
-    <locale>
       <msgid>Edit the order</msgid>
       <msgstr locale="ru_RU">Изменить заказ</msgstr>
     </locale>
     <locale>
-      <msgid>Discussions</msgid>
-      <msgstr locale="ru_RU">Обсуждения</msgstr>
-    </locale>
-    <locale>
       <msgid>Continue shopping</msgid>
       <msgstr locale="ru_RU">Продолжить покупки</msgstr>
-    </locale>
-    <locale>
-      <msgid>Products in cart</msgid>
-      <msgstr locale="ru_RU">Товары в корзине</msgstr>
     </locale>
   </locales>
 </theme>

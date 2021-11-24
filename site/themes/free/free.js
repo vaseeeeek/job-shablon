@@ -1832,7 +1832,7 @@ var itemGallery = {
                         $('#swipebox-slider').css("padding-bottom", (parseInt($('#swipebox-thumbs').outerHeight()) + 30) + 'px');
                     }
 
-                    if ((thumbs === true && images.length) || bgOpacity) {
+                    if ((thumbs === true && imgArrs.length) || bgOpacity) {
                         $('#swipebox-bottom-bar').addClass("swipebox-bottom-bar--pos-center");
                         $('#swipebox-arrows').addClass("swipebox-arrows--pos-center");
                     }

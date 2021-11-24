@@ -260,8 +260,8 @@
                     <input type="text" name="quantity" value="1" class="js-number">
                     <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
                 </span>
-                <span class="button js-submit-form addtocart fi-rr-shopping-cart addtocart--large{if !$pd_available} disabled{/if}">
-                    {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
+                <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}">
+                    <i class="fi-rr-shopping-cart"></i>{if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
                 </span>
             </div>
             <!-- plugin hook: 'frontend_product.cart' -->
@@ -278,7 +278,7 @@
                     {function name=in_stock n=0 low=5 critical=2}
                         {if $n > $low or $n === null}
                             <strong class="stock-high Product-stock_item Product-stock_item-high">
-                                <i class="fa fa-check icon" aria-hidden="true"></i>
+                                <i class="fi-rr-check"></i>
                                 [`In stock`]
                                 {if $theme_settings.product_show_stock_count && $n !== null}
                                     : {$n} [`unit`]

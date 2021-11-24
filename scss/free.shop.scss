@@ -6,7 +6,6 @@ $html-font-size: 14px;
 @function rem($pxValue) {
   @return #{round(stripUnit($pxValue) / stripUnit($html-font-size) * 1000) / 1000}rem;
 }
-
 .checked-list {
   position: relative
 }
@@ -149,7 +148,13 @@ $html-font-size: 14px;
 }
 
 .product_add2cart .addtocart {
-  margin: 0 0 0 rem(30px)
+  margin: 0 0 0 rem(30px);
+  line-height:30px;
+    .fi-rr-shopping-cart {
+      position: relative;
+      top: 1px;
+      margin-right: 5px;
+    }
 }
 
 .addtocart:before {
@@ -237,7 +242,6 @@ $html-font-size: 14px;
   word-spacing: 0;
   overflow: hidden;
   box-sizing: border-box;
-  background: #fff;
   position: relative;
   margin: 0 0 rem(24px)
 }
@@ -265,7 +269,7 @@ $html-font-size: 14px;
 }
 
 .slider-outer--products {
-  border: 1px solid #ebebeb
+  border: 0px solid #ebebeb
 }
 
 .main-slider {
@@ -360,7 +364,12 @@ $html-font-size: 14px;
 }
 
 .main-slider_item-btn {
-  float: right
+  float: right;
+  display: flex;
+  align-items: center;
+  i {
+    margin-right: 5px;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -599,7 +608,9 @@ $html-font-size: 14px;
   margin: 0 0 rem(3px);
   color: #2b9e46
 }
-
+.Product-stock_item-high i {
+  margin-right: 3px;
+}
 .Product-stock_item .icon {
   margin: 0 rem(3px) 0 0;
   vertical-align: middle
@@ -884,7 +895,8 @@ $html-font-size: 14px;
 
 .Product-grid .rating {
   display: inline-block;
-  margin: 0 rem(10px) 0 0;
+
+  margin: 0 0 rem(3px);
 }
 
 .Product-grid_stock .Product-stock {
@@ -1093,7 +1105,6 @@ $html-font-size: 14px;
 
 .home-products .products-grid-outer {
   margin: 0 rem(-1px) 0 0;
-  background: #fff;
 }
 
 .home-products--list {
@@ -1122,7 +1133,6 @@ $html-font-size: 14px;
   font-size: rem(32px);
   padding: rem(24px) 0;
   text-align: center;
-  background: #fff;
   margin: 0 rem(-1px) 0 0;
   position: relative;
   text-align: center;
@@ -1734,7 +1744,9 @@ $html-font-size: 14px;
   line-height: 25px;
   font-weight: 400
 }
-
+.Cart__Qty input{
+  background: transparent;
+}
 .fixed-cart__total-outer {
   overflow: hidden
 }
@@ -2058,7 +2070,6 @@ table.compare {
   width: 100%;
   margin: 0 0 rem(15px);
   font-size: rem(13px);
-  background: #fff
 }
 
 table.compare thead td {
@@ -2646,7 +2657,6 @@ h1 .order-status {
 }
 
 .homepage-brands {
-  background: #fff;
   padding: 0 10%;
   width: 100%;
   box-sizing: border-box;
@@ -2707,7 +2717,6 @@ h1 .order-status {
 .homepage-brands-head {
   font-size: rem(32px);
   padding: rem(24px);
-  background: #fff;
   border-bottom: none;
   text-align: center
 }
@@ -5171,6 +5180,8 @@ img.pswp__img {
 .cat-tile_name {
   padding: rem(10px) 0;
   margin: 0 rem(10px);
+  color: #333;
+
 }
 
 .categories-tile a {
@@ -6421,6 +6432,7 @@ input[type=button].storequickorder-button:hover {
   cursor: pointer;
   top: calc(50% - 20px);
   z-index: 2;
+  color: #202020;
 }
 
 .owl-next {
@@ -6429,11 +6441,11 @@ input[type=button].storequickorder-button:hover {
 }
 
 .owl-prev:after {
-  content: "\f053"
+  content: "\e910"
 }
 
 .owl-next:after {
-  content: "\f054"
+  content: "\e911"
 }
 
 .owl-next.disabled, .owl-next.disabled:hover, .owl-prev.disabled, .owl-prev.disabled:hover {
@@ -6724,11 +6736,11 @@ button.owl-dot {
   color: red;
 }
 
-.product-action.add-to-compare.active .fa-files-o {
+.product-action.add-to-compare.active .fi-rr-compare {
   color: #4169e1;
 }
 
-.Product-grid_action .product-action.add-to-compare.active .fa-files-o {
+.Product-grid_action .product-action.add-to-compare.active .fi-rr-compare {
   color: #000;
 }
 
@@ -6831,7 +6843,6 @@ button.owl-dot {
 }
 
 .Product-grid {
-  background: #fff;
   position: relative;
   box-sizing: border-box;
   display: flex;

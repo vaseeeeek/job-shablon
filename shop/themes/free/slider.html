@@ -113,7 +113,7 @@
                                         {$preview_image = $wa->shop->productImgUrl($product, '60')}
                                         <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$product.name|escape}" data-price="{shop_currency_html($product.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart main-slider_item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                                             <input type="hidden" name="product_id" value="{$product.id}">
-                                            <span class="button main-slider_item-btn js-btn-form addtocart fi-rr-shopping-cart addtocart--large">{$add2label_cart}</span>
+                                            <span class="button main-slider_item-btn js-btn-form addtocart addtocart--large"> <i class="fi-rr-shopping-cart"></i> {$add2label_cart}</span>
                                         </form>
                                     {/if}
                                 {/if}
