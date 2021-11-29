@@ -70,17 +70,20 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/yellow.green.png</value>
+      <value>img/themesettings/free.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
-        <option value="img/themesettings/orange.green.png"/>
-        <option value="img/themesettings/yellow.green.png"/>
-        <option value="img/themesettings/green.brown.png"/>
+        <option value="img/themesettings/free.png"/>
+        <option value="img/themesettings/citilink.png"/>
+        <option value="img/themesettings/mvideo.png"/>
+        <option value="img/themesettings/ozon.png"/>
+        <option value="img/themesettings/wb.png"/>
+        <option value="img/themesettings/yandex.png"/>
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#fc0</value>
+      <value/>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -91,20 +94,30 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#fc0</value>
+      <value/>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
       <description locale="en_US">It can be set the same as the main one if it is not a gradient.</description>
     </setting>
     <setting var="background_color" control_type="color">
-      <value>#fff</value>
+      <value/>
       <name locale="ru_RU">Цвет фона</name>
       <name locale="en_US">Background color</name>
     </setting>
-    <setting var="text_color_scheme" control_type="text">
-      <value>#212121</value>
+    <setting var="text_color_scheme" control_type="color">
+      <value/>
       <name locale="ru_RU">Цвет шрифта</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="footer_color_scheme" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет низа сайта (футер)</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="btn_text_color_scheme" control_type="color">
+      <value/>
+      <name locale="ru_RU">Цвет шрифта кнопок</name>
       <name locale="en_US"/>
     </setting>
     <setting var="border_radius" control_type="text">
@@ -1684,7 +1697,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="font_size_html" control_type="text">
-      <value><![CDATA[14px]]></value>
+      <value>14px</value>
       <name locale="ru_RU">
         Основной размер шрифта (Рекомендуемый 14px)
       </name>

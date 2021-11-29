@@ -166,10 +166,19 @@
 		height: 30px;
 		line-height: 30px;
 		min-width: 70px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 }
 
 .cart-loading {
-		opacity: 0.7;
+		opacity: 0.4;
 }
 
 .addtocart--large:before {
@@ -1092,7 +1101,7 @@
 }
 
 .home-products-more:after {
-		font: normal normal normal 16px/1 FontAwesome;
+		font: normal normal normal 16px/1 "free-font";
 		vertical-align: middle;
 		content: "";
 		font-size: 4.286rem;
@@ -1290,7 +1299,7 @@
 }
 
 .acc-tabs-caret__icon:before {
-		font: normal normal normal 14px/1 FontAwesome;
+		font: normal normal normal 14px/1 "free-font";
 		content: "";
 		font-weight: 400;
 		font-size: 1.429rem;
@@ -2943,7 +2952,7 @@ input.filter-range_el {
 }
 
 .filter-opt-show-btn:before {
-		font: normal normal normal 10px/1 FontAwesome;
+		font: normal normal normal 10px/1 "free-font";
 		content: "";
 }
 
@@ -2983,23 +2992,13 @@ input.filter-range_el {
 }
 
 .category-desc-more.open:after {
-		content: "";
+		content: "";
 }
 
 .category-desc-more:after {
-		font-family: FontAwesome;
-		content: "";
+		font-family: "free-font";
+		content: "";
 		margin: 0 0 0 0.214rem;
-}
-
-.category-desc-wrap.close:after {
-		position: absolute;
-		height: 15px;
-		bottom: 0;
-		width: 100%;
-		-webkit-box-shadow: inset 0 -10px 5px 5px rgba(255, 255, 255, 0.5);
-		        box-shadow: inset 0 -10px 5px 5px rgba(255, 255, 255, 0.5);
-		content: "";
 }
 
 .cat-content {
@@ -3076,9 +3075,6 @@ input.filter-range_el {
 		display: inline-flex;
 		cursor: pointer;
 		color: #ebebeb;
-}
-.cat-views__el.selected {
-		color: #000;
 }
 
 .cat-onpage_select, .cat-sort_select {
@@ -3824,6 +3820,7 @@ img.pswp__img {
 		text-align: center;
 		display: inline-block;
 		vertical-align: middle;
+		color: #444444;
 }
 
 .Cart__Qty_act {
@@ -5991,7 +5988,7 @@ input[type=button].storequickorder-button:hover {
 
 .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper.color .wa-variants-list .wa-variant.selected:after {
 		content: "";
-		font: normal normal normal 14px/1 FontAwesome;
+		font: normal normal normal 14px/1 "free-font";
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -6518,7 +6515,7 @@ input[type=button].storequickorder-button:hover {
 }
 
 .bx-next:after, .bx-prev:after {
-		font: normal normal normal 16px/1 FontAwesome;
+		font: normal normal normal 16px/1 "free-font";
 }
 
 .bx-prev:after {

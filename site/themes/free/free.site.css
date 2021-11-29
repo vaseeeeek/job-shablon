@@ -10,7 +10,6 @@ html {
 body {
 		margin: 0;
 		background-color: #ffffff;
-		color: #202020;
 		min-width: 320px;
 }
 
@@ -160,6 +159,18 @@ progress {
 
 textarea {
 		overflow: auto;
+}
+
+input[type=text],
+input[type=search],
+input[type=email],
+input[type=password],
+input[type=number],
+textarea,
+select,
+.Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked + .Single__Name--Flat,
+.jq-selectbox {
+		border: 1px solid #888888;
 }
 
 [type=checkbox], [type=radio] {
@@ -1111,7 +1122,7 @@ ul.menu-v > li ul li:before {
 }
 
 .menu-v__caret:after {
-		font-family: FontAwesome;
+		font-family: "free-font";
 		vertical-align: middle;
 		content: "";
 }
@@ -1587,10 +1598,6 @@ a.button:hover {
 		border-radius: 5px;
 }
 
-.button, button, input[type=button], input[type=submit] {
-		color: #fff;
-}
-
 .button:hover, button:hover, input[type=button]:hover, input[type=submit]:hover {
 		-webkit-box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.1);
 		        box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, 0.1);
@@ -1782,6 +1789,14 @@ iframe {
 .comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover {
 		font: normal normal normal 16px/1 free-font;
 		vertical-align: middle;
+}
+
+.filters .ui-widget-header,
+.filters .ui-state-default,
+.filters .ui-state-hover,
+.filters .ui-widget-content .ui-state-default,
+.filters .ui-widget-content .ui-state-hover {
+		background: #888888;
 }
 
 .wa-icon.star.size-11 {
@@ -2359,7 +2374,6 @@ img.mfp-img {
 
 .footer {
 		padding: 3.571rem 0;
-		background: #F4F4F4;
 }
 .footer a {
 		text-decoration: none;
@@ -2733,7 +2747,6 @@ img.mfp-img {
 		font-size: 1.071rem;
 		font-weight: 600;
 		cursor: pointer;
-		color: #fff;
 		white-space: nowrap;
 		width: auto;
 }
@@ -3111,7 +3124,6 @@ img.mfp-img {
 		position: absolute;
 		text-align: center;
 		border-radius: 100px;
-		color: #fff;
 		top: -5px;
 		right: -10px;
 		font-size: 0.786rem;
@@ -3120,7 +3132,6 @@ img.mfp-img {
 
 .header__cart-count {
 		display: block;
-		color: #fff;
 }
 
 .with-sidebar .slider-outer {
@@ -4140,7 +4151,6 @@ ul.pages-list li a {
 		text-align: center;
 		line-height: 45px;
 		display: block;
-		color: #fff;
 		z-index: 1100;
 }
 
@@ -5004,9 +5014,6 @@ article, aside, footer, header, nav, section {
 		-webkit-box-align: center;
 		    -ms-flex-align: center;
 		        align-items: center;
-}
-.header .Nav-product-custom .product-custom_icon {
-		color: #fff;
 }
 .header .Nav-product-custom .product-custom_icon img {
 		width: 24px;
