@@ -7397,20 +7397,6 @@ article, aside, footer, header, nav, section {
 	margin-right: 5px;
 }
 
-/* font */
-.fa-icon {
-	font: normal normal normal 16px/1 FontAwesome;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
-.fa-icon-before:before {
-	font: normal normal normal 18px/1 FontAwesome;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
 
 .container {
 	margin: 0 auto;

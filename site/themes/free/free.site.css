@@ -1808,15 +1808,24 @@ iframe {
 
 .star-hover:before, .star:before {
 		font-family: "free-font";
+		color: #000;
 		content: "";
 }
 
+.rating.-zero .star:before {
+		color: #e2e2e2;
+}
+
 .star-rating-empty:before {
-		content: "";
+		content: "";
+}
+
+.star-empty:before {
+		color: #e2e2e2;
 }
 
 .star-half:before {
-		content: "";
+		content: "";
 }
 
 .dd-wrap {
@@ -2836,6 +2845,15 @@ img.mfp-img {
 		text-align: center;
 		line-height: 50px;
 		margin: 0 0 0 -2.857rem;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 }
 
 .has-subs .has-subs .fi-rr-angle-small-right {
@@ -4518,21 +4536,6 @@ article, aside, footer, header, nav, section {
 		margin-right: 0.357rem;
 }
 
-/* font */
-.fa-icon {
-		font: normal normal normal 16px/1 FontAwesome;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-}
-
-.fa-icon-before:before {
-		font: normal normal normal 18px/1 FontAwesome;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-}
-
 .container {
 		margin: 0 auto;
 		max-width: 1440px;
@@ -4968,7 +4971,6 @@ article, aside, footer, header, nav, section {
 		display: -ms-inline-flexbox;
 		display: inline-flex;
 		font-size: 1.714rem;
-		color: #202020;
 }
 .header .header__cart-icon {
 		display: -webkit-inline-box;

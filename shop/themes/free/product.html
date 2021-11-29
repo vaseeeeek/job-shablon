@@ -10,6 +10,20 @@
                 <div class="content-box">
                     <div class="df-block">
                         <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
+                        {$_badge_percent = $theme_settings.product_discount_percentage == 1}
+                        {if $_badge_percent}
+                            <div class="product-card_discounts">
+                                {if $theme_settings.product_discount_percentage == 1}
+                                    {if $compare_price > $price}
+                                        {$discount = (($compare_price-$price)/$compare_price)*100}
+                                        {$discount = ceil($discount)}
+                                    {/if}
+                                    {$productDiscount = isset($discount) && $price > 0}
+                                    <div data-minimal="3" class="js-product-discount product-discount product-card__discount{if !$productDiscount} -Close{/if}">{if $productDiscount}-{$discount}%{/if}</div>
+                                {/if}
+                            </div>
+                        {/if}
+                        {$wa->shop->badgeHtml($product.badge)}
                     </div>
                     <div class="df-block">
                         {if $theme_settings.product_ratings}
@@ -18,6 +32,7 @@
                                     {$wa->shop->ratingHtml($product.rating, 16)}
                                     <span itemprop="ratingValue" style="display: none;">{$product.rating}</span>
                                     <span itemprop="reviewCount" style="display: none;">{$reviews_total_count}</span>
+                                    <span class="product_rating__total-text">{_w('%d review','%d reviews',$reviews_total_count)}</span>
                                 </span>
                             {else}
                                 <div class="rating -zero">
@@ -75,41 +90,38 @@
                                 {/if}
                             {/if}
                         {/if}
-                        {$_badge_percent = $theme_settings.product_discount_percentage == 1}
-                        {if $_badge_percent}
-                            <div class="product-card_discounts">
-
-                                {if $theme_settings.product_discount_percentage == 1}
-                                    {if $compare_price > $price}
-                                        {$discount = (($compare_price-$price)/$compare_price)*100}
-                                        {$discount = ceil($discount)}
-                                    {/if}
-                                    {$productDiscount = isset($discount) && $discount >= (int)$theme_settings.product_discount_percentage_minimal && $price > 0}
-                                    <div data-round="{$theme_settings.product_discount_percentage_round}" data-minimal="3" class="js-product-discount product-discount product-card__discount{if !$productDiscount} -Close{/if}">{if $productDiscount}-{$discount}%{/if}</div>
-                                {/if}
-                            </div>
-                        {/if}
-
                         {if $theme_settings.favorites || $theme_settings.compare}
                             <div class="product_action-btn">
                                 {if $theme_settings.favorites}
-                                {$favorites = $wa->cookie('product_favor_arr')}
-                                {if $favorites}
-                                {$product_favor_arr = ","|explode:$favorites}
-                                {else}
-                                {$product_favor_arr = []}
-                                {/if}
-                                <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
+                                    {$favorites = $wa->cookie('product_favor_arr')}
+                                    {if $favorites}
+                                        {$product_favor_arr = ","|explode:$favorites}
+                                    {else}
+                                        {$product_favor_arr = []}
+                                    {/if}
+                                    <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
                                     <i class="fi-rr-heart"></i>
                                     <span class="product-action-text">[`To favorites`]</span>
                                 </span>
                                 {/if}
                                 {if $theme_settings.compare}
-                                <span data-name="{$product.name|escape}" data-img="{$wa->shop->productImgUrl($product, '60')}" data-url="{$product.frontend_url}" data-product="{$product.id}" class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($product.id)} active{/if}">
+                                    <span data-name="{$product.name|escape}" data-img="{$wa->shop->productImgUrl($product, '60')}" data-url="{$product.frontend_url}" data-product="{$product.id}" class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($product.id)} active{/if}">
                                     <i class="fi-rr-compare"></i>
                                     <span class="product-action-text">[`Compare`]</span>
                                 </span>
                                 {/if}
+                            </div>
+                        {/if}
+                        {if $theme_settings.pd_share_script && !$_is_dialog_select_options}
+                            <div class="product_share">{$theme_settings.pd_share_script}</div>
+                        {/if}
+                        {if $theme_settings.product_show_multi_sku}
+                            <div class="pd-code__box">
+                                {foreach $product.skus as $sku}
+                                    <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
+                                        {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> {$sku.sku|escape} {else}<span class="hint">[`No sku`]</span>{/if}
+                                    </span>
+                                {/foreach}
                             </div>
                         {/if}
                     </div>

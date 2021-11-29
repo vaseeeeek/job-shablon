@@ -45,13 +45,6 @@
             {/if}
         {/if}
         {if $product.sku_type}
-            {if $theme_settings.product_show_multi_sku}
-                {foreach $product.skus as $sku}
-                    <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
-                        {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> {$sku.sku|escape} {else}<span class="hint">[`No sku`]</span>{/if}
-                    </span>
-                {/foreach}
-            {/if}
             {$skuCode_feat_def = $product.sku_features}
             {$pd_available = $product.status}
             <div class="product_options options">
@@ -75,7 +68,7 @@
                                 {if $f.type == 'color'}
                                     <div class="option-color_outer option-color_outer--card{if empty($theme_settings.is_product_option_color_text)} _without-text{/if}">
                                         <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if} style="{$v->style};">
-                                            <i class="fa fa-check color_checkmark"></i>
+                                            <i class="fi-rr-check"></i>
                                         </a>
                                         <span class="option-color_text">{$v|strip_tags|trim}</span>
                                     </div>
@@ -111,10 +104,10 @@
                 {/foreach}
             </div>
         {else}
-            {if count($product.skus) == 1}
-                {$pd_one_option = $product.skus[$product.sku_id]}
-                {if $pd_one_option.sku}<div class="pd-code"><span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$pd_one_option.sku|escape}</span></div>{/if}
-            {/if}
+{*            {if count($product.skus) == 1}*}
+{*                {$pd_one_option = $product.skus[$product.sku_id]}*}
+{*                {if $pd_one_option.sku}<div class="pd-code"><span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$pd_one_option.sku|escape}</span></div>{/if}*}
+{*            {/if}*}
 
             <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
                 <meta itemprop="lowPrice" content="{shop_currency_html($product.min_price, null, null, false)}">
@@ -254,6 +247,69 @@
                         </span>
                     {/if}
                 </div>
+                <div class="df-block">
+
+                    {if ($pd_available || count($product.skus) > 1) && $theme_settings.product_show_stock}
+                        <div class="stocks product_stocks ">
+                            {function name=in_stock n=0 low=5 critical=2}
+                                {if $n > $low or $n === null}
+                                    <strong class="stock-high Product-stock_item Product-stock_item-high">
+                                        <i class="fi-rr-check"></i>
+                                        [`In stock`]
+                                        {if $theme_settings.product_show_stock_count && $n !== null}
+                                            : {$n} [`unit`]
+                                        {/if}
+                                    </strong>
+                                {elseif $n > $critical}
+                                    <strong class="stock-low Product-stock_item Product-stock_item-low">
+                                        <i class="fa fa-check icon" aria-hidden="true"></i>
+                                        {if $theme_settings.product_show_stock_count}
+                                            {_w("Only %d left in stock", "Only %d left in stock", $n)}
+                                        {else}
+                                            {_w("Only a few items left")}
+                                        {/if}
+                                    </strong>
+                                {elseif $n > 0}
+                                    <strong class="stock-critical Product-stock_item Product-stock_item-critical">
+                                        {_w("Only a few items left")}
+                                    </strong>
+                                {else}
+                                    {if $wa->shop->settings('ignore_stock_count')}
+                                        <strong class="stock-none Product-stock_item Product-stock_item-critical">
+                                            {$text_product_preorder}
+                                        </strong>
+                                    {else}
+                                        <strong class="stock-none Product-stock_item Product-stock_item-out">
+                                            <i class="fa fa-times icon" aria-hidden="true"></i>
+                                            {$text_not_avalible}
+                                        </strong>
+                                    {/if}
+                                {/if}
+                            {/function}
+                            {foreach $product.skus as $sku}
+                                <div {if $sku.id != $product.sku_id}style="display:none"{/if} class="sku-{$sku.id}-stock">
+                                    {if $sku.stock}
+                                        {foreach $stocks as $stock_id => $stock}
+                                            {if isset($sku.stock[$stock_id])}
+                                                {$stock_count = $sku.stock[$stock_id]}
+                                            {else}
+                                                {$stock_count = null}
+                                            {/if}
+                                            <span class="stocks_title">{$stock.name}:</span> {in_stock n=$stock_count low=$stock.low_count critical=$stock.critical_count}<br>
+                                        {/foreach}
+                                    {else}
+                                        {in_stock n=$sku.count}
+                                    {/if}
+                                </div>
+                            {/foreach}
+                            {if $product.sku_type}
+                                <div class="sku-no-stock">
+                                    <strong class="stock-none">{$text_product_not_available_option}</strong>
+                                </div>
+                            {/if}
+                        </div>
+                    {/if}
+                </div>
                 <input type="hidden" name="product_id" value="{$product.id}">
                 <span class="js-qty Cart__Qty" >
                     <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
@@ -271,72 +327,7 @@
             {/foreach}
         </div>
 
-        <div class="df-block">
 
-            {if ($pd_available || count($product.skus) > 1) && $theme_settings.product_show_stock}
-                <div class="stocks product_stocks ">
-                    {function name=in_stock n=0 low=5 critical=2}
-                        {if $n > $low or $n === null}
-                            <strong class="stock-high Product-stock_item Product-stock_item-high">
-                                <i class="fi-rr-check"></i>
-                                [`In stock`]
-                                {if $theme_settings.product_show_stock_count && $n !== null}
-                                    : {$n} [`unit`]
-                                {/if}
-                            </strong>
-                        {elseif $n > $critical}
-                            <strong class="stock-low Product-stock_item Product-stock_item-low">
-                                <i class="fa fa-check icon" aria-hidden="true"></i>
-                                {if $theme_settings.product_show_stock_count}
-                                    {_w("Only %d left in stock", "Only %d left in stock", $n)}
-                                {else}
-                                    {_w("Only a few items left")}
-                                {/if}
-                            </strong>
-                        {elseif $n > 0}
-                            <strong class="stock-critical Product-stock_item Product-stock_item-critical">
-                                {_w("Only a few items left")}
-                            </strong>
-                        {else}
-                            {if $wa->shop->settings('ignore_stock_count')}
-                                <strong class="stock-none Product-stock_item Product-stock_item-critical">
-                                    {$text_product_preorder}
-                                </strong>
-                            {else}
-                                <strong class="stock-none Product-stock_item Product-stock_item-out">
-                                    <i class="fa fa-times icon" aria-hidden="true"></i>
-                                    {$text_not_avalible}
-                                </strong>
-                            {/if}
-                        {/if}
-                    {/function}
-                    {foreach $product.skus as $sku}
-                        <div {if $sku.id != $product.sku_id}style="display:none"{/if} class="sku-{$sku.id}-stock">
-                            {if $sku.stock}
-                            {foreach $stocks as $stock_id => $stock}
-                            {if isset($sku.stock[$stock_id])}
-                            {$stock_count = $sku.stock[$stock_id]}
-                            {else}
-                            {$stock_count = null}
-                            {/if}
-                            <span class="stocks_title">{$stock.name}:</span> {in_stock n=$stock_count low=$stock.low_count critical=$stock.critical_count}<br>
-                            {/foreach}
-                            {else}
-                            {in_stock n=$sku.count}
-                            {/if}
-                        </div>
-                    {/foreach}
-                    {if $product.sku_type}
-                        <div class="sku-no-stock">
-                            <strong class="stock-none">{$text_product_not_available_option}</strong>
-                        </div>
-                    {/if}
-                </div>
-            {/if}
-            {if $theme_settings.pd_share_script && !$_is_dialog_select_options}
-                <div class="product_share">{$theme_settings.pd_share_script}</div>
-            {/if}
-        </div>
     </div>
 
     {if !$_is_dialog_select_options}{include file="product.mini.desc.html"}{/if}

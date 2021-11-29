@@ -31,7 +31,6 @@
 {/if}
 
 <div class="product-page_main-left">
-    {$wa->shop->badgeHtml($product.badge)}
     {if isset($product.autobadge) && !empty($product.autobadge)}{$product.autobadge}{/if}
     <div class="product_gallery-images js-product_gallery-images"{if !empty($_popupOnThumbs)} data-thumbs="true"{/if} data-zoom="{$_zoomOn}"  data-popup="{$_popupOn}">
         <!-- main image -->

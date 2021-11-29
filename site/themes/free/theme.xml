@@ -80,7 +80,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#cb11ab</value>
+      <value>#fc0</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -91,7 +91,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#cb11ab</value>
+      <value>#fc0</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -103,7 +103,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="text">
-      <value>#000</value>
+      <value>#212121</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -702,7 +702,7 @@
       <name locale="en_US">Text of the inscription "Under the order"</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
                 right)
@@ -1111,7 +1111,8 @@
       <description locale="en_US">For microdata</description>
     </setting>
     <setting var="pd_share_script" control_type="text">
-      <value>123</value>
+      <value><![CDATA[<script src="https://yastatic.net/share2/share.js"></script>
+<div class="ya-share2" data-curtain data-shape="round" data-limit="0" data-more-button-type="long" data-more-button-type="short" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,moimir"></div>]]></value>
       <name locale="en_US">Share from Yandex</name>
       <name locale="ru_RU">Поделиться от Яндекса!!!как работает?</name>
       <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
@@ -1640,7 +1641,7 @@
       </options>
     </setting>
     <setting var="category_image_size" control_type="select">
-      <value>manual</value>
+      <value>auto</value>
       <name locale="ru_RU">
                 Контейнер фото
             </name>
@@ -1683,7 +1684,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="font_size_html" control_type="text">
-      <value>14px</value>
+      <value><![CDATA[14px]]></value>
       <name locale="ru_RU">
         Основной размер шрифта (Рекомендуемый 14px)
       </name>

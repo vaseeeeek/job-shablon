@@ -2607,9 +2607,10 @@ Product.prototype.currencyFormat = function (number, no_html) {
 };
 
 Product.prototype.updateSkuServices = function (sku_id) {
-    if (this.formWrap.find(".js-pd-code").length > 0) {
-        this.formWrap.find(".js-pd-code").hide();
-        this.formWrap.find(".sku-" + sku_id + "-pd-code").show();
+    let pdCodeBox = $('.pd-code__box');
+    if (pdCodeBox.find(".js-pd-code").length > 0) {
+        pdCodeBox.find(".js-pd-code").hide();
+        pdCodeBox.find(".sku-" + sku_id + "-pd-code").show();
     }
 
     this.formWrap.find("div.stocks div").hide();

@@ -44,7 +44,7 @@
 <div class="Product__Item js-product-line js-preview-cart{if $_tileGelleryProductListPreviewy} grid-gallery js-grid-gallery{/if}">
     <div class="Product__Item-row Product__Item-top">
         <div class="Product__Item-left">
-            {$badge_html = $wa->shop->badgeHtml($p.badge)}2
+            {$badge_html = $wa->shop->badgeHtml($p.badge)}
             {if $badge_html}{$badge_html}{/if}
             {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
             <a class="Product__Item-img js-grid-block-gallery" href="{$p.frontend_url}" title="{$p.name}">
@@ -220,7 +220,7 @@
     <div class="Product__Item-row Product__Item-bottom">
         <div class="Product__Item-left">
             {if $theme_settings.product_preview_dialog}
-                <span class="js-card-dialog Products-list_dialog btn-action-icon fa-icon-before" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">[`Quick view`]</span>
+                <span class="js-card-dialog Products-list_dialog btn-action-icon" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">[`Quick view`]</span>
             {/if}
         </div>
         <div class="Product__Item-center">
