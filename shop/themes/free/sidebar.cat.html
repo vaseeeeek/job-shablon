@@ -39,7 +39,7 @@
                             {/if}
                         {/foreach}
                     {/if}
-                    <li class="sidebar-subcategories_el{if $category_selected == $subcat.id} selected{/if}"{if $category_selected == $subcat.id} data-is-open="1"{/if}>
+                    <li class="1 sidebar-subcategories_el{if $category_selected == $subcat.id} selected{/if}"{if $category_selected == $subcat.id} data-is-open="1"{/if}>
                         <a href="{$subcat.url}">{$subcat.name}</a>
                         {if $_has_childs}{getSubcategories subcategories=$subcat.childs parent=$subcat}{/if}
                     </li>
@@ -65,7 +65,7 @@
                 {if !isset($category.params.menu_hide)}
                     <li class="sidebar-cats_el{if $categoryegory_selected == $category.id} selected{/if}">
                         {if $_has_childs}<i class="sidebar-cats_el-open fi-rr-angle-small-down sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
-                        <a class="sidebar-cats_link" href="{$category.url}">
+                        <a class="sidebar-cats_link{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}" href="{$category.url}">
                             {if $theme_settings.icon_sidebar_subcategories}
                                 {if isset($Wmimages[$category.id].icon) && !isset($category.page)}
                                     {$category.params.icon = $Wmimages[$category.id].icon}

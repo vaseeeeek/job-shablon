@@ -308,6 +308,7 @@
                 {if $theme_settings.compare}
                     <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
                           data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                            <i class="fi-rr-compare"></i>
                         Сравнение
                     </span>
                 {/if}

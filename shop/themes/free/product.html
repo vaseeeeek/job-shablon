@@ -112,16 +112,20 @@
                                 {/if}
                             </div>
                         {/if}
-                        {if $theme_settings.pd_share_script && !$_is_dialog_select_options}
-                            <div class="product_share">{$theme_settings.pd_share_script}</div>
-                        {/if}
-                        {if $theme_settings.product_show_multi_sku}
-                            <div class="pd-code__box">
-                                {foreach $product.skus as $sku}
-                                    <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
-                                        {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> {$sku.sku|escape} {else}<span class="hint">[`No sku`]</span>{/if}
-                                    </span>
-                                {/foreach}
+                        {if ($theme_settings.pd_share_script && !$_is_dialog_select_options) || $theme_settings.product_show_multi_sku}
+                            <div class="product_share-code--box">
+                                {if $theme_settings.pd_share_script && !$_is_dialog_select_options}
+                                    <div class="product_share">{$theme_settings.pd_share_script}</div>
+                                {/if}
+                                {if $theme_settings.product_show_multi_sku}
+                                    <div class="pd-code__box">
+                                        {foreach $product.skus as $sku}
+                                            <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
+                                                {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> {$sku.sku|escape} {else}<span class="hint">[`No sku`]</span>{/if}
+                                            </span>
+                                        {/foreach}
+                                    </div>
+                                {/if}
                             </div>
                         {/if}
                     </div>
@@ -307,8 +311,8 @@
 
                                     {if !empty($rates)}
                                         <p class="rating">
-                                            [`Average customer rating:`]
-                                            <span class="nowrap">{$wa->shop->ratingHtml($product.rating, 16)}</span> (<a href="reviews/">{$reviews_total_count}</a>)
+                                            <span class="rating__text">[`Average customer rating:`]</span>
+                                            <span class="nowrap star-box">{$wa->shop->ratingHtml($product.rating, 16)}</span> (<a href="reviews/">{$reviews_total_count}</a>)
                                             {if $product.rating > 0}<span class="hint product_rating-total">{sprintf('[`%s out of 5 stars`]', $product.rating)}</span>{/if}
                                         </p>
 
