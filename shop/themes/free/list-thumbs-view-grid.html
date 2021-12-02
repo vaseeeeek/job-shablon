@@ -54,24 +54,21 @@
             {if !$wa->isMobile()}
                 {if $theme_settings.favorites}
                     <div class="js-button Product-grid_action{if $theme_settings.compare} margin{/if}">
-                    <span data-product="{$p.id}"
-                          class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
+                    <span data-product="{$p.id}" class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
                         <i class="fi-rr-heart"></i>
                     </span>
                     </div>
                 {/if}
                 {if $theme_settings.compare}
                     <div class="js-button Product-grid_action">
-                        <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
-                              data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                        <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
                             <i class="fi-rr-compare"></i>
                         </span>
                     </div>
                 {/if}
                 {if $theme_settings.product_preview_dialog}
                     <div class="js-dialog Product-grid_dialog Product-grid_action">
-                    <span class="js-card-dialog product-action "
-                          data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
+                    <span class="js-card-dialog product-action " data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
                         <i class="fa fi-rr-zoom-in"></i>
                     </span>
                     </div>
@@ -83,9 +80,7 @@
                 {$img_props = getimagesize($wa->server('DOCUMENT_ROOT')|cat:$wa->shop->productImgUrl($p, $img_size))}
             {/if}
 
-            <a class="Product-grid_img js-grid-block-gallery {$theme_settings.category_image_contain} {$theme_settings.category_image_valign} {$theme_settings.category_image_size}" href="{$p.frontend_url}"
-               {if $theme_settings.category_image_size == 'auto'}style="padding-bottom: {if not empty($img_props)}{ceil($img_props[1] / $img_props[0] * 100)}%{else}100%{/if}"{/if}
-               {if $theme_settings.category_image_size == 'manual'}style="padding-bottom: {$theme_settings.category_image_size_manual}"{/if}>
+            <a class="Product-grid_img js-grid-block-gallery {$theme_settings.category_image_contain} {$theme_settings.category_image_valign} {$theme_settings.category_image_size}" href="{$p.frontend_url}" {if $theme_settings.category_image_size == 'auto'}style="padding-bottom: {if not empty($img_props)}{ceil($img_props[1] / $img_props[0] * 100)}%{else}100%{/if}"{/if} {if $theme_settings.category_image_size == 'manual'}style="padding-bottom: {$theme_settings.category_image_size_manual}"{/if}>
                 {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
                 {if $wa_app == 'shop' && class_exists('shopProtilegalleryPlugin')}
                     {$blockHtmlProtilegallery = shopProtilegalleryPlugin::productItem($p)}
@@ -97,7 +92,8 @@
                         {$class_img = "js-product-preview-img"}
                         {$product_preview_images_lazy = true}
                         {if !empty($lazy_class) && $product_preview_images_lazy && !empty($p.image_id)}{$class_img = "`$class_img` $lazy_class"}{/if}
-                        {$image = $wa->shop->productImgHtml($p, "{$img_size}", ['class' => $class_img, 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
+                        {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+                        {$image = $wa->shop->productImgHtml($p, "{$img_size}", ['class' => $class_img, 'alt' => $p.name, 'default' => $dummy96])}
                         {if $product_preview_images_lazy && !empty($p.image_id)}
                             {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                         {/if}
@@ -113,8 +109,7 @@
                         <span class="grid-gallery__list js-grid-gallery-items">
                             {if count($images) > 1}
                                 {for $iteration=1 to $tile_length}
-                                    <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1]|@end}"
-                                          style="width: calc(100%/{if $tile_length < 8}{$tile_length}{else}7{/if});" data-id="{$iteration}"></span>
+                                    <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1]|@end}" style="width: calc(100%/{if $tile_length < 8}{$tile_length}{else}7{/if});" data-id="{$iteration}"></span>
                                     {if $iteration == 7}
                                         {break}
                                     {/if}
@@ -150,8 +145,7 @@
                 </ul>
             </div>
         {/if}
-        <form class="js-add-to-cart" method="post"
-              action="{$wa->getUrl('shop/frontendCart/add')}">
+        <form class="js-add-to-cart" method="post" action="{$wa->getUrl('shop/frontendCart/add')}">
             <input type="hidden" name="product_id" value="{$p.id}">
             <div class="Product-grid_content">
                 {if $theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))}
@@ -201,8 +195,7 @@
                             </span>
                         {/if}
                         {if isset($p.video_url) && !empty($p.video_url)}
-                            <a class="js-video-popup Product-grid_video"
-                               aria-hidden="true">
+                            <a class="js-video-popup Product-grid_video" aria-hidden="true">
                                 <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                             </a>
                         {/if}
@@ -210,8 +203,7 @@
                 {/if}
                 <div class="Product-grid_description">
                     <div class="Product-grid_name">
-                        <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}"
-                           href="{$p.frontend_url}">{$p.name}</a>
+                        <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}" href="{$p.frontend_url}">{$p.name}</a>
                     </div>
                     {if count($short_list_features) > 0}
                         <div class="Product-grid_features">
@@ -299,15 +291,13 @@
         {if $wa->isMobile()}
             <div class="Product-grid_mobile-action">
                 {if $theme_settings.favorites}
-                    <span data-product="{$p.id}"
-                          class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
+                    <span data-product="{$p.id}" class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
                         <i class="fi-rr-heart"></i>
                         Избранное
                     </span>
                 {/if}
                 {if $theme_settings.compare}
-                    <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}"
-                          data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                    <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
                             <i class="fi-rr-compare"></i>
                         Сравнение
                     </span>

@@ -67,7 +67,8 @@
                         {$position = $position + 1}
                     {/if}
                 {else}
-                    <img src="/wa-data/public/shop/themes/free/img/dummy96.png" alt="{$product.name|escape}"/>
+                    {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+                    <img src="{$dummy96}" alt="{$product.name|escape}"/>
                 {/if}
             </div>
         </div>

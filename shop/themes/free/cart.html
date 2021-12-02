@@ -233,6 +233,7 @@
                             <p>[`Your shopping cart is empty.`]</p>
                         </div>
                     {else}
+                        {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
                         <form method="post">
                             <h1>[`Shopping cart`]</h1>
                             <div class="cart cart-page">
@@ -241,7 +242,7 @@
                                         <div class="col cart-el_image">
                                             <a href="{$wa->shop->productUrl($item.product)}"
                                                title="{$item.product.name|escape}">
-                                                {$wa->shop->productImgHtml($item.product, '100', ['default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
+                                                {$wa->shop->productImgHtml($item.product, '100', ['default' => $dummy96])}
                                             </a>&nbsp;
                                         </div>
                                         <div class="col cart-el_info">

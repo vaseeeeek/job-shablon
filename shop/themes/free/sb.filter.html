@@ -48,8 +48,7 @@
                                 <div class="filter-el_opts-el">
                                     <label>
                                     <span class="js-toggle-styler radio-styler{if $value} checked{/if}">
-                                        <input class="js-toggle-styler-input" type="radio" name="{$filter.code}"
-                                               value="1"{if $value} checked="checked"{/if}>
+                                        <input class="js-toggle-styler-input" type="radio" name="{$filter.code}" value="1"{if $value} checked="checked"{/if}>
                                     </span>
                                         {$radio_filter_url = ''}
                                         {if class_exists('shopSeofilterViewHelper')}
@@ -65,8 +64,7 @@
                                 <div class="filter-el_opts-el">
                                     <label>
                                     <span class="js-toggle-styler radio-styler{if $value === '0'} checked{/if}">
-                                        <input class="js-toggle-styler-input" type="radio" name="{$filter.code}"
-                                               value="0"{if $value === '0'} checked="checked"{/if}>
+                                        <input class="js-toggle-styler-input" type="radio" name="{$filter.code}" value="0"{if $value === '0'} checked="checked"{/if}>
                                     </span>
                                         {$radio_filter_url = ''}
                                         {if class_exists('shopSeofilterViewHelper')}
@@ -82,8 +80,7 @@
                                 <div class="filter-el_opts-el">
                                     <label>
                                     <span class="js-toggle-styler radio-styler{if $wa->get($filter.code, '') === ''} checked{/if}">
-                                        <input class="js-toggle-styler-input" type="radio" name="{$filter.code}"
-                                               value=""{if $wa->get($filter.code, '') === ''} checked="checked"{/if}>
+                                        <input class="js-toggle-styler-input" type="radio" name="{$filter.code}" value=""{if $wa->get($filter.code, '') === ''} checked="checked"{/if}>
                                     </span>
                                         [`Any`]
                                     </label>
@@ -117,12 +114,9 @@
                                     <div class="filter-el_opts-el">
                                         {foreach $filter.values as $value_id => $value}
                                             <label class="option-color_outer {if empty($theme_settings.is_filter_color_text)} _without-text{/if}">
-                                            <span class="filter-option-color{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if}"
-                                                  style="{$value->style}">
+                                            <span class="filter-option-color{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if}" style="{$value->style}">
                                                 <span class="js-style-check style-check{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if}">
-                                                    <input class="js-style-check-input" type="checkbox"
-                                                           name="{$filter.code}[]"
-                                                           {if in_array($value_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$value_id}">
+                                                    <input class="js-style-check-input" type="checkbox" name="{$filter.code}[]" {if in_array($value_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$value_id}">
                                                 </span>
                                             </span>
                                                 <span class="option-color_text">
@@ -145,8 +139,7 @@
                                     {foreach $filter.values as $value_id => $value}
                                         <label class="filter-el_opts-el filter-opt_el">
                                         <span class="js-style-check style-check{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if}">
-                                            <input class="js-style-check-input" type="checkbox" name="{$filter.code}[]"
-                                                   {if in_array($value_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$value_id}">
+                                            <input class="js-style-check-input" type="checkbox" name="{$filter.code}[]" {if in_array($value_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$value_id}">
                                         </span>
                                             {$filter_url = ''}
                                             {if class_exists('shopSeofilterViewHelper')}
@@ -175,8 +168,7 @@
                 {if isset($category) && class_exists('shopSeofilterViewHelper')}
                     {$reset_link = $wa->shop->categoryUrl($category)}
                 {/if}
-                <a class="filter-reset fi-rr-cross-circle"
-                   href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
+                <a class="filter-reset fi-rr-cross-circle" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
             </div>
         </form>
     </div>

@@ -8,7 +8,8 @@
 <div class="Product-table js-preview-cart">
     <div class="Product-table-img">
         <a href="{$p.frontend_url}" title="{$p.name}">
-            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
+            {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $dummy96])}
             {$product_preview_images_lazy = true}
             {if $product_preview_images_lazy && !empty($p.image_id)}
                 {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
@@ -29,8 +30,7 @@
             <a href="{$p.frontend_url}">{$p.name}</a>
 
             {if isset($p.video_url) && !empty($p.video_url)}
-                <a class="js-video-popup Product-grid_video"
-                   aria-hidden="true">
+                <a class="js-video-popup Product-grid_video" aria-hidden="true">
                     <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                 </a>
             {/if}

@@ -43,7 +43,7 @@
 
     {$homeProductsPromo_features = []}
     {$id_features = []}
-
+    {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
     {if count($homeProductsPromo) > 0}
         <div class="js-preview-cart slider-outer slider-outer--products js-slider-outer">
             <article class="js-home-slider owl-carousel main-slider" data-pause="0" data-type="product">
@@ -51,13 +51,15 @@
                     <div  class="main-slider_item ">
                         <a data-position="fixed" class="main-slider_item-img " href="{$product.frontend_url}">
                             {if empty($product@first)}
-                                {$wa->shop->productImgHtml($product, '0x320', ['class' => "owl-lazy", 'alt' => $product.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                                {$wa->shop->productImgHtml($product, '0x320', ['class' => "owl-lazy", 'alt' => $product.name, 'default' => $dummy96])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                             {else}
                                 {if !empty($theme_settings.image_mainpage_preload)}
                                     {$image_url = $wa->shop->productImgUrl($product, '0x320')}
                                     {$wa->globals('preload_image', $image_url)}
                                 {/if}
-                                {$wa->shop->productImgHtml($product, '0x320', ['alt' => $product.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
+
+                                {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+                                {$wa->shop->productImgHtml($product, '0x320', ['alt' => $product.name, 'default' => $dummy96])}
                             {/if}
                         </a>
                         {$badge_html = $wa->shop->badgeHtml($product.badge)}

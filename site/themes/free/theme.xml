@@ -1155,7 +1155,7 @@
             </description>
     </setting>
     <setting var="plugin_hook_block_in_product" control_type="select">
-      <value>content</value>
+      <value>right_block</value>
       <name locale="en_US">Display hook addition information</name>
       <name locale="ru_RU">Вывод хука с дополнительной информацией</name>
       <options>
@@ -1170,7 +1170,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>none_tabs</value>
+      <value>anchor_tabs</value>
       <name locale="ru_RU">Вид вкладок на компьютере</name>
       <name locale="en_US">View of tabs on the computer</name>
       <options>

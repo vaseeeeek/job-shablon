@@ -23,8 +23,7 @@
                             {else}
                                 {$product_favor_arr = []}
                             {/if}
-                            <span data-product="{$product.id}"
-                                  class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
+                            <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
                                  <i class="fi-rr-heart"></i>
                                  <span class="product-action-text">[`To favorites`]</span>
                             </span>
@@ -32,8 +31,8 @@
                         {if $theme_settings.compare}
                             <span data-product="{$product.id}"
                                   class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($product.id)} active{/if}">
-                    <span class="product-action-text">[`Compare`]</span>
-                </span>
+                            <span class="product-action-text">[`Compare`]</span>
+                        </span>
                         {/if}
                     </div>
                 {/if}
