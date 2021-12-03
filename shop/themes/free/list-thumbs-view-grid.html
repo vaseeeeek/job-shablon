@@ -52,20 +52,6 @@
         <div class="product__box--image">
 
             {if !$wa->isMobile()}
-                {if $theme_settings.favorites}
-                    <div class="js-button Product-grid_action{if $theme_settings.compare} margin{/if}">
-                    <span data-product="{$p.id}" class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
-                        <i class="fi-rr-heart"></i>
-                    </span>
-                    </div>
-                {/if}
-                {if $theme_settings.compare}
-                    <div class="js-button Product-grid_action">
-                        <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
-                            <i class="fi-rr-compare"></i>
-                        </span>
-                    </div>
-                {/if}
                 {if $theme_settings.product_preview_dialog}
                     <div class="js-dialog Product-grid_dialog Product-grid_action">
                     <span class="js-card-dialog product-action " data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
@@ -145,65 +131,31 @@
                 </ul>
             </div>
         {/if}
+
         <form class="js-add-to-cart" method="post" action="{$wa->getUrl('shop/frontendCart/add')}">
             <input type="hidden" name="product_id" value="{$p.id}">
             <div class="Product-grid_content">
-                {if $theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))}
-                    <div class="Product-grid_stock">
-                        {if $theme_settings.preview_stock}
-                            <div class="Product-stock nowrap">
-                                {if $available}
-                                    {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
-                                        <div class="Product-stock_item Product-stock_item-critical">
-                                            {$text_product_preorder_only}
-                                        </div>
-                                    {else}
-                                        <div class="Product-stock_item Product-stock_item-high">
-                                            {$text_in_stock}
-                                            {if $theme_settings.preview_stock_count && $p.count !== null}
-                                                : {$p.count} {$text_unit}
-                                            {/if}
-                                        </div>
-                                    {/if}
-                                {/if}
-                            </div>
+                <div class="Product-grid_prices">
+                    {if empty($p.price) && !empty($theme_settings.text_zero_price)}
+                        <span class="Product-grid_zero-price">{$theme_settings.text_zero_price}</span>
+                    {elseif
+                    $_price_range
+                    && ($p.max_price
+                    && $p.min_price
+                    && $p.max_price > $p.min_price)
+                    && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
+                        <span class="small-price"><span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span
+                                    class="nowrap">{shop_currency_html($p.max_price)}</span></span>
+                    {else}
+                        <div class="nowrap price">{shop_currency_html($p.price)}</div>
+                        {if $p.compare_price > 0}
+                            <div class="nowrap old-price">{shop_currency_html($p.compare_price)}</div>
                         {/if}
-                        {if $p.rating > 0 && $theme_settings.product_ratings}
-                            <span class="rating nowrap">
-                                {$wa->shop->ratingHtml($p.rating, 10)}
-                            </span>
-                        {elseif $p.rating == 0 && $theme_settings.product_ratings}
-                            <a class="rating -zero" href="{$p.frontend_url}?reviews=scroll">
-                                <div class="" >
-                                    <i class="icon10 star"></i>
-                                </div>
-                                <div class="">
-                                    <i class="icon10 star"></i>
-                                </div>
-                                <div class="">
-                                    <i class="icon10 star"></i>
-                                </div>
-                                <div class="">
-                                    <i class="icon10 star"></i>
-                                </div>
-                                <div class="">
-                                    <i class="icon10 star"></i>
-                                </div>
-                            </a>
-                            <span class="rating nowrap">
-                                {$wa->shop->ratingHtml($p.rating, 10)}
-                            </span>
-                        {/if}
-                        {if isset($p.video_url) && !empty($p.video_url)}
-                            <a class="js-video-popup Product-grid_video" aria-hidden="true">
-                                <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
-                            </a>
-                        {/if}
-                    </div>
-                {/if}
-                <div class="Product-grid_description">
+                    {/if}
+                </div><div class="Product-grid_description">
                     <div class="Product-grid_name">
-                        <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}" href="{$p.frontend_url}">{$p.name}</a>
+                        <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}" href="{$p.frontend_url}">{$p.name}
+                            {if isset($p.video_url) && !empty($p.video_url)}<span class="Product-grid_video" ><img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt=""></span>{/if}</a>
                     </div>
                     {if count($short_list_features) > 0}
                         <div class="Product-grid_features">
@@ -235,75 +187,101 @@
                         </div>
                     {/if}
                 </div>
-                {if $theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0}
-                    <div class="Product-grid_sku hint">
-                        {if isset($p.skus_list.sku) && !empty($p.skus_list.sku)}
-                            {$text_art_code}: {$p.skus_list.sku}
+                {if ($theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))) || ($theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0)}
+                    <div class="Product-grid_stock-sku-box">
+                        {if $theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))}
+                            <div class="Product-grid_stock">
+                                {if $theme_settings.preview_stock}
+                                    <div class="Product-stock nowrap">
+                                        {if $available}
+                                            {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
+                                                <div class="Product-stock_item Product-stock_item-critical">
+                                                    {$text_product_preorder_only}
+                                                </div>
+                                            {else}
+                                                <div class="Product-stock_item Product-stock_item-high">
+                                                    {$text_in_stock}
+                                                    {if $theme_settings.preview_stock_count && $p.count !== null}
+                                                        : {$p.count} {$text_unit}
+                                                    {/if}
+                                                </div>
+                                            {/if}
+                                        {/if}
+                                    </div>
+                                {/if}
+                            </div>
+                        {/if}
+                        {if $theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0}
+                            <div class="Product-grid_sku hint">
+                                {if isset($p.skus_list.sku) && !empty($p.skus_list.sku)}
+                                    {$text_art_code}: {$p.skus_list.sku}
+                                {/if}
+                            </div>
                         {/if}
                     </div>
+                {/if}
+                {if $p.rating > 0 && $theme_settings.product_ratings}
+                    <span class="rating nowrap">
+                        {$wa->shop->ratingHtml($p.rating, 10)}
+                    </span>
+                    <span class="rating__total">{$p.rating_count}</span>
+                {elseif $p.rating == 0 && $theme_settings.product_ratings}
+                    <a class="rating -zero" href="{$p.frontend_url}?reviews=scroll">
+                        <div class="" >
+                            <i class="icon10 star"></i>
+                        </div>
+                        <div class="">
+                            <i class="icon10 star"></i>
+                        </div>
+                        <div class="">
+                            <i class="icon10 star"></i>
+                        </div>
+                        <div class="">
+                            <i class="icon10 star"></i>
+                        </div>
+                        <div class="">
+                            <i class="icon10 star"></i>
+                        </div>
+                    </a>
                 {/if}
             </div>
             {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}
                 {shopSaleskuPluginView::displayOptions($p)}
             {/if}
             <div class="Product-grid_bottom">
-                <div class="Product-grid_prices-cart">
-                    <div class="Product-grid_prices">
-                        {if empty($p.price) && !empty($theme_settings.text_zero_price)}
-                            <span class="Product-grid_zero-price">{$theme_settings.text_zero_price}</span>
-                        {elseif
-                            $_price_range
-                            && ($p.max_price
-                            && $p.min_price
-                            && $p.max_price > $p.min_price)
+                <div class="Product-grid_cart">
+                    {if $available}
+                        {if $p.sku_count > 1
                             && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
-                            <span class="small-price"><span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span
-                                        class="nowrap">{shop_currency_html($p.max_price)}</span></span>
-                        {else}
-                            {if $p.compare_price > 0}
-                                <div class="nowrap old-price">{shop_currency_html($p.compare_price)}</div>
-                            {/if}
-                            <div class="nowrap price">{shop_currency_html($p.price)}</div>
-                        {/if}
-                    </div>
-                    <div class="Product-grid_cart">
-                        {if $available}
-                            {if $p.sku_count > 1
-                                && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
-                                {if $wa_app == 'shop'}
-                                    <span class="button js-card-dialog addtocart fi-rr-shopping-cart"
-                                          data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
-                                {else}
-                                    <a class="button addtocart fi-rr-shopping-cart" href="{$p.frontend_url}"></a>
-                                {/if}
+                            {if $wa_app == 'shop'}
+                                <span class="button js-card-dialog addtocart"
+                                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">В корзину</span>
                             {else}
-                                <span class="button js-submit-form addtocart fi-rr-shopping-cart"></span>
+                                <a class="button addtocart" href="{$p.frontend_url}">Нет в наличии</a>
                             {/if}
                         {else}
-                            <div class="Product-stock-out nowrap">
-                                {if !empty($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible}{else}{$text_out_stock}{/if}
-                            </div>
+                            <span class="button js-submit-form addtocart">В корзину</span>
                         {/if}
-                    </div>
+                    {else}
+                        <div class="Product-stock-out nowrap">
+                            {if !empty($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible}{else}{$text_out_stock}{/if}
+                        </div>
+                    {/if}
+                </div>
+                <div class="Product-grid_action">
+                    {if $theme_settings.favorites}
+                        <span data-product="{$p.id}" class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
+                    <i class="fi-rr-heart"></i>
+                </span>
+                    {/if}
+                    {if $theme_settings.compare}
+                        <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                        <i class="fi-rr-compare"></i>
+                </span>
+                    {/if}
                 </div>
             </div>
         </form>
-        {if $wa->isMobile()}
-            <div class="Product-grid_mobile-action">
-                {if $theme_settings.favorites}
-                    <span data-product="{$p.id}" class="js-favorites-add product-action bg-sdСolor add-to-favorite{if in_array($p.id, $favorites)} active{/if}">
-                        <i class="fi-rr-heart"></i>
-                        Избранное
-                    </span>
-                {/if}
-                {if $theme_settings.compare}
-                    <span class="js-compare-add product-action bg-sdСolor add-to-compare{if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
-                            <i class="fi-rr-compare"></i>
-                        Сравнение
-                    </span>
-                {/if}
-            </div>
-        {/if}
     </div>
 {/strip}
 

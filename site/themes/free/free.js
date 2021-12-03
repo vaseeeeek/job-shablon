@@ -711,9 +711,7 @@ var cart = {
 
             btn.addClass("cart-loading");
             $.post(url + '?html=1', data, function (response) {
-                if (btn.parents('.product-page_main').text()) {
-                    btn.text('Добавлен')
-                }
+                btn.text('В корзине')
                 btn.removeClass("cart-loading");
 
                 if (response.status == 'ok') {

@@ -117,24 +117,21 @@ $html-font-size: 14px;
 }
 
 .small-price {
+  font-size: rem(20px);
+  font-weight: 500;
+  display: flex;
+  flex-wrap: wrap;
+}
+.owl-carousel .small-price {
   font-size: rem(16px);
   font-weight: 500;
   display: flex;
   flex-wrap: wrap;
 }
-
 .outer-content-scroll {
   оverflow-x: scroll;
   overflow-y: hidden;
   width: 100%
-}
-
-@media (max-width: 1000px) {
-  .outer-content-m {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    width: 100%
-  }
 }
 
 .addtocart {
@@ -657,7 +654,7 @@ $html-font-size: 14px;
   align-items: center;
 }
 
-.content-box .product-action #svgCompare, .Product-grid_mobile-action .product-action #svgCompare {
+.content-box .product-action #svgCompare {
   margin-right: rem(5px);
 }
 
@@ -669,17 +666,6 @@ $html-font-size: 14px;
   margin: 0 0 0 rem(3px);
 }
 
-.Product-grid_action {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  display: none;
-  z-index: 10
-}
-
-.touch .Product-grid_action {
-  display: block
-}
 
 .Product-grid_action.margin {
   margin-right: rem(50px)
@@ -705,6 +691,7 @@ $html-font-size: 14px;
   left: 50%;
   margin: 0 0 0 rem(-15px);
   display: none;
+  z-index: 10
 }
 
 
@@ -731,6 +718,16 @@ $html-font-size: 14px;
   display: none
 }
 
+.Product-stock-out {
+  display: inline-block;
+  background: #ebebed;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  color: #afafaf;
+  padding: 0 rem(10px);
+  font-size: rem(12px);
+}
 @media (max-width: 1400px) and (min-width: 1251px) {
   .cols-3 .Product-grid .price {
     font-size: rem(20px)
@@ -882,8 +879,8 @@ $html-font-size: 14px;
 }
 
 .Product-grid .badge {
-  left: 10px;
-  top: 10px;
+  left: rem(7px);
+  top: rem(7px);
   z-index: 10
 }
 
@@ -904,6 +901,17 @@ $html-font-size: 14px;
   left: 0
 }
 
+.Product-grid_stock-sku-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1200px){
+  .Product-grid_stock-sku-box{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .Product-grid_stock {
   display: flex;
   flex-wrap: wrap;
@@ -915,8 +923,12 @@ $html-font-size: 14px;
 
 .Product-grid .rating {
   display: inline-block;
-
   margin: 0 0 rem(3px);
+}
+span.rating__total {
+  position: relative;
+  top: 3px;
+  font-size: 15px;
 }
 
 .Product-grid_stock .Product-stock {
@@ -938,7 +950,7 @@ $html-font-size: 14px;
 }
 
 .Product-grid_name {
-  font-size: rem(16px);
+  font-size: rem(14px);
   overflow: hidden;
   position: relative;
   line-height: 1;
@@ -947,6 +959,9 @@ $html-font-size: 14px;
 .Product-grid_video {
   display: inline-flex;
   width: 16px;
+  position: relative;
+  top: 3px;
+  margin-left: 3px;;
 }
 
 .Product-grid_features {
@@ -1007,34 +1022,13 @@ $html-font-size: 14px;
   margin: rem(15px) 0 0
 }
 
-.Product-grid_prices-cart {
+.Product-grid_prices{
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 40px;
+  line-height: 26px;
 }
-
-@media (max-width: 1025px) {
-  .Product-grid_prices-cart {
-    flex-wrap: wrap;
-  }
+.Product-grid_zero-price{
+  font-weight: 600;
 }
-
-.Product-grid_zero-price {
-  font-weight: 700;
-  font-size: rem(12px);
-}
-
-.Product-grid_cart, .Product-grid_prices {
-  display: table-cell;
-  vertical-align: middle
-}
-
-.Product-grid_cart {
-  text-align: right
-}
-
 
 @media (max-width: 450px) {
   .products-grid--mini .Product-grid .old-price {
@@ -6919,8 +6913,6 @@ button.owl-dot {
   flex-wrap: wrap;
   align-items: flex-start;
   position: relative;
-  word-spacing: 0;
-  font-size: 0;
 
   form.js-add-to-cart {
     flex: 1 1;
@@ -6934,9 +6926,9 @@ button.owl-dot {
   }
 }
 .Product-grid_bottom {
-  padding: rem(10px) rem(10px) rem(10px) rem(10px);
-  border-top: 1px solid transparent;
-  margin-top: auto;
+  padding: rem(10px);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Product-grid {
@@ -7071,16 +7063,6 @@ button.owl-dot {
   font-size: rem(14px);
 }
 
-.Product-stock-out {
-  display: inline-block;
-  background: #ebebed;
-  height: 32px;
-  line-height: 32px;
-  border-radius: 5px;
-  color: #afafaf;
-  padding: 0 rem(10px);
-  font-size: rem(12px);
-}
 
 .header__cart-icon .icon {
   font-size: rem(31px)
@@ -7190,7 +7172,6 @@ button.owl-dot {
 
 
 .Product-grid_cart .button {
-  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;

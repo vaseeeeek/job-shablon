@@ -2,6 +2,7 @@
 {$nameCurrentPage = ""}
 
 {if $action == 'page' && isset($page)}{$nameCurrentPage = $page.name}{/if}
+{if $action == 'category' && isset($category)}{$nameCurrentPage = $category.name}{/if}
 
 {if  $action == 'brandPage' && $theme_settings.use_plugin_brands == 'brands_pro' && class_exists('shopBrandViewHelper')}
     {if !isset($breadcrumbs)}{$breadcrumbs = []}{/if}
@@ -34,6 +35,7 @@
             {/foreach}
         {/if}
         {if !empty($nameCurrentPage)}
+            {if (isset($breadcrumbs) && !empty($breadcrumbs))} <span class="rarr">&rarr;</span> {/if}
             <li>{$nameCurrentPage|escape}</li>
         {/if}
     </ul>

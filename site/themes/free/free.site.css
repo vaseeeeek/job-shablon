@@ -1786,12 +1786,12 @@ iframe {
 }
 
 .price {
-		font-size: 1.429rem;
+		font-size: 1.143rem;
 		color: #000;
 }
 
 .old-price {
-		font-size: 1rem;
+		font-size: 0.857rem;
 		text-decoration: line-through;
 }
 

@@ -67,6 +67,9 @@
     </head>
 
     <body>
+
+    {include file="settings.html"}
+
     {if $wa->block("cookie.block") && !$wa->cookie('closeCookie')}
         <div class="head_info-massage js-head-info-massage">
             <div class="head_info-massage__wrap container">

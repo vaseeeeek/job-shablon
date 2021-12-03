@@ -70,7 +70,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/free.png</value>
+      <value>img/themesettings/wb.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -83,7 +83,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value/>
+      <value>#0f6a24</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -106,7 +106,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value/>
+      <value>#1a1a1a</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -121,7 +121,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value>4</value>
+      <value>0</value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
@@ -407,7 +407,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value>0</value>
+      <value><![CDATA[]]></value>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
@@ -422,7 +422,7 @@
       <name locale="ru_RU">Слайдер</name>
     </setting>
     <setting var="homepage_type_slider_mode" control_type="select">
-      <value>products</value>
+      <value>promos</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <description locale="ru_RU">ID для опции "Товары из списка" задавать в настройке ниже.
@@ -895,7 +895,7 @@
       <name locale="ru_RU">Характеристики в виде списка - плитка</name>
     </setting>
     <setting var="tile_preview_name_height" control_type="select">
-      <value>three</value>
+      <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
       <name locale="ru_RU">Высота блока с наименованием в превью (вид плиткой)!!!непонятно - нужно переименовать</name>
       <description locale="ru_RU">В пикселях</description>
@@ -929,7 +929,7 @@
       <name locale="ru_RU">Характеристики в виде списка - плитка (на мобильных)</name>
     </setting>
     <setting var="tile_mobile_preview_name_height" control_type="select">
-      <value>three</value>
+      <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
       <name locale="ru_RU">Высота блока с наименованием в превью (вид плиткой)!!!непонятно - нужно переименовать</name>
       <description locale="ru_RU">В пикселях</description>
@@ -1556,7 +1556,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>cat</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
