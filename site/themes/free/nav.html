@@ -1,6 +1,6 @@
 {strip}
 {if $wa->shop}
-    {if $wa_app == 'shop' && !$wa->isMobile() && $theme_settings.horizontal_menu}
+    {if $wa_app == 'shop' && !$wa->isMobile()}
         <div class="Nav__Primary-outer js-moved-content">
             <div class="Nav__Primary container">
                 {if $theme_settings.horizontal_menu}

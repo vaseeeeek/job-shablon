@@ -1747,13 +1747,6 @@ iframe {
   vertical-align: middle
 }
 
-.filters .ui-widget-header,
-.filters .ui-state-default,
-.filters .ui-state-hover,
-.filters .ui-widget-content .ui-state-default,
-.filters .ui-widget-content .ui-state-hover{
-  background: #888888;
-}
 .wa-icon.star.size-11 {
   width: 17px !important;
   height: 14px !important
@@ -1773,6 +1766,8 @@ iframe {
 }
 .product_page .product_rating{
   margin-left: rem(-2px);
+  position: relative;
+  top: -3px;
 }
 .star-rating-empty.icon16, .star-half.icon16, .star-hover.icon16, .star.icon16 {
   margin: 0 rem(2px)
@@ -5157,7 +5152,6 @@ article, aside, footer, header, nav, section {
 
 .Nav__Primary-outer {
   box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
-  margin-bottom: rem(15px);
 }
 
 .fixed-panel.show {

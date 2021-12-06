@@ -317,7 +317,7 @@
                     <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
                 </span>
                 <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}">
-                    <i class="fi-rr-shopping-cart"></i>{if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
+                    {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
                 </span>
             </div>
             <!-- plugin hook: 'frontend_product.cart' -->

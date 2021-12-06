@@ -1205,13 +1205,10 @@ span.rating__total {
 }
 
 .tabs_item, li.tabs_item {
-  height: 54px;
-  line-height: 52px;
   font-size: rem(16px);
   color: #3f3f3f;
-  padding: 0 rem(15px);
+  padding: 0 rem(15px) rem(15px) rem(15px);
   display: inline-block;
-  border-right: 1px solid #ebebeb;
   cursor: pointer;
   vertical-align: top;
   box-sizing: border-box;
@@ -1219,7 +1216,13 @@ span.rating__total {
   border-top-style: solid;
   border-top-color: #fff
 }
-
+.tabs_item:first-child, li.tabs_item:first-child {
+  padding-left: 0;
+}
+.tabs_item.selected, li.tabs_item.selected{
+  font-weight: 600;
+  border-bottom: 1px solid #000;
+}
 .tabs_item-fb, .tabs_item-vk {
   margin: 0 0 0 rem(5px);
   color: rgba(85, 102, 89, .46)
@@ -2047,7 +2050,6 @@ span.rating__total {
 }
 
 span.rating {
-  margin-right: rem(10px);
   white-space: nowrap
 }
 
@@ -2905,13 +2907,13 @@ ul.menu-v.brands li a {
 }
 
 .filters-body .ui-widget.ui-widget-content {
-  background: #e8e8e8;
   height: 4px;
   margin: 0 rem(7px) rem(10px)
 }
 
 .filters-body .ui-widget-header {
-  height: 4px;
+  height: 1px;
+  top: 2px;
   position: absolute
 }
 
@@ -6309,6 +6311,7 @@ input[type=button].storequickorder-button:hover {
 
   .product_rating__total-text {
     margin-left: rem(5px);
+    margin-right: 1.5rem;
   }
 
   .product_action-btn {

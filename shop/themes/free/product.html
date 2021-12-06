@@ -32,8 +32,8 @@
                                     {$wa->shop->ratingHtml($product.rating, 16)}
                                     <span itemprop="ratingValue" style="display: none;">{$product.rating}</span>
                                     <span itemprop="reviewCount" style="display: none;">{$reviews_total_count}</span>
-                                    <span class="product_rating__total-text">{_w('%d review','%d reviews',$reviews_total_count)}</span>
                                 </span>
+                                <span class="product_rating__total-text">{_w('%d review','%d reviews',$reviews_total_count)}</span>
                             {else}
                                 <div class="rating -zero">
                                     <div class="" >
@@ -121,7 +121,7 @@
                                     <div class="pd-code__box">
                                         {foreach $product.skus as $sku}
                                             <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
-                                                {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> {$sku.sku|escape} {else}<span class="hint">[`No sku`]</span>{/if}
+                                                {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$sku.sku|escape}</span> {else}<span class="hint">[`No sku`]</span>{/if}
                                             </span>
                                         {/foreach}
                                     </div>

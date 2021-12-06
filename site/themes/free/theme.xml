@@ -70,7 +70,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/wb.png</value>
+      <value>img/themesettings/citilink.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -83,7 +83,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#0f6a24</value>
+      <value/>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -106,7 +106,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#1a1a1a</value>
+      <value/>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -121,7 +121,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value>0</value>
+      <value>4</value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
@@ -407,7 +407,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
@@ -1170,7 +1170,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>anchor_tabs</value>
+      <value>normal_tabs</value>
       <name locale="ru_RU">Вид вкладок на компьютере</name>
       <name locale="en_US">View of tabs on the computer</name>
       <options>
@@ -1830,7 +1830,7 @@
     </locale>
     <locale>
       <msgid>Detailed specifications</msgid>
-      <msgstr locale="ru_RU">Подробные характеристики</msgstr>
+      <msgstr locale="ru_RU">Все характеристики</msgstr>
     </locale>
     <locale>
       <msgid>Delete</msgid>
@@ -1919,6 +1919,10 @@
     <locale>
       <msgid>Continue shopping</msgid>
       <msgstr locale="ru_RU">Продолжить покупки</msgstr>
+    </locale>
+    <locale>
+      <msgid>Add to cart</msgid>
+      <msgstr locale="ru_RU">Купить</msgstr>
     </locale>
   </locales>
 </theme>

@@ -69,7 +69,9 @@
     {$btnTextColor=$selectColors.btnTextColor}
     <style>
 
-        body, .Product__features-title span, .tags.cloud a, .category-menu,.menu-subcategory, .inp-search input,.modal-content, .product-added-msg, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found{
+        body, .Product__features-title span, .tags.cloud a, .category-menu,.menu-subcategory, .inp-search input,.modal-content, .product-added-msg, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
+        .ui-slider-handle.ui-state-default
+        {
             background: {$panelBgColor}!important;
         }
 
@@ -77,8 +79,16 @@
         input[type="button"].bg-maincolor,
         input[type="submit"].bg-maincolor,
         .admin-edit-links__el,
-        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat, .Product-grid_cart .button{
+        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat,
+        .Product-grid_cart .button,
+        .filters-body .ui-widget-header,
+        .filters .ui-slider-range .ui-widget-header,
+        .filters .ui-state-hover
+        {
             background: {$maincolor};
+        }
+        .filters .ui-widget-content .ui-state-default{
+            border: 1px solid {$maincolor};
         }
         .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit]{
             color: {$scColor};
