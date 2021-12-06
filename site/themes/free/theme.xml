@@ -1689,6 +1689,23 @@
         </option>
       </options>
     </setting>
+    <setting var="category_row_home" control_type="select">
+      <value>six</value>
+      <name locale="ru_RU">
+        Количество категорий в строке на главной
+      </name>
+      <options>
+        <option value="five">
+          <name locale="ru_RU">Пять</name>
+        </option>
+        <option value="six">
+          <name locale="ru_RU">Шесть</name>
+        </option>
+        <option value="seven">
+          <name locale="ru_RU">Семь</name>
+        </option>
+      </options>
+    </setting>
     <setting var="category_image_size_manual" control_type="text">
       <value>100%</value>
       <name locale="ru_RU">
@@ -1794,7 +1811,7 @@
     </locale>
     <locale>
       <msgid>Favorites</msgid>
-      <msgstr locale="ru_RU">Избранные</msgstr>
+      <msgstr locale="ru_RU">Избранное</msgstr>
     </locale>
     <locale>
       <msgid>Favorites products</msgid>
@@ -1886,7 +1903,7 @@
     </locale>
     <locale>
       <msgid>Feedback</msgid>
-      <msgstr locale="ru_RU">Обратная связь</msgstr>
+      <msgstr locale="ru_RU">Заказать звонок</msgstr>
     </locale>
     <locale>
       <msgid>Contacts</msgid>
@@ -1922,7 +1939,7 @@
     </locale>
     <locale>
       <msgid>Add to cart</msgid>
-      <msgstr locale="ru_RU">Купить</msgstr>
+      <msgstr locale="ru_RU">В корзину</msgstr>
     </locale>
   </locales>
 </theme>

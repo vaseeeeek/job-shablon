@@ -40,17 +40,6 @@
     {if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
         <div class="cat-panel">
             <div class="df-block">
-                {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
-                    <div class="cat-onpage">
-                        <span class="cat-onpage-title">[`Display`]:</span>
-                        <select id="set-per-page" class="cat-onpage_select">
-                            {$current_per_page = $wa->cookie('products_per_page')}
-                            {foreach [24,48,64] as $count}
-                                <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
-                            {/foreach}
-                        </select>
-                    </div>
-                {/if}
 
                 {if !empty($sorting)}
                     <!-- sorting -->
@@ -202,6 +191,20 @@
                 </script>
             {/if}
         </div>
+    </div>
+
+    <div class="df-block products-pagination">
+        {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
+            <div class="cat-onpage">
+                <span class="cat-onpage-title">[`Display`]:</span>
+                <select id="set-per-page" class="cat-onpage_select">
+                    {$current_per_page = $wa->cookie('products_per_page')}
+                    {foreach [24,48,64] as $count}
+                        <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
+                    {/foreach}
+                </select>
+            </div>
+        {/if}
     </div>
     <div class="{if $theme_settings.pagination == 'lazyloading'}lazy-paging{else}category-pag-offset{/if}" data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
         {if isset($pages_count) && $pages_count > 1  && !$_not_paginate}
