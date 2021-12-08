@@ -100,9 +100,8 @@ var phoneSbar = {
             form = $('#filter-body');
 
         btn.on("click", function () {
-            widthForm = form.width() + 20 + `px`;
+            widthForm = Math.ceil(parseInt(form.width())) + 20 + `px`;
             if (form.css('left') == `-${widthForm}`) {
-                console.log(form.css('left') == `-${widthForm}`);
                 form.addClass('show');
             } else {
                 form.removeClass('show');

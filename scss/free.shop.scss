@@ -3260,10 +3260,6 @@ input.filter-range_el {
     margin: 0 rem(10px)
   }
 
-  .Product__Item .storequickorder_product_button {
-    padding: 0 rem(5px) !important
-  }
-
   .Products-features.Product__features {
     width: auto;
     min-width: 250px;
@@ -5206,62 +5202,12 @@ img.pswp__img {
   opacity: .5
 }
 
-.buy1click-open-button {
-  background: none
-}
-
-.buy1click-open-button[disabled] {
-  opacity: 1
-}
-
-.buy1click-open-button:hover {
-  box-shadow: none
-}
-
-.cart-price-total-btn .button-fastorder__sk-oneclick, .cart-price-total-btn .buy1click-open-button, .storequickorder_cart_button {
-  height: 37px !important;
-  line-height: 35px !important;
-  border-radius: 5px !important;
-  padding: 0 rem(20px)
-}
-
-.product__fastorder .button-fastorder__sk-oneclick, .product__fastorder .buy1click-open-button, .storequickorder_product_button {
-  width: 255px !important
-}
-
 .product__fastorder {
   margin: rem(15px) 0 0
 }
 
-@media (max-width: 550px) {
-  .product__fastorder .button-fastorder__sk-oneclick, .product__fastorder .buy1click-open-button, .storequickorder_product_button {
-    width: 160px !important
-  }
-}
-
-.Product__Item-cart .button-fastorder__sk-oneclick, .Product__Item-cart .buy1click-open-button, .Product__Item-cart .storequickorder_product_button {
-  width: auto !important;
-  font-size: rem(13px);
-  height: 27px !important;
-  line-height: 27px !important;
-  margin: rem(10px) 0 0;
-  padding: 0 rem(10px) !important;
-  box-sizing: border-box;
-  text-align: center
-}
-
 .Product__Item-cart .storequickorder_pos {
   display: inline-block
-}
-
-.Product__Item-cart .Cart__Qty ~ .button-fastorder__sk-oneclick .Product__Item-cart .Cart__Qty ~ .buy1click-open-button, .Product__Item-cart .Cart__Qty ~ .storequickorder_pos .storequickorder_product_button {
-  width: 158px
-}
-
-@media (max-width: 350px) {
-  .Product__Item-cart .button-fastorder__sk-oneclick, .Product__Item-cart .buy1click-open-button, .Product__Item-cart .storequickorder_product_button {
-    width: 100% !important
-  }
 }
 
 .storequickorder-window-product_info {
@@ -7157,6 +7103,7 @@ i.wa-icon.arrow-left {
     flex-direction: column;
   }
 }
+
 
 .cart-price-total-box .quickorder-button-cart {
   padding: 0 rem(15px);
