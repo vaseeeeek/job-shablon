@@ -7,12 +7,12 @@
 
 {$_is_dialog = $wa->get('cart')}
 
-{$_is_dialog_select_options = $_is_dialog && $wa->get('select-options') && $theme_settings.product_addtocart_mini_dialog}
+{$_is_dialog_select_options = $_is_dialog && $wa->get('select-options') && $theme_settings.product_modal_photo}
 {$image_preview = $wa->shop->productImgUrl($product, '60')}
 
 {if $_is_dialog}<div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>{/if}
 
-<form id="cart-form{if $_is_dialog}-dialog{/if}" class="js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}" method="post" action="{$wa->getUrl('/frontendCart/add')}" data-sku-url="{!$_is_dialog && !empty($theme_settings.product_sku_url)}">
+<form id="cart-form{if $_is_dialog}-dialog{/if}" class="js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}" method="post" action="{$wa->getUrl('/frontendCart/add')}" data-sku-url="{!$_is_dialog && !empty($theme_settings.product_url_sku_parameter)}">
     {if $_is_dialog && !$_is_dialog_select_options}
         {$product.features = $product->features}
         {$products = [$product.id => $product->data]}
@@ -66,7 +66,7 @@
                             {foreach $f.values as $v_id => $v}
                                 {if !isset($skuCode_feat_def[$f.id])}{$skuCode_feat_def[$f.id]=$v_id}{/if}
                                 {if $f.type == 'color'}
-                                    <div class="option-color_outer option-color_outer--card{if empty($theme_settings.is_product_option_color_text)} _without-text{/if}">
+                                    <div class="option-color_outer option-color_outer--card{if empty($theme_settings.view_product_select_color_text)} _without-text{/if}">
                                         <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if} style="{$v->style};">
                                             <i class="fi-rr-check"></i>
                                         </a>
@@ -125,7 +125,7 @@
                     {/if}
 
 
-                    {if !$theme_settings.product_select_skus}
+                    {if !$theme_settings.product_selection_skus}
                         <div class="skus">
                             {foreach $product.skus as $sku}
                                 {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}

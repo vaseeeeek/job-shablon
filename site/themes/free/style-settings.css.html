@@ -78,19 +78,19 @@
             }
         {/if}
 
-        {if $theme_settings.color_sticker_hit}
+        {if $theme_settings.bgcolor_sticker_hit}
             .badge.bestseller {
-                background: {$theme_settings.color_sticker_hit};
+                background: {$theme_settings.bgcolor_sticker_hit};
             }
         {/if}
-        {if $theme_settings.color_sticker_new}
+        {if $theme_settings.bgcolor_sticker_new}
             .badge.new {
-                background: {$theme_settings.color_sticker_new};
+                background: {$theme_settings.bgcolor_sticker_new};
             }
         {/if}
-        {if $theme_settings.color_sticker_discount}
+        {if $theme_settings.bgcolor_sticker_discount}
             .badge.low-price {
-                background: {$theme_settings.color_sticker_discount};
+                background: {$theme_settings.bgcolor_sticker_discount};
             }
         {/if}
 
@@ -98,27 +98,27 @@
             {$product_tile_name_height = 40}
         {else}
             {if !$wa->isMobile()}
-                {if $theme_settings.tile_preview_name_height == 'one'}
+                {if $theme_settings.tile_title_height == 'one'}
                     {$product_tile_name_height = 1.2}
-                {elseif $theme_settings.tile_preview_name_height == 'two'}
+                {elseif $theme_settings.tile_title_height == 'two'}
                     {$product_tile_name_height = 2.4}
-                {elseif $theme_settings.tile_preview_name_height == 'three'}
+                {elseif $theme_settings.tile_title_height == 'three'}
                     {$product_tile_name_height = 3.5}
-                {elseif $theme_settings.tile_preview_name_height == 'four'}
+                {elseif $theme_settings.tile_title_height == 'four'}
                     {$product_tile_name_height = 4.6}
-                {elseif $theme_settings.tile_preview_name_height == 'five'}
+                {elseif $theme_settings.tile_title_height == 'five'}
                     {$product_tile_name_height = 5.8}
                 {/if}
             {else}
-                {if $theme_settings.tile_mobile_preview_name_height == 'one'}
+                {if $theme_settings.tile_mobile_title_height == 'one'}
                     {$product_tile_name_height = 1.2}
-                {elseif $theme_settings.tile_mobile_preview_name_height == 'two'}
+                {elseif $theme_settings.tile_mobile_title_height == 'two'}
                     {$product_tile_name_height = 2.4}
-                {elseif $theme_settings.tile_mobile_preview_name_height == 'three'}
+                {elseif $theme_settings.tile_mobile_title_height == 'three'}
                     {$product_tile_name_height = 3.5}
-                {elseif $theme_settings.tile_mobile_preview_name_height == 'four'}
+                {elseif $theme_settings.tile_mobile_title_height == 'four'}
                     {$product_tile_name_height = 4.6}
-                {elseif $theme_settings.tile_mobile_preview_name_height == 'five'}
+                {elseif $theme_settings.tile_mobile_title_height == 'five'}
                     {$product_tile_name_height = 5.8}
                 {/if}
             {/if}

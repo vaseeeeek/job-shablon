@@ -52,7 +52,7 @@
         <div class="product__box--image">
 
             {if !$wa->isMobile()}
-                {if $theme_settings.product_preview_dialog}
+                {if $theme_settings.product_quick_dialog}
                     <div class="js-dialog Product-grid_dialog Product-grid_action">
                     <span class="js-card-dialog product-action " data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
 {*                        <i class="fa fi-rr-zoom-in"></i>*}
@@ -256,7 +256,7 @@
                             && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
                             {if $wa_app == 'shop'}
                                 <span class="button js-card-dialog addtocart"
-                                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">В корзину</span>
+                                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">В корзину</span>
                             {else}
                                 <a class="button addtocart" href="{$p.frontend_url}">Нет в наличии</a>
                             {/if}
@@ -265,7 +265,7 @@
                         {/if}
                     {else}
                         <div class="Product-stock-out nowrap">
-                            {if !empty($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible}{else}{$text_out_stock}{/if}
+                            {$text_out_stock}
                         </div>
                     {/if}
                 </div>

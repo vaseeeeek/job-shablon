@@ -17,11 +17,11 @@
     {if not $sku.available}
       {$product_available = false}
     {else}
-      {if $product.status and $sku.available and (is_null($sku.count) or $sku.count > $theme_settings.store_enable_zero_sku|default:0)}
+      {if $product.status and $sku.available and (is_null($sku.count) or $sku.count > 0)}
         {$product_available = 'full'}
         {break}
       {elseif $wa->shop->settings('ignore_stock_count')}
-        {if $sku.count <= $theme_settings.store_enable_zero_sku|default:0}
+        {if $sku.count <= 0}
           {$product_available = 'preorder'}
         {/if}
       {/if}
@@ -32,10 +32,10 @@
   {if not $sku.available}
     {$product_available = false}
   {else}
-    {if $product.status and $sku.available and (is_null($sku.count) or $sku.count > $theme_settings.store_enable_zero_sku|default:0)}
+    {if $product.status and $sku.available and (is_null($sku.count) or $sku.count > 0)}
       {$product_available = 'full'}
     {elseif $wa->shop->settings('ignore_stock_count')}
-      {if $sku.count <= $theme_settings.store_enable_zero_sku|default:0}
+      {if $sku.count <= 0}
         {$product_available = 'preorder'}
       {/if}
     {/if}
@@ -50,18 +50,18 @@
           {if $stock_name}<span class="Single__Name--Stock">{$stock_name}</span>{/if}
           <span class="Single__Value--Stock -High">[`In stock`]</span>
         {elseif $n > $critical}
-          <i class="Single__Icon--Stock icon-stock-in {if $theme_settings.store_stock_always_green|default:false}-Green{else}-Yellow{/if}"></i>
+          <i class="Single__Icon--Stock icon-stock-in -Yellow"></i>
           {if $stock_name}<span class="Single__Name--Stock">{$stock_name}</span>{/if}
           <span class="Single__Value--Stock -Low">
-            {if $theme_settings.store_hide_stock_counts|default:false}[`In stock`]{else}{_w("Only a few items left")}{/if}
+            {_w("Only a few items left")}
           </span>
         {elseif $n > 0}
-          <i class="Single__Icon--Stock icon-stock-in {if $theme_settings.store_stock_always_green|default:false}-Green{else}-Red{/if}"></i>
+          <i class="Single__Icon--Stock icon-stock-in -Red"></i>
           {if $stock_name}<span class="Single__Name--Stock">{$stock_name}</span>{/if}
           <span class="Single__Value--Stock -Critical">
-            {if $theme_settings.store_hide_stock_counts|default:false}[`In stock`]{else}{_w("Only %d left in stock", "Only %d left in stock", $n)}{/if}
+            {_w("Only %d left in stock", "Only %d left in stock", $n)}
           </span>
-        {elseif $n >= $theme_settings.store_enable_zero_sku|default:1 and $n <= 0}
+        {elseif $n >= 1 and $n <= 0}
           <i class="Single__Icon--Stock icon-stock-in -Green"></i>
           {if $stock_name}<span class="Single__Name--Stock">{$stock_name}</span>{/if}
           <span class="Single__Value--Stock -High">[`In stock`]</span>
@@ -80,7 +80,7 @@
           {if $_salesku_enable_warehouse and isset($sku.stock) && $sku.stock}
             <a class="Single__Link--Warehouse js-show-products-stocks{$sku.id}" style="font-size: 1.2rem;">
               <i class="Single__Icon--Warehouse icon-box" style="margin-right: .4rem; "></i>
-              <span class="Single__Value--Warehouse -High">{$theme_settings.detail_warehouse_info_text|trim|default:'Уточнить наличие'}</span>
+              <span class="Single__Value--Warehouse -High">Уточнить наличие</span>
             </a>
             <script>
               window.addEventListener('load', function() {

@@ -35,7 +35,7 @@
         {/if}
     {/if}
 
-    {if $theme_settings.filter_selected}{include file="selected-filters.html"}{/if}
+    {if $theme_settings.selected_filter}{include file="selected-filters.html"}{/if}
 
     {if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
         <div class="cat-panel">
@@ -159,7 +159,7 @@
 
             {if ($theme_settings.show_grid_sku && $CategoryViewProducts == 'tile')
             || ($theme_settings.show_sku_list && $CategoryViewProducts == 'list')
-            || ($theme_settings.show_sku_product-tbl && $CategoryViewProducts == 'tbl')}
+            || ($theme_settings.show_sku_product_table && $CategoryViewProducts == 'tbl')}
                 {$all_skus = $wa->shop->skus(array_keys($products))}
             {/if}
 
@@ -173,7 +173,6 @@
                     {$skus = $all_skus[$p.id]}
                     {$p.skus_list = reset($skus)}
                 {/if}
-
                 {if $CategoryViewProducts == 'list'}
                     {include file="list-thumbs-view-line.html" product=$p features=$features favorites=$product_favor_arr}
                 {else if $CategoryViewProducts == 'tbl'}

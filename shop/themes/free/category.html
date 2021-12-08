@@ -34,19 +34,17 @@
                 {/if}
 
                 <!-- description -->
-                {if !$theme_settings.cat_desc_bottom}
+                {if !$theme_settings.cat_desc_bottom && $category.description}
                     {strip}
-                        {if $category.description}
-                            <div class="category-desc-outer">
-                                {$maxHeight = 55}
-                                {if $theme_settings.height_cat_desc}
-                                    {$maxHeight = $theme_settings.height_cat_desc}
-                                {/if}
-                                <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="[`Hide`]" data-text-more="[`Read more`]" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
-                                    <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
-                                </div>
+                        <div class="category-desc-outer">
+                            {$maxHeight = 55}
+                            {if $theme_settings.height_cat_desc}
+                                {$maxHeight = $theme_settings.height_cat_desc}
+                            {/if}
+                            <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="[`Hide`]" data-text-more="[`Read more`]" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
+                                <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
                             </div>
-                        {/if}
+                        </div>
                     {/strip}
                 {/if}
 
@@ -58,7 +56,7 @@
                 {/if}
                 <div class="js-product-ajax-list">
                     {if !$products}
-                        {if $theme_settings.filter_selected}{include file="selected-filters.html"}{/if}
+                        {if $theme_settings.selected_filter}{include file="selected-filters.html"}{/if}
                         <div class="content-box">
                             {if !empty($filters)}
                                 [`No products were found.`]
@@ -74,20 +72,18 @@
                                                                                  src="{$wa_parent_theme_url}img/loading16.gif">
                 </div>
 
-                {if $theme_settings.cat_desc_bottom}
+                {if $theme_settings.cat_desc_bottom && $category.description}
                     <div class="content-box">
                         {strip}
-                            {if $category.description}
-                                <div class="category-desc-outer">
-                                    {$maxHeight = 55}
-                                    {if $theme_settings.height_cat_desc}
-                                        {$maxHeight = $theme_settings.height_cat_desc}
-                                    {/if}
-                                    <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="[`Hide`]" data-text-more="[`Read more`]" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
-                                        <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
-                                    </div>
+                            <div class="category-desc-outer">
+                                {$maxHeight = 55}
+                                {if $theme_settings.height_cat_desc}
+                                    {$maxHeight = $theme_settings.height_cat_desc}
+                                {/if}
+                                <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="[`Hide`]" data-text-more="[`Read more`]" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
+                                    <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
                                 </div>
-                            {/if}
+                            </div>
                         {/strip}
                     </div>
                 {/if}

@@ -370,7 +370,7 @@
                                         {foreach $frontend_cart as $_}{$_}{/foreach}
 
 
-                                        {$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click"}
+                                        {$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.plugin_fastorder == "buy1click"}
                                         {if $_buy1click}
                                             {shopBuy1clickViewHelper::getCartButton()}
                                         {/if}
@@ -394,7 +394,7 @@
                 </div>
 
                 {$related = $wa->shop->crossSelling($cart.items, 'product_id')}
-                {if $theme_settings.cart_crossselling && $related}
+                {if $theme_settings.cart_products_cross_selling && $related}
                     <section class="related">
                         <div class="content-box">
                             <h3 class="product_cross-title">{sprintf('[`Customers who bought %s also bought`]', $item.product.name|escape)}

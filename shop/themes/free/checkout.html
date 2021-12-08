@@ -11,7 +11,7 @@
 
 {$cols = 1}
 {$is_cart_items = 0}
-{if $theme_settings.checkout_cart_items && $wa->shop->cart->count() > 0 && !$wa->isMobile()}
+{if $wa->shop->cart->count() > 0 && !$wa->isMobile()}
     {$cols = $cols + 1}
     {$is_cart_items = 1}
 {/if}

@@ -31,10 +31,7 @@
     {$images = array_values($products_images[$p.id])}
 {/if}
 
-{$add_order_action = $theme_settings.add_order_action}
-{if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
-
-{$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.fastorder == "buy1click" && $theme_settings.product_show_list_fast_cart}
+{$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.plugin_fastorder == "buy1click" && $theme_settings.product_show_list_fast_cart}
 
 {$_price_range = $theme_settings.price_range_in_product_list}
 {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
@@ -159,7 +156,7 @@
                 {/if}
             </div>
             {if $available}
-                <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart Product__Item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
+                <form class="js-add-to-cart Product__Item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
 
                     {if $theme_settings.show_number_item_add_in_list}
                         <span class="js-qty Cart__Qty Cart__Qty--mini">
@@ -172,9 +169,9 @@
                     {if $p.sku_count > 1}
                         <input type="hidden" name="product_id" value="{$p.id}">
                         {if $theme_settings.show_number_item_add_in_list}
-                            <span class="button js-card-dialog addtocart addtocart--mini" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">[`Add to cart`]</span>
+                            <span class="button js-card-dialog addtocart addtocart--mini" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">[`Add to cart`]</span>
                         {else}
-                            <span class="button js-card-dialog addtocart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}">{$add2label_cart}</span>
+                            <span class="button js-card-dialog addtocart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">{$add2label_cart}</span>
                         {/if}
                     {else}
                         <input type="hidden" name="product_id" value="{$p.id}">
@@ -208,7 +205,7 @@
             {else}
                 <div class="Product-grid-stock-off nowrap">
                     <div class="Product-stock-out">
-                        {if !empty($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible}{else}[`Out of stock`]{/if}
+                        [`Out of stock`]
                     </div>
                 </div>
             {/if}
@@ -219,7 +216,7 @@
 
     <div class="Product__Item-row Product__Item-bottom">
         <div class="Product__Item-left">
-            {if $theme_settings.product_preview_dialog}
+            {if $theme_settings.product_quick_dialog}
                 <span class="js-card-dialog Products-list_dialog btn-action-icon" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">[`Quick view`]</span>
             {/if}
         </div>

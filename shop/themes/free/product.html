@@ -195,8 +195,8 @@
                                 {foreach $product.pages as $page}
                                     <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-{$page.id}">{$page.name|escape}</li>
                                 {/foreach}
-                            {else if $item_alias_content == 'add' && $theme_settings.product_add_info_title}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-addinfo">{$theme_settings.product_add_info_title|escape}</li>
+                            {else if $item_alias_content == 'add' && $theme_settings.product_add_tab_title}
+                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-addinfo">{$theme_settings.product_add_tab_title|escape}</li>
                             {/if}
                         {/foreach}
                     </ul>
@@ -408,7 +408,7 @@
         {$crossselling = $product->crossSelling($totalCrossselling)}
 
 
-        {if empty($count_upselling)}{$count_upselling = 10}{else}{$count_upselling = (int) $theme_settings.upselling_count}{/if}
+        {if empty($count_upselling)}{$count_upselling = 10}{else}{$count_upselling = (int) $theme_settings.product_upselling_count}{/if}
         {$upselling = $product->upSelling($count_upselling)}
 
         {$viewed_product_list = $wa->cookie('viewed_product_list')}
