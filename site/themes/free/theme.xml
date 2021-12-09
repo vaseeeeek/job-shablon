@@ -651,7 +651,7 @@
       <name locale="ru_RU">Рейтинг товара</name>
     </setting>
     <setting var="plugin_fastorder" control_type="select">
-      <value></value>
+      <value/>
       <name locale="en_US">Plugin fast order</name>
       <name locale="ru_RU">Плагин Быстрого заказа</name>
       <options>
@@ -678,7 +678,7 @@
       <name locale="en_US">Text of the inscription "Under the order"</name>
     </setting>
     <setting var="codes_features_list" control_type="text">
-      <value/>
+      <value><![CDATA[]]></value>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
                 right)

@@ -322,9 +322,7 @@
                                             <a href="#" class="link-style" id="coupon-in-stock">[`I have a coupon!`]</a>
                                         {/if}
                                         {if shopDiscounts::isEnabled('coupons')}
-                                            <div {if !$coupon_code}style="display: none;"{/if} class="coupon-form"
-                                                 id="use-coupon-code">
-
+                                            <div {if !$coupon_code}style="display: none;"{/if} class="coupon-form" id="use-coupon-code">
                                                 <input placeholder="[`Coupon code`]" type="text" name="coupon_code"
                                                        value="{$coupon_code|escape}">
                                                 <span class="cart-coupon-add-button fa  fi-rr-check js-btn-form sdColor"></span>

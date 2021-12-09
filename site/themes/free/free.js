@@ -68,32 +68,6 @@ var fixedPanel = {
     }
 };
 
-var photoGallery = {
-    init: function () {
-        var _this = this;
-
-        var slider = $('.js-sidebar-photos').bxSlider({
-            nextText: '',
-            prevText: '',
-            pager: false,
-            responsive: true,
-            auto: true,
-            pause: 6500,
-            autoHover: true,
-            speed: 400,
-            useCSS: false,
-            /*auto: true,
-            mode: 'fade', // for fade out
-            captions: true*/
-            onSliderLoad: function (currentIndex) {
-                $(".js-sidebar-photos .bx-next, .js-sidebar-photos .bx-prev, .js-sidebar-photos .bx-pager-item").click(function () {
-                    slider.stopAuto();
-                });
-            }
-        });
-    }
-};
-
 var phoneSbar = {
     init: function () {
         var btn = $('.js-filter-fixed-btn'),
@@ -2753,7 +2727,6 @@ $(function () {
     formSelectList.init();
     menu.init();
     slider.init();
-    photoGallery.init();
     formModal.init();
     ddBox.init();
     categoriesMainMenu.init();

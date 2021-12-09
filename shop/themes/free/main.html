@@ -36,23 +36,13 @@
         && $wa->currentUrl(false, true) != '/signup/'
         && $wa->currentUrl(false, true) != '/login/'
     }
-        {$cols = 1}
-        {$sb_left = 0}
-        {if !$wa->isMobile()}
-            {$cols = $cols + 1}
-            {$sb_left = 1}
-        {/if}
-        <div class="cols-{$cols}">
-            <div class="out_sidebars">
-                {if $sb_left}
-                    {include file="`$wa_active_theme_path`/sidebar.html"}
-                {/if}
-            </div>
-            {if $wa->globals('isSearchProPage') && isset($filters) && !empty($filters)}{$class = "`$class` searchpro-page-with-sidebar"}{/if}
-            {$is_search_products_template = $wa->globals('isSearchPage') && ($action == 'search' || $action == 'brand' || $action == 'tag')}
-            <div class="content{if !$is_search_products_template} content-box{/if} {if $sb_left} with-sidebar{/if} {$class}">
-                {$content}
-            </div>
+        <div class="out_sidebars">
+            {include file="`$wa_active_theme_path`/sidebar.html"}
+        </div>
+        {if $wa->globals('isSearchProPage') && isset($filters) && !empty($filters)}{$class = "`$class` searchpro-page-with-sidebar"}{/if}
+        {$is_search_products_template = $wa->globals('isSearchPage') && ($action == 'search' || $action == 'brand' || $action == 'tag')}
+        <div class="content{if !$is_search_products_template} content-box{/if} {if $sb_left} with-sidebar{/if} {$class}">
+            {$content}
         </div>
     {else}
         {$content}
