@@ -75,6 +75,8 @@ var phoneSbar = {
 
         btn.on("click", function () {
             widthForm = Math.ceil(parseInt(form.width())) + 20 + `px`;
+            console.log(form.css('left'));
+            console.log(`-${widthForm}`);
             if (form.css('left') == `-${widthForm}`) {
                 form.addClass('show');
             } else {

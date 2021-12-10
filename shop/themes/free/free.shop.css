@@ -88,7 +88,6 @@
 }
 
 .filter-option-color .style-check.checked:after, .filter-option-color .radio-styler.checked:after {
-		background: rgba(0, 0, 0, 0.3);
 		height: 20px;
 		width: 20px;
 		position: absolute;
@@ -112,7 +111,7 @@
 
 .small-price {
 		font-size: 1.3rem;
-		font-weight: 600;
+		font-weight: 700;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -122,7 +121,7 @@
 
 .owl-carousel .small-price {
 		font-size: 1.143rem;
-		font-weight: 500;
+		font-weight: 700;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -215,7 +214,6 @@
 		position: absolute;
 		top: 24px;
 		left: 24px;
-		background: rgba(0, 0, 0, 0.5);
 		padding: 1.071rem;
 		max-width: 400px;
 		border-radius: 5px;
@@ -508,7 +506,7 @@
 .home-prev-news_item-name a {
 		display: block;
 		font-size: 1rem;
-		font-weight: 600;
+		font-weight: 700;
 		margin-bottom: 0.357rem;
 }
 
@@ -914,7 +912,7 @@ span.rating__total {
 }
 
 .Product-grid-features__value {
-		font-weight: 500;
+		font-weight: 700;
 }
 
 .Product-grid-features__value .Product__features__colors-short {
@@ -951,7 +949,7 @@ span.rating__total {
 }
 
 .Product-grid_zero-price {
-		font-weight: 600;
+		font-weight: 700;
 }
 
 .with-sidebar .home-products_head-outer {
@@ -1036,7 +1034,6 @@ span.rating__total {
 
 .tabs_item, li.tabs_item {
 		font-size: 1.143rem;
-		color: #3f3f3f;
 		padding: 0 1.071rem 1.071rem 1.071rem;
 		display: inline-block;
 		cursor: pointer;
@@ -1053,7 +1050,7 @@ span.rating__total {
 }
 
 .tabs_item.selected, li.tabs_item.selected {
-		font-weight: 600;
+		font-weight: 700;
 		border-bottom: 1px solid #000;
 }
 
@@ -1086,7 +1083,7 @@ span.rating__total {
 }
 .acc-tabs-el {
 		padding: 1.071rem 1.071rem 1.071rem 0;
-		font-weight: 500;
+		font-weight: 700;
 		cursor: pointer;
 		border-bottom: 1px solid #ebebeb;
 		position: relative;
@@ -1168,7 +1165,7 @@ span.rating__total {
 		font-size: 1.071rem;
 }
 .sidebar-cats_link.selected {
-		font-weight: 600;
+		font-weight: 700;
 }
 
 .sidebar-cats_title {
@@ -1203,7 +1200,7 @@ span.rating__total {
 }
 
 .sidebar-subcategories_el.selected > a {
-		font-weight: 600;
+		font-weight: 700;
 }
 
 .sidebar-subcategories_el-open {
@@ -1337,8 +1334,6 @@ span.rating__total {
 #compare-leash {
 		position: fixed;
 		bottom: 0;
-		-webkit-box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
-		        box-shadow: 0 2px 9px rgba(0, 0, 0, 0.4);
 		font-size: 1.1em;
 		right: 30px;
 		z-index: 9999;
@@ -1353,12 +1348,12 @@ span.rating__total {
 }
 
 #compare-leash a:hover {
-		background: red;
+		background: #F91155;
 		color: #fff !important;
 }
 
 #compare-leash a.just-added {
-		background: red;
+		background: #F91155;
 }
 
 .purchase {
@@ -1522,7 +1517,7 @@ table.rating-result td .bar .filling {
 }
 
 input.error, textarea.error {
-		border: 1px solid red;
+		border: 1px solid #F91155;
 }
 
 .errormsg {
@@ -1534,6 +1529,11 @@ input.error, textarea.error {
 
 .cart .row {
 		padding: 0.714rem 0;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
 }
 
 .cart-el_image {
@@ -1569,6 +1569,11 @@ input.error, textarea.error {
 
 .cart-el_right {
 		width: 40%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
 }
 
 .cart-el_services {
@@ -1617,7 +1622,6 @@ input.error, textarea.error {
 		}
 
 		.cart-el_info, .cart-el_right {
-				display: block;
 				width: auto;
 				margin: 0 0 0 4.286rem;
 		}
@@ -1720,7 +1724,7 @@ input.error, textarea.error {
 		margin: 0.357rem 0.714rem 0;
 }
 
-.featured-shipping-and-payment {
+.featu#F91155-shipping-and-payment {
 		text-align: center;
 		margin: 1.071rem 0 0;
 }
@@ -2154,7 +2158,7 @@ ul.menu-v.brands li a {
 		cursor: pointer;
 		font-size: 0.95rem;
 		padding: 0 1.4rem 0 0;
-		font-weight: 600;
+		font-weight: 700;
 }
 
 .filter-el_title:before {
@@ -2522,7 +2526,7 @@ input.filter-range_el {
 
 .Product__Item-price .price {
 		font-size: 1.286rem;
-		font-weight: 500;
+		font-weight: 700;
 		margin: 0 0.714rem 0 0;
 }
 
@@ -2706,7 +2710,7 @@ input.filter-range_el {
 
 .Product-table-price {
 		font-size: 1.143rem;
-		font-weight: 500;
+		font-weight: 700;
 		width: 100px;
 		display: inline-block;
 }
@@ -3148,7 +3152,6 @@ img.pswp__img {
 		top: 5px;
 		left: 5px;
 		border-radius: 10px;
-		background: rgba(0, 0, 0, 0.3);
 		padding: 0.286rem;
 		font-size: 0.857rem;
 }
@@ -3172,7 +3175,6 @@ img.pswp__img {
 		display: -ms-inline-flexbox;
 		display: inline-flex;
 		margin: 0.6rem 0 0;
-		border-bottom: 1px dashed #222;
 }
 
 .product_stocks {
@@ -3212,7 +3214,7 @@ img.pswp__img {
 }
 
 .Product__features-title:before {
-		border-bottom: 1px dotted #b5b5b5;
+		border-bottom: 1px dotted #ebebeb;
 		left: 0;
 		top: 17px;
 		right: 5px;
@@ -3512,7 +3514,6 @@ img.pswp__img {
 .review-images-box .attached-files-box .input-file-wrap .review_image-wrap {
 		width: 200px;
 		height: 200px;
-		border: 1px solid rgba(0, 0, 0, 0.1);
 		background-size: contain;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
@@ -3535,7 +3536,6 @@ img.pswp__img {
 
 .review-images-box .attached-files-box .input-file-wrap .review-desc-wrap .s-textarea {
 		display: block;
-		border: 1px solid rgba(0, 0, 0, 0.1);
 		padding: 0.286rem 0.429rem;
 		font-size: 0.929rem;
 		line-height: 15px;
@@ -3563,7 +3563,6 @@ img.pswp__img {
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 		border-radius: 50%;
-		/*border: 1px solid rgba(0, 0, 0, .33);*/
 		background: #fff;
 		cursor: pointer;
 }
@@ -3709,9 +3708,6 @@ img.pswp__img {
 		color: #8e8e8e;
 		line-height: 1.3;
 		margin-top: 0;
-}
-.product_share .ya-share2__link_more .ya-share2__title:hover {
-		color: #616161;
 }
 .product_share .ya-share2__link_more .ya-share2__title:after {
 		margin-left: 5px;
@@ -3920,6 +3916,9 @@ img.pswp__img {
 		display: inline-flex;
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
 }
 
 .categories-tile {
@@ -4352,11 +4351,10 @@ img.pswp__img {
 
 .order-box > .section-head .delete-button {
 		display: inline-block;
-		color: #888;
 }
 
 .order-box > .section-head .delete-button:hover .s-delete-icon {
-		fill: red;
+		fill: #F91155;
 }
 
 .order-box > .section-head .delete-button .s-delete-icon {
@@ -5462,7 +5460,6 @@ i.wa-icon.arrow-left {
 .style-check, .jq-checkbox, .jq-radio, .radio-styler {
 		width: 10px;
 		height: 10px;
-		border: 1px solid #d6d1d1;
 		padding: 0.071rem;
 		cursor: pointer;
 		position: relative;

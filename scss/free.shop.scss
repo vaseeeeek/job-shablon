@@ -96,7 +96,6 @@ $html-font-size: 14px;
 }
 
 .filter-option-color .style-check.checked:after, .filter-option-color .radio-styler.checked:after {
-  background: rgba(0, 0, 0, .3);
   height: 20px;
   width: 20px;
   position: absolute;
@@ -119,13 +118,13 @@ $html-font-size: 14px;
 
 .small-price {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   flex-wrap: wrap;
 }
 .owl-carousel .small-price {
   font-size: rem(16px);
-  font-weight: 500;
+  font-weight: 700;
   display: flex;
   flex-wrap: wrap;
 }
@@ -209,7 +208,6 @@ $html-font-size: 14px;
   position: absolute;
   top: 24px;
   left: 24px;
-  background: rgba(0, 0, 0, .5);
   padding: rem(15px);
   max-width: 400px;
   border-radius: 5px
@@ -501,7 +499,7 @@ $html-font-size: 14px;
     &-name a {
       display: block;
       font-size: rem(14px);
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: rem(5px);
     }
   }
@@ -909,7 +907,7 @@ span.rating__total {
 }
 
 .Product-grid-features__value {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .Product-grid-features__value .Product__features__colors-short {
@@ -943,7 +941,7 @@ span.rating__total {
   line-height: 26px;
 }
 .Product-grid_zero-price{
-  font-weight: 600;
+  font-weight: 700;
 }
 
 
@@ -1033,7 +1031,6 @@ span.rating__total {
 
 .tabs_item, li.tabs_item {
   font-size: rem(16px);
-  color: #3f3f3f;
   padding: 0 rem(15px) rem(15px) rem(15px);
   display: inline-block;
   cursor: pointer;
@@ -1047,7 +1044,7 @@ span.rating__total {
   padding-left: 0;
 }
 .tabs_item.selected, li.tabs_item.selected{
-  font-weight: 600;
+  font-weight: 700;
   border-bottom: 1px solid #000;
 }
 .tabs_item-fb, .tabs_item-vk {
@@ -1081,7 +1078,7 @@ span.rating__total {
 
 .acc-tabs-el {
   padding: rem(15px) rem(15px) rem(15px) 0;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   border-bottom: 1px solid #ebebeb;
   position: relative;
@@ -1159,7 +1156,7 @@ span.rating__total {
   margin: 0 rem(25px) 0 0;
   font-size: rem(15px);
   &.selected{
-    font-weight: 600;
+    font-weight: 700;
   }
 }
 .sidebar-cats_title {
@@ -1193,7 +1190,7 @@ span.rating__total {
 }
 
 .sidebar-subcategories_el.selected>a {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .sidebar-subcategories_el-open {
@@ -1327,7 +1324,6 @@ span.rating__total {
 #compare-leash {
   position: fixed;
   bottom: 0;
-  box-shadow: 0 2px 9px rgba(0, 0, 0, .4);
   font-size: 1.1em;
   right: 30px;
   z-index: 9999
@@ -1344,12 +1340,12 @@ span.rating__total {
 }
 
 #compare-leash a:hover {
-  background: red;
+  background: #F91155;
   color: #fff !important
 }
 
 #compare-leash a.just-added {
-  background: red
+  background: #F91155
 }
 
 .purchase {
@@ -1515,7 +1511,7 @@ table.rating-result td .bar .filling {
 }
 
 input.error, textarea.error {
-  border: 1px solid red
+  border: 1px solid #F91155
 }
 
 .errormsg {
@@ -1526,7 +1522,9 @@ input.error, textarea.error {
 }
 
 .cart .row {
-  padding: rem(10px) 0
+  padding: rem(10px) 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cart-el_image {
@@ -1561,7 +1559,9 @@ input.error, textarea.error {
 }
 
 .cart-el_right {
-  width: 40%
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cart-el_services {
@@ -1610,7 +1610,6 @@ input.error, textarea.error {
   }
 
   .cart-el_info, .cart-el_right {
-    display: block;
     width: auto;
     margin: 0 0 0 rem(60px)
   }
@@ -1715,7 +1714,7 @@ input.error, textarea.error {
 }
 
 
-.featured-shipping-and-payment {
+.featu#F91155-shipping-and-payment {
   text-align: center;
   margin: rem(15px) 0 0
 }
@@ -2155,7 +2154,7 @@ ul.menu-v.brands li a {
   cursor: pointer;
   font-size: 0.95rem;
   padding: 0 1.4rem 0 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .filter-el_title:before {
@@ -2508,7 +2507,7 @@ input.filter-range_el {
 
 .Product__Item-price .price {
   font-size: rem(18px);
-  font-weight: 500;
+  font-weight: 700;
   margin: 0 rem(10px) 0 0
 }
 
@@ -2691,7 +2690,7 @@ input.filter-range_el {
 
 .Product-table-price {
   font-size: rem(16px);
-  font-weight: 500;
+  font-weight: 700;
   width: 100px;
   display: inline-block
 }
@@ -3134,7 +3133,6 @@ img.pswp__img {
   top: 5px;
   left: 5px;
   border-radius: 10px;
-  background: rgba(0, 0, 0, .3);
   padding: rem(4px);
   font-size: rem(12px)
 }
@@ -3156,7 +3154,6 @@ img.pswp__img {
 .product_link-full {
   display: inline-flex;
   margin: 0.6rem 0 0;
-  border-bottom: 1px dashed #222;
 }
 
 .product_stocks {
@@ -3195,7 +3192,7 @@ img.pswp__img {
 }
 
 .Product__features-title:before {
-  border-bottom: 1px dotted #b5b5b5;
+  border-bottom: 1px dotted #ebebeb;
   left: 0;
   top: 17px;
   right: 5px;
@@ -3493,7 +3490,6 @@ img.pswp__img {
 .review-images-box .attached-files-box .input-file-wrap .review_image-wrap {
   width: 200px;
   height: 200px;
-  border: 1px solid rgba(0, 0, 0, .1);
   -webkit-background-size: contain;
   -moz-background-size: contain;
   background-size: contain;
@@ -3519,7 +3515,6 @@ img.pswp__img {
 
 .review-images-box .attached-files-box .input-file-wrap .review-desc-wrap .s-textarea {
   display: block;
-  border: 1px solid rgba(0, 0, 0, .1);
   padding: rem(4px) rem(6px);
   font-size: rem(13px);
   line-height: 15px;
@@ -3552,7 +3547,6 @@ img.pswp__img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border-radius: 50%;
-  /*border: 1px solid rgba(0, 0, 0, .33);*/
   background: #fff;
   cursor: pointer
 }
@@ -3700,10 +3694,6 @@ img.pswp__img {
       color: #8e8e8e;
       line-height: 1.3;
       margin-top: 0;
-
-      &:hover {
-        color: #616161;
-      }
 
       &:after {
         margin-left: 5px;
@@ -3921,6 +3911,7 @@ img.pswp__img {
   margin: 0 -10px;
   display: inline-flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .categories-tile {
@@ -4343,11 +4334,10 @@ img.pswp__img {
 
 .order-box > .section-head .delete-button {
   display: inline-block;
-  color: #888;
 }
 
 .order-box > .section-head .delete-button:hover .s-delete-icon {
-  fill: red
+  fill: #F91155
 }
 
 .order-box > .section-head .delete-button .s-delete-icon {
@@ -5368,7 +5358,6 @@ i.wa-icon.arrow-left {
 .style-check, .jq-checkbox, .jq-radio, .radio-styler {
   width: 10px;
   height: 10px;
-  border: 1px solid #d6d1d1;
   padding: rem(1px);
   cursor: pointer;
   position: relative;

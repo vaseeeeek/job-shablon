@@ -90,7 +90,7 @@
         <div class="container">
             <div class="header--left">
                 {$is_logo = $theme_settings.logo}
-                <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" href="{$wa_url}">
+                <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->currentUrl() === $wa->getUrl('shop/frontend')}{else}href="{$wa->getUrl('shop/frontend')}"{/if}">
                     {if $is_logo}
                         <img src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
                     {else}
