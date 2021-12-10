@@ -1002,25 +1002,6 @@ span.rating__total {
   }
 }
 
-.home-products-more {
-  text-align: center;
-  cursor: pointer;
-  display: none;
-  border: 1px solid #ebebeb;
-  border-top: none
-}
-
-.home-products--list .active ~ .home-products-more {
-  display: block
-}
-
-.home-products-more:after {
-  font: normal normal normal 16px/1 'free-font';
-  vertical-align: middle;
-  content: "\f107";
-  font-size: rem(60px)
-}
-
 .with-sidebar .home-products_head-outer {
   padding: 0;
   border: 1px solid #ebebeb
@@ -1028,10 +1009,6 @@ span.rating__total {
 
 .home-products .products-grid-outer {
   margin: 0 rem(-1px) 0 0;
-}
-
-.home-products--list {
-  margin: 0 0 rem(24px)
 }
 
 .with-sidebar .home-products__outer {
@@ -1440,25 +1417,6 @@ span.rating__total {
   cursor: pointer
 }
 
-
-.open-all-btn {
-  cursor: pointer;
-  font-size: rem(12px)
-}
-
-.open-all-btn.hide {
-  display: none
-}
-
-.open-all-btn .icon {
-  margin: 0 rem(5px) 0 0
-}
-
-.open-all-btn--plugins {
-  margin: 0 rem(15px) rem(15px);
-  display: block
-}
-
 .sb-wrap--plugin .menu-v li.show {
   display: inline-block !important
 }
@@ -1473,70 +1431,6 @@ span.rating__total {
   display: flex
 }
 
-.popup-addcart {
-  padding: rem(20px)
-}
-
-.popup-addcart__head {
-  font-size: rem(18px);
-  font-weight: 700;
-  margin: 0 0 rem(25px);
-  max-width: 350px
-}
-
-.popup-addcart__buttons {
-  margin: rem(15px) 0 0;
-  overflow: hidden
-}
-
-.popup-addcart__checkout {
-  float: right
-}
-
-.popup-addcart__continue {
-  line-height: 37px
-}
-
-.popup-addcart__image {
-  display: inline-block;
-  width: 60px;
-  vertical-align: middle;
-  margin: 0 rem(10px) 0 0
-}
-
-.popup-addcart__image img {
-  max-width: 100%;
-  max-height: 60px
-}
-
-.popup-addcart__content {
-  display: inline-block;
-  width: calc(100% - 75px);
-  vertical-align: middle
-}
-
-.popup-addcart__name {
-  margin: 0 0 rem(10px)
-}
-
-.popup-addcart__price {
-  font-weight: 700;
-  display: inline-block
-}
-
-@media (max-width: 370px) {
-  .popup-addcart__checkout, .popup-addcart__continue {
-    float: none;
-    margin: rem(10px) 0 0
-  }
-}
-
-.m-bg {
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, .8);
-  z-index: 200
-}
 
 .bonus {
   padding: rem(2px) rem(4px) rem(1px)
@@ -2730,10 +2624,6 @@ input.filter-range_el {
   vertical-align: middle
 }
 
-.product-price-saving {
-  color: #fff;
-  padding-left: 10px;
-}
 
 .Product__Item-video {
   margin: 0 0 0 rem(10px);
@@ -4666,10 +4556,6 @@ img.pswp__img {
   }
 }
 
-.product__fastorder {
-  margin: rem(15px) 0 0
-}
-
 .category-image {
   float: left;
   margin: 0 rem(10px) 0 0
@@ -4913,85 +4799,6 @@ img.pswp__img {
 .protilegallery_wrapper .protilegallery_images .protilegallery_image img {
   width: auto !important;
   height: auto !important
-}
-
-.onestep-cart input[name=use_affiliate] {
-  background: none;
-  padding: 0;
-  border-radius: 0;
-  height: auto
-}
-
-.onestep-cart input[name=use_affiliate]:hover {
-  box-shadow: none
-}
-
-.product-services {
-  background: #fff;
-  border: 1px solid #ebebeb;
-  padding: rem(15px);
-  margin: 0 0 rem(24px);
-  overflow: hidden
-}
-
-.product-services__item {
-  display: block;
-  float: left;
-  width: 33%;
-  box-sizing: border-box;
-  padding: rem(10px) 2%
-}
-
-@media (max-width: 1100px) {
-  .product-services__item {
-    width: 50%
-  }
-}
-
-@media (max-width: 800px) {
-  .product-services__item {
-    width: 100% !important
-  }
-}
-
-.product-services__icon {
-  width: 60px;
-  height: 60px;
-  line-height: 56px;
-  text-align: center;
-  float: left;
-  border: 1px solid #ebebeb;
-  font-size: rem(24px);
-  border-radius: 50%
-}
-
-.product-services__icon img {
-  max-width: 50px;
-  max-height: 50px;
-  vertical-align: middle
-}
-
-.product-services__icon ~ .product-services__content {
-  margin: 0 0 0 rem(90px)
-}
-
-.product-services__title {
-  font-weight: 700;
-  font-size: rem(15px);
-  margin: 0 0 rem(7px)
-}
-
-.product-services__item a .product-services__title {
-  text-decoration: underline
-}
-
-.product-services__item:hover a .product-services__title, .product-services__item a {
-  text-decoration: none;
-  color: #000
-}
-
-.product-services__body {
-  font-size: rem(13px);
 }
 
 .wa-order-dialog {
@@ -5394,22 +5201,6 @@ img.pswp__img {
     }
   }
 
-  .product-price-saving {
-    color: #fff;
-    margin: 0 rem(5px) 0 0
-  }
-
-  .product-discount, .product-price-saving {
-    font-size: rem(12px);
-    display: inline-block;
-    padding: 0 rem(7px);
-    vertical-align: middle;
-    line-height: 2;
-
-    .ruble {
-      position: relative;
-    }
-  }
 
   .product-page_main {
     display: flex;
