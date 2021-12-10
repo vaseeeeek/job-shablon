@@ -3914,6 +3914,27 @@ img.pswp__img {
   justify-content: center;
 }
 
+.out_sidebars form#filter-body {
+  margin: 0;
+  background: #fff;
+  border-top: 1px solid #ebebeb;
+  position: fixed;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: calc(100% - 45px);
+  z-index: 100;
+  overflow: auto;
+  padding: 0.714rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.out_sidebars form#filter-body.show{
+  left: 0;
+}
 .categories-tile {
   padding: 0;
   list-style: none;
