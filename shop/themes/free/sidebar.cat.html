@@ -39,7 +39,7 @@
                             {/if}
                         {/foreach}
                     {/if}
-                    <li class="1 sidebar-subcategories_el{if $category_selected == $subcat.id} selected{/if}"{if $category_selected == $subcat.id} data-is-open="1"{/if}>
+                    <li class="sidebar-subcategories_el{if $category_selected == $subcat.id} selected{/if}"{if $category_selected == $subcat.id} data-is-open="1"{/if}>
                         <a href="{$subcat.url}">{$subcat.name}</a>
                         {if $_has_childs}{getSubcategories subcategories=$subcat.childs parent=$subcat}{/if}
                     </li>
