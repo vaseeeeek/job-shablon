@@ -1624,7 +1624,6 @@ iframe {
 button.mfp-arrow, button.mfp-close {
   overflow: visible;
   cursor: pointer;
-  background: transparent;
   border: 0;
   -webkit-appearance: none;
   display: block;
@@ -3336,11 +3335,6 @@ ul.pages-list li a {
   line-height: 35px
 }
 
-button.mfp-arrow:hover, button.mfp-close:hover {
-  background: none;
-  box-shadow: none
-}
-
 .mfp-preloader {
   font-size: 0;
   height: 32px
@@ -3995,6 +3989,9 @@ article, aside, footer, header, nav, section {
 
     .header--left {
       width: 140px;
+    }
+    .Nav-product-custom > div:not(:last-child){
+      display: none;
     }
   }
 }

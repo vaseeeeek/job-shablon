@@ -68,8 +68,6 @@
 
     <body>
 
-    {include file="settings.html"}
-
     {if $wa->block("cookie.block") && !$wa->cookie('closeCookie')}
         <div class="head_info-massage js-head-info-massage">
             <div class="head_info-massage__wrap container">
@@ -107,24 +105,18 @@
             <div class="header--right">
                 {if !$wa->isMobile()}
                     <div class="Nav-search juniq-header-search">
-                        {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
-                            <div class="Nav-search_form js-Nav-search">
-                                {shopSearchproPluginViewHelper::field()}
+                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
+                              class="js-Nav-search Nav-search_form">
+                            <div class="inp-search">
+                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-ajax-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
+                                       type="text" name="query" value="{$wa->get('query')|escape}"
+                                       placeholder="[`Search in catalog`]"/>
+                                {if $theme_settings.auto_search}
+                                    <div class="ajax-search-result js-ajax-search-result"></div>
+                                {/if}
+                                <i class="fi-rr-search js-submit-form"></i>
                             </div>
-                        {else}
-                            <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
-                                  class="js-Nav-search Nav-search_form">
-                                <div class="inp-search">
-                                    <input class="Nav-inp-search{if $theme_settings.auto_search} js-ajax-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
-                                           type="text" name="query" value="{$wa->get('query')|escape}"
-                                           placeholder="[`Search in catalog`]"/>
-                                    {if $theme_settings.auto_search}
-                                        <div class="ajax-search-result js-ajax-search-result"></div>
-                                    {/if}
-                                    <i class="fi-rr-search js-submit-form"></i>
-                                </div>
-                            </form>
-                        {/if}
+                        </form>
                     </div>
                 {/if}
                 <div class="Nav-contact-info">
@@ -233,24 +225,18 @@
 
             {if $wa->isMobile()}
                 <div class="Nav-search juniq-header-search">
-                    {if $wa->shop && $theme_settings.plugin_search_pro && class_exists('shopSearchproPluginViewHelper')}
-                        <div class="Nav-search_form js-Nav-search">
-                            {shopSearchproPluginViewHelper::field()}
+                    <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
+                          class="js-Nav-search Nav-search_form">
+                        <div class="inp-search">
+                            <input class="Nav-inp-search{if $theme_settings.auto_search} js-ajax-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
+                                   type="text" name="query" value="{$wa->get('query')|escape}"
+                                   placeholder="[`Search in catalog`]"/>
+                            {if $theme_settings.auto_search}
+                                <div class="ajax-search-result js-ajax-search-result"></div>
+                            {/if}
+                            <i class="fa fa-search btn maincolor js-btn-form"></i>
                         </div>
-                    {else}
-                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
-                              class="js-Nav-search Nav-search_form">
-                            <div class="inp-search">
-                                <input class="Nav-inp-search{if $theme_settings.auto_search} js-ajax-search{/if}" {if $theme_settings.auto_search} autocomplete="off"{/if}
-                                       type="text" name="query" value="{$wa->get('query')|escape}"
-                                       placeholder="[`Search in catalog`]"/>
-                                {if $theme_settings.auto_search}
-                                    <div class="ajax-search-result js-ajax-search-result"></div>
-                                {/if}
-                                <i class="fa fa-search btn maincolor js-btn-form"></i>
-                            </div>
-                        </form>
-                    {/if}
+                    </form>
                 </div>
             {/if}
         </div>

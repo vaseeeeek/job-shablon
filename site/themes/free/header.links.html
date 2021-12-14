@@ -1,6 +1,6 @@
 {strip}
 
-{$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin == 'cityselect' && class_exists('shopCityselectPlugin'))}
+{$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin && class_exists('shopCityselectPlugin'))}
 
 <div class="header-top--links">
     <div class="container">

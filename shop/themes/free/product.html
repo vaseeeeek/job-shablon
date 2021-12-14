@@ -412,7 +412,6 @@
         {$upselling = $product->upSelling($count_upselling)}
 
         {$viewed_product_list = $wa->cookie('viewed_product_list')}
-
         {if $crossselling || $upselling }
             <div class="content product_cross-products">
                 {if $crossselling}
@@ -427,7 +426,27 @@
                     {include file="product.list.view-carousel.html" products=$upselling product_list_title=$product_list_title}
                 {/if}
             </div>
+
         {/if}
+{*        {$viewed_list_arr = ","|explode:$viewed_product_list}*}
+{*        {$viewed_list_arr_lasted = []}*}
+{*        {$counter = 1}*}
+{*        {foreach $viewed_list_arr as $id}*}
+{*            {$viewed_list_arr_lasted[] = $id}*}
+{*            {if $counter++ == 10}*}
+{*                {break}*}
+{*            {/if}*}
+{*        {/foreach}*}
+{*        {$products = $wa->shop->products($viewed_list_arr_lasted)}*}
+{*        {$products_result = []}*}
+{*        {foreach $viewed_list_arr as $id}*}
+{*            {foreach $products as $product}*}
+{*                {if $product.id == $id}*}
+{*                    {$products_result[$id] = $product}*}
+{*                {/if}*}
+{*            {/foreach}*}
+{*        {/foreach}*}
+{*        {include file="product.list.view-carousel.html" products=$products_result product_list_title="[`Viewed products`]"}*}
     </div>
 
 
