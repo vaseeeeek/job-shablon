@@ -3600,9 +3600,24 @@ img.pswp__img {
 }
 
 .reviews-wrap .review_images_list {
-  margin: rem(5px) 0 0
+  margin: rem(5px) 0 0;
+  max-width: 450px;
 }
-
+.reviews-wrap .owl-carousel{
+  padding-top: 0;
+}
+.reviews-wrap .owl-carousel.owl-drag .owl-item{
+  display: flex;
+  align-items: center;
+}
+.reviews-wrap .review_images_list .owl-next,
+.reviews-wrap .review_images_list .owl-prev
+{
+  color:#000
+}
+.reviews-wrap .review_images_list .owl-next{
+  right: 12px;
+}
 .reviews-wrap .review_images_list .review_image-wrap {
   display: inline-block;
   vertical-align: top;
@@ -3610,7 +3625,6 @@ img.pswp__img {
 }
 
 .reviews-wrap .review_images_list .review_image-wrap .review-image {
-  height: 100px;
   vertical-align: top
 }
 
