@@ -2269,13 +2269,23 @@ input.filter-range_el {
   text-align: center;
   margin: 0 0 rem(15px)
 }
-
-.filter-range input:first-child {
+.filter-range__min, .filter-range__max{
+  position: relative;
+}
+.filter-range__min__text, .filter-range__max__text{
+  position: absolute;
+  z-index: 1;
+  left: 24px;
+  top: 6px;
+  color: #757575
+}
+.filter-range .filter-range__min {
   margin-right:1rem;
 }
-.filter-range input:last-child {
+.filter-range .filter-range__max {
   margin-left:1rem;
 }
+
 .filter-el--btns input {
   font-size: rem(12px)
 }

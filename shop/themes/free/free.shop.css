@@ -2281,11 +2281,19 @@ input.filter-range_el {
 		margin: 0 0 1.071rem;
 }
 
-.filter-range input:first-child {
+.filter-range__min, .filter-range__max {
+		position: relative;
+}
+
+.filter-range__min__text, .filter-range__max__text {
+		position: absolute;
+}
+
+.filter-range .filter-range__min {
 		margin-right: 1rem;
 }
 
-.filter-range input:last-child {
+.filter-range .filter-range__max {
 		margin-left: 1rem;
 }
 
