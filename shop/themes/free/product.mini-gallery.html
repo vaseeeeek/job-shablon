@@ -1,7 +1,7 @@
 {strip}
 {$video = $product->video}
-{$_popupOn = empty($theme_settings.disable_popup_gallery)}
-{$_popupOnThumbs = $theme_settings.view_preview_popup_thumbs}
+{$_popupOn = true}
+{$_popupOnThumbs = true}
 {$_zoomOn = $theme_settings.zoom_gallery__product && !$wa->isMobile()}
 {$class_popup="js-image-popup-swipebox"}
 {if count($product.images) > 1 || (count($product.images) === 1 && $video)}
@@ -12,7 +12,7 @@
             {$position = 0}
             {foreach $product.images as $image}
                 <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
-                    <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, '970')}">
+                    <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, '1500')}">
                         {$wa->shop->imgHtml($image, '70')}
                     </a>
                 </div>
@@ -31,7 +31,6 @@
 {/if}
 
 <div class="product-page_main-left">
-    {$wa->shop->badgeHtml($product.badge)}
     {if isset($product.autobadge) && !empty($product.autobadge)}{$product.autobadge}{/if}
     <div class="product_gallery-images js-product_gallery-images"{if !empty($_popupOnThumbs)} data-thumbs="true"{/if} data-zoom="{$_zoomOn}"  data-popup="{$_popupOn}">
         <!-- main image -->
@@ -68,12 +67,11 @@
                         {$position = $position + 1}
                     {/if}
                 {else}
-                    <img src="/wa-data/public/shop/themes/free/img/dummy96.png" alt="{$product.name|escape}"/>
+                    {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+                    <img src="{$dummy96}" alt="{$product.name|escape}"/>
                 {/if}
             </div>
         </div>
-
-        {if $theme_settings.product_gallery-images_display_description && $product.images}<div class="product_gallery-images-title js-product_gallery-images-title">{if !empty($image_description)}{$image_description}{/if}</div>{/if}
     </div>
 </div>
 {/strip}

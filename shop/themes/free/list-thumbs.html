@@ -35,23 +35,11 @@
         {/if}
     {/if}
 
-    {* selected filters *}
-    {if $theme_settings.filter_selected}{include file="selected-filters.html"}{/if}
+    {if $theme_settings.selected_filter}{include file="selected-filters.html"}{/if}
 
     {if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
         <div class="cat-panel">
             <div class="df-block">
-                {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
-                    <div class="cat-onpage">
-                        <span class="cat-onpage-title">[`Display`]:</span>
-                        <select id="set-per-page" class="cat-onpage_select">
-                            {$current_per_page = $wa->cookie('products_per_page')}
-                            {foreach [24,48,64] as $count}
-                                <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
-                            {/foreach}
-                        </select>
-                    </div>
-                {/if}
 
                 {if !empty($sorting)}
                     <!-- sorting -->
@@ -113,21 +101,15 @@
                 {if $views_count > 1}
                     <div class="cat-views">
                         {if $_isView_tile == true}
-                            <i data-view="tile"
-                               class="js-switch-product-view fi-rr-chetyrekvadrata cat-views__el {if $CategoryViewProducts == 'tile'} selected{/if}"
-                               aria-hidden="true">
+                            <i data-view="tile" class="js-switch-product-view fi-rr-chetyrekvadrata cat-views__el {if $CategoryViewProducts == 'tile'} selected{/if}" aria-hidden="true">
                             </i>
                         {/if}
                         {if $_isView_list == true}
-                            <i data-view="list"
-                               class="js-switch-product-view fi-rr-trikvadratatripryamo cat-views__el {if $CategoryViewProducts == 'list'} selected{/if}"
-                               aria-hidden="true">
+                            <i data-view="list" class="js-switch-product-view fi-rr-trikvadratatripryamo cat-views__el {if $CategoryViewProducts == 'list'} selected{/if}" aria-hidden="true">
                             </i>
                         {/if}
                         {if $_isView_tbl == true}
-                            <i data-view="tbl"
-                               class="js-switch-product-view fi-rr-chetyrecherta cat-views__el {if $CategoryViewProducts == 'tbl'} selected{/if}"
-                               aria-hidden="true">
+                            <i data-view="tbl" class="js-switch-product-view fi-rr-chetyrecherta cat-views__el {if $CategoryViewProducts == 'tbl'} selected{/if}" aria-hidden="true">
                             </i>
                         {/if}
                     </div>
@@ -139,7 +121,7 @@
     {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
     {if !isset($isCategoryViewProductsList)}{$isCategoryViewProductsList = 0}{/if}
 
-    {$isPreviewProductGalleryTile = (($theme_settings.product_scroll_hover_gallery && $CategoryViewProducts == 'tile') || ($theme_settings.preview_product_list_gallerytile && $CategoryViewProducts == 'list')) && $products}
+    {$isPreviewProductGalleryTile = (($CategoryViewProducts == 'tile') || ($CategoryViewProducts == 'list')) && $products}
 
     {if $isPreviewProductGalleryTile}
         {$products_ids = ""}
@@ -154,8 +136,8 @@
         {$products_images = $wa->shop->images($products_ids, $size_image)}
     {/if}
     <div class="products-{$CategoryViewProducts}-outer">
-        <div data-image-lazy="{$theme_settings.product_preview_images_lazy}"
-             class="js-preview-products products-{$CategoryViewProducts} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
+        {$product_preview_images_lazy = true}
+        <div {if $product_preview_images_lazy}data-image-lazy="1"{/if} class="js-preview-products products-{$CategoryViewProducts} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
             {$features = []}
             {$_features_product_list = !empty($theme_settings.product_show_list_features) && $CategoryViewProducts == 'list'}
             {if !$wa->isMobile()}
@@ -177,7 +159,7 @@
 
             {if ($theme_settings.show_grid_sku && $CategoryViewProducts == 'tile')
             || ($theme_settings.show_sku_list && $CategoryViewProducts == 'list')
-            || ($theme_settings.show_sku_product-tbl && $CategoryViewProducts == 'tbl')}
+            || ($theme_settings.show_sku_product_table && $CategoryViewProducts == 'tbl')}
                 {$all_skus = $wa->shop->skus(array_keys($products))}
             {/if}
 
@@ -191,7 +173,6 @@
                     {$skus = $all_skus[$p.id]}
                     {$p.skus_list = reset($skus)}
                 {/if}
-
                 {if $CategoryViewProducts == 'list'}
                     {include file="list-thumbs-view-line.html" product=$p features=$features favorites=$product_favor_arr}
                 {else if $CategoryViewProducts == 'tbl'}
@@ -210,8 +191,21 @@
             {/if}
         </div>
     </div>
-    <div class="{if $theme_settings.pagination == 'lazyloading'}lazy-paging{else}category-pag-offset{/if}"
-         data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
+
+    <div class="df-block products-pagination">
+        {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
+            <div class="cat-onpage">
+                <span class="cat-onpage-title">[`Display`]</span>
+                <select id="set-per-page" class="cat-onpage_select">
+                    {$current_per_page = $wa->cookie('products_per_page')}
+                    {foreach [24,48,64] as $count}
+                        <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
+                    {/foreach}
+                </select>
+            </div>
+        {/if}
+    </div>
+    <div class="{if $theme_settings.pagination == 'lazyloading'}lazy-paging{else}category-pag-offset{/if}" data-times="2" data-link-text="[`Load more`]" data-loading-str="[`Loading...`]">
         {if isset($pages_count) && $pages_count > 1  && !$_not_paginate}
             {if class_exists('shopSeofilterViewHelper')}
                 {capture assign=pagination}

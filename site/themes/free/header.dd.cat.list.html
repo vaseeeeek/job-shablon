@@ -21,8 +21,8 @@
 
 {$max_count_categories = 0}
 
-{if $theme_settings.max_num_cat_dd}
-    {$max_count_categories = $theme_settings.max_num_cat_dd}
+{if $theme_settings.cat_before_more}
+    {$max_count_categories = $theme_settings.cat_before_more}
 {/if}
 
 {$else_categories = []}
@@ -49,8 +49,8 @@
             {foreach $cat_result as $cat}
                 {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
                     {$view_subcat = $cat.params.submenu_columns}
-                {else if $theme_settings.col_menu_subcat}
-                    {$view_subcat = $theme_settings.col_menu_subcat}
+                {else if $theme_settings.break_categories_columns}
+                    {$view_subcat = $theme_settings.break_categories_columns}
                 {/if}
                 {if !isset($view_subcat) || ($view_subcat != "columns")}
                     {$view_subcat = "one_column"}
@@ -59,7 +59,7 @@
 
 
                 {$_subcat = 0}
-                {if count($cat.childs) && $theme_settings.max_cat_lvl > 1}
+                {if count($cat.childs) && $theme_settings.depth_subcategories > 1}
                     {foreach $cat.childs as $child}
                         {$_subcat = 1}
                     {/foreach}
@@ -67,7 +67,7 @@
                 {if $cat.id == 'else'}
                     {$_subcat = 1}
                 {/if}
-                <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.cat_menu_dd_relative == "parent"} pos-rel {/if}">
+                <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
                     {if $_subcat}
                         <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                     {/if}

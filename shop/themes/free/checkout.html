@@ -9,20 +9,11 @@
     header .auth { display: none; }
 </style>
 
-{$cols = 1}
-{$is_cart_items = 0}
-{if $theme_settings.checkout_cart_items && $wa->shop->cart->count() > 0 && !$wa->isMobile()}
-    {$cols = $cols + 1}
-    {$is_cart_items = 1}
-{/if}
-
-<div class="cols-{$cols}">
+<div class="checkout--box">
     <div class="out_sidebars">
-        {if $is_cart_items}
-            <aside class="right-sidebar js-right-sidebar">
-                {include file='sidebar.cart.html'}
-            </aside>
-        {/if}
+        <aside class="right-sidebar js-right-sidebar">
+            {include file='sidebar.cart.html'}
+        </aside>
     </div>
     <div class="content{if $is_cart_items} with-right-sidebar{/if}">
         <div class="checkout">
@@ -123,7 +114,6 @@
 
     </div>
 </div>
-
 <script>
 ( function($) {
     $(document).ready( function() {

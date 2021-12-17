@@ -1,6 +1,5 @@
 {strip}
-{$add_order_action = $theme_settings.add_order_action}
-{if $wa->isMobile()}{$add_order_action = $theme_settings.add_order_action_mobile}{/if}
+
 
 {$_price_range = $theme_settings.price_range_in_product_list}
 {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
@@ -8,15 +7,17 @@
 <div class="Product-table js-preview-cart">
     <div class="Product-table-img">
         <a href="{$p.frontend_url}" title="{$p.name}">
-            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
-            {if $theme_settings.product_preview_images_lazy && !empty($p.image_id)}
+            {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+            {$image = $wa->shop->productImgHtml($p, '50', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $dummy96])}
+            {$product_preview_images_lazy = true}
+            {if $product_preview_images_lazy && !empty($p.image_id)}
                 {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
             {/if}
             {$image}
         </a>
     </div>
     <div class="Product-table-info">
-        {if $theme_settings.show_sku_product-tbl && isset($all_skus) && count($all_skus) > 0}
+        {if $theme_settings.show_sku_product_table && isset($all_skus) && count($all_skus) > 0}
             <div class="Product-table-sku hint">
                 {if isset($p.skus_list.sku) && !empty($p.skus_list.sku)}
                 [`Vendor code`]: {$p.skus_list.sku}
@@ -27,8 +28,10 @@
         <div class="Product-table-name">
             <a href="{$p.frontend_url}">{$p.name}</a>
 
-            {if $theme_settings.product_show_preview_video && isset($p.video_url) && !empty($p.video_url)}
-                <i class="Product__Item-video ion-social-youtube-outline"></i>
+            {if isset($p.video_url) && !empty($p.video_url)}
+                <a class="js-video-popup Product-grid_video" aria-hidden="true">
+                    <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                </a>
             {/if}
 
             {if $theme_settings.preview_stock}
@@ -47,7 +50,7 @@
                             </span>
                         {/if}
                     {else}
-                        <span class="Product-stock_item-out">{if !empty($theme_settings.text_not_avalible)}{$theme_settings.text_not_avalible}{else}[`Out of stock`]{/if}</span>
+                        <span class="Product-stock_item-out">[`Out of stock`]</span>
                     {/if}
                 </span>
             {/if}
@@ -77,7 +80,7 @@
             {/if}
         </span>
         {if $available}
-            <form {if $add_order_action == 'popup'} data-image="{$preview_image}" data-name="{$p.name|escape}" data-price="{shop_currency_html($p.price)|escape}"{/if} data-after-action="{$add_order_action}" class="js-add-to-cart Product-table-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
+            <form class="js-add-to-cart Product-table-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                 {if $theme_settings.product_show_tbl_count_cart}
                     <span class="js-qty Cart__Qty Cart__Qty--mini">
                         <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
@@ -86,15 +89,15 @@
                     </span>
                 {/if}
                 {if $p.sku_count > 1}
-                    <span class="button js-card-dialog addtocart addtocart--mini fi-rr-shopping-cart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_addtocart_mini_dialog}&select-options=1{/if}"></span>
+                    <span class="button js-card-dialog addtocart addtocart--mini" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">[`Add to cart`]</span>
                 {else}
                     <input type="hidden" name="product_id" value="{$p.id}">
-                    <span class="button js-submit-form addtocart addtocart--mini fi-rr-shopping-cart"></span>
+                    <span class="button js-submit-form addtocart addtocart--mini">[`Add to cart`]</span>
                 {/if}
             </form>
         {else}
             <div class="Product-table-cart">
-                <span class="button addtocart disabled addtocart--mini fi-rr-shopping-cart"></span>
+                <span class="button addtocart disabled addtocart--mini">[`Add to cart`]</span>
             </div>
         {/if}
     </div>

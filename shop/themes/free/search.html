@@ -12,7 +12,6 @@
     {$class_product_list = "js-cat-list cat--list"}
     {$_not_paginate = 0}
 	{$_is_sorting=true}
-    {$_is_search_pro = $theme_settings.search_pro_plugin && strpos($wa->currentUrl(false, true), '/search/' ) === 0 && class_exists('shopSearchproPluginViewHelper') && !$wa->get('list')}
     {if $_is_search_pro}{$_is_sorting=false}{/if}
     {if $wa->get('list') == 'favorites' || $wa->get('list') == 'viewed'}
         {$_not_paginate = 1}
@@ -66,7 +65,7 @@
     {/if}
 
 
-    {if isset($brand) && $wa->isMobile() && !($wa->cookie("is_desktop_for_mobile") == 1 && $theme_settings.switch_version)}
+    {if isset($brand) && $wa->isMobile()}
         {include file="sb-mobile.html"}
     {/if}
 

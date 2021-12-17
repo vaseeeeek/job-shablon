@@ -68,41 +68,16 @@ var fixedPanel = {
     }
 };
 
-var photoGallery = {
-    init: function () {
-        var _this = this;
-
-        var slider = $('.js-sidebar-photos').bxSlider({
-            nextText: '',
-            prevText: '',
-            pager: false,
-            responsive: true,
-            auto: true,
-            pause: 6500,
-            autoHover: true,
-            speed: 400,
-            useCSS: false,
-            /*auto: true,
-            mode: 'fade', // for fade out
-            captions: true*/
-            onSliderLoad: function (currentIndex) {
-                $(".js-sidebar-photos .bx-next, .js-sidebar-photos .bx-prev, .js-sidebar-photos .bx-pager-item").click(function () {
-                    slider.stopAuto();
-                });
-            }
-        });
-    }
-};
-
 var phoneSbar = {
     init: function () {
         var btn = $('.js-filter-fixed-btn'),
-            form = $('#filter-body');
+            form = $('.sidear-mobile #filter-body');
 
         btn.on("click", function () {
-            widthForm = form.width() + 20 + `px`;
+            widthForm = Math.ceil(parseInt(form.width())) + 20 + `px`;
+            console.log(form.css('left'));
+            console.log(`-${widthForm}`);
             if (form.css('left') == `-${widthForm}`) {
-                console.log(form.css('left') == `-${widthForm}`);
                 form.addClass('show');
             } else {
                 form.removeClass('show');
@@ -711,9 +686,7 @@ var cart = {
 
             btn.addClass("cart-loading");
             $.post(url + '?html=1', data, function (response) {
-                if (btn.parents('.product-page_main').text()) {
-                    btn.text('Добавлен')
-                }
+                btn.text('В корзине')
                 btn.removeClass("cart-loading");
 
                 if (response.status == 'ok') {
@@ -1832,7 +1805,7 @@ var itemGallery = {
                         $('#swipebox-slider').css("padding-bottom", (parseInt($('#swipebox-thumbs').outerHeight()) + 30) + 'px');
                     }
 
-                    if ((thumbs === true && images.length) || bgOpacity) {
+                    if ((thumbs === true && imgArrs.length) || bgOpacity) {
                         $('#swipebox-bottom-bar').addClass("swipebox-bottom-bar--pos-center");
                         $('#swipebox-arrows').addClass("swipebox-arrows--pos-center");
                     }
@@ -2066,14 +2039,17 @@ var tags = {
 
         btn.on("click", function () {
             var $this = $(this),
-                tags = $this.closest('.js-tags').find('.js-tag');
+                tags = $this.closest('.js-tags').find('.js-tag'),
+                link = $this.find('.link-half');
 
             if ($this.hasClass('open')) {
                 $this.removeClass('open');
                 tags.addClass("hide");
+                link.text('Развернуть');
             } else {
                 $this.addClass('open');
                 tags.removeClass("hide");
+                link.text('Cвернуть');
             }
         });
     }
@@ -2607,9 +2583,10 @@ Product.prototype.currencyFormat = function (number, no_html) {
 };
 
 Product.prototype.updateSkuServices = function (sku_id) {
-    if (this.formWrap.find(".js-pd-code").length > 0) {
-        this.formWrap.find(".js-pd-code").hide();
-        this.formWrap.find(".sku-" + sku_id + "-pd-code").show();
+    let pdCodeBox = $('.pd-code__box');
+    if (pdCodeBox.find(".js-pd-code").length > 0) {
+        pdCodeBox.find(".js-pd-code").hide();
+        pdCodeBox.find(".sku-" + sku_id + "-pd-code").show();
     }
 
     this.formWrap.find("div.stocks div").hide();
@@ -2755,7 +2732,6 @@ $(function () {
     formSelectList.init();
     menu.init();
     slider.init();
-    photoGallery.init();
     formModal.init();
     ddBox.init();
     categoriesMainMenu.init();

@@ -23,8 +23,7 @@
                             {else}
                                 {$product_favor_arr = []}
                             {/if}
-                            <span data-product="{$product.id}"
-                                  class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
+                            <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
                                  <i class="fi-rr-heart"></i>
                                  <span class="product-action-text">[`To favorites`]</span>
                             </span>
@@ -32,8 +31,8 @@
                         {if $theme_settings.compare}
                             <span data-product="{$product.id}"
                                   class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($product.id)} active{/if}">
-                    <span class="product-action-text">[`Compare`]</span>
-                </span>
+                            <span class="product-action-text">[`Compare`]</span>
+                        </span>
                         {/if}
                     </div>
                 {/if}
@@ -158,12 +157,6 @@
                                                     <label>[`Email`]</label>
                                                     <input type="text" name="email" id="review-email">
                                                 </p>
-                                                {if !$theme_settings.product_reviews_site_field_off}
-                                                    <p class="add-review-field">
-                                                        <label>[`Website`]</label>
-                                                        <input type="text" name="site" id="review-site">
-                                                    </p>
-                                                {/if}
                                             </div>
                                             {if !empty($auth_adapters[$current_auth_source])}
                                                 {$adapter = $auth_adapters[$current_auth_source]}
@@ -329,6 +322,30 @@
                                 </li>
                             {/foreach}
                         </ul>
+
+
+                        <script>
+                            ( function($) {
+
+                                $('.js-review_images_list').owlCarousel({
+                                    loop:false,
+                                    margin:10,
+                                    nav:true,
+                                    navText: ['', ''],
+                                    responsive:{
+                                        0:{
+                                            items:1
+                                        },
+                                        600:{
+                                            items:3
+                                        },
+                                        1000:{
+                                            items:5
+                                        }
+                                    }
+                                });
+                            })(jQuery);
+                        </script>
                     </section>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 {strip}
 <!-- blog css -->
-{if !empty($theme_settings.main_color) || !empty($theme_settings.second_color)}
+{if !empty($theme_settings.second_color) || !empty($theme_settings.main_color)}
     {include file="`$wa_active_theme_path`/free.blog.css.html" maincolor=$selectColors.maincolor scColor=$selectColors.scColor panelBgColor=$selectColors.panelBgColor}
 {else}
     <link href="{$wa_active_theme_url}free.blog.css?v{$wa_theme_version}" rel="stylesheet">

@@ -1,100 +1,84 @@
 {strip}
-{if !isset($filters)}
-    {$filters = []}
-{/if}
+    {if !isset($filters)}
+        {$filters = []}
+    {/if}
 
-{$cols = 3} {$sb_left = 1}
-{if !$theme_settings.cat_sb_left || $wa->isMobile()}
-    {$cols = $cols - 1}
-    {$sb_left = 0}
-{/if}
-
-
-<div class="category">
-    <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
-        {if $sb_left}
-            {include file='sidebar.html' filter=$filters}
-        {/if}
-    </div>
-
-    <div class="content  {if $sb_left} with-sidebar{/if} ">
-        <div class="cat-content">
-            <h1 class="cat-name">{$category.name|escape}</h1>
-
-            <!-- plugin hook: 'frontend_category' -->
-            {* @event frontend_category.%plugin_id% *}
-            {foreach $frontend_category as $_}{$_}{/foreach}
-
-            {if class_exists('shopWmimageincatPlugin')}
-                {$category_banner = shopWmimageincatPlugin::getCategoryImage($category.id, 'banner')}
-                {if !empty($category_banner)}{$category.params.banner = $category_banner}{/if}
-            {/if}
-
-            {if isset($category.params.banner) && !empty($category.params.banner)}
-                <img class="cat-banner" src="{$category.params.banner}" alt="{$category.name|escape}" />
-            {/if}
-
-            <!-- description -->
-            {if !$theme_settings.cat_desc_bottom}
-                {strip}
-                    {if $category.description}
-                        <div class="category-desc-outer">
-                            {$maxHeight = 55}
-                            {if $theme_settings.height_cat_desc}
-                                {$maxHeight = $theme_settings.height_cat_desc}
-                            {/if}
-                            <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="[`Hide`]" data-text-more="[`Read more`]" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
-                                <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
-                            </div>
-                        </div>
-                    {/if}
-                {/strip}
-            {/if}
-
-            <!-- subcategories -->
-            {include file="sabcat.html"}
-
-        </div>
-
-        {if $wa->isMobile() }
-            {include file="sb-mobile.html"}
-        {/if}
-        <div class="js-product-ajax-list">
-            {if !$products}
-                {* selected filters *}
-                {if $theme_settings.filter_selected}{include file="selected-filters.html"}{/if}
-                <div class="content-box">
-                    {if !empty($filters)}
-                        [`No products were found.`]
-                    {else if !$category.subcategories}
-                        [`This category does not contain any products.`]
-                    {/if}
-                </div>
-            {else}
-                {include file='list-thumbs.html' sorting=!empty($category.params.enable_sorting) isViewSwitch=true ulclass="js-cat-list cat--list"}
-            {/if}
-        </div>
-        <div class="js-product-ajax-list-loader -Close content-box"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
-
-        {if $theme_settings.cat_desc_bottom}
-            <div class="content-box">
-                {strip}
-                    {if $category.description}
-                        <div class="category-desc-outer">
-                            {$maxHeight = 55}
-                            {if $theme_settings.height_cat_desc}
-                                {$maxHeight = $theme_settings.height_cat_desc}
-                            {/if}
-                            <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="[`Hide`]" data-text-more="[`Read more`]" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
-                                <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
-                            </div>
-                        </div>
-                    {/if}
-                {/strip}
+    <h1 class="cat-name">{$category.name|escape}</h1>
+    <div class="category">
+        {if !$wa->isMobile()}
+            <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
+                {include file='sidebar.html' filter=$filters}
             </div>
         {/if}
+        <div class="content  with-sidebar">
+            <div class="cat-content">
+
+                <!-- plugin hook: 'frontend_category' -->
+                {* @event frontend_category.%plugin_id% *}
+                {foreach $frontend_category as $_}{$_}{/foreach}
+
+                {if class_exists('shopWmimageincatPlugin')}
+                    {$category_banner = shopWmimageincatPlugin::getCategoryImage($category.id, 'banner')}
+                    {if !empty($category_banner)}{$category.params.banner = $category_banner}{/if}
+                {/if}
+
+                <!-- description -->
+                {if !$theme_settings.cat_desc_bottom && $category.description}
+                    {strip}
+                        <div class="category-desc-outer">
+                            {$maxHeight = 55}
+                            {if $theme_settings.height_cat_desc}
+                                {$maxHeight = $theme_settings.height_cat_desc}
+                            {/if}
+                            <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="Свернуть" data-text-more="Развернуть" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
+                                <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
+                            </div>
+                        </div>
+                    {/strip}
+                {/if}
+
+                <!-- subcategories -->
+                {include file="sabcat.html"}
+
+                {if $wa->isMobile()}
+                    {include file="sb-mobile.html"}
+                {/if}
+                <div class="js-product-ajax-list">
+                    {if !$products}
+                        {if $theme_settings.selected_filter}{include file="selected-filters.html"}{/if}
+                        <div class="content-box">
+                            {if !empty($filters)}
+                                [`No products were found.`]
+                            {else if !$category.subcategories}
+                                [`This category does not contain any products.`]
+                            {/if}
+                        </div>
+                    {else}
+                        {include file='list-thumbs.html' sorting=!empty($category.params.enable_sorting) isViewSwitch=true ulclass="js-cat-list cat--list"}
+                    {/if}
+                </div>
+                <div class="js-product-ajax-list-loader -Close content-box"><img alt="Loading..."
+                                                                                 src="{$wa_parent_theme_url}img/loading16.gif">
+                </div>
+
+                {if $theme_settings.cat_desc_bottom && $category.description}
+                    <div class="content-box">
+                        {strip}
+                            <div class="category-desc-outer">
+                                {$maxHeight = 55}
+                                {if $theme_settings.height_cat_desc}
+                                    {$maxHeight = $theme_settings.height_cat_desc}
+                                {/if}
+                                <div class="category-desc-wrap{if $theme_settings.cat_desc_more} js-category-desc-wrap{/if}"{if $theme_settings.cat_desc_more} data-text-hide="Свернуть" data-text-more="Развернуть" data-max-height="{$maxHeight}" style="max-height: {$maxHeight}px"{/if} >
+                                    <div class="category-desc{if $theme_settings.cat_desc_more} js-category-desc{/if}">{$category.description}</div>
+                                </div>
+                            </div>
+                        {/strip}
+                    </div>
+                {/if}
+            </div>
+        </div>
+
+
     </div>
-
-
-</div>
 {/strip}

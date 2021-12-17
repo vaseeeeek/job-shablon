@@ -1,6 +1,6 @@
 {strip}
 
-{$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin == 'cityselect' && class_exists('shopCityselectPlugin'))}
+{$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin && class_exists('shopCityselectPlugin'))}
 
 <div class="header-top--links">
     <div class="container">
@@ -13,18 +13,18 @@
                 <div class="header-top_region">{shopCityselectPlugin::showCity('0')}</div>
             {/if}
 
-            {if $wa_app == 'shop' && $theme_settings.currency_toggle}
+            {if $wa_app == 'shop' && $theme_settings.currency_selector}
                 {$currencies = $wa->shop->currencies()}
                 {$currency = $wa->shop->currency()}
                 {if count($currencies) > 1}
                     <div class="header_currency js-dd-outer">
                         {if count($currencies) > 1}
                             [`Currency`]:
-                            <span data-id="currency-list" class="js-btnDrop-down currency_item free-icon-after">
                             {if !empty($theme_settings.show_currency_flag)}
-                                <img src="{$wa_theme_url}img/currency/{$currency}.png" alt="{$currency}" />
+                                <img src="{$wa_theme_url}img/currency/{$currency}.png" alt="{$currency}" width="18px" />
                             {/if}
                                 {$currency}
+                            <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
                         </span>
                             <div id="currency-list" class="js-dd-wrap currency_list">
                                 <div class="dd-wrap br-top-sdСolor">
@@ -54,7 +54,7 @@
                 {/if}
             {/if}
 
-            {if $wa_app == 'shop' && $theme_settings.language_toggle}
+            {if $wa_app == 'shop' && $theme_settings.language_selector}
                 <div class="header_lang">
                     <span  class="header_lang-ttl">[`Language`]:</span>
                     {foreach waLocale::getAll('name') as $language => $lang_name}

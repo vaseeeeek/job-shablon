@@ -7,74 +7,110 @@
 
     {$_color_scheme = str_replace('img/themesettings/','',str_replace('.png','',$theme_settings.color_scheme))}
 
-    {$colors['orange.green']['maincolor'] = '#ff7420'}
-    {$colors['orange.green']['panelBgColor'] = '#ff7420'}
-    {$colors['orange.green']['scColor'] = '#009999'}
+    {$colors['free']['maincolor'] = 'linear-gradient( 45deg , #390DFF, #0C1FE8, #005BFF,#0C93E8, #0DE1FF)'}
+    {$colors['free']['panelBgColor'] = '#fff'}
+    {$colors['free']['textColor'] = '#001a34'}
+    {$colors['free']['btnTextColor'] = '#fff'}
+    {$colors['free']['scColor'] = '#0C1FE8'}
 
-    {$colors['green.brown']['maincolor'] = '#31b3b3'}
-    {$colors['green.brown']['panelBgColor'] = '#31b3b3'}
-    {$colors['green.brown']['scColor'] = '#a53f1e'}
+    {$colors['citilink']['maincolor'] = '#fe7200'}
+    {$colors['citilink']['panelBgColor'] = '#fff'}
+    {$colors['citilink']['textColor'] = '#151528'}
+    {$colors['citilink']['btnTextColor'] = '#fff'}
+    {$colors['citilink']['scColor'] = '#fe7200'}
 
-    {$colors['yellow.green']['maincolor'] = '#FFBA00'}
-    {$colors['yellow.green']['panelBgColor'] = '#FFBA00'}
-    {$colors['yellow.green']['scColor'] = '#008459'}
+    {$colors['mvideo']['maincolor'] = '#e31235'}
+    {$colors['mvideo']['scColor'] = '#e31235'}
+    {$colors['mvideo']['panelBgColor'] = '#fff'}
+    {$colors['mvideo']['textColor'] = '#333'}
+    {$colors['mvideo']['btnTextColor'] = '#fff'}
 
+    {$colors['ozon']['maincolor'] = '#005bff'}
+    {$colors['ozon']['scColor'] = '#005bff'}
+    {$colors['ozon']['panelBgColor'] = '#fff'}
+    {$colors['ozon']['textColor'] = '#001a34'}
+    {$colors['ozon']['btnTextColor'] = '#fff'}
+
+    {$colors['wb']['maincolor'] = '#cb11ab'}
+    {$colors['wb']['scColor'] = '#cb11ab'}
+    {$colors['wb']['panelBgColor'] = '#fff'}
+    {$colors['wb']['textColor'] = '#000'}
+    {$colors['wb']['btnTextColor'] = '#fff'}
+
+    {$colors['yandex']['maincolor'] = '#fc0'}
+    {$colors['yandex']['scColor'] = '#fc0'}
+    {$colors['yandex']['panelBgColor'] = '#fff'}
+    {$colors['yandex']['textColor'] = '#212121'}
     {$selectColors = $colors[$_color_scheme]}
 
-    {if !empty($theme_settings.main_color)}
-        {$selectColors['maincolor'] = $theme_settings.main_color}
-    {/if}
-    {if !empty($theme_settings.bg_color_navogation)}
-        {$selectColors['panelBgColor'] = $theme_settings.bg_color_navogation}
-    {/if}
     {if !empty($theme_settings.second_color)}
         {$selectColors['scColor'] = $theme_settings.second_color}
     {/if}
-
+    {if !empty($theme_settings.background_color)}
+        {$selectColors['panelBgColor'] = $theme_settings.background_color}
+    {/if}
+    {if !empty($theme_settings.main_color)}
+        {$selectColors['maincolor'] = $theme_settings.main_color}
+    {/if}
+    {if !empty($theme_settings.text_color_scheme)}
+        {$selectColors['textColor'] = $theme_settings.text_color_scheme}
+    {/if}
+    {if !empty($theme_settings.footer_color_scheme)}
+        {$selectColors['footerBG'] = $theme_settings.footer_color_scheme}
+    {/if}
+    {if !empty($theme_settings.btn_text_color_scheme)}
+        {$selectColors['btnTextColor'] = $theme_settings.btn_text_color_scheme}
+    {/if}
     {$maincolor=$selectColors.maincolor}
     {$scColor=$selectColors.scColor}
     {$panelBgColor=$selectColors.panelBgColor}
-
+    {$textColor=$selectColors.textColor}
+    {$footerBG=$selectColors.footerBG}
+    {$btnTextColor=$selectColors.btnTextColor}
     <style>
+
+        body, .Product__features-title span, .tags.cloud a, .category-menu,.menu-subcategory, .inp-search input,.modal-content, .product-added-msg, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
+        .ui-slider-handle.ui-state-default
+        {
+            background: {$panelBgColor}!important;
+        }
+
         .bg-maincolor,
         input[type="button"].bg-maincolor,
         input[type="submit"].bg-maincolor,
         .admin-edit-links__el,
-        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat{
-            background: {$scColor};
+        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat,
+        .Product-grid_cart .button,
+        .filters-body .ui-widget-header,
+        .filters .ui-slider-range .ui-widget-header,
+        .filters .ui-state-hover,
+        .pagination li.selected,
+        .filter-opt_el .js-style-check.style-check.checked
+        {
+            background: {$maincolor};
         }
-        .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit], .Product-grid_cart .button{
+        .filters .ui-widget-content .ui-state-default,.cat-sort .checked-list:hover{
+            border: 1px solid {$maincolor};
+        }
+        input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover, .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover {
+            border: 1px solid {$maincolor};
+        }
+        .Product-grid_action .product-action:hover {
             color: {$maincolor};
+        }
+        .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit]{
+            color: {$scColor};
         }
         .bg-sdСolor,
         .button, .button.disabled:hover,
         button, button.disabled:hover,
         input[type=button], input[type=button].disabled:hover,
         input[type=submit], input[type=submit].disabled:hover,
-        .filters .ui-widget-header,
-        .filters .ui-state-default,
-        .filters .ui-state-hover,
-        .filters .ui-widget-content .ui-state-default,
-        .filters .ui-widget-content .ui-state-hover,
-        .compare-list-switch li.selected, .owl-dot.active > span {
-            background: {$scColor};
+        .compare-list-switch li.selected, .owl-dot.active > span, .Brands__Link--Categories {
+            background: {$maincolor};
         }
-
         .call-b-input input[type="submit"]{
-            background: {$scColor} !important;
-        }
-
-        input[type="text"],
-        input[type="search"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        textarea,
-        select,
-        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat,
-        .jq-selectbox
-        {
-            border: 1px solid {$maincolor}!important;
+            background: {$maincolor} !important;
         }
 
         .jq-checked__arrow-trigger{
@@ -84,7 +120,7 @@
 
         input[type="button"].bg-maincolor:hover,
         input[type="submit"].bg-maincolor:hover{
-            background: {$maincolor};
+            background: {$scColor};
         }
 
         .product-added-msg:after,
@@ -96,52 +132,72 @@
         .step-item.is-completed,
         .step-item.is-completed:hover{
             color: #FFF;
-            background: {$scColor};
-        }
-
-        .step-item, .step-item.current
-        {
-            border-color:  {$scColor};
-            background: #FFF;
+            background: {$maincolor};
         }
 
         .radio-styler.checked,
         .jq-radio.checked{
-            border-color: {$maincolor};
+            border-color: {$scColor};
         }
 
         .radio-styler.checked:before,
         .jq-radio.checked:before{
-            background: {$maincolor};
-        }
-
-        .grid-gallery._tile-active .grid-gallery__el:hover:before {
-            background: {$scColor} !important;
-        }
-
-        .product_options .select-v-inline a.selected{
             background: {$scColor};
         }
 
-        .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant.selected{
+        .grid-gallery._tile-active .grid-gallery__el:hover:before {
             background: {$maincolor} !important;
         }
 
-        .protilegallery_wrapper .protilegallery_tiles .protilegallery_tile:hover:before{
+        .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant.selected{
             background: {$scColor} !important;
         }
 
+        .protilegallery_wrapper .protilegallery_tiles .protilegallery_tile:hover:before{
+            background: {$maincolor} !important;
+        }
+
         .timeline > li > a{
-            background: {$maincolor};
+            background: {$scColor};
         }
 
         .timeline ul li:before{
-            border-left: 1px solid {$maincolor};
+            border-left: 1px solid {$scColor};
         }
 
         .timeline ul li:after{
-            border-top: 1px solid {$maincolor};
+            border-top: 1px solid {$scColor};
         }
+
+        {if $theme_settings.color_badge_discount}
+            .product-discount {
+                color: {$theme_settings.color_badge_discount};
+            }
+        {/if}
+        {if $textColor}
+            body, body .link, body a, body .price, body .rating.-zero icon10.star:hover,
+            body .star-rating-empty.star, body .star-rating-empty.star-hover,
+            body .rating.-zero .icon10.star:hover, body select, body input , body .header .product-custom_icon .icon, body .cat-views__el.selected {
+                color: {$textColor};
+            }
+            .Product-grid .dotted-img__list li.dotted-img__item.-Active  {
+                background-color: {$textColor};
+            }
+            .Product-grid .dotted-img__list li.dotted-img__item {
+                border: 1px solid {$textColor};
+            }
+        {/if}
+        {if $footerBG}
+            .footer{
+                background: {$footerBG};
+            }
+        {/if}
+
+        {if $btnTextColor}
+            .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count {
+                color: {$btnTextColor}
+            }
+        {/if}
 
     </style>
 

@@ -23,9 +23,9 @@
         </div>
         [`By`]
         {if empty($review.site)}
-            <i class=" fi-rr-user reviews-fa-user-icon sdColor"></i><span class="username"{if !empty($_schema_org)} itemprop="author"{/if}>{$review.author.name}</span>
+            <i class=" fi-rr-user reviews-fa-user-icon sdColor"></i><span class="username"{if !empty($_schema_org)} itemprop="author" itemscope itemtype="http://schema.org/Person"{/if}><span itemprop="name">{$review.author.name}</span></span>
         {else}
-            <a href="{$review.site}" class="username"{if !empty($_schema_org)} itemprop="author"{/if}>{$review.author.name}</a>
+            <a href="{$review.site}" class="username"{if !empty($_schema_org)} itemprop="author" itemscope itemtype="http://schema.org/Person"{/if}><span itemprop="name">{$review.author.name}</span></a>
         {/if}
 
         {if ifempty($review.author.is_user) > 0}
@@ -43,7 +43,7 @@
 
     {strip}
     {if !empty($review.images)}
-        <div class="review_images_list">
+        <div class="review_images_list js-review_images_list owl-carousel">
             {foreach $review.images as $_image}
                 <a class="review_image-wrap js-show-image" href="{$_image.url_0|escape}" title="{$_image.description|escape}" target="_blank">
                     <img class="review-image" src="{$_image.url_2|escape}" alt="{$_image.description|escape}">

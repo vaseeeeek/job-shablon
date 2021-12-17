@@ -12,9 +12,10 @@
     {/if}
     {$index = $index+1}
 
+    {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
     <div class="sb-product">
         <a class="sb-product_img" href="{$p.frontend_url}" title="{$p.name}">
-            {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => '/wa-data/public/shop/themes/free/img/dummy96.png'])}
+            {$wa->shop->productImgHtml($p, '70', ['alt' => $p.name, 'default' => $dummy96])}
         </a>
         <div class="sb-product_content">
             <a class="sb-product_name" href="{$p.frontend_url}">{$p.name}</a>

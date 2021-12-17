@@ -12,7 +12,7 @@
             {$features = $wa->shop->features($list)}
         {/if}
 
-        {$isPreviewProductGalleryTile = $theme_settings.product_scroll_hover_gallery }
+        {$isPreviewProductGalleryTile = true}
 
         {if $isPreviewProductGalleryTile}
             {$products_ids = ""}
@@ -41,7 +41,7 @@
             {/if}
             <div class="container">
                 <div class="products-grid-outer">
-                    <div class="js-preview-products products-tile{if $is_preview_grid_mini} products-grid--mini{/if}">
+                    <div class="js-preview-products products-tile">
                         <div class="owl-carousel owl-theme owl-loaded">
                             {foreach $list as $p}
                                 {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy"}

@@ -10,7 +10,7 @@
         {$features = $wa->shop->features($products)}
     {/if}
 
-    {$isPreviewProductGalleryTile = $theme_settings.product_scroll_hover_gallery}
+    {$isPreviewProductGalleryTile = true}
     {if $isPreviewProductGalleryTile}
         {$products_ids = ""}
         {foreach $products as $p}

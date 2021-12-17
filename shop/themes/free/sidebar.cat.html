@@ -51,7 +51,7 @@
 
 {if !empty($categories)}
     <div class="sb-wrap sidebar-categories">
-        <ul class="js-sidebar-cats sidebar-cats" data-lazy="{$theme_settings.categories_menu_images_lazy}">
+        <ul class="js-sidebar-cats sidebar-cats">
             {foreach $categories as $category}
                 {$_has_childs = false}
                 {if !empty($category.childs)}
@@ -64,25 +64,8 @@
 
                 {if !isset($category.params.menu_hide)}
                     <li class="sidebar-cats_el{if $categoryegory_selected == $category.id} selected{/if}">
-                        {if $_has_childs}<i class="sidebar-cats_el-open icon sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
-                        <a class="sidebar-cats_link" href="{$category.url}">
-                            {if $theme_settings.icon_sidebar_subcategories}
-                                {if isset($Wmimages[$category.id].icon) && !isset($category.page)}
-                                    {$category.params.icon = $Wmimages[$category.id].icon}
-                                {/if}
-                                {if isset($skImages[$category.id].icon) && !isset($category.page)}
-                                    {$category.params.icon = $skImages[$category.id].icon}
-                                {/if}
-                                {if isset($category.params.icon)}
-                                    <div class="sidebar-cats_icon">
-                                        {if $theme_settings.categories_menu_images_lazy}
-                                            <img class="js-sidebar-cat-image" src="{$wa_theme_url}img/lazy-image.png" alt="{$category.name}" data-src="{$category.params.icon}" />
-                                        {else}
-                                            <img class="js-sidebar-cat-image" alt="{$category.name}" src="{$category.params.icon}" />
-                                        {/if}
-                                    </div>
-                                {/if}
-                            {/if}
+                        {if $_has_childs}<i class="sidebar-cats_el-open fi-rr-angle-small-down sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
+                        <a class="sidebar-cats_link{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}" href="{$category.url}">
                             <div class="sidebar-cats_title">
                                 {$category.name}
                             </div>
