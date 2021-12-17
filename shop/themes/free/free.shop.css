@@ -102,6 +102,8 @@
 
 .filter-option-color[style*="background-color:#FFFFFF;"] {
 		border: 1px solid #ebebeb;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
 }
 
 .Nav__Primary .df-block {
@@ -2969,9 +2971,18 @@ img.pswp__img {
 .product_action-dialog-link {
 		background-color: #fff;
 		border: 2px solid #5ecc53;
-		padding: 2rem 2rem;
+		padding: 0.857rem 1.571rem 0.929rem 1.643rem;
 		font-size: 1.3rem;
+		border-radius: 8px;
 		font-weight: 700;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		margin: 0 auto;
+}
+
+.product_action-dialog-link:hover {
+		color: #fff;
 }
 
 @media print {

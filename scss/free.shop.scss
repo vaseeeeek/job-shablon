@@ -109,7 +109,8 @@ $html-font-size: 14px;
 }
 
 .filter-option-color[style*="background-color:#FFFFFF;"] {
-  border: 1px solid #ebebeb
+  border: 1px solid #ebebeb;
+  box-sizing: border-box;
 }
 
 .Nav__Primary .df-block {
@@ -2940,9 +2941,16 @@ img.pswp__img {
 .product_action-dialog-link {
   background-color: #fff;
   border: 2px solid #5ecc53;
-  padding: 2rem 2rem;
+  padding: rem(12px) rem(22px) rem(13px) rem(23px);
   font-size: 1.3rem;
+  border-radius: 8px;
   font-weight: 700;
+  display: flex;
+  margin: 0 auto;
+}
+
+.product_action-dialog-link:hover{
+  color: #fff;
 }
 
 @media print {

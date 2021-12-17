@@ -372,8 +372,9 @@
             {if $_is_dialog && !$_is_dialog_select_options}
         </div>
         {/if}
-
+        {if $_is_dialog && !$_is_dialog_select_options}
         <a class="product_action-dialog-link" href="{$wa->shop->productUrl($product)}">[`Product page`]  &rarr;</a>
+        {/if}
         {if $wa->get('cart')}
             {$product.features = $product->features}
             {$products = [$product.id => $product->data]}
