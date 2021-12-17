@@ -13,7 +13,6 @@
     {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
     {if isset($brand)}{$nameCurrentPage = $brand.name}{/if}
 {/if}
-
 <!-- internal navigation breadcrumbs -->
 {$position = 1}
 {if $wa->currentUrl(false, true) != $wa_app_url}

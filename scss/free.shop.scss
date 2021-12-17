@@ -147,8 +147,8 @@ $html-font-size: 14px;
 
 .product_add2cart .addtocart {
   margin: 0 0 0 2rem;
-  line-height: 35px;
-  font-size: 1.2rem;
+  line-height: 30px;
+  font-size: 1rem;
 
   .fi-rr-shopping-cart {
     position: relative;
@@ -4258,7 +4258,10 @@ img.pswp__img {
   font-size: rem(14px) !important;
   border-radius: 5px
 }
-
+.order-wrap .wa-cart-details .wa-inactive-state>*{
+  min-height: 30px;
+  line-height: 30px;
+}
 .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section .wa-button {
   padding: 0 rem(10px) !important;
   font-size: rem(14px) !important

@@ -5,10 +5,11 @@
 
     <h1 class="cat-name">{$category.name|escape}</h1>
     <div class="category">
-        <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
-            {include file='sidebar.html' filter=$filters}
-        </div>
-
+        {if !$wa->isMobile()}
+            <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
+                {include file='sidebar.html' filter=$filters}
+            </div>
+        {/if}
         <div class="content  with-sidebar">
             <div class="cat-content">
 
@@ -39,7 +40,7 @@
                 <!-- subcategories -->
                 {include file="sabcat.html"}
 
-                {if $wa->isMobile() }
+                {if $wa->isMobile()}
                     {include file="sb-mobile.html"}
                 {/if}
                 <div class="js-product-ajax-list">

@@ -83,7 +83,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value/>
+      <value>#5ecc53</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -94,7 +94,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value/>
+      <value>#5ecc53</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -106,12 +106,12 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value/>
+      <value>#212121</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
     <setting var="footer_color_scheme" control_type="color">
-      <value/>
+      <value>#f2f2f2</value>
       <name locale="ru_RU">Цвет низа сайта (футер)</name>
       <name locale="en_US"/>
     </setting>

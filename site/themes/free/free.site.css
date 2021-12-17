@@ -1714,10 +1714,6 @@ button::-moz-focus-inner {
 		opacity: 1;
 }
 
-.mfp-close:active {
-		top: 1px;
-}
-
 .mfp-iframe-holder .mfp-close, .mfp-image-holder .mfp-close {
 		color: #fff;
 		right: -6px;
@@ -2555,6 +2551,9 @@ img.mfp-img {
 		display: table-cell;
 		width: 100%;
 		vertical-align: middle;
+}
+.Nav-search form {
+		margin-bottom: 0;
 }
 
 .inp-search > i {

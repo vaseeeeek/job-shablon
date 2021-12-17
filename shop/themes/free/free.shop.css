@@ -147,8 +147,8 @@
 }
 .product_add2cart .addtocart {
 		margin: 0 0 0 2rem;
-		line-height: 35px;
-		font-size: 1.2rem;
+		line-height: 30px;
+		font-size: 1rem;
 }
 .product_add2cart .addtocart .fi-rr-shopping-cart {
 		position: relative;
@@ -4295,6 +4295,11 @@ img.pswp__img {
 		padding: 0 0.714rem !important;
 		font-size: 1rem !important;
 		border-radius: 5px;
+}
+
+.order-wrap .wa-cart-details .wa-inactive-state > * {
+		min-height: 30px;
+		line-height: 30px;
 }
 
 .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section .wa-button {

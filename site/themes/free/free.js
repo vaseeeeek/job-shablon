@@ -71,7 +71,7 @@ var fixedPanel = {
 var phoneSbar = {
     init: function () {
         var btn = $('.js-filter-fixed-btn'),
-            form = $('#filter-body');
+            form = $('.sidear-mobile #filter-body');
 
         btn.on("click", function () {
             widthForm = Math.ceil(parseInt(form.width())) + 20 + `px`;
