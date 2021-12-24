@@ -2346,15 +2346,6 @@ input.filter-range_el:focus {
   margin-top: 10px;
 }
 
-.category-desc-more.open:after {
-  content: "\e922"
-}
-
-.category-desc-more:after {
-  font-family: 'free-font';
-  content: "\e91f";
-  margin: 0 0 0 rem(3px)
-}
 
 .cat-content {
   padding: 0;
@@ -5140,10 +5131,6 @@ button.owl-dot {
 .owl-carousel .owl-stage-outer {
   position: relative;
   -webkit-transform: translateZ(0);
-}
-
-.Product-grid_action .product-action.add-to-compare.active .fi-rr-compare {
-  color: #000;
 }
 
 .product-action.add-to-compare i, .product-action.add-to-favorite i {
