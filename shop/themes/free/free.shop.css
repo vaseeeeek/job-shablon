@@ -2287,6 +2287,10 @@ input.filter-range_el {
 
 .filter-range__min__text, .filter-range__max__text {
 		position: absolute;
+		z-index: 1;
+		left: 24px;
+		top: 6px;
+		color: #757575;
 }
 
 .filter-range .filter-range__min {
