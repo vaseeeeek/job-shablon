@@ -841,6 +841,9 @@ var categoriesMainMenu = {
         _this.showSubInMob();
         _this.hiderSubInMob();
         _this.outerBg();
+        if ($('.js-show-cat').hasClass('-hide')) {
+            _this.hideCatList();
+        }
     },
     ddShow: function () {
         var _this = this;
@@ -1062,6 +1065,14 @@ var categoriesMainMenu = {
                 bg.hide();
             });
         }
+    },
+    hideCatList: function (){
+        $('.js-show-cat').click(function(){
+            $('.-hideList').addClass('open');
+        })
+        $('.js-btn-hide-fullcatlist').click(function() {
+            $(this).closest('.-hideList').removeClass('open');
+        })
     }
 };
 
@@ -1146,6 +1157,9 @@ var mobileMenuBtn = {
             }
             if (catSubsDD.hasClass('open')) {
                 catSubsDD.removeClass('open');
+            }
+            if ($(".-hideList").hasClass('open')) {
+                $(".-hideList").removeClass('open');
             }
             subCat.each(function () {
                 if ($(this).css("display") == 'block') {

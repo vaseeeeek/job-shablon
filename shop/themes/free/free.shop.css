@@ -1407,9 +1407,27 @@ ul.compare-list-switch {
 ul.compare-list-switch li {
 		display: inline-block;
 		float: left;
-		padding: 0 0.714rem;
-		border-width: 1px;
-		border-style: solid;
+		padding: 0 1rem 0 0rem;
+		border: 0;
+}
+
+#compare-reset {
+		background: #fff;
+		height: 20px;
+		/* по идее не нужно */
+		line-height: 1;
+		opacity: 0.8;
+		font-size: 0.95rem;
+		padding: 0;
+		color: #000;
+		/* цвет шрифта */
+}
+
+.listSwitch-resetBtn {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		margin-bottom: 2rem;
 }
 
 .compare-list-switch a {
@@ -2262,15 +2280,20 @@ input.filter-range_el {
 		display: inline-block;
 		width: 100%;
 		min-width: 0px;
-		padding: 0.9rem 0.8rem 0.9rem 3rem;
+		padding: 0.9rem 0.8rem 0.9rem 2.6rem;
 		margin: 0;
-		font-size: 1rem;
+		font-size: 1.1rem;
 		line-height: 1rem;
 		background-image: none;
 		border: 1px solid transparent;
 		-webkit-transition: all 0.3s ease 0s;
 		transition: all 0.3s ease 0s;
 		background-color: #f7f7f7;
+}
+
+input.filter-range_el:focus {
+		outline: none;
+		border: 1px solid #005bff;
 }
 
 .filter-range {
@@ -2288,17 +2311,17 @@ input.filter-range_el {
 .filter-range__min__text, .filter-range__max__text {
 		position: absolute;
 		z-index: 1;
-		left: 24px;
-		top: 6px;
-		color: #757575;
+		left: 16px;
+		top: 7px;
+		font-size: 1rem;
 }
 
 .filter-range .filter-range__min {
-		margin-right: 1rem;
+		margin-right: 0.7rem;
 }
 
 .filter-range .filter-range__max {
-		margin-left: 1rem;
+		margin-left: 0.7rem;
 }
 
 .filter-el--btns input {
@@ -2396,8 +2419,7 @@ input.filter-range_el {
 }
 
 .filters-checked {
-		padding: 0 1.071rem;
-		margin: 1.071rem 0;
+		margin: 1.3rem 0.5rem;
 }
 
 .cat-panel {
@@ -2459,6 +2481,7 @@ input.filter-range_el {
 
 .filters-checked__clear-all {
 		text-decoration: none;
+		font-size: 0.95rem;
 		border-bottom: 1px dashed;
 }
 
@@ -2468,9 +2491,15 @@ input.filter-range_el {
 }
 
 .filters-checked__item {
-		padding: 0.357rem 0.714rem;
-		border-radius: 3px;
-		margin: 0 1.429rem 0 0;
+		background-color: #f2f2f2;
+		border: 1px solid transparent;
+		display: inline-block;
+		cursor: pointer;
+		margin: 0 0.8rem 0 0;
+		padding: 0.4rem 0.7rem;
+		border-radius: 4px;
+		font-size: 1rem;
+		line-height: 1.4;
 }
 
 .products-pagination {
@@ -2939,8 +2968,8 @@ img.pswp__img {
 }
 
 .modal-content--dialog-options .product_action-dialog {
-		display: block;
-		font-size: 1rem;
+		padding: 2rem;
+		max-width: 1000px;
 }
 
 .product_action-dialog * {
@@ -2972,8 +3001,9 @@ img.pswp__img {
 }
 
 .product_action-dialog .product_name {
-		margin: 1.429rem 0;
-		padding: 0 1.071rem;
+		font-size: 2rem;
+		margin: 0rem 0;
+		padding: 0;
 }
 
 .modal-content--dialog-options .product_name {
@@ -2981,16 +3011,18 @@ img.pswp__img {
 }
 
 .product_action-dialog-link {
-		background-color: #fff;
-		border: 2px solid #5ecc53;
-		padding: 0.857rem 1.571rem 0.929rem 1.643rem;
-		font-size: 1.3rem;
+		padding: 1rem 1.8rem;
+		font-size: 1.1rem;
+		margin-top: 1rem;
 		border-radius: 8px;
 		font-weight: 700;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		margin: 0 auto;
+		margin: 3rem auto 0 auto;
+		background-color: #eff3f6;
+		color: #005bff;
+		border: 0;
 }
 
 .product_action-dialog-link:hover {
@@ -3012,8 +3044,14 @@ img.pswp__img {
 		}
 
 		.product_action-dialog-right {
-				display: block;
-				width: 100%;
+				display: inline-block;
+				width: 40%;
+				padding: 0 0 2rem 2rem;
+				vertical-align: top;
+				position: relative;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				font-size: 1rem;
 		}
 
 		.product_action-dialog .badge.bestseller {
@@ -5143,7 +5181,7 @@ button.owl-dot {
 		display: -webkit-box !important;
 		display: -ms-flexbox !important;
 		display: flex !important;
-		padding-top: 1.071rem 0;
+		padding-top: 1.071rem;
 }
 
 .owl-carousel {

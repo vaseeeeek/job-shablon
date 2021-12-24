@@ -1552,6 +1552,12 @@
         Основной размер шрифта (Рекомендуемый 14px)
       </name>
     </setting>
+    <setting var="hide_cat_burger" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">
+        Скрыть каталог в мобильном меню
+      </name>
+    </setting>
   </settings>
   <locales>
     <locale>

@@ -19,7 +19,10 @@
             <div class="MobileMenu_nav-header--absolute">
                 <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
             </div>
-            <h4>Категории</h4>
+            {if $theme_settings.hide_cat_burger}
+                {$hideCatList = true}
+            {/if}
+            <h4 class="js-show-cat {if $hideCatList}-hide{/if}">Категории</h4>
             {if $theme_settings.get_menu_from == 'app-menu'}
                 {$categories = $wa->menu->get($theme_settings.id_app_menu_cat)}
             {else}
@@ -27,7 +30,14 @@
             {/if}
             {$cat_result = $categories}
 
-            <div class="category-menu js-category-menu-wrap">
+            <div class="category-menu js-category-menu-wrap {if $hideCatList}-hideList{/if}">
+                {if $hideCatList}
+                    <div class="MobileMenu_nav-header">
+                        <div class="btn-back js-btn-hide-fullcatlist"><i class="fi-rr-angle-small-left"></i></div>
+                        <div class="cat-title">Каталог</div>
+                        <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                    </div>
+                {/if}
                 {foreach $cat_result as $cat}
                     {$view_subcat = "one_column"}
                     {$_subcat = 0}
@@ -46,9 +56,9 @@
 
                         {if $cat.id == 'else'}
                             <div class="cat-menu__item-link">
-                                <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
-                                    [`Else categories`]
-                                </span>
+                            <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
+                                [`Else categories`]
+                            </span>
                             </div>
                         {else}
                             <a class="cat-menu__item-link" href="{$cat.url}">
@@ -68,6 +78,7 @@
                     </div>
                 {/foreach}
             </div>
+
             {if count($_links) > 0}
                 <h4>Информация</h4>
                 <ul>
