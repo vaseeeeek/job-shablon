@@ -1388,10 +1388,8 @@ span.rating {
 }
 
 ul.compare-list-switch {
-  float: right;
   list-style: none;
-  height: 30px;
-  line-height: 30px
+  margin-right: 20px;
 }
 
 ul.compare-list-switch li {
@@ -1426,10 +1424,6 @@ ul.compare-list-switch li {
 
 .compare-title h1 {
   margin-top: 0
-}
-
-.compare-list-switch li.selected a {
-  color: #fff
 }
 
 .compare-list-switch li:first-child {

@@ -3562,6 +3562,8 @@ article, aside, footer, header, nav, section {
 		width: 100%;
 		height: calc(100% - 60px);
 		z-index: 100;
+		-webkit-transition: 0.25s;
+		transition: 0.25s;
 }
 .MobileMenu .-hideList.open {
 		left: 0;

@@ -1023,11 +1023,11 @@ var categoriesMainMenu = {
 
             if (isSubmenuStatic) {
                 if (!submenu.is(':visible')) {
-                    submenu.show();
+                    submenu.css('left', '-100%');
                     parent.addClass('open');
                     $this.addClass('open');
                 } else {
-                    submenu.hide();
+                    submenu.css('left', '0');
                     $this.removeClass('open');
                     parent.removeClass('open');
                 }
@@ -1042,7 +1042,7 @@ var categoriesMainMenu = {
                 parent = $this.closest('.js-subcategory-menu'),
                 parentMenuItem = $this.closest('.subcat-menu__item');
             parentArrow = $this.closest('.js-cat-item-caret')
-            parent.hide();
+            parent.css('left', '-100%');
             parentArrow.removeClass('open');
             parentMenuItem.removeClass('open');
         });
@@ -1133,12 +1133,6 @@ var mobileMenuBtn = {
             var $this = $(this),
                 menu = $('#' + $this.data('id'));
 
-            subCat = $('.MobileMenu_nav-m .js-subcategory-menu');
-            subCat.each(function () {
-                if ($(this).css("display") == 'block') {
-                    $(this).hide();
-                }
-            });
             if (menu.hasClass('show')) {
                 menu.removeClass('show');
                 $this.removeClass('show');
@@ -1155,17 +1149,13 @@ var mobileMenuBtn = {
             if (menu.hasClass('show')) {
                 menu.removeClass('show');
             }
+            subCat.css('left', '-100%');
             if (catSubsDD.hasClass('open')) {
                 catSubsDD.removeClass('open');
             }
             if ($(".-hideList").hasClass('open')) {
                 $(".-hideList").removeClass('open');
             }
-            subCat.each(function () {
-                if ($(this).css("display") == 'block') {
-                    $(this).hide();
-                }
-            });
         });
     },
     openSub: function () {
