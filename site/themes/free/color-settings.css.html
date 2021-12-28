@@ -69,7 +69,7 @@
     {$btnTextColor=$selectColors.btnTextColor}
     <style>
 
-        body, .Product__features-title span, .tags.cloud a, .category-menu, .menu-subcategory, .inp-search input, .modal-content, .product-added-msg, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
+        body, .Product__features-title span, .tags.cloud a, .category-menu, .menu-subcategory, .inp-search input, .modal-content, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
         .ui-slider-handle.ui-state-default {
             background: {$panelBgColor} !important;
         }
@@ -125,7 +125,9 @@
         button, button.disabled:hover,
         input[type=button], input[type=button].disabled:hover,
         input[type=submit], input[type=submit].disabled:hover,
-        .compare-list-switch li.selected, .owl-dot.active > span, .Brands__Link--Categories {
+        .compare-list-switch li.selected, .owl-dot.active > span,
+        .Brands__Link--Categories,
+        .product-added-msg {
             background: {$maincolor};
         }
 
@@ -220,7 +222,7 @@
 
         {if $btnTextColor}
         .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
-        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a{
+        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg{
             color: {$btnTextColor}
         }
 
