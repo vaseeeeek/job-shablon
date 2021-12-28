@@ -3,25 +3,59 @@
 {if count($products)}
     <ul class="Compare__List--Switch compare-diff-all">
         <li class="Compare__Item--Switch selected">
-            <a class="Compare__Button Compare__Link--Switch inline-link" id="compare-all" href="#">[`All features`]</a>
+            <a class="Compare__Button Compare__Link--Switch inline-link" id="compare-show-all" href="#">[`All
+                features`]</a>
         </li>
         <li class="Compare__Item--Switch">
-            <a class="Compare__Button Compare__Switch--Link inline-link" id="compare-diff" href="#">[`Different`]</a>
+            <a class="Compare__Button Compare__Switch--Link inline-link" id="compare-show-diff"
+               href="#">[`Different`]</a>
         </li>
         <li class="Compare__Item--Switch Compare__Item--Switch__clear-list">
-            <a class="Compare__Button Compare__Button--Clear" id="compare-reset" href="#"><i class="fi-rr-cross"></i> [`Clear comparison list`]</a>
+            <a class="Compare__Button Compare__Button--Clear" id="compare-reset" href="#"><i class="fi-rr-cross"></i>
+                [`Clear comparison list`]</a>
         </li>
     </ul>
-    {literal}
-        <script>
-            $('#compare-reset').on('click', function () {
+{literal}
+    <script>
+
+        $("#compare-show-all").click(function () {
+            $("#compare_table tr.same").show();
+            $(this).closest('ul').find('li.selected').removeClass('selected');
+            $(this).parent().addClass('selected');
+            return false;
+        });
+        $("#compare-show-diff").click(function () {
+            $("#compare_table tr.same").hide();
+            $(this).closest('ul').find('li.selected').removeClass('selected');
+            $(this).parent().addClass('selected');
+            return false;
+        });
+
+        $(".compare-delete").on('click', function () {
+            var compare = $.cookie('shop_compare');
+            if (compare) {
+                compare = compare.split(',');
+            } else {
+                compare = [];
+            }
+            var i = $.inArray($(this).data('product') + '', compare);
+            if (i != -1) {
+                compare.splice(i, 1)
+            }
+            if (compare.length) {
+                $.cookie('shop_compare', compare.join(','), {expires: 30, path: '/'});
+            } else {
                 $.cookie('shop_compare', null, {path: '/'});
-                location.href = location.href.replace(/compare\/.*/, 'compare/');
-            });
-        </script>
-    {/literal}
+            }
+        });
+        $('#compare-reset').on('click', function () {
+            $.cookie('shop_compare', null, {path: '/'});
+            location.href = location.href.replace(/compare\/.*/, 'compare/');
+        });
+    </script>
+{/literal}
     <div class="Compare__Window">
-        <table id="compare-table" class="Compare__Table compare">
+        <table id="compare_table" class="Compare__Table compare">
             <thead>
             <tr>
                 <th></th>
@@ -32,14 +66,17 @@
                         {$_product_object_features = $product_object.features}
                     {/if}
                     <td>
-                        <a class="Compare__Link--Remove compare-remove" href="{$p.delete_url}" title="[`Remove from comparison list`]" data-product="{$p.id}">
+                        <a class="Compare__Link--Remove compare-remove" id="compare-delete" href="{$p.delete_url}"
+                           title="[`Remove from comparison list`]" data-product="{$p.id}">
                             <i class="fi-rr-cross"></i>
                         </a>
-                        <a class="Compare__Link--Image" href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">
+                        <a class="Compare__Link--Image"
+                           href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">
                             {$wa->shop->productImgHtml($p, '96x96', ['itemprop' => 'image', 'id' => 'product-image', 'default' => "`$wa_theme_url`img/dummy96.png", 'title' => $p.name|cat:' ':strip_tags($p.summary)])}
                         </a>
                         <div class="Compare__Box--Name name-wrapper">
-                            <a class="Compare__Link--Name name-link" href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">{$p.name}</a>
+                            <a class="Compare__Link--Name name-link"
+                               href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">{$p.name}</a>
                         </div>
                         {$product_names = $product_names|cat:$p.name}
                         {if not $p@last}
@@ -55,15 +92,15 @@
                     <td style="vertical-align: middle">
                         {if $p.compare_price > 0}
                             <div class="Product__Price--Old">
-                <span class="Product__Price--Inline compare-at-price">
-                  {shop_currency_html($p.compare_price)}
-                </span>
+                                <span class="Product__Price--Inline compare-at-price">
+                                  {shop_currency_html($p.compare_price)}
+                                </span>
                                 {if $theme_settings.danger_price_unit}
                                     <span class="Product__Price--Unit">
-                    {if $_price_unit = $_product_object_features[$theme_settings.danger_price_unit_feature_id|default:'yedinitsa_izmereniya']|default:false}
-                        {$theme_settings.danger_price_unit_divider|default:''}{$_price_unit}
-                    {/if}
-                  </span>
+                                        {if $_price_unit = $_product_object_features[$theme_settings.danger_price_unit_feature_id|default:'yedinitsa_izmereniya']|default:false}
+                                            {$theme_settings.danger_price_unit_divider|default:''}{$_price_unit}
+                                        {/if}
+                                      </span>
                                 {/if}
                             </div>
                         {/if}
