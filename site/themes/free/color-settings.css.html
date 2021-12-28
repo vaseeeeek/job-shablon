@@ -99,11 +99,13 @@
         .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link {
             border: 1px solid{$scColor};
         }
-
         .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
             border-bottom: 1px solid {$scColor} !important;
         }
-
+        .Compare__Item--Switch.selected .Compare__Button{
+            border-bottom: 1px dashed;
+            color: {$scColor};
+        }
         input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover, .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover {
             border: 1px solid{$scColor};
         }

@@ -4473,14 +4473,12 @@ ul.pages {
 		}
 }
 .Title__Main {
-		margin: 0;
-		padding: 0;
 		border-bottom: 1px solid #ebebeb;
-		padding-bottom: 2rem;
 		color: #404040;
 		font-size: 3rem;
 		font-weight: 300;
-		margin: 0 0 2rem;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
 }
 
 .Title__Main.-No-Border {
@@ -4609,17 +4607,6 @@ ul.pages {
 		outline: 0;
 		padding: 0.5rem 1rem;
 		width: 100%;
-}
-
-.Title__Main {
-		margin: 0;
-		padding: 0;
-		border-bottom: 1px solid #ebebeb;
-		padding-bottom: 2rem;
-		color: #404040;
-		font-size: 3rem;
-		font-weight: 300;
-		margin: 0 0 2rem;
 }
 
 .Title__Main.-With-Border {
