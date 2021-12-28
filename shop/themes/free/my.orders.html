@@ -1,77 +1,54 @@
-{strip}
-<h1>[`My orders`]</h1>
-
-<table style="border-collapse: collapse;border-spacing: 0">
-{foreach $orders as $order}
-
-    <tr id="order-{$order.id}">
-        {if !$wa->isMobile()}
-            <td class="nowrap">
-                <a href="{$order.url}" class="bold">
-                    {$order.id_str}
-                </a>
-            </td>
-            <td class="nowrap">
-                <span class="nowrap order-status" style="{$order.state->getStyle(1)}">
-                    {$order.state->getName()}
-                </span>
-            </td>
-            <td>
-                {if !empty($order.items)}
-                    {foreach $order.items as $i}
-                        {$i.name|escape} <span class="gray">x {$i.quantity}</span><br />
-                    {/foreach}
-                {/if}
-            </td>
-            <td>
-                {if $order.shipping_name}
-                    {$order.shipping_name|escape}
-                {else}
-                    &nbsp;
-                {/if}
-            </td>
-            <td>
-                {if $order.payment_name}
-                    {$order.payment_name|escape}
-                {else}
-                    &nbsp;
-                {/if}
-            </td>
-            <td>
-                <span class="gray nowrap">{$order.create_datetime|wa_date:'humandate'}</span>
-            </td>
-        {else}
-            <td>
-                <span class="gray nowrap">{$order.create_datetime|wa_date:'humandate'}</span>
-                <br>
-                <a href="{$order.url}" class="bold">
-                    {$order.id_str}
-                </a>
-                <br>
-                <span class="nowrap order-status" style="{$order.state->getStyle(1)}">
-                    {$order.state->getName()}
-                </span>
-            </td>
-            <td>
-                {if !empty($order.items)}
-                    {foreach $order.items as $i}
-                        {$i.name|escape} <span class="gray">x {$i.quantity}</span><br />
-                    {/foreach}
-                {/if}
-            </td>
-        {/if}
-    </tr>
-
-{foreachelse}
-	<tr class="border-none">
-        <td>[`You have no order history yet.`]</td>
-  	</tr>
-{/foreach}
-</table>
-
-{$wa->globals('isMyAccount', true)}
-
+<h1 class="Title__Main -No-Border">[`My orders`]</h1>
 <!-- plugin hook: 'frontend_my_orders' -->
 {* @event frontend_my_orders.%plugin_id% *}
-{foreach $frontend_my_orders as $_}{$_}{/foreach}
-{/strip}
+{foreach $frontend_my_orders as $_}
+    <div class="Orders__Plugin">{$_}</div>
+{/foreach}
+
+<div class="Orders__List">
+    {foreach $orders as $item}
+        <div class="Orders__Item">
+            <div class="Orders__Info">
+                <div class="Orders__Status">
+                    <a class="Orders__Link"
+                       href="{$item.url}">
+                        {$item.id_str}
+                    </a>
+                    <span class="Orders__Badge -{$item.state->id|ucfirst}">{$item.state->getName()}</span>
+                </div>
+                {if $item.shipping_name}
+                    <div class="Orders__Box--Info">
+                        <h3 class="Orders__Title--H3">[`Shipping`]:</h3>
+                        <p class="Orders__Text--Method">{$item.shipping_name|escape}</p>
+                    </div>
+                {/if}
+                {if $item.payment_name}
+                    <div class="Orders__Box--Info">
+                        <h3 class="Orders__Title--H3">[`Payment`]:</h3>
+                        <p class="Orders__Text--Method">{$item.payment_name|escape}</p>
+                    </div>
+                {/if}
+                <div class="Orders__Box--Info">
+                    <h3 class="Orders__Title--H3">[`Date`]:</h3>
+                    <p class="Orders__Text--Method">{$item.create_datetime|wa_date:'humandate'}</p>
+                </div>
+            </div>
+            <div class="Orders__Resume">
+                {if !empty($item.items)}
+                    <h3 class="Orders__Title--H3">[`Details`]:</h3>
+                    {foreach $item.items as $i}
+                        <div class="Orders__Box--Single">
+                            <a href="{$wa->shop->productUrl($wa->shop->product($i.product_id))}" class="Orders__Link--Single">
+                                {$i.name|escape} <span>x {$i.quantity}</span>
+                            </a>
+                        </div>
+                    {/foreach}
+                {/if}
+            </div>
+        </div>
+        {foreachelse}
+        [`You have no order history yet.`]
+    {/foreach}
+</div>
+
+{$wa->globals('isMyAccount', true)}

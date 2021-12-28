@@ -37,12 +37,10 @@
             {if $show_comments && $post.comments_allowed}
                 <div class="post-box_credentials_comments">
                     {if !empty($post.comment_count)}
-                        <i class="fa fa-comment maincolor icon" aria-hidden="true"></i>
                         <a href="{$post.link}#comments" class="small">
                             {_w('%d comment','%d comments',$post.comment_count)}
                         </a>
                     {else}
-                        <i class="fa fa-comment-o maincolor icon" aria-hidden="true"></i>
                         <a href="{$post.link}#comments" class="hint">
                             [`no comments`]
                         </a>

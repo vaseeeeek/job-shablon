@@ -1,0 +1,145 @@
+{strip}
+
+    {$is_ruble_arial = true}
+    {$font_name = "sans-serif"}
+    {if $theme_settings.font == "helvetica"}
+        {$font_name = "'Helvetica', arial, sans-serif"}
+    {elseif $theme_settings.font == "arial"}
+        {$font_name = "'Arial', arial, sans-serif"}
+    {elseif $theme_settings.font == "roboto"}
+        {$font_name = "'Roboto', arial, sans-serif"}
+    {elseif $theme_settings.font == "opensans"}
+        {$font_name = "'Open Sans', arial, sans-serif"}
+    {elseif $theme_settings.font == "montserrat"}
+        {$font_name = "'Montserrat', arial, sans-serif"}
+    {elseif $theme_settings.font == "robotocondensed"}
+        {$font_name = "'Roboto Condensed', arial, sans-serif"}
+    {elseif $theme_settings.font == "sourcesanspro"}
+        {$font_name = "'Source Sans Pro', arial, sans-serif"}
+    {elseif $theme_settings.font == "oswald"}
+        {$font_name = "'Oswald', arial, sans-serif"}
+    {elseif $theme_settings.font == "notosans"}
+        {$font_name = "'Noto Sans', arial, sans-serif"}
+    {elseif $theme_settings.font == "robotomono"}
+        {$font_name = "'Roboto Mono', arial, sans-serif"}
+    {elseif $theme_settings.font == "raleway"}
+        {$font_name = "'Raleway', arial, sans-serif"}
+    {elseif $theme_settings.font == "ubuntu"}
+        {$font_name = "'Ubuntu', arial, sans-serif"}
+    {elseif $theme_settings.font == "nunito"}
+        {$font_name = "'Nunito', arial, sans-serif"}
+    {elseif $theme_settings.font == "robotoslab"}
+        {$font_name = "'Roboto Slab', arial, sans-serif"}
+    {elseif $theme_settings.font == "ptsans"}
+        {$font_name = "'PT Sans', arial, sans-serif"}
+    {elseif $theme_settings.font == "merriweather"}
+        {$font_name = "'Merriweather', arial, sans-serif"}
+    {elseif $theme_settings.font == "playfairdisplay"}
+        {$font_name = "'Playfair Display', arial, sans-serif"}
+    {elseif $theme_settings.font == "lora"}
+        {$font_name = "'Lora', arial, sans-serif"}
+    {elseif $theme_settings.font == "opensanscondensed"}
+        {$font_name = "'Open Sans Condensed', arial, sans-serif"}
+    {elseif $theme_settings.font == "rubik"}
+        {$font_name = "'Rubik', arial, sans-serif"}
+    {elseif $theme_settings.font == "inter"}
+        {$font_name = "'Inter', arial, sans-serif"}
+    {elseif $theme_settings.font == "nunitosans"}
+        {$font_name = "'Nunito Sans', arial, sans-serif"}
+    {elseif $theme_settings.font == "firasans"}
+        {$font_name = "'Fira Sans', arial, sans-serif"}
+    {elseif $theme_settings.font == "ptserif"}
+        {$font_name = "'PT Serif', arial, sans-serif"}
+    {elseif $theme_settings.font == "notoserif"}
+        {$font_name = "'Noto Serif', arial, sans-serif"}
+    {elseif $theme_settings.font == "yanonekaffeesatz"}
+        {$font_name = "'Yanone Kaffeesatz', arial, sans-serif"}
+    {/if}
+    <style>
+        body {
+            font-family: {$font_name};
+        }
+
+
+        {$logo_width = (int)$theme_settings.width_logo}
+        {$logo_width_950 = (int)$theme_settings.width_logo_max_950}
+        {if $logo_width > 0}
+            @media (min-width: 950px) {
+                .footer_logo img, .header_logo img {
+                    max-width: {$logo_width}px;
+                }
+            }
+        {/if}
+        {if $logo_width_950 > 0}
+             @media (max-width: 950px) {
+                .footer_logo img, .header_logo img {
+                    max-width: {$logo_width_950}px;
+                }
+            }
+        {/if}
+
+        {if $theme_settings.bgcolor_sticker_hit}
+            .badge.bestseller {
+                background: {$theme_settings.bgcolor_sticker_hit};
+            }
+        {/if}
+        {if $theme_settings.bgcolor_sticker_new}
+            .badge.new {
+                background: {$theme_settings.bgcolor_sticker_new};
+            }
+        {/if}
+        {if $theme_settings.bgcolor_sticker_discount}
+            .badge.low-price {
+                background: {$theme_settings.bgcolor_sticker_discount};
+            }
+        {/if}
+
+        {if $wa_app != 'shop'}
+            {$product_tile_name_height = 40}
+        {else}
+            {if !$wa->isMobile()}
+                {if $theme_settings.tile_title_height == 'one'}
+                    {$product_tile_name_height = 1.2}
+                {elseif $theme_settings.tile_title_height == 'two'}
+                    {$product_tile_name_height = 2.4}
+                {elseif $theme_settings.tile_title_height == 'three'}
+                    {$product_tile_name_height = 3.5}
+                {elseif $theme_settings.tile_title_height == 'four'}
+                    {$product_tile_name_height = 4.6}
+                {elseif $theme_settings.tile_title_height == 'five'}
+                    {$product_tile_name_height = 5.8}
+                {/if}
+            {else}
+                {if $theme_settings.tile_mobile_title_height == 'one'}
+                    {$product_tile_name_height = 1.2}
+                {elseif $theme_settings.tile_mobile_title_height == 'two'}
+                    {$product_tile_name_height = 2.4}
+                {elseif $theme_settings.tile_mobile_title_height == 'three'}
+                    {$product_tile_name_height = 3.5}
+                {elseif $theme_settings.tile_mobile_title_height == 'four'}
+                    {$product_tile_name_height = 4.6}
+                {elseif $theme_settings.tile_mobile_title_height == 'five'}
+                    {$product_tile_name_height = 5.8}
+                {/if}
+            {/if}
+        {/if}
+        {if $product_tile_name_height}
+            .Product-grid_name {
+                height: {$product_tile_name_height}rem;
+                overflow: hidden;
+            }
+        {/if}
+
+
+
+
+        {if $theme_settings.border_radius}
+            .nav-cat-btn, .admin-edit-links__el,
+            .product_options .select-v-inline a.selected, .product_add2cart .addtocart,
+            .wa-submit-button, .addtocart--mini, .filter-el--btns input[type="submit"], .Product-grid_cart .button, .main-slider_item-btn{
+                border-radius: {$theme_settings.border_radius}px;
+            }
+        {/if}
+    </style>
+{/strip}
+

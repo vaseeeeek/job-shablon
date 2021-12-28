@@ -68,17 +68,12 @@
                             </a>
                         {/if}
                         {if $_subcat}
-                            {if isset($wa_parent_theme_path)}
-                                {$subcatFile = "`$wa_parent_theme_path`/nav.`$view_subcat`.scat.html"}
-                            {else}
-                                {$subcatFile = "nav.`$view_subcat`.scat.html"}
-                            {/if}
-                            {include file=$subcatFile}
+                            {$subcatFile = "nav.one_column.scat.html"}
+                            {include file=$subcatFile linkFullCatalog=true}
                         {/if}
                     </div>
                 {/foreach}
             </div>
-
             {if count($_links) > 0}
                 <h4>Информация</h4>
                 <ul>

@@ -3,12 +3,17 @@
 
 <div class="content content-box">
     <div class="compare-title">
+
+        <h1>[`Compare products`]</h1>
+    </div>
+    <div class="listSwitch-resetBtn--box">
         <ul class="compare-list-switch clear-list">
             <li class="selected br-sdColor sdColor"><a id="compare-show-all" href="#">[`All features`]</a></li>
             <li class="br-sdColor sdColor"><a id="compare-show-diff" href="#">[`Different`]</a></li>
         </ul>
-
-        <h1>[`Compare products`]</h1>
+        <div class="">
+            <input id="compare-reset" type="button" class="gray" value="[`Clear comparison list`]">
+        </div>
     </div>
     {literal}
     <script>
@@ -115,9 +120,7 @@
             </table>
         </div>
 
-        <div class="">
-            <input id="compare-reset" type="button" class="gray" value="[`Clear comparison list`]">
-        </div>
+
 
         <table id="compare_table-fixed" class="compare compare-fixed" style="position: fixed; top: 0px; display:none; background: white;"></table>
         <style>

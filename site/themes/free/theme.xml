@@ -220,13 +220,18 @@
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
+    <setting var="path_svg_logo" control_type="text">
+      <value>/img/logo.svg</value>
+      <name locale="en_US"/>
+      <name locale="ru_RU">Путь до svg логотипа</name>
+    </setting>
     <setting var="width_logo" control_type="text">
-      <value/>
+      <value>100</value>
       <name locale="en_US">Width of logo, px</name>
       <name locale="ru_RU">Ширина логотипа, px</name>
     </setting>
     <setting var="width_logo_max_950" control_type="text">
-      <value/>
+      <value>100</value>
       <name locale="en_US">Logo width with screen size less than 950 pixels, px</name>
       <name locale="ru_RU">Ширина логотипа при размере экрана менее 950 пикселей, px</name>
     </setting>
@@ -780,7 +785,7 @@
       <name locale="ru_RU">Вид списка - "таблица"</name>
     </setting>
     <setting var="pr_prev_type_default" control_type="select">
-      <value>tbl</value>
+      <value>tile</value>
       <name locale="en_US">Default list view</name>
       <name locale="ru_RU">Вид списка по умолчанию</name>
       <options>
@@ -1555,8 +1560,8 @@
     <setting var="hide_cat_burger" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">
-        Скрыть каталог в мобильном меню
-      </name>
+              Скрыть каталог в мобильном меню
+          </name>
     </setting>
   </settings>
   <locales>

@@ -1,132 +1,145 @@
-{strip}
 
-<div class="profile-title" id="title-my-profile-wa">
-    <h1>[s`My profile`]</h1>
-</div>
 
-{if $saved}
-    <strong><i class="icon16 saved"></i><span style="color:green">[s`Contact information successfully updated!`]</span></strong>
-{/if}
+<div class="My__Page--Profile">
+    <div class="Login__Box">
 
-{if isset($smarty.get.emailconfirmed) && $smarty.get.emailconfirmed == 1}
-    <strong><i class="icon16 saved"></i><span style="color:green">[s`Contact information successfully updated!`]</span></strong>
-{/if}
+        <h1 class="Title__Main -No-Border">[s`My profile`]</h1>
 
-<div id="lk-info-wrapper">
-    <div class="wa-form" id="lk-info-read-wrapper"{if !empty($form->errors)} style="display: none;"{/if}>
-
-        {foreach $user_info as $id => $info}
-            <div class="wa-field">
-                <div class="wa-name">{$info.name}:</div>
-                <div class="wa-value">
-                    {if $info.value}
-                        {$info.value}
-                    {else}
-                        <i class="wa-value_empty">[`Is not filled`]</i>
-                    {/if}
-                </div>
+        {if $saved}
+            <div class="My__Info -Success">
+                <span>[s`Contact information successfully updated!`]</span>
             </div>
-        {/foreach}
-    </div>
-
-
-    <form action="" enctype="multipart/form-data" method="post"{if empty($form->errors)} style="display: none;"{/if} id="lk-info-edit-wrapper">
-        <div class="wa-form">
-
-            {$form->html()}
-
-            <div class="wa-field">
-                <div class="wa-value">
-                    <input type="submit" value="[s`Save`]">
-
-                    <span class="lk_edit-cancel-btn" id="lk_info-cancel">
-                        <i class="fa fa-times"></i>
-                        <a href="#" class="link-half">[s`cancel`]</a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </form>
-
-</div>
-
-{$auth_social = $wa->authAdapters(true)}
-{if $auth_social}
-    <div class="wa-auth-socials wa-connect">
-        <h3>[s`Connected accounts`]</h3>
-
-        {$linked_socials = []}
-        {$other_socials = []}
-        {foreach $auth_social as $a}
-            {if $wa->user("{$a->getId()}_id")}
-                {$linked_socials[] = $a}
-            {else}
-                {$other_socials[] = $a}
-            {/if}
-        {/foreach}
-
-        {if $linked_socials}
-            <ul>
-            {foreach $linked_socials as $a}
-                <li><span><img alt="{$a->getName()}" src="{$a->getIcon()}"/>{$a->getName()}</span></li>
-            {/foreach}
-            </ul>
         {/if}
 
-        {if $other_socials}
-            <p>[s`Connect this account to your social network accounts so next time you can log in without entering your password:`]</p>
-            <ul>
-                {foreach $other_socials as $a}
-                <li><a href="{$a->getUrl()}"><img alt="{$a->getName()}" src="{$a->getIcon()}"/>{$a->getName()}</a></li>
+        {if isset($smarty.get.emailconfirmed) && $smarty.get.emailconfirmed == 1}
+            <div class="My__Info -Success">
+                <span>[s`Contact information successfully updated!`]</span>
+            </div>
+        {/if}
+
+        <div id="wa-my-info-wrapper">
+            <div class="wa-form" id="wa-my-info-read-wrapper"{if !empty($form->errors)} style="display: none;"{/if}>
+                {foreach $user_info as $id => $info}
+                    <div class="wa-field">
+                        <div class="wa-name">{$info.name}</div>
+                        <div class="wa-value">{$info.value}</div>
+                    </div>
                 {/foreach}
-            </ul>
-            <script type="text/javascript">
-                $("div.wa-auth-socials a").click(function () {
-                    var left = (screen.width - 600) / 2;
-                    var top = (screen.height - 400) / 2;
-                    window.open($(this).attr('href'),'oauth', "width=600,height=400,left="+left+",top="+top+",status=no,toolbar=no,menubar=no");
-                    return false;
-                });
-            </script>
+                <div class="wa-field">
+                    <div class="wa-value">
+                        <input type="button" class="button" id="wa-my-info-edit" value="[s`Edit`]"/>
+                    </div>
+                </div>
+            </div>
+
+            <form action="" enctype="multipart/form-data" method="post"{if empty($form->errors)} style="display: none;" {/if} id="wa-my-info-edit-wrapper">
+                <div class="wa-form">
+                    {$form->html()}
+                    <div class="wa-field">
+                        <div class="wa-value">
+                            <input type="submit" value="[s`Save`]">
+                            <a href="#" id="wa-my-info-cancel">[s`cancel`]</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        {$auth_adapters = $wa->authAdapters(true)}
+
+        {if $auth_adapters}
+            <div class="My__OAuth--Box">
+                {$linked_adapters = []}
+                {$other_adapters = []}
+
+                {foreach $auth_adapters as $a}
+                    {if $wa->user("{$a->getId()}_id")}
+                        {$linked_adapters[] = $a}
+                    {else}
+                        {$other_adapters[] = $a}
+                    {/if}
+                {/foreach}
+
+                {if $linked_adapters}
+                    <h3 class="My__OAuth--Title">[s`Connected accounts`]</h3>
+                    {strip}
+                        <ul class="My__OAuth--List -Linked">
+                            {foreach $linked_adapters as $a}
+                                <li class="My__OAuth--Item -Linked">
+                                    <div class="My__OAuth--Link -Linked">
+                                        <img class="My__OAuth--Img" alt="{$a->getName()}" src="{$a->getIcon()}" title="{$a->getName()}"/>
+                                    </div>
+                                </li>
+                            {/foreach}
+                        </ul>
+                    {/strip}
+                {/if}
+
+                {if $other_adapters}
+                    <h3 class="My__OAuth--Title">[s`Connect this account to your social network accounts so next time you can log in without entering your password:`]</h3>
+                    <div class="js-wa-auth-adapters">
+                        {strip}
+                            <ul class="My__OAuth--List">
+                                {foreach $other_adapters as $a}
+                                    <li class="My__OAuth--Item">
+                                        <a class="My__OAuth--Link" href="{$a->getUrl()}">
+                                            <img class="My__OAuth--Img" alt="{$a->getName()}" src="{$a->getIcon()}" title="{$a->getName()}"/>
+                                        </a>
+                                    </li>
+                                {/foreach}
+                            </ul>
+                        {/strip}
+                    </div>
+
+                    <script>
+                        $("div.js-wa-auth-adapters a").click(function () {
+                            var left = (screen.width - 600) / 2;
+                            var top = (screen.height - 400) / 2;
+                            window.open($(this).attr('href'), 'oauth', "width=600,height=400,left=" + left + ",top=" + top + ",status=no,toolbar=no,menubar=no");
+                            return false;
+                        });
+                    </script>
+                {/if}
+
+            </div>
         {/if}
 
     </div>
-{/if}
+</div>
 
 <script>
     (function () {
-        var $wrapper = $('#lk-info-wrapper'),
-            $head = $('#title-my-profile-wa'),
-            $form = $wrapper.find('#lk-info-edit-wrapper'),
-            $info = $wrapper.find('#lk-info-read-wrapper'),
+        var $wrapper = $('#wa-my-info-wrapper'),
+            $form = $wrapper.find('#wa-my-info-edit-wrapper'),
+            $info = $wrapper.find('#wa-my-info-read-wrapper'),
             $password = $form.find('.wa-field-password'),
             $photo = $form.find('.wa-field-photo');
 
-        if ($password.length) {
+        if ( $password.length ) {
             var $change_link = $('<span><a href="#">[s`Change password`]</a></span>'),
                 $password_inputs = $password.find('p');
 
             $password.find('.wa-value').prepend($change_link);
 
-            $change_link.on('click', 'a', function(e) {
+            $change_link.on('click', 'a', function (e) {
                 e.preventDefault();
                 $change_link.hide();
                 $password_inputs.slideDown();
             });
         }
 
-        if ($photo.length) {
+        if ( $photo.length ) {
             var $delete_photo = $('<span><a href="#">[s`Delete photo`]</a></span>'),
                 $photo_input = $photo.find('[name="profile[photo]"]'),
                 $user_photo = $photo.find('img:first'),
                 $default_photo = $photo.find('img:last');
 
-            if ($user_photo[0] != $default_photo[0]) {
+            if ( $user_photo[0] != $default_photo[0] ) {
                 $default_photo
-                        .hide()
-                        .after($delete_photo);
+                    .hide()
+                    .after($delete_photo);
 
-                $delete_photo.on('click', 'a', function(e) {
+                $delete_photo.on('click', 'a', function (e) {
                     e.preventDefault();
                     $default_photo.show();
                     $user_photo.hide();
@@ -138,28 +151,28 @@
             }
         }
 
-        $head.on('click', '#wa-my-info-edit', function (e) {
-                    e.preventDefault();
-                    if ($password.length) {
-                        $change_link.show();
-                        $password_inputs.hide();
+        $wrapper
+            .on('click', '#wa-my-info-edit', function (e) {
+                e.preventDefault();
+                if ( $password.length ) {
+                    $change_link.show();
+                    $password_inputs.hide();
+                }
+                if ( $photo.length ) {
+                    if ( $user_photo[0] != $default_photo[0] ) {
+                        $delete_photo.show();
+                        $default_photo.hide();
                     }
-                    if ($photo.length) {
-                        if ($user_photo[0] != $default_photo[0]) {
-                            $delete_photo.show();
-                            $default_photo.hide();
-                        }
-                    }
-                    $form.show();
-                    $info.hide();
-                });
-        $wrapper.on('click', '#lk_info-cancel', function(e){
-                    e.preventDefault();
-                    $form.hide();
-                    $info.show();
-                });
+                }
+                $form.show();
+                $info.hide();
+            })
+            .on('click', '#wa-my-info-cancel', function (e) {
+                e.preventDefault();
+                $form.hide();
+                $info.show();
+            });
     })();
 </script>
 
 {$wa->globals('isMyAccount', true)}
-{/strip}

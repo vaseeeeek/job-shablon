@@ -66,7 +66,7 @@
         {/if}
     </head>
 
-    <body>
+    <body id="themeOverride">
 
     {if $wa->block("cookie.block") && !$wa->cookie('closeCookie')}
         <div class="head_info-massage js-head-info-massage">
@@ -89,7 +89,9 @@
             <div class="header--left">
                 {$is_logo = $theme_settings.logo}
                 <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->currentUrl() === $wa->getUrl('shop/frontend')}{else}href="{$wa->getUrl('shop/frontend')}"{/if}">
-                    {if $is_logo}
+                    {if $theme_settings.path_svg_logo}
+                        <img src="{$theme_settings.path_svg_logo}" alt="{$wa->accountName()}" id="logo">
+                    {elseif $is_logo}
                         <img src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
                     {else}
                         {$wa->accountName()}
@@ -97,7 +99,17 @@
                 </a>
                 {if !$wa->isMobile()}
                     <div class="nav-cat js-dd-outer">
-                        <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor "> <i class="fi-rr-align-justify"></i>[`Catalog`]
+                        <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor ">
+                            {if $wa->get('1', null) === '1'}
+                                <img src="/img/burger1.svg" alt="" width="20">
+                            {elseif $wa->get('1', null) === '2'}
+                                <img src="/img/burger2.svg" alt="" width="20">
+                            {elseif $wa->get('1', null) === '3'}
+                                <img src="/img/burger3.svg" alt="" width="20">
+                            {else}
+                                <i class="fi-rr-align-justify"></i>
+                            {/if}
+                            [`Catalog`]
                         </div>
                     </div>
                 {/if}
@@ -122,7 +134,6 @@
                 <div class="Nav-contact-info">
                     {if $theme_settings.header_company_phone}
                         <a class="Nav-contact-phone-btn" href="tel:{$theme_settings.header_company_phone}">
-                            <i class="fa fa-phone icon" aria-hidden="true"></i>
                         </a>
                     {/if}
                     <p><a href="tel:{$theme_settings.header_company_phone}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></p>
@@ -145,7 +156,7 @@
                     {/if}
                     {if $theme_settings.lk_icon_header && $wa->isAuthEnabled()}
                         <div class="product-custom--lk product-custom">
-                            <a class="js-products-link product-custom--link" href="/my">
+                            <a class="js-products-link product-custom--link" href="{$wa->myUrl()}">
                                 <div class="product-custom_icon maincolor">
                                     <i class="fi-rr-user icon"></i>
                                 </div>
@@ -234,7 +245,6 @@
                             {if $theme_settings.auto_search}
                                 <div class="ajax-search-result js-ajax-search-result"></div>
                             {/if}
-                            <i class="fa fa-search btn maincolor js-btn-form"></i>
                         </div>
                     </form>
                 </div>

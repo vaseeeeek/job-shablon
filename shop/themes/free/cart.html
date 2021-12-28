@@ -304,7 +304,7 @@
                                             </div>
 
                                             <div class="col cart-el_remove">
-                                                <i class="fa  fi-rr-cross-small icon js-cart-delete"></i>
+                                                <i class="fi-rr-cross-small icon js-cart-delete"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -325,7 +325,7 @@
                                             <div {if !$coupon_code}style="display: none;"{/if} class="coupon-form" id="use-coupon-code">
                                                 <input placeholder="[`Coupon code`]" type="text" name="coupon_code"
                                                        value="{$coupon_code|escape}">
-                                                <span class="cart-coupon-add-button fa  fi-rr-check js-btn-form sdColor"></span>
+                                                <span class="cart-coupon-add-button fi-rr-check js-btn-form sdColor"></span>
                                                 {if $coupon_code && empty($coupon_discount) && empty($coupon_free_shipping)}
                                                     <div class="errormsg">[`Invalid coupon code`]</div>
                                                 {/if}
@@ -381,7 +381,7 @@
                                 {if shopAffiliate::isEnabled() && !empty($add_affiliate_bonus)}
                                     <div class="row border-none">
                                         <p class="affiliate">
-                                            <i class="fa  fi-rr-thumbs-up icon" aria-hidden="true"></i>
+                                            <i class="fi-rr-thumbs-up icon" aria-hidden="true"></i>
                                             {sprintf("[`This order will add <strong>+%s bonuses</strong> to  your account, which you will be able to spend on getting additional discounts later.`]", $add_affiliate_bonus)}
                                         </p>
                                     </div>

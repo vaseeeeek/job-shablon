@@ -73,11 +73,9 @@ var phoneSbar = {
         var btn = $('.js-filter-fixed-btn'),
             form = $('.sidear-mobile #filter-body');
 
-        btn.on("click", function () {
-            widthForm = Math.ceil(parseInt(form.width())) + 20 + `px`;
-            console.log(form.css('left'));
-            console.log(`-${widthForm}`);
-            if (form.css('left') == `-${widthForm}`) {
+        btn.on('click touchend', function () {
+            left = Math.ceil(parseInt(form.css('left')));
+            if (left < 0) {
                 form.addClass('show');
             } else {
                 form.removeClass('show');
@@ -688,6 +686,7 @@ var cart = {
             $.post(url + '?html=1', data, function (response) {
                 btn.text('В корзине')
                 btn.removeClass("cart-loading");
+                btn.addClass("added");
 
                 if (response.status == 'ok') {
                     previewCartCount.html(response.data.count);

@@ -69,36 +69,57 @@
     {$btnTextColor=$selectColors.btnTextColor}
     <style>
 
-        body, .Product__features-title span, .tags.cloud a, .category-menu,.menu-subcategory, .inp-search input,.modal-content, .product-added-msg, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
-        .ui-slider-handle.ui-state-default
-        {
-            background: {$panelBgColor}!important;
+        body, .Product__features-title span, .tags.cloud a, .category-menu, .menu-subcategory, .inp-search input, .modal-content, .product-added-msg, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
+        .ui-slider-handle.ui-state-default {
+            background: {$panelBgColor} !important;
         }
 
         .bg-maincolor,
         input[type="button"].bg-maincolor,
         input[type="submit"].bg-maincolor,
         .admin-edit-links__el,
-        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked+.Single__Name--Flat,
+        .Single__Label--Flat.-Alternative .Single__Input--Checkbox:checked + .Single__Name--Flat,
         .Product-grid_cart .button,
         .filters-body .ui-widget-header,
         .filters .ui-slider-range .ui-widget-header,
         .filters .ui-state-hover,
         .pagination li.selected,
         .filter-opt_el .js-style-check.style-check.checked,
-        .product_action-dialog-link:hover
-        {
+        .product_action-dialog-link:hover,
+        .checked-list__items li.selected,
+        .checked-list__items li:hover,
+        .select-options li:hover,
+        .Orders__Badge.-New,
+        .Button__Primary,
+        .pages .shop a.selected,
+        .Orders__Badge.-New{
             background: {$maincolor};
         }
-        .filters .ui-widget-content .ui-state-default,.cat-sort .checked-list:hover{
-            border: 1px solid {$maincolor};
+
+        .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link {
+            border: 1px solid{$scColor};
         }
+
+        .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
+            border-bottom: 1px solid {$scColor} !important;
+        }
+
         input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover, .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover {
-            border: 1px solid {$maincolor};
+            border: 1px solid{$scColor};
         }
-        .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit], .compare-list-switch li.selected a, .Product-grid_action .product-action:hover, .Product-grid_action .product-action.active{
+
+        .option-color_outer._without-text.checked {
+            border: 2px solid {$scColor};
+        }
+
+        .Product-grid_action .product-action:hover, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active {
             color: {$scColor};
         }
+
+        .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit] {
+            color: {$scColor};
+        }
+
         .bg-sdСolor,
         .button, .button.disabled:hover,
         button, button.disabled:hover,
@@ -107,11 +128,12 @@
         .compare-list-switch li.selected, .owl-dot.active > span, .Brands__Link--Categories {
             background: {$maincolor};
         }
-        .call-b-input input[type="submit"]{
+
+        .call-b-input input[type="submit"] {
             background: {$maincolor} !important;
         }
 
-        .jq-checked__arrow-trigger{
+        .jq-checked__arrow-trigger {
             border-right: 5px solid transparent;
             border-left: 5px solid transparent;
         }
@@ -147,54 +169,61 @@
             background: {$maincolor} !important;
         }
 
-        .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant.selected{
+        .wa-product-edit-dialog .wa-cart-section .wa-features-wrapper .wa-feature-wrapper:not(.color) .wa-variants-list .wa-variant.selected {
             background: {$scColor} !important;
         }
 
-        .protilegallery_wrapper .protilegallery_tiles .protilegallery_tile:hover:before{
+        .protilegallery_wrapper .protilegallery_tiles .protilegallery_tile:hover:before {
             background: {$maincolor} !important;
         }
 
-        .timeline > li > a{
+        .timeline > li > a {
             background: {$scColor};
         }
 
-        .timeline ul li:before{
-            border-left: 1px solid {$scColor};
+        .timeline ul li:before {
+            border-left: 1px solid{$scColor};
         }
 
-        .timeline ul li:after{
-            border-top: 1px solid {$scColor};
+        .timeline ul li:after {
+            border-top: 1px solid{$scColor};
         }
 
         {if $theme_settings.color_badge_discount}
-            .product-discount {
-                color: {$theme_settings.color_badge_discount};
-            }
+        .product-discount {
+            color: {$theme_settings.color_badge_discount};
+        }
+
         {/if}
         {if $textColor}
-            body, body .link, body a, body .price, body .rating.-zero icon10.star:hover,
-            body .star-rating-empty.star, body .star-rating-empty.star-hover,
-            body .rating.-zero .icon10.star:hover, body select, body input , body .header .product-custom_icon .icon, body .cat-views__el.selected {
-                color: {$textColor};
-            }
-            .Product-grid .dotted-img__list li.dotted-img__item.-Active  {
-                background-color: {$textColor};
-            }
-            .Product-grid .dotted-img__list li.dotted-img__item {
-                border: 1px solid {$textColor};
-            }
+        body, body .link, body a, body .price, body .rating.-zero icon10.star:hover,
+        body .star-rating-empty.star, body .star-rating-empty.star-hover,
+        body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected {
+            color: {$textColor};
+        }
+
+        .Product-grid .dotted-img__list li.dotted-img__item.-Active {
+            background-color: {$textColor};
+        }
+
+        .Product-grid .dotted-img__list li.dotted-img__item {
+            border: 1px solid{$textColor};
+        }
+
         {/if}
         {if $footerBG}
-            .footer{
-                background: {$footerBG};
-            }
+        .footer {
+            background: {$footerBG};
+        }
+
         {/if}
 
         {if $btnTextColor}
-            .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count {
-                color: {$btnTextColor}
-            }
+        .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
+        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a{
+            color: {$btnTextColor}
+        }
+
         {/if}
 
     </style>

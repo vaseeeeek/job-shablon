@@ -1,7 +1,7 @@
 {strip}
 
     {$is_smartfilters_hide_options = !empty($smartfilters.hideDisabled)}
-    <div class="sb-wrap filters js-filters{if $wa->isMobile()} mobile-filter{/if} js-ajax"{if $is_smartfilters_hide_options} data-smartfilters-hide-option="1"{/if}>
+    <div class="sb-wrap filters js-filters {if $wa->isMobile()}mobile-filter{/if} js-ajax"{if $is_smartfilters_hide_options} data-smartfilters-hide-option="1"{/if}>
 
         <form id="filter-body" class="filters-body js-filter-body" method="get" action="{$wa->currentUrl(0,1)}">
             {$indexFilter = 0}

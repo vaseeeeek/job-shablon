@@ -1,9 +1,16 @@
-{strip}
-{if !empty($pin_required)}
-    <h1>
-        [`Order`] {$encoded_order_id}
-    </h1>
 
+<!-- plugin hook: 'frontend_my_order' -->
+{* @event frontend_my_order.%plugin_id% *}
+{foreach $frontend_my_order as $_}
+    <div class="Orders__Item">{$_}</div>
+{/foreach}
+
+{if !empty($pin_required)}
+    <div class="page-title">
+        <h1 class="Title__Main">
+            [`Order`] {$order.id_str}
+    </h1>
+    </div>
     <form action="" method="post">
         {if $wrong_pin}
             <p style="color:red">[`PIN is not valid`]</p>
@@ -17,45 +24,51 @@
         </div>
     </form>
 {else}
-    <h1>
-        [`Order`] {$order.id_str}
-        <span class="order-status" style="{$order.state->getStyle(1)}">
-            {$order.state->getName()}
-        </span>
+    <div class="page-title">
+        <h1 class="Title__Main -No-Border">
+            <span class="Orders__Link">[`Order`] {$order.id_str}</span> <span
+                    class="Orders__Badge -{$order.state->id|ucfirst}">{$order.state->getName()}</span>
     </h1>
-    <p class="gray">{$order.create_datetime|wa_date:'humandatetime'}</p>
+    </div>
+    <div class="Orders__Header--Order">
+        <div class="Orders__Box--Info">
+            <h3 class="Orders__Title--H3">Дата заказа:</h3>
+            <p class="Orders__Text--Method">{$order.create_datetime|wa_date:'humandatetime'}</p>
+        </div>
 
-    <!-- shipping -->
-    <h3>[`Shipping`]
         {if $order.shipping_name}
-            &mdash; <strong>{$order.shipping_name}</strong>
-        {/if}
-    </h3>
-
-    <!-- shipping plugin output -->
+            <div class="Orders__Box--Info">
+                <h3 class="Orders__Title--H3">[`Shipping`]:</h3>
+                <p class="Orders__Text--Method">{$order.shipping_name}</p>
     {if !empty($order.params.tracking_number)}
-        [`Shipment tracking number`]: {$order.params.tracking_number}
-        <br />
-    {/if}
+                    <p class="Orders__Text--Method">[`Shipment tracking number`]: {$order.params.tracking_number}</p>
+                {/if}
+                <!-- shipping plugin output -->
     {if !empty($tracking) && $order.state->getId() != 'completed'}
         <div class="plugin">
             {$tracking}
         </div>
     {/if}
+            </div>
+        {/if}
 
-    <p>
-        {$contact.name|escape}<br>
+        <div class="Orders__Box--Info">
+            <h3 class="Orders__Title--H3">Имя получателя:</h3>
+            <p class="Orders__Text--Method">{$contact.name|escape}</p>
+        </div>
+
         {if $shipping_address}
-            {$shipping_address}
+            <div class="Orders__Box--Info">
+                <h3 class="Orders__Title--H3">Адрес доставки:</h3>
+                <p class="Orders__Text--Method">{$shipping_address}</p>
+            </div>
         {/if}
-    </p>
 
-    <!-- billing -->
-    <h3>[`Payment`]
         {if $order.payment_name}
-            &mdash; <strong>{$order.payment_name}</strong>
-        {/if}
-    </h3>
+            <div class="Orders__Box--Info">
+                <h3 class="Orders__Title--H3">[`Payment`]:</h3>
+                <p class="Orders__Text--Method">{$order.payment_name}</p>
+            </div>
 
     <!-- payment plugin output -->
     {if !empty($payment)}
@@ -63,69 +76,66 @@
             {$payment}
         </div>
     {/if}
-
-    <p>
-        {$contact.name|escape}<br>
-        {if $adress}
-            {$adress}
         {/if}
-    </p>
 
     {if !empty($order.comment)}
-        <h3>[`Comment`]</h3>
-        <p>
-            {$order.comment|escape}<br>
-        </p>
+            <div class="Orders__Box--Info">
+                <h3 class="Orders__Title--H3">[`Comment`]</h3>
+                <p class="Orders__Text--Method">{$order.comment|escape}</p>
+            </div>
     {/if}
+    </div>
 
     <!-- order content and total -->
-    <table class="table">
-        <tr>
-            <th></th>
-            <th class="align-right">[`Quantity`]</th>
-            <th class="align-right">[`Total`]</th>
-        </tr>
+    <div class="checkout-order-table">
+        <div class="checkout-order-heading">
+            <div class="checkout-order-heading-name -hidden">Наименование</div>
+            <div class="checkout-order-heading-quantity">[`Quantity`]</div>
+            <div class="checkout-order-heading-total">[`Total`]</div>
+        </div>
+        <ul class="checkout-order-list">
         {foreach $order.items as $item}
-            <tr{if $item.type == 'service'} class="service"{/if}>
-                <td>{if $item.type == 'service'}+ {/if}{$item.name}
-                    {if $item.type == 'product' && !empty($item.download_link)}<a href="{$item.download_link}"><strong>[`Download`]</strong></a>{/if}</td>
-                <td class="align-right"><span class="gray">{wa_currency_html($item.price, $order.currency)} x</span> {$item.quantity}</td>
-                <td class="align-right">{wa_currency_html($item.price * $item.quantity, $order.currency)}</td>
-            </tr>
+                <li class="checkout-order-list-item{if $item.type == 'service'} service{/if}">
+                    <div class="checkout-order-list-name">
+                        <a href="{$wa->shop->productUrl($wa->shop->product($item.product_id))}" class="Orders__Link--Single">
+                            {if $item.type == 'service'}+ {/if}{$item.name|escape}
+                        </a>
+                        {if $item.type == 'product' && !empty($item.download_link)}<a  class="Orders__Link--Single" href="{$item.download_link}">
+                                <strong>[`Download`]</strong></a>{/if}
+                    </div>
+                    <div class="checkout-order-list-quantity">
+                        <span class="gray">{shop_currency_html($item.price, $order.currency)} x</span> {$item.quantity}
+                    </div>
+                    <div class="checkout-order-list-total">
+                        {shop_currency_html($item.price * $item.quantity, $order.currency)}
+                    </div>
+                </li>
         {/foreach}
-        <tr class="border-none thin">
-            <td colspan="2" class="align-right">[`Subtotal`]</td>
-            <td class="align-right">{wa_currency_html($subtotal, $order.currency)}</td>
-        </tr>
-        <tr class="border-none thin">
-            <td colspan="2" class="align-right">[`Discount`]</td>
-            <td class="align-right">&minus; {wa_currency_html($order.discount, $order.currency)}</td>
-        </tr>
-        <tr class="border-none thin">
-            <td colspan="2" class="align-right">
-                [`Shipping`]
-                {if !empty($order.params.shipping_name)}
-                    (<strong>{$order.params.shipping_name}</strong>)
-                {/if}
-            </td>
-            <td class="align-right">{wa_currency_html($order.shipping, $order.currency)}</td>
-        </tr>
-        {if $order.tax > 0}
-            <tr class="border-none thin">
-                <td colspan="2" class="align-right">[`Tax`]</td>
-                <td class="align-right">{wa_currency_html($order.tax, $order.currency)}</td>
-            </tr>
-        {/if}
-        <tr class="border-none thin large">
-            <td colspan="2" class="align-right"><b>[`Total`]</b></td>
-            <td class="align-right bold">{wa_currency_html($order.total, $order.currency)}</td>
-        </tr>
-    </table>
+<li class="checkout-order-list-item checkout-order-total">
+                <div class="checkout-order-total-name">[`Subtotal`]:</div>
+                <div class="checkout-order-total-total">{shop_currency_html($subtotal)}</div>
+            </li>
+            <li class="checkout-order-list-item checkout-order-total">
+                <div class="checkout-order-total-name">[`Discount`]:</div>
+                <div class="checkout-order-total-total">&minus;{shop_currency_html($order.discount)}</div>
+            </li>
+            <li class="checkout-order-list-item checkout-order-total">
+                <div class="checkout-order-total-name">
+                    [`Shipping`]:
+                    {if !empty($order.params.shipping_name)}
+                        <p class="checkout-order-total-shipping">[{$order.params.shipping_name}]</p>
+                    {/if}
+                </div>
+                <div class="checkout-order-total-total">
+                    {shop_currency_html($order.shipping)}
+                </div>
+            </li>
+            <li class="checkout-order-list-item checkout-order-total">
+                <div class="checkout-order-total-name">[`Total`]:</div>
+                <div class="checkout-order-total-total">{shop_currency_html($order.total)}</div>
+            </li>
+        </ul>
+    </div>
 {/if}
 
 {$wa->globals('isMyAccount', true)}
-
-<!-- plugin hook: 'frontend_my_order' -->
-{* @event frontend_my_order.%plugin_id% *}
-{foreach $frontend_my_order as $_}{$_}{/foreach}
-{/strip}

@@ -23,7 +23,7 @@
         </div>
         [`By`]
         {if empty($review.site)}
-            <i class=" fi-rr-user reviews-fa-user-icon sdColor"></i><span class="username"{if !empty($_schema_org)} itemprop="author" itemscope itemtype="http://schema.org/Person"{/if}><span itemprop="name">{$review.author.name}</span></span>
+            <i class="fi-rr-user sdColor"></i><span class="username"{if !empty($_schema_org)} itemprop="author" itemscope itemtype="http://schema.org/Person"{/if}><span itemprop="name">{$review.author.name}</span></span>
         {else}
             <a href="{$review.site}" class="username"{if !empty($_schema_org)} itemprop="author" itemscope itemtype="http://schema.org/Person"{/if}><span itemprop="name">{$review.author.name}</span></a>
         {/if}
