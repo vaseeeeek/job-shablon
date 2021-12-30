@@ -70,7 +70,7 @@
     <style>
 
         body, .Product__features-title span, .tags.cloud a, .category-menu, .menu-subcategory, .inp-search input, .modal-content, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
-        .ui-slider-handle.ui-state-default {
+        .ui-slider-handle.ui-state-default, .ajax-search, .fixed-panel {
             background: {$panelBgColor} !important;
         }
 
@@ -96,6 +96,9 @@
             background: {$maincolor};
         }
 
+        .sidebar-subcategories_el.selected >a{
+            background: {$maincolor}33;
+        }
         .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link {
             border: 1px solid{$scColor};
         }
@@ -202,7 +205,7 @@
         {if $textColor}
         body, body .link, body a, body .price, body .rating.-zero icon10.star:hover,
         body .star-rating-empty.star, body .star-rating-empty.star-hover,
-        body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected {
+        body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link {
             color: {$textColor};
         }
 

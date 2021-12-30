@@ -933,17 +933,12 @@
       <name locale="en_US">Article in the "table"</name>
       <name locale="ru_RU">Артикул в "таблице"</name>
     </setting>
-    <setting var="show_number_item_add_in_list" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Qty field in the "tile"</name>
-      <name locale="ru_RU">Поле кол-во в "плитке"</name>
-    </setting>
     <setting var="product_show_tbl_count_cart" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="en_US">Qty field in the "table"</name>
       <name locale="ru_RU">Поле кол-во в "таблице"</name>
     </setting>
-    <setting var="product_show_list_fast_cart" control_type="checkbox">
+    <setting var="show_number_item_add_in_list" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Qty field in the "line by line"</name>
       <name locale="ru_RU">Поле кол-во "построчно"</name>

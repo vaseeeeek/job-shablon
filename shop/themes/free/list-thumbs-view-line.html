@@ -31,7 +31,6 @@
     {$images = array_values($products_images[$p.id])}
 {/if}
 
-{$_buy1click = class_exists('shopQuickorderPlugin') && $theme_settings.plugin_fastorder == "quickorder" && $theme_settings.product_show_list_fast_cart}
 
 {$_price_range = $theme_settings.price_range_in_product_list}
 {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
@@ -180,10 +179,6 @@
                         {else}
                             <span class="button js-submit-form addtocart addtocart--large">{$add2label_cart}</span>
                         {/if}
-                    {/if}
-
-                    {if $_buy1click}
-                        {shopQuickorderPlugin::button($p)}
                     {/if}
                 </form>
                 {if $theme_settings.preview_stock}

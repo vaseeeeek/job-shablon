@@ -22,7 +22,7 @@
             {if $theme_settings.hide_cat_burger}
                 {$hideCatList = true}
             {/if}
-            <h4 class="js-show-cat {if $hideCatList}-hide{/if}">Категории</h4>
+            <h4 class="MobileMenu_nav__catalog-title js-show-cat {if $hideCatList}-hide{/if}">Перейти в каталог →</h4>
             {if $theme_settings.get_menu_from == 'app-menu'}
                 {$categories = $wa->menu->get($theme_settings.id_app_menu_cat)}
             {else}
@@ -74,103 +74,113 @@
                     </div>
                 {/foreach}
             </div>
-            {if count($_links) > 0}
-                <h4>Информация</h4>
-                <ul>
-                    {foreach $_links as $link}
-                        {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
-                            {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
-                            {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
-                            <li class="menu-element juniq-header-top-nav-el">
-                                <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
-                                    {$link.name}
-                                </a>
-                                {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.sub_items_inf_pages}
-                                    <i class="js-top-nav-caret nav-caret icon"></i>
-                                    <div class="MobileMenu_nav-m-sub">
-                                        <ul class="top-border-color">
-                                            {foreach $link.childs as $child}
-                                                {if !isset($child.top_menu_hide)}
-                                                    <li>
-                                                        <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if} href="{$child.url}">{$child.name}</a></li>
-                                                {/if}
-                                            {/foreach}
-                                        </ul>
-                                    </div>
+            <div class="MobileMenu_nav__other">
+                {if count($_links) > 0}
+                    <div class="MobileMenu_nav__info">
+                        <h4>Информация</h4>
+                        <ul>
+                            {foreach $_links as $link}
+                                {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
+                                    {$is_select = strlen($link.url)>1 && $wa->currentUrl() == $link.url}
+                                    {$is_open = $link.url==$wa_app_url && !$wa->globals('isMyAccount') || strlen($link.url)>1 && $wa->currentUrl()|strstr:$link.url}
+                                    <li class="menu-element juniq-header-top-nav-el">
+                                        <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
+                                            {$link.name}
+                                        </a>
+                                        {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.sub_items_inf_pages}
+                                            <i class="js-top-nav-caret nav-caret icon"></i>
+                                            <div class="MobileMenu_nav-m-sub">
+                                                <ul class="top-border-color">
+                                                    {foreach $link.childs as $child}
+                                                        {if !isset($child.top_menu_hide)}
+                                                            <li>
+                                                                <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if} href="{$child.url}">{$child.name}</a></li>
+                                                        {/if}
+                                                    {/foreach}
+                                                </ul>
+                                            </div>
+                                        {/if}
+                                    </li>
                                 {/if}
-                            </li>
-                        {/if}
-                    {/foreach}
-                </ul>
-            {/if}
-            <h4>Личный кабинет</h4>
-            <div class="mob-menu-lk">
-                <a class="menu-element" href="/my">
-                    {if $wa->user()->isAuth()}
-                        {$wa->user('firstname')|default:'[`My account`]'}
-                    {else}
-                        <span>Войти</span>
-                    {/if}
-                </a>
-                {if shopAffiliate::isEnabled()}<a class="menu-element" href="/my/affiliate/">Партнерская программа</a>{/if}
-            </div>
-
-            {if $wa_app == 'shop' && $theme_settings.currency_selector}
-                {$currencies = $wa->shop->currencies()}
-                {$currency = $wa->shop->currency()}
-                {if count($currencies) > 1}
-                    <div class="header_currency js-dd-outer">
-                        {if count($currencies) > 1}
-                            [`Currency`]:
-                            <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
-                            {if !empty($theme_settings.show_currency_flag)}
-                                <img src="{$wa_theme_url}img/currency/{$currency}.png" alt="{$currency}" width="18px"/>
-                            {/if}
-                                {$currency}
-                        </span>
-                            <div id="currency-list" class="js-dd-wrap currency_list">
-                                <div class="dd-wrap br-top-sdСolor">
-                                    {foreach $currencies as $c_code => $c}
-                                        <span data-value="{$c_code}"
-                                              class="js-currency currency_item{if $c_code == $currency} maincolor{/if}">
-                                    {if !empty($theme_settings.show_currency_flag)}
-                                        <img src="{$wa_theme_url}img/currency/{$c_code}.png" alt="{$c_code}"/>
-                                    {/if}
-                                            {$c_code}
-                                </span>
-                                    {/foreach}
-                                </div>
-                            </div>
-                            <script>
-                                $(".js-currency").click(function () {
-                                    var url = location.href;
-                                    if (url.indexOf('?') == -1) {
-                                        url += '?';
-                                    } else {
-                                        url += '&';
-                                    }
-                                    location.href = url + 'currency=' + $(this).data("value");
-                                });
-                            </script>
-                        {/if}
+                            {/foreach}
+                        </ul>
                     </div>
                 {/if}
-            {/if}
+                {if $wa->isAuthEnabled()}
+                    <div class="MobileMenu_nav__lk">
+                        <h4>Личный кабинет</h4>
+                        <div class="mob-menu-lk">
+                            <a class="menu-element" href="/my">
+                                {if $wa->user()->isAuth()}
+                                    {$wa->user('firstname')|default:'[`My account`]'}
+                                {else}
+                                    <span>Войти</span>
+                                {/if}
+                            </a>
+                            {if shopAffiliate::isEnabled()}<a class="menu-element" href="/my/affiliate/">Партнерская программа</a>{/if}
+                        </div>
+                    </div>
+                {/if}
+                {if $wa_app == 'shop' && $theme_settings.currency_selector}
+                    <div class="MobileMenu_nav__currency">
+                        {$currencies = $wa->shop->currencies()}
+                        {$currency = $wa->shop->currency()}
+                        {if count($currencies) > 1}
+                                <div class="header_currency js-dd-outer">
+                                    {if count($currencies) > 1}
+                                        [`Currency`]:
+                                        <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
+                                        {if !empty($theme_settings.show_currency_flag)}
+                                            <img src="{$wa_theme_url}img/currency/{$currency}.png" alt="{$currency}" width="18px"/>
+                                        {/if}
+                                            {$currency}
+                                    </span>
+                                        <div id="currency-list" class="js-dd-wrap currency_list">
+                                            <div class="dd-wrap br-top-sdСolor">
+                                                {foreach $currencies as $c_code => $c}
+                                                    <span data-value="{$c_code}"
+                                                          class="js-currency currency_item{if $c_code == $currency} maincolor{/if}">
+                                                {if !empty($theme_settings.show_currency_flag)}
+                                                    <img src="{$wa_theme_url}img/currency/{$c_code}.png" alt="{$c_code}"/>
+                                                {/if}
+                                                        {$c_code}
+                                            </span>
+                                                {/foreach}
+                                            </div>
+                                        </div>
+                                        <script>
+                                            $(".js-currency").click(function () {
+                                                var url = location.href;
+                                                if (url.indexOf('?') == -1) {
+                                                    url += '?';
+                                                } else {
+                                                    url += '&';
+                                                }
+                                                location.href = url + 'currency=' + $(this).data("value");
+                                            });
+                                        </script>
+                                    {/if}
+                                </div>
+                            {/if}
+                    </div>
+                {/if}
 
-            {if $wa_app == 'shop' && $theme_settings.language_selector}
-                <div class="header_lang">
-                    <span class="header_lang-ttl">[`Language`]:</span>
-                    {foreach waLocale::getAll('name') as $language => $lang_name}
-                        {$language_text = $language|regex_replace:"/[a-z_]/":""}
-                        {if $wa->locale() == $language}
-                            <span class="header_lang-el">{$language_text}</span>
-                        {else}
-                            <a class="js-language header_lang-el" data-value="{$language}"
-                               href="{$language}">{$language_text}</a>
-                        {/if}
-                    {/foreach}
-                </div>
-            {/if}
+                {if $wa_app == 'shop' && $theme_settings.language_selector}
+                    <div class="header_lang">
+                        <span class="header_lang-ttl">[`Language`]:</span>
+                        {foreach waLocale::getAll('name') as $language => $lang_name}
+                            {$language_text = $language|regex_replace:"/[a-z_]/":""}
+                            {if $wa->locale() == $language}
+                                <span class="header_lang-el">{$language_text}</span>
+                            {else}
+                                <a class="js-language header_lang-el" data-value="{$language}"
+                                   href="{$language}">{$language_text}</a>
+                            {/if}
+                        {/foreach}
+                    </div>
+                {/if}
+            </div>
+
         </nav>
     </div>
     <div class="fixed-panel top-border-color js-fixed-panel">
@@ -178,7 +188,14 @@
             {$btns = ","|explode:$theme_settings.fixed_panel_array}
             {foreach $btns as $btn}
                 {if $btn == 'burger'}
-                    <i data-id="header_menu-nav" class="MobileMenu-btn icon fi-rr-menu-burger js-nav-button"></i>
+                    <div class="product-custom">
+                        <div class="product-custom_icon maincolor">
+                            <i data-id="header_menu-nav" class="MobileMenu-btn icon fi-rr-menu-burger js-nav-button"></i>
+                            <span class="product-custom_icon__name">
+                                Меню
+                            </span>
+                        </div>
+                    </div>
                 {/if}
 
                 {if $btn == 'favorite'}
@@ -193,6 +210,9 @@
                                 <div class="product-custom_icon maincolor">
                                     <i class="fi-rr-heart icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{$count_favorites}</span>
+                                    <span class="product-custom_icon__name">
+                                        Избранное
+                                    </span>
                                 </div>
                             </a>
                             <div class="product-msg-added-wrap js-product-added-msg">
@@ -217,6 +237,9 @@
                                 <div class="product-custom_icon maincolor">
                                     <i class="fi-rr-compare icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
+                                    <span class="product-custom_icon__name">
+                                        Сравнение
+                                    </span>
                                 </div>
                             </a>
                             <div class="product-msg-added-wrap js-product-added-msg">
@@ -239,6 +262,9 @@
                             <div class="product-custom_icon maincolor">
                                 <i class="fi-rr-shopping-cart icon"></i>
                                 <span class="product-custom_short-count bg-sdСolor js-cart-preview-count">{$cart_count}</span>
+                                <span class="product-custom_icon__name">
+                                    Корзина
+                                </span>
                             </div>
                             {if !$wa->isMobile()}
                                 <div class="product-custom_content">
@@ -258,6 +284,9 @@
                     <div class="js-filter-fixed-btn product-custom">
                         <div class="product-custom_icon maincolor">
                             <i class="fi-rr-filter icon"></i>
+                            <span class="product-custom_icon__name">
+                                Фильтр
+                            </span>
                         </div>
                     </div>
                 {/if}
@@ -265,6 +294,9 @@
                     <div class="product-custom">
                         <a class="product-custom_icon maincolor" href="tel:{$theme_settings.header_company_phone}">
                             <i class="fi-rr-phone"></i>
+                            <span class="product-custom_icon__name">
+                                Позвонить
+                            </span>
                         </a>
                     </div>
                 {/if}

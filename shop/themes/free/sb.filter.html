@@ -180,7 +180,7 @@
                 {if isset($category) && class_exists('shopSeofilterViewHelper')}
                     {$reset_link = $wa->shop->categoryUrl($category)}
                 {/if}
-                <a class="filter-reset fi-rr-cross-circle" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
+                <a class="filter-reset" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
             </div>
         </form>
     </div>

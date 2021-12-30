@@ -1101,12 +1101,31 @@ var itemsViewList = {
 
 var formSelectList = {
     init: function () {
-        $('body').on("click", '.js-checked-toggle', function () {
-            var items = $(this).closest('.js-selecList').find('.js-select-items');
-            if (items.is(':visible')) {
-                items.hide();
+        $(document).mouseup(function (e){
+            var div = $(".cat-sort");
+            if (!div.is(e.target)
+                && div.has(e.target).length === 0) {
+                div.find('.js-select-items').hide();
             } else {
-                items.show();
+                let show = true;
+                if (($(e.target).attr('href') && $(e.target).attr('href').includes('?sort')) && $('.js-select-items').is(':visible')){
+                    div.find('.js-select-items').hide()
+                    show = false;
+                }
+
+                if (($(e.target).hasClass('js-checked-toggle')) && $('.js-select-items').is(':visible')){
+                    div.find('.js-select-items').hide()
+                    show = false;
+                }
+
+                if (($(e.target).hasClass('fi-rr-caret-down') && $(e.target).closest('jq-checked__arrow-trigger')) && $('.js-select-items').is(':visible')){
+                    div.find('.js-select-items').hide()
+                    show = false;
+                }
+
+                if (show){
+                    div.find('.js-select-items').show()
+                }
             }
         });
         $('body').on("click", '.js-checked-toggle a', function (event) {
@@ -1405,6 +1424,12 @@ var productViewListCustom = {
 
             if (cbFunc) {
                 cbFunc({that: $this, url: url, productId: productId, isAdded: isAdded});
+            }
+            if (itemAddToListButton == ".js-compare-add"){
+                console.log(location.href.includes('/compare/'));
+                if (location.href.includes('/compare/')){
+                    location.href = location.href.replace(/compare\/.*/, 'compare/');
+                };
             }
         });
     },

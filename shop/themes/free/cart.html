@@ -367,12 +367,6 @@
                                         {* @event frontend_cart.%plugin_id% *}
                                         {foreach $frontend_cart as $_}{$_}{/foreach}
 
-
-                                        {$_buy1click = class_exists('shopBuy1clickViewHelper') && $theme_settings.plugin_fastorder == "buy1click"}
-                                        {if $_buy1click}
-                                            {shopBuy1clickViewHelper::getCartButton()}
-                                        {/if}
-
                                         <input name="checkout" type="submit" value="[`Proceed to checkout`]"
                                                class="button js-checkout-button-cart">
                                     </div>
@@ -410,3 +404,6 @@
             </div>
         </div>
 {/strip}
+<script>
+    $('.inner-wrap').addClass('bg-gray')
+</script>
