@@ -23,9 +23,6 @@
                     {$widthItemStep = floor(100/count($checkout_steps))}
                     {foreach $checkout_steps as $item_id => $s}
                         <a id="step-item-{$item_id}" style="width: {$widthItemStep}%" class="js-step-item step-item{if isset($_upcoming_flag)} upcoming{/if}{if $item_id == $checkout_current_step} current{/if}" data-step="{$item_id}" href="#">
-                            <div class="step-item_icon">
-                                <i class="fi-rr-icon step-item_icon-{$item_id}"></i>
-                            </div>
                             <span class="step-item_title">{$s.name}</span>
                         </a>
                         {if $item_id == $checkout_current_step}{$_upcoming_flag = 1}{/if}

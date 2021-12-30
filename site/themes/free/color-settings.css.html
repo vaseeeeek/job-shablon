@@ -70,7 +70,7 @@
     <style>
 
         body, .Product__features-title span, .tags.cloud a, .category-menu, .menu-subcategory, .inp-search input, .modal-content, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
-        .ui-slider-handle.ui-state-default, .ajax-search, .fixed-panel {
+        .ui-slider-handle.ui-state-default, .ajax-search, .fixed-panel, .sidear-mobile form#filter-body {
             background: {$panelBgColor} !important;
         }
 
@@ -92,14 +92,15 @@
         .Orders__Badge.-New,
         .Button__Primary,
         .pages .shop a.selected,
-        .Orders__Badge.-New{
+        .Orders__Badge.-New,
+        .My__Button--Pin{
             background: {$maincolor};
         }
 
         .sidebar-subcategories_el.selected >a{
             background: {$maincolor}33;
         }
-        .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link {
+        .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link, .My__Input--Pin {
             border: 1px solid{$scColor};
         }
         .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
@@ -227,7 +228,7 @@
 
         {if $btnTextColor}
         .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
-        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg{
+        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin{
             color: {$btnTextColor}
         }
 

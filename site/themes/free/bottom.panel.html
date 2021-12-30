@@ -68,8 +68,58 @@
                             </a>
                         {/if}
                         {if $_subcat}
-                            {$subcatFile = "nav.one_column.scat.html"}
-                            {include file=$subcatFile linkFullCatalog=true}
+                            {$subcatFile = "{$wa_theme_url}nav.one_column.scat.html"}
+{*                            {include file=$subcatFile linkFullCatalog=true}*}
+                            <div class="menu-subcategory js-subcategory-menu">
+                                <div class="MobileMenu_nav-header">
+                                    <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
+                                    <div class="cat-title">{$cat.name}</div>
+                                    <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                                </div>
+                                <div class="subcat-menu__item subcat-menu__item__full-products">
+                                    <a href="{$cat.url}">Все товары категории</a>
+                                </div>
+                                {foreach $cat.childs as $keyCatChild => $catChild_2}
+                                    {if !isset($catChild_2.params.menu_hide)}
+                                        {$_subcat_lvl2 = false}
+                                        {if count($catChild_2.childs) && $theme_settings.depth_subcategories > 2}
+                                            {foreach $catChild_2.childs as $catChild_3}
+                                                {if !isset($catChild_3.params.menu_hide)}
+                                                    {$_subcat_lvl2 = true}
+                                                {/if}
+                                            {/foreach}
+                                        {/if}
+                                        <div class="{if $_subcat_lvl2}js-subcatmenu-el has-subs{/if} subcat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
+                                            {if $_subcat_lvl2}
+                                                <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
+                                            {/if}
+
+                                            <a href="{$catChild_2.url}">{$catChild_2.name}</a>
+                                            {if $_subcat_lvl2}
+                                                <div class="menu-subcategory js-subcategory-menu">
+
+                                                    <div class="MobileMenu_nav-header">
+                                                        <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
+                                                        <div class="cat-title">{$catChild_2.name}</div>
+                                                        <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                                                    </div>
+
+                                                    <div class="subcat-menu__item subcat-menu__item__full-products">
+                                                        <a href="{$catChild_2.url}">Все товары категории</a>
+                                                    </div>
+                                                    {foreach $catChild_2.childs as $catChild_3}
+                                                        {if !isset($catChild_3.params.menu_hide)}
+                                                            <div class="subcat-menu__item">
+                                                                <a href="{$catChild_3.url}">{$catChild_3.name}</a>
+                                                            </div>
+                                                        {/if}
+                                                    {/foreach}
+                                                </div>
+                                            {/if}
+                                        </div>
+                                    {/if}
+                                {/foreach}
+                            </div>
                         {/if}
                     </div>
                 {/foreach}
@@ -110,14 +160,14 @@
                     <div class="MobileMenu_nav__lk">
                         <h4>Личный кабинет</h4>
                         <div class="mob-menu-lk">
-                            <a class="menu-element" href="/my">
+                            <a class="menu-element" href="{$wa->myUrl()}">
                                 {if $wa->user()->isAuth()}
                                     {$wa->user('firstname')|default:'[`My account`]'}
                                 {else}
                                     <span>Войти</span>
                                 {/if}
                             </a>
-                            {if shopAffiliate::isEnabled()}<a class="menu-element" href="/my/affiliate/">Партнерская программа</a>{/if}
+                            {if shopAffiliate::isEnabled()}<a class="menu-element" href="{$wa->myUrl()}affiliate/">Партнерская программа</a>{/if}
                         </div>
                     </div>
                 {/if}
@@ -296,6 +346,16 @@
                             <i class="fi-rr-phone"></i>
                             <span class="product-custom_icon__name">
                                 Позвонить
+                            </span>
+                        </a>
+                    </div>
+                {/if}
+                {if $btn == 'profile' && $wa->isAuthEnabled()}
+                    <div class="product-custom">
+                        <a class="product-custom_icon maincolor" href="{$wa->myUrl()}">
+                            <i class="fi-rr-user"></i>
+                            <span class="product-custom_icon__name">
+                                Профиль
                             </span>
                         </a>
                     </div>

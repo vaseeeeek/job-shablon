@@ -2770,10 +2770,6 @@ img.mfp-img {
   max-width: 100%
 }
 
-.out_sidebars {
-  margin-right: rem(40px);
-}
-
 
 .sb-wrap {
   margin: 0 0 rem(24px);
@@ -3459,6 +3455,7 @@ article, aside, footer, header, nav, section {
     padding: 0.5rem 0rem 0.5rem 0.8rem;
     font-weight: 700;
   }
+
   .MobileMenu_nav__catalog-title {
     padding: 1rem 0.5rem;
     font-size: 1.2rem;
@@ -4052,10 +4049,10 @@ article, aside, footer, header, nav, section {
 .fixed-panel {
   position: fixed;
   bottom: 0;
+  box-sizing: border-box;
   width: 100%;
   left: 0;
   z-index: 110;
-  background: #fff;
   box-shadow: 0 2px 10px 0 rgb(0 0 0 / 12%);
   min-width: 300px;
   text-align: center;
@@ -4069,7 +4066,7 @@ article, aside, footer, header, nav, section {
   }
 
   .product-custom {
-    padding: 0.6rem 0;
+    padding: 12px 0 8px 0;
   }
 
   .product-custom_icon .icon {
@@ -4079,8 +4076,9 @@ article, aside, footer, header, nav, section {
   }
 
   .product-custom_icon__name {
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 3px;
   }
 
   .product-custom a {
@@ -4112,6 +4110,11 @@ article, aside, footer, header, nav, section {
   }
 }
 
+@media (max-width: 320px) {
+  .fixed-panel .product-custom_icon__name{
+    font-size: 9px;
+  }
+}
 .Brands__Box--Description {
   margin: 3rem 0 2rem;
   text-align: left
@@ -4396,6 +4399,7 @@ ul.pages {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
+
 .My__Balance--Title .My__Link--Balance {
   font-size: 1.3rem;
   font-weight: 700;
@@ -4488,18 +4492,6 @@ ul.pages {
   padding-bottom: 0;
 }
 
-#themeOverride .wa-field {
-  font-size: 0;
-  margin-bottom: 1.2rem;
-  transition: .3s all;
-}
-
-#themeOverride .wa-field > * {
-  display: inline-block;
-  font-size: 1.6rem;
-  vertical-align: middle;
-}
-
 #themeOverride .wa-name {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -4532,7 +4524,6 @@ ul.pages {
   border-radius: 0.2rem;
   box-shadow: none;
   display: block;
-  font-size: 1.4rem;
   font-family: inherit;
   margin: 0;
   max-width: 100%;
@@ -4547,7 +4538,7 @@ ul.pages {
 #themeOverride .wa-value .field > span {
   color: #bfbfbf;
   display: block;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   margin-bottom: 0.3rem;
   text-transform: uppercase;
 }
@@ -4584,21 +4575,15 @@ ul.pages {
 }
 
 #themeOverride .wa-value select {
-  box-sizing: content-box;;
-  appearance: none;
   outline: 0;
-  box-shadow: 0 0.2rem #e6e6e6;
   background-color: #fff;
-  border-bottom-left-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem;
   border: 1px solid #ebebeb;
   border-radius: 0.2rem;
-  background-size: 1rem 1rem;
-  font-size: 1.4rem;
   display: block;
   outline: 0;
   padding: 0.5rem 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .Title__Main.-With-Border {
@@ -4647,7 +4632,6 @@ ul.pages {
 
 #themeOverride .wa-login-form-wrapper .wa-login-form-fields .wa-field .wa-name, #themeOverride .wa-login-form-wrapper .wa-signup-form-fields .wa-field .wa-name, #themeOverride .wa-signup-form-wrapper .wa-login-form-fields .wa-field .wa-name, #themeOverride .wa-signup-form-wrapper .wa-signup-form-fields .wa-field .wa-name {
   color: #404040;
-  font-size: 1.3rem;
   font-weight: 700;
   margin: 0.5rem 0;
   width: 100%;
@@ -4659,12 +4643,6 @@ ul.pages {
   font-size: 0.857142857142857em;
   line-height: 1.166666666666667em;
   color: #888;
-}
-
-#themeOverride .wa-field > * {
-  display: inline-block;
-  font-size: 1.6rem;
-  vertical-align: middle;
 }
 
 @media (min-width: 37.5em) {
@@ -4687,7 +4665,7 @@ ul.pages {
 
 #themeOverride .wa-field > * {
   display: inline-block;
-  font-size: 1.6rem;
+  font-size: 1rem;
   vertical-align: middle;
 }
 
@@ -4700,6 +4678,36 @@ ul.pages {
   text-decoration: underline;
   font-size: 1.4rem;
   margin: 1rem 0 0 0;
+}
+.My__Message--Pin {
+  margin-bottom: 10px;
+}
+
+.My__Input--Pin {
+  border-radius: 0.2rem;
+  display: block;
+  font-family: inherit;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 1rem 1.6rem;
+  transition: .3s all;
+  width: 100%;
+  max-width: 200px;
+}
+
+.My__Button--Pin {
+  display: inline-block;
+  text-decoration: none;
+  transition: .3s all;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 400;
+  padding: 10px;
+  max-width: 145px;
+  margin-top: 12px;
 }
 
 .-Close {
