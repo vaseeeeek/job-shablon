@@ -3498,6 +3498,12 @@ article, aside, footer, header, nav, section {
 		display: none;
 }
 
+.MobileMenu .MobileMenu_nav__other .menu-element > a {
+		padding: 0.5rem 0rem 0.5rem 0.8rem;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+}
 .MobileMenu .header_lang {
 		padding: 0.5rem 0rem 0.5rem 0.8rem;
 		font-weight: 700;
@@ -3539,7 +3545,6 @@ article, aside, footer, header, nav, section {
 }
 .MobileMenu .MobileMenu_nav-m ul > li {
 		display: block;
-		padding: 0.5rem 0rem 0.5rem 0.8rem;
 		position: relative;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
