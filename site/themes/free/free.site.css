@@ -1104,6 +1104,10 @@ ul.tree ul a {
 		max-width: 400px;
 }
 
+.My__Page--Profile .wa-form {
+		max-width: initial;
+}
+
 .wa-form .wa-field {
 		margin: 0 0 1.071rem;
 		clear: none !important;
@@ -2536,8 +2540,20 @@ img.mfp-img {
 .inp-search > i {
 		position: absolute;
 		font-size: 1.429rem;
-		right: 0.714rem;
-		top: 0.714rem;
+		cursor: pointer;
+		height: 100%;
+		top: 0;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		width: 5.429rem;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		right: 0;
 }
 
 .Nav-search input.Nav-inp-search {
@@ -2546,10 +2562,8 @@ img.mfp-img {
 		padding: 0 3.571rem 0 1.071rem;
 		position: relative;
 		border-radius: 3px;
-		border: 1px solid transparent;
 		-webkit-transition: all 0.3s ease 0s;
 		transition: all 0.3s ease 0s;
-		background-color: #f2f3f5 !important;
 }
 
 .ajax-search-all {
@@ -4513,10 +4527,11 @@ ul.pages {
 				width: 40%;
 		}
 }
+#themeOverride .order-wrap .wa-name {
+		width: initial;
+}
+
 #themeOverride #wa-my-info-wrapper #wa-my-info-read-wrapper .wa-value {
-		font-size: 1.4rem;
-		min-height: 3.8rem;
-		padding: 1.1rem 1.7rem;
 		-webkit-box-sizing: border-box;
 		        box-sizing: border-box;
 }
@@ -4725,6 +4740,16 @@ ul.pages {
 		margin-top: 12px;
 }
 
+@media (min-width: 37.5em) {
+		#themeOverride .My__Page--Profile .wa-name {
+				margin-bottom: 0;
+				width: 40%;
+		}
+
+		#themeOverride .My__Page--Profile .wa-value {
+				width: 60%;
+		}
+}
 .-Close {
 		display: none !important;
 }

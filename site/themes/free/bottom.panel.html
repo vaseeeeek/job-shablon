@@ -158,7 +158,7 @@
                 {/if}
                 {if $wa->isAuthEnabled()}
                     <div class="MobileMenu_nav__lk">
-                        <h4>Личный кабинет</h4>
+                        <a href="/my/"><h4>Личный кабинет</h4></a>
                         <div class="mob-menu-lk">
                             <a class="menu-element" href="{$wa->myUrl()}">
                                 {if $wa->user()->isAuth()}

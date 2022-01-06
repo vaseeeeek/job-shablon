@@ -93,8 +93,10 @@
         .Button__Primary,
         .pages .shop a.selected,
         .Orders__Badge.-New,
-        .My__Button--Pin{
+        .My__Button--Pin,
+        .inp-search > i {
             background: {$maincolor};
+            border-radius: 0 3px 3px 0;
         }
 
         .sidebar-subcategories_el.selected >a{
@@ -114,7 +116,7 @@
             border: 1px solid{$scColor};
         }
 
-        .option-color_outer._without-text.checked {
+        .option-color_outer._without-text.checked, .Nav-search input.Nav-inp-search {
             border: 2px solid {$scColor};
         }
 
@@ -228,7 +230,7 @@
 
         {if $btnTextColor}
         .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
-        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin{
+        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .inp-search > i{
             color: {$btnTextColor}
         }
 
