@@ -7,7 +7,7 @@
     {/if}
 
     <!DOCTYPE html>
-    <html lang="ru" style="font-size: {$theme_settings.font_size_html}!important;">
+    <html lang="ru" style="font-size: {$theme_settings.font_size_html};">
     <head prefix="og: http://ogp.me/ns#{if  isset($action) &&  $action == 'product'} product: http://ogp.me/ns/product#{/if}">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -282,7 +282,7 @@
                         </a>
                     </div>
                 {/if}
-                {if $theme_settings.dislay_payment_footer}
+                {if $theme_settings.show_payment_footer}
                     <div class="footer_payment">
                         <div class="footer_payment_list">
                             <div class="footer_payment_item">
@@ -360,8 +360,8 @@
                                     <i class="fa fi-rr-vk" aria-hidden="true"></i>
                                 </a>
                             {/if}
-                            {if !empty($theme_settings.odnoclassniki)}
-                                <a target="_blank" class="footer-social_item" href="{$theme_settings.odnoclassniki}">
+                            {if !empty($theme_settings.odnoklassniki)}
+                                <a target="_blank" class="footer-social_item" href="{$theme_settings.odnoklassniki}">
                                     <i class="fa fi-rr-odnok" aria-hidden="true"></i>
                                 </a>
                             {/if}

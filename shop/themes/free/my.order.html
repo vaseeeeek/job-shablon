@@ -72,16 +72,7 @@
             <!-- payment plugin output -->
             <div class="Orders__Plugins">
                 {if !empty($payment)}
-                    {if $theme_settings.third_party_checkpay_enabled|default:false and class_exists('shopCheckpayPlugin')}
-                        {$temp = shopCheckpayPlugin::myOrder($order.id)}
-                        {if $temp.result}
-                            <div class="Checkout__Plugin">{$temp.message}</div>
-                        {else}
-                            <div class="Checkout__Plugin">{$payment}</div>
-                        {/if}
-                    {else}
-                        <div class="Checkout__Plugin">{$payment}</div>
-                    {/if}
+                    <div class="Checkout__Plugin">{$payment}</div>
                 {/if}
             </div>
         {/if}
@@ -103,10 +94,6 @@
         </div>
         <ul class="checkout-order-list">
             {foreach $order.items as $item}
-                {if $theme_settings.danger_price_unit}
-                    {$product_object = $wa->shop->product($item.product_id)}
-                    {$_product_object_features = $product_object.features}
-                {/if}
                 <li class="checkout-order-list-item -product{if $item.type == 'service'} service{/if}" data-id="{$item.id}">
                     <div class="checkout-order-list-name">
                         <a href="{$wa->shop->productUrl($wa->shop->product($item.product_id))}" class="Orders__Link--Single">
@@ -119,13 +106,6 @@
                         {strip}
                             <span class="gray">
                 {shop_currency_html($item.price, $order.currency)}
-                                {if $theme_settings.danger_price_unit}
-                                    <span class="Product__Price--Unit">
-                    {if $_price_unit = $_product_object_features[$theme_settings.danger_price_unit_feature_id|default:'yedinitsa_izmereniya']|default:false}
-                        {$theme_settings.danger_price_unit_divider|default:''}{$_price_unit}
-                    {/if}
-                  </span>
-                                {/if}
                 &nbsp;&times;
               </span>&nbsp;{$item.quantity}
                         {/strip}

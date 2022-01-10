@@ -4,7 +4,7 @@
         {$_lazy = true}
         <ul class="js-list-categories categories cat-tile-list" data-lazy="{$_lazy}">
             {foreach $categories as $cat}
-                <li class="categories-tile -{$theme_settings.category_row_home}">
+                <li class="categories-tile -{$setting_cat_in_row}">
                     <a href="{$cat.url}" class="js-cat-link">
                         <div class="cat-tile_image">
                             {if isset($Wmimages[$cat.id].image)}

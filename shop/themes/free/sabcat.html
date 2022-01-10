@@ -1,6 +1,6 @@
 {strip}
 {if count($category.subcategories) > 0}
-    <div class="js-cat_sub" data-save-filters="true">
+    <div class="js-cat_sub cat-tile-list--category" data-save-filters="true">
         {if isset($category.params.sub_view) && !empty($category.params.sub_view)}
             {$sub_view = $category.params.sub_view}
         {/if}
@@ -13,7 +13,7 @@
             {$sub_view = $theme_settings.cat_view_subs}
         {/if}
         {if $sub_view == 'image'}
-            {include file="categories.grid.html" categories=$category.subcategories}
+            {include file="categories.grid.html" categories=$category.subcategories setting_cat_in_row=$theme_settings.category_row_cat}
         {else if $sub_view == 'icon'}
             {include file="sabcat.icons.html"}
         {else}

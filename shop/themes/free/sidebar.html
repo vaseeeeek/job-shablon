@@ -27,15 +27,17 @@
                 {/if}
             {/strip}
         {/if}
-        {if !empty($filters)}
-            {if !isset($filters)}{$filters = []}{/if}
-            {include file="`$wa_active_theme_path`/sb.filter.html" filter=$filters}
-        {/if}
+        {if $wa->param('action') != 'page'}
+            {if !empty($filters)}
+                {if !isset($filters)}{$filters = []}{/if}
+                {include file="`$wa_active_theme_path`/sb.filter.html" filter=$filters}
+            {/if}
 
-        {include file="`$wa_active_theme_path`/sidebar.cat.html"}
+            {include file="`$wa_active_theme_path`/sidebar.cat.html"}
 
-        {if $theme_settings.show_tags_sb}
-            {include file="`$wa_active_theme_path`/sb.tags.html"}
+            {if $theme_settings.show_tags_sb}
+                {include file="`$wa_active_theme_path`/sb.tags.html"}
+            {/if}
         {/if}
     </aside>
 {/strip}

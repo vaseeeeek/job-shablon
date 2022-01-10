@@ -15,7 +15,9 @@ html {
   font-size: 14px;
   height: 100%;
 }
-
+div {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   background-color: #ffffff;
@@ -2202,7 +2204,7 @@ img.mfp-img {
 
 .product-msg-added-wrap {
   position: fixed;
-  bottom: 10px;
+  bottom: 30px;
   width: 180px;
   right: 10px;
   display: none;
@@ -2221,7 +2223,7 @@ img.mfp-img {
 }
 
 .product-msg-added-wrap--cart {
-  right: 10px;
+  right: 30px;
 }
 
 .product-added-msg {
@@ -2759,8 +2761,8 @@ img.mfp-img {
   flex: 1 0 auto;
 
   &.bg-gray {
-    margin-top: 0;
-    padding-top: 1rem;
+    margin: 0;
+    padding: 1rem 0;
     background: #f7f8f9;
   }
 }
@@ -2847,7 +2849,10 @@ img.mfp-img {
 }
 
 .tags_all {
-  margin: 0 0 rem(24px)
+  margin: 0 0 rem(24px);
+  .link-half--act{
+    font-size: 0.95rem;
+  }
 }
 
 .tags_all:before {
@@ -3606,7 +3611,7 @@ article, aside, footer, header, nav, section {
   .currency_list {
     right: initial;
     left: 70px;
-    bottom: 100%;
+    bottom: -60px;
   }
 
   .currency_item.fi-rr-caret-down:before {

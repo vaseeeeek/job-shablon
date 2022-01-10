@@ -44,10 +44,6 @@
                 <th></th>
                 {$product_names = ''}
                 {foreach $products as $p}
-                    {if $theme_settings.danger_price_unit}
-                        {$product_object = $wa->shop->product($p.id)}
-                        {$_product_object_features = $product_object.features}
-                    {/if}
                     <td>
                         <a class="Compare__Link--Remove compare-remove js-compare-add active" id="compare-delete" href="{$p.delete_url}"
                            title="[`Remove from comparison list`]" data-product="{$p.id}">
@@ -78,25 +74,11 @@
                                 <span class="Product__Price--Inline compare-at-price">
                                   {shop_currency_html($p.compare_price)}
                                 </span>
-                                {if $theme_settings.danger_price_unit}
-                                    <span class="Product__Price--Unit">
-                                        {if $_price_unit = $_product_object_features[$theme_settings.danger_price_unit_feature_id|default:'yedinitsa_izmereniya']|default:false}
-                                            {$theme_settings.danger_price_unit_divider|default:''}{$_price_unit}
-                                        {/if}
-                                      </span>
-                                {/if}
                             </div>
                         {/if}
 
                         {strip}
                             <span class="price nowrap">{shop_currency_html($p.price)}</span>
-                            {if $theme_settings.danger_price_unit}
-                                <span class="Product__Price--Unit">
-                  {if $_price_unit = $_product_object_features[$theme_settings.danger_price_unit_feature_id|default:'yedinitsa_izmereniya']|default:false}
-                      {$theme_settings.danger_price_unit_divider|default:''}{$_price_unit}
-                  {/if}
-                </span>
-                            {/if}
                         {/strip}
                     </td>
                 {/foreach}

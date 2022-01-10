@@ -25,7 +25,7 @@
                 {if $theme_settings.total_max_maxcat_homepage}
                     {include file="home.scat.html" categories=$categories}
                 {else}
-                    {include file="categories.grid.html" categories=$categories}
+                    {include file="categories.grid.html" categories=$categories setting_cat_in_row=$theme_settings.category_row_home}
                 {/if}
             </div>
         </div>

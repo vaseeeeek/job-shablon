@@ -2278,6 +2278,7 @@ var main = {
         $('body').click(function (e) {
             var popup = $(".js-ajax-search-result");
             if (!$('.js-ajax-search').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
+                console.log('11111')
                 popup.hide();
             }
         });

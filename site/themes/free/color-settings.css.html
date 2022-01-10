@@ -70,7 +70,7 @@
     <style>
 
         body, .Product__features-title span, .tags.cloud a, .category-menu, .menu-subcategory, .inp-search input, .modal-content, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
-        .ui-slider-handle.ui-state-default, .ajax-search, .fixed-panel, .sidear-mobile form#filter-body {
+        .ui-slider-handle.ui-state-default, .ajax-search, .fixed-panel, .sidear-mobile form#filter-body, .sidear-mobile .filter__submit {
             background: {$panelBgColor} !important;
         }
 
@@ -93,10 +93,8 @@
         .Button__Primary,
         .pages .shop a.selected,
         .Orders__Badge.-New,
-        .My__Button--Pin,
-        .inp-search > i {
+        .My__Button--Pin{
             background: {$maincolor};
-            border-radius: 0 3px 3px 0;
         }
 
         .sidebar-subcategories_el.selected >a{
@@ -112,15 +110,11 @@
             border-bottom: 1px dashed;
             color: {$scColor};
         }
-        input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover, .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover {
+        input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover, .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover, .option-color_outer.checked .filter-option-color {
             border: 1px solid{$scColor};
         }
 
-        .option-color_outer._without-text.checked, .Nav-search input.Nav-inp-search {
-            border: 2px solid {$scColor};
-        }
-
-        .Product-grid_action .product-action:hover, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active {
+        .Product-grid_action .product-action:hover, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active, .df-block.product-top-actions .product-action.active {
             color: {$scColor};
         }
 
@@ -199,12 +193,6 @@
             border-top: 1px solid{$scColor};
         }
 
-        {if $theme_settings.color_badge_discount}
-        .product-discount {
-            color: {$theme_settings.color_badge_discount};
-        }
-
-        {/if}
         {if $textColor}
         body, body .link, body a, body .price, body .rating.-zero icon10.star:hover,
         body .star-rating-empty.star, body .star-rating-empty.star-hover,
@@ -230,7 +218,7 @@
 
         {if $btnTextColor}
         .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
-        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .inp-search > i{
+        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin{
             color: {$btnTextColor}
         }
 
