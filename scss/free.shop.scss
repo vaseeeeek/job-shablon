@@ -4106,14 +4106,14 @@ img.pswp__img {
 }
 
 @media (max-width: 780px) {
-  .cat-tile-list {
+  .homepage-categories .cat-tile-list {
     text-align: center;
     justify-content: space-between;
     margin: 0;
   }
 
   .categories-tile {
-    margin: 0 0 rem(10px) 0;
+    margin: 0;
     width: 47% !important
   }
 

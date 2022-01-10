@@ -4105,7 +4105,7 @@ img.pswp__img {
 		}
 }
 @media (max-width: 780px) {
-		.cat-tile-list {
+		.homepage-categories .cat-tile-list {
 				text-align: center;
 				-webkit-box-pack: justify;
 				    -ms-flex-pack: justify;
@@ -4114,7 +4114,7 @@ img.pswp__img {
 		}
 
 		.categories-tile {
-				margin: 0 0 0.714rem 0;
+				margin: 0;
 				width: 47% !important;
 		}
 
