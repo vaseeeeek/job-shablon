@@ -168,6 +168,7 @@
                     let imgObjProducts = new Object();
                 }
             </script>
+
             {foreach $products as $p}
                 {if isset($all_skus) && !empty($all_skus) && isset($all_skus[$p.id])}
                     {$skus = $all_skus[$p.id]}

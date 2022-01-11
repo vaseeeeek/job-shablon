@@ -1,7 +1,7 @@
 {strip}
 {if $theme_settings.homepage_type_slider_mode == 'promos'}
     {if count($mPromoCards) > 0}
-        <div class="slider-outer js-slider-outer slider-outer--photos">
+        <div class="slider-outer js-slider-outer slider-outer--photos slider-outer--home">
             <div class="js-home-slider owl-carousel home-slider-photos" data-pause="0" data-type="">
                 {foreach $mPromoCards as $item}
                     {if !empty($theme_settings.image_mainpage_preload) && !empty($item@first) && !empty($item.image)}

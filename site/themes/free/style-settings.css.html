@@ -134,10 +134,13 @@
 
 
         {if $theme_settings.border_radius}
-            .nav-cat-btn, .admin-edit-links__el,
-            .product_options .select-v-inline a.selected, .product_add2cart .addtocart,
+            .nav-cat-btn, .admin-edit-links__el, .product_add2cart .addtocart, .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section .wa-input, .wa-button,
             .wa-submit-button, .addtocart--mini, .filter-el--btns input[type="submit"], .Product-grid_cart .button, .main-slider_item-btn, .product-added-msg, .My__Button--Pin, .sidear-mobile form#filter-body.show .filter__submit input[type=submit]{
                 border-radius: {$theme_settings.border_radius}px;
+            }
+
+            .product_options .select-v-inline a{
+                border-radius: {$theme_settings.border_radius * 2}px;
             }
         {/if}
         {if $theme_settings.border_radius}

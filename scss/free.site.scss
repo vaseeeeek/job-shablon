@@ -757,14 +757,14 @@ input[type=checkbox], input[type=radio] {
   border-right: none
 }
 
-.ruble {
-  visibility: collapse
-}
-
-.ruble:before {
-  content: "\20BD";
-  visibility: visible
-}
+//.ruble {
+//  visibility: collapse
+//}
+//
+//.ruble:before {
+//  content: "\20BD";
+//  visibility: visible
+//}
 
 figure {
   margin: 0 0 rem(20px)
@@ -1437,7 +1437,7 @@ iframe {
   text-decoration: line-through
 }
 
-.comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover {
+.comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover, .star-empty {
   font: normal normal normal 16px/1 free-font;
   vertical-align: middle
 }
@@ -1451,9 +1451,10 @@ iframe {
   display: none
 }
 
-.star-rating-empty.icon10, .star-half.icon10, .star-hover.icon10, .star.icon10 {
+.star-rating-empty.icon10, .star-half.icon10, .star-hover.icon10, .star.icon10, .star-empty {
   font-size: rem(14px);
   text-indent: 0;
+  display: inline-flex;
   width: 12px;
   height: 14px;
   background: none;
@@ -1475,6 +1476,11 @@ iframe {
   color: #000;
   content: "\e900"
 }
+.star-empty:before {
+  font-family: 'free-font';
+  color: #e2e2e2;
+  content: "\e900"
+}
 
 .rating.-zero .star:before {
   color: #e2e2e2;
@@ -1482,10 +1488,6 @@ iframe {
 
 .star-rating-empty:before {
   content: "\e900"
-}
-
-.star-empty:before {
-  color: #e2e2e2;
 }
 
 .star-half:before {
@@ -3930,10 +3932,16 @@ article, aside, footer, header, nav, section {
   .product-custom {
     position: relative;
     display: inline-block;
-  }
+    width: 61px;
 
-  .product-custom:not(:first-child) {
-    padding: 0 0 0 rem(20px);
+    .js-products-link>span {
+      max-width: 61px;
+      overflow-x: hidden;
+    }
+
+    &:not(:last-child){
+      margin-right: 12px;
+    }
   }
 
   .product-custom--link, {

@@ -145,8 +145,9 @@
                     && $p.min_price
                     && $p.max_price > $p.min_price)
                     && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
-                        <span class="small-price"><span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span
-                                    class="nowrap">{shop_currency_html($p.max_price)}</span></span>
+                        <span class="small-price"><span class="nowrap">{shop_currency_html($p.min_price)}</span>
+                        <span class="small-price__dots">...</span>
+                        <span class="nowrap">{shop_currency_html($p.max_price)}</span></span>
                     {else}
                         <div class="nowrap price">{shop_currency_html($p.price)}</div>
                         {if $p.compare_price > 0}

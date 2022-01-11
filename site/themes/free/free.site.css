@@ -802,15 +802,6 @@ input[type=checkbox], input[type=radio] {
 		border-right: none;
 }
 
-.ruble {
-		visibility: collapse;
-}
-
-.ruble:before {
-		content: "₽";
-		visibility: visible;
-}
-
 figure {
 		margin: 0 0 1.429rem;
 }
@@ -1483,7 +1474,7 @@ iframe {
 		text-decoration: line-through;
 }
 
-.comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover {
+.comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover, .star-empty {
 		font: normal normal normal 16px/1 free-font;
 		vertical-align: middle;
 }
@@ -1497,9 +1488,12 @@ iframe {
 		display: none;
 }
 
-.star-rating-empty.icon10, .star-half.icon10, .star-hover.icon10, .star.icon10 {
+.star-rating-empty.icon10, .star-half.icon10, .star-hover.icon10, .star.icon10, .star-empty {
 		font-size: 1rem;
 		text-indent: 0;
+		display: -webkit-inline-box;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
 		width: 12px;
 		height: 14px;
 		background: none;
@@ -1522,16 +1516,18 @@ iframe {
 		content: "";
 }
 
+.star-empty:before {
+		font-family: "free-font";
+		color: #e2e2e2;
+		content: "";
+}
+
 .rating.-zero .star:before {
 		color: #e2e2e2;
 }
 
 .star-rating-empty:before {
 		content: "";
-}
-
-.star-empty:before {
-		color: #e2e2e2;
 }
 
 .star-half:before {
@@ -3942,9 +3938,14 @@ article, aside, footer, header, nav, section {
 .header .product-custom {
 		position: relative;
 		display: inline-block;
+		width: 61px;
 }
-.header .product-custom:not(:first-child) {
-		padding: 0 0 0 1.429rem;
+.header .product-custom .js-products-link > span {
+		max-width: 61px;
+		overflow-x: hidden;
+}
+.header .product-custom:not(:last-child) {
+		margin-right: 12px;
 }
 .header .product-custom--link {
 		display: -webkit-box;

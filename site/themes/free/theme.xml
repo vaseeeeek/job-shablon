@@ -116,7 +116,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="btn_text_color_scheme" control_type="color">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Цвет шрифта кнопок</name>
       <name locale="en_US"/>
     </setting>
@@ -1422,12 +1422,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="five_icon_img_header" control_type="text">
-      <value>&lt;i class="fi-rr-search icon"&gt;&lt;/i&gt;</value>
+      <value><![CDATA[]]></value>
       <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>
     <setting var="five_icon_text_header" control_type="text">
-      <value>Подпись</value>
+      <value><![CDATA[]]></value>
       <name locale="ru_RU">Подпись пятной кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>
