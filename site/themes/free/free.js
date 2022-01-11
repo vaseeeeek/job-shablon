@@ -2253,6 +2253,10 @@ var main = {
     autoSearch: function () {
         var input = $('.js-ajax-search');
 
+        $('.js-ajax-search-result').resize(function() {
+            input.closest('.inp-search').siblings('.inp-search--wrap').height(40 + $('.js-ajax-search-result').height() + 20);
+        });
+
         input.on("keyup", function () {
             var $this = $(this),
                 value = $this.val(),
@@ -2263,12 +2267,13 @@ var main = {
             if (value.length > 3) {
                 $.get(url + '?query=' + value + '&ajax=1', function (data) {
                     var content = $(data).find('.js-ajax-search');
-
                     outerBlockResult.html("");
                     if (content.length) {
                         outerBlockResult.show();
                         outerBlockResult.html(content);
+                        $('.Nav-search').css('box-shadow', '0 2px 8px 0 rgb(0 0 0 / 16%)');
                     } else {
+                        $('.Nav-search').css('box-shadow', 'none');
                         outerBlockResult.hide();
                     }
                 });
@@ -2278,8 +2283,8 @@ var main = {
         $('body').click(function (e) {
             var popup = $(".js-ajax-search-result");
             if (!$('.js-ajax-search').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
-                console.log('11111')
-                popup.hide();
+                $('.Nav-search').css('box-shadow', 'none');
+                popup.hide();;
             }
         });
     },

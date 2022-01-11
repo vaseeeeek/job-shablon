@@ -116,7 +116,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="btn_text_color_scheme" control_type="color">
-      <value/>
+      <value></value>
       <name locale="ru_RU">Цвет шрифта кнопок</name>
       <name locale="en_US"/>
     </setting>
@@ -1412,7 +1412,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="header_company_adress" control_type="text">
-      <value>Москва, ул. 8 Марта 115</value>
+      <value>Москва, щелковское шоссе 100</value>
       <name locale="ru_RU">Адрес</name>
       <name locale="en_US"/>
     </setting>

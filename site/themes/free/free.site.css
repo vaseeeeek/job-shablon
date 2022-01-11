@@ -2420,26 +2420,6 @@ img.mfp-img {
 		text-decoration: none;
 }
 
-.fi-rr-angle-small-right {
-		float: right;
-		font-size: 1.071rem;
-		cursor: pointer;
-		width: 40px;
-		height: 40px;
-		text-align: center;
-		line-height: 50px;
-		margin: 0 0 0 -2.857rem;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: center;
-		    -ms-flex-pack: center;
-		        justify-content: center;
-		-webkit-box-align: center;
-		    -ms-flex-align: center;
-		        align-items: center;
-}
-
 .subcat-opened__el .fi-rr-angle-small-right {
 		display: none;
 }
@@ -2537,9 +2517,12 @@ img.mfp-img {
 		display: table-cell;
 		width: 100%;
 		vertical-align: middle;
+		padding: 10px 10px 0 10px;
+		margin-top: -10px;
 }
 .Nav-search form {
 		margin-bottom: 0;
+		position: relative;
 }
 
 .inp-search > i {
@@ -2581,15 +2564,17 @@ img.mfp-img {
 
 .ajax-search-result {
 		position: absolute;
+		left: -10px;
 		z-index: 100;
-		width: 100%;
+		width: calc(100% + 20px);
 		border-radius: 3px;
-		-webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
-		        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+		padding: 0 10px 10px 10px;
+		background: #fff;
 }
 
 .inp-search {
 		position: relative;
+		z-index: 10;
 }
 
 .product-custom_short-count, .header__cart-count {
