@@ -1488,7 +1488,7 @@ iframe {
 		display: none;
 }
 
-.star-rating-empty.icon10, .star-half.icon10, .star-hover.icon10, .star.icon10, .star-empty {
+.star-rating-empty.icon10, .star-half.icon10, .star-hover.icon10, .star.icon10, .star-empty, .star {
 		font-size: 1rem;
 		text-indent: 0;
 		display: -webkit-inline-box;
