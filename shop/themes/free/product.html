@@ -310,11 +310,6 @@
                                     <h2>{sprintf('[`%s reviews`]', $product.name|escape)}</h2>
 
                                     {if !empty($rates)}
-                                        <p class="rating">
-                                            <span class="rating__text">[`Average customer rating:`]</span>
-                                            <span class="nowrap star-box">{$wa->shop->ratingHtml($product.rating, 16)}</span> (<a href="reviews/">{$reviews_total_count}</a>)
-                                            {if $product.rating > 0}<span class="hint product_rating-total">{sprintf('[`%s out of 5 stars`]', $product.rating)}</span>{/if}
-                                        </p>
                                         <div class="reviews__info">
                                             <div class="reviews__circle">
                                                 <div class="circle-progress">
