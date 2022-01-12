@@ -46,19 +46,14 @@
         {if $review.text}
             <div class="comment__text" itemprop="description">{$review.text}</div>
         {/if}
-        {if isset($review.images) && !empty($review.images)}
-            <div class="comment__photos comment__photos-{$review.id}">
-                <div class="feed-photos">
-                    <div class="feed-photos__list">
-                        {foreach $review.images as $_image}
-                            <div class="feed-photos__item">
-                                <a class="feed-photos__image" href="{$_image.url_0|escape}" title="{$_image.description|escape}" target="_blank">
-                                    <img class="feed-photos__img" src="{$_image.url_2|escape}" alt="{$_image.description|escape}" title="{$_image.description|escape}">
-                                </a>
-                            </div>
-                        {/foreach}
-                    </div>
-                </div>
+
+        {if !empty($review.images)}
+            <div class="review_images_list js-review_images_list owl-carousel">
+                {foreach $review.images as $_image}
+                    <a class="review_image-wrap js-show-image" href="{$_image.url_0|escape}" title="{$_image.description|escape}" target="_blank">
+                        <img class="review-image" src="{$_image.url_2|escape}" alt="{$_image.description|escape}">
+                    </a>
+                {/foreach}
             </div>
         {/if}
         {if $reply_allowed}
@@ -72,3 +67,53 @@
         </div>
     {/if}
 {/strip}
+
+<script>
+    ( function($) {
+        var $document = $(document),
+            $review = $(".reviews-wrap[data-id=\"" + {$review.id|escape} + "\"]");
+
+        $review.on("click", ".js-show-image", function(event) {
+            event.preventDefault();
+
+            var $image = $(this),
+                images = [];
+
+            $review.find(".js-show-image").each(function () {
+                var $_image = $(this);
+                images.push({
+                    href: $_image.attr("href"),
+                    title: escape($_image.attr("title"))
+                });
+            });
+
+            var k = $image.prevAll('.js-show-image').length;
+            if (k) {
+                images = images.slice(k).concat(images.slice(0, k));
+            }
+
+            $.swipebox(images, {
+                useSVG : false,
+                hideBarsDelay: false,
+                afterOpen: function() {
+                    $('#swipebox-overlay').addClass('opacity-black');
+                    $('#swipebox-bottom-bar').addClass("swipebox-bottom-bar--pos-center");
+                    $('#swipebox-arrows').addClass("swipebox-arrows--pos-center");
+
+                    $document.on("scroll", closeSwipe);
+                    function closeSwipe() {
+                        var $closeButton = $("#swipebox-close");
+                        if ($closeButton.length) {
+                            $closeButton.trigger("click");
+                        }
+                        $document.off("scroll", closeSwipe);
+                    }
+                }
+            });
+
+            function escape(string) {
+                return $("<div />").text(string).html();
+            }
+        });
+    })(jQuery);
+</script>
