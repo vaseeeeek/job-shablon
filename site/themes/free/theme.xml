@@ -360,7 +360,7 @@
       <name locale="en_US">Break categories into columns</name>
       <description locale="ru_RU">Для каждой категории первого уровня можно индивидуально настроить вид
                 выпадающего подменю, указав Дополнительный параметр "submenu_columns" со значениями: "one_column" (1
-                колонка), "columns" (несколько колонок)!!!удаляем настройку и функционал
+                колонка), "columns" (несколько колонок)!!!удаляем возможности с дополнительными параметрами и функционал
             </description>
       <description locale="en_US">For each category of the first level, you can customize the appearance of the
                 drop-down submenu by specifying an optional parameter "submenu_columns" with the values: "one_column",
@@ -781,8 +781,8 @@
     <setting var="preview_features_product" control_type="select">
       <value>short</value>
       <name locale="en_US">Characteristics in product lists</name>
-      <name locale="ru_RU">Характеристики в списке товаров</name>
-      <description locale="ru_RU">Используйте 2 настройки ниже в зависимости от выбранного вида.
+      <name locale="ru_RU">Характеристики в списке товаров!!!Пропал селект "Не выводить", в карточке товара на месте.</name>
+      <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от выбранного вида.
             </description>
       <description locale="en_US">Use the 2 settings below depending on the selected view.
             </description>
@@ -802,10 +802,10 @@
       </options>
     </setting>
     <setting var="codes_features_product" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of output characteristics</name>
-	  <description locale="ru_RU">Используйте 2 настройки ниже в зависимости от выбранного вида.
+      <description locale="ru_RU">Данная настройка используется в т.м.ч и для краткого списка характеристик в карточке товара. 
             </description>
     </setting>
     <setting var="preview_features_product_count" control_type="text">
@@ -825,7 +825,7 @@
     <setting var="tile_title_height" control_type="select">
       <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
-      <name locale="ru_RU">Высота блока с наименованием в превью (вид плиткой)!!!непонятно - нужно переименовать</name>
+      <name locale="ru_RU">Количество строк у товара (вид плиткой)!!!непонятно - нужно переименовать</name>
       <description locale="ru_RU">В пикселях</description>
       <description locale="en_US">Pixels</description>
       <options>
@@ -859,7 +859,7 @@
     <setting var="tile_mobile_title_height" control_type="select">
       <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
-      <name locale="ru_RU">Высота блока с наименованием в превью (вид плиткой)!!!непонятно - нужно переименовать</name>
+      <name locale="ru_RU">Количество строк у товара на мобильном (вид плиткой)!!!непонятно - нужно переименовать</name>
       <description locale="ru_RU">В пикселях</description>
       <description locale="en_US">Pixels</description>
       <options>
@@ -994,13 +994,9 @@
       <value>short</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
-      <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик
-                в списках товаров и в карточку товара (блок справа)". Если выбран вариант "Первые характеристики", то
-                необходимо заполнить опцию "Количество выводимых характеристик"
+      <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых характеристик" в разделе "Карточка в списке товаров". 
 				</description>
-      <description locale="en_US">For short list necessary to fill out the setting "Codes of output
-                characteristics in the lists of goods and in the product card (block on the right)". If you select the
-                "First Characteristics" option, you must fill out the "Number of Output Characteristics"
+      <description locale="en_US">If there are specific characteristics, then fill in the "Output characteristics codes" setting in the "Card in the list of products" section.
             </description>
       <options>
         <option value="none">
@@ -1034,9 +1030,9 @@
       <value>1</value>
       <name locale="ru_RU">Бренд картинкой</name>
       <name locale="en_US">Brand by picture</name>
-      <description locale="ru_RU">Требуется плагин "Бренды с картинками и описаниями"
+      <description locale="ru_RU">С плагином "Бренды с картинками и описаниями"
             </description>
-      <description locale="en_US">The plugin "Brands with pictures and descriptions" is required
+      <description locale="en_US">With the plugin "Brands with pictures and descriptions"
             </description>
     </setting>
     <setting var="brand_id" control_type="text">
@@ -1050,31 +1046,17 @@
       <value><![CDATA[<script src="https://yastatic.net/share2/share.js"></script>
 <div class="ya-share2" data-curtain data-shape="round" data-limit="0" data-more-button-type="long" data-more-button-type="short" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,moimir"></div>]]></value>
       <name locale="en_US">Share from Yandex</name>
-      <name locale="ru_RU">Поделиться от Яндекса!!!как работает?</name>
+      <name locale="ru_RU">Поделиться от Яндекса</name>
       <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
       <description locale="en_US">You can generate the code on https://tech.yandex.ru/share/</description>
     </setting>
     <setting var="product_page_main_description_desktop" control_type="text">
       <value>description,features,reviews,add,pages</value>
-      <name locale="ru_RU">Вкладки в карточке товара</name>
+      <name locale="ru_RU">Вкладки в карточке товара!!!удалить из кода add</name>
       <name locale="en_US">Tabs in the product card</name>
-      <description locale="ru_RU">Укажите через запятую алиасы содержимого: &lt;br /&gt;
-                description - описание; &lt;br /&gt;
-                features - характеристики;;&lt;br /&gt;
-                reviews - отзывы; &lt;br /&gt;
-                comments_vk - виджет отзывов вконтакте; &lt;br /&gt;
-                comments_fb - виджет отзывов фейсбука; &lt;br /&gt;
-                add - дополнительная вкладка (создается в приложении Сайт - Блок); &lt;br /&gt;
-                pages - дополнительные страницы товара.
+      <description locale="ru_RU">Рекомендуемое - description,features,reviews,pages
             </description>
-      <description locale="en_US">Enter comma-separated content aliases: &lt;br /&gt;
-                description - description; &lt;br /&gt;
-                features - features;;&lt;br /&gt;
-                reviews - reviews; &lt;br /&gt;
-                comments_vk - widget reviews of vk; &lt;br /&gt;
-                comments_fb - widget reviews of facebook; &lt;br /&gt;
-                add - additional tab (create in app Site - Blocks); &lt;br /&gt;
-                pages - additional pages of product.
+      <description locale="en_US">Recommended - description,features,reviews,pages
             </description>
     </setting>
     <setting var="plugin_hook_block_in_product" control_type="select">
@@ -1148,7 +1130,7 @@
     <setting var="product_add_tab_title" control_type="text">
       <value/>
       <name locale="en_US">Additional tab name</name>
-      <name locale="ru_RU">Наименование дополнительной вкладки</name>
+      <name locale="ru_RU">Наименование дополнительной вкладки!!!удаляем функционал</name>
       <description locale="ru_RU">Содержимое вкладки заполняется через Блоки в приложении Сайт. ID блока
                 "product_addinfo"
             </description>
@@ -1182,14 +1164,14 @@
       <name locale="en_US">View product selection skus - Select</name>
     </setting>
     <setting var="product_show_multi_radio_sku_separately" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок!!!как работает - просто показывает артикул рядом с селектом</name>
+      <value>1</value>
+      <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок!!!удаляем</name>
       <name locale="en_US">Remove items separately from purchase options</name>
     </setting>
     <setting var="hide_option_not_available" control_type="checkbox">
       <value/>
       <name locale="en_US">Hide articles inaccessible articles</name>
-      <name locale="ru_RU">Скрыть артикулы недоступные артикулы</name>
+      <name locale="ru_RU">Скрыть артикулы недоступные артикулы!!!удаляем</name>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
       <value>1</value>
@@ -1224,7 +1206,7 @@
     <setting var="cart_products_cross_selling" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Cross-selling in cart</name>
-      <name locale="ru_RU">Рекомендуемые товары в корзине!!!сделать всегда?это же вроде зависит от настроек оформления заказа? - как я понимаю это для пошаговой, она не вебасистовская</name>
+      <name locale="ru_RU">Рекомендуемые товары в корзине!!!удаляем настройку и весь блок настроек Корзина</name>
     </setting>
     <setting var="paragraph_footer" control_type="group_divider">
       <value/>
@@ -1293,7 +1275,7 @@
     <setting var="image_mainpage_preload" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Preloading the first slide image on the main page</name>
-      <name locale="ru_RU">Предзагрузка картинки первого слайда на главной странице</name>
+      <name locale="ru_RU">Предзагрузка картинки первого слайда на главной странице!!!всегда</name>
       <description locale="en_US">Option is useful for quickly displaying the largest item on the home screen
             </description>
       <description locale="ru_RU">Опция полезна для быстрого отображения самого большого элемента на главном
@@ -1303,7 +1285,7 @@
     <setting var="product_preload_image" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Preloading the first image in the product card</name>
-      <name locale="ru_RU">Предзагрузка первой картинки в карточке товара</name>
+      <name locale="ru_RU">Предзагрузка первой картинки в карточке товара!!!всегда</name>
       <description locale="en_US">Option is useful for quickly displaying the largest item on the home screen
             </description>
       <description locale="ru_RU">Опция полезна для быстрого отображения самого большого элемента на главном
@@ -1313,23 +1295,19 @@
     <setting var="load_file_custom" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Load file custom styles</name>
-      <name locale="ru_RU">Загружать файл кастомных стилей!!!всегда да? - а нах если пустой а человек будет писать в кустом в блоках</name>
-      <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks -
-                Block custom_styles
+      <name locale="ru_RU">Загружать файл free.custom.css</name>
+      <description locale="en_US">Custom styles from the file. But we recommend using the id custom_styles block
             </description>
-      <description locale="ru_RU">Кастомные скрипты рекомендуется добавлять через прилоежние Сайт - Блоки - Блок с
-                id custom_styles
+      <description locale="ru_RU">Собственные стили из файла. Но мы рекомендуем использовать блок id custom_styles
             </description>
     </setting>
     <setting var="load_custom_js" control_type="checkbox">
       <value/>
       <name locale="en_US">Load file custom js scripts</name>
-      <name locale="ru_RU">Загружать файл кастомных js-скриптов!!!всегда да? - а нах если пустой</name>
-      <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks -
-                Block footer_codes
+      <name locale="ru_RU">Загружать файл free.custom.js</name>
+      <description locale="en_US">Custom styles from the file. But we recommend using the id footer_codes block
             </description>
-      <description locale="ru_RU">Кастомные скрипты рекомендуется добавлять через прилоежние Сайт - Блоки - Блок с
-                id footer_codes
+      <description locale="ru_RU">Собственные стили из файла. Но мы рекомендуем использовать блок id footer_codes
             </description>
     </setting>
     <setting var="paragraph_other" control_type="group_divider">

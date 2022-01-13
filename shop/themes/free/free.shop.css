@@ -4175,6 +4175,12 @@ img.pswp__img {
 
 .product_share {
 		margin-left: 1.5rem;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: end;
+		    -ms-flex-align: end;
+		        align-items: flex-end;
 }
 .product_share .ya-share2__link_more .ya-share2__title {
 		font-size: 0.95rem;
