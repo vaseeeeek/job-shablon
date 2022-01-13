@@ -2335,6 +2335,12 @@ img.mfp-img {
   border-top: none
 }
 
+.Nav__Primary-outer .cat-menu__item {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
 .cat-menu__item.pos-rel {
   position: relative
 }
@@ -3552,11 +3558,11 @@ article, aside, footer, header, nav, section {
     height: 21px;
     text-align: center;
     font-size: 1.7rem;
-    line-height: 30px;
     color: rgba(0, 0, 0, 0.87);
     position: absolute;
     right: 0;
     width: 100%;
+    display: flex;
     justify-content: flex-end;
     padding: 0.6rem 13px 0.6rem 0.8rem;
   }

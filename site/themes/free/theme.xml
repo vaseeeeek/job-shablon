@@ -119,6 +119,7 @@
       <value/>
       <name locale="ru_RU">Цвет шрифта кнопок</name>
       <name locale="en_US"/>
+      <description locale="ru_RU">По-умолчанию белый, если основной цвет тусклый, то меняйте на тёмный.</description>
     </setting>
     <setting var="border_radius" control_type="text">
       <value>4</value>
@@ -128,6 +129,7 @@
     <setting var="font" control_type="select">
       <value>roboto</value>
       <name locale="ru_RU">Шрифт</name>
+      <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.</description>
       <options>
         <option value="helvetica">
           <name locale="ru_RU">Helvetica</name>
@@ -358,8 +360,7 @@
       <name locale="en_US">Break categories into columns</name>
       <description locale="ru_RU">Для каждой категории первого уровня можно индивидуально настроить вид
                 выпадающего подменю, указав Дополнительный параметр "submenu_columns" со значениями: "one_column" (1
-                колонка), "columns" (несколько колонок)!!! - функцию сейчас включил и указал в категории растения
-                значение one_column, чекай
+                колонка), "columns" (несколько колонок)!!!удаляем настройку и функционал
             </description>
       <description locale="en_US">For each category of the first level, you can customize the appearance of the
                 drop-down submenu by specifying an optional parameter "submenu_columns" with the values: "one_column",
@@ -529,7 +530,7 @@
     <setting var="brands_mainpage" control_type="select">
       <value>all</value>
       <name locale="en_US">Brands on homepage</name>
-      <name locale="ru_RU">Бренды на главной!!че это за настройка, почему недостаточно той что выше</name>
+      <name locale="ru_RU">Бренды на главной!!!бренды про не работает</name>
       <options>
         <option value="all">
           <name locale="ru_RU">Выводить все</name>
@@ -565,7 +566,7 @@
     <setting var="home_blog_img_lazy" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Lazy images of categories in blog</name>
-      <name locale="ru_RU">Ленивая загрузка картинок в новостях</name>
+      <name locale="ru_RU">Ленивая загрузка картинок в новостях!!!удаляем так как нет блога</name>
     </setting>
     <setting var="paragraph_catalog" control_type="group_divider">
       <value/>
@@ -603,7 +604,7 @@
       <name locale="ru_RU">Быстрый просмотр</name>
     </setting>
     <setting var="product_modal_photo" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Minimum type of product option selection</name>
       <name locale="ru_RU">Минимальный вид выбора опций товара!!!- если нажимаешь купить в списке на товар с
                 несколькими артикулами, при включенной настройке, нет картинке
@@ -1549,7 +1550,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="font_size_html" control_type="text">
-      <value><![CDATA[14px]]></value>
+      <value>14px</value>
       <name locale="ru_RU">
         Основной размер шрифта (Рекомендуемый 14px)
       </name>

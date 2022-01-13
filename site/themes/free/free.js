@@ -1582,7 +1582,8 @@ var itemGallery = {
             img.bxSlider({
                 mode: 'vertical',
                 slideWidth: 70,
-                minSlides: img.data('min-items'),
+                //minSlides: img.data('min-items'),
+                minSlides: Math.trunc($('.product_gallery-images-main-img').height() / 76),
                 slideMargin: 6,
                 pager: false,
                 nextText: '',

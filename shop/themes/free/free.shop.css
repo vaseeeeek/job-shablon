@@ -172,7 +172,6 @@
 }
 .product_add2cart .addtocart {
 		margin: 0 0 0 2rem;
-		line-height: 30px;
 		font-size: 1rem;
 }
 .product_add2cart .addtocart .fi-rr-shopping-cart {
@@ -656,6 +655,7 @@
 .Product-grid_action .product-action {
 		border-radius: 50px;
 		width: 30px;
+		height: 30px;
 		text-align: center;
 		display: -webkit-inline-box;
 		display: -ms-inline-flexbox;
@@ -3763,6 +3763,7 @@ img.pswp__img {
 		color: #000;
 		background-color: #fff !important;
 		width: 30px;
+		height: 30px;
 		-webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.12);
 		        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.12);
 		border-radius: 50%;
@@ -5391,10 +5392,6 @@ img.pswp__img {
 		content: "";
 }
 
-.carousel-vertical {
-		padding: 2.143rem 0;
-}
-
 .carousel-vertical .bx-next, .carousel-vertical .bx-prev {
 		right: 0;
 		left: 0;
@@ -5771,7 +5768,7 @@ button.owl-dot {
 		    flex-wrap: wrap;
 }
 .Product-grid_bottom .button {
-		padding: 0 0.714rem;
+		padding: 0.429rem 0.714rem;
 }
 
 .Product-grid_bottom .Product-grid_action {
@@ -5908,7 +5905,6 @@ button.owl-dot {
 		line-height: 1;
 		white-space: normal;
 		font-size: 1.12rem;
-		height: 2.6rem;
 		overflow: hidden;
 }
 
@@ -5977,7 +5973,7 @@ button.owl-dot {
 
 @media (max-width: 353px) {
 		.Product-grid_bottom .button {
-				padding: 0 0.714rem;
+				padding: 0.214rem 0.714rem;
 		}
 }
 @media (max-width: 334px) {

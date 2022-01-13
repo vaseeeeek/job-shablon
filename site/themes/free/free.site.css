@@ -2383,6 +2383,19 @@ img.mfp-img {
 		border-top: none;
 }
 
+.Nav__Primary-outer .cat-menu__item {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: reverse;
+		    -ms-flex-direction: row-reverse;
+		        flex-direction: row-reverse;
+}
+
 .cat-menu__item.pos-rel {
 		position: relative;
 }
@@ -3587,11 +3600,13 @@ article, aside, footer, header, nav, section {
 		height: 21px;
 		text-align: center;
 		font-size: 1.7rem;
-		line-height: 30px;
 		color: rgba(0, 0, 0, 0.87);
 		position: absolute;
 		right: 0;
 		width: 100%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
 		-webkit-box-pack: end;
 		    -ms-flex-pack: end;
 		        justify-content: flex-end;

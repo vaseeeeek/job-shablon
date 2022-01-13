@@ -172,7 +172,6 @@ $html-font-size: 14px;
 
 .product_add2cart .addtocart {
   margin: 0 0 0 2rem;
-  line-height: 30px;
   font-size: 1rem;
 
   .fi-rr-shopping-cart {
@@ -656,6 +655,7 @@ $html-font-size: 14px;
 .Product-grid_action .product-action {
   border-radius: 50px;
   width: 30px;
+  height: 30px;
   text-align: center;
   display: inline-flex;
   justify-content: center;
@@ -3747,6 +3747,7 @@ img.pswp__img {
   color: #000;
   background-color: #fff !important;
   width: 30px;
+  height: 30px;
   box-shadow: 0 1px 8px rgb(0 0 0 / 6%), 0 2px 4px rgb(0 0 0 / 12%);
   border-radius: 50%;
 }
@@ -5314,10 +5315,6 @@ img.pswp__img {
   content: "\f053"
 }
 
-.carousel-vertical {
-  padding: rem(30px) 0
-}
-
 .carousel-vertical .bx-next, .carousel-vertical .bx-prev {
   right: 0;
   left: 0;
@@ -5649,7 +5646,7 @@ button.owl-dot {
   flex-wrap: wrap;
 
   .button {
-    padding: 0 rem(10px);
+    padding: rem(6px) rem(10px);
   }
 }
 
@@ -5786,7 +5783,6 @@ button.owl-dot {
   line-height: 1;
   white-space: normal;
   font-size: 1.12rem;
-  height: 2.6rem;
   overflow: hidden;
 }
 
@@ -5846,7 +5842,7 @@ button.owl-dot {
 
 @media(max-width: 353px) {
   .Product-grid_bottom .button {
-    padding: 0 rem(10px);
+    padding: rem(3px) rem(10px);
   }
 }
 
