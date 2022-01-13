@@ -339,7 +339,7 @@
 }
 
 .main-slider_item_discounts {
-		margin: 0 0 1.071rem px;
+		margin: 0 0 1.071rem;
 }
 
 .main-slider_item-title {
@@ -5241,7 +5241,6 @@ img.pswp__img {
 				display: none;
 		}
 		.product_page .image-preview-list {
-				padding-left: 0;
 				-webkit-box-orient: horizontal;
 				-webkit-box-direction: normal;
 				    -ms-flex-direction: row;
@@ -6294,8 +6293,6 @@ i.wa-icon.arrow-left {
 		-webkit-box-shadow: 0 0.2rem #e6e6e6;
 		        box-shadow: 0 0.2rem #e6e6e6;
 		background-color: #fff;
-		border-bottom-left-radius: 0.2rem;
-		border-bottom-right-radius: 0.2rem;
 		border-radius: 0.2rem;
 		margin-bottom: 2.2rem;
 		padding: 1.6rem;
@@ -6640,10 +6637,8 @@ i.wa-icon.arrow-left {
 }
 
 .Compare__Link--Name {
-		color: #333;
 		cursor: pointer;
 		display: inline-block;
-		text-decoration: none;
 		-webkit-transition: 0.3s all;
 		transition: 0.3s all;
 		color: #404040;

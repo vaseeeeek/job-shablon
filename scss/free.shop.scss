@@ -332,7 +332,7 @@ $html-font-size: 14px;
 }
 
 .main-slider_item_discounts {
-  margin: 0 0 rem(15) px
+  margin: 0 0 rem(15px)
 }
 
 .main-slider_item-title {
@@ -5177,7 +5177,6 @@ img.pswp__img {
     }
 
     .image-preview-list {
-      padding-left: 0;
       flex-direction: row;
       justify-content: center;
       flex-wrap: wrap;
@@ -6146,8 +6145,6 @@ i.wa-icon.arrow-left {
   border: 1px solid #e6e6e6;
   box-shadow: 0 0.2rem #e6e6e6;
   background-color: #fff;
-  border-bottom-left-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem;
   border-radius: 0.2rem;
   margin-bottom: 2.2rem;
   padding: 1.6rem;
@@ -6509,10 +6506,8 @@ i.wa-icon.arrow-left {
 }
 
 .Compare__Link--Name {
-  color: #333;
   cursor: pointer;
   display: inline-block;
-  text-decoration: none;
   transition: .3s all;
   color: #404040;
   text-decoration: underline;
