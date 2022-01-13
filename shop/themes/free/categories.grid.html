@@ -2,7 +2,7 @@
     {if isset($categories) && count($categories)}
 
         {$_lazy = true}
-        <ul class="js-list-categories categories cat-tile-list" data-lazy="{$_lazy}">
+        <ul class="js-list-categories categories cat-tile-list cat-tile-list--category" data-lazy="{$_lazy}">
             {foreach $categories as $cat}
                 <li class="categories-tile -{$setting_cat_in_row}">
                     <a href="{$cat.url}" class="js-cat-link">

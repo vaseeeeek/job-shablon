@@ -70,7 +70,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/citilink.png</value>
+      <value>img/themesettings/free.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -83,7 +83,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#5ecc53</value>
+      <value>#005bff</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -94,7 +94,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#5ecc53</value>
+      <value>#005bff</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -106,7 +106,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#212121</value>
+      <value>#001a34</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -1422,12 +1422,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="five_icon_img_header" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>
     <setting var="five_icon_text_header" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="ru_RU">Подпись пятной кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>
@@ -1549,7 +1549,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="font_size_html" control_type="text">
-      <value>14px</value>
+      <value><![CDATA[14px]]></value>
       <name locale="ru_RU">
         Основной размер шрифта (Рекомендуемый 14px)
       </name>

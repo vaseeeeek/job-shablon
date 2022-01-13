@@ -121,7 +121,7 @@
                                     <div class="pd-code__box">
                                         {foreach $product.skus as $sku}
                                             <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
-                                                {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$sku.sku|escape}</span> {else}<span class="hint">[`No sku`]</span>{/if}
+                                                {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$sku.sku|escape}</span>{/if}
                                             </span>
                                         {/foreach}
                                     </div>

@@ -102,9 +102,14 @@
         .sidebar-subcategories_el.selected >a{
             background: {$maincolor}33;
         }
-        .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link, .My__Input--Pin {
+        .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link, .My__Input--Pin, .product_options .select-v-inline a.selected {
             border: 1px solid{$scColor};
         }
+
+        .product_options .select-v-inline a.selected {
+            box-shadow: inset 0 0 0 1px {$scColor};;
+        }
+
         .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
             border-bottom: 1px solid {$scColor} !important;
         }
@@ -116,7 +121,7 @@
             border: 1px solid{$scColor};
         }
 
-        .Product-grid_action .product-action:hover, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active, .cat-content .product-action.active, .df-block.product-top-actions .product-action.active, .circle-progress__rate {
+        .Compare__Item--Switch .Compare__Button, .Product-grid_action .product-action:hover, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active, .cat-content .product-action.active, .df-block.product-top-actions .product-action.active, .circle-progress__rate {
             color: {$scColor};
         }
 
@@ -202,7 +207,7 @@
         {if $textColor}
         body, body .link, body a, body .price, body .rating.-zero icon10.star:hover,
         body .star-rating-empty.star, body .star-rating-empty.star-hover,
-        body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link {
+        body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button {
             color: {$textColor};
         }
 
