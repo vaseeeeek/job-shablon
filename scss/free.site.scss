@@ -2335,10 +2335,15 @@ img.mfp-img {
   border-top: none
 }
 
-.Nav__Primary-outer .cat-menu__item {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
+.Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right {
+  float: right;
+  font-size: rem(15px);
+  cursor: pointer;
+  width:  rem(40px);
+  height:  rem(38.16px);
+  text-align: center;
+  line-height:  rem(38.16px);
+  margin: 0 0 0  rem(-40px);
 }
 
 .cat-menu__item.pos-rel {
@@ -2354,8 +2359,8 @@ img.mfp-img {
 }
 
 .Nav__Primary-outer .cat-menu__item-link, .Nav__Primary-outer .subcat-menu__item a {
-  width: 100%;
   padding: rem(10px) 0 rem(10px) rem(15px);
+  margin: 0  rem(40px) 0 0;
 }
 
 .subcat-menu__item.pos-rel {

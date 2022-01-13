@@ -5120,16 +5120,6 @@ img.pswp__img {
 		    -ms-flex: 0 1 85px;
 		        flex: 0 1 85px;
 		position: relative;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		    -ms-flex-direction: column;
-		        flex-direction: column;
-		-webkit-box-pack: center;
-		    -ms-flex-pack: center;
-		        justify-content: center;
 }
 .product_page .previews_gallery .bx-wrapper {
 		position: relative;

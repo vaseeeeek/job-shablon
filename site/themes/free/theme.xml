@@ -606,8 +606,7 @@
     <setting var="product_modal_photo" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Minimum type of product option selection</name>
-      <name locale="ru_RU">Минимальный вид выбора опций товара!!!- если нажимаешь купить в списке на товар с
-                несколькими артикулами, при включенной настройке, нет картинке
+      <name locale="ru_RU">Минимальный вид выбора опций товара!!!- удаляем, всегда минимальный.
             </name>
       <description locale="en_US">This means the output of a modal window with a choice of options when adding a
                 product from the lists
@@ -663,13 +662,9 @@
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
                 right)
             </name>
-      <description locale="ru_RU">Укажите коды характеристики через запятую, без пробелов. Узнать код: приложение
-                Магазин - Настройки - Типы и характеристики товаров. Если полe пустое, выводятся все характеристики
-                товара
+      <description locale="ru_RU">Например: color,weight,size
             </description>
-      <description locale="en_US">Specify codes characteristics. separated by a comma, without spaces. Know code:
-                the app Store - Configure - Types and characteristics of the goods. If empty, display all the
-                characteristics of the product
+      <description locale="en_US">For example: color,weight,size
             </description>
     </setting>
     <setting var="paragraph_category_description" control_type="paragraph">
@@ -699,8 +694,8 @@
     </setting>
     <setting var="selected_filter" control_type="checkbox">
       <value>1</value>
-      <name locale="en_US">Selected filters</name>
-      <name locale="ru_RU">Выбранные фильтры!!!что это такое? - нажми любую характеристику, это список выбранных фильтров, выводится над сортировкой</name>
+      <name locale="en_US">Active filters</name>
+      <name locale="ru_RU">Активные фильтры над списком товаров</name>
     </setting>
     <setting var="max_show_filter" control_type="text">
       <value>5</value>
@@ -721,7 +716,7 @@
                 вид подкатегорий, для этого в Дополнительных параметрах категории укажите свойство "sub_view" со
                 значениями "icon" (вид "С Иконками"), "image" (вид "С картинками"), "no_image" (вид "Без картинок").
                 Если установлен плагин "Иконка, изображение и баннер для категории", иконка или картинка выводится из
-                плагина.
+                плагина.!!!удаляем функционал доп параметров.
             </description>
       <description locale="en_US">The icon, image for the category is downloaded via the file manager and is
                 indicated in the category with the additional option "icon","image". For each category, you can
@@ -786,14 +781,10 @@
     <setting var="preview_features_product" control_type="select">
       <value>short</value>
       <name locale="en_US">Characteristics in product lists</name>
-      <name locale="ru_RU">Характеристики в списке товаров!!!не забыть внести правки</name>
-      <description locale="ru_RU">Для краткого списка необходимо заполнить настройку "Коды выводимых характеристик
-                в списках товаров и в карточку товара (блок справа)". Если выбран вариант "Первые характеристики", то
-                необходимо заполнить опцию "Количество выводимых характеристик"
+      <name locale="ru_RU">Характеристики в списке товаров</name>
+      <description locale="ru_RU">Используйте 2 настройки ниже в зависимости от выбранного вида.
             </description>
-      <description locale="en_US">For short list necessary to fill out the setting "Codes of output
-                characteristics in the lists of goods and in the product card (block on the right)". If you select the
-                "First Characteristics" option, you must fill out the "Number of Output Characteristics"
+      <description locale="en_US">Use the 2 settings below depending on the selected view.
             </description>
       <options>
         <option value="short">
@@ -811,10 +802,11 @@
       </options>
     </setting>
     <setting var="codes_features_product" control_type="text">
-      <value>obrezka</value>
-      <name locale="ru_RU">Коды выводимых характеристик в карточку товара (блок справа)</name>
-      <name locale="en_US">
-      </name>
+      <value><![CDATA[]]></value>
+      <name locale="ru_RU">Коды выводимых характеристик</name>
+      <name locale="en_US">Codes of output characteristics</name>
+	  <description locale="ru_RU">Используйте 2 настройки ниже в зависимости от выбранного вида.
+            </description>
     </setting>
     <setting var="preview_features_product_count" control_type="text">
       <value>5</value>
@@ -1255,7 +1247,6 @@
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
-
     <setting var="path_svg_logo_footer" control_type="text">
       <value>/img/logo.svg</value>
       <name locale="en_US"/>

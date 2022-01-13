@@ -114,7 +114,6 @@
             border-bottom: 1px solid {$scColor} !important;
         }
         .Compare__Item--Switch.selected .Compare__Button{
-            border-bottom: 1px dashed;
             color: {$scColor};
         }
         input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover, .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover, .option-color_outer.checked .filter-option-color {
@@ -205,34 +204,32 @@
         }
 
         {if $textColor}
-        body, body .link, body a, body .price, body .rating.-zero icon10.star:hover,
-        body .star-rating-empty.star, body .star-rating-empty.star-hover,
-        body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button {
-            color: {$textColor};
-        }
+            body, body .link, body a, body .price, body .rating.-zero icon10.star:hover, .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right,
+            body .star-rating-empty.star, body .star-rating-empty.star-hover,
+            body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button {
+                color: {$textColor};
+            }
 
-        .Product-grid .dotted-img__list li.dotted-img__item.-Active {
-            background-color: {$textColor};
-        }
+            .Product-grid .dotted-img__list li.dotted-img__item.-Active {
+                background-color: {$textColor};
+            }
 
-        .Product-grid .dotted-img__list li.dotted-img__item {
-            border: 1px solid{$textColor};
-        }
-
+            .Product-grid .dotted-img__list li.dotted-img__item {
+                border: 1px solid{$textColor};
+            }
         {/if}
-        {if $footerBG}
-        .footer {
-            background: {$footerBG};
-        }
 
+        {if $footerBG}
+            .footer {
+                background: {$footerBG};
+            }
         {/if}
 
         {if $btnTextColor}
-        .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
-        .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .comment__label{
-            color: {$btnTextColor}
-        }
-
+            .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
+            .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .comment__label{
+                color: {$btnTextColor}
+            }
         {/if}
 
     </style>

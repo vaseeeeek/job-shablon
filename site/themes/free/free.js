@@ -864,7 +864,7 @@ var categoriesMainMenu = {
                         submenu.stop(true).delay(150).fadeIn(1, function () {
                             var subwidth = submenu.outerWidth(true);
                             if (!item.hasClass("pos-rel")) {
-                                catMenuWrap.css("padding-right", subwidth + "px");
+                                //catMenuWrap.css("padding-right", subwidth + "px");
                                 if (catMenuPos) {
                                     _this.calcHeight(catMenuWrap, submenu);
                                 }
@@ -874,7 +874,7 @@ var categoriesMainMenu = {
                         submenu.show();
                         var subwidth = submenu.outerWidth(true);
                         if (!item.hasClass("pos-rel")) {
-                            catMenuWrap.css("padding-right", subwidth + "px");
+                            //catMenuWrap.css("padding-right", subwidth + "px");
                             if (catMenuPos) {
                                 _this.calcHeight(catMenuWrap, submenu);
                             }
@@ -1426,7 +1426,6 @@ var productViewListCustom = {
                 cbFunc({that: $this, url: url, productId: productId, isAdded: isAdded});
             }
             if (itemAddToListButton == ".js-compare-add"){
-                console.log(location.href.includes('/compare/'));
                 if (location.href.includes('/compare/')){
                     location.href = location.href.replace(/compare\/.*/, 'compare/');
                 };
@@ -1495,7 +1494,6 @@ var productViewListCustom = {
             var $this = $(this),
                 list = [],
                 productsArrName = $this.data("list");
-                console.log(productsArrName);
             _this.save(list, productsArrName);
             location.reload();
         });
