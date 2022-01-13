@@ -355,17 +355,9 @@
             </description>
     </setting>
     <setting var="break_categories_columns" control_type="select">
-      <value>columns</value>
+      <value>one_column</value>
       <name locale="ru_RU">Разбивать категории на колонки</name>
       <name locale="en_US">Break categories into columns</name>
-      <description locale="ru_RU">Для каждой категории первого уровня можно индивидуально настроить вид
-                выпадающего подменю, указав Дополнительный параметр "submenu_columns" со значениями: "one_column" (1
-                колонка), "columns" (несколько колонок)!!!удаляем возможности с дополнительными параметрами и функционал
-            </description>
-      <description locale="en_US">For each category of the first level, you can customize the appearance of the
-                drop-down submenu by specifying an optional parameter "submenu_columns" with the values: "one_column",
-                "columns"
-            </description>
       <options>
         <option value="one_column">
           <name locale="ru_RU">Нет</name>
@@ -509,7 +501,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value>brands</value>
+      <value>brands_pro</value>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -530,7 +522,7 @@
     <setting var="brands_mainpage" control_type="select">
       <value>all</value>
       <name locale="en_US">Brands on homepage</name>
-      <name locale="ru_RU">Бренды на главной!!!бренды про не работает</name>
+      <name locale="ru_RU">Бренды на главной</name>
       <options>
         <option value="all">
           <name locale="ru_RU">Выводить все</name>
@@ -562,11 +554,6 @@
             ]]></value>
       <name locale="en_US">The text on the main page. You can use html.</name>
       <name locale="ru_RU">Текст на главной. Можно использовать html.</name>
-    </setting>
-    <setting var="home_blog_img_lazy" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Lazy images of categories in blog</name>
-      <name locale="ru_RU">Ленивая загрузка картинок в новостях!!!удаляем так как нет блога</name>
     </setting>
     <setting var="paragraph_catalog" control_type="group_divider">
       <value/>
@@ -602,18 +589,6 @@
       <value>1</value>
       <name locale="en_US">Quick View</name>
       <name locale="ru_RU">Быстрый просмотр</name>
-    </setting>
-    <setting var="product_modal_photo" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Minimum type of product option selection</name>
-      <name locale="ru_RU">Минимальный вид выбора опций товара!!!- удаляем, всегда минимальный.
-            </name>
-      <description locale="en_US">This means the output of a modal window with a choice of options when adding a
-                product from the lists
-            </description>
-      <description locale="ru_RU">Имеется в виду, вывод модального окна с выбором опций, при добавлении товара из
-                списков
-            </description>
     </setting>
     <setting var="bgcolor_sticker_hit" control_type="color">
       <value/>
@@ -711,19 +686,6 @@
       <value>image</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
-      <description locale="ru_RU">Иконка, картинка для категории загружается через файл-менеджер и указывается в
-                категории дополнительным параметром "icon","image". Для каждой категории можно индивидуально настроить
-                вид подкатегорий, для этого в Дополнительных параметрах категории укажите свойство "sub_view" со
-                значениями "icon" (вид "С Иконками"), "image" (вид "С картинками"), "no_image" (вид "Без картинок").
-                Если установлен плагин "Иконка, изображение и баннер для категории", иконка или картинка выводится из
-                плагина.!!!удаляем функционал доп параметров.
-            </description>
-      <description locale="en_US">The icon, image for the category is downloaded via the file manager and is
-                indicated in the category with the additional option "icon","image". For each category, you can
-                customize the appearance of the subcategories by selecting the "sub_view" property with the "icon" (view
-                "With icon"), "image" (view "With image"), "no_image" (view "Without pictures"). If the plugin "Icon,
-                image and banner for category" is installed, the icon or picture is displayed from the plugin
-            </description>
       <options>
         <option value="no_image">
           <name locale="ru_RU">Текстом</name>
@@ -781,7 +743,7 @@
     <setting var="preview_features_product" control_type="select">
       <value>short</value>
       <name locale="en_US">Characteristics in product lists</name>
-      <name locale="ru_RU">Характеристики в списке товаров!!!Пропал селект "Не выводить", в карточке товара на месте.</name>
+      <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от выбранного вида.
             </description>
       <description locale="en_US">Use the 2 settings below depending on the selected view.
@@ -825,7 +787,7 @@
     <setting var="tile_title_height" control_type="select">
       <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
-      <name locale="ru_RU">Количество строк у товара (вид плиткой)!!!непонятно - нужно переименовать</name>
+      <name locale="ru_RU">Количество строк в наименовании товара (вид плиткой)</name>
       <description locale="ru_RU">В пикселях</description>
       <description locale="en_US">Pixels</description>
       <options>
@@ -859,7 +821,7 @@
     <setting var="tile_mobile_title_height" control_type="select">
       <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
-      <name locale="ru_RU">Количество строк у товара на мобильном (вид плиткой)!!!непонятно - нужно переименовать</name>
+      <name locale="ru_RU">Количество строк в наименовании товара на мобильном (вид плиткой)</name>
       <description locale="ru_RU">В пикселях</description>
       <description locale="en_US">Pixels</description>
       <options>
@@ -1051,8 +1013,8 @@
       <description locale="en_US">You can generate the code on https://tech.yandex.ru/share/</description>
     </setting>
     <setting var="product_page_main_description_desktop" control_type="text">
-      <value>description,features,reviews,add,pages</value>
-      <name locale="ru_RU">Вкладки в карточке товара!!!удалить из кода add</name>
+      <value>description,features,reviews,pages</value>
+      <name locale="ru_RU">Вкладки в карточке товара</name>
       <name locale="en_US">Tabs in the product card</name>
       <description locale="ru_RU">Рекомендуемое - description,features,reviews,pages
             </description>
@@ -1127,17 +1089,6 @@
       <name locale="en_US">Name of the description tab</name>
       <name locale="ru_RU">Наименование вкладки с описанием</name>
     </setting>
-    <setting var="product_add_tab_title" control_type="text">
-      <value/>
-      <name locale="en_US">Additional tab name</name>
-      <name locale="ru_RU">Наименование дополнительной вкладки!!!удаляем функционал</name>
-      <description locale="ru_RU">Содержимое вкладки заполняется через Блоки в приложении Сайт. ID блока
-                "product_addinfo"
-            </description>
-      <description locale="en_US">The contents of the tab are filled in through the Blocks in the Site
-                application. Unit ID of "product_addinfo"
-            </description>
-    </setting>
     <setting var="show_tags_pr_page" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Теги под отзывами</name>
@@ -1163,16 +1114,6 @@
       <name locale="ru_RU">Вид выбора артикулов продукта - селектом</name>
       <name locale="en_US">View product selection skus - Select</name>
     </setting>
-    <setting var="product_show_multi_radio_sku_separately" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Артикулы вынести отдельно от вариантов покупок!!!удаляем</name>
-      <name locale="en_US">Remove items separately from purchase options</name>
-    </setting>
-    <setting var="hide_option_not_available" control_type="checkbox">
-      <value/>
-      <name locale="en_US">Hide articles inaccessible articles</name>
-      <name locale="ru_RU">Скрыть артикулы недоступные артикулы!!!удаляем</name>
-    </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
@@ -1197,16 +1138,6 @@
       <value>3</value>
       <name locale="en_US">Number of similar products(upselling)</name>
       <name locale="ru_RU">Кол-во похожих товаров(upselling)</name>
-    </setting>
-    <setting var="paragraph_cart" control_type="group_divider">
-      <value/>
-      <name locale="en_US">Cart</name>
-      <name locale="ru_RU">Корзина</name>
-    </setting>
-    <setting var="cart_products_cross_selling" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Cross-selling in cart</name>
-      <name locale="ru_RU">Рекомендуемые товары в корзине!!!удаляем настройку и весь блок настроек Корзина</name>
     </setting>
     <setting var="paragraph_footer" control_type="group_divider">
       <value/>
@@ -1271,26 +1202,6 @@
       <value/>
       <name locale="en_US">Loading js,css</name>
       <name locale="ru_RU">Загрузка js,css</name>
-    </setting>
-    <setting var="image_mainpage_preload" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Preloading the first slide image on the main page</name>
-      <name locale="ru_RU">Предзагрузка картинки первого слайда на главной странице!!!всегда</name>
-      <description locale="en_US">Option is useful for quickly displaying the largest item on the home screen
-            </description>
-      <description locale="ru_RU">Опция полезна для быстрого отображения самого большого элемента на главном
-                экране
-            </description>
-    </setting>
-    <setting var="product_preload_image" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Preloading the first image in the product card</name>
-      <name locale="ru_RU">Предзагрузка первой картинки в карточке товара!!!всегда</name>
-      <description locale="en_US">Option is useful for quickly displaying the largest item on the home screen
-            </description>
-      <description locale="ru_RU">Опция полезна для быстрого отображения самого большого элемента на главном
-                экране
-            </description>
     </setting>
     <setting var="load_file_custom" control_type="checkbox">
       <value>1</value>

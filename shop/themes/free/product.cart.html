@@ -7,7 +7,7 @@
 
     {$_is_dialog = $wa->get('cart')}
 
-    {$_is_dialog_select_options = $_is_dialog && $wa->get('select-options') && $theme_settings.product_modal_photo}
+    {$_is_dialog_select_options = $_is_dialog && $wa->get('select-options')}
     {$image_preview = $wa->shop->productImgUrl($product, '60')}
 
     {if $_is_dialog}<div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>{/if}
@@ -125,25 +125,13 @@
                         <meta itemprop="offerCount" content="{$product.sku_count}">
                         {$pd_available = false}
                         {if count($product.skus) > 1}
-                            {if $theme_settings.product_show_multi_radio_sku_separately}
-                                {foreach $product.skus as $sku}
-                                    <span class="js-pd-code pd-code sku-{$sku.id}-pd-code"
-                                          {if $sku.id != $product.sku_id}style="display:none"{/if}>
-                                {if isset($sku.sku) && !empty($sku.sku)}
-                                    <span class="hint">[`Vendor code`]:</span>
-                                    {$sku.sku|escape}{else}
-                                    <span class="hint">[`No sku`]</span>
-                                {/if}
-                            </span>
-                                {/foreach}
-                            {/if}
 
 
                             {if !$theme_settings.product_selection_skus}
                                 <div class="skus">
                                     {foreach $product.skus as $sku}
                                         {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
-                                        {if $sku_available || empty($theme_settings.hide_option_not_available)}
+                                        {if $sku_available}
                                             <meta itemprop="price" content="{$sku.price}"/>
                                             <meta itemprop="priceCurrency" content="{$product.currency}"/>
                                             <meta itemprop="name" content="{$sku.name|escape}"/>
@@ -159,12 +147,12 @@
                                     <select class="md" name="sku_id">
                                         {foreach $product.skus as $sku}
                                             {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
-                                            {if $sku_available || empty($theme_settings.hide_option_not_available)}
+                                            {if $sku_available}
                                                 <option{if !$sku.available} disabled="true"{/if}{if !$sku_available} data-disabled="1"{/if}{if $sku.id == $product.sku_id} selected="selected"{/if}
                                                         value="{$sku.id}"
                                                         data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}"
                                                         data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
-                                                    {$sku.name|escape} {if $sku.sku && empty($theme_settings.product_show_multi_radio_sku_separately)}- {$sku.sku|escape}{/if}
+                                                    {$sku.name|escape} {if $sku.sku}- {$sku.sku|escape}{/if}
                                                     ({shop_currency($sku.price, $product.currency)})
                                                 </option>
                                             {/if}
@@ -176,7 +164,7 @@
                                     {$skus_index = 0}
                                     {foreach $product.skus as $sku}
                                         {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
-                                        {if $sku_available || empty($theme_settings.hide_option_not_available)}
+                                        {if $sku_available}
                                             <li itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                                                 <label{if !$sku_available} class="disabled"{/if}>
                                                     <meta itemprop="price" content="{$sku.price}">
@@ -187,7 +175,7 @@
                                                        data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
                                             </span>
                                                     <span itemprop="name">{$sku.name|escape}</span>
-                                                    {if $sku.sku && empty($theme_settings.product_show_multi_radio_sku_separately)}
+                                                    {if $sku.sku}
                                                         <span itemprop="sku" class="hint">{$sku.sku|escape}</span>{/if}
                                                     <span class="price nowrap">{shop_currency_html($sku.price, $product.currency)}</span>
                                                     {if (!($sku.count === null) && $sku.count <= 0)}

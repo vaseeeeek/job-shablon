@@ -52,7 +52,7 @@
                             </span>
 
                             {$position = $position + 1}
-                            {if $theme_settings.product_preload_image && $image@first}
+                            {if $image@first}
                                 {$first_image = $wa->shop->imgUrl($image, '650')}
                                 {$wa->globals('preload_image', $first_image)}
                             {/if}

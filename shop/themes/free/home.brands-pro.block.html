@@ -3,7 +3,7 @@
     {if !empty($theme_settings.brands_mainpage) && class_exists('shopBrandViewHelper')}
 
         {$brands = []}
-        {$brands = shopBrandViewHelper::getfullListBrands()}
+        {$brands = shopBrandViewHelper::getAllBrands()}
 
         {if count($brands) > 0}
             <div class="homepage-brands-head">

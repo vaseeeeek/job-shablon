@@ -257,7 +257,7 @@
                             && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
                             {if $wa_app == 'shop'}
                                 <span class="button js-card-dialog addtocart"
-                                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">В корзину</span>
+                                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">В корзину</span>
                             {else}
                                 <a class="button addtocart" href="{$p.frontend_url}">Нет в наличии</a>
                             {/if}

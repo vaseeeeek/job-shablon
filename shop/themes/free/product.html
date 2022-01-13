@@ -195,8 +195,6 @@
                                 {foreach $product.pages as $page}
                                     <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-{$page.id}">{$page.name|escape}</li>
                                 {/foreach}
-                            {else if $item_alias_content == 'add' && $theme_settings.product_add_tab_title}
-                                <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-page-addinfo">{$theme_settings.product_add_tab_title|escape}</li>
                             {/if}
                         {/foreach}
                     </ul>

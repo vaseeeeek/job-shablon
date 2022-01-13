@@ -47,9 +47,7 @@
     <div class="dd-wrap">
         <div class="category-menu js-category-menu-wrap">
             {foreach $cat_result as $cat}
-                {if isset($cat.params.submenu_columns) && !empty($cat.params.submenu_columns)}
-                    {$view_subcat = $cat.params.submenu_columns}
-                {else if $theme_settings.break_categories_columns}
+                {if $theme_settings.break_categories_columns}
                     {$view_subcat = $theme_settings.break_categories_columns}
                 {/if}
                 {if !isset($view_subcat) || ($view_subcat != "columns")}

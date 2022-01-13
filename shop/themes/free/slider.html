@@ -4,7 +4,7 @@
         <div class="slider-outer js-slider-outer slider-outer--photos slider-outer--home">
             <div class="js-home-slider owl-carousel home-slider-photos" data-pause="0" data-type="">
                 {foreach $mPromoCards as $item}
-                    {if !empty($theme_settings.image_mainpage_preload) && !empty($item@first) && !empty($item.image)}
+                    {if !empty($item@first) && !empty($item.image)}
                         {$wa->globals('preload_image', $item.image)}
                     {/if}
 
@@ -50,10 +50,8 @@
                             {if empty($product@first)}
                                 {$wa->shop->productImgHtml($product, '0x320', ['class' => "owl-lazy", 'alt' => $product.name, 'default' => $dummy96])|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                             {else}
-                                {if !empty($theme_settings.image_mainpage_preload)}
-                                    {$image_url = $wa->shop->productImgUrl($product, '0x320')}
-                                    {$wa->globals('preload_image', $image_url)}
-                                {/if}
+                                {$image_url = $wa->shop->productImgUrl($product, '0x320')}
+                                {$wa->globals('preload_image', $image_url)}
 
                                 {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
                                 {$wa->shop->productImgHtml($product, '0x320', ['alt' => $product.name, 'default' => $dummy96])}
@@ -107,7 +105,7 @@
                                 {if $available}
                                     {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
                                     {if $product.sku_count > 1}
-                                        <span class="button main-slider_item-btn js-card-dialog addtocart fi-rr-shopping-cart addtocart--large" data-href="{$product.frontend_url}{if strpos($product.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">{$add2label_cart}</span>
+                                        <span class="button main-slider_item-btn js-card-dialog addtocart fi-rr-shopping-cart addtocart--large" data-href="{$product.frontend_url}{if strpos($product.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">{$add2label_cart}</span>
                                     {else}
                                         {$preview_image = $wa->shop->productImgUrl($product, '60')}
                                         <form class="js-add-to-cart main-slider_item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">

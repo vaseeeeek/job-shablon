@@ -1,9 +1,6 @@
 {strip}
 {if count($category.subcategories) > 0}
     <div class="js-cat_sub " data-save-filters="true">
-        {if isset($category.params.sub_view) && !empty($category.params.sub_view)}
-            {$sub_view = $category.params.sub_view}
-        {/if}
 
         {if class_exists('shopWmimageincatPlugin')}
             {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}

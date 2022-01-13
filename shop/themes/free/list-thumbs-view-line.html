@@ -168,9 +168,9 @@
                     {if $p.sku_count > 1}
                         <input type="hidden" name="product_id" value="{$p.id}">
                         {if $theme_settings.show_number_item_add_in_list}
-                            <span class="button js-card-dialog addtocart addtocart--mini" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">[`Add to cart`]</span>
+                            <span class="button js-card-dialog addtocart addtocart--mini" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">[`Add to cart`]</span>
                         {else}
-                            <span class="button js-card-dialog addtocart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1{if $theme_settings.product_modal_photo}&select-options=1{/if}">{$add2label_cart}</span>
+                            <span class="button js-card-dialog addtocart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">{$add2label_cart}</span>
                         {/if}
                     {else}
                         <input type="hidden" name="product_id" value="{$p.id}">
