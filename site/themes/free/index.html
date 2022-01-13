@@ -277,10 +277,10 @@
         <meta itemprop="name" content="{$wa->shop->settings('name')}">
         <div class="footer-box container">
             <div class="footer-box_col">
-                {if $theme_settings.logo_footer}
+                {if $theme_settings.logo_footer || $theme_settings.path_svg_logo_footer}
                     <div class="footer_logo">
                         <a href="{$wa_url}">
-                            <img src="{$wa_theme_url}{$theme_settings.logo_footer}"
+                            <img src="{if $theme_settings.path_svg_logo_footer}{$theme_settings.path_svg_logo_footer}{else}{$wa_theme_url}{$theme_settings.logo_footer}{/if}"
                                  alt="{$wa->shop->settings('name')}"/>
                         </a>
                     </div>

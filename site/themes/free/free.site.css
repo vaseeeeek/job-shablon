@@ -2409,6 +2409,7 @@ img.mfp-img {
 }
 
 .Nav__Primary-outer .cat-menu__item-link, .Nav__Primary-outer .subcat-menu__item a {
+		width: 100%;
 		padding: 0.714rem 0 0.714rem 1.071rem;
 }
 

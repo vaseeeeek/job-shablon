@@ -1255,6 +1255,12 @@
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
+
+    <setting var="path_svg_logo_footer" control_type="text">
+      <value>/img/logo.svg</value>
+      <name locale="en_US"/>
+      <name locale="ru_RU">Путь до svg логотипа</name>
+    </setting>
     <setting var="facebook" control_type="text">
       <value locale="en_US">https://www.facebook.com/Webasyst</value>
       <value locale="ru_RU">https://www.facebook.com/Webasyst.RU</value>
