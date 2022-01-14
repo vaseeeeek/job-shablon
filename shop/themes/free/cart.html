@@ -264,8 +264,7 @@
                                                                     ){/if}
                                                             </label>
                                                             {if isset($s.variants)}
-                                                                <select name="service-option[{$item.id}][{$service_id}]"
-                                                                        {if empty($s.id)}disabled{/if}>
+                                                                <select name="service-option[{$item.id}][{$service_id}]" {if empty($s.id)}disabled{/if}>
                                                                     {foreach $s.variants as $variant_id => $v}
                                                                         <option {if $s.variant_id == $variant_id}selected{/if}
                                                                                 value="{$variant_id}">{$v.name|escape}
@@ -274,9 +273,7 @@
                                                                     {/foreach}
                                                                 </select>
                                                             {else}
-                                                                <input type="hidden"
-                                                                       name="service-option[{$item.id}][{$service_id}]"
-                                                                       value="{$s.variant_id}">
+                                                                <input type="hidden" name="service-option[{$item.id}][{$service_id}]" value="{$s.variant_id}">
                                                             {/if}
                                                         </div>
                                                     {/foreach}

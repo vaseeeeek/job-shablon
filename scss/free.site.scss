@@ -15,9 +15,11 @@ html {
   font-size: 14px;
   height: 100%;
 }
+
 div {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   background-color: #ffffff;
@@ -1055,9 +1057,11 @@ ul.tree ul a {
 .wa-form {
   max-width: 400px
 }
-.My__Page--Profile .wa-form{
+
+.My__Page--Profile .wa-form {
   max-width: initial;
 }
+
 .wa-form .wa-field {
   margin: 0 0 rem(15px);
   clear: none !important
@@ -1354,10 +1358,9 @@ a.button:hover {
 
 .style-check.checked:before, .jq-checkbox.checked:before {
   font-size: 0.786rem;
-  content: "";
+  content: " ";
   top: 1px;
   left: 3px;
-  color: #fff;
   height: 13px;
   line-height: 13px;
   text-align: center;
@@ -1425,7 +1428,8 @@ iframe {
 
 .old-price {
   font-size: 1.2rem;
-  text-decoration: line-through
+  text-decoration: line-through;
+  color: #8e8e8e;
 }
 
 .comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover, .star-empty {
@@ -1467,6 +1471,7 @@ iframe {
   color: #000;
   content: "\e900"
 }
+
 .star-empty:before {
   font-family: 'free-font';
   color: #e2e2e2;
@@ -1488,8 +1493,9 @@ iframe {
 .dd-wrap {
   background: #fff;
   position: relative;
-  border: 1px solid #ebebeb;
-  border-top-width: 3px
+  border: 0;
+  transition: all .25s cubic-bezier(0, 0, .2, 1);
+  box-shadow: 0 0.2rem 0.5rem #0000000d, 0 0 1.1rem #0000000d;
 }
 
 .dd-wrap:after {
@@ -2339,11 +2345,11 @@ img.mfp-img {
   float: right;
   font-size: rem(15px);
   cursor: pointer;
-  width:  rem(40px);
-  height:  rem(38.16px);
+  width: rem(40px);
+  height: rem(38.16px);
   text-align: center;
-  line-height:  rem(38.16px);
-  margin: 0 0 0  rem(-40px);
+  line-height: rem(38.16px);
+  margin: 0 0 0 rem(-40px);
 }
 
 .cat-menu__item.pos-rel {
@@ -2360,7 +2366,7 @@ img.mfp-img {
 
 .Nav__Primary-outer .cat-menu__item-link, .Nav__Primary-outer .subcat-menu__item a {
   padding: rem(10px) 0 rem(10px) rem(15px);
-  margin: 0  rem(40px) 0 0;
+  margin: 0 rem(40px) 0 0;
 }
 
 .subcat-menu__item.pos-rel {
@@ -2483,21 +2489,21 @@ img.mfp-img {
   }
 }
 
-@media (max-width:1025px) {
-  .Nav-search{
+@media (max-width: 1025px) {
+  .Nav-search {
     padding: 0;
   }
 }
 
 .inp-search > i {
   position: absolute;
-  font-size: rem(20px);
+  font-size: 1.429rem;
   cursor: pointer;
   height: 100%;
   top: 0;
   display: flex;
   align-items: center;
-  width: rem(76px);
+  width: 3.2rem;
   justify-content: center;
   right: 0;
 }
@@ -2528,11 +2534,13 @@ img.mfp-img {
   padding: 0 10px 10px 10px;
   background: #fff;
 }
-@media (max-width: 1025px){
-  .ajax-search-result{
-    padding:0;
+
+@media (max-width: 1025px) {
+  .ajax-search-result {
+    padding: 0;
   }
 }
+
 .inp-search {
   position: relative;
   z-index: 10;
@@ -2580,7 +2588,6 @@ img.mfp-img {
 
 
 @media (max-width: 1000px) {
-
   .nav-cat-btn {
     font-size: rem(18px);
     padding: 0 rem(15px);
@@ -2857,7 +2864,8 @@ img.mfp-img {
 
 .tags_all {
   margin: 0 0 rem(24px);
-  .link-half--act{
+
+  .link-half--act {
     font-size: 0.95rem;
   }
 }
@@ -3205,12 +3213,12 @@ ul.pages-list li a {
 
 .currency_list {
   position: absolute;
-  width: 100px;
-  z-index: 23;
+  width: 73px;
+  z-index: 30;
   top: 100%;
   margin: 0;
-  right: -10px;
-  display: none
+  right: -12px;
+  display: none;
 }
 
 .currency_list.show {
@@ -3468,10 +3476,11 @@ article, aside, footer, header, nav, section {
 }
 
 .MobileMenu {
-  .MobileMenu_nav__other .menu-element>a{
+  .MobileMenu_nav__other .menu-element > a {
     padding: 0.5rem 0rem 0.5rem 0.8rem;
     display: flex;
   }
+
   .header_lang {
     padding: 0.5rem 0rem 0.5rem 0.8rem;
     font-weight: 700;
@@ -3632,6 +3641,9 @@ article, aside, footer, header, nav, section {
 }
 
 .header-top--links {
+  background: #fff;
+  z-index: 10;
+
   .container {
     display: flex;
     justify-content: space-between;
@@ -3836,7 +3848,8 @@ article, aside, footer, header, nav, section {
   a.Nav-contact-phone {
     white-space: nowrap;
     text-align: center;
-    font-size: rem(15px);
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   p.Nav-contact-callback {
@@ -3844,9 +3857,11 @@ article, aside, footer, header, nav, section {
     text-align: right;
     margin-bottom: 0;
     cursor: pointer;
-    font-size: rem(13px);
+    font-size: 0.95rem;
+    border-bottom: 1px dotted;
+    display: inline-flex;
     font-weight: 400;
-    transition: .3s all;
+    transition: 0.3s all;
   }
 
   & > .container {
@@ -3893,7 +3908,7 @@ article, aside, footer, header, nav, section {
 
   .product-custom_icon .icon {
     display: inline-flex;
-    font-size: rem(24px);
+    font-size: 1.6rem;
   }
 
   .header__cart-icon {
@@ -3933,15 +3948,16 @@ article, aside, footer, header, nav, section {
   .product-custom {
     position: relative;
     display: inline-block;
-    width: 61px;
+    width: 73px;
 
-    .js-products-link>span {
-      max-width: 61px;
+    .product-custom--link > span {
+      max-width: 73px;
       overflow-x: hidden;
+      margin-top: 0.2rem;
     }
 
-    &:not(:last-child){
-      margin-right: 12px;
+    &:not(:last-child) {
+      margin-right: 8px;
     }
   }
 
@@ -3953,7 +3969,8 @@ article, aside, footer, header, nav, section {
   }
 
   .product-custom--link > span {
-    font-size: rem(12px);
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
   }
 
   .header-top--right {
@@ -4137,10 +4154,11 @@ article, aside, footer, header, nav, section {
 }
 
 @media (max-width: 320px) {
-  .fixed-panel .product-custom_icon__name{
+  .fixed-panel .product-custom_icon__name {
     font-size: 9px;
   }
 }
+
 .Brands__Box--Description {
   margin: 3rem 0 2rem;
   text-align: left
@@ -4485,6 +4503,10 @@ ul.pages {
   color: #ee1c24;
 }
 
+.Login {
+  margin-top: 2rem;
+}
+
 .Login__Box {
   border-radius: 0.2rem;
   width: 100%;
@@ -4492,14 +4514,14 @@ ul.pages {
 
 @media (min-width: 620px) {
   .Login__Box {
-    border: 1px solid #e6e6e6;
-    box-shadow: 0 0.2rem #e6e6e6;
+    border: 0;
     background-color: #fff;
-    border-bottom-left-radius: 0.2rem;
-    border-bottom-right-radius: 0.2rem;
     margin: 0 auto;
-    padding: 3rem 2rem;
-    width: 75%;
+    padding: 1.5rem 2.2rem;
+    width: auto;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
   }
 }
 
@@ -4519,10 +4541,10 @@ ul.pages {
 }
 
 #themeOverride .wa-name {
-  margin-top: 1rem;
+  margin-top: 0rem;
   margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  transition: .3s all;
+  text-transform: initial;
+  transition: 0.3s all;
   width: 100%;
 }
 
@@ -4532,9 +4554,11 @@ ul.pages {
     width: 40%;
   }
 }
-#themeOverride .order-wrap .wa-name{
+
+#themeOverride .order-wrap .wa-name {
   width: initial;
 }
+
 #themeOverride #wa-my-info-wrapper #wa-my-info-read-wrapper .wa-value {
   box-sizing: border-box;
 }
@@ -4565,17 +4589,15 @@ ul.pages {
   display: block;
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
-  text-transform: uppercase;
+  text-transform: initial;
 }
 
 #themeOverride .wa-value input[type=submit] {
-  cursor: pointer;
   text-decoration: none;
-  transition: .3s all;
-  background-color: #353a3e;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
   border: 0;
-  border-radius: 0.2rem;
-  box-shadow: 0 0.2rem #1d2023;
+  border-radius: 4px;
   font-family: inherit;
   cursor: pointer;
   text-align: center;
@@ -4596,7 +4618,7 @@ ul.pages {
 }
 
 #themeOverride .wa-value input[type=submit]:hover {
-  background-color: #292d30;
+  opacity: 0.9;
 }
 
 #themeOverride .wa-value select {
@@ -4619,10 +4641,6 @@ ul.pages {
   margin: 0 0 1.071428571428571em;
 }
 
-.wa-login-form-wrapper .wa-login-form-fields {
-  margin: 0;
-}
-
 .wa-login-form-wrapper .wa-login-form-actions {
   position: relative;
   margin: 1.071428571428571em 0 0;
@@ -4634,10 +4652,6 @@ ul.pages {
 
 #themeOverride .wa-login-form-wrapper .wa-login-form-fields .wa-field, #themeOverride .wa-login-form-wrapper .wa-signup-form-fields .wa-field, #themeOverride .wa-signup-form-wrapper .wa-login-form-fields .wa-field, #themeOverride .wa-signup-form-wrapper .wa-signup-form-fields .wa-field {
   margin-bottom: 1.6rem;
-}
-
-.wa-login-form-wrapper .wa-field {
-  margin: 1.071428571428571em 0 0;
 }
 
 #themeOverride .wa-field {
@@ -4682,16 +4696,17 @@ ul.pages {
   line-height: inherit;
   padding: 0.6rem 2rem;
 }
+
 #themeOverride .wa-login-form-wrapper .wa-login-form-fields .wa-value, #themeOverride .wa-login-form-wrapper .wa-signup-form-fields .wa-value, #themeOverride .wa-signup-form-wrapper .wa-login-form-fields .wa-value, #themeOverride .wa-signup-form-wrapper .wa-signup-form-fields .wa-value {
   width: 100%;
 }
 
 .wa-signup-url a {
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 .wa-login-url a {
-  text-decoration:underline;
+  text-decoration: underline;
 }
 
 #themeOverride .wa-value {
@@ -4714,6 +4729,7 @@ ul.pages {
   font-size: 1rem;
   margin: 1rem 0 0 0;
 }
+
 .My__Message--Pin {
   margin-bottom: 10px;
 }
@@ -4744,15 +4760,43 @@ ul.pages {
   max-width: 145px;
   margin-top: 12px;
 }
+#themeOverride .wa-value p {
+  margin:0;
+}
 @media (min-width: 37.5em) {
   #themeOverride .My__Page--Profile .wa-name {
     margin-bottom: 0;
-    width: 40%;
+    width: 25%;
   }
   #themeOverride .My__Page--Profile .wa-value {
-    width: 60%;
+    width: 75%;
   }
 }
+
+.b-cityselect__notifier {
+  padding: 1rem;
+  display: none;
+  position: absolute;
+  z-index: 105;
+  border-radius: 4px;
+  border: 0;
+  background: #fff;
+  transition: all .25s cubic-bezier(0, 0, .2, 1);
+  box-shadow: 0 0.2rem 0.5rem #0000000d, 0 0 1.1rem #0000000d;
+  margin-top: 1rem;
+  min-width: 15rem;
+  text-align: left;
+}
+
+.b-cityselect__notifier_triangle:before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: -21px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #0000000d;
+}
+
 .-Close {
   display: none !important;
 }

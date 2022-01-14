@@ -95,7 +95,7 @@
         .Orders__Badge.-New,
         .My__Button--Pin,
         .comment__label,
-        .reviews__rating-fill{
+        .reviews__rating-fill, #themeOverride .wa-value input[type=submit]{
             background: {$maincolor};
         }
 
@@ -115,6 +115,10 @@
         }
         .Compare__Item--Switch.selected .Compare__Button{
             color: {$scColor};
+        }
+
+        .product_page .image-preview.selected a {
+            border:2px solid {$scColor};
         }
         input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover, .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover, .option-color_outer.checked .filter-option-color {
             border: 1px solid{$scColor};
@@ -175,8 +179,9 @@
         }
 
         .radio-styler.checked:before,
-        .jq-radio.checked:before{
-            background: {$scColor};
+        .jq-radio.checked:before,
+        .style-check.checked{
+            background-color: {$scColor};
         }
 
         .grid-gallery._tile-active .grid-gallery__el:hover:before {
@@ -204,7 +209,7 @@
         }
 
         {if $textColor}
-            body, body .link, body a, body .price, body .rating.-zero icon10.star:hover, .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right,
+            body, body .link, body a, body .price, body .rating.-zero icon10.star:hover, .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right, .header p.Nav-contact-callback,.carousel-vertical .bx-prev, .style-check.checked:before, .jq-checkbox.checked:before,
             body .star-rating-empty.star, body .star-rating-empty.star-hover,
             body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button {
                 color: {$textColor};

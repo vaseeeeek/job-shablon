@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="78">
+<theme id="free" system="0" vendor="1039853" author="ardoz" app="site" version="3.0.0" edition="79">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
@@ -127,7 +127,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>roboto</value>
+      <value>montserrat</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.</description>
       <options>
@@ -217,23 +217,23 @@
       <name locale="ru_RU">Шапка</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1632221726</value>
+      <value>img/logo.png?v1642083118</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo" control_type="text">
-      <value>/img/logo.svg</value>
+      <value/>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
     <setting var="width_logo" control_type="text">
-      <value>100</value>
+      <value>160</value>
       <name locale="en_US">Width of logo, px</name>
       <name locale="ru_RU">Ширина логотипа, px</name>
     </setting>
     <setting var="width_logo_max_950" control_type="text">
-      <value>100</value>
+      <value>160</value>
       <name locale="en_US">Logo width with screen size less than 950 pixels, px</name>
       <name locale="ru_RU">Ширина логотипа при размере экрана менее 950 пикселей, px</name>
     </setting>
@@ -501,7 +501,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value>brands_pro</value>
+      <value>brands</value>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -953,7 +953,7 @@
       <name locale="en_US">Short description</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>short</value>
+      <value>first</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
       <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых характеристик" в разделе "Карточка в списке товаров". 
@@ -980,7 +980,7 @@
       </options>
     </setting>
     <setting var="count_output_features_right_block" control_type="text">
-      <value>5</value>
+      <value>7</value>
       <name locale="ru_RU">Кол-во характеристик</name>
       <name locale="en_US">Number of characteristics</name>
       <description locale="ru_RU">Если выбрано "Первых N штук"
@@ -1155,13 +1155,13 @@
       <name locale="ru_RU">Иконки оплаты</name>
     </setting>
     <setting var="logo_footer" control_type="image">
-      <value>img/logo_footer.png?v1632221726</value>
+      <value>img/logo_footer.png?v1642083118</value>
       <filename>img/logo_footer.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo_footer" control_type="text">
-      <value>/img/logo.svg</value>
+      <value/>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>

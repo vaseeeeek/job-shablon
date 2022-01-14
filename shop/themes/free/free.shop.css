@@ -51,6 +51,9 @@
 .sort-asc, .sort-desc {
 		font-style: normal;
 		margin-left: 0.2rem;
+		position: relative;
+		top: -2px;
+		right: -2px;
 }
 
 .sort-desc:after {
@@ -76,12 +79,14 @@
 }
 
 .filter-option-color {
-		width: 28px;
-		height: 28px;
+		width: 29px;
+		height: 29px;
 		display: inline-block;
 		text-decoration: none;
 		position: relative;
 		border-radius: 50%;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
 }
 
 .filter-option-color input[type=checkbox] {
@@ -719,7 +724,7 @@
 
 .product_prices .price {
 		font-size: 1.9rem;
-		margin: 0;
+		margin: 0 1rem 0 0;
 }
 
 @media (max-width: 1400px) and (min-width: 1251px) {
@@ -1015,7 +1020,7 @@ span.rating__total {
 		line-height: 26px;
 }
 .Product-grid_prices .price {
-		margin-right: 5px;
+		margin-right: 0.8rem;
 }
 
 .Product-grid_zero-price {
@@ -2363,7 +2368,7 @@ input.filter-range_el:focus {
 		}
 }
 .cat-panel {
-		padding: 0.714rem 0px;
+		padding: 0 0 0.714rem 0px;
 		margin-left: 0.714rem;
 }
 .cat-panel .df-block {
@@ -2592,8 +2597,8 @@ input.filter-range_el:focus {
 }
 
 .Product__Item-price .old-price {
-		display: inline-block;
-		font-size: 1rem;
+		font-size: 1.1rem;
+		font-weight: 700;
 }
 
 .Product__Item-cart {
@@ -2864,7 +2869,9 @@ input.filter-range_el:focus {
 }
 
 .product-top-actions {
-		margin: 0.2rem 0 0.9rem 0;
+		margin: 0.2rem 0 1.9rem 0;
+		padding: 0.6rem 0 0.8rem 0;
+		border-bottom: 1px solid #ebebeb;
 }
 .product-top-actions .product-action-text {
 		font-size: 0.95rem;
@@ -3020,7 +3027,7 @@ img.pswp__img {
 }
 
 .modal-content--dialog-options .product_name {
-		margin-bottom: 2.143rem;
+		font-size: 1.5rem;
 }
 
 .product_action-dialog-link {
@@ -3232,6 +3239,12 @@ img.pswp__img {
 
 .product_options .select-v-inline {
 		margin-bottom: 1.071rem;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 }
 
 .product_options .select-v-inline a {
@@ -3241,6 +3254,7 @@ img.pswp__img {
 		text-decoration: none;
 		position: relative;
 		text-align: center;
+		font-size: 1rem;
 		padding: 6px 9px 6px;
 		border: 1px solid #e8e8e8;
 }
@@ -3811,8 +3825,7 @@ img.pswp__img {
 }
 
 .modal-content--dialog-options {
-		max-width: 500px;
-		padding: 1.429rem;
+		max-width: 392px;
 }
 
 @media (max-width: 400px) {
@@ -5162,11 +5175,15 @@ img.pswp__img {
 		display: -webkit-inline-box;
 		display: -ms-inline-flexbox;
 		display: inline-flex;
+		border: 2px solid transparent;
 }
 .product_page .image-preview {
 		display: -webkit-inline-box;
 		display: -ms-inline-flexbox;
 		display: inline-flex;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 		margin-bottom: 0.714rem;
 }
 .product_page .image-preview--video a {
@@ -5388,16 +5405,15 @@ img.pswp__img {
 .carousel-vertical .bx-next, .carousel-vertical .bx-prev {
 		right: 0;
 		left: 0;
-		width: 24px;
-		height: 24px;
+		width: 30px;
+		height: 30px;
 		margin: 0 auto;
-		line-height: 24px;
+		line-height: 30px;
 		background: #fff;
 		cursor: pointer;
 }
 
 .carousel-vertical .bx-prev {
-		color: #000;
 		top: 0;
 		bottom: auto;
 }
@@ -5410,12 +5426,14 @@ img.pswp__img {
 
 .carousel-vertical .bx-prev:after {
 		content: "";
-		line-height: 24px;
+		line-height: 30px;
+		font-size: 2rem;
 }
 
 .carousel-vertical .bx-next:after {
 		content: "";
-		line-height: 24px;
+		line-height: 30px;
+		font-size: 2rem;
 }
 
 .carousel-vertical .bx-next.disabled:after, .carousel-vertical .bx-prev.disabled:after {
@@ -6038,7 +6056,6 @@ i.wa-icon.arrow-left {
 		height: 10px;
 		padding: 3px;
 		background-color: #f2f3f5;
-		cursor: pointer;
 		position: relative;
 		display: -webkit-inline-box;
 		display: -ms-inline-flexbox;
@@ -6500,31 +6517,6 @@ i.wa-icon.arrow-left {
 		display: block;
 }
 
-.Login {
-		margin-top: 4rem;
-}
-
-@media (min-width: 620px) {
-		.Login {
-				margin-top: 5rem;
-		}
-}
-.Login__Box {
-		border-radius: 0.2rem;
-		width: 100%;
-}
-
-@media (min-width: 620px) {
-		.Login__Box {
-				background-color: #fff;
-				margin: 0 auto;
-				width: 420px;
-				padding: 2rem 4rem 4rem;
-				border-radius: 8px;
-				-webkit-box-shadow: 0 0 20px black;
-				        box-shadow: 0 0 20px black;
-		}
-}
 .cart_aux {
 		padding-left: 10px;
 }
