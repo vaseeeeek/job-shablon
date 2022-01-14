@@ -2271,8 +2271,10 @@ var main = {
                         outerBlockResult.show();
                         outerBlockResult.html(content);
                         $('.Nav-search').css('box-shadow', '0 2px 8px 0 rgb(0 0 0 / 16%)');
+                        $('.ajax-search-result').css('box-shadow', 'rgb(0 0 0 / 16%) 0px 8px 8px 0px');
                     } else {
                         $('.Nav-search').css('box-shadow', 'none');
+                        $('.ajax-search-result').css('box-shadow', 'none');
                         outerBlockResult.hide();
                     }
                 });
@@ -2283,6 +2285,7 @@ var main = {
             var popup = $(".js-ajax-search-result");
             if (!$('.js-ajax-search').is(e.target) && !popup.is(e.target) && popup.has(e.target).length == 0) {
                 $('.Nav-search').css('box-shadow', 'none');
+                $('.ajax-search-result').css('box-shadow', 'none');
                 popup.hide();;
             }
         });

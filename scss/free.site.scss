@@ -2204,7 +2204,7 @@ img.mfp-img {
   position: fixed;
   bottom: 30px;
   width: 180px;
-  right: 10px;
+  right: 30px;
   display: none;
   white-space: normal;
   z-index: 20
@@ -2218,10 +2218,6 @@ img.mfp-img {
 
 .product-custom.active .product-msg-added-wrap, .header__cart.active .product-msg-added-wrap {
   display: block
-}
-
-.product-msg-added-wrap--cart {
-  right: 30px;
 }
 
 .product-added-msg {
@@ -2529,7 +2525,7 @@ img.mfp-img {
   left: -10px;
   z-index: 100;
   width: calc(100% + 20px);
-  border-radius: 3px;
+  border-radius: 0 0 3px 3px;
   padding: 0 10px 10px 10px;
   background: #fff;
 }

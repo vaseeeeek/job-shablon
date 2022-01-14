@@ -174,9 +174,10 @@
                                                        value="{$sku.id}"{if !$sku_available} disabled="disabled" data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}"
                                                        data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
                                             </span>
-                                                    <span itemprop="name">{$sku.name|escape}</span>
+
                                                     {if $sku.sku}
-                                                        <span itemprop="sku" class="hint">{$sku.sku|escape}</span>{/if}
+                                                        <span itemprop="sku" class="hint">{$sku.sku|escape}</span>
+                                                    {/if}
                                                     <span class="price nowrap">{shop_currency_html($sku.price, $product.currency)}</span>
                                                     {if (!($sku.count === null) && $sku.count <= 0)}
                                                         <link itemprop="availability"
