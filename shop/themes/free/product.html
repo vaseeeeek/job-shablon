@@ -12,14 +12,14 @@
                         <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
                         {$_badge_percent = $theme_settings.product_discount_percentage == 1}
                         {if $_badge_percent}
-                            <div class="product-card_discounts">
-                                {if $theme_settings.product_discount_percentage == 1}
-                                    {if $compare_price > $price}
-                                        {$discount = (($compare_price-$price)/$compare_price)*100}
-                                        {$discount = ceil($discount)}
-                                    {/if}
-                                    {$productDiscount = isset($discount) && $price > 0}
-                                    <div data-minimal="3" class="js-product-discount product-discount product-card__discount{if !$productDiscount} -Close{/if}">{if $productDiscount}-{$discount}%{/if}</div>
+                            {if $theme_settings.product_discount_percentage == 1}
+                                {if $compare_price > $price}
+                                    {$discount = (($compare_price-$price)/$compare_price)*100}
+                                    {$discount = ceil($discount)}
+                                {/if}
+                            {$productDiscount = isset($discount) && $price > 0}
+                            <div class="product-card_discounts {if !$productDiscount} -Close{/if}">
+                                    <div data-minimal="3" class="js-product-discount product-discount product-card__discount">{if $productDiscount}-{$discount}%{/if}</div>
                                 {/if}
                             </div>
                         {/if}

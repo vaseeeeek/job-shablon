@@ -2967,15 +2967,23 @@ img.pswp__img {
   }
 }
 
-.modal-content--dialog-options .product_action-dialog {
-  padding: 2rem;
-  max-width: 1000px;
-}
-
 .product_action-dialog .image-preview {
   margin-bottom: 10px;
 }
-
+.modal-content--dialog-options  {
+  .product_add2cart .addtocart{
+    margin: rem(10px) 0 0 0 ;
+  }
+  .product_add-services {
+    min-width: initial;
+  }
+  .product_action-dialog{
+    font-size:1rem;
+  }
+  &.modal-content--dialog{
+    padding: 2rem;
+  }
+}
 .product_action-dialog * {
   white-space: normal
 }
