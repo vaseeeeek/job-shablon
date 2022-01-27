@@ -658,7 +658,7 @@
       <name locale="ru_RU">Высота видимого текста в px</name>
     </setting>
     <setting var="cat_desc_bottom" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Description below the products</name>
       <name locale="ru_RU">Описание под списком товаров</name>
     </setting>
@@ -741,7 +741,7 @@
       </options>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>short</value>
+      <value>first</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от выбранного вида.
