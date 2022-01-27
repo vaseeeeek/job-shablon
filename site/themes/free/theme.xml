@@ -307,7 +307,7 @@
       <name locale="ru_RU">Подпункты в инф. страницах</name>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>

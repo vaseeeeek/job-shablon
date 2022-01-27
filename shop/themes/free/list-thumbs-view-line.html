@@ -164,22 +164,36 @@
                             <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
                         </span>
                     {/if}
+                    <div class="Product-grid_bottom">
+                        {if $p.sku_count > 1}
+                            <input type="hidden" name="product_id" value="{$p.id}">
+                            {if $theme_settings.show_number_item_add_in_list}
+                                <span class="button js-card-dialog addtocart addtocart--mini" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">[`Add to cart`]</span>
+                            {else}
+                                <span class="button js-card-dialog addtocart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">{$add2label_cart}</span>
+                            {/if}
+                        {else}
+                            <input type="hidden" name="product_id" value="{$p.id}">
+                            {if $theme_settings.show_number_item_add_in_list}
+                                <span class="button js-submit-form addtocart addtocart--mini">[`Add to cart`]</span>
+                            {else}
+                                <span class="button js-submit-form addtocart addtocart--large">{$add2label_cart}</span>
+                            {/if}
+                        {/if}
 
-                    {if $p.sku_count > 1}
-                        <input type="hidden" name="product_id" value="{$p.id}">
-                        {if $theme_settings.show_number_item_add_in_list}
-                            <span class="button js-card-dialog addtocart addtocart--mini" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">[`Add to cart`]</span>
-                        {else}
-                            <span class="button js-card-dialog addtocart addtocart--large" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">{$add2label_cart}</span>
-                        {/if}
-                    {else}
-                        <input type="hidden" name="product_id" value="{$p.id}">
-                        {if $theme_settings.show_number_item_add_in_list}
-                            <span class="button js-submit-form addtocart addtocart--mini">[`Add to cart`]</span>
-                        {else}
-                            <span class="button js-submit-form addtocart addtocart--large">{$add2label_cart}</span>
-                        {/if}
-                    {/if}
+                        <div class="Products-list_actions">
+                            {if $theme_settings.favorites}
+                                <span data-product="{$p.id}" class="js-favorites-add product-action add-to-favorite {if in_array($p.id, $favorites)} active{/if}">
+                                    <i class="fi-rr-heart"></i>
+                                </span>
+                            {/if}
+                            {if $theme_settings.compare}
+                                <span class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                                    <i class="fi-rr-compare"></i>
+                                </span>
+                            {/if}
+                        </div>
+                    </div>
                 </form>
                 {if $theme_settings.preview_stock}
                     <div class="Product-stock product-line-stock">
@@ -216,21 +230,6 @@
             {/if}
         </div>
         <div class="Product__Item-center">
-            <div class="Products-list_actions">
-                {if $theme_settings.favorites}
-                    <span data-product="{$p.id}" class="js-favorites-add product-action add-to-favorite {if in_array($p.id, $favorites)} active{/if}">
-                        <i class="fi-rr-heart"></i>
-                        <span class="product-action-text">[`To favorites`]</span>
-                    </span>
-                {/if}
-                {if $theme_settings.compare}
-                    <span class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
-
-                        <i class="fi-rr-compare"></i>
-                        <span class="product-action-text">[`Compare`]</span>
-                    </span>
-                {/if}
-            </div>
         </div>
         <div class="Product__Item-right"></div>
     </div>

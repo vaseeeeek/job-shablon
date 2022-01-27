@@ -1,5 +1,5 @@
 {strip}
-
+    {$action = $wa->param('action')}
     {$_price_range = $theme_settings.price_range_in_product_list}
     {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
 
@@ -43,8 +43,7 @@
     {/if}
     {$isProductTilePreviewTileGallery = true}
     {$preview_image = $wa->shop->productImgUrl($p, '60')}
-
-    <div class="Product-grid {if $wa->get('list', null) !== 'favorites'}-{$theme_settings.count_product_row}{else}-five{/if} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if} {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}salesku_plugin-product{/if}" data-product-id="{$p.id}">
+    <div class="Product-grid {if $action != 'search' && $action != 'brandPage'} -{$theme_settings.count_product_row}{else}-five{/if} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if} {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}salesku_plugin-product{/if}" data-product-id="{$p.id}">
         {$badge_html = $wa->shop->badgeHtml($p.badge)}
         {if $badge_html}
             {$badge_html}

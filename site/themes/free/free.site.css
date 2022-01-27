@@ -2827,7 +2827,6 @@ img.mfp-img {
 
 @media (min-width: 1000px) {
 		.left-sidebar {
-				float: left;
 				width: 250px;
 		}
 }
@@ -3852,7 +3851,7 @@ article, aside, footer, header, nav, section {
 		margin-left: 2.5rem;
 		margin-right: 2.5rem;
 }
-.header .Nav-contact-info p:not(:last-child) {
+.header .Nav-contact-info p {
 		margin-bottom: 0px;
 }
 .header a.Nav-contact-phone {

@@ -139,7 +139,9 @@
                     {/if}
                     <p><a href="tel:{$theme_settings.header_company_phone}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></p>
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
-                    <p class="Nav-contact-callback js-callback-open">[`Feedback`]</p>
+                    {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
+                        <p class="Nav-contact-callback js-callback-open">[`Feedback`]</p>
+                    {/if}
                 </div>
 
                 <div class="Nav-product-custom">

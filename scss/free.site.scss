@@ -2778,7 +2778,6 @@ img.mfp-img {
 
 @media (min-width: 1000px) {
   .left-sidebar {
-    float: left;
     width: 250px;
   }
 }
@@ -3835,7 +3834,7 @@ article, aside, footer, header, nav, section {
     margin-left: rem(35px);
     margin-right: rem(35px);
 
-    p:not(:last-child) {
+    p {
       margin-bottom: 0px;
     }
   }

@@ -22,8 +22,8 @@
         {foreach $frontend_header as $_}{$_}{/foreach}
     {/if}
 
-    {if $action == 'page'}
-        {if $action == 'tag'}<div class="tag-page">{/if}
+    {if $action == 'page' || $action == 'tag'}
+        <div class="{if $action == 'page'}info-page{else}{$action}-page{/if}">
             <div class="out_sidebars">
                 {include file="`$wa_active_theme_path`/sidebar.html"}
             </div>
@@ -32,7 +32,7 @@
             <div class="content{if !$is_search_products_template} content-box{/if} {if $sb_left} with-sidebar{/if} {$class}">
                 {$content}
             </div>
-        {if $action == 'tag'}</div>{/if}
+        </div>
     {else}
         {$content}
     {/if}
