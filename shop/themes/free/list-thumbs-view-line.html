@@ -98,16 +98,15 @@
             {if $_rating || $_badge_percent}
                 <div>
                     {if $_badge_percent}
-                        <div class="Product__Item-discounts">
-
-                            {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
+                        {if $theme_settings.product_discount_percentage == 1 && $compare_price > $price}
+                            <div class="Product__Item-discounts">
                                 {$discount = (($compare_price-$price)/$compare_price)*100}
                                 {$discount = ceil($discount)}
                                 {if $price > 0}
                                     <div class="product-discount">-{$discount}%</div>
                                 {/if}
-                            {/if}
-                        </div>
+                            </div>
+                        {/if}
                     {/if}
 
                     {if $p.rating > 0 && $theme_settings.product_ratings}
@@ -133,26 +132,33 @@
             {/if}
 
             {if count($short_list_features) > 0}
-                <table class="Products-features Product__features">
+                <div class="Product-grid_features">
                     {foreach $short_list_features as $f_code => $f_value}
-                        <tr class="Product__features-item {if $features[$f_code].type == 'divider'} divider{/if}">
-                            <td class="Product__features-title">
-                                <span>{$features[$f_code].name|escape}</span>
-                            </td>
-                            <td class="Product__features-value">
-                                {if is_array($f_value)}
-                                    {if $features[$f_code].type == 'color'}
-                                        {implode('<br /> ', $f_value)}
-                                    {else}
-                                        {implode(', ', $f_value)}
-                                    {/if}
-                                {else}
-                                    {$f_value}
-                                {/if}
-                            </td>
-                        </tr>
+                        {if is_array($f_value)}
+                            {$text_feature_value = implode(' ', $f_value)}
+                            {$text_feature = "`$features[$f_code].name`: `$text_feature_value`"}
+                        {else}
+                            {$text_feature = "`$features[$f_code].name`: `$f_value`"}
+                        {/if}
+
+                        {if $features[$f_code].type != 'divider'}
+                            <div class="Product-grid-features__item" title="{$text_feature|strip_tags}">
+                                <span class="Product-grid-features__title">{$features[$f_code].name|escape}: </span>
+                                <span class="Product-grid-features__value">
+                                        {if is_array($f_value)}
+                                            {if $features[$f_code].type == 'color'}
+                                                <span class="Product__features__colors-short">{implode(' ', $f_value)}</span>
+                                            {else}
+                                                {implode(', ', $f_value)}
+                                            {/if}
+                                        {else}
+                                            {$f_value}
+                                        {/if}
+                                    </span>
+                            </div>
+                        {/if}
                     {/foreach}
-                </table>
+                </div>
             {/if}
         </div>
         <div class="Product__Item-right">

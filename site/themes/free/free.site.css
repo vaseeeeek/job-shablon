@@ -3420,6 +3420,10 @@ article, aside, footer, header, nav, section {
 		line-height: 30px;
 }
 
+textarea {
+		height: 100px;
+}
+
 .jq-selectbox, select {
 		outline: none;
 		cursor: pointer;

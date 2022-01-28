@@ -52,43 +52,43 @@
                                         <i class="icon10 star"></i>
                                     </div>
                                 </div>
-                                {if $theme_settings.type_view_main_content_product_desktop == 'normal_tabs'}
-                                    <script>
-                                        $('.rating').click(() => {
-                                            $('.js-tab[data-tab-content="product-reviews"]').click();
-                                            $([document.documentElement, document.body]).animate({
-                                                scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
-                                            }, 700);
-                                        })
-                                    </script>
-                                {/if}
-                                {if $theme_settings.type_view_main_content_product_desktop == 'acc_tabs'}
-                                    <script>
-                                        $('.rating').click(() => {
-                                            $('.js-acc-tab[data-tab-content="product-reviews"]').click();
-                                            $([document.documentElement, document.body]).animate({
-                                                scrollTop: $('.js-acc-tab[data-tab-content="product-reviews"]').offset().top - 150
-                                            }, 700);
-                                        })
-                                    </script>
-                                {/if}
-                                {if $theme_settings.type_view_main_content_product_desktop == 'anchor_tabs'}
-                                    <script>
-                                        $('.rating').click(() => {
-                                            $('.js-motion-to-tab[data-tab-content="product-reviews"]').click();
-                                        })
-                                    </script>
-                                {/if}
-                                {if $theme_settings.type_view_main_content_product_desktop == 'none_tabs'}
-                                    <script>
-                                        $('.rating').click(() => {
-                                            $([document.documentElement, document.body]).animate({
-                                                scrollTop: $('#product-reviews').offset().top - 150
-                                            }, 700);
-                                        })
-                                    </script>
-                                {/if}
                             {/if}
+                        {/if}
+                        {if $theme_settings.type_view_main_content_product_desktop == 'normal_tabs'}
+                            <script>
+                                $('.rating').click(() => {
+                                    $('.js-tab[data-tab-content="product-reviews"]').click();
+                                    $([document.documentElement, document.body]).animate({
+                                        scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
+                                    }, 700);
+                                })
+                            </script>
+                        {/if}
+                        {if $theme_settings.type_view_main_content_product_desktop == 'acc_tabs'}
+                            <script>
+                                $('.rating').click(() => {
+                                    $('.js-acc-tab[data-tab-content="product-reviews"]').click();
+                                    $([document.documentElement, document.body]).animate({
+                                        scrollTop: $('.js-acc-tab[data-tab-content="product-reviews"]').offset().top - 150
+                                    }, 700);
+                                })
+                            </script>
+                        {/if}
+                        {if $theme_settings.type_view_main_content_product_desktop == 'anchor_tabs'}
+                            <script>
+                                $('.rating').click(() => {
+                                    $('.js-motion-to-tab[data-tab-content="product-reviews"]').click();
+                                })
+                            </script>
+                        {/if}
+                        {if $theme_settings.type_view_main_content_product_desktop == 'none_tabs'}
+                            <script>
+                                $('.rating').click(() => {
+                                    $([document.documentElement, document.body]).animate({
+                                        scrollTop: $('#product-reviews').offset().top - 150
+                                    }, 700);
+                                })
+                            </script>
                         {/if}
                         {if $theme_settings.favorites || $theme_settings.compare}
                             <div class="product_action-btn">
@@ -389,7 +389,7 @@
                                             <div class="acc-tabs-title">{$page.name|escape}</div>
                                         </div>
                                     {/if}
-                                    <div id="product-page-{$page.id}" class="product_page {$class_product_content}">
+                                    <div id="product-page-{$page.id}" class="product_info-page {$class_product_content}">
                                         {if !$_tabs_normal && !$_tabs_acc}
                                             <div class="product-tab_title"><h2>{$page.name|escape}</h2></div>
                                         {/if}

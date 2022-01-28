@@ -4,64 +4,64 @@
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
-    </description>
+  </description>
   <description locale="ru_RU">Семейство тем Free для приложений Webasyst.
-    </description>
+  </description>
   <files>
     <file path="index.html" custom="0">
-        </file>
+    </file>
     <file path="free.site.css" custom="0">
-        </file>
+    </file>
     <file path="free.js" custom="0">
-        </file>
+    </file>
     <file path="free.custom.css" custom="0" modified="1">
-        </file>
+    </file>
     <file path="free.custom.js" custom="0">
-        </file>
+    </file>
     <file path="style-settings.css.html" custom="0">
-        </file>
+    </file>
     <file path="fonts.html" custom="0">
-        </file>
+    </file>
     <file path="head.html" custom="0">
-        </file>
+    </file>
     <file path="color-settings.css.html" custom="0">
-        </file>
+    </file>
     <file path="header.links.html" custom="0">
-        </file>
+    </file>
     <file path="header.links.desk.html" custom="0">
-        </file>
+    </file>
     <file path="header.html" custom="0">
-        </file>
+    </file>
     <file path="nav.html" custom="0">
-        </file>
+    </file>
     <file path="bottom.panel.html" custom="0">
-        </file>
+    </file>
     <file path="header.dd.cat.list.html" custom="0">
-        </file>
+    </file>
     <file path="nav.one_column.scat.html" custom="0">
-        </file>
+    </file>
     <file path="nav.columns.scat.html" custom="0">
-        </file>
+    </file>
     <file path="main.html" custom="0">
-        </file>
+    </file>
     <file path="footer.html" custom="0">
-        </file>
+    </file>
     <file path="sidebar.html" custom="0">
-        </file>
+    </file>
     <file path="page.html" custom="0">
-        </file>
+    </file>
     <file path="login.html" custom="0">
-        </file>
+    </file>
     <file path="signup.html" custom="0">
-        </file>
+    </file>
     <file path="forgotpassword.html" custom="0">
-        </file>
+    </file>
     <file path="my.profile.html">
-        </file>
+    </file>
     <file path="my.nav.html">
-        </file>
+    </file>
     <file path="error.html" custom="0">
-        </file>
+    </file>
   </files>
   <settings>
     <setting var="paragraph_colors" control_type="group_divider">
@@ -87,11 +87,11 @@
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
-                #005BFF,#0C93E8, #0DE1FF)
-            </description>
+        #005BFF,#0C93E8, #0DE1FF)
+      </description>
       <description locale="en_US">You can use gradients - linear-gradient( 45deg , #390DFF, #0C1FE8,
-                #005BFF,#0C93E8, #0DE1FF)
-            </description>
+        #005BFF,#0C93E8, #0DE1FF)
+      </description>
     </setting>
     <setting var="second_color" control_type="color">
       <value>#005bff</value>
@@ -127,7 +127,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>montserrat</value>
+      <value>opensans</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.</description>
       <options>
@@ -263,9 +263,9 @@
       <name locale="ru_RU">Ссылки на инф. страницы</name>
       <name locale="en_US">Links to information pages</name>
       <description locale="ru_RU">Из какого приложения брать ссылки на инф. страницы.
-            </description>
+      </description>
       <description locale="en_US">From which application to take links to information pages.
-            </description>
+      </description>
       <options>
         <option value="wa-apps">
           <name locale="ru_RU">Приложение «Сайт» &gt; Настройки &gt; {$wa-&gt;apps()}</name>
@@ -302,10 +302,10 @@
       <name locale="en_US">Application ID Menu</name>
       <name locale="ru_RU">ID приложению Меню</name>
       <description locale="ru_RU">Указать если выбран пункт "Из приложения меню" в настройке выше.
-            </description>
+      </description>
       <description locale="en_US">Specify if the "From the application menu" option is selected in the settings
-                above.
-            </description>
+        above.
+      </description>
     </setting>
     <setting var="header_company_phone" control_type="text">
       <value>+7 (495) 999-99-99</value>
@@ -357,14 +357,14 @@
       <name locale="ru_RU">Плагин "Автоопределение и выбор города"</name>
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
-	<setting var="fixed_panel_array" control_type="text">
+    <setting var="fixed_panel_array" control_type="text">
       <value>burger,cart,compare,favorite,filter,phone,profile</value>
       <name locale="ru_RU">Нижнее меню на мобильных</name>
       <name locale="en_US"/>
-	  <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
-            </description>
+      <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
+      </description>
       <description locale="en_US">By default - burger,cart,compare,favorite,filter,phone,profile
-            </description>
+      </description>
     </setting>
     <setting var="paragraph_main_categories" control_type="group_divider">
       <value/>
@@ -395,9 +395,9 @@
       <name locale="ru_RU">Кол-во категорий до кнопки "Ещё"</name>
       <name locale="en_US">Number of categories before the "More" button</name>
       <description locale="ru_RU">Оставьте пустым, чтобы вывести все.
-            </description>
+      </description>
       <description locale="en_US">Leave it blank to output everything.
-            </description>
+      </description>
     </setting>
     <setting var="break_categories_columns" control_type="select">
       <value>one_column</value>
@@ -481,8 +481,8 @@
     <setting var="hide_cat_burger" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">
-              Свернуть категории в мобильном меню в кнопку "Каталог→"
-          </name>
+        Свернуть категории в мобильном меню в кнопку "Каталог→"
+      </name>
     </setting>
     <setting var="paragraph_mainpage" control_type="group_divider">
       <value/>
@@ -499,9 +499,9 @@
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <description locale="ru_RU">ID для опции "Товары из списка" задавать в настройке ниже.
-            </description>
+      </description>
       <description locale="en_US">The ID for the "Products from the list" option is set in the settings below.
-            </description>
+      </description>
       <options>
         <option value="promos">
           <name locale="ru_RU">Акции из раздела маркетинг</name>
@@ -522,9 +522,9 @@
       <name locale="en_US">Slider product set ID</name>
       <name locale="ru_RU">ID списка товаров в слайдере</name>
       <description locale="ru_RU">Работает в паре с настройкой выше.
-            </description>
+      </description>
       <description locale="en_US">Works in conjunction with the setting above.
-            </description>
+      </description>
     </setting>
     <setting var="paragraph_mainpage_categories" control_type="paragraph">
       <value/>
@@ -646,8 +646,8 @@
       <name locale="ru_RU">Кол-во товаров в строке в виде "Плитка"</name>
       <description locale="ru_RU">Количество элементов в списках товаров категорий, при виде показа списка "плиткой"</description>
       <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks -
-                Block footer_codes
-            </description>
+        Block footer_codes
+      </description>
       <options>
         <option value="three">
           <name locale="ru_RU">3</name>
@@ -738,12 +738,12 @@
       <value/>
       <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
       <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
-                right)
-            </name>
+        right)
+      </name>
       <description locale="ru_RU">Например: color,weight,size
-            </description>
+      </description>
       <description locale="en_US">For example: color,weight,size
-            </description>
+      </description>
     </setting>
     <setting var="paragraph_category_description" control_type="paragraph">
       <value/>
@@ -865,8 +865,8 @@
     <setting var="category_image_valign" control_type="select">
       <value/>
       <name locale="ru_RU">
-                Прижать фото
-            </name>
+        Прижать фото
+      </name>
       <tooltip locale="ru_RU">Прижать фото к верхней части контейнера</tooltip>
       <options>
         <option value="">
@@ -880,12 +880,12 @@
     <setting var="category_image_size" control_type="select">
       <value>auto</value>
       <name locale="ru_RU">
-                Контейнер фото
-            </name>
+        Контейнер фото
+      </name>
       <tooltip locale="ru_RU">Высота контейнера фотографии. Режим "Авто" работает только в тех магазинах, в
-                которых владельцы следят за фотографиями. Т.е. все оригиналы фотографий обрабатываются заранее по
-                заданным стандартам.
-            </tooltip>
+        которых владельцы следят за фотографиями. Т.е. все оригиналы фотографий обрабатываются заранее по
+        заданным стандартам.
+      </tooltip>
       <options>
         <option value="manual">
           <name locale="ru_RU">Произвольный</name>
@@ -916,8 +916,8 @@
     <setting var="category_image_size_manual" control_type="text">
       <value>100%</value>
       <name locale="ru_RU">
-                Контейнер фото (произвольный)
-            </name>
+        Контейнер фото (произвольный)
+      </name>
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
@@ -925,9 +925,9 @@
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от выбранного вида.
-            </description>
+      </description>
       <description locale="en_US">Use the 2 settings below depending on the selected view.
-            </description>
+      </description>
       <options>
         <option value="short">
           <name locale="ru_RU">Конкретные характеристики</name>
@@ -947,17 +947,17 @@
       <value/>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of output characteristics</name>
-      <description locale="ru_RU">Данная настройка используется в т.м.ч и для краткого списка характеристик в карточке товара. 
-            </description>
+      <description locale="ru_RU">Данная настройка используется в т.м.ч и для краткого списка характеристик в карточке товара.
+      </description>
     </setting>
     <setting var="preview_features_product_count" control_type="text">
       <value>5</value>
       <name locale="ru_RU">Кол-во характеристик</name>
       <name locale="en_US">Number of characteristics</name>
       <description locale="ru_RU">Если выбрано "Первых N штук"
-            </description>
+      </description>
       <description locale="en_US">If "First N pieces" is selected
-            </description>
+      </description>
     </setting>
     <setting var="product_show_tile_features" control_type="checkbox">
       <value>1</value>
@@ -1136,10 +1136,10 @@
       <value>first</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
-      <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых характеристик" в разделе "Карточка в списке товаров". 
-				</description>
+      <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых характеристик" в разделе "Карточка в списке товаров".
+      </description>
       <description locale="en_US">If there are specific characteristics, then fill in the "Output characteristics codes" setting in the "Card in the list of products" section.
-            </description>
+      </description>
       <options>
         <option value="none">
           <name locale="ru_RU">Не выводить</name>
@@ -1164,18 +1164,18 @@
       <name locale="ru_RU">Кол-во характеристик</name>
       <name locale="en_US">Number of characteristics</name>
       <description locale="ru_RU">Если выбрано "Первых N штук"
-            </description>
+      </description>
       <description locale="en_US">If "First N pieces" is selected
-            </description>
+      </description>
     </setting>
     <setting var="product_page_show_brand_right" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Бренд картинкой</name>
       <name locale="en_US">Brand by picture</name>
       <description locale="ru_RU">С плагином "Бренды с картинками и описаниями"
-            </description>
+      </description>
       <description locale="en_US">With the plugin "Brands with pictures and descriptions"
-            </description>
+      </description>
     </setting>
     <setting var="brand_id" control_type="text">
       <value>brand</value>
@@ -1197,9 +1197,9 @@
       <name locale="ru_RU">Вкладки в карточке товара</name>
       <name locale="en_US">Tabs in the product card</name>
       <description locale="ru_RU">Рекомендуемое - description,features,reviews,pages
-            </description>
+      </description>
       <description locale="en_US">Recommended - description,features,reviews,pages
-            </description>
+      </description>
     </setting>
     <setting var="plugin_hook_block_in_product" control_type="select">
       <value>right_block</value>
@@ -1388,18 +1388,18 @@
       <name locale="en_US">Load file custom styles</name>
       <name locale="ru_RU">Загружать файл free.custom.css</name>
       <description locale="en_US">Custom styles from the file. But we recommend using the id custom_styles block
-            </description>
+      </description>
       <description locale="ru_RU">Собственные стили из файла. Но мы рекомендуем использовать блок id custom_styles
-            </description>
+      </description>
     </setting>
     <setting var="load_custom_js" control_type="checkbox">
       <value/>
       <name locale="en_US">Load file custom js scripts</name>
       <name locale="ru_RU">Загружать файл free.custom.js</name>
       <description locale="en_US">Custom styles from the file. But we recommend using the id footer_codes block
-            </description>
+      </description>
       <description locale="ru_RU">Собственные стили из файла. Но мы рекомендуем использовать блок id footer_codes
-            </description>
+      </description>
     </setting>
     <setting var="paragraph_other" control_type="group_divider">
       <value/>
