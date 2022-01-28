@@ -211,6 +211,12 @@
         </option>
       </options>
     </setting>
+    <setting var="font_size_html" control_type="text">
+      <value>14px</value>
+      <name locale="ru_RU">
+        Основной размер шрифта (Рекомендуемый 14px)
+      </name>
+    </setting>
     <setting var="paragraph_header" control_type="group_divider">
       <value/>
       <name locale="en_US">Header</name>
@@ -301,13 +307,43 @@
                 above.
             </description>
     </setting>
+    <setting var="header_company_phone" control_type="text">
+      <value>+7 (495) 999-99-99</value>
+      <name locale="ru_RU">Телефон</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="header_company_email" control_type="text">
+      <value>free@mail.ru</value>
+      <name locale="ru_RU">Почта</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="header_company_adress" control_type="text">
+      <value>Москва, щелковское шоссе 100</value>
+      <name locale="ru_RU">Адрес</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="five_icon_img_header" control_type="text">
+      <value/>
+      <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="five_icon_text_header" control_type="text">
+      <value/>
+      <name locale="ru_RU">Подпись пятной кнопки в шапке</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="lk_icon_header" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывести иконку личного кабинета</name>
+      <name locale="en_US"/>
+    </setting>
     <setting var="sub_items_inf_pages" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Sub-items in inf. pages</name>
       <name locale="ru_RU">Подпункты в инф. страницах</name>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
@@ -320,6 +356,15 @@
       <value>1</value>
       <name locale="ru_RU">Плагин "Автоопределение и выбор города"</name>
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
+    </setting>
+	<setting var="fixed_panel_array" control_type="text">
+      <value>burger,cart,compare,favorite,filter,phone,profile</value>
+      <name locale="ru_RU">Нижнее меню на мобильных</name>
+      <name locale="en_US"/>
+	  <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
+            </description>
+      <description locale="en_US">By default - burger,cart,compare,favorite,filter,phone,profile
+            </description>
     </setting>
     <setting var="paragraph_main_categories" control_type="group_divider">
       <value/>
@@ -403,6 +448,41 @@
       <value/>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
+    </setting>
+    <setting var="horizontal_menu" control_type="select">
+      <value></value>
+      <name locale="ru_RU">Вывод горизонтального меню</name>
+      <name locale="en_US"/>
+      <options>
+        <option value="0">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US"/>
+        </option>
+        <option value="cat">
+          <name locale="ru_RU">Категории первого уровня</name>
+          <name locale="en_US"/>
+        </option>
+        <option value="app">
+          <name locale="ru_RU">приложение "Управление меню"</name>
+          <name locale="en_US"/>
+        </option>
+      </options>
+    </setting>
+    <setting var="horizontal_menu_app_id" control_type="text">
+      <value>83</value>
+      <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="horizontal_menu_between" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Растянуть горизонтальное меню</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="hide_cat_burger" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">
+              Свернуть категории в мобильном меню в кнопку "Каталог→"
+          </name>
     </setting>
     <setting var="paragraph_mainpage" control_type="group_divider">
       <value/>
@@ -559,6 +639,29 @@
       <value/>
       <name locale="en_US">List of products</name>
       <name locale="ru_RU">Список товаров</name>
+    </setting>
+    <setting var="count_product_row" control_type="select">
+      <value>four</value>
+      <name locale="en_US">Number of products in a row in the form of a "Tile"</name>
+      <name locale="ru_RU">Кол-во товаров в строке в виде "Плитка"</name>
+      <description locale="ru_RU">Количество элементов в списках товаров категорий, при виде показа списка "плиткой"</description>
+      <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks -
+                Block footer_codes
+            </description>
+      <options>
+        <option value="three">
+          <name locale="ru_RU">3</name>
+          <name locale="en_US"/>
+        </option>
+        <option value="four">
+          <name locale="ru_RU">4</name>
+          <name locale="en_US"/>
+        </option>
+        <option value="five">
+          <name locale="ru_RU">5</name>
+          <name locale="en_US"/>
+        </option>
+      </options>
     </setting>
     <setting var="pagination" control_type="select">
       <value>paging</value>
@@ -739,6 +842,83 @@
           <name locale="en_US">table</name>
         </option>
       </options>
+    </setting>
+    <setting var="width_grid_img" control_type="text">
+      <value>300</value>
+      <name locale="ru_RU">Ширина изображения в списке товаров</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="category_image_contain" control_type="select">
+      <value>-Contain</value>
+      <name locale="ru_RU">Вместить фото</name>
+      <name locale="en_US"/>
+      <tooltip locale="ru_RU">Фотография будет сжата до размеров контейнера</tooltip>
+      <options>
+        <option value="">
+          <name locale="ru_RU">Нет</name>
+        </option>
+        <option value="-Contain">
+          <name locale="ru_RU">Да</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_image_valign" control_type="select">
+      <value/>
+      <name locale="ru_RU">
+                Прижать фото
+            </name>
+      <tooltip locale="ru_RU">Прижать фото к верхней части контейнера</tooltip>
+      <options>
+        <option value="">
+          <name locale="ru_RU">Нет</name>
+        </option>
+        <option value="-Top">
+          <name locale="ru_RU">Да</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_image_size" control_type="select">
+      <value>auto</value>
+      <name locale="ru_RU">
+                Контейнер фото
+            </name>
+      <tooltip locale="ru_RU">Высота контейнера фотографии. Режим "Авто" работает только в тех магазинах, в
+                которых владельцы следят за фотографиями. Т.е. все оригиналы фотографий обрабатываются заранее по
+                заданным стандартам.
+            </tooltip>
+      <options>
+        <option value="manual">
+          <name locale="ru_RU">Произвольный</name>
+        </option>
+        <option value="auto">
+          <name locale="ru_RU">Авто</name>
+        </option>
+        <option value="xs">
+          <name locale="ru_RU">XS</name>
+        </option>
+        <option value="s">
+          <name locale="ru_RU">S</name>
+        </option>
+        <option value="m">
+          <name locale="ru_RU">M</name>
+        </option>
+        <option value="l">
+          <name locale="ru_RU">L</name>
+        </option>
+        <option value="xl">
+          <name locale="ru_RU">XL</name>
+        </option>
+        <option value="xxl">
+          <name locale="ru_RU">XXL</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_image_size_manual" control_type="text">
+      <value>100%</value>
+      <name locale="ru_RU">
+                Контейнер фото (произвольный)
+            </name>
+      <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
       <value>first</value>
@@ -1231,221 +1411,45 @@
       <name locale="ru_RU">Выводить ссылки быстрого редактирования (для администратора сайта)</name>
       <name locale="en_US">Display quick edit links (for site administrator)</name>
     </setting>
-    <setting var="count_product_row" control_type="select">
-      <value>four</value>
-      <name locale="en_US">Number of products in a row in the form of a "Tile"</name>
-      <name locale="ru_RU">Кол-во товаров в строке в виде "Плитка"</name>
-      <description locale="ru_RU">Количество элементов в списках товаров категорий, при виде показа списка "плиткой"</description>
-      <description locale="en_US">It is recommended to add custom scripts through the application Site - Blocks -
-                Block footer_codes
-            </description>
-      <options>
-        <option value="three">
-          <name locale="ru_RU">3</name>
-          <name locale="en_US"/>
-        </option>
-        <option value="four">
-          <name locale="ru_RU">4</name>
-          <name locale="en_US"/>
-        </option>
-        <option value="five">
-          <name locale="ru_RU">5</name>
-          <name locale="en_US"/>
-        </option>
-      </options>
-    </setting>
-    <setting var="horizontal_menu" control_type="select">
-      <value></value>
-      <name locale="ru_RU">Вывод горизонтального меню</name>
-      <name locale="en_US"/>
-      <options>
-        <option value="0">
-          <name locale="ru_RU">Не выводить</name>
-          <name locale="en_US"/>
-        </option>
-        <option value="cat">
-          <name locale="ru_RU">Категории первого уровня</name>
-          <name locale="en_US"/>
-        </option>
-        <option value="app">
-          <name locale="ru_RU">приложение "Управление меню"</name>
-          <name locale="en_US"/>
-        </option>
-      </options>
-    </setting>
-    <setting var="horizontal_menu_between" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Растянуть горизонтальное меню</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="lk_icon_header" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Вывести иконку личного кабинета</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="horizontal_menu_app_id" control_type="text">
-      <value>83</value>
-      <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="header_company_phone" control_type="text">
-      <value>+7 (495) 999-99-99</value>
-      <name locale="ru_RU">Телефон</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="header_company_email" control_type="text">
-      <value>free@mail.ru</value>
-      <name locale="ru_RU">Почта</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="header_company_adress" control_type="text">
-      <value>Москва, щелковское шоссе 100</value>
-      <name locale="ru_RU">Адрес</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="fixed_panel_array" control_type="text">
-      <value>burger,cart,compare,favorite,filter,phone,profile</value>
-      <name locale="ru_RU">Нижнее меню на мобильных</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="five_icon_img_header" control_type="text">
-      <value/>
-      <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="five_icon_text_header" control_type="text">
-      <value/>
-      <name locale="ru_RU">Подпись пятной кнопки в шапке</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="width_grid_img" control_type="text">
-      <value>300</value>
-      <name locale="ru_RU">Ширина изображения в списке товаров</name>
-      <name locale="en_US"/>
-    </setting>
-    <setting var="category_image_contain" control_type="select">
-      <value>-Contain</value>
-      <name locale="ru_RU">Вместить фото</name>
-      <name locale="en_US"/>
-      <tooltip locale="ru_RU">Фотография будет сжата до размеров контейнера</tooltip>
-      <options>
-        <option value="">
-          <name locale="ru_RU">Нет</name>
-        </option>
-        <option value="-Contain">
-          <name locale="ru_RU">Да</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="category_image_valign" control_type="select">
-      <value/>
-      <name locale="ru_RU">
-                Прижать фото
-            </name>
-      <tooltip locale="ru_RU">Прижать фото к верхней части контейнера</tooltip>
-      <options>
-        <option value="">
-          <name locale="ru_RU">Нет</name>
-        </option>
-        <option value="-Top">
-          <name locale="ru_RU">Да</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="category_image_size" control_type="select">
-      <value>auto</value>
-      <name locale="ru_RU">
-                Контейнер фото
-            </name>
-      <tooltip locale="ru_RU">Высота контейнера фотографии. Режим "Авто" работает только в тех магазинах, в
-                которых владельцы следят за фотографиями. Т.е. все оригиналы фотографий обрабатываются заранее по
-                заданным стандартам.
-            </tooltip>
-      <options>
-        <option value="manual">
-          <name locale="ru_RU">Произвольный</name>
-        </option>
-        <option value="auto">
-          <name locale="ru_RU">Авто</name>
-        </option>
-        <option value="xs">
-          <name locale="ru_RU">XS</name>
-        </option>
-        <option value="s">
-          <name locale="ru_RU">S</name>
-        </option>
-        <option value="m">
-          <name locale="ru_RU">M</name>
-        </option>
-        <option value="l">
-          <name locale="ru_RU">L</name>
-        </option>
-        <option value="xl">
-          <name locale="ru_RU">XL</name>
-        </option>
-        <option value="xxl">
-          <name locale="ru_RU">XXL</name>
-        </option>
-      </options>
-    </setting>
     <setting var="category_row_home" control_type="select">
-      <value>eight</value>
+      <value>seven</value>
       <name locale="ru_RU">
         Количество категорий в строке на главной
       </name>
       <options>
         <option value="five">
-          <name locale="ru_RU">Пять</name>
+          <name locale="ru_RU">5</name>
         </option>
         <option value="six">
-          <name locale="ru_RU">Шесть</name>
+          <name locale="ru_RU">6</name>
         </option>
         <option value="seven">
-          <name locale="ru_RU">Семь</name>
+          <name locale="ru_RU">7</name>
         </option>
         <option value="eight">
-          <name locale="ru_RU">Восемь</name>
+          <name locale="ru_RU">8</name>
         </option>
       </options>
     </setting>
     <setting var="category_row_cat" control_type="select">
-      <value>six</value>
+      <value>seven</value>
       <name locale="ru_RU">
-        Количество категорий в строке на главной
+        Количество подкатегорий в строке над списком товаров
       </name>
       <options>
         <option value="four">
-          <name locale="ru_RU">Пять</name>
+          <name locale="ru_RU">4</name>
         </option>
         <option value="five">
-          <name locale="ru_RU">Пять</name>
+          <name locale="ru_RU">5</name>
         </option>
         <option value="six">
-          <name locale="ru_RU">Шесть</name>
+          <name locale="ru_RU">6</name>
         </option>
         <option value="seven">
-          <name locale="ru_RU">Семь</name>
+          <name locale="ru_RU">7</name>
         </option>
       </options>
-    </setting>
-    <setting var="category_image_size_manual" control_type="text">
-      <value>100%</value>
-      <name locale="ru_RU">
-                Контейнер фото (произвольный)
-            </name>
-      <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
-    </setting>
-    <setting var="font_size_html" control_type="text">
-      <value>14px</value>
-      <name locale="ru_RU">
-        Основной размер шрифта (Рекомендуемый 14px)
-      </name>
-    </setting>
-    <setting var="hide_cat_burger" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">
-              Скрыть каталог в мобильном меню
-          </name>
     </setting>
   </settings>
   <locales>
