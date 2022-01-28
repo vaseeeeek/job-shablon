@@ -797,7 +797,9 @@ $html-font-size: 14px;
   overflow: hidden;
   padding: 0.7rem 0.7rem 0 0.7rem;
 }
-
+.products-list-outer .product__box--image:hover .Product-grid_dialog{
+  display: block;
+}
 .Product-grid_img {
   display: block;
   height: 0;
@@ -2514,7 +2516,6 @@ input.filter-range_el:focus {
 
 .Product__Item-img {
   display: block;
-  max-width: 170px;
   position: relative
 }
 

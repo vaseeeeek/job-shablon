@@ -40,35 +40,47 @@
 <div class="Product__Item js-product-line js-preview-cart{if $_tileGelleryProductListPreviewy} grid-gallery js-grid-gallery{/if}">
     <div class="Product__Item-row Product__Item-top">
         <div class="Product__Item-left">
-            {$badge_html = $wa->shop->badgeHtml($p.badge)}
-            {if $badge_html}{$badge_html}{/if}
-            {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
-            <a class="Product__Item-img js-grid-block-gallery" href="{$p.frontend_url}" title="{$p.name}">
-                {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
-                    {$blockHtmlProtilegallery}
-                {else}
-                    {$product_preview_images_lazy = true}
-                    {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
-                    {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $dummy96])}
-                    {if $product_preview_images_lazy && !empty($p.image_id)}
-                        {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
-                    {/if}
-                    {$image}
-                {/if}
-                {if $_tileGelleryProductListPreviewy}
-                    {$tile_length = count($images)}
-                    {if (int)$theme_settings.preview_gallerytile_count_product && count($images) > (int)$theme_settings.preview_gallerytile_count_product}
-                        {$tile_length = (int)$theme_settings.preview_gallerytile_count_product}
-                    {/if}
-                    <span class="grid-gallery__list js-grid-gallery-items">
-                        {if count($images) > 1}
-                            {for $iteration=1 to $tile_length}
-                                <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1].url_180}" style="width: calc(100%/{$tile_length});"></span>
-                            {/for}
+            <div class="product__box--image">
+                {$badge_html = $wa->shop->badgeHtml($p.badge)}
+                {if $badge_html}{$badge_html}{/if}
+                {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
+                <a class="Product__Item-img js-grid-block-gallery" href="{$p.frontend_url}" title="{$p.name}">
+                    {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
+                        {$blockHtmlProtilegallery}
+                    {else}
+                        {$product_preview_images_lazy = true}
+                        {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+                        {$image = $wa->shop->productImgHtml($p, '180', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $dummy96])}
+                        {if $product_preview_images_lazy && !empty($p.image_id)}
+                            {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
                         {/if}
-                    </span>
+                        {$image}
+                    {/if}
+                    {if $_tileGelleryProductListPreviewy}
+                        {$tile_length = count($images)}
+                        {if (int)$theme_settings.preview_gallerytile_count_product && count($images) > (int)$theme_settings.preview_gallerytile_count_product}
+                            {$tile_length = (int)$theme_settings.preview_gallerytile_count_product}
+                        {/if}
+                        <span class="grid-gallery__list js-grid-gallery-items">
+                            {if count($images) > 1}
+                                {for $iteration=1 to $tile_length}
+                                    <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1].url_180}" style="width: calc(100%/{$tile_length});"></span>
+                                {/for}
+                            {/if}
+                        </span>
+                    {/if}
+                </a>
+                {if !$wa->isMobile()}
+                    {if $theme_settings.product_quick_dialog}
+                        <div class="js-dialog Product-grid_dialog Product-grid_action">
+                            <span class="js-card-dialog product-action " data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
+        {*                        <i class="fi-rr-zoom-in"></i>*}
+                                Быстрый просмотр
+                            </span>
+                        </div>
+                    {/if}
                 {/if}
-            </a>
+            </div>
         </div>
 
         <div class="Product__Item-center">
