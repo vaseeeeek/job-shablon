@@ -72,7 +72,7 @@
         <div class="content-box">[`No products were found.`]</div>
     {else}
         <div class="js-product-ajax-list-loader -Close content-box"><img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif"></div>
-        <div class="js-product-ajax-list">
+        <div class="js-product-ajax-list ajax-list--box">
             {include file='list-thumbs.html' sorting=$_is_sorting isViewSwitch=true ulclass=$class_product_list}
         </div>
     {/if}

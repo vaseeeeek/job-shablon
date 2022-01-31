@@ -76,7 +76,7 @@
                         {$wa->block("cookie.block")}
                     </div>
                 </div>
-                <span class="head_info-massage__closeку js-cookie-information"><span class="info-massage__close-name">&times;</span></span>
+                <span class="head_info-massage__closeку js-cookie-information">Я согласен</span>
             </div>
         </div>
     {/if}
@@ -414,7 +414,7 @@
         {include file="bottom.panel.html" inline}
     {/if}
 
-    {if $theme_settings.show_link_admin_edit && $wa->user()->isAuth() && !$wa->isMobile()}
+    {if $wa->user()->isAuth() && !$wa->isMobile()}
         {$admin_edit_link = false}
         {if $wa->user()->isAdmin()}
             {$admin_edit_link = true}

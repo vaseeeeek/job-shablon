@@ -169,7 +169,7 @@
                                                 <label{if !$sku_available} class="disabled"{/if}>
                                                     <meta itemprop="price" content="{$sku.price}">
                                                     <meta itemprop="priceCurrency" content="{$product.currency}">
-                                                    <span class="js-toggle-styler radio-styler{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if}">
+                                                    <span class="js-toggle-styler style-check{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if} fi-rr-check">
                                                 <input class="js-toggle-styler-input" name="sku_id" type="radio"
                                                        value="{$sku.id}"{if !$sku_available} disabled="disabled" data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}"
                                                        data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
@@ -224,7 +224,7 @@
                             {foreach $services as $s}
                                 <div class="service-{$s.id} service__item">
                                     <label>
-                            <span class="js-style-check style-check{if !$pd_available} disabled{/if}">
+                            <span class="js-style-check style-check{if !$pd_available} disabled{/if} fi-rr-check">
                                 <input class="js-style-check-input" data-price="{shop_currency($s.price, $s.currency, null, 0)}" {if !$pd_available}disabled="disabled"{/if} type="checkbox" name="services[]" value="{$s.id}">
                             </span>
                                         {$s.name|escape} {if $s.price && !isset($s.variants)}+<span

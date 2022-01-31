@@ -84,7 +84,6 @@
         .filters .ui-slider-range .ui-widget-header,
         .filters .ui-state-hover,
         .pagination li.selected,
-        .filter-opt_el .js-style-check.style-check.checked,
         .product_action-dialog-link:hover,
         .checked-list__items li.selected,
         .checked-list__items li:hover,
@@ -102,9 +101,7 @@
         .sidebar-subcategories_el.selected >a, ul.menu-v > li a.selected {
             background: {$maincolor}33;
         }
-        .sb-wrap--pages #sidebar-nav li a.selected span{
-            outline: {$maincolor}33 solid 3px;
-        }
+
         .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link, .My__Input--Pin, .product_options .select-v-inline a.selected {
             border: 1px solid{$scColor};
         }
@@ -116,15 +113,19 @@
         .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
             border-bottom: 1px solid {$scColor} !important;
         }
-        .Compare__Item--Switch.selected .Compare__Button{
+        .Compare__Item--Switch.selected .Compare__Button, .head_info-massage .head_info-massage__closeку:hover, .head_info-massage a{
             color: {$scColor};
         }
 
-        .product_page .image-preview.selected a {
+        .product_page .image-preview.selected a, .style-check:hover {
             border:2px solid {$scColor};
         }
-        input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover:not([disabled]), .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover, .option-color_outer.checked .filter-option-color {
+        .head_info-massage .head_info-massage__closeку:hover,input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover:not([disabled]), .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover, .option-color_outer.checked .filter-option-color {
             border: 1px solid{$scColor};
+        }
+        .style-check.checked{
+            background: {$scColor};
+            border:2px solid {$scColor};
         }
 
         .Compare__Item--Switch .Compare__Button, .Product-grid_action .product-action:hover, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active, .cat-content .product-action.active, .df-block.product-top-actions .product-action.active, .circle-progress__rate {
@@ -135,7 +136,7 @@
             stroke: {$scColor};
         }
 
-        .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit] {
+        .style-check:hover:before, .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit] {
             color: {$scColor};
         }
 
@@ -234,7 +235,7 @@
         {/if}
 
         {if $btnTextColor}
-            .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
+            .style-check.checked:before, .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
             .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .comment__label{
                 color: {$btnTextColor}
             }
