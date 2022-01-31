@@ -8,7 +8,7 @@
                             {foreach $pages as $p}
                                 {if !isset($p.sidebar_menu_hide)}
                                     <li>
-                                        <a{if strlen($p.url)>1 && $wa->currentUrl() == $p.url} class="selected"{/if} href="{$p.url}">{$p.name}</a>
+                                        <a{if strlen($p.url)>1 && $wa->currentUrl() == $p.url} class="selected"{/if} href="{$p.url}"><span>{$p.name}</span></a>
                                         {if isset($p.childs) && $p.childs && count($p.childs)}
                                             {menu_tree pages=$p.childs}
                                         {/if}

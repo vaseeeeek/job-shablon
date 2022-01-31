@@ -830,8 +830,8 @@ p {
 }
 
 .h3, h3 {
-		font-size: 1.714rem;
-		font-weight: 400;
+		font-size: 1.7rem;
+		font-weight: 700;
 }
 
 .h4, h4 {
@@ -844,6 +844,19 @@ p {
 
 .h6, h6 {
 		font-size: 1rem;
+}
+
+blockquote {
+		border-left: 5px solid #B11116;
+		line-height: 1.45;
+		margin: 2rem 0;
+		font-size: 1.2rem;
+		font-style: italic;
+		padding: 1rem 2rem;
+		position: relative;
+		background: #f2f3f5;
+		color: #001a34;
+		font-weight: 700;
 }
 
 .h1:first-child, .h2:first-child, .h3:first-child, .h4:first-child, .h5:first-child, .h6:first-child, h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
@@ -932,7 +945,7 @@ hr {
 ul.menu-v {
 		margin: 0;
 		padding: 0;
-		font-size: 15px;
+		font-size: 1.2rem;
 }
 
 ul.menu-v > li {
@@ -943,7 +956,7 @@ ul.menu-v > li {
 }
 
 ul.menu-v > li a.selected {
-		text-decoration: underline;
+		text-decoration: none;
 }
 
 ul.menu-v > li:last-child {
@@ -951,23 +964,15 @@ ul.menu-v > li:last-child {
 }
 
 ul.menu-v > li ul {
-		margin: 0 0 0 1.429rem;
+		margin: 0.3rem 0 0 1.3rem;
 		padding: 0;
-		font-size: 0.929rem;
+		font-size: 1.1rem;
 }
 
 ul.menu-v > li ul li {
 		list-style: none;
 		margin: 0.714rem 0 0;
 		position: relative;
-}
-
-ul.menu-v > li ul li:before {
-		content: "•";
-		position: absolute;
-		font-size: 1.429rem;
-		top: 0;
-		left: -15px;
 }
 
 .menu-v__caret {
@@ -1460,6 +1465,28 @@ iframe {
 		-ms-flex-wrap: wrap;
 		    flex-wrap: wrap;
 		margin-top: 1rem;
+}
+
+.important-text {
+		padding: 1rem 1rem 1rem 3.4rem;
+		border-radius: 3px;
+		background-color: #f2f3f5;
+		font-weight: 700;
+		position: relative;
+		font-size: 1rem !important;
+}
+
+.important-text:before {
+		content: "!";
+		color: #4d5f71;
+		padding: 0rem 0.63rem;
+		margin: 0.5rem;
+		border-radius: 50%;
+		border: 1px solid #4d5f71;
+		border-radius: 50%;
+		position: absolute;
+		left: 5px;
+		font-size: 1.2rem;
 }
 
 .price {
@@ -1968,8 +1995,8 @@ img.mfp-img {
 		position: relative;
 }
 .header_currency img {
-		margin-left: 0.214rem;
-		margin-right: 0.214rem;
+		margin-left: 0.6rem;
+		margin-right: 0.2rem;
 }
 
 .header_currency:last-child {
@@ -1977,7 +2004,7 @@ img.mfp-img {
 }
 
 .header_currency-ttl, .header_lang-ttl {
-		margin: 0 0.357rem 0 0;
+		margin: 0 0.2rem 0 0;
 		display: inline-block;
 }
 
@@ -2129,8 +2156,8 @@ img.mfp-img {
 }
 
 .header-top_nav-sub > ul > li {
-		padding: 0.571rem;
-		border-bottom: 1px solid #ebebeb;
+		padding: 0.2rem 0.5rem;
+		border-bottom: 1px solid #e8e8e8;
 }
 
 .header-top_nav-sub > ul > li:last-child {
@@ -2546,9 +2573,10 @@ img.mfp-img {
 .Nav-search input.Nav-inp-search {
 		height: 40px;
 		line-height: 41px;
-		padding: 0 3.571rem 0 1.071rem;
+		padding: 0 3.1rem 0 1rem;
 		position: relative;
 		border-radius: 3px;
+		font-size: 1rem;
 		-webkit-transition: all 0.3s ease 0s;
 		transition: all 0.3s ease 0s;
 }
@@ -2829,7 +2857,11 @@ img.mfp-img {
 .sb-wrap--pages #sidebar-nav li {
 		margin: 0;
 		border-bottom: 0;
-		padding: 0.5rem 0;
+		padding: 0.3rem 0.5rem;
+}
+.sb-wrap--pages #sidebar-nav li a {
+		border-radius: 3px;
+		line-height: 1.35;
 }
 
 .sb-wrap:last-child {
@@ -3214,13 +3246,12 @@ ul.pages-list li a {
 }
 
 .currency_item {
-		margin: 0 0 0 0.357rem;
 		position: relative;
 		cursor: pointer;
 }
 
 .currency_item.fi-rr-caret-down:before {
-		margin: 0 0 0 0.357rem;
+		margin: 0 0 0 0.1rem;
 }
 
 .currency_item img {
@@ -3546,10 +3577,19 @@ textarea {
 .MobileMenu .MobileMenu_nav-m ul > li {
 		display: block;
 		position: relative;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.MobileMenu .MobileMenu_nav-m > ul > li:last-child {
-		border-bottom: none;
+.MobileMenu .MobileMenu_nav-m ul > li:not(:last-child) {
+		display: block;
+		position: relative;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		line-height: 1.3;
+		font-size: 1rem;
+}
+.MobileMenu .MobileMenu_nav-m ul > li a {
+		padding: 0.5rem 0rem 0.5rem 1.8rem;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
 }
 .MobileMenu .MobileMenu_nav-m .cat-menu__item a {
 		border-bottom: none;
@@ -3700,9 +3740,9 @@ textarea {
 		position: absolute;
 		display: none;
 		width: 200px;
-		left: 50%;
-		margin: 0 0 0 -7.143rem;
-		z-index: 110;
+		left: 0;
+		margin: 0;
+		z-index: 115;
 }
 .header-top--links .header-top_nav > ul > li:last-child .header-top_nav-sub {
 		left: auto;
@@ -3712,14 +3752,12 @@ textarea {
 .header-top--links .header-top_nav-sub > ul {
 		background: #fff;
 		text-align: left;
-		border-top-style: solid;
-		border-top-width: 3px;
 		margin: 0.357rem 0 0;
 		font-size: 1rem;
 		position: relative;
 		white-space: normal;
-		-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-		        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+		        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
 }
 .header-top--links .header-top_nav-sub > ul:before {
 		border-right: 5px solid transparent;
@@ -3735,8 +3773,8 @@ textarea {
 		left: auto;
 }
 .header-top--links .header-top_nav-sub > ul > li {
-		padding: 0.571rem;
-		border-bottom: 1px solid #ebebeb;
+		padding: 0.2rem 0.5rem;
+		border-bottom: 1px solid #e8e8e8;
 }
 .header-top--links .header-top_nav-sub > ul > li:last-child {
 		border-bottom: none;
@@ -4087,6 +4125,10 @@ textarea {
 		position: absolute;
 }
 
+.cat-name {
+		margin-bottom: 2rem;
+}
+
 .fixed-panel {
 		position: fixed;
 		bottom: 0;
@@ -4204,6 +4246,10 @@ ul.select-options {
 		font-family: free-font;
 		position: absolute;
 		left: 7px;
+}
+
+.cart {
+		margin-bottom: 2rem;
 }
 
 .Orders__Item {
@@ -4530,8 +4576,8 @@ ul.pages {
 		margin: 0;
 		padding: 0;
 		border-bottom: 0;
-		padding-bottom: 2rem;
-		font-size: 1.8rem;
+		padding-bottom: 1rem;
+		font-size: 2.4rem;
 		font-weight: 700;
 		margin: 0 0 1rem;
 }
@@ -4807,6 +4853,86 @@ ul.pages {
 		border-bottom: 10px solid #0000000d;
 }
 
+/* Стили для инфошек */
+#page p, .product_description p, .Brands__Description p, .category-desc p, .product_short-desc, .product_page.tab-content_el p {
+		font-size: 1.15rem;
+}
+
+#page ul, #page ol, .product_description ul, .Brands__Description ul, .category-desc ul, .product_description ol, .Brands__Description ol, .category-desc ol, .product_short-desc ol, .product_short-desc ul, .product_page.tab-content_el ol, .product_page.tab-content_el ul {
+		padding-left: 35px;
+}
+
+#page li, .product_description li, .Brands__Description li, .category-desc li, .product_short-desc li, .product_page.tab-content_el li {
+		margin-bottom: 13px;
+		font-size: 1.15rem;
+}
+
+.product_short-desc li {
+		margin-bottom: 5px;
+		font-size: 1.1rem;
+}
+
+#page ul li, .product_description ul li, .Brands__Description ul li, .category-desc ul li, .product_short-desc ul li, .product_page.tab-content_el ul li {
+		list-style: disc;
+}
+
+#page ol li, .product_description ol li, .Brands__Description ol li, .category-desc ol li, .product_short-desc ol li, .product_page.tab-content_el ol li {
+		list-style: decimal;
+}
+
+#page h2 {
+		font-size: 1.7rem;
+}
+
+#page h3 {
+		font-size: 1.4rem;
+}
+
+#page h4 {
+		font-size: 1.2rem;
+}
+
+.product_description h2, .Brands__Description h2, .category-desc h2, .product_page.tab-content_el h2 {
+		font-size: 1.5rem;
+}
+
+.product_description h3, .Brands__Description h3, .category-desc h3, .product_page.tab-content_el h3 {
+		font-size: 1.3rem;
+}
+
+.product_description h4, .Brands__Description h4, .category-desc h4, .product_page.tab-content_el h4 {
+		font-size: 1.1rem;
+}
+
+#page a, .product_description a, .Brands__Description a, .category-desc a, .product_page.tab-content_el a {
+		text-decoration: none;
+		color: #0054a6;
+		font-weight: 700;
+		border-color: rgba(0, 84, 166, 0.3);
+		border-bottom: 1px solid;
+}
+
+#page h2, #page h3, #page h4, #page h5, #page h6 {
+		margin: 1em 0 0.5em 0;
+}
+
+.product_description h2, .product_description h3, .product_description h4, .product_description h5, .product_description h6 {
+		margin: 1em 0 0.5em 0;
+}
+
+.Brands__Description h2, .Brands__Description h3, .Brands__Description h4, .Brands__Description h5, .Brands__Description h6 {
+		margin: 1em 0 0.5em 0;
+}
+
+.category-desc h2, .category-desc h3, .category-desc h4, .category-desc h5, .category-desc h6 {
+		margin: 1em 0 0.5em 0;
+}
+
+.product_page.tab-content_el h2, .product_page.tab-content_el h3, .product_page.tab-content_el h4, .product_page.tab-content_el h5, .product_page.tab-content_el h6 {
+		margin: 1em 0 0.5em 0;
+}
+
+/* конец стилей для инфошек */
 .-Close {
 		display: none !important;
 }

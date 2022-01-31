@@ -99,8 +99,11 @@
             background: {$maincolor};
         }
 
-        .sidebar-subcategories_el.selected >a{
+        .sidebar-subcategories_el.selected >a, ul.menu-v > li a.selected {
             background: {$maincolor}33;
+        }
+        .sb-wrap--pages #sidebar-nav li a.selected span{
+            outline: {$maincolor}33 solid 3px;
         }
         .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .product_action-dialog-link, .My__Input--Pin, .product_options .select-v-inline a.selected {
             border: 1px solid{$scColor};
