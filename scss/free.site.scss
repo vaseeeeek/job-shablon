@@ -3492,9 +3492,20 @@ textarea{
       cursor: pointer;
     }
   }
-
 }
-
+@media (max-width: 850px) {
+  .head_info-massage {
+    bottom: 60px;
+    border-bottom: 1px solid #b3b3b7;
+    .head_info-massage__wrap {
+      flex-direction: column;
+    }
+    .head_info-massage__content{
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+  }
+}
 .category-menu .MobileMenu_nav-header {
   display: none;
 }
@@ -3863,7 +3874,6 @@ textarea{
   padding: rem(12px) 0;
   margin: 0px 0 rem(15px) 0;
   transition: height 0.2s ease 0s, transform 0.2s ease 0s;
-  box-shadow: rgb(0 0 0 / 6%) 0px 4px 24px;
 
   .Nav-contact-info {
     margin-left: rem(35px);
@@ -3981,7 +3991,7 @@ textarea{
 
     .product-custom--link > span {
       max-width: 73px;
-      overflow-x: hidden;
+      overflow: hidden;
       margin-top: 0.2rem;
     }
 

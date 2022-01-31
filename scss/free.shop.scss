@@ -2291,7 +2291,11 @@ input.filter-range_el:focus {
 .category-desc-outer {
   margin: 0 0 1rem 0.7rem;
 }
-
+@media (max-width: 640px){
+  .category-desc-outer {
+    margin-left: 0;
+  }
+}
 .category-desc {
   font-size: 1rem;
 }
@@ -4436,7 +4440,11 @@ img.pswp__img {
 .subcategory-box {
   margin: 0 0 1rem 0.7rem;
 }
-
+@media (max-width: 640px){
+  .subcategory-box {
+    margin-left: 0;
+  }
+}
 .homepage-categories .categories-tile.-five {
   width: 260.8px;
 }
@@ -4508,8 +4516,11 @@ img.pswp__img {
 .categories-tile a {
   text-decoration: none
 }
-
-
+@media (max-width: 640px ){
+  .homepage-categories .categories-tile{
+      width: calc(50% - 2rem) !important;
+   }
+}
 @media (max-width: 780px) {
   .homepage-categories .cat-tile-list {
     text-align: center;

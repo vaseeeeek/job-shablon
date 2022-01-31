@@ -67,7 +67,7 @@
                                 {/if}
                                 <div class="filter-el_opts-el">
                                     <label>
-                                    <span class="js-toggle-styler radio-styler{if $value} checked{/if}">
+                                    <span class="js-toggle-styler style-check fi-rr-check{if $value} checked{/if}">
                                         <input class="js-toggle-styler-input" type="radio" name="{$filter.code}" value="1"{if $value} checked="checked"{/if}>
                                     </span>
                                         {$radio_filter_url = ''}
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="filter-el_opts-el">
                                     <label>
-                                    <span class="js-toggle-styler radio-styler{if $value === '0'} checked{/if}">
+                                    <span class="js-toggle-styler style-check fi-rr-check{if $value === '0'} checked{/if}">
                                         <input class="js-toggle-styler-input" type="radio" name="{$filter.code}" value="0"{if $value === '0'} checked="checked"{/if}>
                                     </span>
                                         {$radio_filter_url = ''}
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="filter-el_opts-el">
                                     <label>
-                                    <span class="js-toggle-styler radio-styler{if $wa->get($filter.code, '') === ''} checked{/if}">
+                                    <span class="js-toggle-styler style-check fi-rr-check{if $wa->get($filter.code, '') === ''} checked{/if}">
                                         <input class="js-toggle-styler-input" type="radio" name="{$filter.code}" value=""{if $wa->get($filter.code, '') === ''} checked="checked"{/if}>
                                     </span>
                                         [`Any`]

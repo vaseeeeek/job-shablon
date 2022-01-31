@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.0.0" edition="0">
+<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.0.0" edition="1">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
@@ -223,7 +223,7 @@
       <name locale="ru_RU">Шапка</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1642083118</value>
+      <value>img/logo.png?v1643634463</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -761,7 +761,7 @@
       <name locale="ru_RU">Высота видимого текста в px</name>
     </setting>
     <setting var="cat_desc_bottom" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Description below the products</name>
       <name locale="ru_RU">Описание под списком товаров</name>
     </setting>
@@ -1335,7 +1335,7 @@
       <name locale="ru_RU">Иконки оплаты</name>
     </setting>
     <setting var="logo_footer" control_type="image">
-      <value>img/logo_footer.png?v1642083118</value>
+      <value>img/logo_footer.png?v1643634463</value>
       <filename>img/logo_footer.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
