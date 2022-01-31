@@ -10,7 +10,9 @@
         {$class = ' brand-list'}
     {/if}
 
-    {include file="`$wa_active_theme_path`/breadcrumbs.html"}
+    {if $action != 'search' && $action != 'order' && $action != 'compare'}
+        {include file="`$wa_active_theme_path`/breadcrumbs.html"}
+    {/if}
 
     {if $wa->globals('isMyAccount')}
         {$wa->myNav('pages')}
