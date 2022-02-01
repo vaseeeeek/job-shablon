@@ -914,7 +914,7 @@
       </options>
     </setting>
     <setting var="category_image_size_manual" control_type="text">
-      <value>100%</value>
+      <value>50%</value>
       <name locale="ru_RU">
         Контейнер фото (произвольный)
       </name>
