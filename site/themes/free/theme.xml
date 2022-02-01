@@ -14,7 +14,7 @@
     </file>
     <file path="free.js" custom="0">
     </file>
-    <file path="free.custom.css" custom="0" modified="1">
+    <file path="free.custom.css" custom="0">
     </file>
     <file path="free.custom.js" custom="0">
     </file>
@@ -541,7 +541,7 @@
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
     <setting var="category_row_home" control_type="select">
-      <value>six</value>
+      <value>seven</value>
       <name locale="ru_RU">
         Количество категорий в строке на главной
       </name>

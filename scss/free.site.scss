@@ -1923,7 +1923,7 @@ img.mfp-img {
 
 .header-top_region {
   display: inline-block;
-  margin: 0 0 0 rem(30px)
+  margin: 0 rem(30px) 0 0;
 }
 
 .header_lang-el {
@@ -2047,6 +2047,7 @@ img.mfp-img {
 .header-top_nav {
   white-space: nowrap;
   word-spacing: 0;
+  width: 100%;
 }
 
 .header-top_nav-sub > ul, .header-top_nav-sub > ul > li, .header-top_nav > ul, .header-top_nav > ul > li {
@@ -3611,6 +3612,7 @@ textarea{
     height: calc(100% - 60px);
     z-index: 100;
     transition: 0.20s;
+    overflow: auto;
   }
 
   .-hideList.open {
@@ -3699,8 +3701,11 @@ textarea{
   }
 
   .header-top_menu {
-    width: calc(100% - 327px);
+    //width: calc(100% - 327px);
     margin: 0 !important;
+    display: flex;
+    align-items: center;
+    flex: 1;
   }
 
   .header-top_menu-btn {
@@ -3790,7 +3795,6 @@ textarea{
   .header-top--right {
     display: flex;
     white-space: nowrap;
-    width: 327px;
     justify-content: flex-end;
   }
 
@@ -4852,6 +4856,10 @@ ul.pages {
   border-bottom: 10px solid #0000000d;
 }
 
+span.i-cityselect__city:before {
+  content: "\e9c8";
+  font-family: 'free-font';
+}
 
 /* Стили для инфошек */
 #page p, .product_description p, .Brands__Description p, .category-desc p, .product_short-desc, .product_page.tab-content_el p {

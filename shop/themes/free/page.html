@@ -1,9 +1,7 @@
 {strip}
 {if $wa->get('popup')}<div id='page-popup'>{/if}
-    <h1>{$page.name}</h1>
-
     <div id="page" role="main">
         {$page.content}
     </div>
-{if $wa->get('popup')}</div> {* close #page-popup *} {/if}
+{if $wa->get('popup')}</div>{/if}
 {/strip}

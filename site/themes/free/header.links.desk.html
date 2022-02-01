@@ -1,5 +1,10 @@
 {strip}
 
+{$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin && class_exists('shopCityselectPlugin'))}
+{if $headButtonCitySelectPlugin}
+    <div class="header-top_region">{shopCityselectPlugin::showCity('0')}</div>
+{/if}
+
 <div class="header-top_menu">
     <div data-id="header_menu-nav" class="header-top_menu-btn js-nav-button"></div>
     {$_links = []}

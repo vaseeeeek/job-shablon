@@ -6,7 +6,7 @@
     <h1 class="cat-name">{$category.name|escape}</h1>
     <div class="category">
         {if !$wa->isMobile()}
-            <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
+            <div class="out_sidebars -mr">
                 {include file='sidebar.html' filter=$filters}
             </div>
         {/if}

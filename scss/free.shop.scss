@@ -6161,12 +6161,16 @@ i.wa-icon.arrow-left {
   }
 }
 
-.category {
+.category, .info-page {
   .out_sidebars.-mr {
     margin-right: rem(40px);
   }
 }
-
+.info-page{
+  .content-box {
+    padding: 0 0 1rem 0.7rem;
+  }
+}
 .category, .tag-page, .info-page {
   display: flex;
 

@@ -1,6 +1,5 @@
 {strip}
 
-{$headButtonCitySelectPlugin = (!$wa->isMobile() && $wa->shop && $theme_settings.region_plugin && class_exists('shopCityselectPlugin'))}
 
 <div class="header-top--links">
     <div class="container">
@@ -8,11 +7,6 @@
             {include file="header.links.desk.html"}
         {/if}
         <div class="header-top--right">
-
-            {if $headButtonCitySelectPlugin}
-                <div class="header-top_region">{shopCityselectPlugin::showCity('0')}</div>
-            {/if}
-
             {if $wa_app == 'shop' && $theme_settings.currency_selector}
                 {$currencies = $wa->shop->currencies()}
                 {$currency = $wa->shop->currency()}

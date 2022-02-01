@@ -25,8 +25,11 @@
     {/if}
 
     {if $action == 'page' || $action == 'tag'}
+        {if $action == 'page'}
+            <h1>{$page.name}</h1>
+        {/if}
         <div class="{if $action == 'page'}info-page{else}{$action}-page{/if}">
-            <div class="out_sidebars">
+            <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
                 {include file="`$wa_active_theme_path`/sidebar.html"}
             </div>
 
