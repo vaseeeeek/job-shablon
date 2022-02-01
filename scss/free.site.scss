@@ -2096,7 +2096,7 @@ img.mfp-img {
 }
 
 .header-top_nav-sub > ul > li {
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 0.7rem;
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -3689,7 +3689,7 @@ textarea{
   .container {
     display: flex;
     justify-content: space-between;
-    font-size: rem(12px);
+    font-size: 0.95rem;
     line-height: 2.2;
   }
 
@@ -3727,10 +3727,10 @@ textarea{
   .header-top_nav-sub {
     position: absolute;
     display: none;
-    width: 200px;
+    width: 250px;
     left: 0;
-    margin:0;
-    z-index: 115;
+    margin: 0;
+    z-index: 115
   }
 
   .header-top_nav > ul > li:last-child .header-top_nav-sub {
@@ -3744,6 +3744,7 @@ textarea{
     text-align: left;
     margin: 0.357rem 0 0;
     font-size: 1rem;
+    line-height: 1.4;
     position: relative;
     white-space: normal;
     box-shadow: 0 10px 20px -5px rgb(0 0 0 / 40%);
@@ -3765,7 +3766,7 @@ textarea{
   }
 
   .header-top_nav-sub > ul > li {
-    padding: 0.2rem 0.5rem;
+    padding: 0.5rem 0.7rem;
     border-bottom: 1px solid #e8e8e8;
   }
 

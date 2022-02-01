@@ -70,7 +70,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/free.png</value>
+      <value>img/themesettings/ozon.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -83,7 +83,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#005bff</value>
+      <value/>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -94,7 +94,7 @@
       </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#005bff</value>
+      <value/>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -106,12 +106,12 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#001a34</value>
+      <value/>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
     <setting var="footer_color_scheme" control_type="color">
-      <value>#f2f2f2</value>
+      <value/>
       <name locale="ru_RU">Цвет низа сайта (футер)</name>
       <name locale="en_US"/>
     </setting>
@@ -122,12 +122,12 @@
       <description locale="ru_RU">По-умолчанию белый, если основной цвет тусклый, то меняйте на тёмный.</description>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value>4</value>
+      <value>4px</value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>opensans</value>
+      <value>roboto</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.</description>
       <options>
@@ -540,6 +540,26 @@
       <name locale="ru_RU">Кол-во категорий 2 уровня</name>
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
+    <setting var="category_row_home" control_type="select">
+      <value>eight</value>
+      <name locale="ru_RU">
+        Количество категорий в строке на главной
+      </name>
+      <options>
+        <option value="five">
+          <name locale="ru_RU">5</name>
+        </option>
+        <option value="six">
+          <name locale="ru_RU">6</name>
+        </option>
+        <option value="seven">
+          <name locale="ru_RU">7</name>
+        </option>
+        <option value="eight">
+          <name locale="ru_RU">8</name>
+        </option>
+      </options>
+    </setting>
     <setting var="paragraph_mainpage_lists" control_type="paragraph">
       <value/>
       <name locale="en_US">Products list</name>
@@ -786,7 +806,7 @@
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
     <setting var="cat_view_subs" control_type="select">
-      <value>no_image</value>
+      <value>icon</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
       <options>
@@ -801,6 +821,26 @@
         <option value="image">
           <name locale="ru_RU">Картинками</name>
           <name locale="en_US">Pictures</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_row_cat" control_type="select">
+      <value>seven</value>
+      <name locale="ru_RU">
+        Количество категорий в строке над списком товаров (картинками)
+      </name>
+      <options>
+        <option value="four">
+          <name locale="ru_RU">4</name>
+        </option>
+        <option value="five">
+          <name locale="ru_RU">5</name>
+        </option>
+        <option value="six">
+          <name locale="ru_RU">6</name>
+        </option>
+        <option value="seven">
+          <name locale="ru_RU">7</name>
         </option>
       </options>
     </setting>
@@ -1400,51 +1440,6 @@
       </description>
       <description locale="ru_RU">Собственные стили из файла. Но мы рекомендуем использовать блок id footer_codes
       </description>
-    </setting>
-    <setting var="paragraph_other" control_type="group_divider">
-      <value/>
-      <name locale="en_US">Other settings</name>
-      <name locale="ru_RU">Другие настройки</name>
-    </setting>
-    <setting var="category_row_home" control_type="select">
-      <value>eight</value>
-      <name locale="ru_RU">
-        Количество категорий в строке на главной
-      </name>
-      <options>
-        <option value="five">
-          <name locale="ru_RU">5</name>
-        </option>
-        <option value="six">
-          <name locale="ru_RU">6</name>
-        </option>
-        <option value="seven">
-          <name locale="ru_RU">7</name>
-        </option>
-        <option value="eight">
-          <name locale="ru_RU">8</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="category_row_cat" control_type="select">
-      <value>seven</value>
-      <name locale="ru_RU">
-        Количество подкатегорий в строке над списком товаров
-      </name>
-      <options>
-        <option value="four">
-          <name locale="ru_RU">4</name>
-        </option>
-        <option value="five">
-          <name locale="ru_RU">5</name>
-        </option>
-        <option value="six">
-          <name locale="ru_RU">6</name>
-        </option>
-        <option value="seven">
-          <name locale="ru_RU">7</name>
-        </option>
-      </options>
     </setting>
   </settings>
   <locales>
