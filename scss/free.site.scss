@@ -179,6 +179,10 @@ canvas {
   position: relative
 }
 
+.product-page_main-left .owl-carousel {
+  margin-top: 0 !important;
+}
+
 .owl-carousel {
   margin-top: -1rem !important;
   padding-top: 1rem;
@@ -2055,6 +2059,7 @@ img.mfp-img {
   display: inline-block;
   margin: 0 rem(20px) 0 0;
   position: relative;
+  cursor: pointer;
 }
 
 .header-top_nav > ul > li > .link, .header-top_nav > ul > li > a {

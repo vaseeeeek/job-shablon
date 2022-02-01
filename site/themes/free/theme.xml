@@ -111,7 +111,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="footer_color_scheme" control_type="color">
-      <value/>
+      <value>#f2f2f2</value>
       <name locale="ru_RU">Цвет низа сайта (футер)</name>
       <name locale="en_US"/>
     </setting>
@@ -122,12 +122,12 @@
       <description locale="ru_RU">По-умолчанию белый, если основной цвет тусклый, то меняйте на тёмный.</description>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value><![CDATA[4]]></value>
+      <value>4</value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>roboto</value>
+      <value>opensans</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.</description>
       <options>
@@ -298,7 +298,7 @@
       </options>
     </setting>
     <setting var="id_app_header_top_menu" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="en_US">Application ID Menu</name>
       <name locale="ru_RU">ID приложению Меню</name>
       <description locale="ru_RU">Указать если выбран пункт "Из приложения меню" в настройке выше.
@@ -313,7 +313,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="header_company_email" control_type="text">
-      <value>free@mail.ru</value>
+      <value>free@ardoz.ru</value>
       <name locale="ru_RU">Почта</name>
       <name locale="en_US"/>
     </setting>
@@ -469,7 +469,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu_app_id" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
       <name locale="en_US"/>
     </setting>
@@ -479,7 +479,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="hide_cat_burger" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">
         Свернуть категории в мобильном меню в кнопку "Каталог→"
       </name>
@@ -541,7 +541,7 @@
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
     <setting var="category_row_home" control_type="select">
-      <value>eight</value>
+      <value>six</value>
       <name locale="ru_RU">
         Количество категорий в строке на главной
       </name>
@@ -566,7 +566,7 @@
       <name locale="ru_RU">Списки товаров</name>
     </setting>
     <setting var="home_product_list_1_title" control_type="text">
-      <value>Лучшие предложения</value>
+      <value>Хиты продаж</value>
       <name locale="en_US">The title of the sales hits</name>
       <name locale="ru_RU">Заголовок хитов продаж</name>
     </setting>
@@ -806,7 +806,7 @@
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
     <setting var="cat_view_subs" control_type="select">
-      <value>icon</value>
+      <value>image</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
       <options>
@@ -918,7 +918,7 @@
       </options>
     </setting>
     <setting var="category_image_size" control_type="select">
-      <value>auto</value>
+      <value>m</value>
       <name locale="ru_RU">
         Контейнер фото
       </name>
@@ -954,7 +954,7 @@
       </options>
     </setting>
     <setting var="category_image_size_manual" control_type="text">
-      <value>50%</value>
+      <value/>
       <name locale="ru_RU">
         Контейнер фото (произвольный)
       </name>
@@ -1200,7 +1200,7 @@
       </options>
     </setting>
     <setting var="count_output_features_right_block" control_type="text">
-      <value>7</value>
+      <value>5</value>
       <name locale="ru_RU">Кол-во характеристик</name>
       <name locale="en_US">Number of characteristics</name>
       <description locale="ru_RU">Если выбрано "Первых N штук"
@@ -1355,7 +1355,7 @@
       <name locale="ru_RU">Кол-во сопутствующих товаров(cross-selling)</name>
     </setting>
     <setting var="product_upselling_count" control_type="text">
-      <value>3</value>
+      <value>5</value>
       <name locale="en_US">Number of similar products(upselling)</name>
       <name locale="ru_RU">Кол-во похожих товаров(upselling)</name>
     </setting>
