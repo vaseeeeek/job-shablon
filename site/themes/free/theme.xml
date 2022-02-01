@@ -786,7 +786,7 @@
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
     <setting var="cat_view_subs" control_type="select">
-      <value>image</value>
+      <value>no_image</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
       <options>

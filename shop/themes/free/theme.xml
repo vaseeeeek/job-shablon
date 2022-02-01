@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="953700" author="ardoz" app="shop" parent_theme_id="site:free" version="1" edition="0">
+<theme id="free" system="0" vendor="953700" author="ardoz" app="shop" parent_theme_id="site:free" version="1.0.0" edition="0">
   <name locale="en_US">free</name>
   <name locale="ru_RU">free</name>
   <files>
@@ -40,8 +40,6 @@
     </file>
     <file path="product.mini-gallery.html">
     </file>
-    <file path="photoswipe.html">
-    </file>
     <file path="product.cart.html">
     </file>
     <file path="product.page.html">
@@ -78,6 +76,8 @@
     </file>
     <file path="my.order.html">
     </file>
+    <file path="my.profile.html" parent="1">
+    </file>
     <file path="order.html">
     </file>
     <file path="home.html">
@@ -100,8 +100,6 @@
     </file>
     <file path="home.brands-pro.block.html">
     </file>
-    <file path="home.products.view-list.html">
-    </file>
     <file path="home.products.view-carousel.html">
     </file>
     <file path="sidebar.html" custom="0">
@@ -109,8 +107,6 @@
     <file path="sidebar.cat.html" custom="0">
     </file>
     <file path="sb.filter.html" custom="0">
-    </file>
-    <file path="sb.plugins.html" custom="0">
     </file>
     <file path="sb.tags.html" custom="0">
     </file>
