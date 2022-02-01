@@ -122,7 +122,7 @@
       <description locale="ru_RU">По-умолчанию белый, если основной цвет тусклый, то меняйте на тёмный.</description>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value>4px</value>
+      <value><![CDATA[4]]></value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
