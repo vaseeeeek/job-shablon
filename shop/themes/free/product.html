@@ -305,7 +305,6 @@
                                     </div>
                                 {/if}
                                 <section id="product-reviews" class="product_reviews {$class_product_content}">
-                                    <h2>{sprintf('[`%s reviews`]', $product.name|escape)}</h2>
 
                                     {if !empty($rates)}
                                         <div class="reviews__info">
@@ -332,7 +331,9 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="reviews__stat-title">{_w('%d review for ','%d reviews for ', {$reviews_total_count})|cat:$product.name|escape}</div>
+                                                    <div class="reviews__stat-title">
+                                                        {sprintf('[`%s reviews in total`]', {$reviews_total_count})}
+                                                    </div>
                                                 </div>
                                                 <div class="reviews__details">
                                                     {$_total_count = 0}
@@ -443,14 +444,14 @@
         {if $crossselling || $upselling }
             <div class="content product_cross-products">
                 {if $crossselling}
-                    {$product_list_title = sprintf('C "%s" так же берут', $product.name|escape)}
+                    {$product_list_title = 'C этим товаром покупают'}
                     {include file="product.list.view-carousel.html" products=$crossselling product_list_title=$product_list_title}
                 {/if}
 
                 {if $upselling}
                     {$compare_ids = array_merge(array($product.id), array_keys($upselling))}
                     {$onClick = "javascript:window.location='{$wa->getUrl('/frontend/compare', ['id' => implode(',', $compare_ids)])}';"}
-                    {$product_list_title = "[`See also`] <a class='product_cross-compare sdColor link-half' onClick=`$onClick`>[`Compare all`]</a>"}
+                    {$product_list_title = "Похожие товары <a class='product_cross-compare sdColor link-half' onClick=`$onClick`>[`Compare all`]</a>"}
                     {include file="product.list.view-carousel.html" products=$upselling product_list_title=$product_list_title}
                 {/if}
             </div>

@@ -125,6 +125,10 @@
   </files>
   <locales>
     <locale>
+      <msgid>%s reviews in total</msgid>
+      <msgstr locale="ru_RU">Всего %s отзывов</msgstr>
+    </locale>
+    <locale>
       <msgid>E.g. %s</msgid>
       <msgstr locale="ru_RU">Например, %s</msgstr>
     </locale>

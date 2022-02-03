@@ -329,26 +329,28 @@
                             {/if}
                         </div>
                         <input type="hidden" name="product_id" value="{$product.id}">
-                        <span class="js-qty Cart__Qty">
-                    <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
-                    <input type="text" name="quantity" value="1" class="js-number">
-                    <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
-                </span>
+                        {if $theme_settings.product_page_show_qty}
+                            <span class="js-qty Cart__Qty">
+                                <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
+                                <input type="text" name="quantity" value="1" class="js-number">
+                                <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
+                            </span>
+                        {/if}
                         <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}">
                     {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
-                </span>
+                        </span>
+                            </div>
+                            <!-- plugin hook: 'frontend_product.cart' -->
+                            {* @event frontend_product.%plugin_id%.cart *}
+                            {foreach $frontend_product as $_}
+                                <div class="cart_plugin">{$_.cart}</div>
+                            {/foreach}
+                        </div>
+
+
                     </div>
-                    <!-- plugin hook: 'frontend_product.cart' -->
-                    {* @event frontend_product.%plugin_id%.cart *}
-                    {foreach $frontend_product as $_}
-                        <div class="cart_plugin">{$_.cart}</div>
-                    {/foreach}
-                </div>
 
-
-            </div>
-
-            {if !$_is_dialog_select_options}{include file="product.mini.desc.html"}{/if}
+                    {if !$_is_dialog_select_options}{include file="product.mini.desc.html"}{/if}
 
             {if $_is_dialog && !$_is_dialog_select_options}
         </div>

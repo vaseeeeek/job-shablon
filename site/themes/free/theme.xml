@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.0.0" edition="1">
+<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.0.0" edition="0">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
@@ -229,7 +229,7 @@
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo" control_type="text">
-      <value/>
+      <value>/wa-data/public/site/themes/free/img/logo.svg</value>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
@@ -358,7 +358,7 @@
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
     <setting var="fixed_panel_array" control_type="text">
-      <value>burger,cart,compare,favorite,filter,phone,profile</value>
+      <value>burger,cart,compare,favorite,filter,profile</value>
       <name locale="ru_RU">Нижнее меню на мобильных</name>
       <name locale="en_US"/>
       <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
@@ -1172,6 +1172,11 @@
       <name locale="ru_RU">Краткое описание</name>
       <name locale="en_US">Short description</name>
     </setting>
+    <setting var="product_page_show_qty" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Вывод количества</name>
+      <name locale="en_US">Outputting the quantity</name>
+    </setting>
     <setting var="product_page_right_block_features" control_type="select">
       <value>first</value>
       <name locale="en_US">Characteristics on the right</name>
@@ -1280,7 +1285,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_mobile" control_type="select">
-      <value>acc_tabs</value>
+      <value>none_tabs</value>
       <name locale="ru_RU">Вид вкладок на мобильных</name>
       <name locale="en_US">View of tabs on mobile</name>
       <options>
@@ -1345,12 +1350,12 @@
       <name locale="en_US">Stock availability</name>
     </setting>
     <setting var="product_show_stock_count" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>
     <setting var="total_crossselling" control_type="text">
-      <value/>
+      <value>6</value>
       <name locale="en_US">Number of related products (cross-selling)</name>
       <name locale="ru_RU">Кол-во сопутствующих товаров(cross-selling)</name>
     </setting>
@@ -1381,7 +1386,7 @@
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo_footer" control_type="text">
-      <value/>
+      <value>/wa-data/public/site/themes/free/img/logo.svg</value>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>

@@ -93,9 +93,6 @@
                         <script src="{$wa_theme_url}reviews.js"></script>
 
                         <input type="hidden" name="reviewheader"/>
-                        <h3 class="reviews-total" {if $reviews_count == 0}style="display: none;"{/if}>
-                            {_w('%d review for ','%d reviews for ', $reviews_count)|cat:$product.name|escape}
-                        </h3>
 
                         <!-- add review form -->
                         <div class="review-write">

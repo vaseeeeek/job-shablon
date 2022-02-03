@@ -13,7 +13,7 @@
             {foreach $product.images as $image}
                 <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
                     <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, '1500')}">
-                        {$wa->shop->imgHtml($image, '70')}
+                        {$wa->shop->imgHtml($image, '80x0')}
                     </a>
                 </div>
                 {$position = $position + 1}
