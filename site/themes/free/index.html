@@ -97,25 +97,21 @@
                         {$wa->accountName()}
                     {/if}
                 </a>
-                {if !$wa->isMobile()}
+{*                {if !$wa->isMobile()}*}
                     <div class="nav-cat js-dd-outer">
                         <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor ">
-                            {if $wa->get('1', null) === '1'}
-                                <img src="/img/burger1.svg" alt="" width="20">
-                            {elseif $wa->get('1', null) === '2'}
-                                <img src="/img/burger2.svg" alt="" width="20">
-                            {elseif $wa->get('1', null) === '3'}
-                                <img src="/img/burger3.svg" alt="" width="20">
-                            {else}
-                                <i class="fi-rr-align-justify"></i>
-                            {/if}
+                            <div class="nav-cat-btn__action__wrap">
+                                <div class="nav-cat-btn__action nav-cat-btn__action--top"></div>
+                                <div class="nav-cat-btn__action nav-cat-btn__action--middle"></div>
+                                <div class="nav-cat-btn__action nav-cat-btn__action--bottom"></div>
+                            </div>
                             [`Catalog`]
                         </div>
                     </div>
-                {/if}
+{*                {/if}*}
             </div>
             <div class="header--right">
-                {if !$wa->isMobile()}
+{*                {if !$wa->isMobile()}*}
                     <div class="Nav-search juniq-header-search">
                         <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
                               class="js-Nav-search Nav-search_form">
@@ -131,7 +127,7 @@
                             <div class="inp-search--wrap"></div>
                         </form>
                     </div>
-                {/if}
+{*                {/if}*}
                 <div class="Nav-contact-info">
                     {if $theme_settings.header_company_phone}
                         <a class="Nav-contact-phone-btn" href="tel:{$theme_settings.header_company_phone}">
@@ -500,3 +496,4 @@
     </body>
     </html>
 {/strip}
+

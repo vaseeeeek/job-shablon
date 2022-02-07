@@ -8,20 +8,24 @@
         <article class="js-product-page product_page" itemscope itemtype="http://schema.org/Product">
             <div class="content">
                 <div class="content-box">
-                    <div class="df-block">
+                    <div class="product__title-badge__wrap df-block">
                         <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
                         {$_badge_percent = $theme_settings.product_discount_percentage == 1}
                         {if $_badge_percent}
                             {if $theme_settings.product_discount_percentage == 1}
+                                {$compare_price = $product.compare_price}
+                                {$price = $product.price}
                                 {if $compare_price > $price}
                                     {$discount = (($compare_price-$price)/$compare_price)*100}
                                     {$discount = ceil($discount)}
                                 {/if}
-                            {$productDiscount = isset($discount) && $price > 0}
-                            <div class="product-card_discounts {if !$productDiscount} -Close{/if}">
+
+                                {$productDiscount = isset($discount) && $price > 0}
+
+                                <div class="product-card_discounts {if !$productDiscount} -Close{/if}">
                                     <div data-minimal="3" class="js-product-discount product-discount product-card__discount">{if $productDiscount}-{$discount}%{/if}</div>
-                                {/if}
-                            </div>
+                                </div>
+                            {/if}
                         {/if}
                         {$wa->shop->badgeHtml($product.badge)}
                     </div>
@@ -54,41 +58,63 @@
                                 </div>
                             {/if}
                         {/if}
-                        {if $theme_settings.type_view_main_content_product_desktop == 'normal_tabs'}
-                            <script>
-                                $('.rating').click(() => {
-                                    $('.js-tab[data-tab-content="product-reviews"]').click();
-                                    $([document.documentElement, document.body]).animate({
-                                        scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
-                                    }, 700);
-                                })
-                            </script>
-                        {/if}
-                        {if $theme_settings.type_view_main_content_product_desktop == 'acc_tabs'}
-                            <script>
-                                $('.rating').click(() => {
-                                    $('.js-acc-tab[data-tab-content="product-reviews"]').click();
-                                    $([document.documentElement, document.body]).animate({
-                                        scrollTop: $('.js-acc-tab[data-tab-content="product-reviews"]').offset().top - 150
-                                    }, 700);
-                                })
-                            </script>
-                        {/if}
-                        {if $theme_settings.type_view_main_content_product_desktop == 'anchor_tabs'}
-                            <script>
-                                $('.rating').click(() => {
-                                    $('.js-motion-to-tab[data-tab-content="product-reviews"]').click();
-                                })
-                            </script>
-                        {/if}
-                        {if $theme_settings.type_view_main_content_product_desktop == 'none_tabs'}
-                            <script>
-                                $('.rating').click(() => {
-                                    $([document.documentElement, document.body]).animate({
-                                        scrollTop: $('#product-reviews').offset().top - 150
-                                    }, 700);
-                                })
-                            </script>
+                        {if !$wa->isMobile()}
+                            {if $theme_settings.type_view_main_content_product_desktop == 'normal_tabs'}
+                                <script>
+                                    $('.rating, .product_rating__total-text').click(() => {
+                                        $('.js-tab[data-tab-content="product-reviews"]').click();
+                                        $([document.documentElement, document.body]).animate({
+                                            scrollTop: $('.js-tab[data-tab-content="product-reviews"]').offset().top - 150
+                                        }, 700);
+                                    })
+                                </script>
+                            {/if}
+                            {if $theme_settings.type_view_main_content_product_desktop == 'acc_tabs'}
+                                <script>
+                                    $('.rating, .product_rating__total-text').click(() => {
+                                        $('.js-acc-tab[data-tab-content="product-reviews"]').click();
+                                        $([document.documentElement, document.body]).animate({
+                                            scrollTop: $('.js-acc-tab[data-tab-content="product-reviews"]').offset().top - 150
+                                        }, 700);
+                                    })
+                                </script>
+                            {/if}
+                            {if $theme_settings.type_view_main_content_product_desktop == 'anchor_tabs'}
+                                <script>
+                                    $('.rating, .product_rating__total-text').click(() => {
+                                        $('.js-motion-to-tab[data-tab-content="product-reviews"]').click();
+                                    })
+                                </script>
+                            {/if}
+                            {if $theme_settings.type_view_main_content_product_desktop == 'none_tabs'}
+                                <script>
+                                    $('.rating, .product_rating__total-text').click(() => {
+                                        $([document.documentElement, document.body]).animate({
+                                            scrollTop: $('#product-reviews').offset().top - 150
+                                        }, 700);
+                                    })
+                                </script>
+                            {/if}
+                        {else}
+                            {if $theme_settings.type_view_main_content_product_mobile == 'none_tabs'}
+                                <script>
+                                    $('.rating, .product_rating__total-text').click(() => {
+                                        $([document.documentElement, document.body]).animate({
+                                            scrollTop: $('#product-reviews').offset().top - 150
+                                        }, 700);
+                                    })
+                                </script>
+                            {/if}
+                            {if $theme_settings.type_view_main_content_product_mobile == 'acc_tabs'}
+                                <script>
+                                    $('.rating, .product_rating__total-text').click(() => {
+                                        $('.js-acc-tab[data-tab-content="product-reviews"]').click();
+                                        $([document.documentElement, document.body]).animate({
+                                            scrollTop: $('.js-acc-tab[data-tab-content="product-reviews"]').offset().top - 150
+                                        }, 700);
+                                    })
+                                </script>
+                            {/if}
                         {/if}
                         {if $theme_settings.favorites || $theme_settings.compare}
                             <div class="product_action-btn">

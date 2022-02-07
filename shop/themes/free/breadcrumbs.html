@@ -39,4 +39,16 @@
         {/if}
     </ul>
 {/if}
+{/strip}
 
+<script>
+    (function() {
+        'use strict';
+        if ($("ul.breadcrumbs").length > 0) {
+            var crumbsList = $("ul.breadcrumbs");
+            crumbsList.animate({
+                scrollLeft: 1000
+            }, 500);
+        }
+    })()
+</script>

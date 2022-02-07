@@ -9,7 +9,7 @@
   </description>
   <files>
     <file path="index.html" custom="0">
-    </file>
+		</file>
     <file path="free.site.css" custom="0">
     </file>
     <file path="free.js" custom="0">
@@ -121,13 +121,28 @@
       <name locale="en_US"/>
       <description locale="ru_RU">По-умолчанию белый, если основной цвет тусклый, то меняйте на тёмный.</description>
     </setting>
+	<setting var="bgcolor_sticker_hit" control_type="color">
+      <value/>
+      <name locale="ru_RU">Наклейка хит</name>
+      <name locale="en_US">Sticker hit</name>
+    </setting>
+    <setting var="bgcolor_sticker_new" control_type="color">
+      <value/>
+      <name locale="ru_RU">Наклейка новинка</name>
+      <name locale="en_US">The sticker is new</name>
+    </setting>
+    <setting var="bgcolor_sticker_discount" control_type="color">
+      <value/>
+      <name locale="ru_RU">Наклейка скидка</name>
+      <name locale="en_US">Sticker discount</name>
+    </setting>
     <setting var="border_radius" control_type="text">
       <value>4</value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>opensans</value>
+      <value>roboto</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.</description>
       <options>
@@ -240,11 +255,11 @@
     </setting>
     <setting var="width_logo_max_950" control_type="text">
       <value>160</value>
-      <name locale="en_US">Logo width with screen size less than 950 pixels, px</name>
-      <name locale="ru_RU">Ширина логотипа при размере экрана менее 950 пикселей, px</name>
+      <name locale="en_US">Logo width on mobile, px</name>
+      <name locale="ru_RU">Ширина логотипа на мобильных, px!!!переименовать var</name>
     </setting>
     <setting var="language_selector" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Show language selector</name>
       <name locale="ru_RU">Выбор языка</name>
     </setting>
@@ -343,12 +358,12 @@
       <name locale="ru_RU">Подпункты в инф. страницах</name>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
     <setting var="auto_search" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Автопоиск</name>
       <name locale="en_US">Autosearch</name>
     </setting>
@@ -533,10 +548,10 @@
     </setting>
     <setting var="home_categories_title" control_type="text">
       <value>Категории</value>
-      <name locale="ru_RU">Загаловок</name>
+      <name locale="ru_RU">Заголовок</name>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
-      <value/>
+      <value><![CDATA[5]]></value>
       <name locale="ru_RU">Кол-во категорий 2 уровня</name>
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
@@ -660,6 +675,21 @@
       <name locale="en_US">List of products</name>
       <name locale="ru_RU">Список товаров</name>
     </setting>
+	<setting var="compare" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Comparison</name>
+      <name locale="ru_RU">Сравнение</name>
+    </setting>
+    <setting var="favorites" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Favourites</name>
+      <name locale="ru_RU">Избранное</name>
+    </setting>
+    <setting var="product_quick_dialog" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Quick View</name>
+      <name locale="ru_RU">Быстрый просмотр</name>
+    </setting>
     <setting var="count_product_row" control_type="select">
       <value>four</value>
       <name locale="en_US">Number of products in a row in the form of a "Tile"</name>
@@ -683,6 +713,45 @@
         </option>
       </options>
     </setting>
+	<setting var="cat_view_subs" control_type="select">
+      <value>image</value>
+      <name locale="en_US">Categories above the list of products</name>
+      <name locale="ru_RU">Категории над списком товаров</name>
+      <options>
+        <option value="no_image">
+          <name locale="ru_RU">Текстом</name>
+          <name locale="en_US">Text</name>
+        </option>
+        <option value="icon">
+          <name locale="ru_RU">Иконками</name>
+          <name locale="en_US">Icons</name>
+        </option>
+        <option value="image">
+          <name locale="ru_RU">Картинками</name>
+          <name locale="en_US">Pictures</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="category_row_cat" control_type="select">
+      <value>seven</value>
+      <name locale="ru_RU">
+        Количество категорий в строке над списком товаров (картинками)
+      </name>
+      <options>
+        <option value="four">
+          <name locale="ru_RU">4</name>
+        </option>
+        <option value="five">
+          <name locale="ru_RU">5</name>
+        </option>
+        <option value="six">
+          <name locale="ru_RU">6</name>
+        </option>
+        <option value="seven">
+          <name locale="ru_RU">7</name>
+        </option>
+      </options>
+    </setting>
     <setting var="pagination" control_type="select">
       <value>paging</value>
       <name locale="en_US">Uploading a list of products</name>
@@ -697,36 +766,6 @@
           <name locale="en_US">Page by page</name>
         </option>
       </options>
-    </setting>
-    <setting var="compare" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Comparison</name>
-      <name locale="ru_RU">Сравнение</name>
-    </setting>
-    <setting var="favorites" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Favourites</name>
-      <name locale="ru_RU">Избранное</name>
-    </setting>
-    <setting var="product_quick_dialog" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Quick View</name>
-      <name locale="ru_RU">Быстрый просмотр</name>
-    </setting>
-    <setting var="bgcolor_sticker_hit" control_type="color">
-      <value/>
-      <name locale="ru_RU">Наклейка хит</name>
-      <name locale="en_US">Sticker hit</name>
-    </setting>
-    <setting var="bgcolor_sticker_new" control_type="color">
-      <value/>
-      <name locale="ru_RU">Наклейка новинка</name>
-      <name locale="en_US">The sticker is new</name>
-    </setting>
-    <setting var="bgcolor_sticker_discount" control_type="color">
-      <value/>
-      <name locale="ru_RU">Наклейка скидка</name>
-      <name locale="en_US">Sticker discount</name>
     </setting>
     <setting var="product_discount_percentage" control_type="select">
       <value>1</value>
@@ -805,45 +844,7 @@
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
-    <setting var="cat_view_subs" control_type="select">
-      <value>image</value>
-      <name locale="en_US">Categories above the list of products</name>
-      <name locale="ru_RU">Категории над списком товаров</name>
-      <options>
-        <option value="no_image">
-          <name locale="ru_RU">Текстом</name>
-          <name locale="en_US">Text</name>
-        </option>
-        <option value="icon">
-          <name locale="ru_RU">Иконками</name>
-          <name locale="en_US">Icons</name>
-        </option>
-        <option value="image">
-          <name locale="ru_RU">Картинками</name>
-          <name locale="en_US">Pictures</name>
-        </option>
-      </options>
-    </setting>
-    <setting var="category_row_cat" control_type="select">
-      <value>seven</value>
-      <name locale="ru_RU">
-        Количество категорий в строке над списком товаров (картинками)
-      </name>
-      <options>
-        <option value="four">
-          <name locale="ru_RU">4</name>
-        </option>
-        <option value="five">
-          <name locale="ru_RU">5</name>
-        </option>
-        <option value="six">
-          <name locale="ru_RU">6</name>
-        </option>
-        <option value="seven">
-          <name locale="ru_RU">7</name>
-        </option>
-      </options>
-    </setting>
+    
     <setting var="paragraph_product_preview" control_type="group_divider">
       <value/>
       <name locale="en_US">Card in the list of products</name>
