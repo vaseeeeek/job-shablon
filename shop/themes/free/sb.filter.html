@@ -1,22 +1,22 @@
 {strip}
 
     {$is_smartfilters_hide_options = !empty($smartfilters.hideDisabled)}
-    <div class="sb-wrap filters js-filters {if $wa->isMobile()}mobile-filter{/if} js-ajax"{if $is_smartfilters_hide_options} data-smartfilters-hide-option="1"{/if}>
+    <div class="sb-wrap filters js-filters js-ajax"{if $is_smartfilters_hide_options} data-smartfilters-hide-option="1"{/if}>
 
         <form id="filter-body" class="filters-body js-filter-body" method="get" action="{$wa->currentUrl(0,1)}">
-            {if $wa->isMobile()}
-                <div class="filters-body__title">
-                    <div class="filters-body__title__text">Фильтр</div>
-                    {$reset_link = $wa->currentUrl(0,1)}
-                    {if isset($category) && class_exists('shopSeofilterViewHelper')}
-                        {$reset_link = $wa->shop->categoryUrl($category)}
-                    {/if}
-                    <div class="filters-body__title__text__btn">
-                        <a class="filter-reset" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
-                        <span class="js-filter-fixed-btn close-filter">&#10005;</span>
-                    </div>
+
+            <div class="filters-body__title">
+                <div class="filters-body__title__text">Фильтр</div>
+                {$reset_link = $wa->currentUrl(0,1)}
+                {if isset($category) && class_exists('shopSeofilterViewHelper')}
+                    {$reset_link = $wa->shop->categoryUrl($category)}
+                {/if}
+                <div class="filters-body__title__text__btn">
+                    <a class="filter-reset" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
+                    <span class="js-filter-fixed-btn close-filter">&#10005;</span>
                 </div>
-            {/if}
+            </div>
+
             {$indexFilter = 0}
             {foreach $filters as $filterId => $filter}
                 {if $filterId == 'price'}{$filter.code = 'price'}{/if}
@@ -187,20 +187,18 @@
             {/foreach}
             {if $wa->get('sort')}<input type="hidden" name="sort" value="{$wa->get('sort')|escape}">{/if}
             {if $wa->get('order')}<input type="hidden" name="order" value="{$wa->get('order')|escape}">{/if}
-            {if !$wa->isMobile()}
-                <div class="filter-el filter-el--btns">
-                    <input type="submit" class="bg-maincolor" value="[`Filter products`]">
-                    {$reset_link = $wa->currentUrl(0,1)}
-                    {if isset($category) && class_exists('shopSeofilterViewHelper')}
-                        {$reset_link = $wa->shop->categoryUrl($category)}
-                    {/if}
-                    <a class="filter-reset" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
-                </div>
-            {else}
-                <div class="filter__submit">
-                    <input type="submit" class="bg-maincolor js-filter-fixed-btn" value="[`Filter products`]">
-                </div>
-            {/if}
+
+            <div class="filter-el filter-el--btns">
+                <input type="submit" class="bg-maincolor" value="[`Filter products`]">
+                {$reset_link = $wa->currentUrl(0,1)}
+                {if isset($category) && class_exists('shopSeofilterViewHelper')}
+                    {$reset_link = $wa->shop->categoryUrl($category)}
+                {/if}
+                <a class="filter-reset" href="{$reset_link}{if $wa->get('sort')}?sort={$wa->get('sort')|escape}&order={$wa->get('order')|escape}{/if}">[`Clear`]</a>
+            </div>
+            <div class="filter__submit">
+                <input type="submit" class="bg-maincolor js-filter-fixed-btn" value="[`Filter products`]">
+            </div>
         </form>
     </div>
 {/strip}

@@ -29,8 +29,10 @@
         {/if}
         {if $wa->param('action') != 'page'}
             {if !empty($filters)}
-                {if !isset($filters)}{$filters = []}{/if}
-                {include file="`$wa_active_theme_path`/sb.filter.html" filter=$filters}
+                <div class="sidear-mobile">
+                    {if !isset($filters)}{$filters = []}{/if}
+                    {include file="`$wa_active_theme_path`/sb.filter.html" filter=$filters}
+                </div>
             {/if}
 
             {include file="`$wa_active_theme_path`/sidebar.cat.html"}

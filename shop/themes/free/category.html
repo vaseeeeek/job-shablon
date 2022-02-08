@@ -10,6 +10,9 @@
                 {include file='sidebar.html' filter=$filters}
             </div>
         {/if}
+        {if $wa->isMobile()}
+            {include file="sb-mobile.html"}
+        {/if}
         <div class="content  with-sidebar">
             <div class="cat-content">
 
@@ -39,9 +42,6 @@
 
                 <!-- subcategories -->
                 {include file="sabcat.html"}
-                {if $wa->isMobile()}
-                    {include file="sb-mobile.html"}
-                {/if}
                 <div class="js-product-ajax-list">
                     {if !$products}
                         {if $theme_settings.selected_filter}{include file="selected-filters.html"}{/if}

@@ -7,7 +7,7 @@
     {$categories = $wa->shop->categories(0, null, true, true)}
     {if count($categories) > 0}
         <div class="container">
-            <div class="homepage-categories">
+            <div class="homepage-categories {if !$theme_settings.total_max_maxcat_homepage}homepage-categories--margin{/if}">
                 {if class_exists('shopWmimageincatPlugin')}
                     {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
                 {/if}

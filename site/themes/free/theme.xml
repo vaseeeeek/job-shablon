@@ -101,7 +101,7 @@
       <description locale="en_US">It can be set the same as the main one if it is not a gradient.</description>
     </setting>
     <setting var="background_color" control_type="color">
-      <value/>
+      <value></value>
       <name locale="ru_RU">Цвет фона</name>
       <name locale="en_US">Background color</name>
     </setting>
@@ -121,7 +121,7 @@
       <name locale="en_US"/>
       <description locale="ru_RU">По-умолчанию белый, если основной цвет тусклый, то меняйте на тёмный.</description>
     </setting>
-	<setting var="bgcolor_sticker_hit" control_type="color">
+    <setting var="bgcolor_sticker_hit" control_type="color">
       <value/>
       <name locale="ru_RU">Наклейка хит</name>
       <name locale="en_US">Sticker hit</name>
@@ -253,10 +253,10 @@
       <name locale="en_US">Width of logo, px</name>
       <name locale="ru_RU">Ширина логотипа, px</name>
     </setting>
-    <setting var="width_logo_max_950" control_type="text">
+    <setting var="logo_width_mobile" control_type="text">
       <value>160</value>
       <name locale="en_US">Logo width on mobile, px</name>
-      <name locale="ru_RU">Ширина логотипа на мобильных, px!!!переименовать var</name>
+      <name locale="ru_RU">Ширина логотипа на мобильных, px</name>
     </setting>
     <setting var="language_selector" control_type="checkbox">
       <value/>
@@ -282,10 +282,6 @@
       <description locale="en_US">From which application to take links to information pages.
       </description>
       <options>
-        <option value="wa-apps">
-          <name locale="ru_RU">Приложение «Сайт» &gt; Настройки &gt; {$wa-&gt;apps()}</name>
-          <name locale="en_US">Site app &gt; Settings &gt; {$wa-&gt;apps()}</name>
-        </option>
         <option value="site-pages">
           <name locale="ru_RU">Страницы приложения «Сайт»</name>
           <name locale="en_US">Site app pages</name>
@@ -293,14 +289,6 @@
         <option value="shop-pages">
           <name locale="ru_RU">Страницы приложения «Магазин»</name>
           <name locale="en_US">Shop app pages</name>
-        </option>
-        <option value="blog-pages">
-          <name locale="ru_RU">Страницы приложения «Блог»</name>
-          <name locale="en_US">Blog app pages</name>
-        </option>
-        <option value="photos-pages">
-          <name locale="ru_RU">Страницы приложения «Фото»</name>
-          <name locale="en_US">Photos app pages</name>
         </option>
         <option value="app-menu">
           <name locale="ru_RU">Из приложения меню</name>
@@ -352,20 +340,10 @@
       <name locale="ru_RU">Вывести иконку личного кабинета</name>
       <name locale="en_US"/>
     </setting>
-    <setting var="sub_items_inf_pages" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Sub-items in inf. pages</name>
-      <name locale="ru_RU">Подпункты в инф. страницах</name>
-    </setting>
     <setting var="request_call" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
-    </setting>
-    <setting var="auto_search" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Автопоиск</name>
-      <name locale="en_US">Autosearch</name>
     </setting>
     <setting var="region_plugin" control_type="checkbox">
       <value>1</value>
@@ -484,7 +462,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu_app_id" control_type="text">
-      <value/>
+      <value>180</value>
       <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
       <name locale="en_US"/>
     </setting>
@@ -551,7 +529,7 @@
       <name locale="ru_RU">Заголовок</name>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
-      <value><![CDATA[5]]></value>
+      <value>5</value>
       <name locale="ru_RU">Кол-во категорий 2 уровня</name>
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
@@ -675,7 +653,7 @@
       <name locale="en_US">List of products</name>
       <name locale="ru_RU">Список товаров</name>
     </setting>
-	<setting var="compare" control_type="checkbox">
+    <setting var="compare" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Comparison</name>
       <name locale="ru_RU">Сравнение</name>
@@ -713,7 +691,7 @@
         </option>
       </options>
     </setting>
-	<setting var="cat_view_subs" control_type="select">
+    <setting var="cat_view_subs" control_type="select">
       <value>image</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
@@ -844,7 +822,6 @@
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
-    
     <setting var="paragraph_product_preview" control_type="group_divider">
       <value/>
       <name locale="en_US">Card in the list of products</name>

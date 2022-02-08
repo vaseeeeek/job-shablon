@@ -70,7 +70,7 @@
     <style>
 
         body, .Product__features-title span, .tags.cloud a, .category-menu, .menu-subcategory, .inp-search input, .modal-content, .checked-list__items, .jq-selectbox, select, .dd-wrap, .Brands__Box--Found,
-        .ui-slider-handle.ui-state-default, .ajax-search, .fixed-panel, .sidear-mobile form#filter-body, .sidear-mobile .filter__submit {
+        .ui-slider-handle.ui-state-default, .ajax-search, .fixed-panel, .sidear-mobile form#filter-body, .sidear-mobile .filter__submit, .ajax-search-result {
             background: {$panelBgColor} !important;
         }
 
@@ -218,7 +218,9 @@
             body .rating.-zero .icon10.star:hover, body select, body input, body .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button {
                 color: {$textColor};
             }
-
+            .fixed-panel .nav-cat-btn__action {
+                background: {$textColor};
+            }
             .Product-grid .dotted-img__list li.dotted-img__item.-Active {
                 background-color: {$textColor};
             }

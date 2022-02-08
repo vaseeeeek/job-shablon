@@ -4,18 +4,12 @@
             {if $wa->site}{$_links = $wa->site->pages()}{/if}
         {elseif $theme_settings.links_information_pages == 'shop-pages'}
             {if $wa->shop}{$_links = $wa->shop->pages()}{/if}
-        {elseif $theme_settings.links_information_pages == 'blog-pages'}
-            {if $wa->blog}{$_links = $wa->blog->pages()}{/if}
-        {elseif $theme_settings.links_information_pages == 'photos-pages'}
-            {if $wa->photos}{$_links = $wa->photos->pages()}{/if}
-        {elseif $theme_settings.links_information_pages == 'hub-pages'}
-            {if $wa->hub}{$_links = $wa->hub->pages()}{/if}
         {elseif $theme_settings.links_information_pages == 'app-menu'}
             {if $wa->menu && !empty($theme_settings.id_app_header_top_menu) && (int)$theme_settings.id_app_header_top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header_top_menu)}{/if}
         {elseif $theme_settings.links_information_pages != 'none'}
             {$_links = $wa->apps()}
         {/if}
-        <nav id="header_menu-nav" class="MobileMenu_nav-m">
+        <nav id="header_menu-nav-mobile" class="MobileMenu_nav-m">
             <div class="MobileMenu_nav-header--absolute">
                 <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
             </div>
@@ -141,7 +135,7 @@
                                         <a{if isset($link.target)} target="{$link.target}"{/if}{if $is_select} class="selected"{/if} href="{$link.url}">
                                             {$link.name}
                                         </a>
-                                        {if isset($link.childs) && $link.childs && count($link.childs) && $theme_settings.sub_items_inf_pages}
+                                        {if isset($link.childs) && $link.childs && count($link.childs)}
                                             <i class="js-top-nav-caret nav-caret icon"></i>
                                             <div class="MobileMenu_nav-m-sub">
                                                 <ul class="top-border-color">
@@ -244,7 +238,11 @@
                 {if $btn == 'burger'}
                     <div class="product-custom">
                         <div class="product-custom_icon maincolor">
-                            <i data-id="header_menu-nav" class="MobileMenu-btn icon fi-rr-menu-burger js-nav-button"></i>
+                            <div data-id="header_menu-nav-mobile" class="nav-cat-btn__action__wrap icon MobileMenu-btn js-nav-button">
+                                <div class="nav-cat-btn__action nav-cat-btn__action--top"></div>
+                                <div class="nav-cat-btn__action nav-cat-btn__action--middle"></div>
+                                <div class="nav-cat-btn__action nav-cat-btn__action--bottom"></div>
+                            </div>
                             <span class="product-custom_icon__name">
                                 Меню
                             </span>
@@ -320,12 +318,6 @@
                                     Корзина
                                 </span>
                             </div>
-                            {if !$wa->isMobile()}
-                                <div class="product-custom_content">
-                                    <span class="link product-custom_title ">[`Cart`]</span>
-                                    <div class="js-cart-price-total-price product-custom_total">{wa_currency_html($wa->shop->cart->total(), $wa->shop->currency())}</div>
-                                </div>
-                            {/if}
                         </a>
                         <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
                             <div class="product-added-msg br-top-sdСolor shadow">
@@ -366,7 +358,7 @@
                 {/if}
             {/foreach}
         {else}
-            <i data-id="header_menu-nav" class="MobileMenu-btn icon fi-rr-menu-burger js-nav-button"></i>
+            <i data-id="header_menu-nav-mobile" class="MobileMenu-btn icon fi-rr-menu-burger js-nav-button"></i>
             {if $wa->param('action') == 'category'}
                 <div class="js-filter-fixed-btn product-custom">
                     <div class="product-custom_icon maincolor">
