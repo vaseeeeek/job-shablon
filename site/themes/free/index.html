@@ -59,10 +59,12 @@
 
         {$wa->head()}
 
-        {if method_exists($wa->shop, 'checkout')}
-            {$cartUrl = $wa->shop->checkout()->cartUrl()}
-        {else}
-            {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+        {if $wa->shop}
+            {if method_exists($wa->shop, 'checkout')}
+                {$cartUrl = $wa->shop->checkout()->cartUrl()}
+            {else}
+                {$cartUrl = $wa->getUrl('shop/frontend/cart')}
+            {/if}
         {/if}
     </head>
 
@@ -87,7 +89,7 @@
         <div class="container">
             <div class="header--left">
                 {$is_logo = $theme_settings.logo}
-                <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->currentUrl() === $wa->getUrl('shop/frontend')}{else}href="{$wa->getUrl('shop/frontend')}"{/if}">
+                <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}{if $wa->currentUrl() === $wa->getUrl('shop/frontend')}{else}href="{$wa->getUrl('shop/frontend')}"{/if}{/if}>
                     {if $theme_settings.path_svg_logo}
                         <img src="{$theme_settings.path_svg_logo}" alt="{$wa->accountName()}" id="logo">
                     {elseif $is_logo}
@@ -110,7 +112,7 @@
                 {/if}
             </div>
             <div class="header--right">
-                {if !$wa->isMobile()}
+                {if !$wa->isMobile() && $wa->shop}
                     <div class="Nav-search juniq-header-search">
                         <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
                               class="js-Nav-search Nav-search_form">
@@ -164,7 +166,7 @@
                             </a>
                         </div>
                     {/if}
-                    {if $theme_settings.favorites}
+                    {if $theme_settings.favorites && $wa->shop}
                         {$count_favorites = 0}
                         {$product_favor_arr = $wa->cookie('product_favor_arr')}
                         {if $product_favor_arr && $product_favor_arr != 'null'}
@@ -187,7 +189,7 @@
                         </div>
                     {/if}
 
-                    {if $theme_settings.compare}
+                    {if $theme_settings.compare && $wa->shop}
                         {$in_comparison = $wa->shop->inComparison()}
                         {$url = $wa->getUrl('shop/frontend/compare', ['id' => implode(',', $in_comparison)])}
 
@@ -211,26 +213,28 @@
                         </div>
                     {/if}
 
-                    {$cartPopupUrl = $wa->getUrl('shop/frontend/cart')}
-                    <div class="header__cart juniq-header-preview-cart js-cart-header product-custom"
-                         data-url="{$cartPopupUrl}">
-                        <a class="product-custom--link" href="{$cartUrl}">
-                            <div class="product-custom_icon">
-                                <i class="icon fi-rr-shopping-cart sdСolor"></i>
-                                <span class="js-cart-preview-count header__cart-count bg-maincolor">{$wa->shop->cart->count()}</span>
-                            </div>
-                            <span>[`Cart`]</span>
-                        </a>
-                        <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
-                            <div class="product-added-msg br-top-sdСolor shadow">
-                                [`Product added to cart!`]
+                    {if $wa->shop}
+                        {$cartPopupUrl = $wa->getUrl('shop/frontend/cart')}
+                        <div class="header__cart juniq-header-preview-cart js-cart-header product-custom"
+                             data-url="{$cartPopupUrl}">
+                            <a class="product-custom--link" href="{$cartUrl}">
+                                <div class="product-custom_icon">
+                                    <i class="icon fi-rr-shopping-cart sdСolor"></i>
+                                    <span class="js-cart-preview-count header__cart-count bg-maincolor">{$wa->shop->cart->count()}</span>
+                                </div>
+                                <span>[`Cart`]</span>
+                            </a>
+                            <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
+                                <div class="product-added-msg br-top-sdСolor shadow">
+                                    [`Product added to cart!`]
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {/if}
                 </div>
             </div>
 
-            {if $wa->isMobile()}
+            {if $wa->isMobile() && $wa->shop}
                 <div class="Nav-search juniq-header-search">
                     <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
                           class="js-Nav-search Nav-search_form">
@@ -290,14 +294,16 @@
     {/if}
     <!-- FOOTER -->
     <footer class="footer" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="{$wa->shop->settings('name')}">
+        {if $wa->shop}
+            <meta itemprop="name" content="{$wa->shop->settings('name')}">
+        {/if}
         <div class="footer-box container">
             <div class="footer-box_col">
                 {if $theme_settings.logo_footer || $theme_settings.path_svg_logo_footer}
                     <div class="footer_logo">
                         <a href="{$wa_url}">
                             <img src="{if $theme_settings.path_svg_logo_footer}{$theme_settings.path_svg_logo_footer}{else}{$wa_theme_url}{$theme_settings.logo_footer}{/if}"
-                                 alt="{$wa->shop->settings('name')}"/>
+                                 {if $wa->shop}alt="{$wa->shop->settings('name')}"{/if}/>
                         </a>
                     </div>
                 {/if}

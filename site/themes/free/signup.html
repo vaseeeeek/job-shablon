@@ -6,9 +6,11 @@
                 <i class="Login__Icon--Ok icon-ok"></i>
             </div>
             <div class="Login__Text">[s`You have successfully confirmed your email.`]</div>
-            <div class="Login__Buttons--Shop">
-                <a href="{$wa->getUrl('shop/frontend')}" class="Login__Link--Home">[`Back to home page`]</a>
-            </div>
+            {if $wa->shop}
+                <div class="Login__Buttons--Shop">
+                    <a href="{$wa->getUrl('shop/frontend')}" class="Login__Link--Home">[`Back to home page`]</a>
+                </div>
+            {/if}
         </div>
     {elseif not empty($contact)}
         <div class="Login__Box">
@@ -22,9 +24,11 @@
                     <p>[s`A confirmation link has been sent to you by email. Please click this link to confirm your signup and to sign in.`]</p>
                 {/if}
             </div>
-            <div class="Login__Buttons--Shop">
-                <a href="{$wa->getUrl('shop/frontend')}" class="Login__Link--Home">[`Back to home page`]</a>
-            </div>
+            {if $wa->shop}
+                <div class="Login__Buttons--Shop">
+                    <a href="{$wa->getUrl('shop/frontend')}" class="Login__Link--Home">[`Back to home page`]</a>
+                </div>
+            {/if}
         </div>
     {else}
         <div class="Login__Box">

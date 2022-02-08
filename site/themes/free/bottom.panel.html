@@ -1,5 +1,6 @@
 {strip}
     <div class="MobileMenu">
+        {$_links = []}
         {if $theme_settings.links_information_pages == 'site-pages'}
             {if $wa->site}{$_links = $wa->site->pages()}{/if}
         {elseif $theme_settings.links_information_pages == 'shop-pages'}
@@ -13,115 +14,117 @@
             <div class="MobileMenu_nav-header--absolute">
                 <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
             </div>
-            {if $theme_settings.hide_cat_burger}
-                {$hideCatList = true}
-            {/if}
-            {if $hideCatList}
-                <h4 class="MobileMenu_nav__catalog-title js-show-cat -hide">Перейти в каталог →</h4>
-            {else}
-                <h4 class="MobileMenu_nav__catalog-title">Каталог</h4>
-            {/if}
-            {if $theme_settings.get_menu_from == 'app-menu'}
-                {$categories = $wa->menu->get($theme_settings.id_app_menu_cat)}
-            {else}
-                {$categories = $wa->shop->categories(0, null, true, true)}
-            {/if}
-            {$cat_result = $categories}
-
-            <div class="category-menu js-category-menu-wrap {if $hideCatList}-hideList{/if}">
-                {if $hideCatList}
-                    <div class="MobileMenu_nav-header">
-                        <div class="btn-back js-btn-hide-fullcatlist"><i class="fi-rr-angle-small-left"></i></div>
-                        <div class="cat-title">Каталог</div>
-                        <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
-                    </div>
+            {if $wa->shop}
+                {if $theme_settings.hide_cat_burger}
+                    {$hideCatList = true}
                 {/if}
-                {foreach $cat_result as $cat}
-                    {$view_subcat = "one_column"}
-                    {$_subcat = 0}
-                    {if count($cat.childs) && $theme_settings.depth_subcategories > 1}
-                        {foreach $cat.childs as $child}
-                            {$_subcat = 1}
-                        {/foreach}
-                    {/if}
-                    {if $cat.id == 'else'}
-                        {$_subcat = 1}
-                    {/if}
-                    <div class="menu-element {if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
-                        {if $_subcat}
-                            <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
-                        {/if}
+                {if $hideCatList}
+                    <h4 class="MobileMenu_nav__catalog-title js-show-cat -hide">Перейти в каталог →</h4>
+                {else}
+                    <h4 class="MobileMenu_nav__catalog-title">Каталог</h4>
+                {/if}
+                {if $theme_settings.get_menu_from == 'app-menu'}
+                    {$categories = $wa->menu->get($theme_settings.id_app_menu_cat)}
+                {else}
+                    {$categories = $wa->shop->categories(0, null, true, true)}
+                {/if}
+                {$cat_result = $categories}
 
+                <div class="category-menu js-category-menu-wrap {if $hideCatList}-hideList{/if}">
+                    {if $hideCatList}
+                        <div class="MobileMenu_nav-header">
+                            <div class="btn-back js-btn-hide-fullcatlist"><i class="fi-rr-angle-small-left"></i></div>
+                            <div class="cat-title">Каталог</div>
+                            <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                        </div>
+                    {/if}
+                    {foreach $cat_result as $cat}
+                        {$view_subcat = "one_column"}
+                        {$_subcat = 0}
+                        {if count($cat.childs) && $theme_settings.depth_subcategories > 1}
+                            {foreach $cat.childs as $child}
+                                {$_subcat = 1}
+                            {/foreach}
+                        {/if}
                         {if $cat.id == 'else'}
-                            <div class="cat-menu__item-link">
-                            <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
-                                [`Else categories`]
-                            </span>
-                            </div>
-                        {else}
-                            <a class="cat-menu__item-link" href="{$cat.url}">
-                                <div class="cat-menu__item-title">
-                                    {$cat.name}
-                                </div>
-                            </a>
+                            {$_subcat = 1}
                         {/if}
-                        {if $_subcat}
-                            {$subcatFile = "{$wa_theme_url}nav.one_column.scat.html"}
-{*                            {include file=$subcatFile linkFullCatalog=true}*}
-                            <div class="menu-subcategory js-subcategory-menu">
-                                <div class="MobileMenu_nav-header">
-                                    <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
-                                    <div class="cat-title">{$cat.name}</div>
-                                    <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                        <div class="menu-element {if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
+                            {if $_subcat}
+                                <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
+                            {/if}
+
+                            {if $cat.id == 'else'}
+                                <div class="cat-menu__item-link">
+                                <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
+                                    [`Else categories`]
+                                </span>
                                 </div>
-                                <div class="subcat-menu__item subcat-menu__item__full-products">
-                                    <a href="{$cat.url}">Все товары категории</a>
-                                </div>
-                                {foreach $cat.childs as $keyCatChild => $catChild_2}
-                                    {if !isset($catChild_2.params.menu_hide)}
-                                        {$_subcat_lvl2 = false}
-                                        {if count($catChild_2.childs) && $theme_settings.depth_subcategories > 2}
-                                            {foreach $catChild_2.childs as $catChild_3}
-                                                {if !isset($catChild_3.params.menu_hide)}
-                                                    {$_subcat_lvl2 = true}
+                            {else}
+                                <a class="cat-menu__item-link" href="{$cat.url}">
+                                    <div class="cat-menu__item-title">
+                                        {$cat.name}
+                                    </div>
+                                </a>
+                            {/if}
+                            {if $_subcat}
+                                {$subcatFile = "{$wa_theme_url}nav.one_column.scat.html"}
+    {*                            {include file=$subcatFile linkFullCatalog=true}*}
+                                <div class="menu-subcategory js-subcategory-menu">
+                                    <div class="MobileMenu_nav-header">
+                                        <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
+                                        <div class="cat-title">{$cat.name}</div>
+                                        <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                                    </div>
+                                    <div class="subcat-menu__item subcat-menu__item__full-products">
+                                        <a href="{$cat.url}">Все товары категории</a>
+                                    </div>
+                                    {foreach $cat.childs as $keyCatChild => $catChild_2}
+                                        {if !isset($catChild_2.params.menu_hide)}
+                                            {$_subcat_lvl2 = false}
+                                            {if count($catChild_2.childs) && $theme_settings.depth_subcategories > 2}
+                                                {foreach $catChild_2.childs as $catChild_3}
+                                                    {if !isset($catChild_3.params.menu_hide)}
+                                                        {$_subcat_lvl2 = true}
+                                                    {/if}
+                                                {/foreach}
+                                            {/if}
+                                            <div class="{if $_subcat_lvl2}js-subcatmenu-el has-subs{/if} subcat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
+                                                {if $_subcat_lvl2}
+                                                    <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                                                 {/if}
-                                            {/foreach}
+
+                                                <a href="{$catChild_2.url}">{$catChild_2.name}</a>
+                                                {if $_subcat_lvl2}
+                                                    <div class="menu-subcategory js-subcategory-menu">
+
+                                                        <div class="MobileMenu_nav-header">
+                                                            <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
+                                                            <div class="cat-title">{$catChild_2.name}</div>
+                                                            <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
+                                                        </div>
+
+                                                        <div class="subcat-menu__item subcat-menu__item__full-products">
+                                                            <a href="{$catChild_2.url}">Все товары категории</a>
+                                                        </div>
+                                                        {foreach $catChild_2.childs as $catChild_3}
+                                                            {if !isset($catChild_3.params.menu_hide)}
+                                                                <div class="subcat-menu__item">
+                                                                    <a href="{$catChild_3.url}">{$catChild_3.name}</a>
+                                                                </div>
+                                                            {/if}
+                                                        {/foreach}
+                                                    </div>
+                                                {/if}
+                                            </div>
                                         {/if}
-                                        <div class="{if $_subcat_lvl2}js-subcatmenu-el has-subs{/if} subcat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
-                                            {if $_subcat_lvl2}
-                                                <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
-                                            {/if}
-
-                                            <a href="{$catChild_2.url}">{$catChild_2.name}</a>
-                                            {if $_subcat_lvl2}
-                                                <div class="menu-subcategory js-subcategory-menu">
-
-                                                    <div class="MobileMenu_nav-header">
-                                                        <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
-                                                        <div class="cat-title">{$catChild_2.name}</div>
-                                                        <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
-                                                    </div>
-
-                                                    <div class="subcat-menu__item subcat-menu__item__full-products">
-                                                        <a href="{$catChild_2.url}">Все товары категории</a>
-                                                    </div>
-                                                    {foreach $catChild_2.childs as $catChild_3}
-                                                        {if !isset($catChild_3.params.menu_hide)}
-                                                            <div class="subcat-menu__item">
-                                                                <a href="{$catChild_3.url}">{$catChild_3.name}</a>
-                                                            </div>
-                                                        {/if}
-                                                    {/foreach}
-                                                </div>
-                                            {/if}
-                                        </div>
-                                    {/if}
-                                {/foreach}
-                            </div>
-                        {/if}
-                    </div>
-                {/foreach}
-            </div>
+                                    {/foreach}
+                                </div>
+                            {/if}
+                        </div>
+                    {/foreach}
+                </div>
+            {/if}
             <div class="MobileMenu_nav__other">
                 {if count($_links) > 0}
                     <div class="MobileMenu_nav__info">
@@ -250,7 +253,7 @@
                     </div>
                 {/if}
 
-                {if $btn == 'favorite'}
+                {if $btn == 'favorite' && $wa->shop}
                     {if $theme_settings.favorites}
                         {$count_favorites = 0}
                         {$product_favor_arr = $wa->cookie('product_favor_arr')}
@@ -275,7 +278,7 @@
                         </div>
                     {/if}
                 {/if}
-                {if $btn == 'compare'}
+                {if $btn == 'compare' && $wa->shop}
                     {if $theme_settings.compare}
                         {$in_comparison = $wa->shop->inComparison()}
                         {$url = $wa->getUrl('shop/frontend/compare', ['id' => implode(',', $in_comparison)])}
@@ -302,7 +305,7 @@
                         </div>
                     {/if}
                 {/if}
-                {if $btn == 'cart'}
+                {if $btn == 'cart' && $wa->shop}
                     {if method_exists($wa->shop, 'checkout')}
                         {$cartUrl = $wa->shop->checkout()->cartUrl()}
                     {else}
