@@ -5269,6 +5269,7 @@ img.pswp__img {
 
     .bx-wrapper {
       position: relative;
+      padding: 30px 0;
     }
   }
 
@@ -5365,6 +5366,7 @@ img.pswp__img {
     .image-preview {
       display: inline-flex;
       margin: 5px;
+      width: calc(12.5% - 10px);
     }
   }
 }
@@ -5392,7 +5394,24 @@ img.pswp__img {
   }
 }
 
+@media (max-width: 750px){
+  .product_page {
+    .image-preview {
+      display: inline-flex;
+      margin: 5px;
+      width: calc(14.27% - 10px);
+    }
+  }
+}
+
 @media (max-width: 640px) {
+  .product_page {
+    .image-preview {
+      display: inline-flex;
+      margin: 5px;
+      width: calc(16.6666% - 10px);
+    }
+  }
   .product_action-btn {
     margin: 0 0 0.5rem auto !important;
   }
@@ -5480,11 +5499,11 @@ img.pswp__img {
 }
 
 .owl-prev:after {
-  content: "\e910"
+  content: "\e930"
 }
 
 .owl-next:after {
-  content: "\e911"
+  content: "\e92b"
 }
 
 .owl-next.disabled, .owl-next.disabled:hover, .owl-prev.disabled, .owl-prev.disabled:hover {
@@ -5567,15 +5586,15 @@ img.pswp__img {
 }
 
 .carousel-vertical .bx-prev:after {
-  content: "\e915";
+  content: "\e92c";
   line-height: 30px;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .carousel-vertical .bx-next:after {
-  content: "\e912";
+  content: "\e92f";
   line-height: 30px;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .carousel-vertical .bx-next.disabled:after, .carousel-vertical .bx-prev.disabled:after {
