@@ -98,7 +98,7 @@
                         {$wa->accountName()}
                     {/if}
                 </a>
-                {if !$wa->isMobile()}
+                {if !$wa->isMobile() && !$theme_settings.drop_down_horizontal_menu}
                     <div class="nav-cat js-dd-outer">
                         <div data-id="nav-cat" class="js-btnDrop-down nav-cat-btn bg-sdСolor ">
                             <div class="nav-cat-btn__action__wrap">
@@ -253,10 +253,12 @@
         </div>
     </header>
 
+    {include file="nav.html"}
+
     <div class="contacts--box">
         <div class="contacts__left">
             <a href="tel:{$theme_settings.header_company_phone}"><span class="contacts__phone__num">{$theme_settings.header_company_phone}</span>
-            <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
+                <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
         </div>
         <div class="contacts__right">
             <div class="contacts__right--row">
@@ -273,8 +275,6 @@
             {/if}
         </div>
     </div>
-
-    {include file="nav.html"}
 
     {if $wa->currentUrl(false, true) != $wa_app_url || $wa_app != 'shop' }
     <div class="inner-wrap">

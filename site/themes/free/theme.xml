@@ -101,7 +101,7 @@
       <description locale="en_US">It can be set the same as the main one if it is not a gradient.</description>
     </setting>
     <setting var="background_color" control_type="color">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Цвет фона</name>
       <name locale="en_US">Background color</name>
     </setting>
@@ -423,7 +423,7 @@
       </options>
     </setting>
     <setting var="get_menu_from" control_type="select">
-      <value>catalog</value>
+      <value>app-menu</value>
       <name locale="ru_RU">Категории брать из</name>
       <name locale="en_US">Categories to take from</name>
       <options>
@@ -438,12 +438,12 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value/>
+      <value>83</value>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value></value>
+      <value>app</value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -462,8 +462,18 @@
       </options>
     </setting>
     <setting var="horizontal_menu_app_id" control_type="text">
-      <value>180</value>
+      <value>83</value>
       <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="drop_down_horizontal_menu" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выпадающее горизонтальное меню</name>
+      <name locale="en_US"/>
+    </setting>
+    <setting var="number_output_categories_third_level" control_type="text">
+      <value><![CDATA[5]]></value>
+      <name locale="ru_RU">Количество выводимых категорий третьего уровня</name>
       <name locale="en_US"/>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
