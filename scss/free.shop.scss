@@ -1515,6 +1515,35 @@ span.rating__total {
     margin-bottom: 5px;
   }
 }
+ul.skus.horizontal_articles {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+
+  .sku-int{
+    display: none;
+  }
+  .price{
+    display: none;
+  }
+  .style-check{
+    width: initial;
+    height: initial;
+    padding: 6px 9px 6px;
+  }
+  .style-check.checked:before, .style-check:hover:before{
+    display: none;
+  }
+  input[type=checkbox], input[type=radio]{
+    display: none;
+  }
+  .hint{
+    margin-left: 0;
+  }
+  .checked .name{
+    color: #fff;
+  }
+}
 
 .skus select {
   width: auto
