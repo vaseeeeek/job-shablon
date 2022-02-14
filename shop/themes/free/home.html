@@ -5,7 +5,7 @@
     {include file="slider.html"}
 </div>
     {$categories = $wa->shop->categories(0, null, true, true)}
-    {if count($categories) > 0}
+    {if count($categories) > 0 && $theme_settings.show_home_cat_list}
         <div class="container">
             <div class="homepage-categories {if !$theme_settings.total_max_maxcat_homepage}homepage-categories--margin{/if}">
                 {if class_exists('shopWmimageincatPlugin')}
@@ -21,7 +21,6 @@
                         </div>
                     </div>
                 {/if}
-
                 {if $theme_settings.total_max_maxcat_homepage}
                     {include file="home.scat.html" categories=$categories}
                 {else}

@@ -259,7 +259,7 @@
       <name locale="ru_RU">Ширина логотипа на мобильных, px</name>
     </setting>
     <setting var="language_selector" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Show language selector</name>
       <name locale="ru_RU">Выбор языка</name>
     </setting>
@@ -472,12 +472,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="number_output_categories_third_level" control_type="text">
-      <value><![CDATA[5]]></value>
+      <value>5</value>
       <name locale="ru_RU">Количество выводимых категорий третьего уровня</name>
       <name locale="en_US"/>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -533,6 +533,11 @@
       <value/>
       <name locale="en_US">Categories</name>
       <name locale="ru_RU">Категории</name>
+    </setting>
+    <setting var="show_home_cat_list" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывести список категорий на главной страннице</name>
+      <name locale="en_US"/>
     </setting>
     <setting var="home_categories_title" control_type="text">
       <value>Категории</value>

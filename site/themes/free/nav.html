@@ -5,8 +5,15 @@
             <div class="Nav__Primary container">
                 {if $theme_settings.horizontal_menu}
                     <ul class="Nav__horizontal--list {if $theme_settings.horizontal_menu_between}-Between{/if}">
+                        {$catListHorizontalNav = false}
                         {if $theme_settings.horizontal_menu == 'cat' }
                             {$catListHorizontalNav = $wa->shop->categories(0, null, true, true)}
+                        {elseif $theme_settings.horizontal_menu == 'app' && $theme_settings.horizontal_menu_app_id}
+                            {$appMenuId = $theme_settings.horizontal_menu_app_id}
+                            {$catListHorizontalNav = $wa->menu->get($appMenuId)}
+                        {/if}
+
+                        {if $catListHorizontalNav}
                             {foreach $catListHorizontalNav as $id => $cat}
                                 <li class="Nav__horizontal--item">
                                     <a class="Nav__horizontal--link" href="{$cat.url}">
@@ -22,12 +29,17 @@
                                                     {if $cat2.childs}
                                                         <ul class="Nav__horizontal--list-3">
                                                             {foreach $cat2.childs as $id => $cat3}
-                                                                <li class="Nav__horizontal--item-3">
+                                                                <li class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration}hide{/if}">
                                                                     <a class="Nav__horizontal--link-3" href="{$cat3.url}">
                                                                         {$cat3.name}
                                                                     </a>
                                                                 </li>
                                                             {/foreach}
+                                                            {if $theme_settings.number_output_categories_third_level < count($cat2.childs)}
+                                                                <li class="Nav__horizontal--item-more js-open-other-cat-child">
+                                                                    [`Else`] <i class="fi-rr-angle-small-down"></i>
+                                                                </li>
+                                                            {/if}
                                                         </ul>
                                                     {/if}
                                                 </li>
@@ -36,45 +48,6 @@
                                     {/if}
                                 </li>
                             {/foreach}
-                        {elseif $theme_settings.horizontal_menu == 'app' && $theme_settings.horizontal_menu_app_id}
-                            {$appMenuId = $theme_settings.horizontal_menu_app_id}
-                            {$catListHorizontalNav = $wa->menu->get($appMenuId)}
-                            {if $catListHorizontalNav}
-                                {foreach $catListHorizontalNav as $id => $cat}
-                                    <li class="Nav__horizontal--item">
-                                        <a class="Nav__horizontal--link" href="{$cat.url}">
-                                            {$cat.name}
-                                        </a>
-                                        {if $cat.childs && $theme_settings.drop_down_horizontal_menu}
-                                            <ul class="Nav__horizontal--list-2">
-                                                {foreach $cat.childs as $id => $cat2}
-                                                    <li class="Nav__horizontal--item-2">
-                                                        <a class="Nav__horizontal--link-2" href="{$cat2.url}">
-                                                            {$cat2.name}
-                                                        </a>
-                                                        {if $cat2.childs}
-                                                            <ul class="Nav__horizontal--list-3">
-                                                                {foreach $cat2.childs as $id => $cat3}
-                                                                    <li class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration}hide{/if}">
-                                                                        <a class="Nav__horizontal--link-3" href="{$cat3.url}">
-                                                                            {$cat3.name}
-                                                                        </a>
-                                                                    </li>
-                                                                {/foreach}
-                                                                {if $theme_settings.number_output_categories_third_level < count($cat2.childs)}
-                                                                    <li class="Nav__horizontal--item-more js-open-other-cat-child">
-                                                                        [`Else`] <i class="fi-rr-angle-small-down"></i>
-                                                                    </li>
-                                                                {/if}
-                                                            </ul>
-                                                        {/if}
-                                                    </li>
-                                                {/foreach}
-                                            </ul>
-                                        {/if}
-                                    </li>
-                                {/foreach}
-                            {/if}
                         {/if}
                     </ul>
                 {/if}
@@ -86,28 +59,28 @@
     {/if}
 {/if}
 {/strip}
+{literal}
     <script>
         $(document).ready(function () {
             let textElse = `[`Else`]`;
 
-            $('.js-open-other-cat-child').click(function (e) {
-                if ($(e.target).siblings('.hide').length){
-                    console.log($(e.target).siblings('.hide').length)
-                    $(e.target).siblings('.hide').each(function () {
+            $('.js-open-other-cat-child').click(function () {
+                if ($(this).siblings('.hide').length){
+                    $(this).siblings('.hide').each(function () {
                         $(this).removeClass('hide');
                         $(this).addClass('show');
                     });
-                    $(e.target).html('Свернуть <i class="fi-rr-angle-small-up"></i>')
+                    $(this).html('Свернуть <i class="fi-rr-angle-small-up"></i>')
                 } else {
-                    console.log($(e.target).siblings('.show').length)
-                    $(e.target).siblings('.show').each(function () {
+                    $(this).siblings('.show').each(function () {
                         $(this).removeClass('show');
                         $(this).addClass('hide');
                     });
                     {literal}
-                        $(e.target).html(`${textElse} <i class="fi-rr-angle-small-down"></i>`)
+                        $(this).html(`${textElse} <i class="fi-rr-angle-small-down"></i>`)
                     {/literal}
                 }
             })
         });
     </script>
+{/literal}

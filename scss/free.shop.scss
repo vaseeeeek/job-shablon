@@ -203,7 +203,10 @@ $html-font-size: 14px;
 }
 
 .home-slider-photos {
-  margin: 0 rem(-1px);
+  /*margin: 0 rem(-1px);*/
+  .owl-carousel{
+    margin-top: 0!Important;
+  }
   padding: 0;
   list-style: none;
   white-space: nowrap
@@ -2006,11 +2009,8 @@ input.error, textarea.error {
 
   .owl-carousel {
     padding-top: 0;
+    overflow: hidden
   }
-}
-
-.homepage-brands .owl-carousel {
-  overflow: hidden
 }
 
 .homepage-brands_el {
@@ -5533,9 +5533,6 @@ img.pswp__img {
   margin: 0 auto
 }
 
-.owl-carousel {
-  display: block
-}
 
 .owl-carousel .owl-item .owl-lazy {
   opacity: 1
@@ -5805,11 +5802,6 @@ button.owl-dot {
   }
 }
 
-.owl-carousel {
-  display: flex;
-  overflow: hidden;
-  margin: 0 auto;
-}
 
 @media (min-width: 1500px) {
   .product_cross-products .owl-carousel {
@@ -5842,10 +5834,12 @@ button.owl-dot {
   text-align: center;
   height: 14px
 }
-
-.slider-outer--home .owl-next:after, .slider-outer--home .owl-prev:after {
-  font-size: 25px;
-  height: 25px;
+.slider-outer--home{
+  margin-top: -2rem;
+  .owl-next:after, .owl-prev:after {
+    font-size: 25px;
+    height: 25px;
+  }
 }
 
 .owl-carousel .owl-stage-outer {
@@ -5952,6 +5946,11 @@ button.owl-dot {
   flex-wrap: wrap;
   align-items: flex-start;
   position: relative;
+
+  .owl-carousel {
+    padding-top: 1rem;
+    margin-top: -1rem;
+  }
 
   form.js-add-to-cart {
     flex: 1 1;
@@ -6131,6 +6130,7 @@ button.owl-dot {
     display: flex;
     //overflow: hidden;
     position: relative;
+    max-width: 100%;
 
     .Nav__horizontal--list-2{
       display: none;
@@ -6142,6 +6142,12 @@ button.owl-dot {
   }
 
   &--item {
+    &-more{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
     .Nav__horizontal--link {
       display: block;
       padding-top: rem(10px);
@@ -6157,7 +6163,6 @@ button.owl-dot {
       display: flex;
       flex-wrap: wrap;
       box-sizing: border-box;
-      box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
       padding: 0 rem(20px) rem(20px) rem(20px);
     }
 
@@ -6165,14 +6170,14 @@ button.owl-dot {
       width: 20%;
       box-sizing: border-box;
       padding-right: rem(10px);
-      margin-bottom: rem(20px);
+      margin-bottom: rem(10px);
       .Nav__horizontal--link-2{
         font-weight: 700;
-        font-size: rem(16px);
+        font-size: rem(14px);
       }
 
       .Nav__horizontal--list-3{
-        margin-top: rem(10px);
+        margin-top: rem(5px);
         .Nav__horizontal--item-3.hide{
           display: none;
         }
@@ -6526,7 +6531,9 @@ i.wa-icon.arrow-left {
     flex-direction: column;
   }
 }
-
+#themeOverride>#main-content{
+  flex: 1;
+}
 #main-content .cols-2 {
   display: flex;
 }

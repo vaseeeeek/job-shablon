@@ -113,10 +113,6 @@
                         {/foreach}
                     </div>
                 {else}
-                    {*            {if count($product.skus) == 1}*}
-                    {*                {$pd_one_option = $product.skus[$product.sku_id]}*}
-                    {*                {if $pd_one_option.sku}<div class="pd-code"><span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$pd_one_option.sku|escape}</span></div>{/if}*}
-                    {*            {/if}*}
                     <div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
                         <meta itemprop="lowPrice" content="{shop_currency_html($product.min_price, null, null, false)}">
                         <meta itemprop="highPrice"
@@ -125,8 +121,6 @@
                         <meta itemprop="offerCount" content="{$product.sku_count}">
                         {$pd_available = false}
                         {if count($product.skus) > 1}
-
-
                             {if !$theme_settings.product_selection_skus}
                                 <div class="skus">
                                     {foreach $product.skus as $sku}
@@ -170,10 +164,10 @@
                                                     <meta itemprop="price" content="{$sku.price}">
                                                     <meta itemprop="priceCurrency" content="{$product.currency}">
                                                     <span class="js-toggle-styler style-check{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if} fi-rr-check">
-                                                <input class="js-toggle-styler-input" name="sku_id" type="radio"
-                                                       value="{$sku.id}"{if !$sku_available} disabled="disabled" data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}"
-                                                       data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
-                                            </span>
+                                                        <input class="js-toggle-styler-input" name="sku_id" type="radio"
+                                                               value="{$sku.id}"{if !$sku_available} disabled="disabled" data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}"
+                                                               data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
+                                                    </span>
 
                                                     {if $sku.sku}
                                                         <span itemprop="sku" class="hint">{$sku.sku|escape}</span>
