@@ -40,7 +40,7 @@
                 <section class="order-box" id="js-cart-order">
                     <div class="section-head">
                         <h2 class="uniq-header">{$config.cart.block_name|default:"[`Shopping cart`]"|escape}</h2>
-                        <a class="delete-button js-cart-delete-product" href="javascript:void(0);">[`Удалить все товары`]</a>
+                        <a class="delete-button js-cart-delete-product" href="javascript:void(0);">[`Empty the cart`]</a>
                     </div>
                     <div class="section-content">
                         {$wa->shop->checkout()->cart([

@@ -1170,6 +1170,15 @@
       <name locale="ru_RU">Вывод количества</name>
       <name locale="en_US">Outputting the quantity</name>
     </setting>
+    <setting var="product_image_size_zoom" control_type="text">
+      <value><![CDATA[970]]></value>
+      <name locale="ru_RU">Размер изображения в zoom</name>
+      <name locale="en_US">Image size in zoom</name>
+      <description locale="ru_RU">Размер не должен привышать максимальный размер эскиза, в настройках магазина. (магазин-&gt;настройки-&gt;изображения)
+      </description>
+      <description locale="en_US">The size should not exceed the maximum size of the thumbnail in the store settings. (shop-&gt;settings-&gt;images)
+      </description>
+    </setting>
     <setting var="product_page_right_block_features" control_type="select">
       <value>first</value>
       <name locale="en_US">Characteristics on the right</name>
@@ -1323,12 +1332,12 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_type_options_select" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Артикулы в выпадающем списке</name>
       <name locale="en_US">Articles in the drop-down list</name>
     </setting>
     <setting var="product_selection_skus" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вид выбора артикулов продукта - селектом</name>
       <name locale="en_US">View product selection skus - Select</name>
     </setting>
@@ -1665,6 +1674,18 @@
     <locale>
       <msgid>Add to cart</msgid>
       <msgstr locale="ru_RU">В корзину</msgstr>
+    </locale>
+    <locale>
+      <msgid>Added</msgid>
+      <msgstr locale="ru_RU">В корзине</msgstr>
+    </locale>
+    <locale>
+      <msgid>Quick View</msgid>
+      <msgstr locale="ru_RU">Быстрый просмотр</msgstr>
+    </locale>
+    <locale>
+      <msgid>Empty the cart</msgid>
+      <msgstr locale="ru_RU">Удалить все товары</msgstr>
     </locale>
   </locales>
 </theme>

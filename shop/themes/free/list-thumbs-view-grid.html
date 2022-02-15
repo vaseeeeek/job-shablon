@@ -56,7 +56,7 @@
                     <div class="js-dialog Product-grid_dialog Product-grid_action">
                     <span class="js-card-dialog product-action " data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
 {*                        <i class="fi-rr-zoom-in"></i>*}
-                        Быстрый просмотр
+                        [`Quick View`]
                     </span>
                     </div>
                 {/if}
@@ -253,16 +253,17 @@
             <div class="Product-grid_bottom">
                 <div class="Product-grid_cart">
                     {if $available}
+                        {$addedText = "[`Added`]"}
                         {if $p.sku_count > 1
-                            && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
+                        && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
                             {if $wa_app == 'shop'}
                                 <span class="button js-card-dialog addtocart"
-                                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">В корзину</span>
+                                      data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">[`Add to cart`]</span>
                             {else}
                                 <a class="button addtocart" href="{$p.frontend_url}">Нет в наличии</a>
                             {/if}
                         {else}
-                            <span class="button js-submit-form addtocart">В корзину</span>
+                            <span class="button js-submit-form addtocart" data-added-text="{$addedText}">[`Add to cart`]</span>
                         {/if}
                     {else}
                         <div class="Product-stock-out nowrap">

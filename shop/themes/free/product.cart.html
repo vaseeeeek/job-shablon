@@ -11,10 +11,7 @@
     {$image_preview = $wa->shop->productImgUrl($product, '60')}
 
     {if $_is_dialog}<div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>{/if}
-    <form id="cart-form{if $_is_dialog}-dialog{/if}"
-          class="js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}"
-          method="post" action="{$wa->getUrl('/frontendCart/add')}"
-          data-sku-url="{!$_is_dialog && !empty($theme_settings.product_url_sku_parameter)}">
+    <form id="cart-form{if $_is_dialog}-dialog{/if}" class="js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}" method="post" action="{$wa->getUrl('/frontendCart/add')}" data-sku-url="{!$_is_dialog && !empty($theme_settings.product_url_sku_parameter)}">
         {if $_is_dialog && !$_is_dialog_select_options}
         {$product.features = $product->features}
         {$products = [$product.id => $product->data]}
@@ -71,20 +68,16 @@
                                         {if !isset($skuCode_feat_def[$f.id])}{$skuCode_feat_def[$f.id]=$v_id}{/if}
                                         {if $f.type == 'color'}
                                             <div class="option-color_outer option-color_outer--card{if empty($theme_settings.view_product_select_color_text)} _without-text{/if}">
-                                                <a data-value="{$v_id}"
-                                                   href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if}
-                                                   style="{$v->style};">
+                                                <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if} style="{$v->style};">
                                                     <i class="fi-rr-check"></i>
                                                 </a>
                                                 <span class="option-color_text">{$v|strip_tags|trim}</span>
                                             </div>
                                         {else}
-                                            <a data-value="{$v_id}"
-                                               href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if}>{$v}</a>
+                                            <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if}>{$v}</a>
                                         {/if}
                                     {/foreach}
-                                    <input type="hidden" data-feature-id="{$f.id}" class="js-feature-sku feature-sku"
-                                           name="features[{$f.id}]" value="{ifset($skuCode_feat_def[$f.id])}">
+                                    <input type="hidden" data-feature-id="{$f.id}" class="js-feature-sku feature-sku" name="features[{$f.id}]" value="{ifset($skuCode_feat_def[$f.id])}">
                                 </div>
                             {/if}
                         {/foreach}
@@ -142,12 +135,8 @@
                                         {foreach $product.skus as $sku}
                                             {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
                                             {if $sku_available}
-                                                <option{if !$sku.available} disabled="true"{/if}{if !$sku_available} data-disabled="1"{/if}{if $sku.id == $product.sku_id} selected="selected"{/if}
-                                                        value="{$sku.id}"
-                                                        data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}"
-                                                        data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
-                                                    {$sku.name|escape} {if $sku.sku}- {$sku.sku|escape}{/if}
-                                                    ({shop_currency($sku.price, $product.currency)})
+                                                <option{if !$sku.available} disabled="true"{/if}{if !$sku_available} data-disabled="1"{/if}{if $sku.id == $product.sku_id} selected="selected"{/if} value="{$sku.id}" data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}" data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
+                                                    {$sku.name|escape} {if $sku.sku}- {$sku.sku|escape}{/if} ({shop_currency($sku.price, $product.currency)})
                                                 </option>
                                             {/if}
                                         {/foreach}
@@ -164,9 +153,7 @@
                                                     <meta itemprop="price" content="{$sku.price}">
                                                     <meta itemprop="priceCurrency" content="{$product.currency}">
                                                     <span class="js-toggle-styler style-check{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if} {if !$theme_settings.horizontal_list_articles}fi-rr-check{/if}">
-                                                        <input class="js-toggle-styler-input" name="sku_id" type="radio"
-                                                               value="{$sku.id}"{if !$sku_available} disabled="disabled" data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}"
-                                                               data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
+                                                        <input class="js-toggle-styler-input" name="sku_id" type="radio" value="{$sku.id}"{if !$sku_available} disabled="disabled" data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}" data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
                                                         {if $theme_settings.horizontal_list_articles}
                                                             <span class="name nowrap hint">{$sku.name}</span>
                                                         {/if}
