@@ -1514,9 +1514,8 @@ iframe {
 .dd-wrap {
   background: #fff;
   position: relative;
-  border: 0;
-  transition: all .25s cubic-bezier(0, 0, .2, 1);
-  box-shadow: 0 0.2rem 0.5rem #0000000d, 0 0 1.1rem #0000000d;
+  transition: 0.5s all ease;
+  box-shadow: 0 10px 20px -5px rgb(0 0 0 / 40%);
 }
 
 .dd-wrap:after {
@@ -1919,7 +1918,7 @@ img.mfp-img {
 
 .header-top_region {
   display: inline-flex;
-  margin: 0 rem(30px) 0 0;
+  margin: 0 9.4rem 0 0;
 }
 
 .header_lang-el {
@@ -2121,8 +2120,8 @@ img.mfp-img {
 
 .nav-caret {
   position: absolute;
-  right: -12px;
-  top: 7px
+  right: -13px;
+  top: 4px;
 }
 
 .nav-caret.open:before {
@@ -3252,25 +3251,22 @@ ul.pages-list li a {
 }
 
 .dd-wrap .currency_item {
-  display: block
+  display: block;
+  padding: 0.2rem 1rem;
 }
 
 .currency_list {
   position: absolute;
-  width: 73px;
-  z-index: 30;
+  width: auto;
+  z-index: 32;
   top: 100%;
   margin: 0;
-  right: -12px;
+  right: -16px;
   display: none;
 }
 
 .currency_list.show {
   display: block
-}
-
-.currency_list .dd-wrap {
-  margin-top: rem(3px)
 }
 
 .btn-top {
@@ -3727,12 +3723,12 @@ textarea{
 }
 
 .header-top--links {
-  background: #fff;
 
   .container {
     display: flex;
     font-size: 0.95rem;
-    line-height: 2.2;
+    line-height: 1.6;
+    padding: 0.2rem 2rem;
   }
 
   .header-top_menu {
@@ -4862,8 +4858,15 @@ span.i-cityselect__city{
 span.i-cityselect__city:before {
   content: "\e9c8";
   font-family: 'free-font';
+  margin-right: 3px;
+  top: 1px;
+  position: relative;
 }
 
+.b-cityselect__city {
+  text-decoration: none;
+  border-bottom: 0;
+}
 /* Стили для инфошек */
 #page p, .product_description p, .Brands__Description p, .category-desc p, .product_short-desc, .product_page.tab-content_el p {
   font-size: 1.15rem;

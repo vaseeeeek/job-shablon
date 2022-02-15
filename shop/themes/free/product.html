@@ -143,7 +143,7 @@
                                 {if $theme_settings.pd_share_script && !$_is_dialog_select_options}
                                     <div class="product_share">{$theme_settings.pd_share_script}</div>
                                 {/if}
-                                {if $theme_settings.product_show_multi_sku}
+                                {if $theme_settings.product_show_multi_sku && $theme_settings.product_item_name_display == 'header'}
                                     <div class="pd-code__box">
                                         {foreach $product.skus as $sku}
                                             <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>

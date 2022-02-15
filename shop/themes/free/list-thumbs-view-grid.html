@@ -192,8 +192,8 @@
                 {if ($theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))) || ($theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0)}
                     <div class="Product-grid_stock-sku-box">
                         {if $theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))}
-                            <div class="Product-grid_stock">
-                                {if $theme_settings.preview_stock}
+                            {if $theme_settings.preview_stock}
+                                <div class="Product-grid_stock">
                                     <div class="Product-stock nowrap">
                                         {if $available}
                                             {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
@@ -210,8 +210,8 @@
                                             {/if}
                                         {/if}
                                     </div>
-                                {/if}
-                            </div>
+                                </div>
+                            {/if}
                         {/if}
                         {if $theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0}
                             <div class="Product-grid_sku hint">

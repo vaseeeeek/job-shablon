@@ -1091,7 +1091,7 @@
       <name locale="ru_RU">Поле кол-во "построчно"</name>
     </setting>
     <setting var="preview_stock" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Наличие на складе</name>
       <name locale="en_US">Stock availability</name>
     </setting>
@@ -1171,7 +1171,7 @@
       <name locale="en_US">Outputting the quantity</name>
     </setting>
     <setting var="product_image_size_zoom" control_type="text">
-      <value><![CDATA[970]]></value>
+      <value>970</value>
       <name locale="ru_RU">Размер изображения в zoom</name>
       <name locale="en_US">Image size in zoom</name>
       <description locale="ru_RU">Размер не должен привышать максимальный размер эскиза, в настройках магазина. (магазин-&gt;настройки-&gt;изображения)
@@ -1451,6 +1451,40 @@
       <description locale="en_US">Custom styles from the file. But we recommend using the id footer_codes block
       </description>
       <description locale="ru_RU">Собственные стили из файла. Но мы рекомендуем использовать блок id footer_codes
+      </description>
+    </setting>
+    <setting var="paragraph_other_settings" control_type="group_divider">
+      <value/>
+      <name locale="ru_RU">Другие настройки</name>
+      <name locale="en_US">Other settings</name>
+    </setting>
+    <setting var="product_item_name_display" control_type="select">
+      <value>purchase_block</value>
+      <name locale="ru_RU">Вывод наименования артикула</name>
+      <name locale="en_US">item name display</name>
+      <options>
+        <option value="header">
+          <name locale="ru_RU">Справа от наименования товара</name>
+          <name locale="en_US">To the right of the product name</name>
+        </option>
+        <option value="purchase_block">
+          <name locale="ru_RU">В блоке покупки</name>
+          <name locale="en_US">In the purchase block</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="product_page_popap_stock" control_type="text">
+      <value>5</value>
+      <name locale="ru_RU">id странницы, для popap блока над текстом "Под заказ"</name>
+      <name locale="en_US">the id of the page, for the popap block above the "To order" text</name>
+    </setting>
+    <setting var="bonus_accrual_coefficient" control_type="text">
+      <value><![CDATA[0.01]]></value>
+      <name locale="ru_RU">Коэффициент начисления бонусов</name>
+      <name locale="en_US">Bonus accrual coefficient</name>
+      <description locale="ru_RU">При указании коэфицента, информация о начислении бонусов выводится в карточке товара
+      </description>
+      <description locale="en_US">When you specify a coefficient, information about bonus calculation will be displayed in the product card
       </description>
     </setting>
   </settings>
