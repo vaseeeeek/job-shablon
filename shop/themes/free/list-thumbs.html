@@ -114,6 +114,57 @@
                         {/if}
                     </div>
                 {/if}
+                {if $theme_settings.show_filter_warehouse && class_exists('shopFstockPlugin')}
+                    {$fstockFilter = false}
+                    {foreach $filters as $filter}
+                        {if $filter['code'] == 'fstock'}
+                           {$fstockFilter = true}
+                            {break}
+                        {/if}
+                    {/foreach}
+                    {if $fstockFilter}
+                        <div class="filter_warehouse--box ">
+                        </div>
+                        <script>
+                            const fstockFilterSidebar = $('.js-filter-el[data-code="fstock"]');
+                            const fstockFilterClone = fstockFilterSidebar.clone();
+                            const filterBox = $('.filter_warehouse--box');
+                            const textStock = "[`Stock Availability`]";
+                            const filterBoxLabel = fstockFilterClone.find('label.filter-el_opts-el');
+                            const fstockFilterCloneTitle = fstockFilterClone.find('.js-filter-title');
+
+                            {literal}
+                                fstockFilterClone.find('.filter-el_title').html(`${textStock} <i class="fi-rr-angle-small-down"></i>`);
+                                fstockFilterClone.find('.fi-rr-angle-small-down').removeClass('fi-rr-angle-small-down').addClass('fi-rr-caret-down');
+                                fstockFilterClone.find('.js-filter-options').addClass('close');
+                                if (fstockFilterClone.hasClass('close')){
+                                    fstockFilterClone.removeClass('close');
+                                }
+                                fstockFilterClone.removeClass('js-filter-el');
+
+                                filterBox.append(fstockFilterClone);
+
+                                fstockFilterCloneTitle.on('click', function () {
+                                    $(this).siblings('.js-filter-options').toggleClass('close');
+                                })
+                                filterBoxLabel.on('click', function (e) {
+                                    if ($(e.target).hasClass('js-style-check-input')) {
+                                        const value = $(this).find('.js-style-check-input').val();
+                                        const fstockCheckSidebare = fstockFilterSidebar.find(`.js-style-check-input[value="${value}"]`);
+                                        $(e.target).closest('js-filter-options').removeClass('close');
+                                        fstockCheckSidebare.click();
+                                    }
+                                })
+                                $(document).mouseup(function (e) {
+                                    if (fstockFilterClone.has(e.target).length === 0){
+                                        console.log('1');
+                                        fstockFilterClone.find('.js-filter-options').addClass('close');
+                                    }
+                                });
+                            {/literal}
+                        </script>
+                    {/if}
+                {/if}
             </div>
         </div>
     {/if}

@@ -1492,6 +1492,11 @@
       <description locale="en_US">When you specify a coefficient, information about bonus calculation will be displayed in the product card
       </description>
     </setting>
+    <setting var="show_filter_warehouse" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Filter output by stock to the right of sorting (fstock plugin)</name>
+      <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
+    </setting>
   </settings>
   <locales>
     <locale>
@@ -1725,6 +1730,10 @@
     <locale>
       <msgid>Empty the cart</msgid>
       <msgstr locale="ru_RU">Удалить все товары</msgstr>
+    </locale>
+    <locale>
+      <msgid>Stock Availability</msgid>
+      <msgstr locale="ru_RU">Наличие на складe</msgstr>
     </locale>
   </locales>
 </theme>
