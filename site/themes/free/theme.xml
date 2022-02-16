@@ -668,6 +668,11 @@
       <name locale="en_US">List of products</name>
       <name locale="ru_RU">Список товаров</name>
     </setting>
+    <setting var="category_list_subcategories" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">List of subcategories</name>
+      <name locale="ru_RU">Список подкатегорий</name>
+    </setting>
     <setting var="compare" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Comparison</name>
@@ -1091,7 +1096,7 @@
       <name locale="ru_RU">Поле кол-во "построчно"</name>
     </setting>
     <setting var="preview_stock" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Наличие на складе</name>
       <name locale="en_US">Stock availability</name>
     </setting>
@@ -1479,7 +1484,7 @@
       <name locale="en_US">the id of the page, for the popap block above the "To order" text</name>
     </setting>
     <setting var="bonus_accrual_coefficient" control_type="text">
-      <value><![CDATA[0.01]]></value>
+      <value>0.01</value>
       <name locale="ru_RU">Коэффициент начисления бонусов</name>
       <name locale="en_US">Bonus accrual coefficient</name>
       <description locale="ru_RU">При указании коэфицента, информация о начислении бонусов выводится в карточке товара

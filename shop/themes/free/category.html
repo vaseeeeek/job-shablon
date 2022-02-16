@@ -40,8 +40,9 @@
                     {/strip}
                 {/if}
 
-                <!-- subcategories -->
-                {include file="sabcat.html"}
+                {if $theme_settings.category_list_subcategories}
+                    {include file="sabcat.html"}
+                {/if}
                 <div class="js-product-ajax-list">
                     {if !$products}
                         {if $theme_settings.selected_filter}{include file="selected-filters.html"}{/if}
@@ -56,8 +57,8 @@
                         {include file='list-thumbs.html' sorting=!empty($category.params.enable_sorting) isViewSwitch=true ulclass="js-cat-list cat--list"}
                     {/if}
                 </div>
-                <div class="js-product-ajax-list-loader -Close content-box"><img alt="Loading..."
-                                                                                 src="{$wa_parent_theme_url}img/loading16.gif">
+                <div class="js-product-ajax-list-loader -Close content-box">
+                    <img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif">
                 </div>
 
                 {if $theme_settings.cat_desc_bottom && $category.description}
