@@ -126,9 +126,9 @@
             {/if}
 
             {if $p.summary}
-            <div class="Product__Item-desc">
-                {strip_tags($p.summary)|truncate:300}
-            </div>
+                <div class="Product__Item-desc">
+                    {strip_tags($p.summary)|truncate:300}
+                </div>
             {/if}
 
             {if count($short_list_features) > 0}

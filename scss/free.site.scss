@@ -1964,14 +1964,11 @@ img.mfp-img {
   line-height: 0;
   margin-right: rem(35px);
 }
+
 @media (max-width: 100px){
   .header_logo {
     margin-right: rem(25px);
   }
-}
-.header_logo--text, a.header_logo--text {
-  font-size: rem(40px);
-  line-height: 40px
 }
 
 .header_logo-text {

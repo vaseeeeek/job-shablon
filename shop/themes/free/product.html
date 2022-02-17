@@ -7,7 +7,7 @@
     <div id="page-content" class="{if $sb_left} with-sidebar{/if}">
         <article class="js-product-page product_page" itemscope itemtype="http://schema.org/Product">
             <div class="content">
-                <div class="content-box">
+                <div class="product__header">
                     <div class="product__title-badge__wrap df-block">
                         <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
                         {$_badge_percent = $theme_settings.product_discount_percentage == 1}
@@ -29,6 +29,11 @@
                         {/if}
                         {$wa->shop->badgeHtml($product.badge)}
                     </div>
+                    {if $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'title' && $product.summary}
+                        <div class="product_short-desc">
+                            {$product.summary|truncate:512}
+                        </div>
+                    {/if}
                     <div class="df-block product-top-actions">
                         {if $theme_settings.product_ratings}
                             {if $product.rating > 0}

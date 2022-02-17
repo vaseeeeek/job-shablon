@@ -1040,7 +1040,12 @@ span.rating__total {
 .product-day .Product-grid_name {
   margin: rem(15px) 0 0
 }
-
+.products-tile-outer .product_short-desc {
+  font-size: rem(13px);
+  height: 50px;
+  overflow: hidden;
+  display: block;
+}
 .Product-grid_prices {
   display: flex;
   line-height: 26px;
@@ -3042,7 +3047,9 @@ input.filter-range_el:focus {
   display: flex;
   flex-direction: column;
 }
-
+.product_action{
+  margin-bottom: 1rem;
+}
 @media print {
   .product_action-desc {
     display: none
@@ -3462,9 +3469,13 @@ img.pswp__img {
   margin: 0 rem(10px) 0 0
 }
 
+.product_short-desc{
+  display: inline-flex;
+  padding-right: 5px;
+}
 .product_link-full {
   display: inline-flex;
-  margin: 0.6rem 0 0;
+  margin-bottom: 1rem;
 
   a {
     border-bottom: 1px dotted;
@@ -3516,7 +3527,7 @@ img.pswp__img {
 }
 
 .product_action-desc .Product__features {
-  margin: rem(15px) 0 0
+  margin: 0 0 rem(15px);
 }
 
 .Product__features td {
@@ -3549,10 +3560,6 @@ img.pswp__img {
   display: inline-block;
   position: relative;
   padding: 0 rem(5px) 0 0
-}
-
-.brand_product, .product_short-desc {
-  margin: rem(15px) 0 0
 }
 
 .brand_product {
@@ -3740,7 +3747,6 @@ img.pswp__img {
 }
 
 .product_add-services {
-  margin: 0 0 1rem;
   min-width: 340px;
   max-width: 100%;
   box-shadow: 0 0 3px rgb(0 0 0 / 12%), 0 2px 4px rgb(0 0 0 / 12%);

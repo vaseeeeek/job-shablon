@@ -45,11 +45,16 @@
         {/strip}
 
         <!-- css -->
-        {include file="color-settings.css.html"}
         <link href="{$wa_theme_url}free.site.css?v{$wa_theme_version}" rel="stylesheet"/>
 
-
+        {include file="color-settings.css.html"}
         {include file="`$parent_theme_path`/style-settings.css.html"}
+
+        {if $theme_settings.load_file_custom}
+            <link href="{$wa_theme_url}free.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
+        {/if}
+
+        {$wa->block("custom_styles")}
 
         <script src="{$wa_theme_url}jquery.min.js?v{$wa_theme_version}"></script>
 
@@ -94,8 +99,6 @@
                         <img src="{$theme_settings.path_svg_logo}" alt="{$wa->accountName()}" id="logo">
                     {elseif $is_logo}
                         <img src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
-                    {else}
-                        {$wa->accountName()}
                     {/if}
                 </a>
                 {if !$wa->isMobile() && !$theme_settings.drop_down_horizontal_menu}
@@ -140,6 +143,27 @@
                 </div>
 
                 <div class="Nav-product-custom">
+                    {if $theme_settings.viewed_items_header}
+                        {$count_viewed = 0}
+                        {$viewed_product_list = $wa->cookie('viewed_product_list')}
+                        {if $viewed_product_list && $viewed_product_list != 'null'}
+                            {$count_viewed = count(","|explode:$viewed_product_list)}
+                        {/if}
+                        <div class="product-custom">
+                            <a class="product-custom--link" href="/my">
+                                <div class="product-custom_icon maincolor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <span class="js-products-count product-custom_short-count bg-sdСolor">{$count_viewed}</span>
+                                </div>
+                                <span>Смотрели</span>
+                            </a>
+                        </div>
+                    {/if}
                     {if $theme_settings.five_icon_img_header || $theme_settings.five_icon_text_header}
                         <div class="product-custom">
                             <a class="product-custom--link" href="/my">
@@ -448,8 +472,6 @@
     {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
         {shopCallbPlugin::display()}
     {/if}
-
-    {$wa->block("custom_styles")}
     {$wa->block("footer_settings")}
 
 
@@ -459,10 +481,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    {if $theme_settings.load_file_custom}
-        <link href="{$wa_theme_url}free.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
-    {/if}
     {if $theme_settings.load_custom_js}
         <script src="{$wa_theme_url}free.custom.js?v{$wa_theme_version}"></script>
     {/if}

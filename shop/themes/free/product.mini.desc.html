@@ -41,7 +41,7 @@
         {$_brand = shopProductbrandsPlugin::productBrand($product.id)}
     {/if}
 {/if}
-{if count($short_list_features) > 0 || isset($_brand) || isset($_brand_pro) || ($product.summary && $theme_settings.product_page_show_short_description)}
+{if count($short_list_features) > 0 || isset($_brand) || isset($_brand_pro) || ($product.summary && $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'after_buy_box')}
     <div class="product_action-desc">
         {if isset($_brand_pro) && !empty($_brand_pro) && $_brand_pro.image_url}
             <div class="brand_product">
@@ -53,7 +53,7 @@
             </div>
         {/if}
 
-        {if $product.summary && $theme_settings.product_page_show_short_description}
+        {if $product.summary && $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'after_buy_box'}
             <div class="product_short-desc">
                 {$product.summary|truncate:512}
             </div>

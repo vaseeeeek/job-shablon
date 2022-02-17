@@ -594,12 +594,12 @@
       <name locale="ru_RU">ID списка новинки</name>
     </setting>
     <setting var="home_product_list_3_title" control_type="text">
-      <value/>
+      <value>213123</value>
       <name locale="en_US">Sale Title</name>
       <name locale="ru_RU">Заголовок распродажи</name>
     </setting>
     <setting var="home_product_list_3" control_type="text">
-      <value/>
+      <value>product_favor_arr</value>
       <name locale="en_US">ID of the sale list</name>
       <name locale="ru_RU">ID списка распродажи</name>
     </setting>
@@ -981,6 +981,11 @@
         </option>
       </options>
     </setting>
+    <setting var="show_summary_grid" control_type="checkbox">
+      <value></value>
+      <name locale="en_US">Output a short description as a list - tile</name>
+      <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
+    </setting>
     <setting var="codes_features_product" control_type="text">
       <value/>
       <name locale="ru_RU">Коды выводимых характеристик</name>
@@ -1169,6 +1174,25 @@
       <value>1</value>
       <name locale="ru_RU">Краткое описание</name>
       <name locale="en_US">Short description</name>
+    </setting>
+    <setting var="product_page_position_summary" control_type="select">
+      <value>after_buy_box</value>
+      <name locale="en_US">Displaying a brief description</name>
+      <name locale="ru_RU">Отображение краткого описания</name>
+      <options>
+        <option value="title">
+          <name locale="ru_RU">Под названием товара</name>
+          <name locale="en_US">Under the product name</name>
+        </option>
+        <option value="before_buy_box">
+          <name locale="ru_RU">Над блоком покупки</name>
+          <name locale="en_US">Above the buy box</name>
+        </option>
+        <option value="after_buy_box">
+          <name locale="ru_RU">Под блоком покупки</name>
+          <name locale="en_US">Under the buy box</name>
+        </option>
+      </options>
     </setting>
     <setting var="product_page_show_qty" control_type="checkbox">
       <value/>
@@ -1496,6 +1520,11 @@
       <value>1</value>
       <name locale="en_US">Filter output by stock to the right of sorting (fstock plugin)</name>
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
+    </setting>
+    <setting var="viewed_items_header" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
+      <name locale="en_US">The "viewed items" link in the header</name>
     </setting>
   </settings>
   <locales>

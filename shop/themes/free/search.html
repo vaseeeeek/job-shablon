@@ -16,7 +16,11 @@
     {if $wa->get('list') == 'favorites' || $wa->get('list') == 'viewed'}
         {$_not_paginate = 1}
 		{$_is_sorting=false}
-        {$list = $wa->cookie('product_favor_arr')}
+        {if $wa->get('list') == 'favorites'}
+            {$list = $wa->cookie('product_favor_arr')}
+        {else}
+            {$list = $wa->cookie('viewed_product_list')}
+        {/if}
         {if $list}
             {$products_arr = ","|explode:$list}
             {$products = $wa->shop->products($products_arr)}

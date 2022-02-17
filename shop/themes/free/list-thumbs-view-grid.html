@@ -154,11 +154,19 @@
                             <div class="nowrap old-price">{shop_currency_html($p.compare_price)}</div>
                         {/if}
                     {/if}
-                </div><div class="Product-grid_description">
+                </div>
+                <div class="Product-grid_description">
                     <div class="Product-grid_name">
-                        <a title="{$p.name}{if $p.summary} &ndash; {strip_tags($p.summary)|escape}{/if}" href="{$p.frontend_url}">{$p.name}
-                            {if isset($p.video_url) && !empty($p.video_url)}<span class="Product-grid_video" ><img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt=""></span>{/if}</a>
+                        <a title="{$p.name}" href="{$p.frontend_url}">{$p.name}
+                            {if isset($p.video_url) && !empty($p.video_url)}<span class="Product-grid_video" ><img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt=""></span>{/if}
+                        </a>
                     </div>
+
+
+
+                    {if $theme_settings.show_summary_grid}
+                        <div class="product_short-desc">{$p.summary}</div>
+                    {/if}
                     {if count($short_list_features) > 0}
                         <div class="Product-grid_features">
                             {foreach $short_list_features as $f_code => $f_value}
