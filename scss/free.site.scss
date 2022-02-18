@@ -1918,7 +1918,9 @@ img.mfp-img {
 
 .header-top_region {
   display: inline-flex;
-  margin: 0 9.4rem 0 0;
+  .b-cityselect__wrapper{
+    margin: 0 9.4rem 0 0;
+  }
 }
 
 .header_lang-el {
@@ -3871,6 +3873,9 @@ textarea{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    &--pb{
+      padding-bottom: 5px;
+    }
     & > .Nav-search {
       display: none;
     }
@@ -4864,6 +4869,7 @@ span.i-cityselect__city:before {
   text-decoration: none;
   border-bottom: 0;
 }
+
 /* Стили для инфошек */
 #page p, .product_description p, .Brands__Description p, .category-desc p, .product_short-desc, .product_page.tab-content_el p {
   font-size: 1.15rem;

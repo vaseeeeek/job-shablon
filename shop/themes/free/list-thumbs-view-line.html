@@ -215,10 +215,15 @@
                     </div>
                 </form>
                 {if $theme_settings.preview_stock}
+                    {if !empty($theme_settings.text_product_preorder)}
+                        {$text_product_preorder = $theme_settings.text_product_preorder}
+                    {else}
+                        {$text_product_preorder = "[`Pre-order only`]"}
+                    {/if}
                     <div class="Product-stock product-line-stock">
                         {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
                             <div class="Product-stock_item Product-stock_item-critical">
-                                [`Pre-order only`]
+                                {$text_product_preorder}
                             </div>
                         {else}
                             <div class="Product-stock_item Product-stock_item-high">

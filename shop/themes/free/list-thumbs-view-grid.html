@@ -5,7 +5,6 @@
 
     {if !isset($text_in_stock)}{$text_in_stock = "[`In stock`]"}{/if}
     {if !isset($text_unit)}{$text_unit = "[`unit`]"}{/if}
-    {if !isset($text_product_preorder_only)}{$text_product_preorder_only = "[`Pre-order only`]"}{/if}
     {if !isset($text_out_stock)}{$text_out_stock = "[`Out of stock`]"}{/if}
     {if !isset($text_art_code)}{$text_art_code = "[`Vendor code`]"}{/if}
 
@@ -201,12 +200,17 @@
                     <div class="Product-grid_stock-sku-box">
                         {if $theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))}
                             {if $theme_settings.preview_stock}
-                                <div class="Product-grid_stock">
-                                    <div class="Product-stock nowrap">
-                                        {if $available}
+                                {if !empty($theme_settings.text_product_preorder)}
+                                    {$text_product_preorder = $theme_settings.text_product_preorder}
+                                {else}
+                                    {$text_product_preorder = "[`Pre-order only`]"}
+                                {/if}
+                                {if $available}
+                                    <div class="Product-grid_stock">
+                                        <div class="Product-stock nowrap">
                                             {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
                                                 <div class="Product-stock_item Product-stock_item-critical">
-                                                    {$text_product_preorder_only}
+                                                    {$text_product_preorder}
                                                 </div>
                                             {else}
                                                 <div class="Product-stock_item Product-stock_item-high">
@@ -216,9 +220,9 @@
                                                     {/if}
                                                 </div>
                                             {/if}
-                                        {/if}
+                                        </div>
                                     </div>
-                                </div>
+                                {/if}
                             {/if}
                         {/if}
                         {if $theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0}

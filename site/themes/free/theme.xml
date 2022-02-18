@@ -346,7 +346,7 @@
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
     <setting var="region_plugin" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Плагин "Автоопределение и выбор города"</name>
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
@@ -423,7 +423,7 @@
       </options>
     </setting>
     <setting var="get_menu_from" control_type="select">
-      <value>app-menu</value>
+      <value>catalog</value>
       <name locale="ru_RU">Категории брать из</name>
       <name locale="en_US">Categories to take from</name>
       <options>
@@ -443,7 +443,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>app</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -467,7 +467,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -544,7 +544,7 @@
       <name locale="ru_RU">Заголовок</name>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
-      <value>5</value>
+      <value/>
       <name locale="ru_RU">Кол-во категорий 2 уровня</name>
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
@@ -609,7 +609,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value>brands</value>
+      <value/>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -982,7 +982,7 @@
       </options>
     </setting>
     <setting var="show_summary_grid" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Output a short description as a list - tile</name>
       <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
     </setting>
@@ -1176,7 +1176,7 @@
       <name locale="en_US">Short description</name>
     </setting>
     <setting var="product_page_position_summary" control_type="select">
-      <value>after_buy_box</value>
+      <value>before_buy_box</value>
       <name locale="en_US">Displaying a brief description</name>
       <name locale="ru_RU">Отображение краткого описания</name>
       <options>
@@ -1207,6 +1207,11 @@
       </description>
       <description locale="en_US">The size should not exceed the maximum size of the thumbnail in the store settings. (shop-&gt;settings-&gt;images)
       </description>
+    </setting>
+    <setting var="display_buy_one_click" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Вывод кнопки "Купить в 1 клик" справа от кнопки "купить"</name>
+      <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
       <value>first</value>
@@ -1245,7 +1250,7 @@
       </description>
     </setting>
     <setting var="product_page_show_brand_right" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Бренд картинкой</name>
       <name locale="en_US">Brand by picture</name>
       <description locale="ru_RU">С плагином "Бренды с картинками и описаниями"
@@ -1361,7 +1366,7 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_type_options_select" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Артикулы в выпадающем списке</name>
       <name locale="en_US">Articles in the drop-down list</name>
     </setting>
@@ -1376,7 +1381,7 @@
       <name locale="en_US">The sku parameter in the browser line</name>
     </setting>
     <setting var="horizontal_list_articles" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Горизонтальный список артикулов, при выборе вариантов покупки в настройках артикулов</name>
       <name locale="en_US">Horizontal list of articles, when selecting purchase options in the article settings</name>
     </setting>
@@ -1386,7 +1391,7 @@
       <name locale="en_US">Stock availability</name>
     </setting>
     <setting var="product_show_stock_count" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>
@@ -1488,7 +1493,7 @@
       <name locale="en_US">Other settings</name>
     </setting>
     <setting var="product_item_name_display" control_type="select">
-      <value>purchase_block</value>
+      <value>header</value>
       <name locale="ru_RU">Вывод наименования артикула</name>
       <name locale="en_US">item name display</name>
       <options>
@@ -1503,12 +1508,12 @@
       </options>
     </setting>
     <setting var="product_page_popap_stock" control_type="text">
-      <value>5</value>
+      <value/>
       <name locale="ru_RU">id странницы, для popap блока над текстом "Под заказ"</name>
       <name locale="en_US">the id of the page, for the popap block above the "To order" text</name>
     </setting>
     <setting var="bonus_accrual_coefficient" control_type="text">
-      <value>0.01</value>
+      <value/>
       <name locale="ru_RU">Коэффициент начисления бонусов</name>
       <name locale="en_US">Bonus accrual coefficient</name>
       <description locale="ru_RU">При указании коэфицента, информация о начислении бонусов выводится в карточке товара
@@ -1517,14 +1522,19 @@
       </description>
     </setting>
     <setting var="show_filter_warehouse" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Filter output by stock to the right of sorting (fstock plugin)</name>
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
     </setting>
     <setting var="viewed_items_header" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
       <name locale="en_US">The "viewed items" link in the header</name>
+    </setting>
+    <setting var="text_product_preorder" control_type="text">
+      <value/>
+      <name locale="ru_RU">Текст вместо надписи "Под заказ"</name>
+      <name locale="en_US">Text instead of "To order"</name>
     </setting>
   </settings>
   <locales>

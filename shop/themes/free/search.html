@@ -55,7 +55,12 @@
             <h1>{$h1}</h1>
             {if $wa->get('list') && $products}
                 <div class="search-list-clear">
-                    <span data-list="product_favor_arr"  class="js-clear-pr-list link link-half link-half--act">[`Clear`]</span>
+                    {if $wa->get('list') == 'viewed'}
+                        <span data-list="viewed_product_list"  class="js-clear-pr-list link link-half link-half--act">[`Clear`]</span>
+                    {elseif $wa->get('list') == 'favorites'}
+                        <span data-list="product_favor_arr"  class="js-clear-pr-list link link-half link-half--act">[`Clear`]</span>
+                    {/if}
+
                 </div>
             {/if}
 

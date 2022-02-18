@@ -33,13 +33,18 @@
                     <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                 </a>
             {/if}
-
             {if $theme_settings.preview_stock}
+
+                {if !empty($theme_settings.text_product_preorder)}
+                    {$text_product_preorder = $theme_settings.text_product_preorder}
+                {else}
+                    {$text_product_preorder = "[`Pre-order only`]"}
+                {/if}
                 <span class="product-tpl-stock nowrap">
                     {if $available}
                         {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
                             <span class="Product-stock_item Product-stock_item-critical">
-                                [`Pre-order only`]
+                            {$text_product_preorder}
                             </span>
                         {else}
                             <span class="Product-stock_item Product-stock_item-high">

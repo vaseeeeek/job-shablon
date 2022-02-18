@@ -47,9 +47,6 @@
         <!-- css -->
         <link href="{$wa_theme_url}free.site.css?v{$wa_theme_version}" rel="stylesheet"/>
 
-        {include file="color-settings.css.html"}
-        {include file="`$parent_theme_path`/style-settings.css.html"}
-
         {if $theme_settings.load_file_custom}
             <link href="{$wa_theme_url}free.custom.css?v{$wa_theme_version}" rel="stylesheet"/>
         {/if}
@@ -61,6 +58,9 @@
         {$wa->js()}
 
         {include file="`$wa_active_theme_path`/head.html"}
+
+        {include file="color-settings.css.html"}
+        {include file="`$parent_theme_path`/style-settings.css.html"}
 
         {$wa->head()}
 
@@ -91,7 +91,7 @@
         {include file="header.links.html"}
     {/if}
     <header class="header">
-        <div class="container">
+        <div class="container {if !$theme_settings.horizontal_menu}container--pb{/if}">
             <div class="header--left">
                 {$is_logo = $theme_settings.logo}
                 <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}{if $wa->currentUrl() === $wa->getUrl('shop/frontend')}{else}href="{$wa->getUrl('shop/frontend')}"{/if}{/if}>
@@ -150,7 +150,7 @@
                             {$count_viewed = count(","|explode:$viewed_product_list)}
                         {/if}
                         <div class="product-custom">
-                            <a class="product-custom--link" href="/my">
+                            <a class="product-custom--link" href="/search/?list=viewed">
                                 <div class="product-custom_icon maincolor">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
