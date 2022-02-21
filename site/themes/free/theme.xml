@@ -244,7 +244,7 @@
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
@@ -1366,12 +1366,12 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выбор параметров - выпадающий список </name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
     <setting var="product_article_selection_horizontal" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выбор артикулов - горизонтальный вид</name>
       <name locale="en_US">Article selection - horizontal view</name>
     </setting>
@@ -1427,7 +1427,7 @@
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo_footer" control_type="text">
-      <value><![CDATA[]]></value>
+      <value/>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
