@@ -244,7 +244,7 @@
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo" control_type="text">
-      <value><![CDATA[/wa-data/public/site/themes/free/img/logo.svg]]></value>
+      <value><![CDATA[]]></value>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
@@ -1365,15 +1365,15 @@
       <name locale="ru_RU">Код артикула, если кол-во артикулов больше 1</name>
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
-    <setting var="product_type_options_select" control_type="checkbox">
+    <setting var="product_selecting_parameters_dd" control_type="checkbox">
       <value/>
-      <name locale="ru_RU">Артикулы в выпадающем списке</name>
-      <name locale="en_US">Articles in the drop-down list</name>
+      <name locale="ru_RU">Выбор параметров - выпадающий список </name>
+      <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
-    <setting var="product_selection_skus" control_type="checkbox">
+    <setting var="product_article_selection_horizontal" control_type="checkbox">
       <value/>
-      <name locale="ru_RU">Вид выбора артикулов продукта - селектом</name>
-      <name locale="en_US">View product selection skus - Select</name>
+      <name locale="ru_RU">Выбор артикулов - горизонтальный вид</name>
+      <name locale="en_US">Article selection - horizontal view</name>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
       <value>1</value>
@@ -1427,7 +1427,7 @@
       <name locale="ru_RU">Логотип</name>
     </setting>
     <setting var="path_svg_logo_footer" control_type="text">
-      <value>/wa-data/public/site/themes/free/img/logo.svg</value>
+      <value><![CDATA[]]></value>
       <name locale="en_US"/>
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>

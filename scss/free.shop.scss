@@ -5946,6 +5946,10 @@ button.owl-dot {
 }
 .slider-outer--home{
   margin-top: -2rem;
+
+  &--pb{
+    margin-top: -1rem;
+  }
   .owl-next:after, .owl-prev:after {
     font-size: 25px;
     height: 25px;

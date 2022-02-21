@@ -51,7 +51,7 @@
                     {$pd_available = $product.status}
                     <div class="product_options options">
                         {foreach $features_selectable as $f}
-                            {if $theme_settings.product_type_options_select}
+                            {if $theme_settings.product_selecting_parameters_dd}
                                 <div class="pd_option_select">
                                     <div class="pd_option_select-title">
                                         {$f.name}:
@@ -113,7 +113,7 @@
                         <meta itemprop="priceCurrency" content="{$wa->shop->currency()}">
                         <meta itemprop="offerCount" content="{$product.sku_count}">
                         {$pd_available = false}
-                        {if count($product.skus) > 1 && !$theme_settings.product_selection_skus}
+                        {if count($product.skus) > 1 && !$theme_settings.product_article_selection_horizontal}
                             <div>
                                 {foreach $product.skus as $sku}
                                     {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
