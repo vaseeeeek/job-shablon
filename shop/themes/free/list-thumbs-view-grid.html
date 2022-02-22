@@ -206,7 +206,7 @@
                         {/if}
                     </div>
                     {if ($theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))) || ($theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0)}
-                        <div class="Product-grid_stock-sku-box">
+                        <div class="Product-grid_stock-sku-box{if $theme_settings.grid_sku_article_column} Product-grid_stock-sku-box--column{/if}">
                             {if $theme_settings.preview_stock || ($p.rating > 0 && $theme_settings.product_ratings) || (isset($p.video_url) && !empty($p.video_url))}
                                 {if $theme_settings.preview_stock}
                                     {if !empty($theme_settings.text_product_preorder)}

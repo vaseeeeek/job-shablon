@@ -332,7 +332,7 @@
     </setting>
     <setting var="five_icon_text_header" control_type="text">
       <value/>
-      <name locale="ru_RU">Подпись пятной кнопки в шапке</name>
+      <name locale="ru_RU">Подпись пятой кнопки в шапке</name>
       <name locale="en_US"/>
     </setting>
     <setting var="lk_icon_header" control_type="checkbox">
@@ -341,12 +341,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
     <setting var="region_plugin" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Плагин "Автоопределение и выбор города"</name>
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
@@ -568,7 +568,7 @@
         </option>
       </options>
     </setting>
-    <setting var="paragraph_mainpage_lists" control_type="paragraph">
+    <setting var="paragraph_mainpage_list" control_type="paragraph">
       <value/>
       <name locale="en_US">Products list</name>
       <name locale="ru_RU">Списки товаров</name>
@@ -609,7 +609,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value/>
+      <value>brands_pro</value>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -636,6 +636,10 @@
           <name locale="ru_RU">Выводить все</name>
           <name locale="en_US">Display all</name>
         </option>
+        <option value="id">
+          <name locale="ru_RU">Вывод по списку id</name>
+          <name locale="en_US">Display all</name>
+        </option>
         <option value="">
           <name locale="ru_RU">Не выводить</name>
           <name locale="en_US">None</name>
@@ -643,7 +647,7 @@
       </options>
     </setting>
     <setting var="home_brands_ids" control_type="text">
-      <value/>
+      <value>212,213</value>
       <name locale="en_US"/>
       <name locale="ru_RU">ID брендов на главной</name>
     </setting>
@@ -731,7 +735,7 @@
       </options>
     </setting>
     <setting var="category_row_cat" control_type="select">
-      <value>seven</value>
+      <value>six</value>
       <name locale="ru_RU">
         Количество категорий в строке над списком товаров (картинками)
       </name>
@@ -1011,8 +1015,6 @@
       <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
       <name locale="ru_RU">Количество строк в наименовании товара (вид плиткой)</name>
-      <description locale="ru_RU">В пикселях</description>
-      <description locale="en_US">Pixels</description>
       <options>
         <option value="one">
           <name locale="ru_RU">1</name>
@@ -1045,8 +1047,6 @@
       <value>two</value>
       <name locale="en_US">The height of the block with the name (view tile)</name>
       <name locale="ru_RU">Количество строк в наименовании товара на мобильном (вид плиткой)</name>
-      <description locale="ru_RU">В пикселях</description>
-      <description locale="en_US">Pixels</description>
       <options>
         <option value="one">
           <name locale="ru_RU">1</name>
@@ -1079,6 +1079,11 @@
       <value>1</value>
       <name locale="en_US">The article in the "tile"</name>
       <name locale="ru_RU">Артикул в "плитке"</name>
+    </setting>
+    <setting var="grid_sku_article_column" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Moving the "article" line under "availability"</name>
+      <name locale="ru_RU">Перенос строки "артикула" под "наличие" в виде - плитка</name>
     </setting>
     <setting var="show_sku_list" control_type="checkbox">
       <value>1</value>
@@ -1308,7 +1313,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>normal_tabs</value>
+      <value>none_tabs</value>
       <name locale="ru_RU">Вид вкладок на компьютере</name>
       <name locale="en_US">View of tabs on the computer</name>
       <options>

@@ -29,10 +29,17 @@
             <h1>{$page.name}</h1>
         {/if}
         <div class="{if $action == 'page'}info-page{else}{$action}-page{/if}">
-            <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
-                {include file="`$wa_active_theme_path`/sidebar.html"}
-            </div>
-
+            {if $action == 'page'}
+                {if $theme_settings.other_page_leftsb}
+                    <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
+                        {include file="`$wa_active_theme_path`/sidebar.html"}
+                    </div>
+                {/if}
+            {else}
+                <div class="out_sidebars {if !$wa->isMobile()}-mr{/if}">
+                    {include file="`$wa_active_theme_path`/sidebar.html"}
+                </div>
+            {/if}
             {$is_search_products_template = $wa->globals('isSearchPage') && ($action == 'search' || $action == 'brand' || $action == 'tag')}
             <div class="content{if !$is_search_products_template} content-box{/if} {if $sb_left} with-sidebar{/if} {$class}">
                 {$content}

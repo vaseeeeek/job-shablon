@@ -1,6 +1,6 @@
 {strip}
     <aside class="left-sidebar">
-        {if $theme_settings.other_page_leftsb && $wa->param('action') == 'page'}
+        {if $wa->param('action') == 'page'}
             {strip}
                 {function name=menu_tree pages=[] class="" }
                     {if count($pages)}
@@ -26,8 +26,7 @@
                     </nav>
                 {/if}
             {/strip}
-        {/if}
-        {if $wa->param('action') != 'page'}
+        {else}
             {if !empty($filters)}
                 <div class="sidear-mobile">
                     {if !isset($filters)}{$filters = []}{/if}

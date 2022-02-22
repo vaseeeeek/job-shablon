@@ -3,9 +3,9 @@
     {$brands = []}
     {$fullListBrands = shopProductbrandsPlugin::getBrands()}
 
-    {if $theme_settings.brands_mainpage == 'all' && empty($theme_settings.home_brands_ids)}
+    {if $theme_settings.brands_mainpage == 'all'}
         {$brands = $fullListBrands}
-    {else}
+    {elseif $theme_settings.brands_mainpage == 'id' && !empty($theme_settings.home_brands_ids)}
         {$showBrandHome = ","|explode:$theme_settings.home_brands_ids}
         {foreach $fullListBrands as $brand}
             {if in_array($brand.id, $showBrandHome)}
