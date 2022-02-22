@@ -44,7 +44,7 @@
                     <div class="js-preview-products products-tile">
                         <div class="owl-carousel owl-theme owl-loaded">
                             {foreach $list as $p}
-                                {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy"}
+                                {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr lazy_class="owl-lazy" isSlider=true}
                             {/foreach}
                         </div>
                         <div class="home-products__direction js-carousel-direction"></div>

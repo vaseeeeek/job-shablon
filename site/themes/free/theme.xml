@@ -393,7 +393,7 @@
       </description>
     </setting>
     <setting var="break_categories_columns" control_type="select">
-      <value>one_column</value>
+      <value>columns</value>
       <name locale="ru_RU">Разбивать категории на колонки</name>
       <name locale="en_US">Break categories into columns</name>
       <options>
@@ -1119,6 +1119,16 @@
       <value/>
       <name locale="en_US">Number of images on hover</name>
       <name locale="ru_RU">Кол-во картинок при наведении</name>
+    </setting>
+    <setting var="paragraph_slider" control_type="group_divider">
+      <value/>
+      <name locale="ru_RU">Слайдер</name>
+      <name locale="en_US">Slider</name>
+    </setting>
+    <setting var="slider_hide_products_without_residue" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Скрыть товары без остатка</name>
+      <name locale="en_US">Hide products without residue</name>
     </setting>
     <setting var="paragraph_catalog_sidebar" control_type="group_divider">
       <value/>
