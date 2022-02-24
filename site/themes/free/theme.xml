@@ -1229,7 +1229,7 @@
       <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>first</value>
+      <value>short</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
       <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых характеристик" в разделе "Карточка в списке товаров".
@@ -1382,23 +1382,32 @@
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
       <value>1</value>
-      <name locale="ru_RU">Выбор параметров - выпадающий список </name>
+      <name locale="ru_RU">Выбор параметров - выпадающий список</name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
-    <setting var="product_article_selection_horizontal" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Выбор артикулов - горизонтальный вид</name>
-      <name locale="en_US">Article selection - horizontal view</name>
+    <setting var="product_selection_articles" control_type="select">
+      <value>dd_list</value>
+      <name locale="ru_RU">Выбор артикулов</name>
+      <name locale="en_US">Selection of articles</name>
+      <options>
+        <option value="horizontal_checkboxes">
+          <name locale="ru_RU">Горизонтальные чекбоксы</name>
+          <name locale="en_US">Horizontal checkboxes</name>
+        </option>
+        <option value="vertical_checkboxes">
+          <name locale="ru_RU">Вертикальные чекбоксы</name>
+          <name locale="en_US">vertical checkboxes</name>
+        </option>
+        <option value="dd_list">
+          <name locale="ru_RU">Выпадающий список</name>
+          <name locale="en_US">Drop-down list</name>
+        </option>
+      </options>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
       <name locale="en_US">The sku parameter in the browser line</name>
-    </setting>
-    <setting var="horizontal_list_articles" control_type="checkbox">
-      <value/>
-      <name locale="ru_RU">Горизонтальный список артикулов, при выборе вариантов покупки в настройках артикулов</name>
-      <name locale="en_US">Horizontal list of articles, when selecting purchase options in the article settings</name>
     </setting>
     <setting var="product_show_stock" control_type="checkbox">
       <value>1</value>
