@@ -178,6 +178,23 @@
                             {/if}
                         </div>
                     {/if}
+                {else}
+                    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        {$sku = $product.skus[$product.sku_id]}
+                        {if $sku.name}<meta itemprop="name" content="{$sku.name|escape}">{/if}
+                        <meta itemprop="price" content="{$sku.price}">
+                        <meta itemprop="priceCurrency" content="{$product.currency}">
+                        {if !$sku.available}
+                            <link itemprop="availability" href="http://schema.org/Discontinued" />
+                            <p><em class="bold error">{$text_product_not_available_one_sku}</em></p>
+                        {elseif !$wa->shop->settings('ignore_stock_count') && !($sku.count === null || $sku.count > 0)}
+                            <link itemprop="availability" href="http://schema.org/OutOfStock" />
+                        {else}
+                            <link itemprop="availability" href="http://schema.org/InStock" />
+                        {/if}
+                        <input name="sku_id" type="hidden" value="{$product.sku_id}">
+                        {$pd_available = $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
+                    </div>
                 {/if}
 
 
