@@ -137,7 +137,7 @@
       <name locale="en_US">Sticker discount</name>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value>4</value>
+      <value><![CDATA[4]]></value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
@@ -238,12 +238,12 @@
       <name locale="ru_RU">Общие настройки</name>
     </setting>
     <setting var="telegram" control_type="text">
-      <value><![CDATA[#]]></value>
+      <value>#</value>
       <name locale="en_US">Telegram</name>
       <name locale="ru_RU">Telegram</name>
     </setting>
     <setting var="whatsapp" control_type="text">
-      <value><![CDATA[#]]></value>
+      <value>#</value>
       <name locale="en_US">WhatsApp</name>
       <name locale="ru_RU">WhatsApp</name>
     </setting>
@@ -356,7 +356,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
@@ -1195,7 +1195,7 @@
       <name locale="en_US">Short description</name>
     </setting>
     <setting var="product_page_position_summary" control_type="select">
-      <value>before_buy_box</value>
+      <value>title</value>
       <name locale="en_US">Displaying a brief description</name>
       <name locale="ru_RU">Отображение краткого описания</name>
       <options>

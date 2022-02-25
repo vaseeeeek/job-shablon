@@ -2366,7 +2366,11 @@ img.mfp-img {
     margin-top: 5px;
   }
 }
-
+.fixed-panel .nav-cat-btn__action {
+  &:not(:first-child) {
+    margin-top: 3px;
+  }
+}
 .nav-cat-btn.show .nav-cat-btn__action--top, .MobileMenu-btn.show .nav-cat-btn__action--top {
   transform: translateY(5px) translateZ(0) rotate(45deg);
 }
