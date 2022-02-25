@@ -13,8 +13,8 @@
 {$short_list_features = []}
 {if !empty($product_features_list) && !empty($theme_settings.product_page_right_block_features)}
     {if $theme_settings.product_page_right_block_features == 'short'}
-        {if !empty($theme_settings.codes_features_product)}
-            {$featAliases = ","|explode:$theme_settings.codes_features_product}
+        {if !empty($theme_settings.product_codes_output_characteristics)}
+            {$featAliases = ","|explode:$theme_settings.product_codes_output_characteristics}
             {foreach $product_features_list as $f_code => $f_value}
                 {if in_array($f_code, $featAliases)}
                     {$short_list_features[$f_code] = $f_value}

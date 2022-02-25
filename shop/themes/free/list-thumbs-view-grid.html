@@ -13,8 +13,8 @@
     {$short_list_features = []}
     {if isset($p.features) && !empty($p.features) && $_features_product_tile && !empty($features)}
         {if $theme_settings.preview_features_product == 'short'}
-            {if !empty($theme_settings.codes_features_list)}
-                {$aliases = ","|explode:$theme_settings.codes_features_list}
+            {if !empty($theme_settings.codes_features_product)}
+                {$aliases = ","|explode:$theme_settings.codes_features_product}
                 {foreach $p.features as $f_code => $f_value}
                     {if in_array($f_code, $aliases)}
                         {$short_list_features[$f_code] = $f_value}

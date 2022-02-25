@@ -232,6 +232,21 @@
         Основной размер шрифта (Рекомендуемый 14px)
       </name>
     </setting>
+    <setting var="paragraph_general" control_type="group_divider">
+      <value/>
+      <name locale="en_US">General settings</name>
+      <name locale="ru_RU">Общие настройки</name>
+    </setting>
+    <setting var="telegram" control_type="text">
+      <value><![CDATA[#]]></value>
+      <name locale="en_US">Telegram</name>
+      <name locale="ru_RU">Telegram</name>
+    </setting>
+    <setting var="whatsapp" control_type="text">
+      <value><![CDATA[#]]></value>
+      <name locale="en_US">WhatsApp</name>
+      <name locale="ru_RU">WhatsApp</name>
+    </setting>
     <setting var="paragraph_header" control_type="group_divider">
       <value/>
       <name locale="en_US">Header</name>
@@ -795,17 +810,6 @@
       <name locale="ru_RU">Текст при нулевой цене</name>
       <name locale="en_US">Text at zero price</name>
     </setting>
-    <setting var="codes_features_list" control_type="text">
-      <value/>
-      <name locale="ru_RU">Коды выводимых характеристик в списках товаров и в карточку товара (блок справа)</name>
-      <name locale="en_US">Codes of output characteristics in product lists аnd in the goods card (block on the
-        right)
-      </name>
-      <description locale="ru_RU">Например: color,weight,size
-      </description>
-      <description locale="en_US">For example: color,weight,size
-      </description>
-    </setting>
     <setting var="paragraph_category_description" control_type="paragraph">
       <value/>
       <name locale="en_US">Description of category</name>
@@ -963,7 +967,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>first</value>
+      <value>short</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от выбранного вида.
@@ -991,7 +995,7 @@
       <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
     </setting>
     <setting var="codes_features_product" control_type="text">
-      <value/>
+      <value>obrezka,poliv,udobrenie</value>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of output characteristics</name>
       <description locale="ru_RU">Данная настройка используется в т.м.ч и для краткого списка характеристик в карточке товара.
@@ -1237,7 +1241,7 @@
       <description locale="en_US">If there are specific characteristics, then fill in the "Output characteristics codes" setting in the "Card in the list of products" section.
       </description>
       <options>
-        <option value="none">
+        <option value="">
           <name locale="ru_RU">Не выводить</name>
           <name locale="en_US">None</name>
         </option>
@@ -1263,6 +1267,11 @@
       </description>
       <description locale="en_US">If "First N pieces" is selected
       </description>
+    </setting>
+    <setting var="product_codes_output_characteristics" control_type="text">
+      <value>obrezka,poliv</value>
+      <name locale="ru_RU">Коды выводимых характеристик</name>
+      <name locale="en_US">Codes of the output characteristics</name>
     </setting>
     <setting var="product_page_show_brand_right" control_type="checkbox">
       <value/>
@@ -1487,6 +1496,11 @@
       <value>#</value>
       <name locale="en_US">YouTube</name>
       <name locale="ru_RU">YouTube</name>
+    </setting>
+    <setting var="tiktok" control_type="text">
+      <value>#</value>
+      <name locale="en_US">TikTok</name>
+      <name locale="ru_RU">TikTok</name>
     </setting>
     <setting var="paragraph_load_js_css" control_type="group_divider">
       <value/>
