@@ -131,10 +131,7 @@
                     </div>
                 {/if}
                 <div class="Nav-contact-info">
-                    {if $theme_settings.header_company_phone}
-                        <a class="Nav-contact-phone-btn" href="tel:{$theme_settings.header_company_phone}">
-                        </a>
-                    {/if}
+                    <p><a href="tel:{$theme_settings.header_company_phone_two}" class="Nav-contact-phone">{$theme_settings.header_company_phone_two}</a></p>
                     <p><a href="tel:{$theme_settings.header_company_phone}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></p>
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
                     {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
@@ -280,7 +277,7 @@
             <div class="contacts__left">
                 <a href="tel:{$theme_settings.header_company_phone}">
                     <span class="contacts__phone__num">{$theme_settings.header_company_phone}</span>
-                    <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
+                    <a href="tel:{$theme_settings.header_company_phone_two}" class="Nav-contact-phone">{$theme_settings.header_company_phone_two}</a>
                 </a>
             </div>
             <div class="contacts__right">

@@ -4925,6 +4925,13 @@ svg#Social_Icons {
   .Nav-contact-email {
     margin-bottom: 0;
   }
+  a{
+    line-height: 1;
+    &:not(:last-child){
+      padding-top: 3px;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 #themeOverride .wa-order-cart-wrapper .wa-cart-details .wa-affiliate-section .wa-bonus-details .wa-details {

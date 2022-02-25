@@ -137,7 +137,7 @@
       <name locale="en_US">Sticker discount</name>
     </setting>
     <setting var="border_radius" control_type="text">
-      <value><![CDATA[4]]></value>
+      <value>4</value>
       <name locale="ru_RU">Закругление кнопок</name>
       <name locale="en_US"/>
     </setting>
@@ -329,6 +329,11 @@
       <value>+7 (495) 999-99-99</value>
       <name locale="ru_RU">Телефон</name>
       <name locale="en_US"/>
+    </setting>
+    <setting var="header_company_phone_two" control_type="text">
+      <value><![CDATA[+7 (495) 333-33-33]]></value>
+      <name locale="ru_RU">Второй телефон</name>
+      <name locale="en_US">Second phone</name>
     </setting>
     <setting var="header_company_email" control_type="text">
       <value>free@ardoz.ru</value>
