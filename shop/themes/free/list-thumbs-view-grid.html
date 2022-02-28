@@ -45,12 +45,21 @@
 
     {$showProduct = true}
 
+    {if $swipeImage}
+        <script>
+            imgObjProducts[{$p.id}] = [];
+            {foreach $images as $image}
+                imgObjProducts[{$p.id}].push("{$image['url_300x0']}");
+            {/foreach}
+        </script>
+    {/if}
+
     {if $theme_settings.slider_hide_products_without_residue && !$available}
         {$showProduct = false}
     {/if}
 
     {if $showProduct}
-        <div class="Product-grid {if $action != 'search' && $action != 'brandPage' && $action != 'brand'} -{$theme_settings.count_product_row}{else}-five{/if} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if} {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}salesku_plugin-product{/if}" data-product-id="{$p.id}">
+        <div class="Product-grid {if $action != 'search' && $action != 'brandPage' && $action != 'brand'} -{$theme_settings.count_product_row}{else}-five{/if} js-Product-grid js-preview-cart{if $isProductTilePreviewTileGallery} grid-gallery js-grid-gallery{/if} {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}salesku_plugin-product{/if}" data-product-num="{$p.id}">
             {$badge_html = $wa->shop->badgeHtml($p.badge)}
             {if $badge_html}
                 {$badge_html}

@@ -228,7 +228,7 @@
                 {else if $CategoryViewProducts == 'tbl'}
                     {include file="list-thumbs-view-tbl.html" product=$p favorites=$product_favor_arr}
                 {else}
-                    {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr}
+                    {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr swipeImage=true}
                 {/if}
             {/foreach}
 
@@ -315,41 +315,41 @@
             endCoords = event.originalEvent.targetTouches[0];
         });
         {literal}
-        $('.Product-grid_img').bind("touchend", function() {
-            let mobileProductWrapDotted = product.find('.dotted-img__item');
-            let startSrc = $(this).find('.js-product-preview-img').attr("src");
-            imgObjProducts[productId].forEach((element, index) => {
-                if (startSrc == element) {
-                    startSrcIndex = index;
-                    if (startCoords.clientX < endCoords.clientX){ // назад
-                        endSrcIndex = startSrcIndex - 1;
-                        $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
-                        mobileProductWrapDotted.each(function() {
-                            if (endSrcIndex >= 0) {
-                                if ($(this).attr('data-id') == endSrcIndex + 1) {
-                                    $(this).addClass('-Active');
-                                } else {
-                                    $(this).removeClass('-Active');
+            $('.Product-grid_img').bind("touchend", function() {
+                let mobileProductWrapDotted = product.find('.dotted-img__item');
+                let startSrc = $(this).find('.js-product-preview-img').attr("src");
+                imgObjProducts[productId].forEach((element, index) => {
+                    if (startSrc == element) {
+                        startSrcIndex = index;
+                        if (startCoords.clientX < endCoords.clientX){ // назад
+                            endSrcIndex = startSrcIndex - 1;
+                            $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
+                            mobileProductWrapDotted.each(function() {
+                                if (endSrcIndex >= 0) {
+                                    if ($(this).attr('data-id') == endSrcIndex + 1) {
+                                        $(this).addClass('-Active');
+                                    } else {
+                                        $(this).removeClass('-Active');
+                                    }
                                 }
-                            }
-                        });
-                    }
-                    if (startCoords.clientX > endCoords.clientX){ // след
-                        endSrcIndex = startSrcIndex + 1;
-                        $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
-                        mobileProductWrapDotted.each(function() {
-                            if (endSrcIndex < mobileProductWrapDotted.length) {
-                                if ($(this).attr('data-id') == endSrcIndex + 1) {
-                                    $(this).addClass('-Active');
-                                } else {
-                                    $(this).removeClass('-Active');
+                            });
+                        }
+                        if (startCoords.clientX > endCoords.clientX){ // след
+                            endSrcIndex = startSrcIndex + 1;
+                            $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
+                            mobileProductWrapDotted.each(function() {
+                                if (endSrcIndex < mobileProductWrapDotted.length) {
+                                    if ($(this).attr('data-id') == endSrcIndex + 1) {
+                                        $(this).addClass('-Active');
+                                    } else {
+                                        $(this).removeClass('-Active');
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
-                }
-            })
-        });
+                })
+            });
         {/literal}
     </script>
 {/if}
