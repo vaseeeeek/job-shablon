@@ -66,7 +66,7 @@
         {/if}
 
         {if count($short_list_features) > 0}
-            <table data-type="{$theme_settings.product_page_right_block_features}" class="js-product-features Product__features">
+            <table data-type="{$theme_settings.product_page_right_block_features}" class="Product__features">
                 {foreach $short_list_features as $f_code => $f_value}
                     {if !isset($features_list[$f_code]) && isset($features_list["`$f_code`.0"])}
                         {$features_list[$f_code] = $features_list["`$f_code`.0"]}
