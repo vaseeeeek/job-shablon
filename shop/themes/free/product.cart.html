@@ -15,17 +15,22 @@
 
     {if $_is_dialog}<div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>{/if}
     <form id="cart-form{if $_is_dialog}-dialog{/if}" class="js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}" method="post" action="{$wa->getUrl('/frontendCart/add')}" data-sku-url="{!$_is_dialog && !empty($theme_settings.product_url_sku_parameter)}">
-        {if $_is_dialog && !$_is_dialog_select_options}
-        {$product.features = $product->features}
-        {$products = [$product.id => $product->data]}
-        {$features =  $wa->shop->features($products)}
-        {include file="product.mini-gallery.html" inline}
-        <div class="product_action-dialog-right">
-            <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
+            {if $_is_dialog && !$_is_dialog_select_options}
+                {$product.features = $product->features}
+                {$products = [$product.id => $product->data]}
+                {$features =  $wa->shop->features($products)}
+                {include file="product.mini-gallery.html" inline}
+                <div class="product_action-dialog-right">
+                <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
             {else if $_is_dialog_select_options}
-            <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
+                <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
             {/if}
 
+            {if $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'title' && $product.summary && $_is_dialog}
+                <div class="product_short-desc">
+                    {$product.summary|truncate:512}
+                </div>
+            {/if}
             <div class="product_action" id="product-cart" data-id="{$product.id}">
 
                 {if $_is_dialog || $_is_dialog_select_options}

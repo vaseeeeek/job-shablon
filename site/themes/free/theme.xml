@@ -331,9 +331,14 @@
       <name locale="en_US"/>
     </setting>
     <setting var="header_company_phone_two" control_type="text">
-      <value><![CDATA[+7 (495) 333-33-33]]></value>
+      <value>+7 (495) 333-33-33</value>
       <name locale="ru_RU">Второй телефон</name>
       <name locale="en_US">Second phone</name>
+    </setting>
+    <setting var="header_show_phone_two" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Display the second number in the header</name>
+      <name locale="ru_RU">Выводить второй номер в шапке</name>
     </setting>
     <setting var="header_company_email" control_type="text">
       <value>free@ardoz.ru</value>
