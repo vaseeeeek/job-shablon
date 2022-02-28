@@ -2834,9 +2834,10 @@ $(function () {
     new productGridGallery();
 });
 
-$(window).resize(function() {
-    itemGallery.init();
-});
+
+// $(window).resize(function() {
+//     itemGallery.init();
+// });
 
 $.fn.elementRealWidth = function () {
     $clone = this.clone()
