@@ -538,7 +538,7 @@ html.swipebox-html.swipebox-touch {
   float: left;
 
   &:before {
-    content: "\e910";
+    content: "\e930";
   }
 }
 
@@ -546,7 +546,7 @@ html.swipebox-html.swipebox-touch {
   float: right;
 
   &:before {
-    content: "\e911";
+    content: "\e92b";
   }
 }
 
@@ -2363,12 +2363,12 @@ img.mfp-img {
   transition: transform .3s, background-color .3s;
 
   &:not(:first-child) {
-    margin-top: 5px;
+    margin-top: 3px;
   }
 }
 .fixed-panel .nav-cat-btn__action {
   &:not(:first-child) {
-    margin-top: 3px;
+    margin-top: 5px;
   }
 }
 .nav-cat-btn.show .nav-cat-btn__action--top, .MobileMenu-btn.show .nav-cat-btn__action--top {
@@ -2376,10 +2376,12 @@ img.mfp-img {
 }
 
 .nav-cat-btn.show .nav-cat-btn__action--middle, .MobileMenu-btn.show .nav-cat-btn__action--middle {
+  margin-top: 3px;
   opacity: 0;
 }
 
 .nav-cat-btn.show .nav-cat-btn__action--bottom, .MobileMenu-btn.show .nav-cat-btn__action--bottom {
+  margin-top: 3px;
   transform: translateY(-5px) translateZ(0) rotate(-45deg);
 }
 
@@ -2939,7 +2941,6 @@ img.mfp-img {
   display: inline-block;
   text-decoration: none;
   border: 0;
-  padding: 0.4rem 0.7rem;
   margin: 0 1rem 1rem 0;
   font-size: 1rem;
   text-align: center;

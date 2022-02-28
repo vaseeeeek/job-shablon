@@ -3242,9 +3242,12 @@ img.pswp__img {
     display: none
   }
 }
-
-.image-preview.image-preview--video img {
-  width: 45px;
+.image-preview.image-preview--video {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 45px;
+  }
 }
 
 @media (max-width: 800px) {

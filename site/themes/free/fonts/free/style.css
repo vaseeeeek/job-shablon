@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'free-font';
-  src:  url('fonts/free-font.eot?c2dxxb');
-  src:  url('fonts/free-font.eot?c2dxxb#iefix') format('embedded-opentype'),
-    url('fonts/free-font.ttf?c2dxxb') format('truetype'),
-    url('fonts/free-font.woff?c2dxxb') format('woff'),
-    url('fonts/free-font.svg?c2dxxb#free-font') format('svg');
+  src:  url('fonts/free-font.eot?j1nht9');
+  src:  url('fonts/free-font.eot?j1nht9#iefix') format('embedded-opentype'),
+    url('fonts/free-font.ttf?j1nht9') format('truetype'),
+    url('fonts/free-font.woff?j1nht9') format('woff'),
+    url('fonts/free-font.svg?j1nht9#free-font') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,7 +25,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-ff-search:before {
+.fi-rr-search:before {
   content: "\e931";
 }
 .fi-rr-user:before {
@@ -109,10 +109,13 @@
 .fi-rr-chetyrekvadrata:before {
   content: "\e902";
 }
+.fi-rr-chetyrecherta:before {
+  content: "\e939";
+}
 .fi-rr-trikvadratatripryamo:before {
   content: "\e906";
 }
-.icon-ff-search-old:before {
+.fi-rr-search-old:before {
   content: "\e903";
 }
 .fi-rr-add:before {
