@@ -2769,6 +2769,18 @@ input.filter-range_el:focus {
   display: flex;
 }
 
+.Product__features-item{
+  &.divider{
+    .Product__features-title{
+      color: #8e8e8e;
+    }
+
+    .Product__features-title:before{
+      content: none;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .Products-list_actions {
     justify-content: center;
