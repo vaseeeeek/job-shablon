@@ -1114,7 +1114,7 @@
       <name locale="ru_RU">Поле кол-во в "таблице"</name>
     </setting>
     <setting var="show_number_item_add_in_list" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Qty field in the "line by line"</name>
       <name locale="ru_RU">Поле кол-во "построчно"</name>
     </setting>
@@ -1204,7 +1204,7 @@
       <name locale="en_US">Short description</name>
     </setting>
     <setting var="product_page_position_summary" control_type="select">
-      <value>title</value>
+      <value>before_buy_box</value>
       <name locale="en_US">Displaying a brief description</name>
       <name locale="ru_RU">Отображение краткого описания</name>
       <options>

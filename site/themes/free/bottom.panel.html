@@ -230,6 +230,10 @@
                         {/foreach}
                     </div>
                 {/if}
+                {$headButtonCitySelectPlugin = ($wa->shop && $theme_settings.region_plugin && class_exists('shopCityselectPlugin'))}
+                {if $headButtonCitySelectPlugin}
+                    <div class="mobile-region"><span class="mobile-region__title">Ваш город: </span>{shopCityselectPlugin::showCity('0')}</div>
+                {/if}
             </div>
 
         </nav>

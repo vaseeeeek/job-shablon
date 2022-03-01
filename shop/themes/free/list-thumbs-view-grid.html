@@ -54,7 +54,7 @@
         </script>
     {/if}
 
-    {if $theme_settings.slider_hide_products_without_residue && !$available}
+    {if $theme_settings.slider_hide_products_without_residue && !$available && $isSlider}
         {$showProduct = false}
     {/if}
 
