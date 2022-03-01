@@ -697,11 +697,6 @@
       <name locale="en_US">List of products</name>
       <name locale="ru_RU">Список товаров</name>
     </setting>
-    <setting var="category_list_subcategories" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">List of subcategories</name>
-      <name locale="ru_RU">Список подкатегорий</name>
-    </setting>
     <setting var="compare" control_type="checkbox">
       <value>1</value>
       <name locale="en_US">Comparison</name>
@@ -741,10 +736,14 @@
       </options>
     </setting>
     <setting var="cat_view_subs" control_type="select">
-      <value>image</value>
+      <value>none</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
       <options>
+        <option value="none">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">Do not show</name>
+        </option>
         <option value="no_image">
           <name locale="ru_RU">Текстом</name>
           <name locale="en_US">Text</name>
