@@ -76,7 +76,7 @@
                                             {if !isset($skuCode_feat_def[$f.id])}{$skuCode_feat_def[$f.id]=$v_id}{/if}
                                             {if $f.type == 'color'}
                                                 <div class="option-color_outer option-color_outer--card{if empty($theme_settings.view_product_select_color_text)} _without-text{/if}">
-                                                    <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if} style="{$v->style};">
+                                                    <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if} style="{$v->style}">
                                                         <i class="fi-rr-check"></i>
                                                     </a>
                                                     <span class="option-color_text">{$v|strip_tags|trim}</span>
@@ -442,3 +442,16 @@
     {if $_is_dialog}</div> <!-- .modal-content.modal-content--dialog -->{/if}
 
 {/strip}
+
+<script>
+    $(document).ready(function () {
+        const colorItems = $('.option-color_outer');
+        colorItems.each(function () {
+            const colorItem = $(this);
+            const colorLink = colorItem.children('a');
+            if (colorLink.css('background-color') == 'rgb(255, 255, 255)') {
+                colorLink.addClass('white');
+            }
+        })
+    })
+</script>

@@ -1151,9 +1151,9 @@ ul.tree ul a {
 }
 
 .wa-forgotpassword-form-wrapper .wa-field .wa-forgotpassword-button {
-  margin: rem(5px) 0;
+  margin: 1rem 0;
   display: inline-block;
-  vertical-align: top
+  vertical-align: top;
 }
 
 .wa-field-birthday .jq-selectbox, .wa-field-birthday input[type=text], .wa-field-birthday select {
@@ -1213,6 +1213,20 @@ input.error, textarea.error {
 
 .wa-forgotpassword-form-wrapper input[type=email], .wa-forgotpassword-form-wrapper input[type=password], .wa-forgotpassword-form-wrapper input[type=text] {
   padding: 0 rem(10px) !important
+}
+
+@media (min-width: 620px) {
+  .wa-forgotpassword-form-wrapper {
+    border: 0;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 1.5rem 2.2rem;
+    width: auto;
+    max-width: 400px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+  }
 }
 
 .wa-signup-form-wrapper .wa-field-birthday .jq-selectbox, .wa-signup-form-wrapper .wa-field-birthday input[type=text], .wa-signup-form-wrapper .wa-field-birthday select {
@@ -1550,8 +1564,8 @@ iframe {
 
 @media (max-width: 1025px) {
   .mfp-wrap {
-    position: fixed!important;
-    top: initial!important;
+    position: fixed !important;
+    top: initial !important;
     overflow: auto;
   }
 }
@@ -2374,11 +2388,13 @@ img.mfp-img {
     margin-top: 3px;
   }
 }
+
 .fixed-panel .nav-cat-btn__action {
   &:not(:first-child) {
     margin-top: 5px;
   }
 }
+
 .nav-cat-btn.show .nav-cat-btn__action--top, .MobileMenu-btn.show .nav-cat-btn__action--top {
   transform: translateY(5px) translateZ(0) rotate(45deg);
 }
@@ -2610,6 +2626,7 @@ img.mfp-img {
   border-radius: 3px;
   font-size: 1rem;
   transition: all 0.3s ease 0s;
+  box-shadow: none;
 }
 
 .ajax-search-all {
@@ -2935,10 +2952,6 @@ img.mfp-img {
   .with-sidebar, .with-right-sidebar {
     margin-right: 0;
     margin-left: 0
-  }
-
-  .sb-wrap:last-child {
-    margin-bottom: rem(20px)
   }
 
   .sb-wrap--pages .menu-v {
@@ -3617,6 +3630,7 @@ textarea {
 .MobileMenu {
   .MobileMenu_nav__other {
     padding-bottom: 10px;
+
     .menu-element > a {
       padding: 0.5rem 0rem 0.5rem 0.8rem;
       display: flex;
@@ -3627,13 +3641,16 @@ textarea {
     padding: 0.5rem 0rem 0.5rem 0.8rem;
     font-weight: 700;
   }
+
   .mobile-region {
     padding: 0.5rem 0rem 0.5rem 0.8rem;
 
   }
-  .mobile-region__title{
+
+  .mobile-region__title {
     font-weight: 600;
   }
+
   .MobileMenu_nav__catalog-title {
     padding: 1rem 0.5rem;
     font-size: 1.2rem;
@@ -4612,7 +4629,7 @@ ul.pages {
   width: 100%;
 }
 
-@media (min-width: 620px) {
+@media (min-width: 641px) {
   .Login__Box {
     border: 0;
     background-color: #fff;
@@ -4625,14 +4642,22 @@ ul.pages {
   }
 }
 
+
+@media (max-width: 640px) {
+  #themeOverride .Login {
+    margin-top: 0rem;
+  }
+  #themeOverride .Login h1 {
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 1.3rem;
+  }
+}
+
 .Title__Main {
-  margin: 0;
-  padding: 0;
-  border-bottom: 0;
-  padding-bottom: 1rem;
   font-size: 2.4rem;
+  margin-bottom: 2rem;
   font-weight: 700;
-  margin: 0 0 1rem;
 }
 
 .Title__Main.-No-Border {
@@ -4910,6 +4935,7 @@ svg#Social_Icons {
     display: inline-flex;
     width: 20px;
     height: 20px;
+
     &:not(:last-child) {
       margin-right: 10px;
     }
@@ -4944,9 +4970,11 @@ svg#Social_Icons {
   .Nav-contact-email {
     margin-bottom: 0;
   }
-  a{
+
+  a {
     line-height: 1;
-    &:not(:last-child){
+
+    &:not(:last-child) {
       padding-top: 3px;
       margin-bottom: 10px;
     }
@@ -5009,6 +5037,21 @@ span.i-cityselect__city:before {
   .b-cityselect__list_wrapper {
     height: 295px;
     overflow: auto;
+  }
+}
+
+.default-page h1 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+
+@media (max-width: 640px) {
+  .default-page h1 {
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 1.3rem;
   }
 }
 

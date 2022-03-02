@@ -855,7 +855,7 @@
       <name locale="en_US">Number of disclosed characteristics</name>
     </setting>
     <setting var="view_filter_color_text" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>

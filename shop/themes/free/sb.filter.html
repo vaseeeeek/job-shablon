@@ -138,7 +138,7 @@
                                 {if $filter.type == 'color'}
                                     <div class="filter-el_opts-el">
                                         {foreach $filter.values as $value_id => $value}
-                                            <label class="option-color_outer {if empty($theme_settings.view_filter_color_text)} _without-text{/if}">
+                                            <label class="option-color_outer {if empty($theme_settings.view_filter_color_text)} _without-text{else}_only-text{/if}{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if}">
                                             <span class="filter-option-color{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if}" style="{$value->style}">
                                                 <span class="js-style-check style-check{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if}">
                                                     <input class="js-style-check-input" type="checkbox" name="{$filter.code}[]" {if in_array($value_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$value_id}">

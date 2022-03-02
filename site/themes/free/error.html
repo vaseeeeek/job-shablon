@@ -1,7 +1,5 @@
 {strip}
     <div class="error-box">
-        <div class="error-box_icon shadow">
-        </div>
         <h1>
             {if $error_code}{$error_code}. {/if}
             {if $error_message}{$error_message}{else}[s`Error`]{/if}
@@ -9,3 +7,7 @@
         <p>[s`The requested resource is not available.`]</p>
     </div>
 {/strip}
+
+<script>
+    $('.breadcrumbs').hide();
+</script>
