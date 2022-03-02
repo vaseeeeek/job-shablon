@@ -274,7 +274,7 @@
       <name locale="ru_RU">Ширина логотипа на мобильных, px</name>
     </setting>
     <setting var="language_selector" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Show language selector</name>
       <name locale="ru_RU">Выбор языка</name>
     </setting>
@@ -418,7 +418,7 @@
       </description>
     </setting>
     <setting var="break_categories_columns" control_type="select">
-      <value>columns</value>
+      <value>one_column</value>
       <name locale="ru_RU">Разбивать категории на колонки</name>
       <name locale="en_US">Break categories into columns</name>
       <options>
@@ -433,7 +433,7 @@
       </options>
     </setting>
     <setting var="position_drop_down_categories" control_type="select">
-      <value>all</value>
+      <value>parent</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -619,12 +619,12 @@
       <name locale="ru_RU">ID списка новинки</name>
     </setting>
     <setting var="home_product_list_3_title" control_type="text">
-      <value>213123</value>
+      <value>Со скидкой</value>
       <name locale="en_US">Sale Title</name>
       <name locale="ru_RU">Заголовок распродажи</name>
     </setting>
     <setting var="home_product_list_3" control_type="text">
-      <value>product_favor_arr</value>
+      <value>sale</value>
       <name locale="en_US">ID of the sale list</name>
       <name locale="ru_RU">ID списка распродажи</name>
     </setting>
@@ -1331,7 +1331,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_desktop" control_type="select">
-      <value>none_tabs</value>
+      <value>normal_tabs</value>
       <name locale="ru_RU">Вид вкладок на компьютере</name>
       <name locale="en_US">View of tabs on the computer</name>
       <options>
@@ -1389,7 +1389,7 @@
       <name locale="en_US">Tags under reviews</name>
     </setting>
     <setting var="view_product_select_color_text" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">The color of the text in the article</name>
       <name locale="ru_RU">Цвет текстом около кружка у артикула</name>
     </setting>
@@ -1399,12 +1399,12 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выбор параметров - выпадающий список</name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
     <setting var="product_selection_articles" control_type="select">
-      <value>dd_list</value>
+      <value>horizontal_checkboxes</value>
       <name locale="ru_RU">Выбор артикулов</name>
       <name locale="en_US">Selection of articles</name>
       <options>
