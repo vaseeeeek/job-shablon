@@ -240,6 +240,10 @@
                                                 {/if}
                                             </div>
                                         </div>
+                                    {else}
+                                        <div class="Product-stock_item Product-stock_item-critical">
+                                            {$text_out_stock}
+                                        </div>
                                     {/if}
                                 {/if}
                             {/if}
@@ -296,8 +300,8 @@
                                 <span class="button js-submit-form addtocart" data-added-text="{$addedText}">[`Add to cart`]</span>
                             {/if}
                         {else}
-                            <div class="Product-stock-out nowrap">
-                                {$text_out_stock}
+                            <div class="button disabled Product-stock-out nowrap">
+                                [`Add to cart`]
                             </div>
                         {/if}
                     </div>

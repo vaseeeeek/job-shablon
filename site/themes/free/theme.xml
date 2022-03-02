@@ -274,7 +274,7 @@
       <name locale="ru_RU">Ширина логотипа на мобильных, px</name>
     </setting>
     <setting var="language_selector" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Show language selector</name>
       <name locale="ru_RU">Выбор языка</name>
     </setting>
@@ -1124,7 +1124,7 @@
       <name locale="en_US">Stock availability</name>
     </setting>
     <setting var="preview_stock_count" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>
@@ -1433,7 +1433,7 @@
       <name locale="en_US">Stock availability</name>
     </setting>
     <setting var="product_show_stock_count" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>

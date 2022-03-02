@@ -274,7 +274,7 @@
                                     {if !$_tabs_normal && !$_tabs_acc}
                                         <div class="product-tab_title"><h2>{$name_tab_features}</h2></div>
                                     {/if}
-                                    <table class="js-product-features Product__features">
+                                    <table class="Product__features">
 
                                         {if !empty($sku_features)}
                                             {$features_items = $sku_features}
@@ -294,9 +294,8 @@
                                             {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}
                                         {/if}
                                         {foreach $product_features_items as $f_code => $f_value}
-                                            {if $features_items[$f_code].type == 'divider'}{continue}{/if}
                                             {if !empty($features_items[$f_code])}
-                                                <tr class="Product__features-item">
+                                                <tr class="Product__features-item{if $features_items[$f_code].type == 'divider'} divider{/if} ">
                                                     <td class="Product__features-title">
                                                         <span>{$features_items[$f_code].name|escape}</span>
                                                     </td>

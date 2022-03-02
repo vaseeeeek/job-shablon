@@ -824,6 +824,9 @@ $html-font-size: 14px;
 .product__box--image {
   position: relative;
   overflow: hidden;
+}
+
+.products-tile-outer .product__box--image {
   padding: 0.5rem 0.5rem 0 0.5rem;
 }
 
@@ -3618,6 +3621,10 @@ img.pswp__img {
   font-size: 1.2rem;
 }
 
+.stock__list .stock-none.Product-stock_item.Product-stock_item-out{
+  font-size: 0.95rem;
+}
+
 .Product__features {
   width: 100%;
   line-height: 19px;
@@ -6229,8 +6236,8 @@ button.owl-dot {
   }
 }
 
-.disabled {
-  background: #d5d5d5;
+.button.disabled {
+  background: #d5d5d5!important;
 }
 
 @media (max-width: 640px) {

@@ -315,16 +315,18 @@
                                             <div {if $sku.id != $product.sku_id}style="display:none"{/if}
                                                  class="sku-{$sku.id}-stock">
                                                 {if $sku.stock}
-                                                    {foreach $stocks as $stock_id => $stock}
-                                                        {if isset($sku.stock[$stock_id])}
-                                                            {$stock_count = $sku.stock[$stock_id]}
-                                                        {else}
-                                                            {$stock_count = null}
-                                                        {/if}
-                                                        <span class="stocks_title">{$stock.name}:</span>
-                                                        {in_stock n=$stock_count low=$stock.low_count critical=$stock.critical_count}
-                                                        <br>
-                                                    {/foreach}
+                                                    <div class="stock__list">
+                                                        {foreach $stocks as $stock_id => $stock}
+                                                            {if isset($sku.stock[$stock_id])}
+                                                                {$stock_count = $sku.stock[$stock_id]}
+                                                            {else}
+                                                                {$stock_count = null}
+                                                            {/if}
+                                                            <span class="stocks_title">{$stock.name}:</span>
+                                                            {in_stock n=$stock_count low=$stock.low_count critical=$stock.critical_count}
+                                                            <br>
+                                                        {/foreach}
+                                                    </div>
                                                 {else}
                                                     {in_stock n=$sku.count}
                                                 {/if}

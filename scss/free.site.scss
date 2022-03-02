@@ -5136,6 +5136,37 @@ span.i-cityselect__city:before {
 
 /* конец стилей для инфошек */
 
+/* начало стилей header.banner */
+
+.Header__Banner {
+  background-size: 400% 400%;
+  animation: AnimationName 30s ease infinite;
+  text-align: center;
+  color: #fff;
+  padding: 1rem 20px;
+  position: relative;
+}
+
+.js-attention-close {
+  position: absolute;
+  cursor: pointer;
+  right: 5px;
+  top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.header-banner__sale {
+  font-weight: 600;
+  color: red;
+}
+
+.header-banner__link {
+  color: #000;
+  text-decoration: underline;
+}
+
+/* конец стилей для header.banner */
 .-Close {
   display: none !important;
 }

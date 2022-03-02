@@ -236,8 +236,30 @@
                     </div>
                 {/if}
             {else}
+                <div class="Product__Item-cart">
+                    <div class="Product-grid_bottom">
+                        <div class="Product-grid_cart">
+                            <div class="button disabled Product-stock-out nowrap addtocart">
+                                [`Add to cart`]
+                            </div>
+                        </div>
+
+                        <div class="Products-list_actions">
+                            {if $theme_settings.favorites}
+                                <span data-product="{$p.id}" class="js-favorites-add product-action add-to-favorite {if in_array($p.id, $favorites)} active{/if}">
+                                            <i class="fi-rr-heart"></i>
+                                        </span>
+                            {/if}
+                            {if $theme_settings.compare}
+                                <span class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                                            <i class="fi-rr-compare"></i>
+                                        </span>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
                 <div class="Product-grid-stock-off nowrap">
-                    <div class="Product-stock-out">
+                    <div class="Product-stock_item Product-stock_item-out">
                         [`Out of stock`]
                     </div>
                 </div>

@@ -1302,6 +1302,20 @@ var cookieMessage = {
     }
 };
 
+var attentionMessage = {
+    init: function () {
+        var _this = this;
+
+        _this.closingBox();
+    },
+    closingBox: function () {
+        $('.js-attention-close').on("click", function () {
+            $(this).closest('.Header__Banner').hide();
+            $.cookie("closeAttention", 1);
+        });
+    }
+};
+
 var formFunc = {
     init: function () {
         var _this = this;
@@ -2422,7 +2436,6 @@ function Product(form, options) {
         if (self.isSkuUrl) {
             self.updateURLSku(sku_id);
         }
-        self.updateFeaturesList(sku_id);
     });
 
     if ($('.skus input[type=radio]').length) {
@@ -2470,7 +2483,6 @@ function Product(form, options) {
             if (self.isSkuUrl) {
                 self.updateURLSku(sku.id);
             }
-            self.updateFeaturesList(sku.id);
         } else {
             self.formWrap.find("div.stocks div").hide();
             self.formWrap.find(".sku-no-stock").show();
@@ -2501,58 +2513,6 @@ Product.prototype.serviceVariantHtml = function (id, name, price) {
 
 Product.prototype.getEscapedText = function (bad_string) {
     return $("<div>").text(bad_string).html();
-};
-
-Product.prototype.updateFeaturesList = function (sku_id) {
-    var featuresTables = $('.js-product-features');
-
-    if (typeof this.sku_features != 'undefined' && typeof this.skus_features[sku_id] != 'undefined' && featuresTables.length) {
-        var featuresList = this.sku_features,
-            productFeaturesList = this.skus_features[sku_id],
-            featuresCount = parseInt(this.short_features_count),
-            featuresAliasesList = this.short_features_codes ? this.short_features_codes.split(',') : [];
-
-        featuresTables.each(function () {
-            var featuresTableOne = $(this),
-                typeFeatures = featuresTableOne.data("type");
-
-            featuresTableOne.html("");
-            var indexIteration = 1, htmlTableTrFeature;
-
-            for (var f_code in productFeaturesList) {
-                var f_value = productFeaturesList[f_code],
-                    isDivider = (typeof featuresList[f_code].type != 'undefined' && featuresList[f_code].type == 'divider');
-
-                if (typeof featuresList[f_code] == 'undefined' && typeof featuresList[f_code + ".0"] != 'undefined') {
-                    featuresList[f_code] = featuresList[f_code + ".0"];
-                    featuresList[f_code].name = featuresList[f_code + ".0"].name;
-                }
-                if (typeFeatures == 'first' && featuresCount > 0 && indexIteration > featuresCount) {
-                    break;
-                }
-                if (typeFeatures == 'short' && featuresAliasesList.length && $.inArray(f_code, featuresAliasesList) === -1) {
-                    continue;
-                }
-                var itemFeaturesClass = "Product__features-item";
-                if (isDivider) {
-                    itemFeaturesClass += " " + "divider";
-                }
-                htmlTableTrFeature = '<tr class="' + itemFeaturesClass + '">';
-                htmlTableTrFeature += "<td class=\"Product__features-title\">";
-                htmlTableTrFeature += "<span>" + featuresList[f_code].name + "</span>";
-                htmlTableTrFeature += "</td>";
-                htmlTableTrFeature += "<td class=\"Product__features-value\">";
-                if (!isDivider) {
-                    htmlTableTrFeature += f_value;
-                }
-                htmlTableTrFeature += "</td>";
-
-                featuresTableOne.append(htmlTableTrFeature);
-
-                indexIteration++;
-            }
-        })
-    }
 };
 
 Product.prototype.cartButtonVisibility = function (visible) {
@@ -2828,6 +2788,7 @@ $(function () {
     lazyLoadImg.init();
     itemsViewList.init();
     cookieMessage.init($('.js-head-info-massage'));
+    attentionMessage.init()
     catImgs.init();
     fixOrder.init();
     itemGallery.init();

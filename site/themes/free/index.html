@@ -74,16 +74,17 @@
     </head>
 
     <body id="themeOverride">
-    {if $wa->block("cookie.block") && !$wa->cookie('closeCookie')}
-        <div class="head_info-massage js-head-info-massage">
-            <div class="head_info-massage__wrap container">
-                <div class="head_info-massage__content">
-                    <div>
-                        {$wa->block("cookie.block")}
-                    </div>
+
+    {if $wa->block("site.header.banner")  && !$wa->cookie('closeAttention')}
+        <div class="Header__Banner">
+            <div class="Header__Banner--Container">
+                <div class="Header__Banner--Text ">
+                    <span class="header-banner">
+                        {$wa->block("site.header.banner")}
+                    </span>
                 </div>
-                <span class="head_info-massage__closeку js-cookie-information">Я согласен</span>
             </div>
+            <div class="js-attention-close">&#10005;</div>
         </div>
     {/if}
 
@@ -488,6 +489,19 @@
 
         {include file="bottom.panel.html" inline}
 
+
+    {if $wa->block("cookie.block") && !$wa->cookie('closeCookie')}
+        <div class="head_info-massage js-head-info-massage">
+            <div class="head_info-massage__wrap container">
+                <div class="head_info-massage__content">
+                    <div>
+                        {$wa->block("cookie.block")}
+                    </div>
+                </div>
+                <span class="head_info-massage__closeку js-cookie-information">Я согласен</span>
+            </div>
+        </div>
+    {/if}
 
     {if $wa->user()->isAuth() && !$wa->isMobile()}
         {$admin_edit_link = false}
