@@ -9,7 +9,8 @@
     {if $action == 'brands'}
         {$class = ' brand-list'}
     {/if}
-    {if $action != 'search' && $action != 'order' && $action != 'compare' && $action != 'my' && $action != 'default' && $action != 'cart'}
+
+    {if $action != 'search' && $action != 'order' && $action != 'compare' && $action != 'my' && $action != 'default' && $action != 'cart' && $action != 'checkout'}
         {include file="`$wa_active_theme_path`/breadcrumbs.html"}
     {/if}
 

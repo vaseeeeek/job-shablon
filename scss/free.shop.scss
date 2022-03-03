@@ -710,7 +710,11 @@ $html-font-size: 14px;
   z-index: 10
 }
 
-
+@media (max-width: 1025px) {
+  .Product-grid_dialog {
+    display: none!important;
+  }
+}
 .Product-grid_dialog .product-action {
   -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 10%);
   box-shadow: 0 0 20px rgb(0 0 0 / 10%);
@@ -745,8 +749,6 @@ $html-font-size: 14px;
 
 .Product-stock-out {
   display: inline-block;
-  height: 30px;
-  line-height: 30px;
   font-size: 1rem;
 }
 
@@ -825,7 +827,7 @@ $html-font-size: 14px;
   overflow: hidden;
 }
 
-.products-tile-outer .product__box--image {
+.Product-grid .product__box--image {
   padding: 0.5rem 0.5rem 0 0.5rem;
 }
 
@@ -839,7 +841,7 @@ $html-font-size: 14px;
   }
 }
 
-.Product-grid_img {
+.list-thumb-image {
   display: block;
   height: 0;
   line-height: 0;
@@ -852,6 +854,8 @@ $html-font-size: 14px;
     overflow: hidden;
     position: absolute;
     width: 100%;
+    left: 0;
+    top: 0;
 
     img {
       bottom: 0;
@@ -2597,7 +2601,7 @@ input.filter-range_el:focus {
   display: inline-flex;
   cursor: pointer;
   color: #ebebeb;
-  font-size: 1.2rem
+  font-size: 2rem
 }
 
 @media (max-width: 640px) {
@@ -6265,6 +6269,32 @@ button.owl-dot {
   }
 }
 
+.dotted-img {
+  padding-bottom: rem(5px);
+  min-height: rem(13px);
+}
+
+.grid-gallery__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.dotted-img__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+
+  li.dotted-img__item {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 rem(3px);
+  }
+}
 .Product-grid {
   position: relative;
   box-sizing: border-box;
@@ -6280,33 +6310,6 @@ button.owl-dot {
   &_img {
     display: block;
     position: relative;
-  }
-
-  .dotted-img {
-    padding-bottom: rem(5px);
-    min-height: rem(13px);
-  }
-
-  .grid-gallery__list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .dotted-img__list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-
-    li.dotted-img__item {
-      width: 6px;
-      height: 6px;
-      background: #fff;
-      border-radius: 50%;
-      margin: 0 rem(3px);
-    }
   }
 }
 

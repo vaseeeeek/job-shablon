@@ -4752,8 +4752,7 @@ ul.pages {
   border: 1px solid #ebebeb;
   border-radius: 0.2rem;
   display: block;
-  outline: 0;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -5143,14 +5142,14 @@ span.i-cityselect__city:before {
   animation: AnimationName 30s ease infinite;
   text-align: center;
   color: #fff;
-  padding: 1rem 20px;
+  padding: 1rem 100px;
   position: relative;
 }
 
 .js-attention-close {
   position: absolute;
   cursor: pointer;
-  right: 5px;
+  right: 25px;
   top: 10px;
   font-size: 20px;
   font-weight: 400;

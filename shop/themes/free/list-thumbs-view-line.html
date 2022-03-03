@@ -44,30 +44,37 @@
                 {$badge_html = $wa->shop->badgeHtml($p.badge)}
                 {if $badge_html}{$badge_html}{/if}
                 {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
-                <a class="Product__Item-img js-grid-block-gallery" href="{$p.frontend_url}" title="{$p.name}">
-                    {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
-                        {$blockHtmlProtilegallery}
-                    {else}
-                        {$product_preview_images_lazy = true}
-                        {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
-                        {$image = $wa->shop->productImgHtml($p, '200', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $dummy96])}
-                        {if $product_preview_images_lazy && !empty($p.image_id)}
-                            {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                <a class="Product__Item-img list-thumb-image js-grid-block-gallery {$theme_settings.category_image_contain} {$theme_settings.category_image_valign} {$theme_settings.category_image_size}" href="{$p.frontend_url}" title="{$p.name}" {if $theme_settings.category_image_size == 'auto'}style="padding-bottom: {if not empty($img_props)}{ceil($img_props[1] / $img_props[0] * 100)}%{else}100%{/if}"{/if} {if $theme_settings.category_image_size == 'manual'}style="padding-bottom: {$theme_settings.category_image_size_manual}"{/if}>
+                    <span class="list-thumb-image_wrap">
+                        {if isset($blockHtmlProtilegallery) && !empty($blockHtmlProtilegallery)}
+                            {$blockHtmlProtilegallery}
+                        {else}
+                            {$product_preview_images_lazy = true}
+                            {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+                            {$image = $wa->shop->productImgHtml($p, '200', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $dummy96])}
+                            {if $product_preview_images_lazy && !empty($p.image_id)}
+                                {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                            {/if}
+                            {$image}
                         {/if}
-                        {$image}
-                    {/if}
+                    </span>
                     {if $_tileGelleryProductListPreviewy}
                         {$tile_length = count($images)}
                         {if (int)$theme_settings.preview_gallerytile_count_product && count($images) > (int)$theme_settings.preview_gallerytile_count_product}
                             {$tile_length = (int)$theme_settings.preview_gallerytile_count_product}
                         {/if}
-                        <span class="grid-gallery__list js-grid-gallery-items">
-                            {if count($images) > 1}
-                                {for $iteration=1 to $tile_length}
-                                    <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1].url_200}" style="width: calc(100%/{$tile_length});"></span>
-                                {/for}
-                            {/if}
-                        </span>
+                        {if !$wa->isMobile()}
+                            <span class="grid-gallery__list js-grid-gallery-items">
+                                {if count($images) > 1}
+                                    {for $iteration=1 to $tile_length}
+                                        <span class="grid-gallery__el js-grid-gallery-item" data-img="{$images[$iteration-1]|@end}" style="width: calc(100%/{if $tile_length < 8}{$tile_length}{else}7{/if});" data-id="{$iteration}"></span>
+                                        {if $iteration == 7}
+                                            {break}
+                                        {/if}
+                                    {/for}
+                                {/if}
+                            </span>
+                        {/if}
                     {/if}
                 </a>
                 {if !$wa->isMobile()}
@@ -81,6 +88,20 @@
                     {/if}
                 {/if}
             </div>
+            {if $_tileGelleryProductListPreviewy}
+                <div class="dotted-img">
+                    <ul class="dotted-img__list">
+                        {if $tile_length > 1}
+                            {for $iteration=1 to $tile_length}
+                                <li class="dotted-img__item {if $iteration == 1}-Active{/if}" data-id="{$iteration}"></li>
+                                {if $iteration == 7}
+                                    {break}
+                                {/if}
+                            {/for}
+                        {/if}
+                    </ul>
+                </div>
+            {/if}
         </div>
 
         <div class="Product__Item-center">
