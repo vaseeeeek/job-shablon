@@ -1347,14 +1347,6 @@ a.button:hover {
   white-space: nowrap
 }
 
-.style-check, .jq-checkbox, .jq-radio, .radio-styler {
-  width: 10px;
-  height: 10px;
-  cursor: pointer;
-  position: relative;
-  display: inline-block
-}
-
 .style-check input:not(:disabled):not(.disabled), .jq-checkbox input:not(:disabled):not(.disabled), .jq-radio input:not(:disabled):not(.disabled), .radio-styler input:not(:disabled):not(.disabled) {
   cursor: pointer
 }
@@ -1403,7 +1395,10 @@ a.button:hover {
 }
 
 label {
-  cursor: pointer
+  display: inline-flex;
+  cursor: pointer;
+  text-align: center;
+  line-height: 1.5;
 }
 
 iframe {
@@ -3544,7 +3539,13 @@ textarea {
     display: none;
   }
 
-  &:hover:before, &.checked:before {
+  &.checked:before {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1026px) {
+  .style-check:hover:before {
     display: inline-block;
   }
 }
@@ -4214,7 +4215,7 @@ textarea {
   }
 
   .product-custom {
-    padding: 11px 0 5px 0;
+    padding: 15px 0 15px 0;
     display: flex;
   }
 
@@ -5133,6 +5134,7 @@ span.i-cityselect__city:before {
   margin: 1em 0 0.5em 0;
 }
 
+
 /* конец стилей для инфошек */
 
 /* начало стилей header.banner */
@@ -5164,6 +5166,19 @@ span.i-cityselect__city:before {
   color: #000;
   text-decoration: underline;
 }
+
+/* Стили для корзины */
+
+.wa-order-cart-wrapper .wa-products .wa-product .wa-quantity-section .wa-product-price {
+  white-space: nowrap;
+}
+
+@media (max-width: 1025px) {
+  #themeOverride .wa-order-cart-wrapper.with-adaptive .wa-products .wa-product .wa-product-body > *.wa-column-quantity{
+    padding-left: 0;
+  }
+}
+/* Конец стилей для корзины */
 
 /* конец стилей для header.banner */
 .-Close {

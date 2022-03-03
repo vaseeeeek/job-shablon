@@ -225,6 +225,7 @@
                                             </span>
                                             {$s.name|escape} {if $s.price && !isset($s.variants)}+<span class="service-price">{shop_currency_html($s.price, $s.currency)}</span>{/if}
                                         </label>
+
                                         {if isset($s.variants)}
                                             <select data-variant-id="{$s.variant_id}" class="service-option"  name="service-option[{$s.id}]" disabled>
                                                 {foreach $s.variants as $v}

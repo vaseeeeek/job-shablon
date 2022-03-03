@@ -138,8 +138,14 @@
             color: {$scColor}!important;
         }
 
-        .product_page .image-preview.selected a, .style-check:hover, .option-color_outer._only-text.checked{
+        .product_page .image-preview.selected a, .option-color_outer._only-text.checked{
             border:2px solid {$scColor};
+        }
+
+        @media (min-width:1026px) {
+            .style-check:hover {
+                border:2px solid {$scColor};
+            }
         }
         .head_info-massage .head_info-massage__closeку:hover,input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover:not([disabled]), .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover, .option-color_outer.checked .filter-option-color{
             border: 1px solid{$scColor};
@@ -159,10 +165,16 @@
             stroke: {$scColor};
         }
 
-        .header p.Nav-contact-callback:hover, .header .product-custom--link:hover, .header .product-custom--link:hover .icon, .header-top_nav>ul>li>a:hover,.style-check:hover:before, .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit], .dd-wrap .currency_item:hover {
+        .header p.Nav-contact-callback:hover, .header .product-custom--link:hover, .header .product-custom--link:hover .icon, .header-top_nav>ul>li>a:hover, .homepage-brands .button, .homepage-brands button, .homepage-brands input[type=button], .homepage-brands input[type=submit], .dd-wrap .currency_item:hover {
             color: {$scColor};
         }
 
+
+        @media (min-width:1026px) {
+            .style-check:hover {
+                color: {$scColor};
+            }
+        }
         .bg-sdСolor,
         .button, .button.disabled:hover,
         button, button.disabled:hover,

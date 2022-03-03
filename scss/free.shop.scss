@@ -12,6 +12,7 @@ $html-font-size: 14px;
   font-size: 0.95rem;
   border-bottom: 1px dashed;
 }
+
 .checked-list {
   position: relative
 }
@@ -712,9 +713,10 @@ $html-font-size: 14px;
 
 @media (max-width: 1025px) {
   .Product-grid_dialog {
-    display: none!important;
+    display: none !important;
   }
 }
+
 .Product-grid_dialog .product-action {
   -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 10%);
   box-shadow: 0 0 20px rgb(0 0 0 / 10%);
@@ -2601,7 +2603,13 @@ input.filter-range_el:focus {
   display: inline-flex;
   cursor: pointer;
   color: #ebebeb;
-  font-size: 2rem
+  font-size: 1.2rem
+}
+
+@media (max-width: 1024px) {
+  .cat-views__el {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -3626,7 +3634,7 @@ img.pswp__img {
   font-size: 1.2rem;
 }
 
-.stock__list .stock-none.Product-stock_item.Product-stock_item-out{
+.stock__list .stock-none.Product-stock_item.Product-stock_item-out {
   font-size: 0.95rem;
 }
 
@@ -4582,11 +4590,13 @@ img.pswp__img {
 .option-color_outer .filter-option-color {
   display: none;
 }
+
 .option-color_outer._only-text {
   padding: 3px 10px;
   margin: 0 rem(8px) rem(8px) 0;
   border: 2px solid #f2f3f5;
 }
+
 .option-color_outer._without-text {
   margin: 0 rem(7px) rem(8px) 0;
   border: 2px solid transparent;
@@ -4924,8 +4934,7 @@ img.pswp__img {
 .cart-el_services select, .services select {
   width: auto;
   max-width: 100%;
-  height: 31px;
-  padding: 0.2rem 0.2rem;
+  padding: 0 0.2rem;
   margin: 0;
   white-space: nowrap;
   font-size: 0.9rem;
@@ -4938,7 +4947,10 @@ img.pswp__img {
 }
 
 .service__item {
-  margin: 0 0 rem(5px)
+  margin: 0 0 rem(5px);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .service__item:last-child {
@@ -5158,12 +5170,12 @@ img.pswp__img {
 
 
 .order-page .wa-dropdown-toggle, .order-page .wa-select, .order-page select {
-  padding: 0.5rem 1rem !important;
+  padding: 0 1rem !important;
   font-size: 1.1rem !important;
 }
 
 .order-page select.js-variant-field {
-  padding: 0.2rem 0.1rem !important;
+  padding: 0 0.1rem !important;
   font-size: 0.95rem !important;
 }
 
@@ -6242,7 +6254,7 @@ button.owl-dot {
 }
 
 .button.disabled {
-  background: #d5d5d5!important;
+  background: #d5d5d5 !important;
 }
 
 @media (max-width: 640px) {
@@ -6295,6 +6307,12 @@ button.owl-dot {
     margin: 0 rem(3px);
   }
 }
+@media (max-width: 1025px) {
+  .owl-carousel .dotted-img__list {
+    display: none;
+  }
+}
+
 .Product-grid {
   position: relative;
   box-sizing: border-box;
@@ -6621,7 +6639,7 @@ i.wa-icon.arrow-left {
   margin-right: 0 !important;
 }
 
-input, select {
+input[type=text],input[type=tel],input[type=email] {
   appearance: none;
 }
 
