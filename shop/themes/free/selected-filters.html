@@ -19,6 +19,7 @@
                                     {if !empty($v_max_price) && $v_max_price != $filter.max} [`to`] {(int)$v_max_price} {/if}
                                     {$c.sign}
                                 </span>
+                                <i class="filters-checked__remove js-filter-checked-remove fi-rr-cross" data-code="price"></i>
                             </span>
                         {/if}
                     {/if}
@@ -33,6 +34,7 @@
                                 <span class="filters-checked__item js-filter-checked-item">
                                     <span class="filters-checked__title">{$filter.name}: {if $filter_value === '1'}[`Yes`]{else}[`No`]{/if}</span>
                                 </span>
+                                <i class="filters-checked__remove js-filter-checked-remove fi-rr-cross" data-code="{$filter.code}"></i>
                             {/if}
                         {/if}
                     {elseif isset($filter.min) && isset($getParams[$filter.code]) }
@@ -46,6 +48,7 @@
                                     {if isset($_v_filter.min) && $_v_filter.min} [`from`] {(float)$_v_filter.min}{/if}
                                     {if isset($_v_filter.max) && $_v_filter.max} [`to`] {(float)$_v_filter.max}{/if}
                                 </span>
+                                <i class="filters-checked__remove js-filter-checked-remove fi-rr-cross" data-code="{$filter.code}"></i>
                             </span>
                         {/if}
                     {elseif $filter.type == 'color'}
@@ -61,6 +64,7 @@
                                         {/if}
                                     {/foreach}
                                  </span>
+                                <i class="filters-checked__remove js-filter-checked-remove fi-rr-cross" data-code="{$filter.code}"></i>
                             </span>
                         {/if}
                     {else}
@@ -76,6 +80,7 @@
                                         {/if}
                                     {/foreach}
                                 </span>
+                                <i class="filters-checked__remove js-filter-checked-remove fi-rr-cross" data-code="{$filter.code}"></i>
                             </span>
                         {/if}
                     {/if}
