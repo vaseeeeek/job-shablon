@@ -4779,7 +4779,7 @@ ul.pages {
   margin-bottom: 1.6rem;
 }
 
-#themeOverride .wa-field {
+#themeOverride .wa-field:not(.js-product-quantity) {
   font-size: 0;
   margin-bottom: 1.2rem;
   transition: .3s all;

@@ -6615,9 +6615,12 @@ i.wa-icon.arrow-left {
 .wa-order-form-wrapper .wa-plugin-fields-wrapper > .wa-body input[type=text]:not(.wa-input) {
   padding: 0 rem(5px) !important;
   font-size: rem(12px) !important;
-  margin-right: 0 !important
+  margin-right: 0 !important;
 }
 
+input, select {
+  appearance: none;
+}
 
 .wa-order-form-wrapper .wa-step-confirm-section {
   padding: rem(30px) 0 !important
