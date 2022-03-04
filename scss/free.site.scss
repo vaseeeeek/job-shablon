@@ -4234,9 +4234,10 @@ textarea {
   }
 
   .product-custom {
-    a{
+    a {
       font-size: rem(13px);
     }
+
     i {
       height: 24px;
       min-height: 24px;
@@ -5054,15 +5055,15 @@ span.i-cityselect__city:before {
 }
 
 /* Стили для инфошек */
-#page p, .product_description p, .Brands__Description p, .category-desc p, .product_short-desc, .product_page.tab-content_el p {
+#page p, .product_description p, .Brands__Description p, .category-desc p, .product_short-desc, .product_page.tab-content_el p, .homepage-text p {
   font-size: 1.15rem;
 }
 
-#page ul, #page ol, .product_description ul, .Brands__Description ul, .category-desc ul, .product_description ol, .Brands__Description ol, .category-desc ol, .product_short-desc ol, .product_short-desc ul, .product_page.tab-content_el ol, .product_page.tab-content_el ul {
+.homepage-text ul, #page ul, #page ol, .product_description ul, .Brands__Description ul, .category-desc ul, .product_description ol, .Brands__Description ol, .category-desc ol, .product_short-desc ol, .product_short-desc ul, .product_page.tab-content_el ol, .product_page.tab-content_el ul {
   padding-left: 35px;
 }
 
-#page li, .product_description li, .Brands__Description li, .category-desc li, .product_short-desc li, .product_page.tab-content_el li {
+.homepage-text li, #page li, .product_description li, .Brands__Description li, .category-desc li, .product_short-desc li, .product_page.tab-content_el li {
   margin-bottom: 13px;
   font-size: 1.15rem;
 }
@@ -5072,23 +5073,23 @@ span.i-cityselect__city:before {
   font-size: 1.1rem;
 }
 
-#page ul li, .product_description ul li, .Brands__Description ul li, .category-desc ul li, .product_short-desc ul li, .product_page.tab-content_el ul li {
+.homepage-text ul li, #page ul li, .product_description ul li, .Brands__Description ul li, .category-desc ul li, .product_short-desc ul li, .product_page.tab-content_el ul li {
   list-style: disc;
 }
 
-#page ol li, .product_description ol li, .Brands__Description ol li, .category-desc ol li, .product_short-desc ol li, .product_page.tab-content_el ol li {
+.homepage-text ol li, #page ol li, .product_description ol li, .Brands__Description ol li, .category-desc ol li, .product_short-desc ol li, .product_page.tab-content_el ol li {
   list-style: decimal;
 }
 
-#page h2 {
+.homepage-text h2, #page h2 {
   font-size: 1.7rem;
 }
 
-#page h3 {
+.homepage-text h3, #page h3 {
   font-size: 1.4rem;
 }
 
-#page h4 {
+.homepage-text h4, #page h4 {
   font-size: 1.2rem;
 }
 
@@ -5104,7 +5105,7 @@ span.i-cityselect__city:before {
   font-size: 1.1rem;
 }
 
-#page a, .product_description a, .Brands__Description a, .category-desc a, .product_page.tab-content_el a {
+.homepage-text a, #page a, .product_description a, .Brands__Description a, .category-desc a, .product_page.tab-content_el a {
   text-decoration: none;
   color: rgb(0, 84, 166);
   font-weight: 700;
@@ -5113,6 +5114,14 @@ span.i-cityselect__city:before {
 }
 
 #page h2, #page h3, #page h4, #page h5, #page h6 {
+  margin: 1em 0 0.5em 0;
+}
+
+.homepage-text h2,
+.homepage-text h3,
+.homepage-text h4,
+.homepage-text h5,
+.homepage-text h6 {
   margin: 1em 0 0.5em 0;
 }
 
@@ -5131,8 +5140,37 @@ span.i-cityselect__city:before {
 .product_page.tab-content_el h2, .product_page.tab-content_el h3, .product_page.tab-content_el h4, .product_page.tab-content_el h5, .product_page.tab-content_el h6 {
   margin: 1em 0 0.5em 0;
 }
+.homepage-text {
+  width: 70%;
+  margin:0 auto;
+}
 
+.homepage-text h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height:1.1;
+  padding: 2.5rem 0 1.5rem 0;
+  border-bottom: none;
+  text-align: center;
+}
 
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-bottom: 0.2rem;
+  }
+  #themeOverride .homepage-text {
+    width: 100%;
+    margin:0 auto;
+  }
+  #themeOverride .homepage-text h2, #page h2, .product_page.tab-content_el h2, .product_description h2, .Brands__Description h2, .category-desc h2, .product-tab_title h2 {
+    font-size: 1.3rem;
+  }
+  #themeOverride .homepage-text h3, #page h3, .product_page.tab-content_el h3, .product_description h3, .Brands__Description h3, .category-desc h3, .product-tab_title h3 {
+    font-size: 1.2rem;
+  }
+}
 /* конец стилей для инфошек */
 
 /* начало стилей header.banner */
@@ -5172,10 +5210,11 @@ span.i-cityselect__city:before {
 }
 
 @media (max-width: 1025px) {
-  #themeOverride .wa-order-cart-wrapper.with-adaptive .wa-products .wa-product .wa-product-body > *.wa-column-quantity{
+  #themeOverride .wa-order-cart-wrapper.with-adaptive .wa-products .wa-product .wa-product-body > *.wa-column-quantity {
     padding-left: 0;
   }
 }
+
 /* Конец стилей для корзины */
 
 /* конец стилей для header.banner */
