@@ -1395,10 +1395,7 @@ a.button:hover {
 }
 
 label {
-  display: inline-flex;
   cursor: pointer;
-  text-align: center;
-  line-height: 1.5;
 }
 
 iframe {
@@ -4236,9 +4233,10 @@ textarea {
     margin-top: 3px;
   }
 
-  .product-custom a {
-    font-size: rem(13px);
-
+  .product-custom {
+    a{
+      font-size: rem(13px);
+    }
     i {
       height: 24px;
       min-height: 24px;

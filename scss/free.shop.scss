@@ -1659,7 +1659,7 @@ input.error, textarea.error {
 }
 
 .cart .row {
-  padding: rem(10px) 0;
+  padding: 1rem 0;
   display: flex;
   flex-wrap: wrap;
 }
@@ -1748,7 +1748,7 @@ input.error, textarea.error {
 
   .cart-el_info, .cart-el_right {
     width: auto;
-    margin: 0 0 0 rem(60px)
+    margin: 0;
   }
 
   .cart-el_right {
@@ -1963,6 +1963,16 @@ input.error, textarea.error {
   font-size: 0;
   text-align: justify;
   border: 1px solid
+}
+
+@media (max-width: 640px) {
+  .checkout-header {
+    display: flex;
+    flex-direction: column;
+    a{
+      width: 100%!important;
+    }
+  }
 }
 
 .step-item {

@@ -31,7 +31,7 @@
 
                 <div class="content-box">
                     {foreach $checkout_steps as $item_id => $s}
-                        <div class="checkout-item-step step-{$item_id} {if $current_item_step_index > 0 && $current_item_step_index > $s@iteration}is-completed{/if}" data-step-index="{$s@iteration}">
+                        <div class="{$current_item_step_index} checkout-item-step step-{$item_id} {if $current_item_step_index > 0 && $current_item_step_index > $s@iteration}is-completed{/if}" data-step-index="{$s@iteration}">
                             <form class="checkout-item-form {if $s@last}last{/if}" method="post" action="">
                                 {if $s@first && $wa->isAuthEnabled()}
                                     <div class="checkout-item-step-content auth" {if $checkout_current_step != $item_id}style="display:none"{/if}>
