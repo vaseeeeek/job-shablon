@@ -33,7 +33,7 @@
 
 
 {$_price_range = $theme_settings.price_range_in_product_list}
-{$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
+{$available = $ignoreStock || $p.count === null || $p.count > 0}
 
 {$_tileGelleryProductListPreviewy = !$wa->isMobile()}
 {$preview_image = $wa->shop->productImgUrl($p, '60')}
@@ -242,7 +242,7 @@
                         {$text_product_preorder = "[`Pre-order only`]"}
                     {/if}
                     <div class="Product-stock product-line-stock">
-                        {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
+                        {if $ignoreStock && $p.count !== null && $p.count == 0}
                             <div class="Product-stock_item Product-stock_item-critical">
                                 {$text_product_preorder}
                             </div>

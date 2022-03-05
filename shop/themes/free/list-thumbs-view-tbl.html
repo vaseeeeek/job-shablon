@@ -2,7 +2,7 @@
 
 
 {$_price_range = $theme_settings.price_range_in_product_list}
-{$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
+{$available = $ignoreStock || $p.count === null || $p.count > 0}
 {$preview_image = $wa->shop->productImgUrl($p, '60')}
 <div class="Product-table js-preview-cart">
     <div class="Product-table-img">
@@ -42,7 +42,7 @@
                 {/if}
                 <span class="product-tpl-stock nowrap">
                     {if $available}
-                        {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
+                        {if $ignoreStock && $p.count !== null && $p.count == 0}
                             <span class="Product-stock_item Product-stock_item-critical">
                             {$text_product_preorder}
                             </span>

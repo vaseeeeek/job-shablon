@@ -11,6 +11,7 @@
     {$_isView_tile = false}
     {$_isView_list = false}
     {$_isView_tbl = false}
+    {$ignoreStock = $wa->shop->settings('ignore_stock_count')}
 
     {if $isViewSwitch}
         {if !empty($theme_settings.product_preview_tile)}
@@ -224,11 +225,11 @@
                     {$p.skus_list = reset($skus)}
                 {/if}
                 {if $CategoryViewProducts == 'list'}
-                    {include file="list-thumbs-view-line.html" product=$p features=$features favorites=$product_favor_arr}
+                    {include file="list-thumbs-view-line.html" product=$p features=$features favorites=$product_favor_arr ignoreStock=$ignoreStock}
                 {else if $CategoryViewProducts == 'tbl'}
-                    {include file="list-thumbs-view-tbl.html" product=$p favorites=$product_favor_arr}
+                    {include file="list-thumbs-view-tbl.html" product=$p favorites=$product_favor_arr ignoreStock=$ignoreStock}
                 {else}
-                    {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr swipeImage=true}
+                    {include file="list-thumbs-view-grid.html" product=$p favorites=$product_favor_arr swipeImage=true ignoreStock=$ignoreStock}
                 {/if}
             {/foreach}
 
@@ -273,7 +274,6 @@
         {/if}
     </div>
 {/strip}
-
 <script>
     $(function () {
         $(".grid-gallery__el").hover(function() {

@@ -3700,10 +3700,6 @@ img.pswp__img {
   display: inline-block
 }
 
-.stock-none.Product-stock_item.Product-stock_item-out {
-  font-size: 1.2rem;
-}
-
 .stock__list .stock-none.Product-stock_item.Product-stock_item-out {
   font-size: 0.95rem;
 }
@@ -3947,6 +3943,10 @@ img.pswp__img {
 
   .cart_plugin {
     margin-top:1rem;
+  }
+
+  .Product-stock_item-out {
+    font-size: 1.2rem;
   }
 }
 .cart_aux {
@@ -4661,7 +4661,10 @@ img.pswp__img {
 }
 
 .option-color_outer--card {
-  width: 65px
+  width: 65px;
+  &._without-text{
+    width:initial;
+  }
 }
 
 .option-color_outer .filter-option-color {

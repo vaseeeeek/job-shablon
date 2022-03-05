@@ -1,7 +1,7 @@
 {strip}
     {$action = $wa->param('action')}
     {$_price_range = $theme_settings.price_range_in_product_list}
-    {$available = $wa->shop->settings('ignore_stock_count') || $p.count === null || $p.count > 0}
+    {$available = $ignoreStock || $p.count === null || $p.count > 0}
 
     {if !isset($text_in_stock)}{$text_in_stock = "[`In stock`]"}{/if}
     {if !isset($text_unit)}{$text_unit = "[`unit`]"}{/if}
@@ -226,7 +226,7 @@
                                     {if $available}
                                         <div class="Product-grid_stock">
                                             <div class="Product-stock nowrap">
-                                                {if $wa->shop->settings('ignore_stock_count') && $p.count !== null && $p.count == 0}
+                                                {if $p.count !== null && $p.count == 0}
                                                     <div class="Product-stock_item Product-stock_item-critical">
                                                         {$text_product_preorder}
                                                     </div>
@@ -241,7 +241,7 @@
                                             </div>
                                         </div>
                                     {else}
-                                        <div class="Product-stock_item Product-stock_item-critical">
+                                        <div class="Product-stock_item Product-stock_item-out">
                                             {$text_out_stock}
                                         </div>
                                     {/if}
