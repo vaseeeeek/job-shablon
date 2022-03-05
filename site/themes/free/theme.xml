@@ -247,6 +247,11 @@
       <name locale="en_US">WhatsApp</name>
       <name locale="ru_RU">WhatsApp</name>
     </setting>
+    <setting var="policy" control_type="text">
+      <value>#</value>
+      <name locale="en_US">policy</name>
+      <name locale="ru_RU">Политика персональных данных</name>
+    </setting>
     <setting var="paragraph_header" control_type="group_divider">
       <value/>
       <name locale="en_US">Header</name>
@@ -289,7 +294,7 @@
       <name locale="ru_RU">Флаги в валютах</name>
     </setting>
     <setting var="links_information_pages" control_type="select">
-      <value>shop-pages</value>
+      <value>id-page</value>
       <name locale="ru_RU">Ссылки на инф. страницы</name>
       <name locale="en_US">Links to information pages</name>
       <description locale="ru_RU">Из какого приложения брать ссылки на инф. страницы.
@@ -366,12 +371,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
     <setting var="region_plugin" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Плагин "Автоопределение и выбор города"</name>
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
@@ -634,7 +639,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value>brands_pro</value>
+      <value/>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -672,7 +677,7 @@
       </options>
     </setting>
     <setting var="home_brands_ids" control_type="text">
-      <value>212,213</value>
+      <value/>
       <name locale="en_US"/>
       <name locale="ru_RU">ID брендов на главной</name>
     </setting>
@@ -866,7 +871,7 @@
       <name locale="en_US">Number of disclosed characteristics</name>
     </setting>
     <setting var="view_filter_color_text" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
@@ -987,7 +992,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>short</value>
+      <value>first</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от выбранного вида.
@@ -1015,7 +1020,7 @@
       <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
     </setting>
     <setting var="codes_features_product" control_type="text">
-      <value>obrezka,poliv,udobrenie</value>
+      <value/>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of output characteristics</name>
       <description locale="ru_RU">Данная настройка используется в т.м.ч и для краткого списка характеристик в карточке товара.
@@ -1253,7 +1258,7 @@
       <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>full</value>
+      <value>first</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
       <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых характеристик" в разделе "Карточка в списке товаров".
@@ -1289,7 +1294,7 @@
       </description>
     </setting>
     <setting var="product_codes_output_characteristics" control_type="text">
-      <value>obrezka,poliv</value>
+      <value/>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of the output characteristics</name>
     </setting>
@@ -1400,7 +1405,7 @@
       <name locale="en_US">Tags under reviews</name>
     </setting>
     <setting var="view_product_select_color_text" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">The color of the text in the article</name>
       <name locale="ru_RU">Цвет текстом около кружка у артикула</name>
     </setting>
@@ -1444,7 +1449,7 @@
       <name locale="en_US">Stock availability</name>
     </setting>
     <setting var="product_show_stock_count" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>
@@ -1578,6 +1583,11 @@
       </description>
       <description locale="en_US">When you specify a coefficient, information about bonus calculation will be displayed in the product card
       </description>
+    </setting>
+    <setting var="bonus_accrual_text" control_type="text">
+      <value/>
+      <name locale="ru_RU">Текст описания бонусной программы</name>
+      <name locale="en_US">Bonus program description text</name>
     </setting>
     <setting var="show_filter_warehouse" control_type="checkbox">
       <value/>

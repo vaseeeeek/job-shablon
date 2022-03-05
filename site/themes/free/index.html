@@ -398,9 +398,11 @@
                         </div>
                     </div>
                 {/if}
-                <div class="footer_policy">
-                    <a>Политика персональных данных</a>
-                </div>
+                {if $theme_settings.policy}
+                    <div class="footer_policy">
+                        <a href="{$theme_settings.policy}">Политика персональных данных</a>
+                    </div>
+                {/if}
                 {include file="`$wa_active_theme_path`/footer.html" inline}
             </div>
             <div class="footer-box_col">

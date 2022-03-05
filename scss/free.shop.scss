@@ -3631,11 +3631,40 @@ img.pswp__img {
 .product_bonus {
   display: flex;
   margin-bottom: 0.6rem;
+  position: relative;
+  align-items: center;
 
   i {
     width: 15px;
     margin-right: 5px;
   }
+}
+
+.bonus_accrual_important {
+  font-size: 20px;
+  border: 1px solid #000;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  cursor: default;
+}
+
+.bonus_accrual_important_text {
+  position: absolute;
+  max-width: 100%;
+  bottom: 100%;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 0 3px rgb(0 0 0 / 12%), 0 2px 4px rgb(0 0 0 / 12%);
+  display: none;
+}
+
+.bonus_accrual_important:hover + .bonus_accrual_important_text {
+  display: block;
 }
 
 .product_stocks {
@@ -3915,6 +3944,13 @@ img.pswp__img {
   display: inline-flex;
   -ms-flex-direction: column;
   flex-direction: column;
+
+  .cart_plugin {
+    margin-top:1rem;
+  }
+}
+.cart_aux {
+  margin-top:1rem;
 }
 
 @media print {
@@ -6873,6 +6909,7 @@ input[type=text], input[type=tel], input[type=email] {
     text-align: center;
   }
 }
+
 //.info-page {
 //  .content-box {
 //    padding: 0 0 1rem 0.7rem;

@@ -14,6 +14,8 @@
         {if $wa->shop}{$_links = $wa->shop->pages()}{/if}
     {elseif $theme_settings.links_information_pages == 'app-menu'}
         {if $wa->menu && !empty($theme_settings.id_app_header_top_menu) && (int)$theme_settings.id_app_header_top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header_top_menu)}{/if}
+    {elseif $theme_settings.links_information_pages == 'id-page'}
+        {$arrIdPages = ","|explode:$theme_settings.header_id_pages}
     {elseif $theme_settings.links_information_pages != 'none'}
         {$_links = $wa->apps()}
     {/if}
