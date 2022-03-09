@@ -829,7 +829,7 @@ $html-font-size: 14px;
 }
 
 @media (max-width: 640px) {
-  .product__box--image {
+  .Product-grid .product__box--image {
     padding: 0.3rem 0.3rem 0 0.3rem;
   }
 }
