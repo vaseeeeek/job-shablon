@@ -177,42 +177,36 @@
                         {$currencies = $wa->shop->currencies()}
                         {$currency = $wa->shop->currency()}
                         {if count($currencies) > 1}
-                                <div class="header_currency js-dd-outer">
-                                    {if count($currencies) > 1}
-                                        [`Currency`]:
-                                        <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
-                                        {if !empty($theme_settings.show_currency_flag)}
-                                            <img src="{$wa_theme_url}img/currency/{$currency}.png" alt="{$currency}" width="18px"/>
-                                        {/if}
-                                            {$currency}
+                            <div class="header_currency js-dd-outer">
+                                {if count($currencies) > 1}
+                                    [`Currency`]:
+                                    <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
+                                        <b>{$currency}</b>
                                     </span>
-                                        <div id="currency-list" class="js-dd-wrap currency_list">
-                                            <div class="dd-wrap br-top-sdСolor">
-                                                {foreach $currencies as $c_code => $c}
-                                                    <span data-value="{$c_code}"
-                                                          class="js-currency currency_item{if $c_code == $currency} maincolor{/if}">
-                                                {if !empty($theme_settings.show_currency_flag)}
-                                                    <img src="{$wa_theme_url}img/currency/{$c_code}.png" alt="{$c_code}"/>
-                                                {/if}
-                                                        {$c_code}
-                                            </span>
-                                                {/foreach}
-                                            </div>
+                                    <div id="currency-list" class="js-dd-wrap currency_list">
+                                        <div class="dd-wrap br-top-sdСolor">
+                                            {foreach $currencies as $c_code => $c}
+                                                <span data-value="{$c_code}"
+                                                      class="js-currency currency_item{if $c_code == $currency} maincolor{/if}">
+                                                    {$c_code}
+                                                </span>
+                                            {/foreach}
                                         </div>
-                                        <script>
-                                            $(".js-currency").click(function () {
-                                                var url = location.href;
-                                                if (url.indexOf('?') == -1) {
-                                                    url += '?';
-                                                } else {
-                                                    url += '&';
-                                                }
-                                                location.href = url + 'currency=' + $(this).data("value");
-                                            });
-                                        </script>
-                                    {/if}
-                                </div>
-                            {/if}
+                                    </div>
+                                    <script>
+                                        $(".js-currency").click(function () {
+                                            var url = location.href;
+                                            if (url.indexOf('?') == -1) {
+                                                url += '?';
+                                            } else {
+                                                url += '&';
+                                            }
+                                            location.href = url + 'currency=' + $(this).data("value");
+                                        });
+                                    </script>
+                                {/if}
+                            </div>
+                        {/if}
                     </div>
                 {/if}
 

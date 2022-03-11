@@ -290,11 +290,6 @@
       <name locale="en_US">Show currency selector</name>
       <name locale="ru_RU">Выбор валюты</name>
     </setting>
-    <setting var="show_currency_flag" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Show currency flags</name>
-      <name locale="ru_RU">Флаги в валютах</name>
-    </setting>
     <setting var="links_information_pages" control_type="select">
       <value>site-pages</value>
       <name locale="ru_RU">Ссылки на инф. страницы</name>
@@ -530,7 +525,7 @@
       <name locale="ru_RU">Слайдер</name>
     </setting>
     <setting var="homepage_type_slider_mode" control_type="select">
-      <value>promos</value>
+      <value>products</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <description locale="ru_RU">ID для опции "Товары из списка" задавать в настройке ниже.
@@ -994,7 +989,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>first</value>
+      <value>full</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от выбранного вида.
@@ -1038,7 +1033,7 @@
       </description>
     </setting>
     <setting var="product_show_tile_features" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Characteristics in the form of a list - tile</name>
       <name locale="ru_RU">Характеристики в виде списка - плитка</name>
     </setting>
@@ -1162,7 +1157,7 @@
       <name locale="en_US">Slider</name>
     </setting>
     <setting var="slider_hide_products_without_residue" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Скрыть товары без остатка</name>
       <name locale="en_US">Hide products without residue</name>
     </setting>

@@ -153,7 +153,7 @@
             {/if}
 
             {if count($short_list_features) > 0}
-                <div class="Product-grid_features">
+                <div class="Product-list_features">
                     {foreach $short_list_features as $f_code => $f_value}
                         {if is_array($f_value)}
                             {$text_feature_value = implode(' ', $f_value)}
@@ -163,9 +163,9 @@
                         {/if}
 
                         {if $features[$f_code].type != 'divider'}
-                            <div class="Product-grid-features__item" title="{$text_feature|strip_tags}">
-                                <span class="Product-grid-features__title">{$features[$f_code].name|escape}: </span>
-                                <span class="Product-grid-features__value">
+                            <div class="Product-list__features__item" title="{$text_feature|strip_tags}">
+                                <span class="Product-list__features__title">{$features[$f_code].name|escape}: </span>
+                                <span class="Product-list__features__value Product-list__features__value--wrap">
                                         {if is_array($f_value)}
                                             {if $features[$f_code].type == 'color'}
                                                 <span class="Product__features__colors-short">{implode(' ', $f_value)}</span>

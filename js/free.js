@@ -263,12 +263,6 @@ var productsSlider = {
                     $.autobadgeFrontend.reinit();
                 }
             },
-            onLoadedLazy: function (event) {
-                var wrap = $(event.currentTarget);
-                if (wrap.length && $.Retina) {
-                    wrap.find(".owl-item.active .js-product-preview-img").retina();
-                }
-            },
         });
 
         if (goToSlide) {
@@ -467,11 +461,6 @@ var slider = {
                 navWrap.html("");
                 dotsWrap.html("");
             },
-            onLoadedLazy: function (data) {
-                if (_this.sliderBox.data('type') == "product") {
-                    data.element.retina();
-                }
-            }
         };
 
         if (auto) {
@@ -1656,12 +1645,6 @@ var itemGallery = {
                 dots: false,
                 startPosition: position,
                 mouseDrag: false,
-                onLoadedLazy: function (e) {
-                    var gallery = $(e.currentTarget);
-                    if (gallery.length && $.Retina) {
-                        gallery.find(".owl-item.active .owl-lazy").retina();
-                    }
-                },
                 onInitialized: function () {
                     if (!checkTouchDevice()) {
                         _this.productMagnifImg(mainSlider);
