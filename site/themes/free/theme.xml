@@ -499,7 +499,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -1162,7 +1162,7 @@
       <name locale="en_US">Slider</name>
     </setting>
     <setting var="slider_hide_products_without_residue" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Скрыть товары без остатка</name>
       <name locale="en_US">Hide products without residue</name>
     </setting>
@@ -1847,6 +1847,10 @@
     <locale>
       <msgid>Write a review</msgid>
       <msgstr locale="ru_RU">Оставить отзыв</msgstr>
+    </locale>
+    <locale>
+      <msgid>Information</msgid>
+      <msgstr locale="ru_RU">Информация</msgstr>
     </locale>
   </locales>
 </theme>

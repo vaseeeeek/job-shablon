@@ -1145,7 +1145,6 @@ var mobileMenuBtn = {
             phoneBtnShow = $(".js-nav-button"),
             phoneSubCatHideBtn = $(".menu-close");
 
-
         phoneBtnShow.on("click", function () {
             var $this = $(this),
                 menu = $('#' + $this.data('id'));
@@ -1173,6 +1172,7 @@ var mobileMenuBtn = {
             if ($(".-hideList").hasClass('open')) {
                 $(".-hideList").removeClass('open');
             }
+            $('.js-nav-button').removeClass('show');
         });
     },
     openSub: function () {

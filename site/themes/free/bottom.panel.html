@@ -128,7 +128,7 @@
             <div class="MobileMenu_nav__other">
                 {if count($_links) > 0}
                     <div class="MobileMenu_nav__info">
-                        <h4>Информация</h4>
+                        <h4>[`Information`]</h4>
                         <ul>
                             {foreach $_links as $link}
                                 {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
@@ -251,7 +251,7 @@
                                 <div class="nav-cat-btn__action nav-cat-btn__action--bottom"></div>
                             </div>
                             <span class="product-custom_icon__name">
-                                Меню
+                                [`Menu`]
                             </span>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
                                     <i class="fi-rr-heart icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{$count_favorites}</span>
                                     <span class="product-custom_icon__name">
-                                        Избранное
+                                        [`Favorites`]
                                     </span>
                                 </div>
                             </a>
@@ -297,7 +297,7 @@
                                     <i class="fi-rr-compare icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
                                     <span class="product-custom_icon__name">
-                                        Сравнение
+                                        [`Compare`]
                                     </span>
                                 </div>
                             </a>
@@ -322,7 +322,7 @@
                                 <i class="fi-rr-shopping-cart icon"></i>
                                 <span class="product-custom_short-count bg-sdСolor js-cart-preview-count">{$cart_count}</span>
                                 <span class="product-custom_icon__name">
-                                    Корзина
+                                    [`Cart`]
                                 </span>
                             </div>
                         </a>
@@ -338,7 +338,7 @@
                         <div class="product-custom_icon maincolor">
                             <i class="fi-rr-filter icon"></i>
                             <span class="product-custom_icon__name">
-                                Фильтр
+                                [`Filter`]
                             </span>
                         </div>
                     </div>
@@ -348,7 +348,7 @@
                         <a class="product-custom_icon maincolor" href="tel:{$theme_settings.header_company_phone}">
                             <i class="fi-rr-phone"></i>
                             <span class="product-custom_icon__name">
-                                Позвонить
+                                [`Phone`]
                             </span>
                         </a>
                     </div>
@@ -358,7 +358,7 @@
                         <a class="product-custom_icon maincolor" href="{$wa->myUrl()}">
                             <i class="fi-rr-user"></i>
                             <span class="product-custom_icon__name">
-                                Профиль
+                                [`Profile`]
                             </span>
                         </a>
                     </div>

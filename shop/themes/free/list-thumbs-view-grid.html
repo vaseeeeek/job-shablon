@@ -226,7 +226,7 @@
                                     {if $available}
                                         <div class="Product-grid_stock">
                                             <div class="Product-stock nowrap">
-                                                {if $p.count !== null && $p.count == 0}
+                                                {if $ignoreStock && $p.count !== null && $p.count == 0}
                                                     <div class="Product-stock_item Product-stock_item-critical">
                                                         {$text_product_preorder}
                                                     </div>
