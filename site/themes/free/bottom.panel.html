@@ -339,7 +339,7 @@
                 {/if}
                 {if $btn == 'phone' && $theme_settings.header_company_phone}
                     <div class="product-custom">
-                        <a class="product-custom_icon maincolor" href="tel:{$theme_settings.header_company_phone}">
+                        <a class="product-custom_icon maincolor" href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}">
                             <i class="fi-rr-phone"></i>
                             <span class="product-custom_icon__name">
                                 [`Phone`]

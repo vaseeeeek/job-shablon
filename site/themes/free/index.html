@@ -133,9 +133,9 @@
                 {/if}
                 <div class="Nav-contact-info">
                     {if !empty($theme_settings.header_company_phone_two) && $theme_settings.header_show_phone_two}
-                        <p><a href="tel:{$theme_settings.header_company_phone_two}" class="Nav-contact-phone">{$theme_settings.header_company_phone_two}</a></p>
+                        <p><a href="tel:{$theme_settings.header_company_phone_two|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone_two}</a></p>
                     {/if}
-                    <p><a href="tel:{$theme_settings.header_company_phone}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></p>
+                    <p><a href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></p>
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
                     {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
                         <p class="Nav-contact-callback js-callback-open">[`Feedback`]</p>
@@ -278,9 +278,11 @@
         {include file="nav.html"}
         <div class="contacts--box">
             <div class="contacts__left">
-                <a href="tel:{$theme_settings.header_company_phone}">
+                <a href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">
                     <span class="contacts__phone__num">{$theme_settings.header_company_phone}</span>
-                    <a href="tel:{$theme_settings.header_company_phone_two}" class="Nav-contact-phone">{$theme_settings.header_company_phone_two}</a>
+                </a>
+                <a href="tel:{$theme_settings.header_company_phone_two|trim|escape|replace:' ':''}" class="Nav-contact-phone">
+                    <span class="contacts__phone__num">{$theme_settings.header_company_phone_two}</span>
                 </a>
             </div>
             <div class="contacts__right">
@@ -334,7 +336,7 @@
                 {include file="`$wa_active_theme_path`/header.html" inline}
             {/if}
 
-            <main id="main-content " {if $wa->param('action') == 'home'}class="main-content--home"{/if}>
+            <main id="main-content" {if $wa->param('action') == 'home'}class="main-content--home"{/if}>
                 {include file="`$wa_active_theme_path`/main.html" inline}
             </main>
 
@@ -415,7 +417,7 @@
                 <div class="footer-col-title">[`Contacts`]</div>
 
                 <ul class="footer_menu ul-block">
-                    <li><a itemprop="telephone" href="tel:{$theme_settings.header_company_phone}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></li>
+                    <li><a itemprop="telephone" href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></li>
                     <li>{$theme_settings.header_company_adress}</li>
                     {if $theme_settings.header_company_email}
                         <li><a itemprop="telephone" href="mailto:{$theme_settings.header_company_email}" class="Nav-contact-phone">{$theme_settings.header_company_email}</a></li>
@@ -468,26 +470,28 @@
 
     <span class="btn-top sdСolor" id="move-to-top">
 
-            {literal}
-                <svg version="1.1" id="svgSrollToTop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                     viewBox="0 0 418 228.3" style="enable-background:new 0 0 418 228.3;" xml:space="preserve">
-                <style type="text/css">
-                    .btn-top .st0{fill:none;stroke:#000000;stroke-width:53;stroke-linecap:round;stroke-miterlimit:10;}
-                </style>
-                <g id="Слой_1_1_">
-                    <path class="st0" d="M26.5,201.8L202.8,29.1c3.6-3.5,9.4-3.5,13,0l175.7,172.6"/>
-                </g>
-                <g id="Слой_2_1_">
-                </g>
-                </svg>
-                <style>
-                    #svgSrollToTop{
-                        width: 25px;
-                    }
-                </style>
-            {/literal}
+        {literal}
+            <svg version="1.1" id="svgSrollToTop" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 418 228.3" style="enable-background:new 0 0 418 228.3;" xml:space="preserve">
+            <style type="text/css">
+                .btn-top .st0 {
+                    fill: none;
+                    stroke: #000000;
+                    stroke-width: 53;
+                    stroke-linecap: round;
+                    stroke-miterlimit: 10;
+                }
+            </style>
+            <g id="Слой_1_1_">
+                <path class="st0" d="M26.5,201.8L202.8,29.1c3.6-3.5,9.4-3.5,13,0l175.7,172.6"/>
+            </g>
+            <g id="Слой_2_1_">
+            </g>
+            </svg>
+        {/literal}
 
-        </span>
+    </span>
 
         {include file="bottom.panel.html" inline}
 

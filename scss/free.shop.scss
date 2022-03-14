@@ -297,7 +297,7 @@ $html-font-size: 14px;
 }
 
 .slider-outer--products {
-  border: 0px solid #ebebeb
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 16%)
 }
 
 .main-slider {
@@ -363,11 +363,6 @@ $html-font-size: 14px;
 .main-slider_item-desc {
   margin-bottom: rem(25px);
   font-size: rem(16px)
-}
-
-.main-slider_item-prs {
-  line-height: 47px;
-  height: 47px
 }
 
 .main-slider_item-pr {
@@ -1035,7 +1030,7 @@ span.rating__total {
 }
 
 .Product-list__features__item {
-  white-space: nowrap!important;
+  white-space: initial!important;
   display: flex;
 }
 
@@ -1046,7 +1041,6 @@ span.rating__total {
 .Product-list__features__title, .Product-list__features__value {
   display: inline-block;
   vertical-align: middle;
-  white-space: nowrap
 }
 
 .Product-list__features__value {
@@ -5003,8 +4997,7 @@ img.pswp__img {
 }
 
 .compare_table {
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-x: auto;
   margin: 0 0 rem(20px)
 }
 
@@ -5702,7 +5695,9 @@ img.pswp__img {
 
   .image-preview a {
     display: inline-flex;
-    border: 2px solid transparent;
+    img {
+      border: 2px solid transparent;
+    }
   }
 
   .image-preview {
@@ -6136,7 +6131,8 @@ button.owl-dot {
 }
 
 .owl-carousel.main-slider {
-  display: block
+  display: block;
+  border-radius: 3px;
 }
 
 .product_cross-products {
@@ -6393,6 +6389,22 @@ button.owl-dot {
   }
 }
 
+.grid-gallery__list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: -ms-flexbox;
+  display: flex;
+}
+span.grid-gallery__el.js-grid-gallery-item {
+  z-index: 2;
+}
+._tile-active .grid-gallery__el {
+  position: relative;
+}
+
 @media (max-width: 1025px) {
   .owl-carousel .dotted-img__list {
     display: none;
@@ -6574,7 +6586,6 @@ button.owl-dot {
 
   &--link {
     text-decoration: none;
-    text-transform: capitalize;
     font-size: rem(15px);
   }
 
@@ -6935,11 +6946,7 @@ input[type=text], input[type=tel], input[type=email] {
   }
 }
 
-#themeOverride > #main-content {
-  flex: 1;
-}
-
-#themeOverride > main {
+#themeOverride > #main-content, #themeOverride > main {
   flex: 1;
 }
 

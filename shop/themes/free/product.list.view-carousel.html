@@ -38,23 +38,6 @@
 {/if}
 {/strip}
 {if !$wa->isMobile()}
-    <style>
-        .grid-gallery__list {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-            display: -ms-flexbox;
-            display: flex;
-        }
-        span.grid-gallery__el.js-grid-gallery-item {
-            z-index: 2;
-        }
-        ._tile-active .grid-gallery__el {
-            position: relative;
-        }
-    </style>
     <script>
         $(function () {
             $(".grid-gallery__el").hover(function() {
