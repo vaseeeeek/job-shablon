@@ -502,7 +502,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -634,7 +634,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value/>
+      <value>brands_pro</value>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
