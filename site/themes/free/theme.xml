@@ -101,7 +101,7 @@
       <description locale="en_US">It can be set the same as the main one if it is not a gradient.</description>
     </setting>
     <setting var="background_color" control_type="color">
-      <value/>
+      <value>#ffffff</value>
       <name locale="ru_RU">Цвет фона</name>
       <name locale="en_US">Background color</name>
     </setting>
@@ -258,7 +258,7 @@
       <name locale="ru_RU">Шапка</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1643634463</value>
+      <value>img/logo.png</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -687,19 +687,19 @@
       <name locale="ru_RU">Заголовок текста на главной</name>
     </setting>
     <setting var="home_text_note" control_type="text">
-      <value><![CDATA[<p><b>FREE</b> - это современный магазин, где вы найдёте абсолютно любую продукцию. У нас доверительные отношения с поставщиками, поэтому даже если ты ищешь что-то особенное и не можешь найти эту продукцию во всем городе, мы сможем оперативно заказать этот товар для тебя!</p>
-<h2>Гарантии качества и высокого сервиса:</h2>
-<ul>
-<li>Мы закупаем только оригинальную продукцию у проверенных поставщиков;</li>
-<li>Новинки приезжают к нам раньше всех в городе, но при этом товар попадает на полки только после проверки отдела качества и закупок;</li>
-<li>Наши менеджеры и продавцы профессионалы своего дела, так как они регулярно проходят внутренние обучения и внешние у наших партнеров. Вы можете доверять нам, так как мы следим за актуальностью знаний наших сотрудников и расширяем их;</li>
-<li>Быстрая доставка. Если вы живете в Москве, мы доставим Ваш товар за 1 час (в пределах МКАД);</li>
-<li>В нашем широком ассортименте вы всегда найдете товары по душе и Вашему бюджету;</li>
-<li>Доставка по всей России (даже на Сахалин);</li>
-<li>Мы очень гибкий магазин и, если какого-то продукта нет у нас на полке, мы постараемся его заказать индивидуально под вас.</li>
-</ul>
+      <value>&lt;p&gt;&lt;b&gt;FREE&lt;/b&gt; - это современный магазин, где вы найдёте абсолютно любую продукцию. У нас доверительные отношения с поставщиками, поэтому даже если ты ищешь что-то особенное и не можешь найти эту продукцию во всем городе, мы сможем оперативно заказать этот товар для тебя!&lt;/p&gt;
+&lt;h2&gt;Гарантии качества и высокого сервиса:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Мы закупаем только оригинальную продукцию у проверенных поставщиков;&lt;/li&gt;
+&lt;li&gt;Новинки приезжают к нам раньше всех в городе, но при этом товар попадает на полки только после проверки отдела качества и закупок;&lt;/li&gt;
+&lt;li&gt;Наши менеджеры и продавцы профессионалы своего дела, так как они регулярно проходят внутренние обучения и внешние у наших партнеров. Вы можете доверять нам, так как мы следим за актуальностью знаний наших сотрудников и расширяем их;&lt;/li&gt;
+&lt;li&gt;Быстрая доставка. Если вы живете в Москве, мы доставим Ваш товар за 1 час (в пределах МКАД);&lt;/li&gt;
+&lt;li&gt;В нашем широком ассортименте вы всегда найдете товары по душе и Вашему бюджету;&lt;/li&gt;
+&lt;li&gt;Доставка по всей России (даже на Сахалин);&lt;/li&gt;
+&lt;li&gt;Мы очень гибкий магазин и, если какого-то продукта нет у нас на полке, мы постараемся его заказать индивидуально под вас.&lt;/li&gt;
+&lt;/ul&gt;
 
-<p><b>FREE</b> всегда идет на встречу своим покупателям и особенно рад новичкам индустрии. Наши продавцы с радостью всё Вам расскажут о кальянной индустрии, о там как забивать и на чем лучше курить, если вы любите одноразки или под системы, наши продавцы также вам помогут с выбором.</p>]]></value>
+&lt;p&gt;&lt;b&gt;FREE&lt;/b&gt; всегда идет на встречу своим покупателям и особенно рад новичкам индустрии. Наши продавцы с радостью всё Вам расскажут о кальянной индустрии, о там как забивать и на чем лучше курить, если вы любите одноразки или под системы, наши продавцы также вам помогут с выбором.&lt;/p&gt;</value>
       <name locale="en_US">The text on the main page. You can use html.</name>
       <name locale="ru_RU">Текст на главной. Можно использовать html.</name>
     </setting>
@@ -790,7 +790,7 @@
       </options>
     </setting>
     <setting var="pagination" control_type="select">
-      <value>paging</value>
+      <value>lazyloading</value>
       <name locale="en_US">Uploading a list of products</name>
       <name locale="ru_RU">Подгрузка товаров</name>
       <options>
@@ -1310,8 +1310,8 @@
       <description locale="en_US">For microdata</description>
     </setting>
     <setting var="pd_share_script" control_type="text">
-      <value><![CDATA[<script src="https://yastatic.net/share2/share.js"></script>
-<div class="ya-share2" data-curtain data-shape="round" data-limit="0" data-more-button-type="long" data-more-button-type="short" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,moimir"></div>]]></value>
+      <value>&lt;script src="https://yastatic.net/share2/share.js"&gt;&lt;/script&gt;
+&lt;div class="ya-share2" data-curtain data-shape="round" data-limit="0" data-more-button-type="long" data-more-button-type="short" data-services="messenger,vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,moimir"&gt;&lt;/div&gt;</value>
       <name locale="en_US">Share from Yandex</name>
       <name locale="ru_RU">Поделиться от Яндекса</name>
       <description locale="ru_RU">Сгенерировать код можно на https://tech.yandex.ru/share/</description>
@@ -1467,12 +1467,7 @@
       <value>1</value>
       <name locale="en_US">Links to webasyst</name>
       <name locale="ru_RU">Ссылки на webasyst</name>
-    </setting>
-    <setting var="show_payment_footer" control_type="checkbox">
-      <value>1</value>
-      <name locale="en_US">Payment Icons</name>
-      <name locale="ru_RU">Иконки оплаты</name>
-    </setting>
+    </setting>=
     <setting var="logo_footer" control_type="image">
       <value>img/logo_footer.png?v1643634463</value>
       <filename>img/logo_footer.*</filename>
@@ -1521,6 +1516,15 @@
       <value>#</value>
       <name locale="en_US">TikTok</name>
       <name locale="ru_RU">TikTok</name>
+    </setting>
+    <setting var="footer_payment_methods" control_type="text">
+      <value>mastercard,visa,mir,yandexmoney,webmoney,qiwi,sberbank</value>
+      <name locale="en_US">Payment methods</name>
+      <name locale="ru_RU">Способы оплаты</name>
+      <description locale="en_US">Custom styles from the file. But we recommend using the id custom_styles block
+      </description>
+      <description locale="ru_RU">Введите способы оплаты на вашем сайте через запятую. Пример
+      </description>
     </setting>
     <setting var="paragraph_load_js_css" control_type="group_divider">
       <value/>
