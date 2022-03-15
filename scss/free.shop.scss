@@ -152,7 +152,7 @@ $html-font-size: 14px;
 }
 
 .outer-content-scroll {
-  оverflow-x: scroll;
+  overflow-x: scroll;
   overflow-y: hidden;
   width: 100%
 }
@@ -5697,6 +5697,7 @@ img.pswp__img {
     display: inline-flex;
     img {
       border: 2px solid transparent;
+      box-sizing: border-box;
     }
   }
 
@@ -5704,6 +5705,10 @@ img.pswp__img {
     display: inline-flex;
     justify-content: space-between;
     margin-bottom: rem(10px);
+  }
+
+  .image-preview--video {
+    width: 100%;
   }
 
   .image-preview--video a {
@@ -5928,7 +5933,7 @@ img.pswp__img {
 .owl-carousel .owl-item img {
   width: auto;
   max-width: 100%;
-  display: inline-block
+  display: block
 }
 
 .bx-next, .bx-prev {

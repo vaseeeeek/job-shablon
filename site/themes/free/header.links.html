@@ -15,9 +15,9 @@
                         {if count($currencies) > 1}
                             [`Currency`]:
                             <span class="header_currency__selected">{$currency}</span>
-                            <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
+                            <span data-id="currency-list-header" class="js-btnDrop-down currency_item fi-rr-caret-down">
                         </span>
-                            <div id="currency-list" class="js-dd-wrap currency_list">
+                            <div id="currency-list-header" class="js-dd-wrap currency_list">
                                 <div class="dd-wrap br-top-sdСolor">
                                     {foreach $currencies as $c_code => $c}
                                         <span data-value="{$c_code}" class="js-currency currency_item{if $c_code == $currency} header_currency__selected{/if}">

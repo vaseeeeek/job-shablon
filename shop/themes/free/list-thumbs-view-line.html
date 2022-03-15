@@ -53,7 +53,7 @@
                             {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
                             {$image = $wa->shop->productImgHtml($p, '200', ['class' => "js-product-preview-img", 'alt' => $p.name, 'default' => $dummy96])}
                             {if $product_preview_images_lazy && !empty($p.image_id)}
-                                {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                                {$image = $image|replace:"src":"src='`$wa_theme_url`img/lazy-image.png' data-src"}
                             {/if}
                             {$image}
                         {/if}

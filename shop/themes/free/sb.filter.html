@@ -33,8 +33,7 @@
                         {else}
                             {$filter.name|escape}
                             <i class="fi-rr-angle-small-down"></i>
-                            {if !empty($filter.unit)}, <span
-                                class="filter-el__unit">{$filter.unit.title}</span>{/if}
+                            {if !empty($filter.unit)}, <span class="filter-el__unit">{$filter.unit.title}</span>{/if}
                         {/if}
                     </div>
 
@@ -44,17 +43,13 @@
                                 <div class="filter-range">
                                     <div class="filter-range__min">
                                         <div class="filter-range__min__text">от</div>
-                                        <input type="text" class="js-number filter-range_el js-min" name="price_min"
-                                           {if $wa->get('price_min')}value="{(int)$wa->get('price_min')}"{/if}
-                                           placeholder="{floor($filter.min)}">
+                                        <input type="text" class="js-number filter-range_el js-min" name="price_min" {if $wa->get('price_min')}value="{(int)$wa->get('price_min')}"{/if} placeholder="{floor($filter.min)}">
                                     </div>
 
 
                                     <div class="filter-range__max">
                                         <div class="filter-range__max__text">до</div>
-                                        <input type="text" class="js-number filter-range_el js-max" name="price_max"
-                                           {if $wa->get('price_max')}value="{(int)$wa->get('price_max')}"{/if}
-                                           placeholder="{ceil($filter.max)}">
+                                        <input type="text" class="js-number filter-range_el js-max" name="price_max" {if $wa->get('price_max')}value="{(int)$wa->get('price_max')}"{/if} placeholder="{ceil($filter.max)}">
                                     </div>
                                 </div>
                             </div>
@@ -111,15 +106,11 @@
                                     <div class="filter-range">
                                         <div class="filter-range__min">
                                             <div class="filter-range__min__text">от</div>
-                                            <input type="text" class="js-number js-min filter-range_el"
-                                                   name="{$filter.code}[min]" placeholder="{$filter.min}"
-                                                   {if !empty($_v_filter.min)}value="{(float)$_v_filter.min}"{/if}>
+                                            <input type="text" class="js-number js-min filter-range_el" name="{$filter.code}[min]" placeholder="{$filter.min}" {if !empty($_v_filter.min)}value="{(float)$_v_filter.min}"{/if}>
                                         </div>
                                         <div class="filter-range__max">
                                             <div class="filter-range__max__text">до</div>
-                                            <input type="text" class="js-number js-max filter-range_el"
-                                                   name="{$filter.code}[max]" placeholder="{$filter.max}"
-                                                   {if !empty($_v_filter.max)}value="{(float)$_v_filter.max}"{/if}>
+                                            <input type="text" class="js-number js-max filter-range_el" name="{$filter.code}[max]" placeholder="{$filter.max}" {if !empty($_v_filter.max)}value="{(float)$_v_filter.max}"{/if}>
                                             {if !empty($filter.unit)}
                                                 {if $filter.unit.value != $filter.base_unit.value}
                                                     <input type="hidden" name="{$filter.code}[unit]"

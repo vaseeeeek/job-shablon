@@ -138,7 +138,7 @@
             color: {$scColor}!important;
         }
 
-        .product_page .image-preview.selected a img, .option-color_outer._only-text.checked{
+        .product_page .image-preview.selected:not(.image-preview--video) a img, .option-color_outer._only-text.checked, .product_page .image-preview.selected.image-preview--video{
             border:2px solid {$scColor};
         }
 

@@ -324,7 +324,7 @@
                 imgObjProducts[productId].forEach((element, index) => {
                     if (startSrc == element) {
                         startSrcIndex = index;
-                        if (startCoords.clientX < endCoords.clientX){ // назад
+                        if (startCoords.clientX < endCoords.clientX){
                             endSrcIndex = startSrcIndex - 1;
                             $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
                             mobileProductWrapDotted.each(function() {
@@ -337,7 +337,7 @@
                                 }
                             });
                         }
-                        if (startCoords.clientX > endCoords.clientX){ // след
+                        if (startCoords.clientX > endCoords.clientX){
                             endSrcIndex = startSrcIndex + 1;
                             $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
                             mobileProductWrapDotted.each(function() {

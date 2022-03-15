@@ -1576,8 +1576,12 @@ var itemGallery = {
         if ($('.product-page').length > 0){
             let windowWidth = $(window).width();
             let miniatureCount = 5;
-            if ($('.js-image-popup-swipebox').height() > 70) {
-                miniatureCount = Math.trunc($('.js-image-popup-swipebox').height() / 76 - 1)
+            if ($('.js-image-popup-swipebox').height() > 150) {
+                if ($('.image-preview--video').length) {
+                    miniatureCount = Math.trunc($('.js-image-popup-swipebox').height() / 76 - 2);
+                } else {
+                    miniatureCount = Math.trunc($('.js-image-popup-swipebox').height() / 76 - 1);
+                }
             }
             if (windowWidth >= 1026) {
                 if (img.length) {

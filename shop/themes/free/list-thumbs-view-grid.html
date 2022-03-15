@@ -69,10 +69,10 @@
                 {if !$wa->isMobile()}
                     {if $theme_settings.product_quick_dialog}
                         <div class="js-dialog Product-grid_dialog Product-grid_action">
-                        <span class="js-card-dialog product-action " data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
-    {*                        <i class="fi-rr-zoom-in"></i>*}
-                            [`Quick View`]
-                        </span>
+                            <span class="js-card-dialog product-action " data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1">
+        {*                        <i class="fi-rr-zoom-in"></i>*}
+                                [`Quick View`]
+                            </span>
                         </div>
                     {/if}
                 {/if}
@@ -97,7 +97,7 @@
                             {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
                             {$image = $wa->shop->productImgHtml($p, "{$img_size}", ['class' => $class_img, 'alt' => $p.name, 'default' => $dummy96])}
                             {if $product_preview_images_lazy && !empty($p.image_id)}
-                                {$image = $image|replace:"src":"src=`$wa_theme_url`img/lazy-image.png data-src"}
+                                {$image = $image|replace:"src":"src='`$wa_theme_url`img/lazy-image.png' data-src"}
                             {/if}
                             {$image}
                         {/if}
@@ -290,8 +290,7 @@
                             {if $p.sku_count > 1
                             && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
                                 {if $wa_app == 'shop'}
-                                    <span class="button js-card-dialog addtocart"
-                                          data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">[`Add to cart`]</span>
+                                    <span class="button js-card-dialog addtocart" data-href="{$p.frontend_url}{if strpos($p.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1">[`Add to cart`]</span>
                                 {else}
                                     <a class="button addtocart" href="{$p.frontend_url}">Нет в наличии</a>
                                 {/if}

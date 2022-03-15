@@ -180,14 +180,13 @@
                             <div class="header_currency js-dd-outer">
                                 {if count($currencies) > 1}
                                     [`Currency`]:
-                                    <span data-id="currency-list" class="js-btnDrop-down currency_item fi-rr-caret-down">
+                                    <span data-id="currency-list-mobile-menu" class="js-btnDrop-down currency_item fi-rr-caret-down">
                                         <b>{$currency}</b>
                                     </span>
-                                    <div id="currency-list" class="js-dd-wrap currency_list">
+                                    <div id="currency-list-mobile-menu" class="js-dd-wrap currency_list">
                                         <div class="dd-wrap br-top-sdСolor">
                                             {foreach $currencies as $c_code => $c}
-                                                <span data-value="{$c_code}"
-                                                      class="js-currency currency_item{if $c_code == $currency} maincolor{/if}">
+                                                <span data-value="{$c_code}" class="js-currency currency_item{if $c_code == $currency} maincolor{/if}">
                                                     {$c_code}
                                                 </span>
                                             {/foreach}
@@ -218,8 +217,7 @@
                             {if $wa->locale() == $language}
                                 <span class="header_lang-el">{$language_text}</span>
                             {else}
-                                <a class="js-language header_lang-el" data-value="{$language}"
-                                   href="{$language}">{$language_text}</a>
+                                <a class="js-language header_lang-el" data-value="{$language}" href="{$language}">{$language_text}</a>
                             {/if}
                         {/foreach}
                     </div>
