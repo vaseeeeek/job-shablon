@@ -1526,6 +1526,11 @@
       <description locale="ru_RU">Введите способы оплаты на вашем сайте через запятую. Пример
       </description>
     </setting>
+    <setting var="copyright" control_type="text">
+      <value>Текст копирайта</value>
+      <name locale="en_US">Copyright</name>
+      <name locale="ru_RU">Копирайт</name>
+    </setting>
     <setting var="paragraph_load_js_css" control_type="group_divider">
       <value/>
       <name locale="en_US">Loading js,css</name>

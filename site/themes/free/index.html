@@ -359,6 +359,9 @@
                         </a>
                     </div>
                 {/if}
+                {if !empty($theme_settings.copyright)}
+                    <span>{$theme_settings.copyright}</span>
+                {/if}
                 {if !empty($theme_settings.footer_payment_methods)}
                     <div class="footer_payment">
                         <div class="footer_payment_list">
