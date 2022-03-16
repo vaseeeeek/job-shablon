@@ -17,7 +17,10 @@
         <title>{$wa->title()|escape}</title>
         <meta name="Keywords" content="{$wa->meta('keywords')|escape}"/>
         <meta name="Description" content="{$wa->meta('description')|escape}"/>
-
+        {if !empty($theme_settings.second_color)}
+            {$cesondColor = $theme_settings.main_color}
+        {/if}
+        <meta name="theme-color" content="{$mainColor}">
         {if !empty($canonical)}
             <link rel="canonical" href="{$canonical}"/>
         {/if}

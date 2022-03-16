@@ -2326,7 +2326,11 @@ ul.menu-v.brands li a {
 .filter-opt_el:not(.hide) {
   display: block
 }
-
+.filter-el_btn-show {
+  text-align: right;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .filter-el_opts-el.sf-label-disabled, .filter-el_opts-el.sf-label-disabled .jq-checkbox, .option-color_outer.sf-label-disabled, .option-color_outer.sf-label-disabled .jq-checkbox {
   cursor: default
 }

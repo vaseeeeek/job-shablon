@@ -235,9 +235,9 @@
             {$btns = ","|explode:$theme_settings.fixed_panel_array}
             {foreach $btns as $btn}
                 {if $btn == 'burger'}
-                    <div class="product-custom">
+                    <div class="product-custom js-nav-button" data-id="header_menu-nav-mobile">
                         <div class="product-custom_icon maincolor">
-                            <div data-id="header_menu-nav-mobile" class="nav-cat-btn__action__wrap icon MobileMenu-btn js-nav-button">
+                            <div class="nav-cat-btn__action__wrap icon MobileMenu-btn">
                                 <div class="nav-cat-btn__action nav-cat-btn__action--top"></div>
                                 <div class="nav-cat-btn__action nav-cat-btn__action--middle"></div>
                                 <div class="nav-cat-btn__action nav-cat-btn__action--bottom"></div>
@@ -256,8 +256,8 @@
                         {if $product_favor_arr && $product_favor_arr != 'null'}
                             {$count_favorites = count(","|explode:$product_favor_arr)}
                         {/if}
-                        <div class="js-favorites-preview product-custom">
-                            <a class="js-products-link" href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
+                        <a class="js-favorites-preview product-custom" href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
+                            <div class="js-products-link">
                                 <div class="product-custom_icon maincolor">
                                     <i class="fi-rr-heart icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{$count_favorites}</span>
@@ -265,13 +265,13 @@
                                         [`Favorites`]
                                     </span>
                                 </div>
-                            </a>
+                            </div>
                             <div class="product-msg-added-wrap js-product-added-msg">
                                 <div class="product-added-msg br-top-sdСolor shadow">
                                     [`The product has been added to favorites`]
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     {/if}
                 {/if}
                 {if $btn == 'compare' && $wa->shop}
@@ -283,8 +283,8 @@
                             {$in_comparison = []}
                             {$url = $wa->getUrl('shop/frontend/compare')}
                         {/if}
-                        <div class="js-preview-compare product-custom">
-                            <a class="js-products-link" href="{$url}">
+                        <a class="js-preview-compare product-custom" href="{$url}">
+                            <div class="js-products-link" href="{$url}">
                                 <div class="product-custom_icon maincolor">
                                     <i class="fi-rr-compare icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
@@ -292,13 +292,13 @@
                                         [`Compare`]
                                     </span>
                                 </div>
-                            </a>
+                            </div>
                             <div class="product-msg-added-wrap js-product-added-msg">
                                 <div class="product-added-msg br-top-sdСolor shadow">
                                     [`Product is added to compare`]
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     {/if}
                 {/if}
                 {if $btn == 'cart' && $wa->shop}
@@ -307,8 +307,8 @@
                     {else}
                         {$cartUrl = $wa->getUrl('shop/frontend/cart')}
                     {/if}
-                    <div class="juniq-header-preview-cart preview-cart product-custom" data-url="{$cartUrl}">
-                        <a href="{$cartUrl}">
+                    <a class="juniq-header-preview-cart preview-cart product-custom" data-url="{$cartUrl}" href="{$cartUrl}">
+                        <div href="{$cartUrl}">
                             {$cart_count = $wa->shop->cart->count()}
                             <div class="product-custom_icon maincolor">
                                 <i class="fi-rr-shopping-cart icon"></i>
@@ -317,15 +317,15 @@
                                     [`Cart`]
                                 </span>
                             </div>
-                        </a>
+                        </div>
                         <div class="product-msg-added-wrap product-msg-added-wrap--cart js-product-added-msg">
                             <div class="product-added-msg br-top-sdСolor shadow">
                                 [`Product added to cart!`]
                             </div>
                         </div>
-                    </div>
+                    </a>
                 {/if}
-                {if $btn == 'filter' && $wa->param('action') == 'category'}
+                {if $btn == 'filter' && $wa->param('action') == 'category' && !empty($filters)}
                     <div class="js-filter-fixed-btn product-custom">
                         <div class="product-custom_icon maincolor">
                             <i class="fi-rr-filter icon"></i>
@@ -336,32 +336,46 @@
                     </div>
                 {/if}
                 {if $btn == 'phone' && $theme_settings.header_company_phone}
-                    <div class="product-custom">
-                        <a class="product-custom_icon maincolor" href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}">
+                    <a class="product-custom" href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}">
+                        <div class="product-custom_icon maincolor">
                             <i class="fi-rr-phone"></i>
                             <span class="product-custom_icon__name">
                                 [`Phone`]
                             </span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 {/if}
                 {if $btn == 'profile' && $wa->isAuthEnabled()}
-                    <div class="product-custom">
-                        <a class="product-custom_icon maincolor" href="{$wa->myUrl()}">
+                    <a class="product-custom" href="{$wa->myUrl()}">
+                        <div class="product-custom_icon maincolor" href="{$wa->myUrl()}">
                             <i class="fi-rr-user"></i>
                             <span class="product-custom_icon__name">
                                 [`Profile`]
                             </span>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 {/if}
             {/foreach}
         {else}
-            <i data-id="header_menu-nav-mobile" class="MobileMenu-btn icon fi-rr-menu-burger js-nav-button"></i>
-            {if $wa->param('action') == 'category'}
+            <div class="product-custom js-nav-button" data-id="header_menu-nav-mobile">
+                <div class="product-custom_icon maincolor">
+                    <div class="nav-cat-btn__action__wrap icon MobileMenu-btn">
+                        <div class="nav-cat-btn__action nav-cat-btn__action--top"></div>
+                        <div class="nav-cat-btn__action nav-cat-btn__action--middle"></div>
+                        <div class="nav-cat-btn__action nav-cat-btn__action--bottom"></div>
+                    </div>
+                    <span class="product-custom_icon__name">
+                                [`Menu`]
+                            </span>
+                </div>
+            </div>
+            {if $wa->param('action') == 'category' && !empty($filters)}
                 <div class="js-filter-fixed-btn product-custom">
                     <div class="product-custom_icon maincolor">
                         <i class="fi-rr-filter icon"></i>
+                        <span class="product-custom_icon__name">
+                            [`Filter`]
+                        </span>
                     </div>
                 </div>
             {/if}
