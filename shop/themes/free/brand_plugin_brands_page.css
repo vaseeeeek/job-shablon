@@ -94,3 +94,47 @@
 .brands-letters__item:hover {
     color: #f00;
 }
+.shop-brand-brands__not-found {
+    padding: 15px;
+}
+
+.brands-search-wrapper {
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+}
+.brands-search-input {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 40px;
+    padding: 9px 45px 10px 10px;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    outline: 0;
+    background: #fff;
+    transition: border-color .2s ease-in-out;
+
+}
+.brands-search-clear {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: #bdbdbd;
+    height: 100%;
+    width: 45px;
+    cursor: pointer;
+}
+.brands-search-clear-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
