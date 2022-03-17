@@ -2904,7 +2904,7 @@ img.mfp-img {
 
 
 .sb-wrap {
-  margin: 0 0 rem(24px);
+  /*margin: 0 0 rem(24px);*/
   font-size: 14px;
 
   &--pages #sidebar-nav li {
@@ -5225,7 +5225,12 @@ span.i-cityselect__city:before {
   width:100%;
 }
 /* Конец стилей для корзины */
-
+.wrap_d292 {
+  z-index: initial;
+}
+body>jdiv>jdiv>jdiv {
+  bottom: 110px!important;
+}
 /* конец стилей для header.banner */
 .-Close {
   display: none !important;

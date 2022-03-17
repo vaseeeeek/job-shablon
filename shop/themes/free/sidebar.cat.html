@@ -53,6 +53,9 @@
     <div class="sb-wrap sidebar-categories">
         <ul class="js-sidebar-cats sidebar-cats">
             {foreach $categories as $category}
+                {if !$theme_settings.sb_list_categories && $category_selected != $category.id}
+                    {continue}
+                {/if}
                 {$_has_childs = false}
                 {if !empty($category.childs)}
                     {foreach $category.childs as $child}
@@ -61,9 +64,8 @@
                         {/if}
                     {/foreach}
                 {/if}
-
                 {if !isset($category.params.menu_hide)}
-                    <li class="sidebar-cats_el{if $categoryegory_selected == $category.id} selected{/if}">
+                    <li class="sidebar-cats_el">
                         {if $_has_childs}<i class="sidebar-cats_el-open fi-rr-angle-small-down sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
                         <a class="sidebar-cats_link{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}" href="{$category.url}">
                             <div class="sidebar-cats_title">
