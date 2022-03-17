@@ -94,7 +94,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value/>
+      <value>#000</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -378,7 +378,7 @@
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
     <setting var="fixed_panel_array" control_type="text">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Нижнее меню на мобильных</name>
       <name locale="en_US"/>
       <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
@@ -880,7 +880,7 @@
       <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>
     </setting>
     <setting var="sb_list_categories" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">List of categories</name>
       <name locale="ru_RU">Список категорий</name>
     </setting>

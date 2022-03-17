@@ -18,9 +18,9 @@
         <meta name="Keywords" content="{$wa->meta('keywords')|escape}"/>
         <meta name="Description" content="{$wa->meta('description')|escape}"/>
         {if !empty($theme_settings.second_color)}
-            {$cesondColor = $theme_settings.main_color}
+            {$secondColor = $theme_settings.second_color}
+            <meta name="theme-color" content="{$secondColor}">
         {/if}
-        <meta name="theme-color" content="{$mainColor}">
         {if !empty($canonical)}
             <link rel="canonical" href="{$canonical}"/>
         {/if}
