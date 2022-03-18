@@ -739,7 +739,7 @@
       </options>
     </setting>
     <setting var="cat_view_subs" control_type="select">
-      <value>none</value>
+      <value>image</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
       <options>
@@ -868,7 +868,7 @@
       <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>
     </setting>
     <setting var="sb_list_categories" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">List of categories</name>
       <name locale="ru_RU">Список категорий</name>
     </setting>

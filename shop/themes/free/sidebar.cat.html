@@ -49,11 +49,20 @@
     {/if}
 {/function}
 
+{$rootCategory = $category}
+{for $index=1 to 5}
+    {if $rootCategory.parent_id}
+        {$rootCategory = $wa->shop->category($rootCategory.parent_id)}
+    {else}
+        {$rootCategoryId = $rootCategory.id}
+    {/if}
+{/for}
+
 {if !empty($categories)}
     <div class="sb-wrap sidebar-categories">
         <ul class="js-sidebar-cats sidebar-cats">
             {foreach $categories as $category}
-                {if !$theme_settings.sb_list_categories && $category_selected != $category.id}
+                {if !$theme_settings.sb_list_categories && $rootCategoryId != $category.id}
                     {continue}
                 {/if}
                 {$_has_childs = false}
