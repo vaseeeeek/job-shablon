@@ -94,14 +94,14 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#000</value>
+      <value/>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
       <description locale="en_US">It can be set the same as the main one if it is not a gradient.</description>
     </setting>
     <setting var="background_color" control_type="color">
-      <value>#ffffff</value>
+      <value/>
       <name locale="ru_RU">Цвет фона</name>
       <name locale="en_US">Background color</name>
     </setting>
@@ -250,7 +250,7 @@
       <name locale="ru_RU">WhatsApp</name>
     </setting>
     <setting var="policy" control_type="text">
-      <value>#</value>
+      <value>/privacy/</value>
       <name locale="en_US">policy</name>
       <name locale="ru_RU">Политика персональных данных</name>
     </setting>
@@ -260,7 +260,7 @@
       <name locale="ru_RU">Шапка</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png</value>
+      <value>img/logo.png?v1643634463</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -291,7 +291,7 @@
       <name locale="ru_RU">Выбор валюты</name>
     </setting>
     <setting var="links_information_pages" control_type="select">
-      <value>site-pages</value>
+      <value>shop-pages</value>
       <name locale="ru_RU">Ссылки на инф. страницы</name>
       <name locale="en_US">Links to information pages</name>
       <description locale="ru_RU">Из какого приложения брать ссылки на инф. страницы.
@@ -368,7 +368,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
@@ -378,7 +378,7 @@
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
     <setting var="fixed_panel_array" control_type="text">
-      <value/>
+      <value>burger,cart,compare,favorite,filter,profile</value>
       <name locale="ru_RU">Нижнее меню на мобильных</name>
       <name locale="en_US"/>
       <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
@@ -470,7 +470,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>cat</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -494,7 +494,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -525,7 +525,7 @@
       <name locale="ru_RU">Слайдер</name>
     </setting>
     <setting var="homepage_type_slider_mode" control_type="select">
-      <value>products</value>
+      <value>promos</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <description locale="ru_RU">ID для опции "Товары из списка" задавать в настройке ниже.
@@ -655,7 +655,7 @@
       </options>
     </setting>
     <setting var="brands_mainpage" control_type="select">
-      <value>all</value>
+      <value>id</value>
       <name locale="en_US">Brands on homepage</name>
       <name locale="ru_RU">Бренды на главной</name>
       <options>
@@ -674,7 +674,7 @@
       </options>
     </setting>
     <setting var="home_brands_ids" control_type="text">
-      <value/>
+      <value>442,629,605,298,162,200,575,590,533</value>
       <name locale="en_US"/>
       <name locale="ru_RU">ID брендов на главной</name>
     </setting>
@@ -689,19 +689,7 @@
       <name locale="ru_RU">Заголовок текста на главной</name>
     </setting>
     <setting var="home_text_note" control_type="text">
-      <value><![CDATA[<p><b>FREE</b> - это современный магазин, где вы найдёте абсолютно любую продукцию. У нас доверительные отношения с поставщиками, поэтому даже если ты ищешь что-то особенное и не можешь найти эту продукцию во всем городе, мы сможем оперативно заказать этот товар для тебя!</p>
-<h2>Гарантии качества и высокого сервиса:</h2>
-<ul>
-<li>Мы закупаем только оригинальную продукцию у проверенных поставщиков;</li>
-<li>Новинки приезжают к нам раньше всех в городе, но при этом товар попадает на полки только после проверки отдела качества и закупок;</li>
-<li>Наши менеджеры и продавцы профессионалы своего дела, так как они регулярно проходят внутренние обучения и внешние у наших партнеров. Вы можете доверять нам, так как мы следим за актуальностью знаний наших сотрудников и расширяем их;</li>
-<li>Быстрая доставка. Если вы живете в Москве, мы доставим Ваш товар за 1 час (в пределах МКАД);</li>
-<li>В нашем широком ассортименте вы всегда найдете товары по душе и Вашему бюджету;</li>
-<li>Доставка по всей России (даже на Сахалин);</li>
-<li>Мы очень гибкий магазин и, если какого-то продукта нет у нас на полке, мы постараемся его заказать индивидуально под вас.</li>
-</ul>
-
-<p><b>FREE</b> всегда идет на встречу своим покупателям и особенно рад новичкам индустрии. Наши продавцы с радостью всё Вам расскажут о кальянной индустрии, о там как забивать и на чем лучше курить, если вы любите одноразки или под системы, наши продавцы также вам помогут с выбором.</p>]]></value>
+      <value>Разрабатываем шаблоны и плагины на движке Shop-Script. Оказываем услуги разработки, верстки, дизайна, парсинга и немного продвижения. Обращайтесь по любым вопросам на почту free@ardoz.ru</value>
       <name locale="en_US">The text on the main page. You can use html.</name>
       <name locale="ru_RU">Текст на главной. Можно использовать html.</name>
     </setting>
@@ -794,7 +782,7 @@
       </options>
     </setting>
     <setting var="pagination" control_type="select">
-      <value>lazyloading</value>
+      <value>paging</value>
       <name locale="en_US">Uploading a list of products</name>
       <name locale="ru_RU">Подгрузка товаров</name>
       <options>
@@ -870,7 +858,7 @@
       <name locale="en_US">Number of disclosed characteristics</name>
     </setting>
     <setting var="view_filter_color_text" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
@@ -1001,7 +989,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>full</value>
+      <value>first</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от
@@ -1047,7 +1035,7 @@
             </description>
     </setting>
     <setting var="product_show_tile_features" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Characteristics in the form of a list - tile</name>
       <name locale="ru_RU">Характеристики в виде списка - плитка</name>
     </setting>
@@ -1464,7 +1452,7 @@
       <name locale="en_US">Stock availability</name>
     </setting>
     <setting var="product_show_stock_count" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>
@@ -1547,7 +1535,7 @@
             </description>
     </setting>
     <setting var="copyright" control_type="text">
-      <value>Текст копирайта</value>
+      <value>2022 © Free - бесплатный шаблон для Shop-Script. бесплатный шаблон для Shop-Script.бесплатный шаблон для Shop-Script.</value>
       <name locale="en_US">Copyright</name>
       <name locale="ru_RU">Копирайт</name>
     </setting>
@@ -1631,7 +1619,7 @@
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
     </setting>
     <setting var="viewed_items_header" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
       <name locale="en_US">The "viewed items" link in the header</name>
     </setting>
