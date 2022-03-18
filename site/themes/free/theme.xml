@@ -858,7 +858,7 @@
       <name locale="en_US">Number of disclosed characteristics</name>
     </setting>
     <setting var="view_filter_color_text" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
@@ -1408,7 +1408,7 @@
       <name locale="en_US">Tags under reviews</name>
     </setting>
     <setting var="view_product_select_color_text" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">The color of the text in the article</name>
       <name locale="ru_RU">Цвет текстом около кружка у артикула</name>
     </setting>
