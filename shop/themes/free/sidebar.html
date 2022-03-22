@@ -6,11 +6,20 @@
                     {if count($pages)}
                         <ul {if $id}id="{$id}"{/if} {if $class}class="{$class}"{/if}>
                             {foreach $pages as $p}
+                                {$selected = strlen($p.url)>1 && $wa->currentUrl() == $p.url}
+                                {if isset($p.childs) && $p.childs && count($p.childs)}
+                                    {$hasChild = true}
+                                {else}
+                                    {$hasChild = false}
+                                {/if}
                                 {if !isset($p.sidebar_menu_hide)}
-                                    <li>
-                                        <a{if strlen($p.url)>1 && $wa->currentUrl() == $p.url} class="selected"{/if} href="{$p.url}"><span>{$p.name}</span></a>
-                                        {if isset($p.childs) && $p.childs && count($p.childs)}
-                                            {menu_tree pages=$p.childs}
+                                    <li class="menu-v__item{if $selected} selected{/if}">
+                                        <a class="menu-v__link{if $selected} selected{/if}" href="{$p.url}">
+                                            <span>{$p.name}</span>
+                                        </a>
+                                        {if $hasChild}
+                                            <i class="fi-rr-angle-small-down"></i>
+                                            {menu_tree pages=$p.childs }
                                         {/if}
                                     </li>
                                 {/if}
@@ -42,3 +51,23 @@
         {/if}
     </aside>
 {/strip}
+<script>
+    $(document).ready(function () {
+        $('.menu-v__item i').each(function () {
+            const icon = $(this);
+            const parent = icon.parent('.menu-v__item');
+            const menuItem = icon.siblings('#sidebar-nav').find('.menu-v__item');
+
+            if (parent.find('.selected').length > 0) {
+                icon.addClass('opened');
+            } else {
+                menuItem.toggleClass('hide');
+            }
+
+            icon.on('click', function () {
+                icon.toggleClass('opened');
+                menuItem.toggleClass('hide');
+            })
+        })
+    })
+</script>

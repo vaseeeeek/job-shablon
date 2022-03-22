@@ -66,6 +66,10 @@
 
         {if count($short_list_features) > 0}
             <table data-type="{$theme_settings.product_page_right_block_features}" class="Product__features">
+
+                {if class_exists('shopSeofilterViewHelper')}
+                    {$short_list_features = shopSeofilterViewHelper::wrapFeatureValues($short_list_features)}
+                {/if}
                 {foreach $short_list_features as $f_code => $f_value}
                     {if !isset($features_list[$f_code]) && isset($features_list["`$f_code`.0"])}
                         {$features_list[$f_code] = $features_list["`$f_code`.0"]}

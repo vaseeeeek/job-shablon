@@ -858,7 +858,7 @@
       <name locale="en_US">Number of disclosed characteristics</name>
     </setting>
     <setting var="view_filter_color_text" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
@@ -989,7 +989,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>first</value>
+      <value>full</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от
@@ -1035,7 +1035,7 @@
             </description>
     </setting>
     <setting var="product_show_tile_features" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="en_US">Characteristics in the form of a list - tile</name>
       <name locale="ru_RU">Характеристики в виде списка - плитка</name>
     </setting>
@@ -1466,6 +1466,11 @@
       <name locale="en_US">Number of similar products(upselling)</name>
       <name locale="ru_RU">Кол-во похожих товаров(upselling)</name>
     </setting>
+    <setting var="product_show_seofilter_link" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывод коллекции ссылок характеристик</name>
+      <name locale="en_US">Show a collection of references of characteristics</name>
+    </setting>
     <setting var="paragraph_footer" control_type="group_divider">
       <value/>
       <name locale="en_US">Footer</name>
@@ -1873,6 +1878,10 @@
     <locale>
       <msgid>Information</msgid>
       <msgstr locale="ru_RU">Информация</msgstr>
+    </locale>
+    <locale>
+      <msgid>Personal data processing policy</msgid>
+      <msgstr locale="ru_RU">Политика обработки персональных данных</msgstr>
     </locale>
   </locales>
 </theme>

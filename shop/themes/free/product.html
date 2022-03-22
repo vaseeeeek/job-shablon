@@ -293,6 +293,9 @@
                                         {/if}
                                         {if class_exists('shopSeofilterViewHelper')}
                                             {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}
+                                            {if $theme_settings.product_show_seofilter_link}
+                                                {$seoLinksArr = []}
+                                            {/if}
                                         {/if}
                                         {foreach $product_features_items as $f_code => $f_value}
                                             {if !empty($features_items[$f_code])}
@@ -318,6 +321,9 @@
                                                                 {/if}
                                                             {else}
                                                                 {$f_value}
+                                                                {if  $f_value|strpos:"a href" !== false && class_exists('shopSeofilterViewHelper')  && $theme_settings.product_show_seofilter_link}
+                                                                    {$seoLinksArr[] = $f_value}
+                                                                {/if}
                                                             {/if}
                                                         {/if}
                                                     </td>
@@ -464,6 +470,19 @@
             </div>
         </article>
 
+        {if class_exists('shopSeofilterViewHelper') && count($seoLinksArr) > 0 && $theme_settings.product_show_seofilter_link}
+            <div class="seo-filter-links">
+                <span class="seo-filter-links__title">Подборки товаров в категории:</span>
+                <span class="seo-filter-links__list">
+                    {foreach $seoLinksArr as $seoLink}
+                        <span class="seo-filter-links__item">
+                            {$seoLink}
+                        </span>
+                    {/foreach}
+                </span>
+            </div>
+        {/if}
+
         {if empty($totalCrossselling)}{$totalCrossselling = 10}{else}{$totalCrossselling = (int) $theme_settings.total_crossselling}{/if}
         {$crossselling = $product->crossSelling($totalCrossselling)}
 
@@ -488,25 +507,6 @@
             </div>
 
         {/if}
-{*        {$viewed_list_arr = ","|explode:$viewed_product_list}*}
-{*        {$viewed_list_arr_lasted = []}*}
-{*        {$counter = 1}*}
-{*        {foreach $viewed_list_arr as $id}*}
-{*            {$viewed_list_arr_lasted[] = $id}*}
-{*            {if $counter++ == 10}*}
-{*                {break}*}
-{*            {/if}*}
-{*        {/foreach}*}
-{*        {$products = $wa->shop->products($viewed_list_arr_lasted)}*}
-{*        {$products_result = []}*}
-{*        {foreach $viewed_list_arr as $id}*}
-{*            {foreach $products as $product}*}
-{*                {if $product.id == $id}*}
-{*                    {$products_result[$id] = $product}*}
-{*                {/if}*}
-{*            {/foreach}*}
-{*        {/foreach}*}
-{*        {include file="product.list.view-carousel.html" products=$products_result product_list_title="[`Viewed products`]"}*}
     </div>
 
 

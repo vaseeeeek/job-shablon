@@ -123,7 +123,10 @@
             background: {$maincolor}33;
         }
 
-        .filters .ui-widget-content .ui-state-default, .cat-sort .checked-list:hover, .My__Input--Pin, .product_options .select-v-inline a.selected {
+        .seo-filter-links .productfilters-feature-value-link,
+        .filters .ui-widget-content .ui-state-default,
+        .cat-sort .checked-list:hover, .My__Input--Pin,
+        .product_options .select-v-inline a.selected {
             border: 1px solid{$scColor};
         }
 
@@ -131,14 +134,21 @@
             box-shadow: inset 0 0 0 1px {$scColor};;
         }
 
-        .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
+        .productfilters-feature-value-link, .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
             border-bottom: 1px solid {$scColor} !important;
         }
-        .Compare__Item--Switch.selected .Compare__Button, .head_info-massage .head_info-massage__closeку:hover, .head_info-massage a, .quickorder-button{
+        .seo-filter-links .productfilters-feature-value-link,
+        .Compare__Item--Switch.selected .Compare__Button,
+        .head_info-massage .head_info-massage__closeку:hover,
+        .head_info-massage a, .quickorder-button{
             color: {$scColor}!important;
         }
 
-        .product_page .image-preview.selected:not(.image-preview--video) a img, .option-color_outer._only-text.checked, .product_page .image-preview.selected.image-preview--video{
+
+
+        .product_page .image-preview.selected:not(.image-preview--video) a img,
+        .option-color_outer._only-text.checked,
+        .product_page .image-preview.selected.image-preview--video{
             border:2px solid {$scColor};
         }
 
@@ -199,8 +209,9 @@
         }
 
         input[type="button"].bg-maincolor:hover,
-        input[type="submit"].bg-maincolor:hover{
-            background: {$scColor};
+        input[type="submit"].bg-maincolor:hover,
+        .seo-filter-links .productfilters-feature-value-link:hover{
+            background: {$scColor}!important;
         }
 
         .product-added-msg:after,

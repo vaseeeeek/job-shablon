@@ -3127,9 +3127,6 @@ input.filter-range_el:focus {
     width: 100%;
     display: inline;
   }
-  .product__title-badge__wrap {
-    display: initial;
-  }
 }
 
 @media (max-width: 640px) {
@@ -3723,9 +3720,26 @@ img.pswp__img {
 
 .Product__features-value {
   padding-left: 5%;
-  max-width: 130px
+  max-width: 130px;
+  .productfilters-feature-value-link{
+    text-decoration: underline;
+  }
 }
-
+.seo-filter-links {
+  a.productfilters-feature-value-link {
+    padding: 3px 10px;
+    margin: 0 10px 10px 0;
+    border-radius: 8px;
+    &:hover{
+      color: #fff;
+    }
+  }
+  span.seo-filter-links__title{
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 10px;
+  }
+}
 .Product__features-title {
   position: relative
 }

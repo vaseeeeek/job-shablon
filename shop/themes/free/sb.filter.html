@@ -28,7 +28,7 @@
                     <div class="filter-el_title js-filter-title">
                         {if $filterId == 'price'}
                             {$c = $wa->shop->currency(true)}
-                            [`Price`],
+                            [`Price`]&nbsp;
                             <span class="filter-el__unit">{$c.sign}</span>
                         {else}
                             {$filter.name|escape}

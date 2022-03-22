@@ -956,8 +956,18 @@ ul.menu-v > li ul li {
   content: "\f106"
 }
 
-.menu-v__subs.hide {
-  display: none
+.menu-v__item{
+  position: relative;
+  i {
+    position: absolute;
+    right: 0;
+    top: 9px;
+    cursor: pointer;
+    transition: all .5s;
+  }
+  i.opened {
+    transform: rotate(-180deg);
+  }
 }
 
 ul.menu-h {
