@@ -1,3 +1,13 @@
 {strip}
-    {include file="`$wa_parent_theme_path`/footer.html" inline}
+
+<div class="s-footer-bottom">
+    <div class="s-layout">
+        <div class="s-column left middle">
+            {if !empty($theme_settings.copyright)}
+                <span class="s-copyright">{$theme_settings.copyright}</span>
+            {/if}
+        </div>
+    </div>
+</div>
+
 {/strip}

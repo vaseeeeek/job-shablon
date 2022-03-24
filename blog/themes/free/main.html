@@ -1,88 +1,24 @@
 {strip}
 
-    {$appBlogId = $wa->globals('blog_id')}
+{* @event (frontend_action_default|frontend_action_post|frontend_action_page|frontend_action_error).%plugin_id%.nav_before *}
+{foreach $frontend_action as $plugin => $output}
+    {if !empty($output.nav_before)}{$output.nav_before}{/if}
+{/foreach}
 
-    {if !is_array($appBlogId)}
-        {$current_blog = $wa->blog->blog($wa->globals('blog_id'))}
-    {/if}
-    {if $wa_app_url != $wa_url}
-        {$positionIndex = 1}
-        <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-            {if isset($post) && $post}
-                {$lastBcName = $post.title}
-            {elseif isset($page.name)}
-                {$lastBcName = $page.name}
-            {/if}
-            <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                <a itemprop="item" href="{$wa_url}"><span itemprop="name">[`Home`]</span></a> &rarr;
-                <meta itemprop="position" content="{$positionIndex}"/>
-            </li>
-
-            {if isset($current_blog) && $current_blog}
-                {if isset($breadcrumbs) || isset($lastBcName) }
-                    {$positionIndex = $positionIndex + 1}
-                    <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{$current_blog.link}"><span
-                                    itemprop="name">{$current_blog.title}</span></a> &rarr;
-                        <meta itemprop="position" content="{$positionIndex}"/>
-                    </li>
-                {else}
-                    <li>{$current_blog.title}</li>
-                {/if}
-            {else}
-                {if isset($breadcrumbs) || isset($lastBcName)}
-                    {$positionIndex = $positionIndex + 1}
-                    <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{$wa_app_url}"><span itemprop="name">[`Blog`]</span></a> &rarr;
-                        <meta itemprop="position" content="{$positionIndex}"/>
-                    </li>
-                {else}
-                    <li>[`Blog`]</li>
-                {/if}
-            {/if}
-
-            {if !isset($breadcrumbs)}
-                {$breadcrumbs = []}
-            {/if}
-            {if $wa->globals('isMyAccount')}
-                {$breadcrumbs[0] = null}
-            {/if}
-            {foreach $breadcrumbs as $breadcrumb}
-                {if $breadcrumb}
-                    {$positionIndex = $positionIndex + 1}
-                    <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{$breadcrumb.url}"><span
-                                    itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last}&rarr;{/if}
-                        <meta itemprop="position" content="{$positionIndex}"/>
-                    </li>
-                {/if}
-            {/foreach}
-
-            {if isset($lastBcName)}
-                <li>{$lastBcName}</li>{/if}
-        </ul>
-    {/if}
-    <div class="cols-2">
-
-        {include file="`$wa_active_theme_path`/sidebar.html"}
-
-        <div class="content{if !(isset($action) && $action == 'default')} content-box{/if} with-sidebar"
-             itemscope itemtype="http://schema.org/WebPage">
-
-            {if empty($posts) && $wa->currentUrl() == $wa_app_url}
-                <div class="content-box">
-                    <h1>[`Welcome to your new blog!`]</h1>
-                    <p>{sprintf('[`Start by <a href="%s">writing a post</a> in your blog backend.`]', $wa_backend_url|cat:'blog/')}</p>
-                </div>
-            {else}
-                {foreach $frontend_action as $plugin => $output}
-                    {if !empty($output.nav_before)}{$output.nav_before}{/if}
-                {/foreach}
-
-                {$content}
-            {/if}
-
-
-        </div>
+{if empty($posts) && $wa->currentUrl() == $wa_app_url}
+    <div class="welcome">
+        <h1>[`Welcome to your new blog!`]</h1>
+        <p>{sprintf('[`Start by <a href="%s">writing a post</a> in your blog backend.`]', $wa_backend_url|cat:'blog/')}</p>
     </div>
+{else}
+    <div class="cols-2">
+        {include "`$wa_active_theme_path`/sidebar.html" inline}
+        <article class="content content-box" itemscope itemtype="http://schema.org/WebPage">
+            <div class="{$action}-page">
+                {$content}
+            </div>
+        </article>
+    </div>
+{/if}
+
 {/strip}

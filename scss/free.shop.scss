@@ -511,6 +511,7 @@ $html-font-size: 14px;
 .home-prev-news {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 0 rem(-10px);
 
   &_item {

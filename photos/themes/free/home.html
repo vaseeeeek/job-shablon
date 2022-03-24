@@ -1,46 +1,19 @@
 {strip}
 
-{$albums = $wa->photos->childAlbums()}
+{$wa->globals("showWidgets", true)}
 
-{if !empty($photos) || !empty($albums)}
-
-    <!-- albums -->
-    {if !empty($albums)}
-        <ul class="album-list">
-            {foreach $albums as $album}
-                <li class="album-item">
-                    <a href="{$album.full_url}">
-                        <div class="album-item_cover">
-                            {if $album.count != ''}
-                                <span class="album-item_count bg-maincolor">{$album.count}</span>
-                            {/if}
-
-                            {if $album.key_photo}
-                                <img src="{$album.key_photo.thumb.url}{if $album.key_photo.edit_datetime}?{strtotime($album.key_photo.edit_datetime)}{/if}" alt="{$album.name}">
-                            {else}
-                                <img src="{$wa_app_static_url}img/album-dummy.png" alt="{$album.name}">
-                            {/if}
-
-                            <div class="album-item_title {if $album.status <= 0} gray{/if}"{if $album.status <= 0} title="[`Private album`]"{/if}>
-                                {$album.name|default:'[`(no name)`]'}
-                                {if $album.status <= 0} <i class="icon10 lock-bw"></i>{/if}
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            {/foreach}
-        </ul>
-    {/if}
-
-    <h1 class="search-criteria">[`Photostream`]</h1>
-
+<div class="p-home-wrapper">
     {if !empty($photos)}
-        {include file='photos-thumbs.html'}
+        <section class="p-photo-stream">
+            {include file="./photos.thumbs.html"}
+        </section>
+
+    {else}
+        <div class="welcome">
+            <h1>[`Welcome to your new photo gallery!`]</h1>
+            <p>{sprintf('[`Start by <a href="%s">uploading photos</a> in your gallery backend.`]', $wa_backend_url|cat:'photos/')}</p>
+        </div>
     {/if}
+</div>
 
-
-{else}
-    <h1>[`Welcome to your new photo gallery!`]</h1>
-    <p>{sprintf('[`Start by <a href="%s">uploading photos</a> in your gallery backend.`]', $wa_backend_url|cat:'photos/')}</p>
-{/if}
 {/strip}

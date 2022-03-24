@@ -693,6 +693,21 @@
       <name locale="en_US">The text on the main page. You can use html.</name>
       <name locale="ru_RU">Текст на главной. Можно использовать html.</name>
     </setting>
+    <setting var="paragraph_home_hews" control_type="paragraph">
+      <value/>
+      <name locale="en_US">News on the main page</name>
+      <name locale="ru_RU">Новости на главной</name>
+    </setting>
+    <setting var="home_lastposts" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display the latest news on the main page</name>
+      <name locale="ru_RU">Вывести последние новости на главной</name>
+    </setting>
+    <setting var="home_blog_id" control_type="text">
+      <value>1</value>
+      <name locale="en_US">Id blog</name>
+      <name locale="ru_RU">Id блога для выводы</name>
+    </setting>
     <setting var="paragraph_catalog" control_type="group_divider">
       <value/>
       <name locale="en_US">List of products</name>

@@ -50,6 +50,17 @@
     {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
 </div>
 
+
+{$is_news = false}
+{if ($theme_settings.home_lastposts && $wa->blog)}
+    {$blog_id = (int)$theme_settings.home_blog_id}
+    {if empty($blog_id)}{$blog_id = null}{/if}
+    {$blog_posts = $wa->blog->posts($blog_id,3)}
+    {if !empty($blog_posts) && count($blog_posts)}
+        {$is_news = true}
+    {/if}
+{/if}
+
 {if !empty($theme_settings.home_text_head) || !empty($theme_settings.home_text_note) || !empty($is_news) || $countWidgets > 0}
     <div class="homepage-text-outer">
         {if !empty($theme_settings.home_text_head) || !empty($theme_settings.home_text_note)}
@@ -63,6 +74,48 @@
             </div>
         {/if}
 
+        {if class_exists('blogSkimagePlugin')}
+            {$sk_blog_images = blogSkimageHelper::getImages()}
+        {/if}
+        <div class="container">
+            <ul class="home-prev-news clear-list">
+                {foreach $blog_posts as $item}
+                    <div class="home-prev-news_item__wrap">
+                        <li class="home-prev-news_item">
+                            {$image = ""}
+                            {if empty($image) && isset($item.image) && !empty($item.image)}
+                                {$image = $item.image}
+                            {/if}
+                            {if isset($sk_blog_images[$item.id]['preview']) && !empty($sk_blog_images[$item.id]['preview'])}
+                                {$image = $sk_blog_images[$item.id]['preview']}
+                            {/if}
+                            {if !empty($image)}
+                                <a href="{$item.link}" class="home-prev-news_item-image">
+                                    {if $theme_settings.home_blog_img_lazy}
+                                        <img class="js-image-lazy" src="{$wa_theme_url}img/lazy-image.png" data-src="{$image}" alt="{$item.title}">
+                                    {else}
+                                        <img src="{$image}" alt="{$item.title}">
+                                    {/if}
+                                </a>
+                            {/if}
+                            <div class="home-prev-news_item-info">
+                                <span class="home-prev-news_item-date">{$item.datetime|wa_datetime:"humandate"}</span>
+                                <div class="home-prev-news_item-name">
+                                    <a href="{$item.link}">{$item.title}</a>
+                                </div>
+                                <div class="home-prev-news_item-text">
+                                    {strip_tags($item.text)|truncate:128}
+                                </div>
+
+                                <div class="home-prev-news_item-more sdColor">
+                                    <a href="{$item.link}">[`Read more`]</a> &rarr;
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                {/foreach}
+            </ul>
+        </div>
     </div>
 {/if}
 {/strip}
