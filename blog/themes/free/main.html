@@ -11,6 +11,7 @@
         <p>{sprintf('[`Start by <a href="%s">writing a post</a> in your blog backend.`]', $wa_backend_url|cat:'blog/')}</p>
     </div>
 {else}
+    {include "`$wa_active_theme_path`/breadcrumbs.html" inline}
     <div class="cols-2">
         {include "`$wa_active_theme_path`/sidebar.html" inline}
         <article class="content content-box" itemscope itemtype="http://schema.org/WebPage">

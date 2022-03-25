@@ -38,7 +38,8 @@
     </file>
     <file path="list-thumbs-view-grid.html">
     </file>
-    <file path="product.html">
+    <file path="product.html" custom="0" modified="1">
+      <description locale="ru_RU"></description>
     </file>
     <file path="product.mini-gallery.html">
     </file>
