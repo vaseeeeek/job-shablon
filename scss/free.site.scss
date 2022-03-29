@@ -4577,7 +4577,7 @@ ul.pages {
   }
 }
 
-.pages li a {
+.pages li a, .pages li span{
   background-color: #f2f3f5;
   color: #404040;
   font-size: 1.1rem;
@@ -4587,7 +4587,7 @@ ul.pages {
   padding: 0.4rem 1.1rem;
 }
 
-.pages .shop:not(:last-child) {
+.pages li:not(:last-child) {
   margin-right: 1.1rem;
 }
 

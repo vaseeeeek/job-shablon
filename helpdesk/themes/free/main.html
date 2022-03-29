@@ -1,0 +1,15 @@
+{strip}
+
+    {$wa->myNav('pages')}
+
+    {$action = $wa->param('action')}
+    <div class="cols-2">
+        {include "`$wa_active_theme_path`/sidebar.html" inline}
+        <article class="content content-box" itemscope itemtype="http://schema.org/WebPage">
+            <div class="{$action}-page">
+                {$content}
+            </div>
+        </article>
+    </div>
+
+{/strip}
