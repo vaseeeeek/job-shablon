@@ -575,10 +575,34 @@ ul.menu-v.categories li.selected a {
   font-weight: bold;
 }
 
+.b-timeline-list .has-menu ul{
+  padding-left: 10px;
+}
+
+.b-timeline-list .has-menu{
+  margin-bottom: 10px;
+}
 .tags.cloud {
   text-align: center;
 }
+.left-sidebar .tags.cloud {
+  text-align: left;
+}
+.b-sidebar-plugin .tags > a {
+  opacity: 1!important;
+  padding: 3px 5px;
+  margin: 0 0.8rem 0.8rem 0;
+}
+.b-sidebar-plugin{
+  margin-top: 10px;
+}
 
+.b-sidebar-plugin ul.menu-v > li{
+  margin: 0!important;
+}
+.b-sidebar-plugin ul.menu-v.categories li a{
+  padding:10px 0;
+}
 .out_sidebars.-mr {
   margin-right: rem(40px);
 }

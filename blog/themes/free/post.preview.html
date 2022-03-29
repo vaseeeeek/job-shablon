@@ -4,6 +4,15 @@
 
 <article class="b-post-wrapper is-preview" id="b-post-{$post.id}" {if $wa->param('blog_url')}itemprop="blogPosts"{/if} itemscope itemtype="http://schema.org/BlogPosting">
     <div class="b-post">
+        {$_images = []}
+        {if class_exists('blogSkimageHelper')}
+            {$_images = blogSkimageHelper::getImages($post.id)}
+        {elseif isset($post['img_main'])}
+            {$_images['main'] = $post['img_main']}
+        {/if}
+        {if count($_images) and isset($_images['main'])}
+            <img class="b-post__main-image" src="{$_images['main']}" alt="{$post.title}">
+        {/if}
         <header class="b-post-header">
             <h2 class="b-post-title">
                 <a href="{$post.link}" itemprop="url">{$post.title}</a>
