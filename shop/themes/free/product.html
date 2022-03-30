@@ -489,8 +489,10 @@
 
         {if empty($count_upselling)}{$count_upselling = 10}{else}{$count_upselling = (int) $theme_settings.product_upselling_count}{/if}
         {$upselling = $product->upSelling($count_upselling)}
-
+        {wa_dumpc($upselling)}
         {$viewed_product_list = $wa->cookie('viewed_product_list')}
+        {wa_dumpc($viewed_product_list)}
+
         {if $crossselling || $upselling }
             <div class="content product_cross-products">
                 {if $crossselling}

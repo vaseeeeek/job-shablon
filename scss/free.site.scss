@@ -956,8 +956,9 @@ ul.menu-v > li ul li {
   content: "\f106"
 }
 
-.menu-v__item{
+.menu-v__item {
   position: relative;
+
   i {
     position: absolute;
     right: 0;
@@ -965,6 +966,7 @@ ul.menu-v > li ul li {
     cursor: pointer;
     transition: all .5s;
   }
+
   i.opened {
     transform: rotate(-180deg);
   }
@@ -2027,6 +2029,7 @@ img.mfp-img {
   .footer-col__item {
     margin-bottom: rem(8px);
   }
+
   .copyright-text {
     display: block;
     width: 280px;
@@ -3403,6 +3406,7 @@ ul.pages-list li a {
   display: none;
   z-index: 100;
   cursor: pointer;
+
   #svgSrollToTop {
     width: 25px;
   }
@@ -3871,6 +3875,12 @@ textarea {
   .mob-menu-lk {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (min-width: 1026px) {
+  .MobileMenu_nav-m {
+    display: none !Important;
   }
 }
 
@@ -4577,7 +4587,7 @@ ul.pages {
   }
 }
 
-.pages li a, .pages li span{
+.pages li a, .pages li span {
   background-color: #f2f3f5;
   color: #404040;
   font-size: 1.1rem;
@@ -5199,15 +5209,16 @@ span.i-cityselect__city:before {
 .product_page.tab-content_el h2, .product_page.tab-content_el h3, .product_page.tab-content_el h4, .product_page.tab-content_el h5, .product_page.tab-content_el h6 {
   margin: 1em 0 0.5em 0;
 }
+
 .homepage-text {
   width: 70%;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .homepage-text h1 {
   font-size: 2rem;
   font-weight: 700;
-  line-height:1.1;
+  line-height: 1.1;
   padding: 2.5rem 0 1.5rem 0;
   border-bottom: none;
   text-align: center;
@@ -5221,7 +5232,7 @@ span.i-cityselect__city:before {
   }
   #themeOverride .homepage-text {
     width: 100%;
-    margin:0 auto;
+    margin: 0 auto;
   }
   #themeOverride .homepage-text h2, #page h2, .product_page.tab-content_el h2, .product_description h2, .Brands__Description h2, .category-desc h2, .product-tab_title h2 {
     font-size: 1.3rem;
@@ -5230,6 +5241,7 @@ span.i-cityselect__city:before {
     font-size: 1.2rem;
   }
 }
+
 /* конец стилей для инфошек */
 
 /* начало стилей header.banner */
@@ -5274,20 +5286,25 @@ span.i-cityselect__city:before {
     padding-left: 0;
   }
 }
+
 #themeOverride .wa-order-cart-wrapper .wa-products .wa-product .wa-product-body > .wa-column-quantity {
   padding-right: 0;
 }
-#themeOverride .wa-order-cart-wrapper .wa-products .wa-product .wa-product-body > .wa-column-quantity .wa-product-fractional-prices{
+
+#themeOverride .wa-order-cart-wrapper .wa-products .wa-product .wa-product-body > .wa-column-quantity .wa-product-fractional-prices {
   text-align: center;
-  width:100%;
+  width: 100%;
 }
+
 /* Конец стилей для корзины */
 .wrap_d292 {
   z-index: initial;
 }
-body>jdiv>jdiv>jdiv {
-  bottom: 110px!important;
+
+body > jdiv > jdiv > jdiv {
+  bottom: 110px !important;
 }
+
 /* конец стилей для header.banner */
 .-Close {
   display: none !important;

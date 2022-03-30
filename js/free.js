@@ -11087,6 +11087,316 @@ void 0 === jQuery.migrateMute && (jQuery.migrateMute = !0),
             })
         }, t.fn.zoom.defaults = e
     }(window.jQuery),
-    /*! Swipebox v1.5.1 | Constantin Saguin csag.co | MIT License | github.com/brutaldesign/swipebox */
-    !function(a,b,c,d){c.swipebox=function(e,f){c(e).addClass("swipebox");var g,h,i={useCSS:!0,useSVG:!0,initialIndexOnArray:0,removeBarsOnMobile:!0,hideCloseButtonOnMobile:!1,hideBarsDelay:3e3,videoMaxWidth:1140,vimeoColor:"cccccc",beforeOpen:null,afterOpen:null,afterClose:null,afterMedia:null,nextSlide:null,prevSlide:null,loopAtEnd:!1,autoplayVideos:!1,queryStringData:{},toggleClassOnLoad:""},j=this,k=[],l=".swipebox",m=navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(Android)|(PlayBook)|(BB10)|(BlackBerry)|(Opera Mini)|(IEMobile)|(webOS)|(MeeGo)/i),n=null!==m||b.createTouch!==d||"ontouchstart"in a||"onmsgesturechange"in a||navigator.msMaxTouchPoints,o=!!b.createElementNS&&!!b.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect,p=a.innerWidth?a.innerWidth:c(a).width(),q=a.innerHeight?a.innerHeight:c(a).height(),r=0;j.settings={},c.swipebox.close=function(){g.closeSlide()},c.swipebox.extend=function(){return g},j.init=function(){j.settings=c.extend({},i,f),Array.isArray(e)?(k=e,g.target=c(a),g.init(j.settings.initialIndexOnArray)):c(b).on("click",l,function(a){if("slide current"===a.target.parentNode.className)return!1;Array.isArray(e)||(g.destroy(),h=c(l),g.actions()),k=[];var b,d,f;f||(d="data-rel",f=c(this).attr(d)),f||(d="rel",f=c(this).attr(d)),h=f&&""!==f&&"nofollow"!==f?c(l).filter("["+d+'="'+f+'"]'):c(l),h.each(function(){var a=null,b=null;c(this).attr("title")&&(a=c(this).attr("title")),c(this).attr("href")&&(b=c(this).attr("href")),k.push({href:b,title:a})}),b=h.index(c(this)),a.preventDefault(),a.stopPropagation(),g.target=c(a.target),g.init(b)})},g={init:function(a){j.settings.beforeOpen&&j.settings.beforeOpen(),this.target.trigger("swipebox-start"),c.swipebox.isOpen=!0,this.build(),this.openSlide(a),this.openMedia(a),this.preloadMedia(a+1),this.preloadMedia(a-1),j.settings.afterOpen&&j.settings.afterOpen(a)},build:function(){var a,b=this;c("body").append('<div id="swipebox-overlay">\t\t\t\t\t<div id="swipebox-container">\t\t\t\t\t\t<div id="swipebox-slider"></div>\t\t\t\t\t\t<div id="swipebox-top-bar">\t\t\t\t\t\t\t<div id="swipebox-title"></div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<div id="swipebox-bottom-bar">\t\t\t\t\t\t\t<div id="swipebox-arrows">\t\t\t\t\t\t\t\t<a id="swipebox-prev"></a>\t\t\t\t\t\t\t\t<a id="swipebox-next"></a>\t\t\t\t\t\t\t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<a id="swipebox-close"></a>\t\t\t\t\t</div>\t\t\t</div>'),o&&!0===j.settings.useSVG&&(a=c("#swipebox-close").css("background-image"),a=a.replace("png","svg"),c("#swipebox-prev, #swipebox-next, #swipebox-close").css({"background-image":a})),m&&j.settings.removeBarsOnMobile&&c("#swipebox-bottom-bar, #swipebox-top-bar").remove(),c.each(k,function(){c("#swipebox-slider").append('<div class="slide"></div>')}),b.setDim(),b.actions(),n&&b.gesture(),b.keyboard(),b.animBars(),b.resize()},setDim:function(){var b,d,e={};"onorientationchange"in a?a.addEventListener("orientationchange",function(){0===a.orientation?(b=p,d=q):90!==a.orientation&&-90!==a.orientation||(b=q,d=p)},!1):(b=a.innerWidth?a.innerWidth:c(a).width(),d=a.innerHeight?a.innerHeight:c(a).height()),e={width:b,height:d},c("#swipebox-overlay").css(e)},resize:function(){var b=this;c(a).resize(function(){b.setDim()}).resize()},supportTransition:function(){var a,c="transition WebkitTransition MozTransition OTransition msTransition KhtmlTransition".split(" ");for(a=0;a<c.length;a++)if(b.createElement("div").style[c[a]]!==d)return c[a];return!1},doCssTrans:function(){if(j.settings.useCSS&&this.supportTransition())return!0},gesture:function(){var a,b,d,e,f,g,h=this,i=!1,j=!1,l=10,m=50,n={},o={},q=c("#swipebox-top-bar, #swipebox-bottom-bar"),s=c("#swipebox-slider");q.addClass("visible-bars"),h.setTimeout(),c("body").bind("touchstart",function(h){return c(this).addClass("touching"),a=c("#swipebox-slider .slide").index(c("#swipebox-slider .slide.current")),o=h.originalEvent.targetTouches[0],n.pageX=h.originalEvent.targetTouches[0].pageX,n.pageY=h.originalEvent.targetTouches[0].pageY,c("#swipebox-slider").css({"-webkit-transform":"translate3d("+r+"%, 0, 0)",transform:"translate3d("+r+"%, 0, 0)"}),c(".touching").bind("touchmove",function(h){if(h.preventDefault(),h.stopPropagation(),o=h.originalEvent.targetTouches[0],!j&&(f=d,d=o.pageY-n.pageY,Math.abs(d)>=m||i)){var q=.75-Math.abs(d)/s.height();s.css({top:d+"px"}),s.css({opacity:q}),i=!0}e=b,b=o.pageX-n.pageX,g=100*b/p,!j&&!i&&Math.abs(b)>=l&&(c("#swipebox-slider").css({"-webkit-transition":"",transition:""}),j=!0),j&&(0<b?0===a?c("#swipebox-overlay").addClass("leftSpringTouch"):(c("#swipebox-overlay").removeClass("leftSpringTouch").removeClass("rightSpringTouch"),c("#swipebox-slider").css({"-webkit-transform":"translate3d("+(r+g)+"%, 0, 0)",transform:"translate3d("+(r+g)+"%, 0, 0)"})):0>b&&(k.length===a+1?c("#swipebox-overlay").addClass("rightSpringTouch"):(c("#swipebox-overlay").removeClass("leftSpringTouch").removeClass("rightSpringTouch"),c("#swipebox-slider").css({"-webkit-transform":"translate3d("+(r+g)+"%, 0, 0)",transform:"translate3d("+(r+g)+"%, 0, 0)"}))))}),!1}).bind("touchend",function(a){if(a.preventDefault(),a.stopPropagation(),c("#swipebox-slider").css({"-webkit-transition":"-webkit-transform 0.4s ease",transition:"transform 0.4s ease"}),d=o.pageY-n.pageY,b=o.pageX-n.pageX,g=100*b/p,i)if(i=!1,Math.abs(d)>=2*m&&Math.abs(d)>Math.abs(f)){var k=d>0?s.height():-s.height();s.animate({top:k+"px",opacity:0},300,function(){h.closeSlide()})}else s.animate({top:0,opacity:1},300);else j?(j=!1,b>=l&&b>=e?h.getPrev():b<=-l&&b<=e&&h.getNext()):q.hasClass("visible-bars")?(h.clearTimeout(),h.hideBars()):(h.showBars(),h.setTimeout());c("#swipebox-slider").css({"-webkit-transform":"translate3d("+r+"%, 0, 0)",transform:"translate3d("+r+"%, 0, 0)"}),c("#swipebox-overlay").removeClass("leftSpringTouch").removeClass("rightSpringTouch"),c(".touching").off("touchmove").removeClass("touching")})},setTimeout:function(){if(j.settings.hideBarsDelay>0){var b=this;b.clearTimeout(),b.timeout=a.setTimeout(function(){b.hideBars()},j.settings.hideBarsDelay)}},clearTimeout:function(){a.clearTimeout(this.timeout),this.timeout=null},showBars:function(){var a=c("#swipebox-top-bar, #swipebox-bottom-bar");this.doCssTrans()?a.addClass("visible-bars"):(c("#swipebox-top-bar").animate({top:0},500),c("#swipebox-bottom-bar").animate({bottom:0},500),setTimeout(function(){a.addClass("visible-bars")},1e3))},hideBars:function(){var a=c("#swipebox-top-bar, #swipebox-bottom-bar");this.doCssTrans()?a.removeClass("visible-bars"):(c("#swipebox-top-bar").animate({top:"-50px"},500),c("#swipebox-bottom-bar").animate({bottom:"-50px"},500),setTimeout(function(){a.removeClass("visible-bars")},1e3))},animBars:function(){var a=this,b=c("#swipebox-top-bar, #swipebox-bottom-bar");b.addClass("visible-bars"),a.setTimeout(),c("#swipebox-slider").click(function(){b.hasClass("visible-bars")||(a.showBars(),a.setTimeout())}),c("#swipebox-bottom-bar").hover(function(){a.showBars(),b.addClass("visible-bars"),a.clearTimeout()},function(){j.settings.hideBarsDelay>0&&(b.removeClass("visible-bars"),a.setTimeout())})},keyboard:function(){var b=this;c(a).bind("keyup",function(a){a.preventDefault(),a.stopPropagation(),37===a.keyCode?b.getPrev():39===a.keyCode?b.getNext():27===a.keyCode&&b.closeSlide()})},actions:function(){var a=this,b="touchend click";k.length<2?(c("#swipebox-bottom-bar").hide(),d===k[1]&&c("#swipebox-top-bar").hide()):(c("#swipebox-prev").bind(b,function(b){b.preventDefault(),b.stopPropagation(),a.getPrev(),a.setTimeout()}),c("#swipebox-next").bind(b,function(b){b.preventDefault(),b.stopPropagation(),a.getNext(),a.setTimeout()})),c("#swipebox-close").bind(b,function(b){b.preventDefault(),b.stopPropagation(),a.closeSlide()})},setSlide:function(a,b){b=b||!1;var d=c("#swipebox-slider");r=100*-a,this.doCssTrans()?d.css({"-webkit-transform":"translate3d("+100*-a+"%, 0, 0)",transform:"translate3d("+100*-a+"%, 0, 0)"}):d.animate({left:100*-a+"%"}),c("#swipebox-slider .slide").removeClass("current"),c("#swipebox-slider .slide").eq(a).addClass("current"),this.setTitle(a),b&&d.fadeIn(),c("#swipebox-prev, #swipebox-next").removeClass("disabled"),0===a?c("#swipebox-prev").addClass("disabled"):a===k.length-1&&!0!==j.settings.loopAtEnd&&c("#swipebox-next").addClass("disabled")},openSlide:function(b){c("html").addClass("swipebox-html"),n?(c("html").addClass("swipebox-touch"),j.settings.hideCloseButtonOnMobile&&c("html").addClass("swipebox-no-close-button")):c("html").addClass("swipebox-no-touch"),c(a).trigger("resize"),this.setSlide(b,!0)},preloadMedia:function(a){var b=this,c=null;k[a]!==d&&(c=k[a].href),b.isVideo(c)?b.openMedia(a):setTimeout(function(){b.openMedia(a)},1e3)},openMedia:function(a){var b,e,f=this;if(k[a]!==d&&(b=k[a].href),a<0||a>=k.length)return!1;e=c("#swipebox-slider .slide").eq(a),f.isVideo(b)?(e.html(f.getVideo(b)),j.settings.afterMedia&&j.settings.afterMedia(a)):(e.addClass("slide-loading"),f.loadMedia(b,function(){e.removeClass("slide-loading"),e.html(this),j.settings.afterMedia&&j.settings.afterMedia(a)}))},setTitle:function(a){var b=null;c("#swipebox-title").empty(),k[a]!==d&&(b=k[a].title),b?(c("#swipebox-top-bar").show(),c("#swipebox-title").append(b)):c("#swipebox-top-bar").hide()},isVideo:function(a){if(a){if(a.match(/(youtube\.com|youtube-nocookie\.com)\/watch\?v=([a-zA-Z0-9\-_]+)/)||a.match(/vimeo\.com\/([0-9]*)/)||a.match(/youtu\.be\/([a-zA-Z0-9\-_]+)/))return!0;if(a.toLowerCase().indexOf("swipeboxvideo=1")>=0)return!0}},parseUri:function(a,d){var e=b.createElement("a"),f={};return e.href=decodeURIComponent(a),e.search&&(f=JSON.parse('{"'+e.search.toLowerCase().replace("?","").replace(/&/g,'","').replace(/=/g,'":"')+'"}')),c.isPlainObject(d)&&(f=c.extend(f,d,j.settings.queryStringData)),c.map(f,function(a,b){if(a&&a>"")return encodeURIComponent(b)+"="+encodeURIComponent(a)}).join("&")},getVideo:function(a){var b="",c=a.match(/((?:www\.)?youtube\.com|(?:www\.)?youtube-nocookie\.com)\/watch\?v=([a-zA-Z0-9\-_]+)/),d=a.match(/(?:www\.)?youtu\.be\/([a-zA-Z0-9\-_]+)/),e=a.match(/(?:www\.)?vimeo\.com\/([0-9]*)/),f="";return c||d?(d&&(c=d),console.log(c),f=g.parseUri(a,{autoplay:j.settings.autoplayVideos?"1":"0",v:""}),b='<iframe width="560" height="315" src="https://'+c[1]+"/embed/"+c[2]+"?"+f+'" frameborder="0" allowfullscreen></iframe>'):e?(f=g.parseUri(a,{autoplay:j.settings.autoplayVideos?"1":"0",byline:"0",portrait:"0",color:j.settings.vimeoColor}),b='<iframe width="560" height="315"  src="//player.vimeo.com/video/'+e[1]+"?"+f+'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'):b='<iframe width="560" height="315" src="'+a+'" frameborder="0" allowfullscreen></iframe>','<div class="swipebox-video-container" style="max-width:'+j.settings.videoMaxWidth+'px"><div class="swipebox-video">'+b+"</div></div>"},loadMedia:function(a,b){if(0===a.trim().indexOf("#"))b.call(c("<div>",{class:"swipebox-inline-container"}).append(c(a).clone().toggleClass(j.settings.toggleClassOnLoad)));else if(!this.isVideo(a)){var d=c("<img>").on("load",function(){b.call(d)});d.attr("src",a)}},getNext:function(){var a,b=this,d=c("#swipebox-slider .slide").index(c("#swipebox-slider .slide.current"));d+1<k.length?(a=c("#swipebox-slider .slide").eq(d).contents().find("iframe").attr("src"),c("#swipebox-slider .slide").eq(d).contents().find("iframe").attr("src",a),d++,b.setSlide(d),b.preloadMedia(d+1),j.settings.nextSlide&&j.settings.nextSlide(d)):!0===j.settings.loopAtEnd?(a=c("#swipebox-slider .slide").eq(d).contents().find("iframe").attr("src"),c("#swipebox-slider .slide").eq(d).contents().find("iframe").attr("src",a),d=0,b.preloadMedia(d),b.setSlide(d),b.preloadMedia(d+1),j.settings.nextSlide&&j.settings.nextSlide(d)):(c("#swipebox-overlay").addClass("rightSpring"),setTimeout(function(){c("#swipebox-overlay").removeClass("rightSpring")},500))},getPrev:function(){var a,b=c("#swipebox-slider .slide").index(c("#swipebox-slider .slide.current"));b>0?(a=c("#swipebox-slider .slide").eq(b).contents().find("iframe").attr("src"),c("#swipebox-slider .slide").eq(b).contents().find("iframe").attr("src",a),b--,this.setSlide(b),this.preloadMedia(b-1),j.settings.prevSlide&&j.settings.prevSlide(b)):(c("#swipebox-overlay").addClass("leftSpring"),setTimeout(function(){c("#swipebox-overlay").removeClass("leftSpring")},500))},nextSlide:function(a){},prevSlide:function(a){},closeSlide:function(){c("html").removeClass("swipebox-html"),c("html").removeClass("swipebox-touch"),c(a).trigger("resize"),this.destroy()},destroy:function(){c(a).unbind("keyup"),c("body").unbind("touchstart"),c("body").unbind("touchmove"),c("body").unbind("touchend"),c("#swipebox-slider").unbind(),c("#swipebox-overlay").remove(),Array.isArray(e)||e.removeData("_swipebox"),this.target&&this.target.trigger("swipebox-destroy"),c.swipebox.isOpen=!1,j.settings.afterClose&&j.settings.afterClose()}},j.init()},c.fn.swipebox=function(a){if(!c.data(this,"_swipebox")){var b=new c.swipebox(this,a);this.data("_swipebox",b)}return this.data("_swipebox")}}(window,document,jQuery);
-    
+    function(t, e, i, n) {
+        i.swipebox = function(s, o) {
+            var a, r, l = {
+                    useCSS: !0,
+                    useSVG: !0,
+                    initialIndexOnArray: 0,
+                    removeBarsOnMobile: !0,
+                    hideCloseButtonOnMobile: !1,
+                    hideBarsDelay: 3e3,
+                    videoMaxWidth: 1140,
+                    vimeoColor: "cccccc",
+                    beforeOpen: null,
+                    afterOpen: null,
+                    afterClose: null,
+                    nextSlide: null,
+                    prevSlide: null,
+                    loopAtEnd: !1,
+                    autoplayVideos: !1,
+                    queryStringData: {},
+                    toggleClassOnLoad: "",
+                    thumbs: !1
+                },
+                c = this,
+                d = [],
+                u = s.selector,
+                h = i(u),
+                p = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(Android)|(PlayBook)|(BB10)|(BlackBerry)|(Opera Mini)|(IEMobile)|(webOS)|(MeeGo)/i),
+                f = null !== p || e.createTouch !== n || "ontouchstart" in t || "onmsgesturechange" in t || navigator.msMaxTouchPoints,
+                m = !!e.createElementNS && !!e.createElementNS("http://www.w3.org/2000/svg", "svg").createSVGRect,
+                g = t.innerWidth ? t.innerWidth : i(t).width(),
+                v = t.innerHeight ? t.innerHeight : i(t).height(),
+                _ = 0;
+            c.settings = {}, i.swipebox.close = function() {
+                a.closeSlide()
+            }, i.swipebox.extend = function() {
+                return a
+            }, c.init = function() {
+                c.settings = i.extend({}, l, o), i.isArray(s) ? (d = s, a.target = i(t), a.init(c.settings.initialIndexOnArray)) : i(e).on("click", u, function(t) {
+                    if ("slide current" === t.target.parentNode.className) return !1;
+                    i.isArray(s) || (a.destroy(), r = i(u), a.actions()), d = [];
+                    var e, n, o;
+                    o || (n = "data-rel", o = i(this).attr(n)), o || (n = "rel", o = i(this).attr(n)), r = o && "" !== o && "nofollow" !== o ? h.filter("[" + n + '="' + o + '"]') : i(u), r.each(function() {
+                        var t = null,
+                            e = null;
+                        i(this).attr("title") && (t = i(this).attr("title")), i(this).attr("href") && (e = i(this).attr("href")), d.push({
+                            href: e,
+                            title: t
+                        })
+                    }), e = r.index(i(this)), t.preventDefault(), t.stopPropagation(), a.target = i(t.target), a.init(e)
+                })
+            }, a = {
+                init: function(t) {
+                    c.settings.beforeOpen && c.settings.beforeOpen(), this.target.trigger("swipebox-start"), i.swipebox.isOpen = !0, this.build(), this.openSlide(t), this.openMedia(t), this.preloadMedia(t + 1), this.preloadMedia(t - 1), c.settings.afterOpen && c.settings.afterOpen()
+                },
+                build: function() {
+                    var t, e = this;
+                    i("body").append('<div id="swipebox-overlay">\t\t\t\t\t<div id="swipebox-container">\t\t\t\t\t\t<div id="swipebox-slider"></div>\t\t\t\t\t\t<div id="swipebox-top-bar">\t\t\t\t\t\t\t<div id="swipebox-title"></div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<div id="swipebox-bottom-bar">\t\t\t\t\t\t\t<div id="swipebox-arrows">\t\t\t\t\t\t\t\t<a id="swipebox-prev"></a>\t\t\t\t\t\t\t\t<a id="swipebox-next"></a>\t\t\t\t\t\t\t</div>\t\t\t\t\t\t</div>\t\t\t\t\t\t<a id="swipebox-close"></a>\t\t\t\t\t</div>\t\t\t</div>'), m && !0 === c.settings.useSVG && (t = i("#swipebox-close").css("background-image"), t = t.replace("png", "svg"), i("#swipebox-prev, #swipebox-next, #swipebox-close").css({
+                        "background-image": t
+                    })), p && c.settings.removeBarsOnMobile && i("#swipebox-bottom-bar, #swipebox-top-bar").remove(), i.each(d, function(t) {
+                        i("#swipebox-slider").append('<div data-index="' + t + '" class="slide"></div>')
+                    }), e.setDim(), e.actions(), f && e.gesture(), e.keyboard(), e.animBars(), e.resize()
+                },
+                setDim: function() {
+                    var e, n, s = {};
+                    "onorientationchange" in t ? t.addEventListener("orientationchange", function() {
+                        0 === t.orientation ? (e = g, n = v) : 90 !== t.orientation && -90 !== t.orientation || (e = v, n = g)
+                    }, !1) : (e = t.innerWidth ? t.innerWidth : i(t).width(), n = t.innerHeight ? t.innerHeight : i(t).height()), s = {
+                        width: e,
+                        height: n
+                    }, i("#swipebox-overlay").css(s)
+                },
+                resize: function() {
+                    var e = this;
+                    i(t).resize(function() {
+                        e.setDim()
+                    }).resize()
+                },
+                supportTransition: function() {
+                    var t,
+                        i = "transition WebkitTransition MozTransition OTransition msTransition KhtmlTransition".split(" ");
+                    for (t = 0; t < i.length; t++)
+                        if (e.createElement("div").style[i[t]] !== n) return i[t];
+                    return !1
+                },
+                doCssTrans: function() {
+                    if (c.settings.useCSS && this.supportTransition()) return !0
+                },
+                gesture: function() {
+                    var t, e, n, s, o, a, r = this,
+                        l = !1,
+                        c = !1,
+                        u = 10,
+                        h = 50,
+                        p = {},
+                        f = {},
+                        m = i("#swipebox-top-bar, #swipebox-bottom-bar"),
+                        v = i("#swipebox-slider");
+                    m.addClass("visible-bars"), r.setTimeout(), i("body").bind("touchstart", function(r) {
+                        return i(this).addClass("touching"), t = i("#swipebox-slider .slide").index(i("#swipebox-slider .slide.current")), f = r.originalEvent.targetTouches[0], p.pageX = r.originalEvent.targetTouches[0].pageX, p.pageY = r.originalEvent.targetTouches[0].pageY, i("#swipebox-slider").css({
+                            "-webkit-transform": "translate3d(" + _ + "%, 0, 0)",
+                            transform: "translate3d(" + _ + "%, 0, 0)"
+                        }), i(".touching").bind("touchmove", function(r) {
+                            if (r.preventDefault(), r.stopPropagation(), f = r.originalEvent.targetTouches[0], !c && (o = n, n = f.pageY - p.pageY, Math.abs(n) >= h || l)) {
+                                var m = .75 - Math.abs(n) / v.height();
+                                v.css({
+                                    top: n + "px"
+                                }), v.css({
+                                    opacity: m
+                                }), l = !0
+                            }
+                            s = e, e = f.pageX - p.pageX, a = 100 * e / g, !c && !l && Math.abs(e) >= u && (i("#swipebox-slider").css({
+                                "-webkit-transition": "",
+                                transition: ""
+                            }), c = !0), c && (0 < e ? 0 === t ? i("#swipebox-overlay").addClass("leftSpringTouch") : (i("#swipebox-overlay").removeClass("leftSpringTouch").removeClass("rightSpringTouch"), i("#swipebox-slider").css({
+                                "-webkit-transform": "translate3d(" + (_ + a) + "%, 0, 0)",
+                                transform: "translate3d(" + (_ + a) + "%, 0, 0)"
+                            })) : 0 > e && (d.length === t + 1 ? i("#swipebox-overlay").addClass("rightSpringTouch") : (i("#swipebox-overlay").removeClass("leftSpringTouch").removeClass("rightSpringTouch"), i("#swipebox-slider").css({
+                                "-webkit-transform": "translate3d(" + (_ + a) + "%, 0, 0)",
+                                transform: "translate3d(" + (_ + a) + "%, 0, 0)"
+                            }))))
+                        }), !1
+                    }).bind("touchend", function(t) {
+                        if (t.preventDefault(), t.stopPropagation(), i("#swipebox-slider").css({
+                            "-webkit-transition": "-webkit-transform 0.4s ease",
+                            transition: "transform 0.4s ease"
+                        }), n = f.pageY - p.pageY, e = f.pageX - p.pageX, a = 100 * e / g, l)
+                            if (l = !1, Math.abs(n) >= 2 * h && Math.abs(n) > Math.abs(o)) {
+                                var d = n > 0 ? v.height() : -v.height();
+                                v.animate({
+                                    top: d + "px",
+                                    opacity: 0
+                                }, 300, function() {
+                                    r.closeSlide()
+                                })
+                            } else v.animate({
+                                top: 0,
+                                opacity: 1
+                            }, 300);
+                        else c ? (c = !1, e >= u && e >= s ? r.getPrev() : e <= -u && e <= s && r.getNext()) : m.hasClass("visible-bars") ? (r.clearTimeout(), r.hideBars()) : (r.showBars(), r.setTimeout());
+                        i("#swipebox-slider").css({
+                            "-webkit-transform": "translate3d(" + _ + "%, 0, 0)",
+                            transform: "translate3d(" + _ + "%, 0, 0)"
+                        }), i("#swipebox-overlay").removeClass("leftSpringTouch").removeClass("rightSpringTouch"), i(".touching").off("touchmove").removeClass("touching")
+                    })
+                },
+                setTimeout: function() {
+                    if (c.settings.hideBarsDelay > 0) {
+                        var e = this;
+                        e.clearTimeout(), e.timeout = t.setTimeout(function() {
+                            e.hideBars()
+                        }, c.settings.hideBarsDelay)
+                    }
+                },
+                clearTimeout: function() {
+                    t.clearTimeout(this.timeout), this.timeout = null
+                },
+                showBars: function() {
+                    var t = i("#swipebox-top-bar, #swipebox-bottom-bar");
+                    this.doCssTrans() ? t.addClass("visible-bars") : (i("#swipebox-top-bar").animate({
+                        top: 0
+                    }, 500), i("#swipebox-bottom-bar").animate({
+                        bottom: 0
+                    }, 500), setTimeout(function() {
+                        t.addClass("visible-bars")
+                    }, 1e3))
+                },
+                hideBars: function() {
+                    var t = i("#swipebox-top-bar, #swipebox-bottom-bar");
+                    this.doCssTrans() ? t.removeClass("visible-bars") : (i("#swipebox-top-bar").animate({
+                        top: "-50px"
+                    }, 500), i("#swipebox-bottom-bar").animate({
+                        bottom: "-50px"
+                    }, 500), setTimeout(function() {
+                        t.removeClass("visible-bars")
+                    }, 1e3))
+                },
+                animBars: function() {
+                    var t = this,
+                        e = i("#swipebox-top-bar, #swipebox-bottom-bar");
+                    e.addClass("visible-bars"), t.setTimeout(), i("#swipebox-slider").click(function() {
+                        e.hasClass("visible-bars") || (t.showBars(), t.setTimeout())
+                    }), i("#swipebox-bottom-bar").hover(function() {
+                        t.showBars(), e.addClass("visible-bars"), t.clearTimeout()
+                    }, function() {
+                        c.settings.hideBarsDelay > 0 && (e.removeClass("visible-bars"), t.setTimeout())
+                    })
+                },
+                keyboard: function() {
+                    var e = this;
+                    i(t).bind("keyup", function(t) {
+                        t.preventDefault(), t.stopPropagation(), 37 === t.keyCode ? e.getPrev() : 39 === t.keyCode ? e.getNext() : 27 === t.keyCode && e.closeSlide()
+                    })
+                },
+                actions: function() {
+                    var t = this,
+                        e = "touchend click";
+                    d.length < 2 ? (i("#swipebox-bottom-bar").hide(), n === d[1] && i("#swipebox-top-bar").hide()) : (i("#swipebox-prev").bind(e, function(e) {
+                        e.preventDefault(), e.stopPropagation(), t.getPrev(), t.setTimeout()
+                    }), i("#swipebox-next").bind(e, function(e) {
+                        e.preventDefault(), e.stopPropagation(), t.getNext(), t.setTimeout()
+                    }), c.settings.thumbs && (d.forEach(function(e, i) {
+                        t.preloadMedia(i)
+                    }), i("body").on(e, ".js-swipebox-thumbs-el", function(e) {
+                        e.preventDefault(), e.stopPropagation(), t.getThumb(i(this)), t.setTimeout()
+                    }))), i("#swipebox-close").bind(e, function() {
+                        t.closeSlide()
+                    })
+                },
+                setSlide: function(t, e) {
+                    e = e || !1;
+                    var n = i("#swipebox-slider");
+                    _ = 100 * -t, this.doCssTrans() ? n.css({
+                        "-webkit-transform": "translate3d(" + 100 * -t + "%, 0, 0)",
+                        transform: "translate3d(" + 100 * -t + "%, 0, 0)"
+                    }) : n.animate({
+                        left: 100 * -t + "%"
+                    }), i("#swipebox-slider .slide").removeClass("current"), i("#swipebox-slider .slide").eq(t).addClass("current"), c.settings.thumbs && (i(".js-swipebox-thumbs-el").removeClass("active"), i('.js-swipebox-thumbs-el[data-index="' + t + '"]').addClass("active")), this.setTitle(t), e && n.fadeIn(), i("#swipebox-prev, #swipebox-next").removeClass("disabled"), 0 === t ? i("#swipebox-prev").addClass("disabled") : t === d.length - 1 && !0 !== c.settings.loopAtEnd && i("#swipebox-next").addClass("disabled")
+                },
+                openSlide: function(e) {
+                    i("html").addClass("swipebox-html"), f ? (i("html").addClass("swipebox-touch"), c.settings.hideCloseButtonOnMobile && i("html").addClass("swipebox-no-close-button")) : i("html").addClass("swipebox-no-touch"), i(t).trigger("resize"), this.setSlide(e, !0)
+                },
+                preloadMedia: function(t) {
+                    var e = this,
+                        i = null;
+                    d[t] !== n && (i = d[t].href), e.isVideo(i) ? e.openMedia(t) : setTimeout(function() {
+                        e.openMedia(t)
+                    }, 1e3)
+                },
+                openMedia: function(t) {
+                    var e, s, o = this;
+                    if (d[t] !== n && (e = d[t].href), t < 0 || t >= d.length) return !1;
+                    s = i("#swipebox-slider .slide").eq(t), o.isVideo(e) ? s.html(o.getVideo(e)) : (s.addClass("slide-loading"), o.loadMedia(e, function() {
+                        s.removeClass("slide-loading"), s.html(this)
+                    }))
+                },
+                setTitle: function(t) {
+                    var e = null;
+                    i("#swipebox-title").empty(), d[t] !== n && (e = d[t].title), e ? (i("#swipebox-top-bar").show(), i("#swipebox-title").append(e)) : i("#swipebox-top-bar").hide()
+                },
+                isVideo: function(t) {
+                    if (t) {
+                        if (t.match(/(youtube\.com|youtube-nocookie\.com)\/watch\?v=([a-zA-Z0-9\-_]+)/) || t.match(/vimeo\.com\/([0-9]*)/) || t.match(/youtu\.be\/([a-zA-Z0-9\-_]+)/) || t.match(/youtube\.com\/([a-zA-Z0-9\-_]+)/)) return !0;
+                        if (t.toLowerCase().indexOf("swipeboxvideo=1") >= 0) return !0
+                    }
+                },
+                parseUri: function(t, n) {
+                    var s = e.createElement("a"),
+                        o = {};
+                    return s.href = decodeURIComponent(t), s.search && (o = JSON.parse('{"' + s.search.toLowerCase().replace("?", "").replace(/&/g, '","').replace(/=/g, '":"') + '"}')), i.isPlainObject(n) && (o = i.extend(o, n, c.settings.queryStringData)), i.map(o, function(t, e) {
+                        if (t && t > "") return encodeURIComponent(e) + "=" + encodeURIComponent(t)
+                    }).join("&")
+                },
+                getVideo: function(t) {
+                    var e = "",
+                        i = t.match(/((?:www\.)?youtube\.com|(?:www\.)?youtube-nocookie\.com)\/watch\?v=([a-zA-Z0-9\-_]+)/),
+                        n = t.match(/(?:www\.)?youtu\.be\/([a-zA-Z0-9\-_]+)/),
+                        s = t.match(/(?:www\.)?vimeo\.com\/([0-9]*)/),
+                        o = "";
+                    return i || n ? (n && (i = n), o = a.parseUri(t, {
+                        autoplay: c.settings.autoplayVideos ? "1" : "0",
+                        v: ""
+                    }), e = '<iframe width="560" height="315" src="//' + i[1] + "/embed/" + i[2] + "?" + o + '" frameborder="0" allowfullscreen></iframe>') : s ? (o = a.parseUri(t, {
+                        autoplay: c.settings.autoplayVideos ? "1" : "0",
+                        byline: "0",
+                        portrait: "0",
+                        color: c.settings.vimeoColor
+                    }), e = '<iframe width="560" height="315"  src="//player.vimeo.com/video/' + s[1] + "?" + o + '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>') : e = '<iframe width="560" height="315" src="' + t + '" frameborder="0" allowfullscreen></iframe>', '<div class="swipebox-video-container" style="max-width:' + c.settings.videoMaxWidth + 'px"><div class="swipebox-video">' + e + "</div></div>"
+                },
+                loadMedia: function(t, e) {
+                    if (0 === t.trim().indexOf("#")) e.call(i("<div>", {
+                        class: "swipebox-inline-container"
+                    }).append(i(t).clone().toggleClass(c.settings.toggleClassOnLoad)));
+                    else if (!this.isVideo(t)) {
+                        var n = i("<img>").on("load", function() {
+                            e.call(n)
+                        });
+                        n.attr("src", t)
+                    }
+                },
+                getNext: function() {
+                    var t, e = this,
+                        n = i("#swipebox-slider .slide").index(i("#swipebox-slider .slide.current"));
+                    n + 1 < d.length ? (t = i("#swipebox-slider .slide").eq(n).contents().find("iframe").attr("src"), i("#swipebox-slider .slide").eq(n).contents().find("iframe").attr("src", t), n++, e.setSlide(n), e.preloadMedia(n + 1), c.settings.nextSlide && c.settings.nextSlide()) : !0 === c.settings.loopAtEnd ? (t = i("#swipebox-slider .slide").eq(n).contents().find("iframe").attr("src"), i("#swipebox-slider .slide").eq(n).contents().find("iframe").attr("src", t), n = 0, e.preloadMedia(n), e.setSlide(n), e.preloadMedia(n + 1), c.settings.nextSlide && c.settings.nextSlide()) : (i("#swipebox-overlay").addClass("rightSpring"), setTimeout(function() {
+                        i("#swipebox-overlay").removeClass("rightSpring")
+                    }, 500))
+                },
+                getPrev: function() {
+                    var t, e = i("#swipebox-slider .slide").index(i("#swipebox-slider .slide.current"));
+                    e > 0 ? (t = i("#swipebox-slider .slide").eq(e).contents().find("iframe").attr("src"), i("#swipebox-slider .slide").eq(e).contents().find("iframe").attr("src", t), e--, this.setSlide(e), this.preloadMedia(e - 1), c.settings.prevSlide && c.settings.prevSlide()) : (i("#swipebox-overlay").addClass("leftSpring"), setTimeout(function() {
+                        i("#swipebox-overlay").removeClass("leftSpring")
+                    }, 500))
+                },
+                getThumb: function(t) {
+                    var e, n = parseInt(t.data("index"));
+                    e = i("#swipebox-slider .slide").eq(n).contents().find("iframe").attr("src"), i("#swipebox-slider .slide").eq(n).contents().find("iframe").attr("src", e), this.preloadMedia(n), this.setSlide(n), c.settings.prevSlide && c.settings.prevSlide()
+                },
+                nextSlide: function() {},
+                prevSlide: function() {},
+                closeSlide: function() {
+                    i("html").removeClass("swipebox-html"), i("html").removeClass("swipebox-touch"), i(t).trigger("resize"), this.destroy()
+                },
+                destroy: function() {
+                    i(t).unbind("keyup"), i("body").unbind("touchstart"), i("body").unbind("touchmove"), i("body").unbind("touchend"), i("#swipebox-slider").unbind(), i("#swipebox-overlay").remove(), i.isArray(s) || s.removeData("_swipebox"), this.target && this.target.trigger("swipebox-destroy"), i.swipebox.isOpen = !1, c.settings.afterClose && c.settings.afterClose(), d = []
+                }
+            }, c.init()
+        }, i.fn.swipebox = function(t) {
+            if (!i.data(this, "_swipebox")) {
+                var e = new i.swipebox(this, t);
+                this.data("_swipebox", e)
+            }
+            return this.data("_swipebox")
+        }
+    }(window, document, jQuery);
