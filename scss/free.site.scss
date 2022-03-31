@@ -121,6 +121,10 @@ button, select {
   text-transform: none
 }
 
+.rotate180{
+  transform: rotate(-180deg);
+}
+
 [type=reset], [type=submit], button, html [type=button] {
   -webkit-appearance: button
 }
@@ -2025,7 +2029,14 @@ img.mfp-img {
   .footer_logo a {
     text-decoration: none
   }
-
+  .footer-box_col.-list-hide{
+    .footer-col__list {
+      display: none;
+    }
+  }
+  .footer-col-title{
+    display: inline-block;
+  }
   .footer-col__item {
     margin-bottom: rem(8px);
   }
@@ -2057,7 +2068,6 @@ img.mfp-img {
 
   &-col-title {
     font-weight: 700;
-    text-decoration: underline;
     margin-bottom: rem(10px);
   }
 
@@ -5214,11 +5224,6 @@ span.i-cityselect__city:before {
 
 .product_page.tab-content_el h2, .product_page.tab-content_el h3, .product_page.tab-content_el h4, .product_page.tab-content_el h5, .product_page.tab-content_el h6 {
   margin: 1em 0 0.5em 0;
-}
-
-.homepage-text {
-  width: 70%;
-  margin: 0 auto;
 }
 
 .homepage-text h1 {

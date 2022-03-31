@@ -431,12 +431,12 @@
                 {include file="`$wa_active_theme_path`/footer.html" inline}
             </div>
             {if $theme_settings.footer_block_1}
-                <div class="footer-box_col">
+                <div class="footer-box_col {if $wa->isMobile()}js-footer-col -list-hide{/if}">
                     {$wa->block("footer_col1")}
                 </div>
             {/if}
             {if $theme_settings.footer_block_2}
-                <div class="footer-box_col">
+                <div class="footer-box_col {if $wa->isMobile()}js-footer-col -list-hide{/if}" >
                     {$wa->block("footer_col2")}
                 </div>
             {/if}
