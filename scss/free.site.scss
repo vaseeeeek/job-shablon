@@ -2018,10 +2018,10 @@ img.mfp-img {
   }
 
   &-box.container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
   }
-
   .footer_logo a {
     text-decoration: none
   }
@@ -2066,15 +2066,21 @@ img.mfp-img {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .footer {
     &-box.container {
-      flex-wrap: wrap;
+      grid-template-columns: 1fr 1fr;
     }
 
     &-box_col {
-      min-width: 280px;
       margin-bottom: rem(15px);
+    }
+  }
+}
+@media (max-width: 600px) {
+  .footer {
+    &-box.container {
+      grid-template-columns: 1fr;
     }
   }
 }
@@ -4241,7 +4247,7 @@ textarea {
 }
 
 .fixed-panel.show {
-  display: block
+  display: flex
 }
 
 

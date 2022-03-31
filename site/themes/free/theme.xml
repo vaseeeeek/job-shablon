@@ -1050,7 +1050,7 @@
             </description>
     </setting>
     <setting var="product_show_tile_features" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Characteristics in the form of a list - tile</name>
       <name locale="ru_RU">Характеристики в виде списка - плитка</name>
     </setting>

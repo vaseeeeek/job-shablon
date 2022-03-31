@@ -16,6 +16,13 @@
 
     {$wa->globals("globalHeader", $_title)}
 {/if}
+{$_name = "[`News`]"}
+{if !empty($theme_settings.blog_breadcrumb_title)}
+    {$_name = $theme_settings.blog_breadcrumb_title}
+{/if}
+
+<h1>{$_name}</h1>
+
 
 <section class="b-stream-wrapper" id="b-stream-wrapper" {if $wa->param('blog_url')}itemscope itemtype="http://schema.org/Blog"{/if}>
     <a name="page_{$page}"></a>
