@@ -2359,8 +2359,10 @@ var ddFooterCol = {
     init: function () {
         var _this = this;
 
-        _this.addIcon();
-        _this.toggleDisplay();
+        if ($('.js-footer-col') > 0) {
+            _this.addIcon();
+            _this.toggleDisplay();
+        }
     },
     addIcon: function () {
         const titleBox = $('.js-footer-col').find('.footer-col-title');
