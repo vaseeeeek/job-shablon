@@ -2359,7 +2359,7 @@ var ddFooterCol = {
     init: function () {
         var _this = this;
 
-        if ($('.js-footer-col') > 0) {
+        if ($('.js-footer-col').length > 0) {
             _this.addIcon();
             _this.toggleDisplay();
         }
