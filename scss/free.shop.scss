@@ -510,6 +510,49 @@ $html-font-size: 14px;
     width: auto;
   }
 }
+.slider-promo--box {
+  display: flex;
+  .slider-outer{
+    width: 80%;
+  }
+}
+.promo-product {
+  width: 20%;
+  margin-top: -2rem;
+  .container {
+    padding: 0;
+    min-width: initial;
+  }
+  .home-products_head-outer{
+    padding:0;
+  }
+  .home-products .products-grid-outer{
+    margin:0;
+  }
+  .js-owl-carousel-product .products-grid-outer{
+    width: 100%;
+  }
+  .products-tile .owl-carousel{
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .owl-carousel .Product-grid{
+    min-width:100%!important;
+    width:100%!important;
+  }
+  .dotted-img{
+    display: none;
+  }
+  .Product-grid_stock-sku-box{
+    display: none;
+  }
+  .rating {
+    display: none;
+  }
+  .Product-grid_bottom{
+    display:none;
+  }
+}
 
 .homepage-text-outer {
   margin-bottom: rem(40px);

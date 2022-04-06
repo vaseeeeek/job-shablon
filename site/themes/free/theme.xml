@@ -332,6 +332,11 @@
       <name locale="ru_RU">Телефон</name>
       <name locale="en_US"/>
     </setting>
+    <setting var="header_hover_phone_block" control_type="text">
+      <value>+7 (495) 999-99-99</value>
+      <name locale="ru_RU">html код блока при наведении на телефон</name>
+      <name locale="en_US">html code of the block when hovering over the phone</name>
+    </setting>
     <setting var="header_company_phone_two" control_type="text">
       <value>+7 (495) 333-33-33</value>
       <name locale="ru_RU">Второй телефон</name>
@@ -555,6 +560,30 @@
             </description>
       <description locale="en_US">Works in conjunction with the setting above.
             </description>
+    </setting>
+    <setting var="paragraph_promo_product" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Promotional list of products</name>
+      <name locale="ru_RU">Промо список товаров</name>
+      <description locale="ru_RU">Промо список товаров справа от слайдера
+      </description>
+      <description locale="en_US">Promotional list of products to the right of the slider
+      </description>
+    </setting>
+    <setting var="promo_product_show" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывести промо список товаров</name>
+      <name locale="en_US">Show a promotional list of products</name>
+    </setting>
+    <setting var="promo_product_title" control_type="text">
+      <value>Товар дня</value>
+      <name locale="en_US">Product list header</name>
+      <name locale="ru_RU">Заголовок списка товаров</name>
+    </setting>
+    <setting var="promo_product_list_id" control_type="text">
+      <value>bestsellers</value>
+      <name locale="en_US">Product List Id</name>
+      <name locale="ru_RU">Id списка товаров</name>
     </setting>
     <setting var="paragraph_mainpage_categories" control_type="paragraph">
       <value/>

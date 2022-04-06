@@ -1,8 +1,17 @@
 {strip}
 {$mPromoCards = $wa->shop->promos()|array_values}
-
-<div class="container">
+{if $theme_settings.promo_product_show && !empty($theme_settings.promo_product_title) && $wa->shop->productSet($theme_settings.promo_product_list_id)}
+    {$showProductPromoList = true}
+{else}
+    {$showProductPromoList = false}
+{/if}
+<div class="container{if $showProductPromoList} slider-promo--box{/if}">
     {include file="slider.html"}
+    {if $showProductPromoList}
+        <div class="promo-product {if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
+            {include file='home.products.view-carousel.html' products_list_id=$theme_settings.promo_product_list_id list_title=$theme_settings.promo_product_title}
+        </div>
+    {/if}
 </div>
     {$categories = $wa->shop->categories(0, null, true, true)}
     {if count($categories) > 0 && $theme_settings.show_home_cat_list}

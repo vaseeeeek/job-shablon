@@ -136,12 +136,18 @@
                 {/if}
                 <div class="Nav-contact-info">
                     {if !empty($theme_settings.header_company_phone_two) && $theme_settings.header_show_phone_two}
-                        <p><a href="tel:{$theme_settings.header_company_phone_two|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone_two}</a></p>
+                        <a href="tel:{$theme_settings.header_company_phone_two|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone_two}</a>
                     {/if}
-                    <p><a href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></p>
+                    <a href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">
+                        {$theme_settings.header_company_phone}
+                    </a>
+
                     <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
                     {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
                         <p class="Nav-contact-callback js-callback-open">[`Feedback`]</p>
+                    {/if}
+                    {if $theme_settings.header_hover_phone_block}
+                        <div class="phone-hover-block">{$theme_settings.header_hover_phone_block}</div>
                     {/if}
                 </div>
 
@@ -445,7 +451,10 @@
 
                 <ul class="footer_menu ul-block">
                     <li><a itemprop="telephone" href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></li>
-                    <li>{$theme_settings.header_company_adress}</li>
+
+                    {if $theme_settings.header_company_adress}
+                        <li>{$theme_settings.header_company_adress}</li>
+                    {/if}
                     {if $theme_settings.header_company_email}
                         <li><a itemprop="telephone" href="mailto:{$theme_settings.header_company_email}" class="Nav-contact-phone">{$theme_settings.header_company_email}</a></li>
                     {/if}

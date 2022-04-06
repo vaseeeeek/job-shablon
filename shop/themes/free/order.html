@@ -16,9 +16,6 @@
 {*EMPTY*}
 {if empty($_cart_count)}
     <div class="s-cart-empty-wrapper">
-        <div class="s-image-wrapper">
-            <img src="{$wa_theme_url}img/svg/order/cart_empty.svg" alt="[`Your shopping cart is empty.`]">
-        </div>
         <p class="s-description">{$config.cart.empty_text|default:"[`Your shopping cart is empty.`]"|escape}</p>
         <p class="s-actions-wrapper">
             <a href="{$wa_app_url}">[`Go to home page`]</a>
@@ -34,7 +31,7 @@
             <section class="order-box s-order-section" id="js-order-cart">
                 <div class="section-head">
                     <h2 class="uniq-header">{$config.cart.block_name|default:"[`Shopping cart`]"|escape}</h2>
-                    <a class="delete-button js-cart-delete-product" href="javascript:void(0);">[`Empty the cart`]</a>
+                    <a class="delete-button js-clear-cart" href="javascript:void(0);">[`Empty the cart`]</a>
                 </div>
                 <div class="s-section-body">
                     {$wa->shop->checkout()->cart([
@@ -89,7 +86,7 @@
                 function load() {
                     var deferred = $.Deferred();
 
-                    $.getScript("{$wa_theme_url}js/order.js?v={$wa->version()}", function() {
+                    $.getScript("{$wa_theme_url}order.js?v={$wa->version()}", function() {
                         deferred.resolve();
                     });
 
@@ -101,7 +98,6 @@
                         $wrapper: $("#js-checkout-order-page")
                     });
                 }
-
             })(jQuery);
         </script>
     </div>

@@ -1,7 +1,7 @@
 {strip}
 {if $theme_settings.homepage_type_slider_mode == 'promos'}
     {if count($mPromoCards) > 0}
-        <div class="slider-outer js-slider-outer slider-outer--photos slider-outer--home {if !$theme_settings.horizontal_menu}slider-outer--home--pb{/if}">
+        <div class="slider-outer js-slider-outer slider-outer--photos slider-outer--home{if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
             <div class="js-home-slider owl-carousel home-slider-photos" data-pause="3" data-type="">
                 {foreach $mPromoCards as $item}
                     {if !empty($item@first) && !empty($item.image)}

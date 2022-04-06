@@ -220,12 +220,17 @@ var productsSlider = {
             navigation = homeList.find('.js-carousel-direction'),
             isMouseSwipe = homeList.data("swipe"),
             isViewMobileMini = productList.data("type-mobile-preview"),
-            responsive = {};
+            responsive = {},
+            isFullWidthSlider = true;
 
         if (isViewMobileMini) {
             responsive = {0: {items: 4}, 700: {items: 5}, 1000: {items: 6}, 1250: {items: 8}};
         } else {
             responsive = {0: {items: 3}, 400: {items: 4}, 700: {items: 5}, 1000: {items: 6}, 1250: {items: 8}};
+        }
+        if (productList.closest('.promo-product').length > 0){
+            isFullWidthSlider = false;
+            responsive = {0: {items: 1}, 400: {items: 1}, 700: {items: 1}, 1000: {items: 1}, 1250: {items: 1}};
         }
 
         productList.owlCarousel({
@@ -237,7 +242,7 @@ var productsSlider = {
             navElement: "div",
             navContainer: navigation,
             responsive: responsive,
-            autoWidth: true,
+            autoWidth: isFullWidthSlider,
             lazyLoad: true,
             onInitialize: function (event) {
                 homeList.find(".js-slider-init-action").remove();

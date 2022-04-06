@@ -4023,17 +4023,33 @@ textarea {
 
   .Nav-contact-info {
     margin-right: rem(35px);
+    position:relative;
 
     p {
       margin-bottom: 0px;
     }
   }
-
   a.Nav-contact-phone {
     white-space: nowrap;
     text-align: center;
     font-size: 1rem;
     font-weight: 700;
+  }
+
+  .phone-hover-block {
+    display: none;
+    position: absolute;
+    background: #fff;
+    box-shadow: 0 0 3px rgb(0 0 0 / 12%), 0 2px 4px rgb(0 0 0 / 12%);
+    padding: 20px;
+    z-index: 100;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    left: -90px;
+  }
+  .Nav-contact-info:hover .phone-hover-block {
+    display: flex;
   }
 
   p.Nav-contact-callback {
