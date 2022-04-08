@@ -7422,6 +7422,12 @@ input[type=text], input[type=tel], input[type=email] {
   width: 100%;
 }
 
+.wa-dropdown>.wa-dropdown-toggle, .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section .wa-input {
+  padding: 0 10px!important;
+  line-height: 37px!important;
+  font-size: 14px!important; 
+}
+
 #themeOverride .wa-product-body .wa-details {
   display: flex;
   flex-direction: column;
