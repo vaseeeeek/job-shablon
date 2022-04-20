@@ -530,6 +530,21 @@
     </div>
 
 
+{literal}
+    <script>
+        $('.products-grid-outer').each(function () {
+            let slider = $(this);
+            let sliderWidth = slider.width();
+            let itemWidth = 0;
+            slider.find('.Product-grid').each(function () {
+                itemWidth += $(this).width();
+            })
+            if (itemWidth < sliderWidth) {
+                slider.find('.owl-carousel').css('justify-content','center');
+            }
+        })
+    </script>
+{/literal}
 <script>
     ( function($) {
         var reviewsSection = $('#product-reviews');

@@ -48,6 +48,21 @@
 {include file=$product_list_file products_list_id=$theme_settings.home_product_list_2 list_title=$theme_settings.home_product_list_2_title}
 {include file=$product_list_file products_list_id=$theme_settings.home_product_list_3 list_title=$theme_settings.home_product_list_3_title}
 
+{literal}
+    <script>
+        $('.products-grid-outer').each(function () {
+            let slider = $(this);
+            let sliderWidth = slider.width();
+            let itemWidth = 0;
+            slider.find('.Product-grid').each(function () {
+                itemWidth += $(this).width();
+            })
+            if (itemWidth < sliderWidth) {
+                slider.find('.owl-carousel').css('justify-content','center');
+            }
+        })
+    </script>
+{/literal}
 
 <div class="container">
 
