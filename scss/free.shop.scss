@@ -552,6 +552,18 @@ $html-font-size: 14px;
   .Product-grid_bottom{
     display:none;
   }
+  .Product-grid {
+    margin-bottom: 0;
+    &.hover{
+      box-shadow: none;
+    }
+  }
+  .home-products__title {
+    font-size: rem(20px);
+  }
+  .owl-carousel {
+    width:99.9%;
+  }
 }
 
 .homepage-text-outer {
@@ -6241,6 +6253,8 @@ button.owl-dot {
 
 .slider-outer--home {
   margin-top: -2rem;
+  display: flex;
+  align-items: center;
 
   &--pb {
     margin-top: -1rem;
@@ -6556,93 +6570,6 @@ span.grid-gallery__el.js-grid-gallery-item {
 
 .header__cart-icon .icon {
   font-size: rem(31px)
-}
-
-.Nav__Primary-outer--dd {
-  border-bottom: 1px solid #e9ecef;
-
-  .Nav__horizontal--item {
-    border-bottom: 2px solid transparent;
-  }
-}
-
-.Nav__horizontal {
-  &--list {
-    list-style: none;
-    display: flex;
-    //overflow: hidden;
-    position: relative;
-    max-width: 100%;
-
-    .Nav__horizontal--list-2 {
-      display: none;
-    }
-
-    &.-Between {
-      justify-content: space-between;
-    }
-  }
-
-  &--item {
-    &-more {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      color: rgba(0, 0, 0, .4);
-      margin-top: 8px;
-    }
-
-    .Nav__horizontal--link {
-      display: block;
-      padding-top: rem(10px);
-      padding-bottom: rem(10px);
-    }
-
-    &:hover > .Nav__horizontal--list-2 {
-      position: absolute;
-      background: #fff;
-      bottom: auto;
-      left: -1.429rem;
-      width: calc(100% + 40px);
-      z-index: 11;
-      top: calc(100% + 1px);
-      display: flex;
-      flex-wrap: wrap;
-      box-sizing: border-box;
-      padding: 1.5rem 1.429rem 1.429rem 1.429rem;
-      box-shadow: 0 20px 24px rgb(0 0 0 / 10%);
-    }
-
-    .Nav__horizontal--item-2 {
-      width: 20%;
-      box-sizing: border-box;
-      padding-right: rem(10px);
-      margin-bottom: rem(10px);
-
-      .Nav__horizontal--link-2 {
-        font-weight: 700;
-        font-size: 1rem;
-        text-transform: uppercase;
-      }
-
-      .Nav__horizontal--list-3 {
-        margin-top: 0.6rem;
-
-        .Nav__horizontal--item-3.hide {
-          display: none;
-        }
-      }
-    }
-  }
-
-  &--link {
-    text-decoration: none;
-    font-size: rem(15px);
-  }
-
-  &--list:not(.-Beetwen) &--item:not(:last-child) {
-    margin-right: rem(40px);
-  }
 }
 
 .homepage-categories {
@@ -7425,7 +7352,7 @@ input[type=text], input[type=tel], input[type=email] {
 .wa-dropdown>.wa-dropdown-toggle, .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section .wa-input {
   padding: 0 10px!important;
   line-height: 37px!important;
-  font-size: 14px!important; 
+  font-size: 14px!important;
 }
 
 #themeOverride .wa-product-body .wa-details {

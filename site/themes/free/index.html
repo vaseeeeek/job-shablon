@@ -74,6 +74,8 @@
                 {$cartUrl = $wa->getUrl('shop/frontend/cart')}
             {/if}
         {/if}
+
+        {include file="`$parent_theme_path`/fonts.html"}
     </head>
 
     <body id="themeOverride">
@@ -102,7 +104,7 @@
                     {if $theme_settings.path_svg_logo}
                         <img src="{$theme_settings.path_svg_logo}" alt="{$wa->accountName()}" id="logo">
                     {elseif $is_logo}
-                        <img src="{$wa_theme_url}{$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
+                        <img src="{$wa_theme_url|cat:$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
                     {/if}
                 </a>
                 {if !$wa->isMobile() && !$theme_settings.drop_down_horizontal_menu}
@@ -583,8 +585,6 @@
         <script src="{$wa_active_theme_url}js/jquery.waitforimages.min.js?v{$wa->version(true)}"></script>
         <script src="{$wa_active_theme_url}free.photo.js?v={$wa->version(true)}"></script>
     {/if}
-
-    {include file="`$parent_theme_path`/fonts.html"}
     </body>
     </html>
 {/strip}

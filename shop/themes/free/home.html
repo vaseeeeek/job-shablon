@@ -13,31 +13,34 @@
         </div>
     {/if}
 </div>
-    {$categories = $wa->shop->categories(0, null, true, true)}
-    {if count($categories) > 0 && $theme_settings.show_home_cat_list}
-        <div class="container">
-            <div class="homepage-categories {if !$theme_settings.total_max_maxcat_homepage}homepage-categories--margin{/if}">
-                {if class_exists('shopWmimageincatPlugin')}
-                    {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
-                {/if}
 
-                {if $theme_settings.home_categories_title}
-                    <div class="home-products_head-outer">
-                        <div class="container">
-                            <div class="home-products_head">
-                                <div class="home-products__title">{$theme_settings.home_categories_title}</div>
-                            </div>
+{*{$wa->block("shop.home.after.sliders")}*}
+
+{$categories = $wa->shop->categories(0, null, true, true)}
+{if count($categories) > 0 && $theme_settings.show_home_cat_list}
+    <div class="container">
+        <div class="homepage-categories {if !$theme_settings.total_max_maxcat_homepage}homepage-categories--margin{/if}">
+            {if class_exists('shopWmimageincatPlugin')}
+                {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+            {/if}
+
+            {if $theme_settings.home_categories_title}
+                <div class="home-products_head-outer">
+                    <div class="container">
+                        <div class="home-products_head">
+                            <div class="home-products__title">{$theme_settings.home_categories_title}</div>
                         </div>
                     </div>
-                {/if}
-                {if $theme_settings.total_max_maxcat_homepage}
-                    {include file="home.scat.html" categories=$categories}
-                {else}
-                    {include file="categories.grid.html" categories=$categories setting_cat_in_row=$theme_settings.category_row_home}
-                {/if}
-            </div>
+                </div>
+            {/if}
+            {if $theme_settings.total_max_maxcat_homepage}
+                {include file="home.scat.html" categories=$categories}
+            {else}
+                {include file="categories.grid.html" categories=$categories setting_cat_in_row=$theme_settings.category_row_home}
+            {/if}
         </div>
-    {/if}
+    </div>
+{/if}
 
 {$product_list_file = "home.products.view-carousel.html"}
 
