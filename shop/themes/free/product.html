@@ -288,9 +288,6 @@
                                         {else}
                                             {$product_features_items = $product.features}
                                         {/if}
-                                        {if class_exists('shopGroupattrPlugin')}
-                                            {$product_features_items = shopGroupattrPlugin::process($product, $features_items)}
-                                        {/if}
                                         {if class_exists('shopSeofilterViewHelper')}
                                             {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}
                                             {if $theme_settings.product_show_seofilter_link}
@@ -578,8 +575,17 @@
 
 
 {/strip}
-
-
+<script>
+    $(document).ready(function() {
+        $('.horizontal_articles').on('click', function (e) {
+            if ($(e.target).hasClass('js-toggle-styler-input')) {
+                setTimeout(function(){
+                    $(".product_action-desc").load(location.href + "" + " .product_action-desc");
+                }, 1);
+            }
+        })
+    });
+</script>
 
 {if $wa->get('reviews')}
     <script>

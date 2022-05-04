@@ -2643,7 +2643,7 @@ Product.prototype.updateSkuServices = function (sku_id) {
         pdCodeBox.find(".sku-" + sku_id + "-pd-code").show();
     }
 
-    this.formWrap.find("div.stocks div").hide();
+    this.formWrap.find("div.stocks>div").hide();
     this.formWrap.find(".sku-" + sku_id + "-stock").show();
     for (var service_id in this.services[sku_id]) {
         var v = this.services[sku_id][service_id];

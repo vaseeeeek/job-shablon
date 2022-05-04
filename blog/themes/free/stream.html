@@ -16,7 +16,10 @@
 
     {$wa->globals("globalHeader", $_title)}
 {/if}
-{$_name = "[`News`]"}
+{foreach $posts as $post}
+    {$_name = $post.blog_name}
+    {break}
+{/foreach}
 {if !empty($theme_settings.blog_breadcrumb_title)}
     {$_name = $theme_settings.blog_breadcrumb_title}
 {/if}

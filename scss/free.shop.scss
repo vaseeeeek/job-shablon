@@ -517,6 +517,7 @@ $html-font-size: 14px;
   }
 }
 .promo-product {
+  padding-left: 15px;
   width: 20%;
   margin-top: -2rem;
   .container {
@@ -3475,7 +3476,10 @@ img.pswp__img {
   font-size: 0;
   vertical-align: middle
 }
-
+.Product-grid_bottom .Cart__Qty {
+  width: 100%;
+  margin-bottom: 10px;
+}
 @media print {
   .Cart__Qty {
     display: none
