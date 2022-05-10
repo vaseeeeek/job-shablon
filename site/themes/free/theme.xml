@@ -524,6 +524,15 @@
       <name locale="en_US">Main</name>
       <name locale="ru_RU">Главная</name>
     </setting>
+    <setting var="home_blocks_list" control_type="text">
+      <value>slider,category,text,news,product-slider,brands</value>
+      <name locale="en_US">Home blocks</name>
+      <name locale="ru_RU">Блоки на главной</name>
+      <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
+      </description>
+      <description locale="en_US">Specify the blocks to be displayed, on the main page, separated by a comma, in the right order. (Example with the output of all blocks - slider,category,text,news,product-slider,brands)
+      </description>
+    </setting>
     <setting var="paragraph_mainpage_slider" control_type="paragraph">
       <value/>
       <name locale="en_US">Slider</name>
@@ -684,7 +693,7 @@
       </options>
     </setting>
     <setting var="brands_mainpage" control_type="select">
-      <value>id</value>
+      <value>all</value>
       <name locale="en_US">Brands on homepage</name>
       <name locale="ru_RU">Бренды на главной</name>
       <options>

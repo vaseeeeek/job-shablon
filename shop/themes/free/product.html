@@ -480,11 +480,12 @@
             </div>
         {/if}
 
-        {if empty($totalCrossselling)}{$totalCrossselling = 10}{else}{$totalCrossselling = (int) $theme_settings.total_crossselling}{/if}
-        {$crossselling = $product->crossSelling($totalCrossselling)}
-
-        {if empty($count_upselling)}{$count_upselling = 10}{else}{$count_upselling = (int) $theme_settings.product_upselling_count}{/if}
-        {$upselling = $product->upSelling($count_upselling)}
+        {if $theme_settings.total_crossselling}
+            {$crossselling = $product->crossSelling((int) $theme_settings.total_crossselling)}
+        {/if}
+        {if $theme_settings.total_crossselling}
+            {$upselling = $product->upSelling((int) $theme_settings.product_upselling_count)}
+        {/if}
 
         {$viewed_product_list = $wa->cookie('viewed_product_list')}
 
