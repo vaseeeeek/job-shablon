@@ -369,7 +369,9 @@
                                     {/if}
                                 </div>
                             {/if}
-                            <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}">
+
+                            {$addedText = "[`Added`]"}
+                            <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}" data-added-text="{$addedText}">
                                 {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
                             </span>
                             {if $theme_settings.display_buy_one_click}
