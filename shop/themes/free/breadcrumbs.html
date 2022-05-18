@@ -13,8 +13,14 @@
     {$breadcrumbs[] = ['name' => '[`Brands`]', 'url' => $wa->getUrl('shop/frontend/brands')]}
     {if isset($brand)}{$nameCurrentPage = $brand.name}{/if}
 {/if}
-
 {$position = 1}
+{if $product}
+    {if count($product.categories) > 1 && $theme_settings.product_show_all_cat}
+        {$showCatList = true}
+    {else}
+        {$showCatList = false}
+    {/if}
+{/if}
 {if $wa->currentUrl(false, true) != $wa_app_url}
     <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
         <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
@@ -27,9 +33,20 @@
                 {if $breadcrumb}
                     {$position = $position + 1}
                     <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last}&rarr;{/if}
+                        <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last || $showCatList}&rarr;{/if}
                         <meta itemprop="position" content="{$position}" />
                     </li>
+                    {if $breadcrumb@last && $product && $theme_settings.product_show_all_cat}
+                        {foreach $product.categories as $c}
+                            {$position = $position + 1}
+                            {if $c.id != $product.category_id}
+                                <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                    <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                                    <meta itemprop="position" content="{$position}" />
+                                </li>
+                            {/if}
+                        {/foreach}
+                    {/if}
                 {/if}
             {/foreach}
         {/if}
