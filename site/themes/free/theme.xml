@@ -259,6 +259,21 @@
       <name locale="en_US">Header</name>
       <name locale="ru_RU">Шапка</name>
     </setting>
+<!--    <setting var="type_header" control_type="select">-->
+<!--      <value>header_one</value>-->
+<!--      <name locale="ru_RU">Вид шапки сайта</name>-->
+<!--      <name locale="en_US">Site header view</name>-->
+<!--      <options>-->
+<!--        <option value="header_one">-->
+<!--          <name locale="ru_RU">Вид 1</name>-->
+<!--          <name locale="en_US">View 1</name>-->
+<!--        </option>-->
+<!--        <option value="header_two">-->
+<!--          <name locale="ru_RU">Вид 2</name>-->
+<!--          <name locale="en_US">View 2</name>-->
+<!--        </option>-->
+<!--      </options>-->
+<!--    </setting>-->
     <setting var="logo" control_type="image">
       <value>img/logo.png?v1643634463</value>
       <filename>img/logo.*</filename>
@@ -1265,6 +1280,22 @@
       <value/>
       <name locale="en_US">Product page</name>
       <name locale="ru_RU">Страница товара</name>
+    </setting>
+
+    <setting var="product_number_columns" control_type="select">
+      <value>product_columns_two</value>
+      <name locale="ru_RU">Количество колонок на странице товара</name>
+      <name locale="en_US">The number of columns on the product page</name>
+      <options>
+        <option value="product_columns_two">
+          <name locale="ru_RU">Две колонки</name>
+          <name locale="en_US">Сolumns two</name>
+        </option>
+        <option value="product_columns_three">
+          <name locale="ru_RU">Три колонки</name>
+          <name locale="en_US">Сolumns three</name>
+        </option>
+      </options>
     </setting>
     <setting var="zoom_gallery__product" control_type="checkbox">
       <value>1</value>
