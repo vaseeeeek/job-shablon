@@ -595,7 +595,7 @@
       </description>
     </setting>
     <setting var="promo_product_show" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Вывести промо список товаров</name>
       <name locale="en_US">Show a promotional list of products</name>
     </setting>
@@ -1287,7 +1287,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_two</value>
+      <value>product_columns_three</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>

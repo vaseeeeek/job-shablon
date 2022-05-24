@@ -1,3 +1,18 @@
+
+{$text_not_avalible = "[`Out of stock`]"}
+{if !empty($theme_settings.text_product_preorder)}
+    {$text_product_preorder = $theme_settings.text_product_preorder}
+{else}
+    {$text_product_preorder = "[`Pre-order only`]"}
+{/if}
+{$text_product_not_available_option = "[`Product with the selected option combination is not available for purchase`]"}
+{$text_product_not_available_option_one_sku = "[`This product is not available for purchase`]"}
+
+{$_is_dialog = $wa->get('cart')}
+
+{$_is_dialog_select_options = $_is_dialog && $wa->get('select-options')}
+{$image_preview = $wa->shop->productImgUrl($product, '60')}
+{if $_is_dialog}<div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>{/if}
 <form id="cart-form{if $_is_dialog}-dialog{/if}" class="js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}" method="post" action="{$wa->getUrl('/frontendCart/add')}" data-sku-url="{!$_is_dialog && !empty($theme_settings.product_url_sku_parameter)}">
     {if $_is_dialog && !$_is_dialog_select_options}
     {$product.features = $product->features}
@@ -440,3 +455,4 @@
         });
     </script>
 </form>
+{if $_is_dialog}</div>{/if}

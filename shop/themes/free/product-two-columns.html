@@ -14,10 +14,10 @@
         {$_is_dialog_select_options = $_is_dialog && $wa->get('select-options')}
         {$image_preview = $wa->shop->productImgUrl($product, '60')}
 
-        {if $_is_dialog}<div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>{/if}
+
         {include file="product.cart.html"}
         {if !$_is_dialog_select_options}{include file="product.mini.desc.html"}{/if}
-        {if $_is_dialog}</div>{/if}
+
     </div>
 
 
