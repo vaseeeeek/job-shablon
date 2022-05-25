@@ -43,7 +43,7 @@
     {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
     {if count($homeProductsPromo) > 0}
         <div class="js-preview-cart slider-outer slider-outer--products js-slider-outer">
-            <article class="js-home-slider owl-carousel main-slider" data-pause="3" data-type="product">
+            <article class="js-home-slider owl-carousel main-slider" {*data-pause="3"*} data-type="product">
                 {foreach $homeProductsPromo as $product}
                     <div  class="main-slider_item ">
                         <a data-position="fixed" class="main-slider_item-img " href="{$product.frontend_url}">
@@ -57,13 +57,14 @@
                                 {$wa->shop->productImgHtml($product, '0x320', ['alt' => $product.name, 'default' => $dummy96])}
                             {/if}
                         </a>
-                        {$badge_html = $wa->shop->badgeHtml($product.badge)}
-                        {if $badge_html}
-                            {$badge_html}
-                        {/if}
                         <div class="main-slider_item-content">
                             <h3 class="main-slider_item-title">
                                 <a title="{$product.name}{if $product.summary} &ndash; {strip_tags($product.summary)|escape}{/if}" href="{$product.frontend_url}">{$product.name}</a>
+
+                                {$badge_html = $wa->shop->badgeHtml($product.badge)}
+                                {if $badge_html}
+                                    {$badge_html}
+                                {/if}
                             </h3>
                             <div class="main-slider_item-desc">
                                 {$_badge_percent = ($theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
@@ -89,12 +90,27 @@
                             </div>
                             <div class="main-slider_item-prs">
                                 <span class="main-slider_item-pr">
+                                    {if $theme_settings.product_discount_percentage == 1}
+                                        {$compare_price = $product.compare_price}
+                                        {$price = $product.price}
+                                        {if $compare_price > $price}
+                                            {$discount = (($compare_price-$price)/$compare_price)*100}
+                                            {$discount = ceil($discount)}
+                                        {/if}
+
+                                        {$productDiscount = isset($discount) && $price > 0}
+
+                                        <div class="product-card_discounts {if !$productDiscount} -Close{/if}">
+                                            <div data-minimal="3" class="js-product-discount product-discount product-card__discount">{if $productDiscount}Скидка {$discount}%{/if}</div>
+                                        </div>
+                                    {/if}
                                     {if empty($product.price) && !empty($theme_settings.text_zero_price)}
                                         <span class="main-slider_item-price-zero">{$theme_settings.text_zero_price}</span>
                                     {elseif $_price_range && ($product.max_price && $product.min_price && $product.max_price > $product.min_price)}
                                         <span class="nowrap">{shop_currency_html($product.min_price)}</span> ... <span class="nowrap">{shop_currency_html($product.max_price)}</span>
                                     {else}
-                                        {shop_currency_html($product.price)}
+                                        <span class="product__price price nowrap">{shop_currency_html($product.price)}</span>
+                                        <span class="old-price nowrap">{shop_currency_html($product.price)}</span>
                                     {/if}
                                 </span>
                                 {if !$_price_range && $product.compare_price > 0 && $product.price < $product.compare_price && !empty($product.price)}

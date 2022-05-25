@@ -46,6 +46,13 @@
     <div class="js-bg cat-nav-bg mfp-bg mfp-ready"></div>
     <div class="dd-wrap">
         <div class="category-menu js-category-menu-wrap">
+            {if $theme_settings.show_brands_menu}
+                {$fullListBrands = shopBrandViewHelper::getAllBrands()}
+                {$cat_result['brands'] = ['id' => 'brands','name' => 'Бренды', 'url' => $wa->getUrl('shop/frontend/brands')]}
+                {foreach $fullListBrands as $b}
+                    {$cat_result['brands']['childs'][] = ['name' => $b.name, 'url' => {$b->getFrontendUrl()}]}
+                {/foreach}
+            {/if}
             {foreach $cat_result as $cat}
                 {if $theme_settings.break_categories_columns}
                     {$view_subcat = $theme_settings.break_categories_columns}
@@ -53,7 +60,6 @@
                 {if !isset($view_subcat) || ($view_subcat != "columns")}
                     {$view_subcat = "one_column"}
                 {/if}
-
 
 
                 {$_subcat = 0}
@@ -89,7 +95,11 @@
                         {else}
                             {$subcatFile = "nav.`$view_subcat`.scat.html"}
                         {/if}
-                        {include file=$subcatFile}
+                        {if $theme_settings.show_brands_menu && $cat.id == 'brands'}
+                            {include file="nav.columns.scat.html" isBrand=true}
+                        {else}
+                            {include file=$subcatFile isBrand=false}
+                        {/if}
                     {/if}
                 </div>
             {/foreach}

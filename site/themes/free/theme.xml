@@ -485,7 +485,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
@@ -509,7 +509,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu_app_id" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
       <name locale="en_US"/>
     </setting>
@@ -531,8 +531,14 @@
     <setting var="hide_cat_burger" control_type="checkbox">
       <value/>
       <name locale="ru_RU">
-                Свернуть категории в мобильном меню в кнопку "Каталог→"
-            </name>
+          Свернуть категории в мобильном меню в кнопку "Каталог→"
+      </name>
+    </setting>
+    <setting var="show_brands_menu" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">
+        Вывести бренды в меню
+      </name>
     </setting>
     <setting var="paragraph_mainpage" control_type="group_divider">
       <value/>
@@ -595,7 +601,7 @@
       </description>
     </setting>
     <setting var="promo_product_show" control_type="checkbox">
-      <value></value>
+      <value>1</value>
       <name locale="ru_RU">Вывести промо список товаров</name>
       <name locale="en_US">Show a promotional list of products</name>
     </setting>
@@ -765,6 +771,11 @@
       <value/>
       <name locale="en_US">List of products</name>
       <name locale="ru_RU">Список товаров</name>
+    </setting>
+    <setting var="cat_show_crumbs" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить крошки в категории</name>
+      <name locale="en_US">Show crumbs in categories</name>
     </setting>
     <setting var="compare" control_type="checkbox">
       <value>1</value>
@@ -1395,7 +1406,7 @@
       <name locale="en_US">Codes of the output characteristics</name>
     </setting>
     <setting var="product_page_show_brand_right" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Бренд картинкой</name>
       <name locale="en_US">Brand by picture</name>
       <description locale="ru_RU">С плагином "Бренды с картинками и описаниями"

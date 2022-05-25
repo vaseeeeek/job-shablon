@@ -11,7 +11,13 @@
     {/if}
 
     {if $action != 'search' && $action != 'order' && $action != 'compare' && $action != 'my' && $action != 'default' && $action != 'cart' && $action != 'checkout'}
-        {include file="`$wa_active_theme_path`/breadcrumbs.html"}
+        {if $action == 'category'}
+            {if $theme_settings.cat_show_crumbs}
+                {include file="`$wa_active_theme_path`/breadcrumbs.html"}
+            {/if}
+        {else}
+            {include file="`$wa_active_theme_path`/breadcrumbs.html"}
+        {/if}
     {/if}
 
     {if $wa->globals('isMyAccount')}

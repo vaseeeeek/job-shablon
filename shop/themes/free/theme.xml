@@ -139,5 +139,9 @@
       <msgid>Go to home page</msgid>
       <msgstr locale="ru_RU">Перейти на главную страницу</msgstr>
     </locale>
+    <locale>
+      <msgid>Brand</msgid>
+      <msgstr locale="ru_RU">Бренд</msgstr>
+    </locale>
   </locales>
 </theme>

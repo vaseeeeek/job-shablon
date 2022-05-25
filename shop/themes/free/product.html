@@ -218,9 +218,10 @@
                                                 {$seoLinksArr = []}
                                             {/if}
                                         {/if}
+
                                         {foreach $product_features_items as $f_code => $f_value}
                                             {if !empty($features_items[$f_code])}
-                                                <tr class="Product__features-item{if $features_items[$f_code].type == 'divider'} divider{/if} ">
+                                                <tr class="Product__features-item{if $features_items[$f_code].type == 'divider'} divider{/if}" data-index="{$f_value@iteration}">
                                                     <td class="Product__features-title">
                                                         <span>{$features_items[$f_code].name|escape}</span>
                                                     </td>
@@ -368,24 +369,21 @@
                 {/if }
                 {if $theme_settings.show_tags_pr_page && $product.tags}
                     <div class="product_tags-cats">
-                        <!-- tags -->
-                        {if $theme_settings.show_tags_pr_page && $product.tags}
-                            <div class="product_tags">
-                                [`Tags`]:
+                        <div class="product_tags">
+                            [`Tags`]:
 
-                                <span class="tags cloud maincolor">
-                                    {if class_exists('shopTageditorPlugin')}
-                                         {foreach shopTageditorPlugin::tags($product.tags) as $t}
-                                            <a href="{$wa->getUrl('/frontend/tag', ['tag' => $t.uri_name])}">{$t.name|escape}</a>
-                                         {/foreach}
-                                    {else}
-                                       {foreach $product.tags as $t}
-                                            <a href="{$wa->getUrl('/frontend/tag', ['tag' => urlencode($t)])}">{$t}</a>
-                                        {/foreach}
-                                    {/if}
-                                </span>
-                            </div>
-                        {/if}
+                            <span class="tags cloud maincolor">
+                                {if class_exists('shopTageditorPlugin')}
+                                     {foreach shopTageditorPlugin::tags($product.tags) as $t}
+                                        <a href="{$wa->getUrl('/frontend/tag', ['tag' => $t.uri_name])}">{$t.name|escape}</a>
+                                     {/foreach}
+                                {else}
+                                   {foreach $product.tags as $t}
+                                        <a href="{$wa->getUrl('/frontend/tag', ['tag' => urlencode($t)])}">{$t}</a>
+                                    {/foreach}
+                                {/if}
+                            </span>
+                        </div>
                     </div>
                 {/if}
             </div>
@@ -510,6 +508,14 @@
             }
         })
     });
+    {literal}
+        $('.Product__features-item').each(function(){
+            const featuresIndex = $(this).data('index');
+            if ($(this).hasClass('divider') && $(`.Product__features-item[data-index='${featuresIndex - 1}']`).hasClass('divider')){
+                $(`.Product__features-item[data-index='${featuresIndex - 1}']`).hide();
+            }
+        })
+    {/literal}
 </script>
 {if !$wa->isMobile()}
     {if $theme_settings.type_view_main_content_product_desktop == 'normal_tabs'}

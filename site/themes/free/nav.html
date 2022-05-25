@@ -14,10 +14,20 @@
                         {/if}
 
                         {if $catListHorizontalNav}
+                            {if $theme_settings.show_brands_menu}
+                                {$fullListBrands = shopBrandViewHelper::getAllBrands()}
+                                {$catListHorizontalNav['brands'] = ['id' => 'brands','name' => 'Бренды', 'url' => $wa->getUrl('shop/frontend/brands')]}
+                                {foreach $fullListBrands as $b}
+                                    {$catListHorizontalNav['brands']['childs'][] = ['name' => $b.name, 'url' => {$b->getFrontendUrl()}]}
+                                {/foreach}
+                            {/if}
                             {foreach $catListHorizontalNav as $id => $cat}
                                 <li class="Nav__horizontal--item">
                                     <a class="Nav__horizontal--link" href="{$cat.url}">
                                         {$cat.name}
+                                        {if $cat.childs && $theme_settings.drop_down_horizontal_menu}
+                                            <i class="fi-rr-angle-down"></i>
+                                        {/if}
                                     </a>
                                     {if $cat.childs && $theme_settings.drop_down_horizontal_menu}
                                         <ul class="Nav__horizontal--list-2">

@@ -43,13 +43,25 @@
 {/if}
 {if count($short_list_features) > 0 || isset($_brand) || isset($_brand_pro) || ($product.summary && $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'after_buy_box')}
     <div class="product_action-desc">
-        {if isset($_brand_pro) && !empty($_brand_pro) && $_brand_pro.image_url}
+        {if isset($_brand_pro) && !empty($_brand_pro)}
             <div class="brand_product">
-                <a class="brand_product-img"  href="{$_brand_pro.frontend_url}"><img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}"></a>
+                <a class="brand_product-img"  href="{$_brand_pro.frontend_url}">
+                    {if $_brand_pro.image_url}
+                        <img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}">
+                    {else}
+                        <span><b>[`Brand`]:</b> {$_brand_pro.name|escape}</span>
+                    {/if}
+                </a>
             </div>
-        {else if isset($_brand) && !empty($_brand) && $_brand.image}
+        {else if isset($_brand) && !empty($_brand)}
             <div class="brand_product">
-                <a class="brand_product-img"  href="{$_brand.url}"><img alt="{$_brand.name|escape}" src="{$wa_url}wa-data/public/shop/brands/{$_brand.id}/{$_brand.id}.200{$_brand.image}"></a>
+                <a class="brand_product-img"  href="{$_brand.url}">
+                    {if $_brand.image}
+                        <img alt="{$_brand.name|escape}" src="{$wa_url}wa-data/public/shop/brands/{$_brand.id}/{$_brand.id}.200{$_brand.image}">
+                    {else}
+                        <span>[`Brand`]: {$_brand.name|escape}</span>
+                    {/if}
+                </a>
             </div>
         {/if}
 
@@ -76,7 +88,7 @@
                         {$features_list[$f_code].name = $features_list[$f_code].name|replace:'.0':''}
                     {/if}
                     {if !empty($features_list[$f_code])}
-                        <tr class="Product__features-item {if $features_list[$f_code].type == 'divider'} divider{/if}">
+                        <tr class="Product__features-item {if $features_list[$f_code].type == 'divider'} divider{/if}" data-index="{$f_value@iteration}">
                             <td class="Product__features-title">
                                 <span>{$features_list[$f_code].name|escape}</span>
                             </td>
