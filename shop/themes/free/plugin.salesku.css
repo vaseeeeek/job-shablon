@@ -19,10 +19,18 @@
 .Single__Label--Flat input[type=radio]{
     display: none;
 }
+
 .salesku_plugin-product .skus, .salesku_plugin-product .options{
     margin: 0;
     padding: 0 10px 0 10px;
     border-top: 0;
+}
+@media (max-width:640px) {
+    .salesku_plugin-product .skus, .salesku_plugin-product .options{
+        display: flex;
+        flex-direction: column;
+        padding: 0 0.3rem 0 0.3rem;
+    }
 }
 .Single__Item--Flat {
     display: inline-flex;

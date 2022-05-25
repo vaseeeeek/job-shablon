@@ -42,7 +42,7 @@
     {$id_features = []}
     {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
     {if count($homeProductsPromo) > 0}
-        <div class="js-preview-cart slider-outer slider-outer--products js-slider-outer">
+        <div class="js-preview-cart slider-outer slider-outer--products js-slider-outer{if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
             <article class="js-home-slider owl-carousel main-slider" {*data-pause="3"*} data-type="product">
                 {foreach $homeProductsPromo as $product}
                     <div  class="main-slider_item ">

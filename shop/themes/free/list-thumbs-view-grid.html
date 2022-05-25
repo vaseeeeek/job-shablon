@@ -280,7 +280,7 @@
                         </a>
                     {/if}
                 </div>
-                {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction()}
+                {if class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction() && !$wa->isMobile()}
                     {shopSaleskuPluginView::displayOptions($p)}
                 {/if}
 
@@ -288,9 +288,11 @@
                 <div class="Product-grid_bottom">
                     {if $theme_settings.show_number_item_add_in_grid}
                         <span class="js-qty Cart__Qty Cart__Qty--mini">
-                            <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
-                            <input type="text" name="quantity" value="1" class="js-number">
-                            <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
+                            {if $available}
+                                <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
+                                <input type="text" name="quantity" value="1" class="js-number">
+                                <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
+                            {/if}
                         </span>
                     {/if}
                     <div class="Product-grid_cart">
