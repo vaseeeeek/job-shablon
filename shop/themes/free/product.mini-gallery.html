@@ -1,9 +1,15 @@
+
 {strip}
 {$video = $product->video}
 {$_popupOn = true}
 {$_popupOnThumbs = true}
 {$_zoomOn = $theme_settings.zoom_gallery__product && !$wa->isMobile()}
-{$class_popup="js-image-popup-swipebox"}
+{if !$wa->isMobile()}
+    {$class_popup="js-image-popup-swipebox"}
+{else}
+    {$class_popup="js-popup-photoswipe"}
+    <link rel="stylesheet" href="/wa-data/public/site/themes/free/photoswipe/photoswipe.css">
+{/if}
 
 {if count($product.images) > 1 || (count($product.images) === 1 && $video)}
     {$productGalleryOn = true}
@@ -54,7 +60,7 @@
                     {if $product.images}
                         {foreach $product.images as $image}
                             <span class="product_gallery-images-main-el-outer">
-                                <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-images-main-el js-product_gallery-images-main-el{if $_popupOn} {$class_popup}{/if}{if !$_popupOn} cursor-default{/if}" href="{$wa->shop->imgUrl($image, '970')}" data-position="{$position}">
+                                <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-images-main-el js-product_gallery-images-main-el{if $_popupOn} {$class_popup}{/if}{if !$_popupOn} cursor-default{/if}" href="{$wa->shop->imgUrl($image, '970')}" data-position="{$position}" data-pswp-width="970" data-pswp-height="970">
                                     {if $image@first}
                                         {$image_description = $image.description}
                                         {$wa->shop->imgHtml($image, '650', ['class' => 'product_gallery-images-main-img'])}
@@ -88,3 +94,14 @@
     </div>
 </div>
 {/strip}
+{if $wa->isMobile()}
+    <script type="module">
+        import PhotoSwipeLightbox from '/wa-data/public/site/themes/free/photoswipe/photoswipe-lightbox.esm.js';
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '.js-product_gallery-images-main',
+            children: '.js-popup-photoswipe',
+            pswpModule: () => import('/wa-data/public/site/themes/free/photoswipe/photoswipe.esm.js')
+        });
+        lightbox.init();
+    </script>
+{/if}
