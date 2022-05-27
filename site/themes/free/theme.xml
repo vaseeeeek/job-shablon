@@ -1293,7 +1293,7 @@
       <name locale="ru_RU">Страница товара</name>
     </setting>
     <setting var="product_show_all_cat" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Вывести все категории в крошках</name>
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>

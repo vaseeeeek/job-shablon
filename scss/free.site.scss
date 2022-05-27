@@ -2955,7 +2955,17 @@ img.mfp-img {
     margin: 0 0 0.7rem;
   }
 }
-
+.breadcrumbs--double {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  &.breadcrumbs>li:first-child{
+    margin: 0 0.214rem;
+  }
+  &.breadcrumbs>li:last-child{
+    margin-left: 0;
+  }
+}
 .inner-wrap {
   margin-bottom: 1.714rem;
   width: 100%;

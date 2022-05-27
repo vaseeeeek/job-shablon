@@ -21,6 +21,7 @@
         {$showCatList = false}
     {/if}
 {/if}
+{$nameCrumbsArray = []}
 {if $wa->currentUrl(false, true) != $wa_app_url}
     <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
         <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
@@ -30,23 +31,13 @@
         </li>
         {if (isset($breadcrumbs) && $breadcrumbs)}
             {foreach $breadcrumbs as $breadcrumb}
+                {$nameCrumbsArray[] = $breadcrumb.name|escape}
                 {if $breadcrumb}
                     {$position = $position + 1}
                     <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last || $showCatList}&rarr;{/if}
+                        <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last}&rarr;{/if}
                         <meta itemprop="position" content="{$position}" />
                     </li>
-                    {if $breadcrumb@last && $product && $theme_settings.product_show_all_cat}
-                        {foreach $product.categories as $c}
-                            {$position = $position + 1}
-                            {if $c.id != $product.category_id}
-                                <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                    <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
-                                    <meta itemprop="position" content="{$position}" />
-                                </li>
-                            {/if}
-                        {/foreach}
-                    {/if}
                 {/if}
             {/foreach}
         {/if}
@@ -55,6 +46,101 @@
             <li>{$nameCurrentPage|escape}</li>
         {/if}
     </ul>
+    {if $product && $theme_settings.product_show_all_cat}
+        {foreach $product.categories as $c}
+            {if in_array($c.name, $nameCrumbsArray)}
+                {continue}
+            {/if}
+            <ul class="breadcrumbs breadcrumbs--double">
+                {$nameCrumbsArray[] = $c.name|escape}
+                {$position = $position + 1}
+                {if $c.id != $product.category_id}
+                    <li>
+                        <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                        <meta itemprop="position" content="{$position}" />
+                    </li>
+                {/if}
+                {$category = $wa->shop->category($c.id)}
+                {if $category.parent_id}
+                    {$c = $wa->shop->category($category.parent_id)}
+                    <li>
+                        <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                    </li>
+                    {$category = $wa->shop->category($c.id)}
+                    {if $category.parent_id}
+                        {$c = $wa->shop->category($category.parent_id)}
+                        <li>
+                            <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                        </li>
+                        {$category = $wa->shop->category($c.id)}
+                        {if $category.parent_id}
+                            {$c = $wa->shop->category($category.parent_id)}
+                            <li>
+                                <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                            </li>
+                            {$category = $wa->shop->category($c.id)}
+                            {if $category.parent_id}
+                                {$c = $wa->shop->category($category.parent_id)}
+                                <li>
+                                    <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                                </li>
+                                {$category = $wa->shop->category($c.id)}
+                                {if $category.parent_id}
+                                    {$c = $wa->shop->category($category.parent_id)}
+                                    <li>
+                                        <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                                    </li>
+                                    {$category = $wa->shop->category($c.id)}
+                                    {if $category.parent_id}
+                                        {$c = $wa->shop->category($category.parent_id)}
+                                        <li>
+                                            <a itemprop="item" href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span itemprop="name">{$c.name|escape}</span></a> {if !$c@last}&rarr;{/if}
+                                        </li>
+                                    {else}
+                                        <li >
+                                            <a href="{$wa_url}"><span >[`Home`]</span></a>
+                                            {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
+                                            <meta content="{$position}" />
+                                        </li>
+                                    {/if}
+                                {else}
+                                    <li >
+                                        <a href="{$wa_url}"><span >[`Home`]</span></a>
+                                        {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
+                                        <meta content="{$position}" />
+                                    </li>
+                                {/if}
+                            {else}
+                                <li >
+                                    <a href="{$wa_url}"><span >[`Home`]</span></a>
+                                    {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
+                                    <meta content="{$position}" />
+                                </li>
+                            {/if}
+                        {else}
+                            <li >
+                                <a href="{$wa_url}"><span >[`Home`]</span></a>
+                                {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
+                                <meta content="{$position}" />
+                            </li>
+                        {/if}
+                    {else}
+                        <li >
+                            <a href="{$wa_url}"><span >[`Home`]</span></a>
+                            {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
+                            <meta content="{$position}" />
+                        </li>
+                    {/if}
+                {else}
+                    <li >
+                        <a href="{$wa_url}"><span >[`Home`]</span></a>
+                        {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
+                        <meta content="{$position}" />
+                    </li>
+                {/if}
+            </ul>
+        {/foreach}
+    {/if}
 {/if}
 {/strip}
 
