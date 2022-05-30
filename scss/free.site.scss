@@ -1536,11 +1536,22 @@ iframe {
 .star-rating-empty:before {
   content: "\e900"
 }
-
+.star-half{
+  position: relative;
+}
 .star-half:before {
   content: "\e900"
 }
-
+.star-half:after {
+  color: #ffb300;
+  content: "\e900";
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 50%;
+  z-index: 1;
+  overflow: hidden;
+}
 .dd-wrap {
   background: #fff;
   position: relative;

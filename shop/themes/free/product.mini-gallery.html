@@ -15,21 +15,39 @@
     {$productGalleryOn = true}
 {/if}
 
-{if $productGalleryOn}
-    {$_carouselOn = count($product.images) > 6 && !$wa->isMobile()}
-    {$productThreeColums = true}
-    <div id="product-gallery" class="previews_gallery{if $_carouselOn} carousel-vertical{/if}">
-        <div class="image-preview-list{if $_carouselOn} js-previews-gallery{/if}" {if $_carouselOn}data-min-items="6"{/if}>
-            {$position = 0}
-            {foreach $product.images as $image}
-                <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
-                    <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, $theme_settings.product_image_size_zoom)}">
-                        {$wa->shop->imgHtml($image, '96x96')}
-                    </a>
-                </div>
-                {$position = $position + 1}
-            {/foreach}
-            {if $video && $wa->isMobile()}
+<div class="product-page_main-left{if $productGalleryOn} -productMiniGallery{/if}{if $theme_settings.product_horizontal_gallery} -horizontalMiniature{/if}">
+    {if $productGalleryOn}
+        {$_carouselOn = count($product.images) > 6 && !$wa->isMobile()}
+        {$productThreeColums = true}
+        <div id="product-gallery" class="previews_gallery{if $_carouselOn && !$theme_settings.product_horizontal_gallery} carousel-vertical{/if}">
+            <div class="image-preview-list{if $_carouselOn && !$theme_settings.product_horizontal_gallery} js-previews-gallery{/if}" {if $_carouselOn && !$theme_settings.product_horizontal_gallery}data-min-items="6"{/if}>
+                {$position = 0}
+                {foreach $product.images as $image}
+                    <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
+                        <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, $theme_settings.product_image_size_zoom)}">
+                            {$wa->shop->imgHtml($image, '96x96')}
+                        </a>
+                    </div>
+                    {$position = $position + 1}
+                {/foreach}
+                {if $video && $wa->isMobile()}
+                    <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                        <a href="{$video.url}">
+                            <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                        </a>
+                    </div>
+                    {$position = $position + 1}
+                {/if}
+                {if $video && !$wa->isMobile() && $theme_settings.product_horizontal_gallery}
+                    <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                        <a href="{$video.url}">
+                            <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                        </a>
+                    </div>
+                    {$position = $position + 1}
+                {/if}
+            </div>
+            {if $video && !$wa->isMobile() && !$theme_settings.product_horizontal_gallery}
                 <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
                     <a href="{$video.url}">
                         <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
@@ -38,18 +56,8 @@
                 {$position = $position + 1}
             {/if}
         </div>
-        {if $video && !$wa->isMobile()}
-            <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
-                <a href="{$video.url}">
-                    <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
-                </a>
-            </div>
-            {$position = $position + 1}
-        {/if}
-    </div>
-{/if}
+    {/if}
 
-<div class="product-page_main-left {if $productGalleryOn} -threeCols{/if}">
     {if isset($product.autobadge) && !empty($product.autobadge)}{$product.autobadge}{/if}
     <div class="product_gallery-images js-product_gallery-images"{if !empty($_popupOnThumbs)} data-thumbs="true"{/if} data-zoom="{$_zoomOn}"  data-popup="{$_popupOn}">
         <!-- main image -->

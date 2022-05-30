@@ -11,7 +11,7 @@
 
 {$_is_dialog_select_options = $_is_dialog && $wa->get('select-options')}
 {$image_preview = $wa->shop->productImgUrl($product, '60')}
-<div class="product-page_main-right {if $productGalleryOn}-threeCols{/if}">
+<div class="product-page_main-right {if $productGalleryOn}-productMiniGallery{/if}">
     {if $_is_dialog}<div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>{/if}
     <form id="cart-form{if $_is_dialog}-dialog{/if}" class="product-cart--box js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}" method="post" action="{$wa->getUrl('/frontendCart/add')}" data-sku-url="{!$_is_dialog && !empty($theme_settings.product_url_sku_parameter)}">
         <div class="product-cart__left">
@@ -411,6 +411,7 @@
                             {/if}
                         </div>
                         <input type="hidden" name="product_id" value="{$product.id}">
+
                         {if $theme_settings.product_page_show_qty}
                             <span class="js-qty Cart__Qty">
                 <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>

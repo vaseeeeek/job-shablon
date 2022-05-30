@@ -264,12 +264,12 @@
                                     </div>
                                 {/if}
                                 <section id="product-reviews" class="product_reviews {$class_product_content}">
-
+                                    {$ratesNum = number_format($product.rating,1,".","")}
                                     {if !empty($rates)}
                                         <div class="reviews__info">
                                             <div class="reviews__circle">
                                                 <div class="circle-progress">
-                                                    <div class="circle-progress__rate">{number_format($product.rating,1,".","")}</div>
+                                                    <div class="circle-progress__rate">{$ratesNum}</div>
                                                     <div class="circle-progress__text">общая оценка</div>
                                                 </div>
                                                 <div class="reviews__svg">
@@ -283,10 +283,7 @@
                                                     <div class="reviews__rating">
                                                         <div class="stars stars_l">
                                                             <div class="stars__list">
-                                                                {for $i=1 to 5}
-                                                                    <div class="star {if $i >= $product.rating}star-empty{/if}">
-                                                                    </div>
-                                                                {/for}
+                                                                {$wa->shop->ratingHtml($product.rating, 16)}
                                                             </div>
                                                         </div>
                                                     </div>
