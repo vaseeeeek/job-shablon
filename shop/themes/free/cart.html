@@ -322,9 +322,13 @@
                                             <div {if !$coupon_code}style="display: none;"{/if} class="coupon-form" id="use-coupon-code">
                                                 <input placeholder="[`Coupon code`]" type="text" name="coupon_code"
                                                        value="{$coupon_code|escape}">
-                                                <span class="cart-coupon-add-button fi-rr-check js-submit-formgit sdColor"></span>
+
+                                                <span class="cart-coupon-add-button fi-rr-check js-submit-form sdColor{if $coupon_discount} cart-coupon-add-button_active{/if}"></span>
                                                 {if $coupon_code && empty($coupon_discount) && empty($coupon_free_shipping)}
                                                     <div class="errormsg">[`Invalid coupon code`]</div>
+                                                {/if}
+                                                {if $coupon_discount}
+                                                    <div class="cart-coupon__remove-btn"><i class="fi-rr-cross-small"></i></div>
                                                 {/if}
                                             </div>
                                         {/if}
@@ -389,4 +393,12 @@
 {/strip}
 <script>
     $('.inner-wrap').addClass('bg-gray')
+</script>
+<script>
+    $(document).on('ready', function () {
+        $('.cart-coupon__remove-btn').on('click', function () {
+            $(this).siblings('input').val('');
+            $(this).siblings('.cart-coupon-add-button').click();
+        })
+    })
 </script>

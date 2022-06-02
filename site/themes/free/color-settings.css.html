@@ -115,7 +115,8 @@
         .My__Button--Pin,
         .comment__label,
         .reviews__rating-fill, #themeOverride .wa-value input[type=submit],
-        .Header__Banner
+        .Header__Banner,
+        .cart-coupon-add-button_active
         {
             background: {$maincolor};
         }
@@ -152,7 +153,8 @@
 
         .product_page .image-preview.selected:not(.image-preview--video) a img,
         .option-color_outer._only-text.checked,
-        .product_page .image-preview.selected.image-preview--video{
+        .product_page .image-preview.selected.image-preview--video,
+        .cart-coupon-add-button_active{
             border:2px solid {$scColor};
         }
 
@@ -275,7 +277,7 @@
         {if $btnTextColor}
             .pages li.is-selected span, .h-staff, .b-comments-section .b-list-section .b-comment-wrapper .b-comment .b-credentials .b-staff,
             .style-check.checked:before, .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
-            .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .comment__label{
+            .pages .shop a.selected,.checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .comment__label, .cart-coupon-add-button_active{
                 color: {$btnTextColor}
             }
             .nav-cat-btn__action {

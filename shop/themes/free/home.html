@@ -9,13 +9,17 @@
         {else}
             {$showProductPromoList = false}
         {/if}
-        <div class="container{if $showProductPromoList} slider-promo--box{/if}">
-            {include file="slider.html"}
-            {if $showProductPromoList}
-                <div class="promo-product {if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
-                    {include file='home.products.view-carousel.html' products_list_id=$theme_settings.promo_product_list_id list_title=$theme_settings.promo_product_title}
-                </div>
-            {/if}
+        <div class="promo{if $showProductPromoList} slider-promo--box{/if}">
+            <div class="container">
+                {if $showProductPromoList}<div class="slider-promo--box">{/if}
+                    {include file="slider.html"}
+                    {if $showProductPromoList}
+                        <div class="promo-product {if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
+                            {include file='home.products.view-carousel.html' products_list_id=$theme_settings.promo_product_list_id list_title=$theme_settings.promo_product_title}
+                        </div>
+                    {/if}
+                {if $showProductPromoList}</div>{/if}
+            </div>
         </div>
 
         {*{$wa->block("shop.home.after.sliders")}*}
@@ -25,26 +29,26 @@
         {*{$wa->block("shop.home.before.category")}*}
         {$categories = $wa->shop->categories(0, null, true, true)}
         {if count($categories) > 0 && $theme_settings.show_home_cat_list}
-            <div class="container">
-                <div class="homepage-categories {if !$theme_settings.total_max_maxcat_homepage}homepage-categories--margin{/if}">
-                    {if class_exists('shopWmimageincatPlugin')}
-                        {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
-                    {/if}
+            <div class="homepage-categories {if !$theme_settings.total_max_maxcat_homepage}homepage-categories--margin{/if}">
+                <div class="container">
+                {if class_exists('shopWmimageincatPlugin')}
+                    {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+                {/if}
 
-                    {if $theme_settings.home_categories_title}
-                        <div class="home-products_head-outer">
-                            <div class="container">
-                                <div class="home-products_head">
-                                    <div class="home-products__title">{$theme_settings.home_categories_title}</div>
-                                </div>
+                {if $theme_settings.home_categories_title}
+                    <div class="home-products_head-outer">
+                        <div class="container">
+                            <div class="home-products_head">
+                                <div class="home-products__title title">{$theme_settings.home_categories_title}</div>
                             </div>
                         </div>
-                    {/if}
-                    {if $theme_settings.total_max_maxcat_homepage}
-                        {include file="home.scat.html" categories=$categories}
-                    {else}
-                        {include file="categories.grid.html" categories=$categories setting_cat_in_row=$theme_settings.category_row_home}
-                    {/if}
+                    </div>
+                {/if}
+                {if $theme_settings.total_max_maxcat_homepage}
+                    {include file="home.scat.html" categories=$categories}
+                {else}
+                    {include file="categories.grid.html" categories=$categories setting_cat_in_row=$theme_settings.category_row_home}
+                {/if}
                 </div>
             </div>
         {/if}
@@ -77,23 +81,24 @@
         {*{$wa->block("shop.home.after.product.slider")}*}
     {/if}
 
+    <div class="brands">
+        {if $block == 'brands'}
+            {*{$wa->block("shop.home.before.brands")}*}
+            <div class="container">
 
-    {if $block == 'brands'}
-        {*{$wa->block("shop.home.before.brands")}*}
-        <div class="container">
+                {if $theme_settings.use_plugin_brands == 'brands_pro'}
+                    {include file="home.brands-pro.block.html"}
+                {else if $theme_settings.use_plugin_brands == 'brands'}
+                    {include file="home.brands.block.html"}
+                {/if}
 
-            {if $theme_settings.use_plugin_brands == 'brands_pro'}
-                {include file="home.brands-pro.block.html"}
-            {else if $theme_settings.use_plugin_brands == 'brands'}
-                {include file="home.brands.block.html"}
-            {/if}
-
-            <!-- plugin hook: 'frontend_homepage' -->
-            {* @event frontend_homepage.%plugin_id% *}
-            {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
-        </div>
-        {*{$wa->block("shop.home.after.brands")}*}
-    {/if}
+                <!-- plugin hook: 'frontend_homepage' -->
+                {* @event frontend_homepage.%plugin_id% *}
+                {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
+            </div>
+            {*{$wa->block("shop.home.after.brands")}*}
+        {/if}
+    </div>
 
     {if $block == 'text'}
         {*{$wa->block("shop.home.before.text")}*}
@@ -103,7 +108,7 @@
                     <div class="homepage-text">
                         <div class="container clearfix">
                             {if !empty($theme_settings.home_text_head)}
-                            <h1>{$theme_settings.home_text_head}</h1>
+                            <h1 class="title">{$theme_settings.home_text_head}</h1>
                             {/if}
                             {$theme_settings.home_text_note}
                         </div>
@@ -133,6 +138,9 @@
                     {$sk_blog_images = blogSkimageHelper::getImages()}
                 {/if}
                 <div class="container">
+                    <div class="home-new_head">
+                        <div class="home-new__title title">{$theme_settings.home_categories_title}</div>
+                    </div>
                     <ul class="home-prev-news clear-list">
                         {foreach $blog_posts as $item}
                             <div class="home-prev-news_item__wrap">
