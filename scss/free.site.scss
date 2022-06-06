@@ -3089,7 +3089,7 @@ img.mfp-img {
   text-align: center;
   background: rgba(0, 0, 0, .04) !important;
   color: #666;
-  background: #f3f3f3!important;
+  background: #f3f3f3 !important;
   padding: 6px 12px;
   border-radius: 16px;
 }
@@ -4084,6 +4084,7 @@ textarea {
     position: relative;
     text-decoration: none;
     font-size: 1.1rem;
+
     &:before {
       content: "";
       display: block;
@@ -4348,6 +4349,7 @@ textarea {
   .header-top--right {
     display: flex;
   }
+
   * {
     transition: .5s;
   }

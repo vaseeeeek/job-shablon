@@ -522,16 +522,20 @@ $html-font-size: 14px;
     width: auto;
   }
 }
-.promo, .homepage-categories,.homepage-text-outer,.homepage-news-outer,.home-products,.brands {
+
+.promo, .homepage-categories, .homepage-text-outer, .homepage-news-outer, .home-products, .brands {
   margin-bottom: 2.5rem;
 }
+
 .homepage-news-outer {
-   background-color: #f7f7f7;
-   padding: 2.5rem 0;
+  background-color: #f7f7f7;
+  padding: 2.5rem 0;
 }
+
 .home-news__title {
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
 }
+
 .slider-promo--box {
   display: flex;
 
@@ -539,6 +543,7 @@ $html-font-size: 14px;
     width: 80%;
   }
 }
+
 @media (max-width: 1025px) {
   .slider-promo--box {
     .slider-outer {
@@ -546,15 +551,18 @@ $html-font-size: 14px;
     }
   }
 }
-@media  (max-width: 767px) {
+
+@media (max-width: 767px) {
   .slider-promo--box {
     flex-direction: column;
     width: 100%;
+
     .slider-outer {
       width: 100%;
     }
   }
 }
+
 .promo-product {
   margin-left: 1rem;
   padding: 0.8rem 0.5rem;
@@ -624,12 +632,13 @@ $html-font-size: 14px;
   }
 }
 
-@media  (max-width: 1025px) {
+@media (max-width: 1025px) {
   .promo-product {
     width: 300px;
   }
 }
-@media  (max-width: 767px) {
+
+@media (max-width: 767px) {
   .promo-product {
     margin-left: 0;
     width: 100%;
@@ -639,6 +648,7 @@ $html-font-size: 14px;
     }
   }
 }
+
 .homepage-text-outer {
   margin-bottom: rem(40px);
 }
@@ -657,12 +667,15 @@ $html-font-size: 14px;
       background-color: #fff;
       border-radius: 12px;
     }
+
     img {
       border-radius: 4px;
     }
+
     &-text {
       color: #8b8b8b;
     }
+
     &-date {
       margin: rem(6px) 0 rem(4px) 0;
       display: flex;
@@ -1953,6 +1966,7 @@ input.error, textarea.error {
 .coupon-form input {
   width: auto
 }
+
 .cart-coupon__remove-btn {
   position: absolute;
   right: -30px;
@@ -1967,6 +1981,7 @@ input.error, textarea.error {
   top: 5px;
   cursor: pointer;
 }
+
 .cart-coupon-add-button {
   width: 17px;
   height: 17px;
@@ -3934,10 +3949,12 @@ img.pswp__img {
 
 .product_tags-cats {
 }
+
 .product_tags__title.title {
   text-align: left;
   margin-bottom: 0;
 }
+
 .tab-acc-wrap ~ .product_tags-cats {
   border-top: none
 }
@@ -4958,7 +4975,7 @@ img.pswp__img {
   border-radius: 4px;
   font-size: 1.1rem;
   color: #666;
-  background: #f3f3f3!important;
+  background: #f3f3f3 !important;
   padding: 4px 12px;
   border: 0;
 }
@@ -4967,9 +4984,11 @@ img.pswp__img {
   position: relative;
   margin: 0 0 rem(8px) rem(18px);
 }
+
 .categories-el_subs li a {
   color: #666;
 }
+
 .categories-el_subs li:before {
   content: "\2022";
   position: absolute;
@@ -4977,7 +4996,7 @@ img.pswp__img {
   top: 9px;
   font-size: 1.571rem;
   line-height: 0;
-  display:none;
+  display: none;
 }
 
 @media (max-width: 1025px) {
@@ -5031,7 +5050,7 @@ img.pswp__img {
   display: inline-flex;
   flex-wrap: wrap;
   width: calc(100% + 20px);
-  margin-left:-10px;
+  margin-left: -10px;
 }
 
 .cat-tile-list--category {
@@ -6098,26 +6117,32 @@ img.pswp__img {
     width: 63.4%;
   }
 }
+
 @media (min-width: 1025px) {
   .product-page_main-left.-horizontalMiniature {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
+
     &.-productMiniGallery .product_gallery-images {
       width: 100%;
     }
+
     .previews_gallery {
       width: 100%;
       padding-right: 0;
     }
+
     .image-preview-list {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
     }
+
     .image-preview {
       margin-bottom: 0;
     }
+
     .image-preview.image-preview--video {
       width: 98px;
       height: 98px;
@@ -6199,8 +6224,8 @@ img.pswp__img {
 }
 
 .owl-next.disabled, .owl-next.disabled:hover, .owl-prev.disabled, .owl-prev.disabled:hover {
-  cursor: default!important;
-  color: #c7c7c7!important;
+  cursor: default !important;
+  color: #c7c7c7 !important;
 }
 
 .owl-carousel .owl-item img {
@@ -6482,6 +6507,7 @@ button.owl-dot {
     height: 25px;
   }
 }
+
 @media (max-width: 767px) {
   .slider-outer--home {
     &--pb {
@@ -6489,6 +6515,7 @@ button.owl-dot {
     }
   }
 }
+
 .owl-carousel .owl-stage-outer {
   position: relative;
   -webkit-transform: translateZ(0);

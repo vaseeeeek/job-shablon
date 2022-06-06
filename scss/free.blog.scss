@@ -144,9 +144,11 @@ $html-font-size: 14px;
 .b-comments-section .b-form-section .b-form-auth .b-user-wrapper {
   margin: 16px 0 0;
 }
+
 .b-user-wrapper {
-  display:none;
+  display: none;
 }
+
 .b-comments-section .b-form-section .b-form-auth .b-user-wrapper .b-image {
   margin: 0 4px 0 0;
   width: 20px;
@@ -647,23 +649,26 @@ ul.menu-v.categories li.selected a {
 .b-sidebar-plugin ul.menu-v.categories li a {
   padding: 10px 0;
 }
+
 .b-plugin-wrapper .tags {
-  margin-top:1rem;
+  margin-top: 1rem;
 }
-.b-plugin-wrapper .tags a{
-  color: #666!important;
-  background: #f3f3f3!important;
+
+.b-plugin-wrapper .tags a {
+  color: #666 !important;
+  background: #f3f3f3 !important;
   padding: 4px 12px;
   border-radius: 16px;
   margin: 0 0.5rem 1rem 0;
   line-height: 2.2;
 }
-.b-sidebar-plugin ul.menu-v>li  {
+
+.b-sidebar-plugin ul.menu-v > li {
   font-size: 1.1rem;
   justify-content: center;
   align-items: center;
   padding: 0.6rem 1rem;
-  margin: 1rem 0!important;
+  margin: 1rem 0 !important;
   border-radius: 2px;
   background: #fff;
   box-shadow: 0px 1px 2px rgb(0 0 0 / 15%);
@@ -676,9 +681,11 @@ ul.menu-v.categories li.selected a {
   padding: 1.5rem 1rem;
   font-size: 1rem;
 }
+
 .s-sidebar-search {
   margin: 1.5rem 0 2rem 0;
 }
+
 .out_sidebars.-mr {
   margin-right: rem(40px);
 }
