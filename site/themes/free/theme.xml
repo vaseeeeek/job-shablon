@@ -535,7 +535,7 @@
       </name>
     </setting>
     <setting var="show_brands_menu" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">
         Вывести бренды в меню
       </name>
@@ -761,6 +761,10 @@
       <value>1</value>
       <name locale="en_US">Display the latest news on the main page</name>
       <name locale="ru_RU">Вывести последние новости на главной</name>
+    </setting>
+    <setting var="home_news_title" control_type="text">
+      <value>Новости</value>
+      <name locale="ru_RU">Заголовок блога</name>
     </setting>
     <setting var="home_blog_id" control_type="text">
       <value>1</value>
