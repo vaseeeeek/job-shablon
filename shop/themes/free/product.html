@@ -367,8 +367,13 @@
                 {if $theme_settings.show_tags_pr_page && $product.tags}
                     <div class="product_tags-cats">
                         <div class="product_tags">
-                            [`Tags`]:
-
+                            <div class="product_tags__title title">
+                                {if $theme_settings.tags_title_text}
+                                    {$theme_settings.tags_title_text}
+                                {else}
+                                    [`Tags`]:
+                                {/if}
+                            </div>
                             <span class="tags cloud maincolor">
                                 {if class_exists('shopTageditorPlugin')}
                                      {foreach shopTageditorPlugin::tags($product.tags) as $t}

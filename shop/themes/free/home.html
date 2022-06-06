@@ -31,24 +31,22 @@
         {if count($categories) > 0 && $theme_settings.show_home_cat_list}
             <div class="homepage-categories {if !$theme_settings.total_max_maxcat_homepage}homepage-categories--margin{/if}">
                 <div class="container">
-                {if class_exists('shopWmimageincatPlugin')}
-                    {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
-                {/if}
+                    {if class_exists('shopWmimageincatPlugin')}
+                        {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+                    {/if}
 
-                {if $theme_settings.home_categories_title}
-                    <div class="home-products_head-outer">
-                        <div class="container">
+                    {if $theme_settings.home_categories_title}
+                        <div class="home-products_head-outer">
                             <div class="home-products_head">
                                 <div class="home-products__title title">{$theme_settings.home_categories_title}</div>
                             </div>
                         </div>
-                    </div>
-                {/if}
-                {if $theme_settings.total_max_maxcat_homepage}
-                    {include file="home.scat.html" categories=$categories}
-                {else}
-                    {include file="categories.grid.html" categories=$categories setting_cat_in_row=$theme_settings.category_row_home}
-                {/if}
+                    {/if}
+                    {if $theme_settings.total_max_maxcat_homepage}
+                        {include file="home.scat.html" categories=$categories}
+                    {else}
+                        {include file="categories.grid.html" categories=$categories setting_cat_in_row=$theme_settings.category_row_home}
+                    {/if}
                 </div>
             </div>
         {/if}
@@ -80,25 +78,24 @@
         {/literal}
         {*{$wa->block("shop.home.after.product.slider")}*}
     {/if}
-
-    <div class="brands">
         {if $block == 'brands'}
+            <div class="brands">
             {*{$wa->block("shop.home.before.brands")}*}
-            <div class="container">
+                <div class="container">
 
-                {if $theme_settings.use_plugin_brands == 'brands_pro'}
-                    {include file="home.brands-pro.block.html"}
-                {else if $theme_settings.use_plugin_brands == 'brands'}
-                    {include file="home.brands.block.html"}
-                {/if}
+                    {if $theme_settings.use_plugin_brands == 'brands_pro'}
+                        {include file="home.brands-pro.block.html"}
+                    {else if $theme_settings.use_plugin_brands == 'brands'}
+                        {include file="home.brands.block.html"}
+                    {/if}
 
-                <!-- plugin hook: 'frontend_homepage' -->
-                {* @event frontend_homepage.%plugin_id% *}
-                {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
+                    <!-- plugin hook: 'frontend_homepage' -->
+                    {* @event frontend_homepage.%plugin_id% *}
+                    {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
+                </div>
+                {*{$wa->block("shop.home.after.brands")}*}
             </div>
-            {*{$wa->block("shop.home.after.brands")}*}
         {/if}
-    </div>
 
     {if $block == 'text'}
         {*{$wa->block("shop.home.before.text")}*}
@@ -126,7 +123,7 @@
         {if ($theme_settings.home_lastposts && $wa->blog)}
             {$blog_id = (int)$theme_settings.home_blog_id}
             {if empty($blog_id)}{$blog_id = null}{/if}
-            {$blog_posts = $wa->blog->posts($blog_id,3)}
+            {$blog_posts = $wa->blog->posts($blog_id,4)}
             {if !empty($blog_posts) && count($blog_posts)}
                 {$is_news = true}
             {/if}
@@ -162,14 +159,13 @@
                                         </a>
                                     {/if}
                                     <div class="home-prev-news_item-info">
-                                        <span class="home-prev-news_item-date">{$item.datetime|wa_datetime:"humandate"}</span>
                                         <div class="home-prev-news_item-name">
-                                            <a href="{$item.link}">{$item.title}</a>
+                                            <a href="{$item.link}">{$item.title|truncate:60:'...'}</a>
                                         </div>
                                         <div class="home-prev-news_item-text">
                                             {strip_tags($item.text)|truncate:128}
                                         </div>
-
+                                        <span class="home-prev-news_item-date">{$item.datetime|wa_datetime:"humandate"}</span>
                                         <div class="home-prev-news_item-more sdColor">
                                             <a href="{$item.link}">[`Read more`]</a> &rarr;
                                         </div>

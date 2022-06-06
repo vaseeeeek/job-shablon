@@ -490,7 +490,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value></value>
+      <value>cat</value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -514,7 +514,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -535,7 +535,7 @@
       </name>
     </setting>
     <setting var="show_brands_menu" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">
         Вывести бренды в меню
       </name>
@@ -1291,6 +1291,11 @@
       <name locale="en_US">Sidebar on other pages</name>
       <name locale="ru_RU">Сайдбар на других страницах</name>
     </setting>
+    <setting var="tags_title_text" control_type="text">
+      <value/>
+      <name locale="en_US">Tag header</name>
+      <name locale="ru_RU">Заголовок тегов</name>
+    </setting>
     <setting var="paragraph_product" control_type="group_divider">
       <value/>
       <name locale="en_US">Product page</name>
@@ -1302,7 +1307,7 @@
       <name locale="en_US">Horizontal miniature</name>
     </setting>
     <setting var="product_show_all_cat" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Вывести все категории в крошках</name>
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
@@ -1709,6 +1714,11 @@
           <name locale="en_US">In the purchase block</name>
         </option>
       </options>
+    </setting>
+    <setting var="home_crumbs" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Главная в крошках</name>
+      <name locale="en_US">Home in crumbs</name>
     </setting>
     <setting var="product_page_popap_stock" control_type="text">
       <value/>

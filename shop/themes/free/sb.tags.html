@@ -8,7 +8,13 @@
 
 {if $tagrepository}
     <div class="js-tags tags tags--sidebar cloud">
-        <div class="sb-wrap_head maincolor">Теги</div>
+        <div class="sb-wrap_head maincolor">
+            {if $theme_settings.tags_title_text}
+                {$theme_settings.tags_title_text}
+            {else}
+                [`Tags`]:
+            {/if}
+        </div>
         {$exist_hide_tags = false}
         {$index = 0}
         {foreach $tagrepository as $key => $tag}

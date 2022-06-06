@@ -11,11 +11,12 @@
             {$_images['main'] = $post['img_main']}
         {/if}
         {if count($_images) and isset($_images['main'])}
-            <img class="b-post__main-image" src="{$_images['main']}" alt="{$post.title}">
+            <a href="{$post.link}"><img class="b-post__main-image" src="{$_images['main']}" alt="{$post.title}"></a>
+
         {/if}
         <header class="b-post-header">
             <h2 class="b-post-title">
-                <a href="{$post.link}" itemprop="url">{$post.title}</a>
+                <a href="{$post.link}" itemprop="url">{$post.title|truncate:45:'...'}</a>
                 {* @event prepare_posts_frontend.%plugin_id%.post_title *}
                 {if !empty($post.plugins.post_title)}
                     {foreach $post.plugins.post_title as $plugin => $output}{$output}{/foreach}
@@ -40,17 +41,14 @@
                                 <span class="b-name" itemprop="author">{$post.user.name}</span>
                             </span>
                         {/if}
-
-                        <span class="b-date">{$post.datetime|wa_datetime:"humandate"}</span>
-                        <span class="b-time">{$post.datetime|wa_datetime:"time"}</span>
                     </div>
-                    <div class="s-column middle right">
-                        {if $show_comments && $post.comments_allowed && !empty($post.comment_count)}
+                    {if $show_comments && $post.comments_allowed && !empty($post.comment_count)}
+                        <div class="s-column middle right b-comments-link__box">
                             <a class="b-comments-link" href="{$post.link}#comments">
                                 {_w('%d comment','%d comments',$post.comment_count)}
                             </a>
-                        {/if}
-                    </div>
+                        </div>
+                    {/if}
                 </div>
                 <meta itemprop="datePublished" content="{$post.datetime|date_format:'Y-m-d\TH:i'}">
                 <meta itemprop="headline" content="{$post.title}">
@@ -81,22 +79,25 @@
             {else}
                 {$post.text}
 
+
+                <span class="b-date">{$post.datetime|wa_datetime:"humandate"} </span>
+                <span class="b-time"> {$post.datetime|wa_datetime:"time"}</span>
                 {if $post.cutted}
-                    <p>
+                    <p class="read-more">
                         <a href="{$post.link}">{$post.cut_link_label|default:'[`Continue reading →`]'}</a>
                     </p>
                 {/if}
             {/if}
         </div>
 
-        {if empty($is_search_post) && $post.album_id && $post.album.id && $post.album.photos}
-            {$_show_album = !empty($theme_settings.photos_view_type) && $theme_settings.photos_view_type == "album"}
-            {if $_show_album}
-                {include "post.album.html" album=$post.album inline}
-            {else}
-                {include "post.photos.html" photos=$post.album.photos preview=true inline}
-            {/if}
-        {/if}
+{*        {if empty($is_search_post) && $post.album_id && $post.album.id && $post.album.photos}*}
+{*            {$_show_album = !empty($theme_settings.photos_view_type) && $theme_settings.photos_view_type == "album"}*}
+{*            {if $_show_album}*}
+{*                {include "post.album.html" album=$post.album inline}*}
+{*            {else}*}
+{*                {include "post.photos.html" photos=$post.album.photos preview=true inline}*}
+{*            {/if}*}
+{*        {/if}*}
 
         {* @event prepare_posts_frontend.%plugin_id%.after *}
         {if !empty($post.plugins.after)}

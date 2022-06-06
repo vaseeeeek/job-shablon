@@ -280,7 +280,6 @@
                                     {function name=in_stock n=0 low=5 critical=2}
                                         {if $n > $low or $n === null}
                                             <strong class="stock-high Product-stock_item Product-stock_item-high">
-                                                <i class="fi-rr-check"></i>
                                                 [`In stock`]
                                                 {if $theme_settings.product_show_stock_count && $n !== null}
                                                     : {$n} [`unit`]

@@ -6,6 +6,22 @@
         <aside class="left-sidebar ">
             {$rss = $wa->blog->rssUrl()}
 
+            <div class="s-sidebar-search" role="search">
+                {$_query = $smarty.get.query|default:''|escape}
+
+                <form method="get" action="{$wa->getUrl("blog/frontend/search")}">
+                    <input class="h-text-input" type="text" name="query" value="{if !empty($_query)}{$_query}{/if}" placeholder="[`Search`]">
+                </form>
+            </div>
+
+            {* PLUGINS *}
+            {* @event (frontend_action_default|frontend_action_post|frontend_action_page|frontend_action_error).%plugin_id%.sidebar *}
+            {foreach $frontend_action as $plugin => $output}
+                {if !empty($output.sidebar)}
+                    <div class="b-sidebar-plugin {$plugin}">{$output.sidebar}</div>
+                {/if}
+            {/foreach}
+
             {* TIMELINE NAVIGATION *}
             {$timeline = $wa->blog->timeline()}
             {if !empty($timeline)}
@@ -15,16 +31,16 @@
                         <ul class="b-timeline-list js-deep-list">
                             {$year=null}
                             {foreach $timeline as $year_month => $item}
-                                {if $year neq $item.year}
-                                    {if !$item@first}
-                                            </ul>
-                                        </li>
-                                    {/if}
-                                    <li class="{if $item.year_selected}is-selected is-opened{/if} has-menu">
-                                        {$year=$item.year}
-                                        <span class="s-toggle js-toggle"></span>
-                                        <a href="{$item.year_link}">{$item.year|default:'NULL'}</a>
-                                        <ul>
+                            {if $year neq $item.year}
+                            {if !$item@first}
+                        </ul>
+                        </li>
+                        {/if}
+                        <li class="{if $item.year_selected}is-selected is-opened{/if} has-menu">
+                            {$year=$item.year}
+                            <span class="s-toggle js-toggle"></span>
+                            <a href="{$item.year_link}">{$item.year|default:'NULL'}</a>
+                            <ul>
                                 {/if}
 
                                 <li class="{if $item.selected}is-selected{/if}">
@@ -32,31 +48,15 @@
                                 </li>
 
                                 {if $item@last}
-                                        </ul>
-                                    </li>
-                                {/if}
+                            </ul>
+                        </li>
+                        {/if}
 
-                            {/foreach}
+                        {/foreach}
                         </ul>
                     </nav>
-
-                    <div class="s-sidebar-search" role="search">
-                        {$_query = $smarty.get.query|default:''|escape}
-
-                        <form method="get" action="{$wa->getUrl("blog/frontend/search")}">
-                            <input class="h-text-input" type="text" name="query" value="{if !empty($_query)}{$_query}{/if}" placeholder="[`Search news`]">
-                        </form>
-                    </div>
                 </div>
             {/if}
-
-            {* PLUGINS *}
-            {* @event (frontend_action_default|frontend_action_post|frontend_action_page|frontend_action_error).%plugin_id%.sidebar *}
-            {foreach $frontend_action as $plugin => $output}
-                {if !empty($output.sidebar)}
-                    <div class="b-sidebar-plugin {$plugin}">{$output.sidebar}</div>
-                {/if}
-            {/foreach}
         </aside>
     </div>
 {/if}

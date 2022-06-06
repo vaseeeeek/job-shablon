@@ -170,8 +170,12 @@
             background: {$scColor};
             border:2px solid {$scColor};
         }
-        .Nav__Primary-outer--dd .Nav__horizontal--item:hover{
-            border-bottom: 2px solid {$scColor};
+        .Nav__Primary-outer--dd .Nav__horizontal--link:hover:before{
+            background: {$scColor};
+            width: 100%;
+        }
+        .Nav__Primary-outer--dd .Nav__horizontal--link:hover {
+            color: {$scColor};
         }
         .Compare__Item--Switch .Compare__Button, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active, .cat-content .product-action.active, .df-block.product-top-actions .product-action.active, .circle-progress__rate {
             color: {$scColor};
