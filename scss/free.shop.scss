@@ -642,6 +642,7 @@ $html-font-size: 14px;
   .promo-product {
     margin-left: 0;
     width: 100%;
+    margin-top: 2rem;
 
     .products-tile .owl-carousel .owl-item {
       width: 100% !important;
@@ -692,6 +693,7 @@ $html-font-size: 14px;
       max-width: 126px;
       padding: 0.5rem 0.6rem;
       font-weight: 700;
+      display: none;
     }
 
     &-name a {
@@ -720,7 +722,7 @@ $html-font-size: 14px;
   .home-prev-news {
     &_item {
       &__wrap {
-        width: 50%;
+        width: 100%;
       }
     }
   }

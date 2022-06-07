@@ -77,7 +77,7 @@
             {if !empty($is_search_post)}
                 {$post.text|strip_tags|truncate:400}
             {else}
-                {$post.text}
+                {$post.text|strip_tags|truncate:200}
 
 
                 <span class="b-date">{$post.datetime|wa_datetime:"humandate"} </span>
