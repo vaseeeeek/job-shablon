@@ -25,7 +25,7 @@
                 {foreach $product.images as $image}
                     <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
                         <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, $theme_settings.product_image_size_zoom)}">
-                            {$wa->shop->imgHtml($image, '96x96')}
+                            {$wa->shop->imgHtml($image, '50')}
                         </a>
                     </div>
                     {$position = $position + 1}
@@ -67,8 +67,9 @@
                     {$position = 0}
                     {if $product.images}
                         {foreach $product.images as $image}
+                            {if $wa->isMobile()}{$img_props = getimagesize($wa->server('DOCUMENT_ROOT')|cat:$wa->shop->imgUrl($image, '650'))}{/if}
                             <span class="product_gallery-images-main-el-outer">
-                                <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-images-main-el js-product_gallery-images-main-el{if $_popupOn} {$class_popup}{/if}{if !$_popupOn} cursor-default{/if}" href="{$wa->shop->imgUrl($image, '970')}" data-position="{$position}" data-pswp-width="970" data-pswp-height="970">
+                                <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-images-main-el js-product_gallery-images-main-el{if $_popupOn} {$class_popup}{/if}{if !$_popupOn} cursor-default{/if}" href="{$wa->shop->imgUrl($image, '970')}" data-position="{$position}" {if $wa->isMobile()}data-pswp-width="{$img_props[0]}" data-pswp-height="{$img_props[1]}"{/if}>
                                     {if $image@first}
                                         {$image_description = $image.description}
                                         {$wa->shop->imgHtml($image, '650', ['class' => 'product_gallery-images-main-img'])}

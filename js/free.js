@@ -2232,6 +2232,20 @@ if (!window.productGridGallery) {
                         $('<img>').attr('src', src).load(function () {
                             img.attr("src", src);
                         });
+                        let _this = $(this);
+                        let id = _this.attr('data-id')
+                        let wrap = _this.closest('.Product-grid');
+
+                        if (!wrap.length) {
+                            wrap = _this.closest('.Product__Item');
+                        }
+                        wrap.find('.dotted-img__item').each(function() {
+                            if ($(this).attr('data-id') == id) {
+                                $(this).addClass('-Active');
+                            } else {
+                                $(this).removeClass('-Active');
+                            }
+                        });
                     });
 
                     var src_default = img.data("src");
