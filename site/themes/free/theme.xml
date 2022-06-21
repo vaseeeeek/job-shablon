@@ -1302,7 +1302,7 @@
       <name locale="ru_RU">Страница товара</name>
     </setting>
     <setting var="product_horizontal_gallery" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Горизонтальная миниатюры</name>
       <name locale="en_US">Horizontal miniature</name>
     </setting>
@@ -1312,7 +1312,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_two</value>
+      <value>product_columns_three</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1372,7 +1372,7 @@
             </description>
     </setting>
     <setting var="display_buy_one_click" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Вывод кнопки "Купить в 1 клик" справа от кнопки "купить"</name>
       <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
@@ -1536,7 +1536,7 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выбор параметров - выпадающий список</name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
@@ -2005,6 +2005,26 @@
     <locale>
       <msgid>Personal data processing policy</msgid>
       <msgstr locale="ru_RU">Политика обработки персональных данных</msgstr>
+    </locale>
+    <locale>
+      <msgid>%s reviews in total</msgid>
+      <msgstr locale="ru_RU">Всего %s отзывов</msgstr>
+    </locale>
+    <locale>
+      <msgid>E.g. %s</msgid>
+      <msgstr locale="ru_RU">Например, %s</msgstr>
+    </locale>
+    <locale>
+      <msgid>Go to home page</msgid>
+      <msgstr locale="ru_RU">Перейти на главную страницу</msgstr>
+    </locale>
+    <locale>
+      <msgid>Brand</msgid>
+      <msgstr locale="ru_RU">Бренд</msgstr>
+    </locale>
+    <locale>
+      <msgid>or drag and drop here (10 max.)</msgid>
+      <msgstr locale="ru_RU">или перетащите иx сюда (10 макс.)</msgstr>
     </locale>
   </locales>
 </theme>

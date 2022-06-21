@@ -50,7 +50,7 @@
                     </div>
                 {/if}
             {/if}
-            {if count($product.skus) > 1}
+            {if ($product.sku_type && count($product.skus) > 0) || (!$product.sku_type && count($product.skus) > 1)}
                 {if $product.sku_type}
                     {$skuCode_feat_def = $product.sku_features}
                     {$pd_available = $product.status}
@@ -163,7 +163,7 @@
                                                 <span class="js-toggle-styler style-check{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if} {if $theme_settings.product_selection_articles != 'horizontal_checkboxes'}fi-rr-check{/if}">
                                                 <input class="js-toggle-styler-input" name="sku_id" type="radio" value="{$sku.id}"{if !$sku_available} disabled="disabled" data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}" data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
                                                 {if $theme_settings.product_selection_articles == 'horizontal_checkboxes'}
-                                                    <span class="name nowrap hint">{$sku.name}</span>
+                                                    <span class="name nowrap hint">{if $sku.name}{$sku.name}{else}{$sku.sku}{/if}</span>
                                                 {/if}
                                             </span>
 
@@ -259,8 +259,8 @@
 
                             {if $product.compare_price > 0 && $product.price > 0}
                                 <span class="js-compare-at-price product__old-price old-price nowrap">
-                            {shop_currency_html($product.compare_price)}
-                        </span>
+                                    {shop_currency_html($product.compare_price)}
+                                </span>
                             {/if}
 
                             {if $theme_settings.product_show_multi_sku && $theme_settings.product_item_name_display == 'purchase_block'}

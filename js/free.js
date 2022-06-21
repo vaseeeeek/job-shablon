@@ -65,7 +65,8 @@ var phoneSbar = {
         var btn = $('.js-filter-fixed-btn'),
             form = $('#filter-body');
 
-        btn.on('click touchend', function () {
+        btn.click(function (e) {
+            e.stopPropagation();
             left = Math.ceil(parseInt(form.css('left')));
             if (left < 0) {
                 form.addClass('show');
@@ -1283,7 +1284,7 @@ var cookieMessage = {
 
         close.on("click", function () {
             box.detach();
-            $.cookie("closeCookie", 1);
+            $.cookie('closeCookie', '1', { expires: 365 * 10 });
         });
     }
 };

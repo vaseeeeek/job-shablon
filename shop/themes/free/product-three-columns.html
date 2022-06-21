@@ -52,7 +52,7 @@
                                 </div>
                             {/if}
                         {/if}
-                        {if count($product.skus) > 1}
+                        {if count($product.skus) > 0}
                             {if $product.sku_type}
                                 {$skuCode_feat_def = $product.sku_features}
                                 {$pd_available = $product.status}

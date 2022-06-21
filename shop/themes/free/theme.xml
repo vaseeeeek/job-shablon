@@ -133,22 +133,4 @@
       <description locale="ru_RU">Файл плагина "Бренды PRO"</description>
     </file>
   </files>
-  <locales>
-    <locale>
-      <msgid>%s reviews in total</msgid>
-      <msgstr locale="ru_RU">Всего %s отзывов</msgstr>
-    </locale>
-    <locale>
-      <msgid>E.g. %s</msgid>
-      <msgstr locale="ru_RU">Например, %s</msgstr>
-    </locale>
-    <locale>
-      <msgid>Go to home page</msgid>
-      <msgstr locale="ru_RU">Перейти на главную страницу</msgstr>
-    </locale>
-    <locale>
-      <msgid>Brand</msgid>
-      <msgstr locale="ru_RU">Бренд</msgstr>
-    </locale>
-  </locales>
 </theme>
