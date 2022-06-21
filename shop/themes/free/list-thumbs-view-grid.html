@@ -81,7 +81,6 @@
                 {if $wa->shop->productImgUrl($p, $img_size) and file_exists($wa->server('DOCUMENT_ROOT')|cat:$wa->shop->productImgUrl($p, $img_size))}
                     {$img_props = getimagesize($wa->server('DOCUMENT_ROOT')|cat:$wa->shop->productImgUrl($p, $img_size))}
                 {/if}
-                {wa_dumpc($wa->server('DOCUMENT_ROOT')|cat:$wa->shop->productImgUrl($p, $img_size))}
                 <a class="Product-grid_img list-thumb-image js-grid-block-gallery {$theme_settings.category_image_contain} {$theme_settings.category_image_valign} {$theme_settings.category_image_size}" href="{$p.frontend_url}" {if $theme_settings.category_image_size == 'auto'}style="padding-bottom: {if not empty($img_props)}{ceil($img_props[1] / $img_props[0] * 100)}%{else}100%{/if}"{/if} {if $theme_settings.category_image_size == 'manual'}style="padding-bottom: {$theme_settings.category_image_size_manual}"{/if}>
                     {if isset($p.autobadge) && !empty($p.autobadge)}{$p.autobadge}{/if}
                     {if $wa_app == 'shop' && class_exists('shopProtilegalleryPlugin')}

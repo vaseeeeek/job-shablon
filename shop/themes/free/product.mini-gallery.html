@@ -25,7 +25,7 @@
                 {foreach $product.images as $image}
                     <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
                         <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, $theme_settings.product_image_size_zoom)}">
-                            {$wa->shop->imgHtml($image, '50')}
+                            {$wa->shop->imgHtml($image, '96')}
                         </a>
                     </div>
                     {$position = $position + 1}

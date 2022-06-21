@@ -98,15 +98,9 @@
     {/if}
     <header class="header">
         <div class="container">
-{*            {if $theme_settings.type_header == 'header_one'}*}
-                {include file="header-1.html"}
-{*            {else}*}
-{*                {include file="header-2.html"}*}
-{*            {/if}*}
+            {include file="header-1.html"}
         </div>
-{*        {if $theme_settings.type_header == 'header_one'}*}
-            {include file="nav.html"}
-{*        {/if}*}
+        {include file="nav.html"}
         <div class="contacts--box">
             <div class="contacts__left">
                 <a href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">
