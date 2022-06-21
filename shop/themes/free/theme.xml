@@ -8,7 +8,8 @@
     </file>
     <file path="free.shop.css">
     </file>
-    <file path="brand_plugin_brands_page.css">
+    <file path="brand_plugin_brands_page.css" custom="0" modified="1">
+      <description locale="ru_RU"/>
     </file>
     <file path="free.shop.js">
     </file>
@@ -124,6 +125,12 @@
     <file path="error.html" parent="1">
     </file>
     <file path="reviews.js">
+    </file>
+    <file path="brand_plugin_brand_page.css" custom="1" modified="1">
+      <description locale="ru_RU">Файл плагина "Бренды PRO"</description>
+    </file>
+    <file path="brand_plugin_catalog_header.html" custom="1" modified="1">
+      <description locale="ru_RU">Файл плагина "Бренды PRO"</description>
     </file>
   </files>
   <locales>

@@ -245,9 +245,9 @@
                                     {/if}
                                 {/if}
                             {/if}
-                            {if $theme_settings.show_grid_sku && isset($all_skus) && count($all_skus) > 0}
+                            {if $theme_settings.show_grid_sku}
                                 <div class="Product-grid_sku hint">
-                                    {if isset($p.skus_list.sku) && !empty($p.skus_list.sku)}
+                                    {if isset($all_skus) && count($all_skus) > 0 && isset($p.skus_list.sku) && !empty($p.skus_list.sku)}
                                         {$text_art_code}: {$p.skus_list.sku}
                                     {/if}
                                 </div>

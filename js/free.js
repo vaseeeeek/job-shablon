@@ -2721,7 +2721,6 @@ Product.prototype.updatePrice = function (price, compare_price) {
             var price = parseFloat(this.add2cart.find(".price").data('price'));
         }
     }
-
     if (compare_price && price) {
         if (!this.add2cart.find(".js-compare-at-price").length) {
             this.add2cart.find(".price").after('<span class="js-compare-at-price product__old-price old-price nowrap"></span>');
