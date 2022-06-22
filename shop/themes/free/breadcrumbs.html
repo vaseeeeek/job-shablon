@@ -56,7 +56,7 @@
         </ul>
     {/foreach}
 {/function}
-
+    <div class="breadcrumbs--box">
 {if $wa->currentUrl(false, true) != $wa_app_url}
     <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
         {if $theme_settings.home_crumbs}
@@ -88,6 +88,7 @@
         {otherCrumbs categories=$product.categories nameCrumbsArray=$nameCrumbsArray}
     {/if}
 {/if}
+</div>
 {/strip}
 
 <script>
