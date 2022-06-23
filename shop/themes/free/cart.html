@@ -257,11 +257,14 @@
                                                         <div class="js-cart-service"
                                                              {if !empty($s.id)}data-id="{$s.id}"{/if}>
                                                             <label>
-                                                                <input {if !empty($s.id)}checked{/if} type="checkbox"
-                                                                       name="services[{$item.id}][]"
-                                                                       value="{$service_id}"> {$s.name|escape} {if $s.price && !isset($s.variants)}(
-                                                                    <span>+{shop_currency_html($s.price, $s.currency)}</span>
-                                                                    ){/if}
+                                                                <span class="js-style-check style-check fi-rr-check">
+                                                                    <input class="js-style-check-input" {if !empty($s.id)}checked{/if} type="checkbox"name="services[{$item.id}][]" value="{$service_id}">
+
+                                                                        {if $s.price && !isset($s.variants)}
+                                                                            (<span>+{shop_currency_html($s.price, $s.currency)}</span>)
+                                                                        {/if}
+                                                                </span>
+                                                                {$s.name|escape}
                                                             </label>
                                                             {if isset($s.variants)}
                                                                 <select name="service-option[{$item.id}][{$service_id}]" {if empty($s.id)}disabled{/if}>

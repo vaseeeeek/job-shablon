@@ -1570,7 +1570,7 @@ iframe {
   background: #fff;
   position: relative;
   transition: 0.5s all ease;
-  box-shadow: 0 10px 20px -5px rgb(0 0 0 / 40%);
+  box-shadow: 0 20px 24px rgb(0 0 0 / 10%);
 }
 
 .dd-wrap:after {
@@ -2938,6 +2938,9 @@ img.mfp-img {
   overflow: auto;
 }
 
+.breadcrumbs--box>.breadcrumbs:not(:last-child) {
+  margin-bottom: 0.3rem;
+}
 .breadcrumbs > li {
   display: inline-block;
   padding: 0;
@@ -4024,7 +4027,7 @@ textarea {
     line-height: 1.4;
     position: relative;
     white-space: normal;
-    box-shadow: 0 10px 20px -5px rgb(0 0 0 / 40%);
+    box-shadow: 0 20px 24px rgb(0 0 0 / 10%);
   }
 
   .header-top_nav-sub > ul:before {
@@ -4077,13 +4080,14 @@ textarea {
 }
 
 .Nav__Primary-outer--dd {
-  border-bottom: 1px solid #e9ecef;
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
+  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
 
   .Nav__horizontal--link {
     position: relative;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 400;
 
     &:before {
       content: "";
@@ -4182,7 +4186,7 @@ textarea {
   }
 
   &--list:not(.-Beetwen) &--item:not(:last-child) {
-    margin-right: rem(40px);
+    margin-right: 1.9rem;
   }
 }
 
