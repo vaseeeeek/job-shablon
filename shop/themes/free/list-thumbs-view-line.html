@@ -194,6 +194,27 @@
                 {/if}
             </div>
             {if $available}
+                {if $theme_settings.preview_stock}
+                    {if !empty($theme_settings.text_product_preorder)}
+                        {$text_product_preorder = $theme_settings.text_product_preorder}
+                    {else}
+                        {$text_product_preorder = "[`Pre-order only`]"}
+                    {/if}
+                    <div class="Product-stock product-line-stock">
+                        {if $ignoreStock && $p.count !== null && $p.count == 0}
+                            <div class="Product-stock_item Product-stock_item-critical">
+                                {$text_product_preorder}
+                            </div>
+                        {else}
+                            <div class="Product-stock_item Product-stock_item-high">
+                                [`In stock`]
+                                {if $theme_settings.preview_stock_count && $p.count !== null}
+                                    : {$p.count} [`unit`]
+                                {/if}
+                            </div>
+                        {/if}
+                    </div>
+                {/if}
                 <form class="js-add-to-cart Product__Item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
 
                     {if $theme_settings.show_number_item_add_in_list}
@@ -220,43 +241,15 @@
                                 <span class="button js-submit-form addtocart addtocart--large" data-added-text="{$addedText}">{$add2label_cart}</span>
                             {/if}
                         {/if}
-
-                        <div class="Products-list_actions">
-                            {if $theme_settings.favorites}
-                                <span data-product="{$p.id}" class="js-favorites-add product-action add-to-favorite {if in_array($p.id, $favorites)} active{/if}">
-                                    <i class="fi-rr-heart"></i>
-                                </span>
-                            {/if}
-                            {if $theme_settings.compare}
-                                <span class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
-                                    <i class="fi-rr-compare"></i>
-                                </span>
-                            {/if}
-                        </div>
                     </div>
                 </form>
-                {if $theme_settings.preview_stock}
-                    {if !empty($theme_settings.text_product_preorder)}
-                        {$text_product_preorder = $theme_settings.text_product_preorder}
-                    {else}
-                        {$text_product_preorder = "[`Pre-order only`]"}
-                    {/if}
-                    <div class="Product-stock product-line-stock">
-                        {if $ignoreStock && $p.count !== null && $p.count == 0}
-                            <div class="Product-stock_item Product-stock_item-critical">
-                                {$text_product_preorder}
-                            </div>
-                        {else}
-                            <div class="Product-stock_item Product-stock_item-high">
-                                [`In stock`]
-                                {if $theme_settings.preview_stock_count && $p.count !== null}
-                                    : {$p.count} [`unit`]
-                                {/if}
-                            </div>
-                        {/if}
-                    </div>
-                {/if}
+
             {else}
+                <div class="Product-grid-stock-off nowrap">
+                    <div class="Product-stock_item Product-stock_item-out">
+                        [`Out of stock`]
+                    </div>
+                </div>
                 <div class="Product__Item-cart">
                     <div class="Product-grid_bottom">
                         <div class="Product-grid_cart">
@@ -264,27 +257,22 @@
                                 [`Add to cart`]
                             </div>
                         </div>
-
-                        <div class="Products-list_actions">
-                            {if $theme_settings.favorites}
-                                <span data-product="{$p.id}" class="js-favorites-add product-action add-to-favorite {if in_array($p.id, $favorites)} active{/if}">
-                                            <i class="fi-rr-heart"></i>
-                                        </span>
-                            {/if}
-                            {if $theme_settings.compare}
-                                <span class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
-                                            <i class="fi-rr-compare"></i>
-                                        </span>
-                            {/if}
-                        </div>
-                    </div>
-                </div>
-                <div class="Product-grid-stock-off nowrap">
-                    <div class="Product-stock_item Product-stock_item-out">
-                        [`Out of stock`]
                     </div>
                 </div>
             {/if}
+
+            <div class="Products-list_actions">
+                {if $theme_settings.favorites}
+                    <span data-product="{$p.id}" class="js-favorites-add product-action add-to-favorite {if in_array($p.id, $favorites)} active{/if}">
+                                            <i class="fi-rr-heart"></i>
+                                        </span>
+                {/if}
+                {if $theme_settings.compare}
+                    <span class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($p.id)} active{/if}" data-product="{$p.id}" data-url="{$p.frontend_url}" data-img="{$preview_image}" data-name="{$p.name}">
+                                            <i class="fi-rr-compare"></i>
+                                        </span>
+                {/if}
+            </div>
 
 
         </div>

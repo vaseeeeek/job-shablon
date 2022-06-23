@@ -1072,7 +1072,7 @@
       <tooltip locale="ru_RU">Задание произвольной высоты котейнера фотографии</tooltip>
     </setting>
     <setting var="preview_features_product" control_type="select">
-      <value>full</value>
+      <value>first</value>
       <name locale="en_US">Characteristics in product lists</name>
       <name locale="ru_RU">Характеристики в списке товаров</name>
       <description locale="ru_RU">Замедляет загрузку списка товаров. Используйте 2 настройки ниже в зависимости от
@@ -1312,7 +1312,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_three</value>
+      <value>product_columns_two</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1337,7 +1337,7 @@
       <name locale="en_US">Short description</name>
     </setting>
     <setting var="product_page_position_summary" control_type="select">
-      <value>before_buy_box</value>
+      <value>after_buy_box</value>
       <name locale="en_US">Displaying a brief description</name>
       <name locale="ru_RU">Отображение краткого описания</name>
       <options>

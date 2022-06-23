@@ -36,16 +36,22 @@
                 {/foreach}
                 {if $video && $wa->isMobile()}
                     <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                        {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
+
                         <a href="{$video.url}">
-                            <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                            <img class="prewiev" src="https://img.youtube.com/vi/{$videoId}/0.jpg" alt="">
+                            <img class="video-icon" src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                         </a>
                     </div>
                     {$position = $position + 1}
                 {/if}
                 {if $video && !$wa->isMobile() && $theme_settings.product_horizontal_gallery}
                     <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                        {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
+
                         <a href="{$video.url}">
-                            <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                            <img class="prewiev" src="https://img.youtube.com/vi/{$videoId}/0.jpg" alt="">
+                            <img class="video-icon" src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                         </a>
                     </div>
                     {$position = $position + 1}
@@ -53,8 +59,11 @@
             </div>
             {if $video && !$wa->isMobile() && !$theme_settings.product_horizontal_gallery}
                 <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                    {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
+
                     <a href="{$video.url}">
-                        <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                        <img class="prewiev" src="https://img.youtube.com/vi/{$videoId}/0.jpg" alt="">
+                        <img class="video-icon" src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
                     </a>
                 </div>
                 {$position = $position + 1}

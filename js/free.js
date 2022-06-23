@@ -1584,9 +1584,9 @@ var itemGallery = {
             let miniatureCount = 5;
             if ($('.js-image-popup-swipebox').height() > 150) {
                 if ($('.image-preview--video').length) {
-                    miniatureCount = Math.trunc($('.js-image-popup-swipebox').height() / 54 - 2);
+                    miniatureCount = Math.trunc($('.js-image-popup-swipebox').height() / 60 - 2);
                 } else {
-                    miniatureCount = Math.trunc($('.js-image-popup-swipebox').height() / 54 - 1);
+                    miniatureCount = Math.trunc($('.js-image-popup-swipebox').height() / 60 - 1);
                 }
             }
             if (windowWidth >= 1026) {
