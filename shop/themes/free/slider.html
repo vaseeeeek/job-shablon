@@ -126,7 +126,8 @@
                                         {$preview_image = $wa->shop->productImgUrl($product, '60')}
                                         <form class="js-add-to-cart main-slider_item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                                             <input type="hidden" name="product_id" value="{$product.id}">
-                                            <span class="button main-slider_item-btn js-btn-form addtocart addtocart--large"> <i class="fi-rr-shopping-cart"></i> {$add2label_cart}</span>
+                                            {$addedText = "[`Added`]"}
+                                            <span class="button main-slider_item-btn js-submit-form addtocart addtocart--large" data-added-text="{$addedText}"> <i class="fi-rr-shopping-cart"></i> {$add2label_cart}</span>
                                         </form>
                                     {/if}
                                 {/if}

@@ -321,7 +321,6 @@ $html-font-size: 14px;
   padding: 0 3%;
   position: relative;
 }
-
 .main-slider_item .badge {
   display: inline-flex;
   position: initial !important;
@@ -400,6 +399,12 @@ $html-font-size: 14px;
   }
 }
 
+.main-slider_item-cart .main-slider_item-btn {
+  border: 1px solid transparent;
+}
+.main-slider_item-cart .main-slider_item-btn.added {
+  background: transparent;
+}
 @media (max-width: 640px) {
   .main-slider_item-pr .product__price {
     font-size: 1.6rem;
