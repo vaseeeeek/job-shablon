@@ -121,13 +121,13 @@
                                 {if $available}
                                     {if $wa->shop->cart->total() > 0}{$add2label_cart = '[`Add to cart`]'}{else}{$add2label_cart = '[`Buy`]'}{/if}
                                     {if $product.sku_count > 1}
-                                        <span class="button main-slider_item-btn js-card-dialog addtocart addtocart--large" data-href="{$product.frontend_url}{if strpos($product.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1"><i class="fi-rr-shopping-cart"></i>{$add2label_cart}</span>
+                                        <span class="button main-slider_item-btn js-card-dialog addtocart addtocart--large" data-href="{$product.frontend_url}{if strpos($product.frontend_url, '?')}&{else}?{/if}cart=1&select-options=1"></i>{$add2label_cart}</span>
                                     {else}
                                         {$preview_image = $wa->shop->productImgUrl($product, '60')}
                                         <form class="js-add-to-cart main-slider_item-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                                             <input type="hidden" name="product_id" value="{$product.id}">
                                             {$addedText = "[`Added`]"}
-                                            <span class="button main-slider_item-btn js-submit-form addtocart addtocart--large" data-added-text="{$addedText}"> <i class="fi-rr-shopping-cart"></i> {$add2label_cart}</span>
+                                            <span class="button main-slider_item-btn js-submit-form addtocart addtocart--large" data-added-text="{$addedText}">{$add2label_cart}</span>
                                         </form>
                                     {/if}
                                 {/if}
