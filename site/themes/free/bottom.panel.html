@@ -312,11 +312,7 @@
                     {/if}
                 {/if}
                 {if $btn == 'cart' && $wa->shop}
-                    {if method_exists($wa->shop, 'checkout')}
-                        {$cartUrl = $wa->shop->checkout()->cartUrl()}
-                    {else}
-                        {$cartUrl = $wa->getUrl('shop/frontend/cart')}
-                    {/if}
+                    {$cartUrl = $wa->getUrl('shop/frontend/cart')}
                     <a class="juniq-header-preview-cart preview-cart product-custom" data-url="{$cartUrl}" href="{$cartUrl}">
                         <div href="{$cartUrl}">
                             {$cart_count = $wa->shop->cart->count()}

@@ -2713,8 +2713,8 @@ Product.prototype.updateSkuServices = function (sku_id) {
 };
 
 Product.prototype.updatePrice = function (price, compare_price) {
+    var input_checked = this.formWrap.find(".skus input:radio:checked, .skus option:selected");
     if (price === undefined) {
-        var input_checked = this.formWrap.find(".skus input:radio:checked, .skus option:selected");
         if (input_checked.length) {
             var price = parseFloat(input_checked.data('price'));
             var compare_price = parseFloat(input_checked.data('compare-price'));
@@ -2748,7 +2748,10 @@ Product.prototype.updatePrice = function (price, compare_price) {
     } else {
         $priceWrap.html(priceFormat);
     }
-    self.updateDiscount(price, compare_price);
+
+    if (input_checked.length || $(product_options).length) {
+        self.updateDiscount(price, compare_price);
+    }
     self.updateSaved(price, compare_price);
 
     if (!self.button.hasClass('disabled')) {

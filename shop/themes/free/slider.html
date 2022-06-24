@@ -100,7 +100,7 @@
 
                                         {$productDiscount = isset($discount) && $price > 0}
 
-                                        <div class="product-card_discounts {if !$productDiscount} -Close{/if}">
+                                        <div class="product-card_discounts {if !$productDiscount} -Close{/if}" data-compare="{$compare_price}">
                                             <div data-minimal="3" class="js-product-discount product-discount product-card__discount">{if $productDiscount}Скидка {$discount}%{/if}</div>
                                         </div>
                                     {/if}

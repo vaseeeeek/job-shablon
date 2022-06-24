@@ -630,6 +630,7 @@ $html-font-size: 14px;
 
   .Product-grid_bottom {
     display: none;
+    user-select: none;
   }
 
   .Product-grid {
@@ -2986,6 +2987,7 @@ input.filter-range_el:focus {
   display: table-cell;
   width: 250px;
   padding: 1rem 1rem 2.5rem 1rem;
+  user-select: none;
 }
 
 .Product__Item-price {
@@ -3203,6 +3205,7 @@ input.filter-range_el:focus {
   padding: rem(10px);
   width: 280px;
   vertical-align: top;
+  user-select: none;
 
   .button {
       border: 1px solid transparent;
@@ -3466,6 +3469,7 @@ img.pswp__img {
 
   .product_add-services {
     min-width: initial;
+    user-select: none;
   }
 
   .product_action-dialog {
