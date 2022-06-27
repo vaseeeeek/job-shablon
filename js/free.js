@@ -2719,6 +2719,9 @@ Product.prototype.updatePrice = function (price, compare_price) {
             var price = parseFloat(input_checked.data('price'));
             var compare_price = parseFloat(input_checked.data('compare-price'));
         } else {
+            if ($('.product__header .product-card_discounts').data('compare') && $('.services label').hasClass('checked')){
+                var compare_price = parseFloat($('.product__header .product-card_discounts').data('compare'));
+            }
             var price = parseFloat(this.add2cart.find(".price").data('price'));
         }
     }
@@ -2749,9 +2752,10 @@ Product.prototype.updatePrice = function (price, compare_price) {
         $priceWrap.html(priceFormat);
     }
 
-    if (input_checked.length || $(product_options).length) {
+
+    // if (!$('.product__header .product-card_discounts').data('compare')){
         self.updateDiscount(price, compare_price);
-    }
+    // }
     self.updateSaved(price, compare_price);
 
     if (!self.button.hasClass('disabled')) {

@@ -21,8 +21,7 @@
                                 {/if}
 
                                 {$productDiscount = isset($discount) && $price > 0}
-
-                                <div class="product-card_discounts {if !$productDiscount} -Close{/if}" data-compare="{$compare_price}">
+                                <div class="product-card_discounts {if !$productDiscount} -Close{/if}"{if $product.sku_count < 2} data-compare="{$compare_price}"{/if}>
                                     <div data-minimal="3" class="js-product-discount product-discount product-card__discount">{if $productDiscount}-{$discount}%{/if}</div>
                                 </div>
                             {/if}

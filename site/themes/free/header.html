@@ -1,3 +1,4 @@
+
 <div class="header--left">
     {$is_logo = $theme_settings.logo}
     <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}{if $wa->currentUrl() === $wa->getUrl('shop/frontend')}{else}href="{$wa->getUrl('shop/frontend')}"{/if}{/if}>

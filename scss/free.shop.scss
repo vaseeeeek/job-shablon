@@ -2202,6 +2202,9 @@ input.error, textarea.error {
   display: inline-block;
   width: auto
 }
+.wa-auth-adapters ul li:not(:last-child) {
+  margin-right: 10px;
+}
 
 .checkout ul li.disabled {
   opacity: .6
@@ -2255,6 +2258,7 @@ input.error, textarea.error {
 
 table.data-order {
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 @media (max-width: 550px) {
@@ -3152,6 +3156,9 @@ input.filter-range_el:focus {
   .Product__Item-bottom .Product__Item-center {
     text-align: center;
     margin: rem(5px) 0 0
+  }
+  .products-list .Product__Item-price {
+    margin-bottom: 10px;
   }
 }
 
@@ -5704,7 +5711,8 @@ img.pswp__img {
 
 @media screen and (max-width: 1025px) {
   .order-wrap > .order-col:first-child {
-    margin-top: 0
+    margin-top: 0;
+    margin-bottom:20px
   }
 }
 

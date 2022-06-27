@@ -2026,5 +2026,9 @@
       <msgid>or drag and drop here (10 max.)</msgid>
       <msgstr locale="ru_RU">или перетащите иx сюда (10 макс.)</msgstr>
     </locale>
+    <locale>
+      <msgid>Next</msgid>
+      <msgstr locale="ru_RU">Далее</msgstr>
+    </locale>
   </locales>
 </theme>
