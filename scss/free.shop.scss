@@ -3173,6 +3173,10 @@ input.filter-range_el:focus {
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid #ebebeb;
+  .addtocart {
+    min-width: initial;
+    padding: 0.5rem 1rem;
+  }
 }
 
 .Product-table-img {
@@ -6962,7 +6966,7 @@ span.grid-gallery__el.js-grid-gallery-item {
 }
 
 .Product-grid_bottom .button {
-  padding: 0.5rem 1.1rem;
+  padding: 0.5rem 0.8rem;
 }
 
 

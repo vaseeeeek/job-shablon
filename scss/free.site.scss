@@ -2289,7 +2289,10 @@ img.mfp-img {
 }
 
 .Nav__Primary {
-  position: relative
+  position: relative;
+  &.container {
+    overflow: hidden;
+  }
 }
 
 .category, .info-page {
@@ -4109,6 +4112,7 @@ textarea {
     //overflow: hidden;
     position: relative;
     max-width: 100%;
+    flex-wrap: wrap;
 
     .Nav__horizontal--list-2 {
       display: flex;
@@ -4144,6 +4148,7 @@ textarea {
       display: block;
       padding-top: rem(10px);
       padding-bottom: rem(10px);
+      white-space: nowrap;
     }
 
     .Nav__horizontal--link i {

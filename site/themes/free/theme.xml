@@ -1377,7 +1377,7 @@
       <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>first</value>
+      <value>full</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
       <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых
@@ -1406,7 +1406,7 @@
       </options>
     </setting>
     <setting var="count_output_features_right_block" control_type="text">
-      <value>5</value>
+      <value/>
       <name locale="ru_RU">Кол-во характеристик</name>
       <name locale="en_US">Number of characteristics</name>
       <description locale="ru_RU">Если выбрано "Первых N штук"
@@ -1415,7 +1415,7 @@
             </description>
     </setting>
     <setting var="product_codes_output_characteristics" control_type="text">
-      <value/>
+      <value>brand</value>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of the output characteristics</name>
     </setting>

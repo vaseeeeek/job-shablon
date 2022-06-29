@@ -394,9 +394,12 @@
                     {/foreach}
                 </div>
             </div>
+
         </div>
 
         {if $_is_dialog && !$_is_dialog_select_options}
+
+        {if $_is_dialog}{include file="product.mini.desc.html"}{/if}
     </div>
     {/if}
     {if $_is_dialog && !$_is_dialog_select_options}
