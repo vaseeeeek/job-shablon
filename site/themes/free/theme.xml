@@ -865,7 +865,7 @@
       </options>
     </setting>
     <setting var="pagination" control_type="select">
-      <value>lazyloading</value>
+      <value>paging</value>
       <name locale="en_US">Uploading a list of products</name>
       <name locale="ru_RU">Подгрузка товаров</name>
       <options>

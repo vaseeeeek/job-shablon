@@ -2290,9 +2290,6 @@ img.mfp-img {
 
 .Nav__Primary {
   position: relative;
-  &.container {
-    overflow: hidden;
-  }
 }
 
 .category, .info-page {
@@ -3143,15 +3140,19 @@ img.mfp-img {
   text-align: center
 }
 
-.pagination li {
-  width: 30px;
-  text-align: center;
+.pagination li  {
   display: inline-block;
-  margin: 0 0.1rem;
-  height: 30px;
-  line-height: 30px;
 
-  &:not(.selected):hover {
+  a {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    margin: 0 0.1rem;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  &:not(.selected):hover a{
     background: #f2f2f2;
   }
 }
