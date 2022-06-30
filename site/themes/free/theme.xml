@@ -1589,6 +1589,11 @@
       <name locale="ru_RU">Вывод коллекции ссылок характеристик</name>
       <name locale="en_US">Show a collection of references of characteristics</name>
     </setting>
+    <setting var="product_show_category_list" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывод списка категорий</name>
+      <name locale="en_US">Category list show</name>
+    </setting>
     <setting var="paragraph_footer" control_type="group_divider">
       <value/>
       <name locale="en_US">Footer</name>
@@ -1823,6 +1828,14 @@
       <msgstr locale="ru_RU">Сравнение</msgstr>
     </locale>
     <locale>
+      <msgid>To compare</msgid>
+      <msgstr locale="ru_RU">В сравнение</msgstr>
+    </locale>
+    <locale>
+      <msgid>In compare</msgid>
+      <msgstr locale="ru_RU">В сравнении</msgstr>
+    </locale>
+    <locale>
       <msgid>Product added to cart!</msgid>
       <msgstr locale="ru_RU">Товар добавлен в корзину!</msgstr>
     </locale>
@@ -1841,6 +1854,10 @@
     <locale>
       <msgid>To favorites</msgid>
       <msgstr locale="ru_RU">В избранное</msgstr>
+    </locale>
+    <locale>
+      <msgid>In favorites</msgid>
+      <msgstr locale="ru_RU">В избранном</msgstr>
     </locale>
     <locale>
       <msgid>The product has been added to favorites</msgid>

@@ -178,6 +178,11 @@ $html-font-size: 14px;
   font-weight: 400;
   letter-spacing: 1px;
   margin: 0 rem(10px) rem(10px) 0;
+  padding: 0.4rem 2rem;
+
+  &.button.added {
+    background: transparent;
+  }
 
   .fi-rr-shopping-cart {
     position: relative;
@@ -1476,7 +1481,16 @@ span.rating__total {
   font-weight: 400;
   font-size: rem(20px)
 }
-
+.product-categories__title{
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 10px;
+}
+.product-categories__item {
+  text-decoration: underline;
+  margin-right: 10px;
+  font-size: 15px;
+}
 .group_staff {
   padding: rem(2px) rem(3px);
   border-radius: 3px
@@ -1966,6 +1980,10 @@ input.error, textarea.error {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+
+  strong {
+    margin: 0 3px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1982,7 +2000,6 @@ input.error, textarea.error {
   display: inline-flex;
   flex-wrap: wrap;
   position: relative;
-  margin: 0 0 0 rem(5px)
 }
 
 .coupon-form input {

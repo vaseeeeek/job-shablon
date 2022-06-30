@@ -318,11 +318,8 @@
                                      {if !shopDiscounts::isEnabled('coupons') && !$discount}style="display:none"{/if}
                                      id="discount-row">
                                     <div class="col cart-el_coupon">
-                                        {if !$coupon_code}
-                                            <a href="#" class="link-style" id="coupon-in-stock">[`I have a coupon!`]</a>
-                                        {/if}
                                         {if shopDiscounts::isEnabled('coupons')}
-                                            <div {if !$coupon_code}style="display: none;"{/if} class="coupon-form" id="use-coupon-code">
+                                            <div class="coupon-form" id="use-coupon-code">
                                                 <input placeholder="[`Coupon code`]" type="text" name="coupon_code"
                                                        value="{$coupon_code|escape}">
 

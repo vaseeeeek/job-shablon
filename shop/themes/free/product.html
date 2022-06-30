@@ -75,13 +75,21 @@
                                     {/if}
                                     <span data-product="{$product.id}" class="js-favorites-add product-action add-to-favorite {if in_array($product.id, $product_favor_arr)} active{/if}">
                                     <i class="fi-rr-heart"></i>
-                                    <span class="product-action-text">[`To favorites`]</span>
+                                    {if in_array($product.id, $product_favor_arr)}
+                                        <span class="product-action-text">[`In favorites`]</span>
+                                    {else}
+                                        <span class="product-action-text">[`To favorites`]</span>
+                                    {/if}
                                 </span>
                                 {/if}
                                 {if $theme_settings.compare}
                                     <span data-name="{$product.name|escape}" data-img="{$wa->shop->productImgUrl($product, '60')}" data-url="{$product.frontend_url}" data-product="{$product.id}" class="js-compare-add product-action add-to-compare {if $wa->shop->inComparison($product.id)} active{/if}">
                                     <i class="fi-rr-compare"></i>
-                                    <span class="product-action-text">[`Compare`]</span>
+                                    {if $wa->shop->inComparison($product.id)}
+                                        <span class="product-action-text">[`In compare`]</span>
+                                    {else}
+                                        <span class="product-action-text">[`To compare`]</span>
+                                    {/if}
                                 </span>
                                 {/if}
                             </div>
@@ -398,6 +406,19 @@
                         <span class="seo-filter-links__item">
                             {$seoLink}
                         </span>
+                    {/foreach}
+                </span>
+            </div>
+        {/if}
+
+        {if count($product.categories) > 1 && $theme_settings.product_show_category_list}
+            <div class="product-categories">
+                <span class="product-categories__title">Подборки товаров в категории:</span>
+                <span class="product-categories__list">
+                    {foreach $product.categories as $key => $cat}
+                        <a href="/{$cat.full_url}/" class="product-categories__item">
+                            {$cat.name}
+                        </a>
                     {/foreach}
                 </span>
             </div>

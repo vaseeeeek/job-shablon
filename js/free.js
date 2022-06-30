@@ -1407,9 +1407,25 @@ var productViewListCustom = {
 
             if (!$this.hasClass('active')) {
                 countInList = _this.add(productsArrName, productId);
+                if ($this.find('.product-action-text').length > 0) {
+                    if (productsArrName == 'product_favor_arr') {
+                        $this.find('.product-action-text').text('В избранном');
+                    }
+                    if (productsArrName == 'shop_compare') {
+                        $this.find('.product-action-text').text('В сравнении');
+                    }
+                }
             } else {
                 countInList = _this.remove(productsArrName, productId);
                 isAdded = false;
+                if ($this.find('.product-action-text').length > 0) {
+                    if (productsArrName == 'product_favor_arr') {
+                        $this.find('.product-action-text').text('В избранное');
+                    }
+                    if (productsArrName == 'shop_compare') {
+                        $this.find('.product-action-text').text('В сравнениe');
+                    }
+                }
             }
             var url = (countInList > 0) ? linPreviewView.attr('href').replace(/compare\/.*$/, 'compare/' + _this.get(productsArrName) + '/') : '/compare/';
 
