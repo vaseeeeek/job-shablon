@@ -152,7 +152,7 @@
             <form class="js-add-to-cart" method="post" action="{$wa->getUrl('shop/frontendCart/add')}">
                 <input type="hidden" name="product_id" value="{$p.id}">
                 <div class="Product-grid_content">
-                    <div class="Product-grid_prices">
+                    <div class="Product-grid_prices{if $p.compare_price} -hasComparePrice{/if}">
                         {if empty($p.price) && !empty($theme_settings.text_zero_price)}
                             <span class="Product-grid_zero-price">{$theme_settings.text_zero_price}</span>
                         {elseif

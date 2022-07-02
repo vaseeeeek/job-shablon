@@ -73,15 +73,18 @@
         {/if}
     </div>
 
-    <div class="Product-table-buy{if $_price_range} width-large{/if}">
-        <span class="Product-table-price price">
+    <div class="Product-table-buy{if $_price_range} width-large{/if}{if $p.compare_price} -hasComparePrice{/if}">
+        <span class="Product-table-price ">
             {if empty($p.price) && !empty($theme_settings.text_zero_price)}
                 <span class="bold">{$theme_settings.text_zero_price}</span>
             {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}
                 <span class="nowrap">{shop_currency_html($p.min_price)}</span> ... <span class="nowrap">{shop_currency_html($p.max_price)}</span>
             {else}
-                <span class="nowrap">{shop_currency_html($p.price)}</span>
-                <span class="Product-table-oldprice old-price nowrap">{if $p.compare_price > 0}{shop_currency_html($p.compare_price)}{/if}</span>
+
+                <span class="price">
+                    <span class="nowrap">{shop_currency_html($p.price)}</span>
+                    <span class="Product-table-oldprice old-price nowrap">{if $p.compare_price > 0}{shop_currency_html($p.compare_price)}{/if}</span>
+                </span>
             {/if}
         </span>
         {if $available}

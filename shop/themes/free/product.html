@@ -21,8 +21,8 @@
                                 {/if}
 
                                 {$productDiscount = isset($discount) && $price > 0}
-                                <div class="product-card_discounts {if !$productDiscount} -Close{/if}"{if $product.sku_count < 2} data-compare="{$compare_price}"{/if}>
-                                    <div data-minimal="3" class="js-product-discount product-discount product-card__discount">{if $productDiscount}-{$discount}%{/if}</div>
+                                <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}"{if $product.sku_count < 2} data-compare="{$compare_price}"{/if}>
+                                    <span data-minimal="3" class="js-product-discount ">{if $productDiscount}-{$discount}%{/if}</span>
                                 </div>
                             {/if}
                         {/if}
@@ -416,7 +416,7 @@
                 <span class="product-categories__title">Подборки товаров в категории:</span>
                 <span class="product-categories__list">
                     {foreach $product.categories as $key => $cat}
-                        <a href="/{$cat.full_url}/" class="product-categories__item">
+                        <a href="{$wa->getUrl('/frontend/category', ['category_url' => $cat.full_url])}" class="product-categories__item">
                             {$cat.name}
                         </a>
                     {/foreach}

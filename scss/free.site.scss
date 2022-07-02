@@ -2938,9 +2938,10 @@ img.mfp-img {
   overflow: auto;
 }
 
-.breadcrumbs--box>.breadcrumbs:not(:last-child) {
+.breadcrumbs--box > .breadcrumbs:not(:last-child) {
   margin-bottom: 0.3rem;
 }
+
 .breadcrumbs > li {
   display: inline-block;
   padding: 0;
@@ -3140,7 +3141,7 @@ img.mfp-img {
   text-align: center
 }
 
-.pagination li  {
+.pagination li {
   display: inline-block;
 
   a {
@@ -3152,7 +3153,7 @@ img.mfp-img {
     line-height: 30px;
   }
 
-  &:not(.selected):hover a{
+  &:not(.selected):hover a {
     background: #f2f2f2;
   }
 }

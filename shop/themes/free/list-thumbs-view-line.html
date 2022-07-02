@@ -183,7 +183,7 @@
             {/if}
         </div>
         <div class="Product__Item-right">
-            <div class="Product__Item-price">
+            <div class="Product__Item-price{if $p.compare_price} -hasComparePrice{/if}">
                 {if empty($p.price) && !empty($theme_settings.text_zero_price)}
                     <span class="bold">{$theme_settings.text_zero_price}</span>
                 {elseif $_price_range && ($p.max_price && $p.min_price && $p.max_price > $p.min_price)}

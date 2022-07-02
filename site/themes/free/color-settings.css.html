@@ -76,24 +76,24 @@
         }
 
         {if $textColor}
-        body, body .link, body a, body .price, body .rating.-zero icon10.star:hover, .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right, .header p.Nav-contact-callback, .carousel-vertical .bx-prev, .style-check.checked:before, .jq-checkbox.checked:before,
-        body .star-rating-empty.star, body .star-rating-empty.star-hover,
-        body .rating.-zero .icon10.star:hover, body select, body input, .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button, .Product-stock_item-critical, .Product-stock_item-out {
-            color: {$textColor};
-            fill: {$textColor};
-        }
+            body, body .link, body a, body .price, body .rating.-zero icon10.star:hover, .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right, .header p.Nav-contact-callback, .carousel-vertical .bx-prev, .style-check.checked:before, .jq-checkbox.checked:before,
+            body .star-rating-empty.star, body .star-rating-empty.star-hover,
+            body .rating.-zero .icon10.star:hover, body select, body input, .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button, .Product-stock_item-critical, .Product-stock_item-out {
+                color: {$textColor};
+                fill: {$textColor};
+            }
 
-        .fixed-panel .nav-cat-btn__action {
-            background: {$textColor};
-        }
+            .fixed-panel .nav-cat-btn__action {
+                background: {$textColor};
+            }
 
-        .dotted-img__list li.dotted-img__item.-Active {
-            background-color: {$textColor};
-        }
+            .dotted-img__list li.dotted-img__item.-Active {
+                background-color: {$textColor};
+            }
 
-        .dotted-img__list li.dotted-img__item {
-            border: 1px solid{$textColor};
-        }
+            .dotted-img__list li.dotted-img__item {
+                border: 1px solid{$textColor};
+            }
 
         {/if}
 
@@ -189,16 +189,14 @@
         }
 
         .df-block.product-top-actions .product-action.active i.fi-rr-heart {
-            color: red;
+            color: #f91155;
         }
 
         .product-categories__item, .Compare__Item--Switch .Compare__Button, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active, .cat-content .product-action.active, .df-block.product-top-actions .product-action.active, .circle-progress__rate {
             color: {$scColor};
         }
 
-        @media max-width(1024px
-
-        ) {
+        @media max-width (1024px) {
             .Product-grid_action .product-action:hover {
                 color: {$scColor};
             }
@@ -292,22 +290,21 @@
         }
 
         {if $footerBG}
-        .footer {
-            background: {$footerBG};
-        }
-
+            .footer {
+                background: {$footerBG};
+            }
         {/if}
 
         {if $btnTextColor}
-        .pages li.is-selected span, .h-staff, .b-comments-section .b-list-section .b-comment-wrapper .b-comment .b-credentials .b-staff,
-        .style-check.checked:before, .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
-        .pages .shop a.selected, .checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .comment__label, .cart-coupon-add-button_active {
-            color: {$btnTextColor}
-        }
+            .pages li.is-selected span, .h-staff, .b-comments-section .b-list-section .b-comment-wrapper .b-comment .b-credentials .b-staff,
+            .style-check.checked:before, .button, button, input[type=button], input[type=submit], .admin-edit-links__el, .btn-settings, .nav-cat-btn, .product-custom_short-count, .header__cart-count, .select-options li:hover,
+            .pages .shop a.selected, .checked-list__items li.selected a, .checked-list__items li:hover a, .product-added-msg, .My__Button--Pin, .comment__label, .cart-coupon-add-button_active {
+                color: {$btnTextColor}
+            }
 
-        .nav-cat-btn__action {
-            background-color: {$btnTextColor};
-        }
+            .nav-cat-btn__action {
+                background-color: {$btnTextColor};
+            }
 
         {/if}
 

@@ -9,59 +9,59 @@
     </description>
   <files>
     <file path="index.html" custom="0">
-        </file>
+    </file>
     <file path="free.site.css" custom="0">
-        </file>
+    </file>
     <file path="free.js" custom="0">
-        </file>
+    </file>
     <file path="free.custom.css" custom="0">
-        </file>
+    </file>
     <file path="free.custom.js" custom="0">
-        </file>
+    </file>
     <file path="style-settings.css.html" custom="0">
-        </file>
+    </file>
     <file path="fonts.html" custom="0">
-        </file>
+    </file>
     <file path="head.html" custom="0">
-        </file>
+    </file>
     <file path="color-settings.css.html" custom="0">
-        </file>
+    </file>
     <file path="header.links.html" custom="0">
-        </file>
+    </file>
     <file path="header.links.desk.html" custom="0">
-        </file>
+    </file>
     <file path="header.html" custom="0">
-        </file>
+    </file>
     <file path="nav.html" custom="0">
-        </file>
+    </file>
     <file path="bottom.panel.html" custom="0">
-        </file>
+    </file>
     <file path="header.dd.cat.list.html" custom="0">
-        </file>
+    </file>
     <file path="nav.one_column.scat.html" custom="0">
-        </file>
+    </file>
     <file path="nav.columns.scat.html" custom="0">
-        </file>
+    </file>
     <file path="main.html" custom="0">
-        </file>
+    </file>
     <file path="footer.html" custom="0">
-        </file>
+    </file>
     <file path="sidebar.html" custom="0">
-        </file>
+    </file>
     <file path="page.html" custom="0">
-        </file>
+    </file>
     <file path="login.html" custom="0">
-        </file>
+    </file>
     <file path="signup.html" custom="0">
-        </file>
+    </file>
     <file path="forgotpassword.html" custom="0">
-        </file>
+    </file>
     <file path="my.profile.html">
-        </file>
+    </file>
     <file path="my.nav.html">
-        </file>
+    </file>
     <file path="error.html" custom="0">
-        </file>
+    </file>
   </files>
   <settings>
     <setting var="paragraph_colors" control_type="group_divider">
@@ -306,7 +306,7 @@
       <name locale="ru_RU">Выбор валюты</name>
     </setting>
     <setting var="links_information_pages" control_type="select">
-      <value>shop-pages</value>
+      <value>site-pages</value>
       <name locale="ru_RU">Ссылки на инф. страницы</name>
       <name locale="en_US">Links to information pages</name>
       <description locale="ru_RU">Из какого приложения брать ссылки на инф. страницы.
@@ -1302,17 +1302,17 @@
       <name locale="ru_RU">Страница товара</name>
     </setting>
     <setting var="product_horizontal_gallery" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Горизонтальная миниатюры</name>
       <name locale="en_US">Horizontal miniature</name>
     </setting>
     <setting var="product_show_all_cat" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывести все категории в крошках</name>
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_two</value>
+      <value>product_columns_three</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1356,12 +1356,12 @@
       </options>
     </setting>
     <setting var="product_page_show_qty" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Вывод количества</name>
       <name locale="en_US">Outputting the quantity</name>
     </setting>
     <setting var="product_image_size_zoom" control_type="text">
-      <value>970</value>
+      <value>1500</value>
       <name locale="ru_RU">Размер изображения в zoom</name>
       <name locale="en_US">Image size in zoom</name>
       <description locale="ru_RU">Размер не должен привышать максимальный размер эскиза, в настройках магазина.
@@ -1721,7 +1721,7 @@
       </options>
     </setting>
     <setting var="home_crumbs" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Главная в крошках</name>
       <name locale="en_US">Home in crumbs</name>
     </setting>

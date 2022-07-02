@@ -314,7 +314,7 @@ $html-font-size: 14px;
 }
 
 .main-slider_item {
-  display: inline-block;
+  display: inline-flex;
   font-size: 1rem;
   white-space: normal;
   word-spacing: normal;
@@ -326,6 +326,7 @@ $html-font-size: 14px;
   padding: 0 3%;
   position: relative;
 }
+
 .main-slider_item .badge {
   display: inline-flex;
   position: initial !important;
@@ -336,7 +337,6 @@ $html-font-size: 14px;
   max-width: 25%;
   text-align: center;
   display: block;
-  float: left;
   position: relative;
   padding: 2rem 0;
   margin-right: 2rem;
@@ -407,9 +407,11 @@ $html-font-size: 14px;
 .main-slider_item-cart .main-slider_item-btn {
   border: 1px solid transparent;
 }
+
 .main-slider_item-cart .main-slider_item-btn.added {
   background: transparent;
 }
+
 @media (max-width: 640px) {
   .main-slider_item-pr .product__price {
     font-size: 1.6rem;
@@ -468,7 +470,7 @@ $html-font-size: 14px;
 
 @media (max-width: 550px) {
   .main-slider_item-btn {
-    width: 150px;
+    //width: 150px;
     float: none;
     margin: rem(10px) auto 0;
     display: block
@@ -480,7 +482,8 @@ $html-font-size: 14px;
   }
 
   .main-slider_item-prs {
-    height: auto
+    height: auto;
+    align-items: center;
   }
 
   .main-slider_item {
@@ -497,7 +500,7 @@ $html-font-size: 14px;
 
   .main-slider_item-img {
     width: 100%;
-    margin: 0 0 rem(20px);
+    margin: 0 rem(10px) 0 0;
     padding: 0
   }
 
@@ -766,6 +769,7 @@ $html-font-size: 14px;
 }
 
 .product-card_discounts {
+  background-color: #f91155;
   .product-discount {
     border-radius: 25px;
     max-width: 100%;
@@ -782,10 +786,6 @@ $html-font-size: 14px;
 
 @media (max-width: 1025px) {
   .product-card_discounts {
-    display: inline;
-    position: relative;
-    top: -2px;
-
     .product-discount {
       display: inline;
     }
@@ -941,6 +941,10 @@ $html-font-size: 14px;
 .product_prices .price {
   font-size: 1.9rem;
   margin: 0 1rem 0 0;
+}
+
+.-hasComparePrice .price {
+  color: #f91155;
 }
 
 @media (max-width: 1400px) and (min-width: 1251px) {
@@ -1489,16 +1493,19 @@ span.rating__total {
   font-weight: 400;
   font-size: rem(20px)
 }
-.product-categories__title{
+
+.product-categories__title {
   font-weight: 600;
   font-size: 18px;
   margin-right: 10px;
 }
+
 .product-categories__item {
   text-decoration: underline;
   margin-right: 10px;
   font-size: 15px;
 }
+
 .group_staff {
   padding: rem(2px) rem(3px);
   border-radius: 3px
@@ -2227,6 +2234,7 @@ input.error, textarea.error {
   display: inline-block;
   width: auto
 }
+
 .wa-auth-adapters ul li:not(:last-child) {
   margin-right: 10px;
 }
@@ -3198,6 +3206,7 @@ input.filter-range_el:focus {
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid #ebebeb;
+
   .addtocart {
     min-width: initial;
     padding: 0.5rem 1rem;
@@ -3244,8 +3253,9 @@ input.filter-range_el:focus {
   user-select: none;
 
   .button {
-      border: 1px solid transparent;
+    border: 1px solid transparent;
   }
+
   .button.added {
     background: transparent;
   }
@@ -3685,7 +3695,7 @@ img.pswp__img {
   word-spacing: 0;
   white-space: nowrap !important;
   font-size: 0;
-  vertical-align: middle
+  //vertical-align: middle
 }
 
 .Product-grid_bottom .Cart__Qty {
@@ -3708,8 +3718,8 @@ img.pswp__img {
   width: 50px;
   border-radius: 0;
   border-color: #e2e2e2;
-  height: 35px;
-  line-height: 35px;
+  height: 33px;
+  line-height: 33px;
 }
 
 .Cart__Qty_act, .Cart__Qty input {
@@ -3722,8 +3732,8 @@ img.pswp__img {
   background: #e2e2e2;
   cursor: pointer;
   min-width: 35px;
-  height: 35px;
-  line-height: 35px;
+  //height: 33px;
+  line-height: 33px;
   font-size: 1rem;
   border-radius: 4px 0 0 4px;
 }
@@ -3734,7 +3744,7 @@ img.pswp__img {
 
 .Cart__Qty--mini .Cart__Qty_act {
   width: 25px;
-  height: 30px;
+  //height: 30px;
   line-height: 30px
 }
 
@@ -3769,7 +3779,7 @@ img.pswp__img {
 }
 
 .product_action .Cart__Qty {
-  margin: 0 2rem 0 0;
+  margin: 0 0.714rem 0.714rem 0;
 }
 
 .stocks {
@@ -5741,7 +5751,7 @@ img.pswp__img {
 @media screen and (max-width: 1025px) {
   .order-wrap > .order-col:first-child {
     margin-top: 0;
-    margin-bottom:20px
+    margin-bottom: 20px
   }
 }
 
@@ -6887,7 +6897,7 @@ span.grid-gallery__el.js-grid-gallery-item {
   display: flex;
   cursor: pointer;
   text-decoration: none;
-  margin-right: 1.5rem;
+  //margin-right: 1.5rem;
 
   .icon10.star {
     color: #e8e8e8;
