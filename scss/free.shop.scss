@@ -1493,17 +1493,36 @@ span.rating__total {
   font-weight: 400;
   font-size: rem(20px)
 }
+.product-categories {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
 
 .product-categories__title {
   font-weight: 600;
   font-size: 18px;
-  margin-right: 10px;
+  margin-bottom: 8px;
 }
 
 .product-categories__item {
-  text-decoration: underline;
-  margin-right: 10px;
+  display: inline-flex;
   font-size: 15px;
+  color: #666666;
+  background: #f3f3f3;
+  margin-right: 10px;
+  padding: 6px 12px;
+  border-radius: 16px;
+
+  &:hover {
+    color: #4f4f4f;
+    background: #ebebeb;
+  }
+}
+
+.tag.-contained {
+  color: #666;
+  background: #f3f3f3;
 }
 
 .group_staff {
