@@ -347,9 +347,9 @@
                         <input type="hidden" name="product_id" value="{$product.id}">
                         {if $theme_settings.product_page_show_qty}
                             <span class="js-qty Cart__Qty">
-                        <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
+                        <span data-type="-" class="js-qty-button Cart__Qty_act sdColor"><span>-</span></span>
                         <input type="text" name="quantity" value="1" class="js-number">
-                        <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
+                        <span data-type="+" class="js-qty-button Cart__Qty_act sdColor"><span>+</span></span>
                     </span>
                         {/if}
 
@@ -372,7 +372,7 @@
                         <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}" data-added-text="{$addedText}">
                         {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
                     </span>
-                        {if $theme_settings.display_buy_one_click}
+                        {if $theme_settings.display_buy_one_click && $pd_available}
                             <div class="product_one-click__wrap">
                                 {if class_exists('shopBuy1clickViewHelper')}
                                     {shopBuy1clickViewHelper::getButton($product)}

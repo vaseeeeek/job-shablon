@@ -276,7 +276,7 @@ var reviews = {
     }
 }, categoryText = {
     moreDetails: function () {
-        var i, t, a = $(".js-category-desc-wrap"), s = a.data("max-height"), r = $(".js-category-desc");
+            var i, t, a = $(".js-category-desc-wrap"), s = a.data("max-height"), r = $(".js-category-desc");
         $(".js-category-desc-more-wrap").remove(), a.removeClass("close"), a.length && s && a.css("max-height", s + "px"), a.length && r.length && a.outerHeight() < r.outerHeight() ? (i = a.data("text-more"), t = a.data("text-hide"), a.addClass("close"), a.after("<div class='js-category-desc-more-wrap category-desc-more-wrap'><span class='js-category-desc-more category-desc-more sdColor link-half'>" + i + "</span></div>"), $(".js-category-desc-more").on("click", function () {
             var e = $(this);
             e.hasClass("open") ? (e.removeClass("open"), a.addClass("close"), e.text(i), a.animate({maxHeight: s}, 500)) : (a.animate({maxHeight: r.outerHeight() + "px"}, 500), e.addClass("open"), a.removeClass("close"), e.text(t))

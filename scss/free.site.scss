@@ -2112,6 +2112,14 @@ img.mfp-img {
   }
 }
 
+@media (max-width: 1025px) {
+  .footer {
+    &-box.container {
+      margin-bottom: 20px;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     &-box.container {
@@ -4826,7 +4834,16 @@ ul.pages {
   background-color: #404040;
   color: #fff;
 }
-
+.My__OAuth--Title {
+  font-size: 14px;
+}
+.My__OAuth--List {
+  display: flex;
+  flex-wrap: wrap;
+  .My__OAuth--Item:not(:last-child){
+    margin-right: 10px;
+  }
+}
 .My__Item--Balance {
   box-sizing: border-box;
   width: 100%;

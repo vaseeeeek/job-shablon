@@ -916,7 +916,7 @@
       <name locale="ru_RU">"Читать далее" в описании</name>
     </setting>
     <setting var="height_cat_desc" control_type="text">
-      <value>60</value>
+      <value><![CDATA[55]]></value>
       <name locale="en_US">Height of visible text in px</name>
       <name locale="ru_RU">Высота видимого текста в px</name>
     </setting>
@@ -2046,6 +2046,10 @@
     <locale>
       <msgid>Next</msgid>
       <msgstr locale="ru_RU">Далее</msgstr>
+    </locale>
+    <locale>
+      <msgid>Profile</msgid>
+      <msgstr locale="ru_RU">Профиль</msgstr>
     </locale>
   </locales>
 </theme>

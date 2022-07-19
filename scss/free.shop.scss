@@ -164,7 +164,7 @@ $html-font-size: 14px;
 
 .product_one-click__wrap {
   display: inline-flex;
-  margin: 0 0 rem(10px) 0;
+  //margin: 0 0 rem(10px) 0;
 }
 
 @media (max-width: 650px) {
@@ -173,12 +173,19 @@ $html-font-size: 14px;
   }
 }
 
+.button-one-click__wrap  {
+    margin-top: 10px;
+    [data-quickorder-pb] {
+      margin: 0;
+    }
+}
+
 .product_add2cart .addtocart {
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 1px;
   margin: 0 rem(10px) rem(10px) 0;
-  padding: 0.4rem 2rem;
+  padding: 0.45rem 2rem;
 
   &.button.added {
     background: transparent;
@@ -597,6 +604,10 @@ $html-font-size: 14px;
   border-radius: 8px;
   box-shadow: 0px 1px 3px 0 rgb(0 0 0 / 16%);
 
+  .owl-next, .owl-prev {
+    top: calc(50% - 36px);
+  }
+
   .container {
     padding: 0;
     min-width: initial;
@@ -769,7 +780,19 @@ $html-font-size: 14px;
 }
 
 .product-card_discounts {
-  background-color: #f91155;
+  &.badge {
+    padding: 0;
+  }
+  span{
+    background-color: #f91155;
+    padding: 0.2rem 0.6rem;
+    border-radius: 25px;
+
+    &.-Close{
+      display:none!important;
+    }
+  }
+
   .product-discount {
     border-radius: 25px;
     max-width: 100%;
@@ -2887,8 +2910,9 @@ input.filter-range_el:focus {
 
 @media (max-width: 640px) {
   .cat-views__el {
-    margin: 0 0.7rem 0 0;
+    margin: 0;
     font-size: 1.5rem;
+    padding: 5px;
   }
 }
 
@@ -3714,10 +3738,11 @@ img.pswp__img {
   word-spacing: 0;
   white-space: nowrap !important;
   font-size: 0;
+  border: 1px solid #cdcdcd;
   //vertical-align: middle
 }
 
-.Product-grid_bottom .Cart__Qty {
+.Product-grid_bottom .Cart__Qty__wrap {
   width: 100%;
   margin-bottom: 10px;
   min-height: 30px;
@@ -3735,6 +3760,7 @@ img.pswp__img {
 
 .Cart__Qty input {
   width: 50px;
+  border: none;
   border-radius: 0;
   border-color: #e2e2e2;
   height: 33px;
@@ -3748,13 +3774,22 @@ img.pswp__img {
 }
 
 .Cart__Qty_act {
-  background: #e2e2e2;
+  //background: #e2e2e2;
   cursor: pointer;
   min-width: 35px;
   //height: 33px;
   line-height: 33px;
   font-size: 1rem;
   border-radius: 4px 0 0 4px;
+  &:hover > span {
+    background: #e2e2e2;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 17px;
+    width: 17px;
+  }
 }
 
 .Cart__Qty_act ~ input ~ .Cart__Qty_act {
@@ -3762,7 +3797,7 @@ img.pswp__img {
 }
 
 .Cart__Qty--mini .Cart__Qty_act {
-  width: 25px;
+  width: 35px;
   //height: 30px;
   line-height: 30px
 }

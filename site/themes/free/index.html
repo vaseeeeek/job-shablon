@@ -157,10 +157,6 @@
         <div class="container">
             {/if}
 
-            {if !$wa->globals('isMyAccount')}
-                {include file="`$wa_active_theme_path`/header.html" inline}
-            {/if}
-
             <main id="main-content" {if $wa->param('action') == 'home'}class="main-content--home"{/if}>
                 {include file="`$wa_active_theme_path`/main.html" inline}
             </main>

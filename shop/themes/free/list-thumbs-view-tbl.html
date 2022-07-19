@@ -92,9 +92,9 @@
             <form class="js-add-to-cart Product-table-cart" method="post" action="{$wa->getUrl('/frontendCart/add')}">
                 {if $theme_settings.product_show_tbl_count_cart}
                     <span class="js-qty Cart__Qty Cart__Qty--mini">
-                        <span data-type="-" class="js-qty-button Cart__Qty_act sdColor">-</span>
+                        <span data-type="-" class="js-qty-button Cart__Qty_act sdColor"><span>-</span></span>
                         <input type="text" name="quantity" value="1" class="js-number">
-                        <span data-type="+" class="js-qty-button Cart__Qty_act sdColor">+</span>
+                        <span data-type="+" class="js-qty-button Cart__Qty_act sdColor"><span>+</span></span>
                     </span>
                 {/if}
                 {if $p.sku_count > 1}
