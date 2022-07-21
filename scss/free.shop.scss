@@ -605,7 +605,7 @@ $html-font-size: 14px;
   box-shadow: 0px 1px 3px 0 rgb(0 0 0 / 16%);
 
   .owl-next, .owl-prev {
-    top: calc(50% - 36px);
+    top: calc(50% - 37px);
   }
 
   .container {
@@ -635,9 +635,9 @@ $html-font-size: 14px;
     width: 100% !important;
   }
 
-  .dotted-img {
-    display: none;
-  }
+  //.dotted-img {
+  //  display: none;
+  //}
 
   .Product-grid_stock-sku-box {
     display: none;

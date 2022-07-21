@@ -19,9 +19,9 @@
                     {$hideCatList = true}
                 {/if}
                 {if $hideCatList}
-                    <h4 class="MobileMenu_nav__catalog-title js-show-cat -hide">Перейти в каталог →</h4>
+                    <div class="MobileMenu_nav__catalog-title js-show-cat -hide">Перейти в каталог →</div>
                 {else}
-                    <h4 class="MobileMenu_nav__catalog-title">Каталог</h4>
+                    <div class="MobileMenu_nav__catalog-title">Каталог</div>
                 {/if}
                 {if $theme_settings.get_menu_from == 'app-menu'}
                     {$categories = $wa->menu->get($theme_settings.id_app_menu_cat)}
@@ -138,7 +138,7 @@
             <div class="MobileMenu_nav__other">
                 {if count($_links) > 0}
                     <div class="MobileMenu_nav__info">
-                        <h4>[`Information`]</h4>
+                        <div class="MobileMenu_nav__info__title">[`Information`]</div>
                         <ul>
                             {foreach $_links as $link}
                                 {if !($link.url == $wa_url && $link.name == $wa->accountName()) && !isset($link.top_menu_hide)}
@@ -169,7 +169,7 @@
                 {/if}
                 {if $wa->isAuthEnabled()}
                     <div class="MobileMenu_nav__lk">
-                        <a href="/my/"><h4>Личный кабинет</h4></a>
+                        <a href="/my/"><div class="MobileMenu_nav__info__title">Личный кабинет</div></a>
                         <div class="mob-menu-lk">
                             <a class="menu-element" href="{$wa->myUrl()}">
                                 {if $wa->user()->isAuth()}
