@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.0.1" edition="0">
+<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.0.1" edition="3">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
@@ -70,7 +70,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/ozon.png</value>
+      <value>img/themesettings/mvideo.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -143,7 +143,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>roboto</value>
+      <value>opensans</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
@@ -275,7 +275,7 @@
     <!--      </options>-->
     <!--    </setting>-->
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1643634463</value>
+      <value>img/logo.png?v1658423713</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -306,7 +306,7 @@
       <name locale="ru_RU">Выбор валюты</name>
     </setting>
     <setting var="links_information_pages" control_type="select">
-      <value>site-pages</value>
+      <value>shop-pages</value>
       <name locale="ru_RU">Ссылки на инф. страницы</name>
       <name locale="en_US">Links to information pages</name>
       <description locale="ru_RU">Из какого приложения брать ссылки на инф. страницы.
@@ -363,7 +363,7 @@
       <name locale="ru_RU">Выводить второй номер в шапке</name>
     </setting>
     <setting var="header_company_email" control_type="text">
-      <value>free@ardoz.ru</value>
+      <value><![CDATA[free@ardoz.ru]]></value>
       <name locale="ru_RU">Почта</name>
       <name locale="en_US"/>
     </setting>
@@ -490,7 +490,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>cat</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -514,7 +514,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -822,7 +822,7 @@
       </options>
     </setting>
     <setting var="cat_view_subs" control_type="select">
-      <value>image</value>
+      <value>no_image</value>
       <name locale="en_US">Categories above the list of products</name>
       <name locale="ru_RU">Категории над списком товаров</name>
       <options>
@@ -916,7 +916,7 @@
       <name locale="ru_RU">"Читать далее" в описании</name>
     </setting>
     <setting var="height_cat_desc" control_type="text">
-      <value><![CDATA[55]]></value>
+      <value>55</value>
       <name locale="en_US">Height of visible text in px</name>
       <name locale="ru_RU">Высота видимого текста в px</name>
     </setting>
@@ -1452,6 +1452,21 @@
       <description locale="en_US">Recommended - description,features,reviews,pages
             </description>
     </setting>
+    <setting var="product_tab_name1" control_type="text">
+      <value>Имя 1</value>
+      <name locale="ru_RU">Наименование дополнительной вкладки №1</name>
+      <name locale="en_US">Name of the additional tab</name>
+    </setting>
+    <setting var="product_tab_name2" control_type="text">
+      <value>Имя 2222</value>
+      <name locale="ru_RU">Наименование дополнительной вкладки №2</name>
+      <name locale="en_US">Name of the additional tab</name>
+    </setting>
+    <setting var="product_tab_name3" control_type="text">
+      <value>Имя -3</value>
+      <name locale="ru_RU">Наименование дополнительной вкладки №3</name>
+      <name locale="en_US">Name of the additional tab</name>
+    </setting>
     <setting var="plugin_hook_block_in_product" control_type="select">
       <value>right_block</value>
       <name locale="en_US">Display hook addition information</name>
@@ -1605,7 +1620,7 @@
       <name locale="ru_RU">Ссылки на webasyst</name>
     </setting>
     <setting var="logo_footer" control_type="image">
-      <value>img/logo_footer.png?v1643634463</value>
+      <value>img/logo_footer.png?v1658423713</value>
       <filename>img/logo_footer.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -1752,7 +1767,7 @@
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
     </setting>
     <setting var="viewed_items_header" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
       <name locale="en_US">The "viewed items" link in the header</name>
     </setting>

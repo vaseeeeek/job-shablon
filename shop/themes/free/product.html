@@ -140,12 +140,11 @@
             {$_tabs_anchor = ($view_tabs_type == "anchor_tabs")}
             {$_tabs_none = ($view_tabs_type == "none_tabs")}
             {$_tabs_acc = $view_tabs_type == "acc_tabs"}
-
             {if $theme_settings.name_tab_features}{$name_tab_features = $theme_settings.name_tab_features}{else}{$name_tab_features = "[`Characteristics`]"}{/if}
             {if $theme_settings.name_tab_reviews}{$name_tab_reviews = $theme_settings.name_tab_reviews}{else}{$name_tab_reviews = "[`Reviews`]"}{/if}
             {if $theme_settings.name_tab_description}{$name_tab_description = $theme_settings.name_tab_description}{else}{$name_tab_description = "[`Overview`]"}{/if}
             <div class="content">
-                {if ($_tabs_normal || $_tabs_anchor) && count($list_product_alias_arr) > 0}
+                {if ($_tabs_normal || $_tabs_anchor) && (count($list_product_alias_arr) > 0 || ($theme_settings.product_tab_name1 && !empty($wa->block("product_tab1"))) || ($theme_settings.product_tab_name2 && !empty($wa->block("product_tab2"))) || ($theme_settings.product_tab_name3 && !empty($wa->block("product_tab3"))))}
                     <ul class="tabs js-tabs clear-list">
                         {foreach $list_product_alias_arr as $item_alias_content}
                             {if $item_alias_content == 'description' && $product.description}
@@ -160,6 +159,15 @@
                                 {/foreach}
                             {/if}
                         {/foreach}
+                        {if $theme_settings.product_tab_name1 && !empty($wa->block("product_tab1"))}
+                            <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-block-tab-1">{$theme_settings.product_tab_name1}</li>
+                        {/if}
+                        {if $theme_settings.product_tab_name2 && !empty($wa->block("product_tab2"))}
+                            <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-block-tab-2">{$theme_settings.product_tab_name2}</li>
+                        {/if}
+                        {if $theme_settings.product_tab_name3 && !empty($wa->block("product_tab3"))}
+                            <li class="{if $_tabs_normal}js-tab {/if}{if $_tabs_anchor}js-motion-to-tab {/if} tabs_item" data-tab-content="product-block-tab-3">{$theme_settings.product_tab_name3}</li>
+                        {/if}
                     </ul>
                 {/if}
 
@@ -175,7 +183,7 @@
                 {/if}
 
                 
-                {if count($list_product_alias_arr) > 0}
+                {if count($list_product_alias_arr) > 0 || ($theme_settings.product_tab_name1 && !empty($wa->block("product_tab1")) || $theme_settings.product_tab_name2 && !empty($wa->block("product_tab2")) || $theme_settings.product_tab_name3 && !empty($wa->block("product_tab3")))}
                     <div class="{$class_product_wrap_content}">
                         {foreach $list_product_alias_arr as $item_alias_content}
                             {if $item_alias_content == 'description' && $product.description}
@@ -362,6 +370,54 @@
                                 {/foreach}
                             {/if}
                         {/foreach}
+                        {if $theme_settings.product_tab_name1 && !empty($wa->block("product_tab1"))}
+                            {if $_tabs_acc}
+                                <div class="js-acc-tab acc-tabs-el" data-tab-content="product-block-tab-1">
+                                        <span class="acc-tabs-caret">
+                                            <span class="acc-tabs-caret__icon maincolor"></span>
+                                        </span>
+                                    <div class="acc-tabs-title">{$theme_settings.product_tab_name1}</div>
+                                </div>
+                            {/if}
+                            <div id="product-block-tab-1" class="additional-tab {$class_product_content}">
+                                {if !$_tabs_normal && !$_tabs_acc}
+                                    <div class="product-tab_title"><h2>{$theme_settings.product_tab_name1}</h2></div>
+                                {/if}
+                                <div>{$wa->block("product_tab1")}</div>
+                            </div>
+                        {/if}
+                        {if $theme_settings.product_tab_name2 && !empty($wa->block("product_tab2"))}
+                            {if $_tabs_acc}
+                                <div class="js-acc-tab acc-tabs-el" data-tab-content="product-block-tab-2">
+                                        <span class="acc-tabs-caret">
+                                            <span class="acc-tabs-caret__icon maincolor"></span>
+                                        </span>
+                                    <div class="acc-tabs-title">{$theme_settings.product_tab_name2}</div>
+                                </div>
+                            {/if}
+                            <div id="product-block-tab-2" class="additional-tab {$class_product_content}">
+                                {if !$_tabs_normal && !$_tabs_acc}
+                                    <div class="product-tab_title"><h2>{$theme_settings.product_tab_name2}</h2></div>
+                                {/if}
+                                <div>{$wa->block("product_tab2")}</div>
+                            </div>
+                        {/if}
+                        {if $theme_settings.product_tab_name3 && !empty($wa->block("product_tab3"))}
+                            {if $_tabs_acc}
+                                <div class="js-acc-tab acc-tabs-el" data-tab-content="product-block-tab-3">
+                                        <span class="acc-tabs-caret">
+                                            <span class="acc-tabs-caret__icon maincolor"></span>
+                                        </span>
+                                    <div class="acc-tabs-title">{$theme_settings.product_tab_name3}</div>
+                                </div>
+                            {/if}
+                            <div id="product-block-tab-3" class="additional-tab {$class_product_content}">
+                                {if !$_tabs_normal && !$_tabs_acc}
+                                    <div class="product-tab_title"><h2>{$theme_settings.product_tab_name3}</h2></div>
+                                {/if}
+                                <div>{$wa->block("product_tab3")}</div>
+                            </div>
+                        {/if}
                     </div>
                 {/if}
 
@@ -398,7 +454,7 @@
             </div>
         </article>
 
-        {if class_exists('shopSeofilterViewHelper') && count($seoLinksArr) > 0 && $theme_settings.product_show_seofilter_link}
+        {if class_exists('shopSeofilterViewHelper') && $seoLinksArr && $theme_settings.product_show_seofilter_link}
             <div class="seo-filter-links">
                 <span class="seo-filter-links__title">Подборки товаров в категории:</span>
                 <span class="seo-filter-links__list">
