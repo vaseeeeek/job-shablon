@@ -2581,13 +2581,15 @@ ul.menu-v.brands li a {
 .filter-el_opts {
   margin: 0.6rem 0 0;
 }
-
+.label-flex label, label.label-flex {
+  display: flex;
+}
 .filter-el_opts-el {
   margin-bottom: rem(5px);
 }
 
 .filter-opt_el:not(.hide) {
-  display: block
+  display: flex;
 }
 
 .filter-el_btn-show {

@@ -45,13 +45,13 @@
     <div class="product_action-desc">
         {if isset($_brand_pro) && !empty($_brand_pro)}
             <div class="brand_product">
-                <a class="brand_product-img"  href="{$_brand_pro.frontend_url}">
+                <div class="brand_product-img">
                     {if $_brand_pro.image_url}
-                        <img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}">
+                        <a href="{$_brand_pro.frontend_url}"><img alt="{$_brand_pro.name|escape}" src="{$_brand_pro.image_url}"></a>
                     {else}
-                        <span><b>[`Brand`]:</b> {$_brand_pro.name|escape}</span>
+                        <span><b>[`Brand`]:</b> <a href="{$_brand_pro.frontend_url}">{$_brand_pro.name|escape}</a></span>
                     {/if}
-                </a>
+                </div>
             </div>
         {else if isset($_brand) && !empty($_brand)}
             <div class="brand_product">
