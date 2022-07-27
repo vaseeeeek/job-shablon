@@ -363,7 +363,7 @@
       <name locale="ru_RU">Выводить второй номер в шапке</name>
     </setting>
     <setting var="header_company_email" control_type="text">
-      <value><![CDATA[free@ardoz.ru]]></value>
+      <value>free@ardoz.ru</value>
       <name locale="ru_RU">Почта</name>
       <name locale="en_US"/>
     </setting>
@@ -934,6 +934,11 @@
       <value>1</value>
       <name locale="en_US">Active filters</name>
       <name locale="ru_RU">Активные фильтры над списком товаров</name>
+    </setting>
+    <setting var="show_filter_search" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Показать поиск фильтров</name>
+      <name locale="en_US">Show filters search</name>
     </setting>
     <setting var="max_show_filter" control_type="text">
       <value>5</value>
@@ -2065,6 +2070,10 @@
     <locale>
       <msgid>Profile</msgid>
       <msgstr locale="ru_RU">Профиль</msgstr>
+    </locale>
+    <locale>
+      <msgid>I'm looking for ...</msgid>
+      <msgstr locale="ru_RU">Я ищу ...</msgstr>
     </locale>
   </locales>
 </theme>

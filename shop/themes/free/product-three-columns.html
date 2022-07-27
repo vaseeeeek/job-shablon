@@ -313,7 +313,7 @@
                     {/if}
 
                     <div class="js-add2cart product_add2cart">
-                        <div class="product_prices">
+                        <div class="product_prices{if $product.compare_price} -hasComparePrice{/if}">
                             {$text_zero_price = $theme_settings.text_zero_price}
                             <span{if !empty($text_zero_price)} data-zero-text="{$text_zero_price}"{/if} data-price="{shop_currency($product.price, null, null, 0)}" class="product__price price nowrap">
                 {if !empty($text_zero_price) && $product.price == 0}
@@ -414,7 +414,7 @@
 
                         {if $theme_settings.product_page_show_qty}
                             <span class="js-qty Cart__Qty">
-                <span data-type="-" class="js-qty-button Cart__Qty_act sdColor"><span>-</span></span>
+                <span data-type="-" class="js-qty-button Cart__Qty_act sdColor"><span>–</span></span>
                 <input type="text" name="quantity" value="1" class="js-number">
                 <span data-type="+" class="js-qty-button Cart__Qty_act sdColor"><span>+</span></span>
             </span>

@@ -156,9 +156,12 @@ var reviews = {
         })
     }, send: function () {
         $(".js-filters.js-ajax form input").change(function () {
-            var e = $(this).closest("form");
-            itemList.ajaxUpListForm(e.serializeArray())
-        }), $(".js-filters.js-ajax form").submit(function () {
+            if (!$(this).closest('.filter__search').length){
+                var e = $(this).closest("form");
+                itemList.ajaxUpListForm(e.serializeArray())
+            }
+        }),
+        $(".js-filters.js-ajax form").submit(function () {
             var e = $(this);
             return itemList.ajaxUpListForm(e.serializeArray()), !1
         })

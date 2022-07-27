@@ -16,6 +16,11 @@
                     <span class="js-filter-fixed-btn close-filter">&#10005;</span>
                 </div>
             </div>
+            {if $theme_settings.show_filter_search}
+                <div class="filter__search">
+                    <input placeholder="[`I'm looking for ...`]" type="text">
+                </div>
+            {/if}
 
             {$indexFilter = 0}
             {foreach $filters as $filterId => $filter}
@@ -28,10 +33,11 @@
                     <div class="filter-el_title js-filter-title">
                         {if $filterId == 'price'}
                             {$c = $wa->shop->currency(true)}
-                            [`Price`]&nbsp;
+                            <span class="filter-el_title__text">[`Price`]&nbsp;</span>
                             <span class="filter-el__unit">{$c.sign}</span>
                         {else}
-                            {$filter.name|escape}
+                            <span class="filter-el_title__text">{$filter.name|escape}</span>
+
                             <i class="fi-rr-angle-small-down"></i>
                             {if !empty($filter.unit)}, <span class="filter-el__unit">{$filter.unit.title}</span>{/if}
                         {/if}

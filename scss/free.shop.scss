@@ -7268,6 +7268,15 @@ input[type=text], input[type=tel], input[type=email] {
   display: none;
 }
 
+.filter__search {
+  margin-bottom: rem(20px);
+  input {
+    padding: 0 10px;
+    background-color: #F3F4F7!important;
+    border: 1px solid transparent;
+  }
+}
+
 @media (min-width: 1025px) {
   .category > .sidear-mobile {
     display: none;

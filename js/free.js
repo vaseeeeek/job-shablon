@@ -2434,6 +2434,37 @@ var ddFooterCol = {
     }
 };
 
+var filterSearch = {
+    init: function() {
+        var _this = this;
+
+        if ($('.filter__search').length > 0) {
+            _this.findFilter();
+        }
+    },
+    findFilter(){
+        var _this = this;
+
+        $('.filter__search input').on('input', function() {
+            const desiredText = $(this).val().toLowerCase();
+
+            _this.findTitle(desiredText);
+        })
+    },
+    findTitle(text){
+        const filtersTitleBox = $('.filter-el_title__text')
+
+        filtersTitleBox.each(function(){
+            titleText = $(this).text().trim().toLowerCase();
+            if (titleText.includes(text)) {
+                $(this).closest('.filter-el').fadeIn();
+            } else {
+                $(this).closest('.filter-el').fadeOut();
+            }
+        })
+    }
+}
+
 function Product(form, options) {
     this.formWrap = $(form);
     this.add2cart = this.formWrap.find(".js-add2cart");
@@ -2861,6 +2892,7 @@ $(function () {
     fixOrder.init();
     itemGallery.init();
     ddFooterCol.init();
+    filterSearch.init();
     new productGridGallery();
 });
 $.fn.elementRealWidth = function() {
