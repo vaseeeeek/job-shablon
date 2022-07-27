@@ -67,7 +67,7 @@
 
         {if $product.summary && $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'after_buy_box'}
             <div class="product_short-desc">
-                {$product.summary|truncate:512}
+                {$product.summary}
             </div>
             {if $product.description  &&  !$wa->get('cart') && $_show_description}
                 <div class="product_link-full js-motion-to-tab" data-tab-content="product-description">
