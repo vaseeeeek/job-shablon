@@ -601,7 +601,7 @@
       </description>
     </setting>
     <setting var="promo_product_show" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывести промо список товаров</name>
       <name locale="en_US">Show a promotional list of products</name>
     </setting>
@@ -935,10 +935,12 @@
       <name locale="en_US">Active filters</name>
       <name locale="ru_RU">Активные фильтры над списком товаров</name>
     </setting>
-    <setting var="show_filter_search" control_type="checkbox">
-      <value>1</value>
-      <name locale="ru_RU">Показать поиск фильтров</name>
-      <name locale="en_US">Show filters search</name>
+    <setting var="show_filter_search" control_type="text">
+      <value>2</value>
+      <name locale="ru_RU">Поиск значений фильтров</name>
+      <name locale="en_US">Searching for filter values</name>
+      <description locale="ru_RU">Укажите от скольки значений фильтров показывать поиск</description>
+      <description locale="en_US">Specify from how many filter values to show search</description>
     </setting>
     <setting var="max_show_filter" control_type="text">
       <value>5</value>

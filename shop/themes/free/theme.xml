@@ -118,7 +118,8 @@
     </file>
     <file path="sb.tags.html" custom="0">
     </file>
-    <file path="slider.html" custom="0">
+    <file path="slider.html" custom="0" modified="1">
+      <description locale="ru_RU"/>
     </file>
     <file path="login.html" parent="1">
     </file>

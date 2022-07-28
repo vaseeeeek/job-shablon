@@ -173,11 +173,12 @@ $html-font-size: 14px;
   }
 }
 
-.button-one-click__wrap  {
-    margin-top: 10px;
-    [data-quickorder-pb] {
-      margin: 0;
-    }
+.button-one-click__wrap {
+  margin-top: 10px;
+
+  [data-quickorder-pb] {
+    margin: 0;
+  }
 }
 
 .product_add2cart .addtocart {
@@ -249,7 +250,8 @@ $html-font-size: 14px;
   background-position: 50%;
   background-size: cover;
   position: relative;
-  font-size: rem(14px);
+  //font-size: rem(14px);
+  font-size: 0;
   white-space: normal;
   word-spacing: normal;
   max-height: none !important
@@ -347,6 +349,7 @@ $html-font-size: 14px;
   position: relative;
   padding: 2rem 0;
   margin-right: 2rem;
+  font-size: 0;
 }
 
 .main-slider_item-img > img {
@@ -783,13 +786,14 @@ $html-font-size: 14px;
   &.badge {
     padding: 0;
   }
-  span{
+
+  span {
     background-color: #f91155;
     padding: 0.2rem 0.6rem;
     border-radius: 25px;
 
-    &.-Close{
-      display:none!important;
+    &.-Close {
+      display: none !important;
     }
   }
 
@@ -1516,6 +1520,7 @@ span.rating__total {
   font-weight: 400;
   font-size: rem(20px)
 }
+
 .product-categories {
   display: flex;
   flex-direction: column;
@@ -2546,6 +2551,26 @@ ul.menu-v.brands li a {
 
 .filter-el {
   padding: 0rem 0 0.8rem 0;
+
+  .filter-el_opts {
+    overflow: auto;
+    max-height: 300px;
+
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+      background-color: #f9f9fd;
+      border-radius: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      //background: linear-gradient(180deg, #00c6fb, #005bea);
+    }
+  }
 }
 
 .filter-el:last-child {
@@ -2581,9 +2606,11 @@ ul.menu-v.brands li a {
 .filter-el_opts {
   margin: 0.6rem 0 0;
 }
+
 .label-flex label, label.label-flex {
   display: flex;
 }
+
 .filter-el_opts-el {
   margin-bottom: rem(5px);
 }
@@ -3784,6 +3811,7 @@ img.pswp__img {
   line-height: 33px;
   font-size: 1rem;
   border-radius: 4px 0 0 4px;
+
   &:hover > span {
     background: #e2e2e2;
     border-radius: 50%;
@@ -4061,6 +4089,10 @@ img.pswp__img {
 
   .productfilters-feature-value-link {
     text-decoration: underline;
+  }
+
+  span {
+    white-space: normal!important;
   }
 }
 
@@ -7272,9 +7304,10 @@ input[type=text], input[type=tel], input[type=email] {
 
 .filter__search {
   margin-bottom: rem(20px);
+
   input {
     padding: 0 10px;
-    background-color: #F3F4F7!important;
+    background-color: #F3F4F7 !important;
     border: 1px solid transparent;
   }
 }

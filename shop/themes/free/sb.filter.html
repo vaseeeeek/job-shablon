@@ -16,11 +16,6 @@
                     <span class="js-filter-fixed-btn close-filter">&#10005;</span>
                 </div>
             </div>
-            {if $theme_settings.show_filter_search}
-                <div class="filter__search">
-                    <input placeholder="[`I'm looking for ...`]" type="text">
-                </div>
-            {/if}
 
             {$indexFilter = 0}
             {foreach $filters as $filterId => $filter}
@@ -159,6 +154,11 @@
                                     </div>
                                 {else}
                                     {$showBtnShowFullFilters = false}
+                                    {if count($filter.values) >= $theme_settings.show_filter_search}
+                                        <div class="filter__search">
+                                            <input placeholder="[`I'm looking for ...`]" type="text">
+                                        </div>
+                                    {/if}
                                     {foreach $filter.values as $value_id => $value}
                                         <label class="filter-el_opts-el label-flex filter-opt_el{if $value@iteration > $theme_settings.hide_filters} js-filter-opt_hidden hide{$showBtnShowFullFilters = true}{/if}">
                                             <span class="js-style-check style-check{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if} fi-rr-check">
@@ -168,6 +168,7 @@
                                             {if class_exists('shopSeofilterViewHelper')}
                                                 {$filter_url = shopSeofilterViewHelper::getFilterUrl($filter.id, $value_id, $filter.code)}
                                             {/if}
+
                                             {if $filter_url}
                                                 <a class="filter-link" href="{$filter_url}">{$value|strip_tags|trim}</a>
                                             {else}
