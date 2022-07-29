@@ -97,6 +97,7 @@
 
 .brand-plugin-catalog-brand-categories__list_depth_0 > .brand-plugin-catalog-brand-categories__item.show {
     max-height: initial;
+    padding-bottom:30px;
 }
 
 #themeOverride .shop-brand-brands__brand-name {

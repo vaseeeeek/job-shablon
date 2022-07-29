@@ -34,7 +34,7 @@
                         </div>
                     {/if}
                     <div class="df-block product-top-actions">
-                        {if $theme_settings.product_ratings}
+                        {if $theme_settings.product_ratings && $theme_settings.show_rating_product_page}
                             {if $product.rating > 0}
                                 <span class="product_rating rating nowrap" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" title="{sprintf('[`Average user rating: %s / 5`]', $product.rating)}">
                                     {$wa->shop->ratingHtml($product.rating, 16)}

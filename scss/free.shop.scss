@@ -254,7 +254,8 @@ $html-font-size: 14px;
   font-size: 0;
   white-space: normal;
   word-spacing: normal;
-  max-height: none !important
+  max-height: none !important;
+  text-align: center;
 }
 
 .home-slider-photos_el-img, .owl-carousel .owl-item img.home-slider-photos_el-img {
@@ -6335,7 +6336,7 @@ img.pswp__img {
     width: 36.6%
   }
 
-  .product-page_main-right.-productMiniGallery {
+  .product-page_main-right.-productMiniGallery, .product-page_main-right {
     width: 63.4%;
   }
 }
