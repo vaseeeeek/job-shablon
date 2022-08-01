@@ -214,9 +214,11 @@
                 {$all_skus = $wa->shop->skus(array_keys($products))}
             {/if}
 
-            <script>
-                let imgObjProducts = new Object();
-            </script>
+            {literal}
+                <script>
+                    let imgObjProducts = new Object();
+                </script>
+            {/literal}
 
             {foreach $products as $p}
                 {if isset($all_skus) && !empty($all_skus) && isset($all_skus[$p.id])}
@@ -233,11 +235,13 @@
             {/foreach}
 
             {if $isPreviewProductGalleryTile}
-                <script>
-                    $(function () {
-                        new productGridGallery();
-                    });
-                </script>
+                {literal}
+                    <script>
+                        $(function () {
+                            new productGridGallery();
+                        });
+                    </script>
+                {/literal}
             {/if}
         </div>
     </div>
@@ -272,130 +276,72 @@
             {/if}
         {/if}
     </div>
-{/strip}
-<script>
-    $(function () {
+    <script>
+        $(function () {
 
-        $('.Product-grid_img').mouseout(function() {
-            $('.dotted-img__item').each(function() {
-                if ($(this).attr('data-id') == 1) {
-                    $(this).addClass('-Active');
-                } else {
-                    $(this).removeClass('-Active');
-                }
-            });
-        })
-        var startCoords = {},
-            endCoords = {};
-        let productId = '';
-        let product = '';
-
-        $('.Product-grid_img').bind("touchstart", function(event) {
-            startCoords = endCoords = event.originalEvent.targetTouches[0];
-            product = $(this).closest('.Product-grid');
-            productId = $(this).closest('.Product-grid').attr("data-product-num");
-        });
-
-        $('.Product-grid_img').bind("touchmove", function(event) {
-            endCoords = event.originalEvent.targetTouches[0];
-        });
-
-        {literal}
-            $('.Product-grid_img').bind("touchend", function() {
-                let mobileProductWrapDotted = product.find('.dotted-img__item');
-                let startSrc = $(this).find('.js-product-preview-img').attr("src");
-                imgObjProducts[productId].forEach((element, index) => {
-                    if (startSrc == element) {
-                        startSrcIndex = index;
-                        if (startCoords.clientX < endCoords.clientX){
-                            endSrcIndex = startSrcIndex - 1;
-                            $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
-                            mobileProductWrapDotted.each(function() {
-                                if (endSrcIndex >= 0) {
-                                    if ($(this).attr('data-id') == endSrcIndex + 1) {
-                                        $(this).addClass('-Active');
-                                    } else {
-                                        $(this).removeClass('-Active');
-                                    }
-                                }
-                            });
-                        }
-                        if (startCoords.clientX > endCoords.clientX){
-                            endSrcIndex = startSrcIndex + 1;
-                            $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
-                            mobileProductWrapDotted.each(function() {
-                                if (endSrcIndex < mobileProductWrapDotted.length) {
-                                    if ($(this).attr('data-id') == endSrcIndex + 1) {
-                                        $(this).addClass('-Active');
-                                    } else {
-                                        $(this).removeClass('-Active');
-                                    }
-                                }
-                            });
-                        }
+            $('.Product-grid_img').mouseout(function() {
+                $('.dotted-img__item').each(function() {
+                    if ($(this).attr('data-id') == 1) {
+                        $(this).addClass('-Active');
+                    } else {
+                        $(this).removeClass('-Active');
                     }
-                })
+                });
             });
-        {/literal}
-    })
-</script>
+            var startCoords = {},
+                endCoords = {};
+            let productId = '';
+            let product = '';
 
-<script>
-
-    $('select').each(function(){
-        var $this = $(this), numberOfOptions = $(this).children('option').length;
-
-        $this.addClass('select-hidden');
-        $this.wrap('<div class="select"></div>');
-        $this.after('<div class="select-styled"></div>');
-
-        var $styledSelect = $this.next('div.select-styled');
-        $styledSelect.text($('#set-per-page option:selected').text());
-
-        var $list = $('<ul />', {
-            'class': 'select-options'
-        }).insertAfter($styledSelect);
-
-        for (var i = 0; i < numberOfOptions; i++) {
-            $('<li />', {
-                text: 'Показывать по ' + $this.children('option').eq(i).text(),
-                rel: $this.children('option').eq(i).val()
-            }).appendTo($list);
-            if ($this.children('option').eq(i).is(':selected')){
-             $('li[rel="' + $this.children('option').eq(i).val() + '"]').addClass('is-selected')
-            }
-        }
-
-        var $listItems = $list.children('li');
-
-        $styledSelect.click(function(e) {
-            e.stopPropagation();
-            $('div.select-styled.active').not(this).each(function(){
-                $(this).removeClass('active').next('ul.select-options').hide();
+            $('.Product-grid_img').bind("touchstart", function(event) {
+                startCoords = endCoords = event.originalEvent.targetTouches[0];
+                product = $(this).closest('.Product-grid');
+                productId = $(this).closest('.Product-grid').attr("data-product-num");
             });
-            $(this).toggleClass('active').next('ul.select-options').toggle();
-        });
 
-        {literal}
-        $listItems.click(function(e) {
-            e.stopPropagation();
-            // $('.cat-onpage').addClass('-hide')
-            // $styledSelect.text($(this).text()).removeClass('active');
-            $this.val($(this).attr('rel'));
-            $list.hide();
+            $('.Product-grid_img').bind("touchmove", function(event) {
+                endCoords = event.originalEvent.targetTouches[0];
+            });
 
-            a = { expires: 7, path: "/" };
-            $.cookie("products_per_page", $this.val(), a);
+            {literal}
+                $('.Product-grid_img').bind("touchend", function() {
+                    let mobileProductWrapDotted = product.find('.dotted-img__item');
+                    let startSrc = $(this).find('.js-product-preview-img').attr("src");
+                    imgObjProducts[productId].forEach((element, index) => {
+                        if (startSrc == element) {
+                            startSrcIndex = index;
+                            if (startCoords.clientX < endCoords.clientX){
+                                endSrcIndex = startSrcIndex - 1;
+                                $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
+                                mobileProductWrapDotted.each(function() {
+                                    if (endSrcIndex >= 0) {
+                                        if ($(this).attr('data-id') == endSrcIndex + 1) {
+                                            $(this).addClass('-Active');
+                                        } else {
+                                            $(this).removeClass('-Active');
+                                        }
+                                    }
+                                });
+                            }
+                            if (startCoords.clientX > endCoords.clientX){
+                                endSrcIndex = startSrcIndex + 1;
+                                $(this).find('.js-product-preview-img').attr("src", imgObjProducts[productId][endSrcIndex]);
+                                mobileProductWrapDotted.each(function() {
+                                    if (endSrcIndex < mobileProductWrapDotted.length) {
+                                        if ($(this).attr('data-id') == endSrcIndex + 1) {
+                                            $(this).addClass('-Active');
+                                        } else {
+                                            $(this).removeClass('-Active');
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    })
+                });
+            {/literal}
+        })
+    </script>
 
-            location.reload();
-        });
-        {/literal}
-
-        $(document).click(function() {
-            $styledSelect.removeClass('active');
-            $list.hide();
-        });
-
-    });
-
-</script>
+    <script src="{$wa_active_theme_url}options.js?v{$wa_theme_version}"></script>
+{/strip}

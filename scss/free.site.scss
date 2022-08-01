@@ -2434,9 +2434,9 @@ img.mfp-img {
 }
 
 .nav-cat-btn {
-  line-height: 40px;
-  height: 40px;
-  padding: 0 1.3rem;
+  line-height: 42px;
+  height: 43px;
+  padding: 0 1rem;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -2734,14 +2734,18 @@ img.mfp-img {
 }
 
 .Nav-search input.Nav-inp-search {
-  height: 40px;
-  line-height: 41px;
+  height: 43px;
+  line-height: 43px;
   padding: 0 3.1rem 0 1rem;
   position: relative;
-  border-radius: 3px;
   font-size: 1rem;
+  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  -webkit-box-shadow: none;
   box-shadow: none;
+  background-color: #f3f4f7 !important;
+  color: #000;
+  border-color: #f3f4f7;
 }
 
 .ajax-search-all {
@@ -2960,6 +2964,17 @@ img.mfp-img {
   margin: 0 rem(3px);
   position: relative;
   white-space: nowrap;
+
+  a {
+    color: #8e8e8e;
+
+    &:hover {
+      color: #242424;
+    }
+  }
+  .rarr {
+    color: #8e8e8e;
+  }
 }
 
 .breadcrumbs > li:first-child {
@@ -4096,7 +4111,8 @@ textarea {
 
 .Nav__Primary-outer--dd {
   margin-top: 0.7rem;
-  box-shadow: 0 2px 3px 0 rgb(0 0 0 / 6%);
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.06);
 
   .Nav__horizontal--link {
     position: relative;
@@ -4158,8 +4174,8 @@ textarea {
 
     .Nav__horizontal--link {
       display: block;
-      padding-top: rem(10px);
-      padding-bottom: rem(10px);
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
       white-space: nowrap;
     }
 
@@ -4210,7 +4226,7 @@ textarea {
 .header {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.7rem 0 0.7rem 0;
   margin: 0 0 1.5rem 0;
 
   .Nav-contact-info {
@@ -4218,7 +4234,7 @@ textarea {
     position: relative;
 
     p {
-      margin-bottom: 0px;
+      margin-bottom: 2px;
     }
   }
 
@@ -4227,6 +4243,8 @@ textarea {
     text-align: center;
     font-size: 1rem;
     font-weight: 700;
+    margin-bottom: 0.2rem;
+    display: inline-block;
   }
 
   .phone-hover-block {
@@ -4509,7 +4527,7 @@ textarea {
     top: -6px;
     right: 2px;
     font-size: 0.86rem;
-    padding: 0.1rem 0.4rem;
+    //padding: 0.1rem 0.4rem;
   }
 
   .product-custom {
@@ -4836,16 +4854,24 @@ ul.pages {
   background-color: #404040;
   color: #fff;
 }
+
+.w-dialog-block {
+  max-width: 500px;
+}
+
 .My__OAuth--Title {
   font-size: 14px;
 }
+
 .My__OAuth--List {
   display: flex;
   flex-wrap: wrap;
-  .My__OAuth--Item:not(:last-child){
+
+  .My__OAuth--Item:not(:last-child) {
     margin-right: 10px;
   }
 }
+
 .My__Item--Balance {
   box-sizing: border-box;
   width: 100%;

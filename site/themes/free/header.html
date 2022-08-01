@@ -24,6 +24,7 @@
 <div class="header--right">
     {if !$wa->isMobile() && $wa->shop}
         <div class="Nav-search juniq-header-search">
+{*            {shopSearchproPluginViewHelper::field()}*}
             <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
                   class="js-Nav-search Nav-search_form">
                 <div class="inp-search">
