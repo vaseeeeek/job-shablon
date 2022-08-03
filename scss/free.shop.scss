@@ -2574,7 +2574,7 @@ ul.menu-v.brands li a {
   padding: 0
 }
 
-.filter-el {
+.filter-el.hasSearch {
   padding: 0rem 0 0.8rem 0;
 
   .filter-el_opts {
@@ -3853,7 +3853,10 @@ img.pswp__img {
 
 .Cart__Qty--mini .Cart__Qty_act {
   width: 31px;
-  line-height: 30px;
+  line-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 500px) {

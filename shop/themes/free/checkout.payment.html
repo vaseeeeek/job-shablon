@@ -3,7 +3,7 @@
 
         <ul class="checkout-options payment">
             {foreach $checkout_payment_methods as $m}
-                <li class="js-checkout-opt{if !empty($m.error)} gray{/if}{if $m.id == $payment_id} selected{/if}">
+                <li class="js-checkout-opt{if !empty($m.error)} gray{/if}{if $m.id == $payment_id} selected{/if} payment-{$m.id}">
                     <h3>
                         <label>
                             {if !empty($m.logo)}<img src="{$m.logo}" class="method-logo">{/if}

@@ -776,7 +776,7 @@
     <setting var="home_blog_id" control_type="text">
       <value>1</value>
       <name locale="en_US">Id blog</name>
-      <name locale="ru_RU">Id блога для выводы</name>
+      <name locale="ru_RU">Id блога для вывода</name>
     </setting>
     <setting var="paragraph_catalog" control_type="group_divider">
       <value/>
