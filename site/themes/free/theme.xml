@@ -497,7 +497,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value></value>
+      <value>cat</value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -521,7 +521,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -949,7 +949,7 @@
       <name locale="ru_RU">Активные фильтры над списком товаров</name>
     </setting>
     <setting var="show_filter_search" control_type="text">
-      <value><![CDATA[10]]></value>
+      <value>10</value>
       <name locale="ru_RU">Поиск значений фильтров</name>
       <name locale="en_US">Searching for filter values</name>
       <description locale="ru_RU">Укажите от скольки значений фильтров показывать поиск</description>

@@ -1,11 +1,11 @@
 {strip}
-{$fullWidthMenu =  $theme_settings.break_categories_columns && $theme_settings.position_drop_down_categories == 'all' && $theme_settings.dd_menu_full_width}
+{$fullWidthMenu =  $theme_settings.break_categories_columns == 'columns' && $theme_settings.position_drop_down_categories == 'all' && $theme_settings.dd_menu_full_width}
 
 
 {if $wa->shop}
     {if !$wa->isMobile()}
         <div class="Nav__Primary-outer js-moved-content {if $theme_settings.horizontal_menu}Nav__Primary-outer--dd{/if}{if $fullWidthMenu} Nav__Primary-outer--full-width{/if}">
-            <div class="Nav__Primary{if !$fullWidthMenu} container{/if}">
+            <div class="Nav__Primary{if !$fullWidthMenu || $theme_settings.horizontal_menu} container{/if}">
                 {if $theme_settings.horizontal_menu}
                     <ul class="Nav__horizontal--list {if $theme_settings.horizontal_menu_between}-Between{/if}">
                         {$catListHorizontalNav = false}
