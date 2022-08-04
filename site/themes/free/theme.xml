@@ -477,7 +477,7 @@
       </description>
     </setting>
     <setting var="get_menu_from" control_type="select">
-      <value>catalog</value>
+      <value>app-menu</value>
       <name locale="ru_RU">Категории брать из</name>
       <name locale="en_US">Categories to take from</name>
       <options>
@@ -492,7 +492,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value/>
+      <value><![CDATA[83]]></value>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
@@ -545,6 +545,12 @@
       <value/>
       <name locale="ru_RU">
         Вывести бренды в меню
+      </name>
+    </setting>
+    <setting var="id_image_app_menu" control_type="checkbox">
+      <value>field_0</value>
+      <name locale="ru_RU">
+        Id поля добавление картинки в приложении "Управление меню"
       </name>
     </setting>
     <setting var="paragraph_mainpage" control_type="group_divider">

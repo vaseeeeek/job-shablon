@@ -3790,9 +3790,9 @@ img.pswp__img {
 .Cart__Qty {
   //width: 100px;
   display: inline-flex;
-  word-spacing: 0;
+  //word-spacing: 0;
   white-space: nowrap !important;
-  font-size: 0;
+  //font-size: 0;
   border: 1px solid #cdcdcd;
   //vertical-align: middle
 }
@@ -3800,7 +3800,7 @@ img.pswp__img {
 .Product-grid_bottom .Cart__Qty__wrap {
   width: 100%;
   margin-bottom: 10px;
-  min-height: 30px;
+  min-height: 34px;
 }
 
 @media print {
@@ -3831,10 +3831,13 @@ img.pswp__img {
 
 .Cart__Qty_act {
   cursor: pointer;
-  min-width: 30px;
-  line-height: 36px;
   font-size: 1rem;
   border-radius: 4px 0 0 4px;
+  width: 32px;
+  line-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover > span {
     background: #f3f3f3;
@@ -3847,12 +3850,8 @@ img.pswp__img {
   }
 }
 
-.Cart__Qty_act ~ input ~ .Cart__Qty_act {
-  border-radius: 0 5px 5px 0
-}
-
-.Cart__Qty--mini .Cart__Qty_act {
-  width: 31px;
+.Cart__Qty_act {
+  width: 32px;
   line-height: 32px;
   display: flex;
   justify-content: center;

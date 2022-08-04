@@ -2542,6 +2542,19 @@ img.mfp-img {
   margin: 0 0 0 rem(-40px);
 }
 
+.cat-menu__item--icon {
+  display: inline-flex;
+  font-size: 0;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.cat-menu__item-title {
+  display: flex;
+  line-height: 1;
+  align-items: center;
+}
+
 .cat-menu__item.pos-rel {
   position: relative
 }
@@ -2982,6 +2995,7 @@ img.mfp-img {
       color: #242424;
     }
   }
+
   .rarr {
     color: #8e8e8e;
   }
@@ -4142,12 +4156,14 @@ textarea {
     }
   }
 }
+
 .Nav__Primary-outer--full-width {
-  .nav-cat_wrap{
+  .nav-cat_wrap {
     width: 100%;
     left: 0;
   }
 }
+
 .Nav__horizontal {
   &--list {
     list-style: none;
@@ -5521,6 +5537,9 @@ span.i-cityselect__city:before {
 
 /* начало стилей header.banner */
 
+.product_one-click__wrap [data-quickorder-pb]{
+  line-height: 1.1;
+}
 .Header__Banner {
   background-size: 400% 400%;
   animation: AnimationName 30s ease infinite;

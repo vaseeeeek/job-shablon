@@ -6,7 +6,7 @@
     {$categories = $wa->menu->get($id_menu)}
 {else if $theme_settings.get_menu_from == 'catalog'}
     {$categories = $wa->shop->categories(0, null, true, true)}
-    {if class_exists('shopWmimageincatPlugin')}
+    {if class_exists('shopWmimageincatPlugin') && $theme_settings.get_menu_from != 'app-menu'}
         {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
     {/if}
 {/if}
@@ -84,7 +84,19 @@
                         </div>
                     {else}
                         <a class="cat-menu__item-link" href="{$cat.url}">
+                            {if $theme_settings.get_menu_from == 'app-menu' && $theme_settings.id_image_app_menu}
+                                {$cat.params.menuIcon = $cat[$theme_settings.id_image_app_menu]}
+                            {else}
+                                {if isset($Wmimages[$cat.id].icon)}
+                                    {$cat.params.menuIcon = $Wmimages[$cat.id].icon}
+                                {/if}
+                            {/if}
                             <div class="cat-menu__item-title">
+                                {if $cat.params.menuIcon}
+                                    <span class="cat-menu__item--icon">
+                                        <img src="{$cat.params.menuIcon}" alt="">
+                                    </span>
+                                {/if}
                                 {$cat.name}
                             </div>
                         </a>
