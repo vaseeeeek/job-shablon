@@ -1,13 +1,12 @@
 {strip}
-{$fullWidthMenu =  $theme_settings.break_categories_columns == 'columns' && $theme_settings.position_drop_down_categories == 'all' && $theme_settings.dd_menu_full_width}
-
+{$fullWidthDdMenu = $theme_settings.dd_menu_full_width && $theme_settings.position_drop_down_categories == "all" && $theme_settings.break_categories_columns == "columns"}
 
 {if $wa->shop}
     {if !$wa->isMobile()}
-        <div class="Nav__Primary-outer js-moved-content {if $theme_settings.horizontal_menu}Nav__Primary-outer--dd{/if}{if $fullWidthMenu} Nav__Primary-outer--full-width{/if}">
-            <div class="Nav__Primary">
+        <div class="Nav__Primary-outer js-moved-content {if $theme_settings.horizontal_menu}Nav__Primary-outer--dd{/if}{if $fullWidthDdMenu} Nav__Primary-outer--full-width{/if}">
+            <div class="Nav__Primary container">
                 {if $theme_settings.horizontal_menu}
-                    <div class="Nav__horizontal--list container {if $theme_settings.horizontal_menu_between}-Between{/if}"{if !$theme_settings.dd_menu_full_width} style="position: relative" {/if}>
+                    <ul class="Nav__horizontal--list {if $theme_settings.horizontal_menu_between}-Between{/if}{if $fullWidthDdMenu && !$theme_settings.drop_down_horizontal_menu} container{/if}{if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu} Nav__horizontal--list-dd-fw{/if}">
                         {$catListHorizontalNav = false}
                         {if $theme_settings.horizontal_menu == 'cat' }
                             {$catListHorizontalNav = $wa->shop->categories(0, null, true, true)}
@@ -25,7 +24,7 @@
                                 {/foreach}
                             {/if}
                             {foreach $catListHorizontalNav as $id => $cat}
-                                <div class="Nav__horizontal--item">
+                                <li class="Nav__horizontal--item">
                                     <a class="Nav__horizontal--link" href="{$cat.url}">
                                         {$cat.name}
                                         {*{if $cat.childs && $theme_settings.drop_down_horizontal_menu}
@@ -33,15 +32,15 @@
                                         {/if}*}
                                     </a>
                                     {if $cat.childs && $theme_settings.drop_down_horizontal_menu}
-                                        <div class="Nav__horizontal--list-2{if $theme_settings.dd_menu_full_width} full-width{else} container{/if}">
-                                            {if $theme_settings.dd_menu_full_width}<div class="container">{/if}
+                                        <div class="Nav__horizontal--list-2">
+                                            {if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu}<div class="container">{/if}
                                                 {foreach $cat.childs as $id => $cat2}
                                                     <div class="Nav__horizontal--item-2">
                                                         <a class="Nav__horizontal--link-2" href="{$cat2.url}">
                                                             {$cat2.name}
                                                         </a>
                                                         {if $cat2.childs}
-                                                            <ul class="Nav__horizontal--list-3">
+                                                            <div class="Nav__horizontal--list-3">
                                                                 {foreach $cat2.childs as $id => $cat3}
                                                                     <div class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration}hide{/if}">
                                                                         <a class="Nav__horizontal--link-3" href="{$cat3.url}">
@@ -54,17 +53,17 @@
                                                                         [`Else`] <i class="fi-rr-angle-small-down"></i>
                                                                     </div>
                                                                 {/if}
-                                                            </ul>
+                                                            </div>
                                                         {/if}
                                                     </div>
                                                 {/foreach}
-                                            {if $theme_settings.dd_menu_full_width}</div>{/if}
+                                            {if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu}<div class="container">{/if}
                                         </div>
                                     {/if}
-                                </div>
+                                </li>
                             {/foreach}
                         {/if}
-                    </div>
+                    </ul>
                 {/if}
                 {if !$theme_settings.drop_down_horizontal_menu && !$theme_settings.drop_down_horizontal_menu}
                     {include file="header.dd.cat.list.html"}
