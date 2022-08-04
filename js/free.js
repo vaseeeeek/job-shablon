@@ -1297,7 +1297,7 @@ var attentionMessage = {
     closingBox: function () {
         $('.js-attention-close').on("click", function () {
             $(this).closest('.Header__Banner').hide();
-            $.cookie("closeAttention", 1);
+            $.cookie("closeAttention", true);
         });
     }
 };
