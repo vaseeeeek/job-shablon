@@ -9,9 +9,6 @@
         </file>
     <file path="js/custom.js" parent="1">
         </file>
-    <!-- mailer resources -->
-    <file path="custom.mailer.css">
-        </file>
     <!-- parent templates -->
     <file path="index.html" parent="1">
         </file>
@@ -50,7 +47,7 @@
       <description locale="en_US">Subscriptions home page</description>
       <description locale="ru_RU">Начальная страница подписок</description>
     </file>
-    <file path="sidebar">
+    <file path="sidebar.html">
         </file>
   </files>
   <locales>

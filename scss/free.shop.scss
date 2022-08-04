@@ -790,6 +790,7 @@ $html-font-size: 14px;
     &_item {
       &__wrap {
         width: 100%;
+
         .home-prev-news_item {
           display: flex;
           flex-direction: column;
@@ -5999,10 +6000,12 @@ img.pswp__img {
     height: 54px;
     border: 2px solid transparent;
   }
+
   .image-preview--video {
     display: flex;
     justify-content: center;
   }
+
   .image-preview--video a {
     width: 100%;
     display: flex;
@@ -6012,9 +6015,11 @@ img.pswp__img {
     text-decoration: none;
     position: relative;
   }
+
   .image-preview a img {
     box-sizing: border-box;
   }
+
   .video-icon {
     position: absolute;
     width: 25px;
@@ -6109,6 +6114,7 @@ img.pswp__img {
     margin-right: 1.5rem;
     color: #8e8e8e;
     border-bottom: 1px solid;
+
     &:hover {
       color: #242424;
       border-color: #8b8b8b;
