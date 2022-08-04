@@ -4164,14 +4164,24 @@ textarea {
   }
 }
 
+.Nav__horizontal--list .container {
+  width: 100%;
+}
+
+.Nav__horizontal--list-2.full-width {
+  position: relative;
+
+  &>.container{
+    width: 100%;
+  }
+}
+
 .Nav__horizontal {
-  &--list {
+  &--list, &--list .container {
     list-style: none;
     display: flex;
-    //overflow: hidden;
-    position: relative;
-    max-width: 100%;
     flex-wrap: wrap;
+    box-sizing: border-box;
 
     .Nav__horizontal--list-2 {
       display: flex;

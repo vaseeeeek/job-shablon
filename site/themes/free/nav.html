@@ -5,9 +5,9 @@
 {if $wa->shop}
     {if !$wa->isMobile()}
         <div class="Nav__Primary-outer js-moved-content {if $theme_settings.horizontal_menu}Nav__Primary-outer--dd{/if}{if $fullWidthMenu} Nav__Primary-outer--full-width{/if}">
-            <div class="Nav__Primary{if !$fullWidthMenu || $theme_settings.horizontal_menu} container{/if}">
+            <div class="Nav__Primary">
                 {if $theme_settings.horizontal_menu}
-                    <ul class="Nav__horizontal--list {if $theme_settings.horizontal_menu_between}-Between{/if}">
+                    <div class="Nav__horizontal--list container {if $theme_settings.horizontal_menu_between}-Between{/if}"{if !$theme_settings.dd_menu_full_width} style="position: relative" {/if}>
                         {$catListHorizontalNav = false}
                         {if $theme_settings.horizontal_menu == 'cat' }
                             {$catListHorizontalNav = $wa->shop->categories(0, null, true, true)}
@@ -25,7 +25,7 @@
                                 {/foreach}
                             {/if}
                             {foreach $catListHorizontalNav as $id => $cat}
-                                <li class="Nav__horizontal--item">
+                                <div class="Nav__horizontal--item">
                                     <a class="Nav__horizontal--link" href="{$cat.url}">
                                         {$cat.name}
                                         {*{if $cat.childs && $theme_settings.drop_down_horizontal_menu}
@@ -33,36 +33,38 @@
                                         {/if}*}
                                     </a>
                                     {if $cat.childs && $theme_settings.drop_down_horizontal_menu}
-                                        <ul class="Nav__horizontal--list-2">
-                                            {foreach $cat.childs as $id => $cat2}
-                                                <li class="Nav__horizontal--item-2">
-                                                    <a class="Nav__horizontal--link-2" href="{$cat2.url}">
-                                                        {$cat2.name}
-                                                    </a>
-                                                    {if $cat2.childs}
-                                                        <ul class="Nav__horizontal--list-3">
-                                                            {foreach $cat2.childs as $id => $cat3}
-                                                                <li class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration}hide{/if}">
-                                                                    <a class="Nav__horizontal--link-3" href="{$cat3.url}">
-                                                                        {$cat3.name}
-                                                                    </a>
-                                                                </li>
-                                                            {/foreach}
-                                                            {if $theme_settings.number_output_categories_third_level < count($cat2.childs)}
-                                                                <li class="Nav__horizontal--item-more js-open-other-cat-child">
-                                                                    [`Else`] <i class="fi-rr-angle-small-down"></i>
-                                                                </li>
-                                                            {/if}
-                                                        </ul>
-                                                    {/if}
-                                                </li>
-                                            {/foreach}
-                                        </ul>
+                                        <div class="Nav__horizontal--list-2{if $theme_settings.dd_menu_full_width} full-width{else} container{/if}">
+                                            {if $theme_settings.dd_menu_full_width}<div class="container">{/if}
+                                                {foreach $cat.childs as $id => $cat2}
+                                                    <div class="Nav__horizontal--item-2">
+                                                        <a class="Nav__horizontal--link-2" href="{$cat2.url}">
+                                                            {$cat2.name}
+                                                        </a>
+                                                        {if $cat2.childs}
+                                                            <ul class="Nav__horizontal--list-3">
+                                                                {foreach $cat2.childs as $id => $cat3}
+                                                                    <div class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration}hide{/if}">
+                                                                        <a class="Nav__horizontal--link-3" href="{$cat3.url}">
+                                                                            {$cat3.name}
+                                                                        </a>
+                                                                    </div>
+                                                                {/foreach}
+                                                                {if $theme_settings.number_output_categories_third_level < count($cat2.childs)}
+                                                                    <div class="Nav__horizontal--item-more js-open-other-cat-child">
+                                                                        [`Else`] <i class="fi-rr-angle-small-down"></i>
+                                                                    </div>
+                                                                {/if}
+                                                            </ul>
+                                                        {/if}
+                                                    </div>
+                                                {/foreach}
+                                            {if $theme_settings.dd_menu_full_width}</div>{/if}
+                                        </div>
                                     {/if}
-                                </li>
+                                </div>
                             {/foreach}
                         {/if}
-                    </ul>
+                    </div>
                 {/if}
                 {if !$theme_settings.drop_down_horizontal_menu && !$theme_settings.drop_down_horizontal_menu}
                     {include file="header.dd.cat.list.html"}
