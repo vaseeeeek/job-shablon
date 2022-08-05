@@ -186,7 +186,10 @@ $html-font-size: 14px;
   font-weight: 700;
   letter-spacing: 1px;
   margin: 0 0.4rem 0rem 0;
-  padding: 0.55rem 1.2rem;
+  padding: 0 1.2rem;
+  vertical-align: top;
+  height: 32px;
+  line-height: 32px;
 
   &.button.added {
     background: transparent;
@@ -201,6 +204,11 @@ $html-font-size: 14px;
   &:hover {
     opacity: 0.8;
   }
+}
+
+.product_page .product_add2cart .addtocart {
+  height: 37px;
+  line-height: 37px;
 }
 
 @media (max-width: 912px) {
@@ -2645,12 +2653,6 @@ ul.menu-v.brands li a {
   display: flex;
 }
 
-.filter-el_btn-show {
-  text-align: right;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .filter-el_opts-el.sf-label-disabled, .filter-el_opts-el.sf-label-disabled .jq-checkbox, .option-color_outer.sf-label-disabled, .option-color_outer.sf-label-disabled .jq-checkbox {
   cursor: default
 }
@@ -3824,6 +3826,11 @@ img.pswp__img {
   line-height: 32px;
 }
 
+.product_page .Cart__Qty input {
+  height: 37px;
+  line-height: 37px;
+}
+
 .Cart__Qty_act, .Cart__Qty input {
   text-align: center;
   display: inline-block;
@@ -3851,12 +3858,8 @@ img.pswp__img {
   }
 }
 
-.Cart__Qty_act {
-  width: 32px;
-  line-height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.product_page .Cart__Qty_act {
+  line-height: 37px;
 }
 
 @media (max-width: 500px) {
@@ -3883,7 +3886,7 @@ img.pswp__img {
 }
 
 .product_action .Cart__Qty {
-  margin: 0 0.714rem 0.714rem 0;
+  //margin: 0 0.714rem 0.714rem 0;
 }
 
 .stocks {
@@ -4354,6 +4357,10 @@ img.pswp__img {
 
   .Product-stock_item-out {
     font-size: 1.2rem;
+  }
+
+  .cart_plugin {
+    margin-top: 5px;
   }
 }
 
@@ -7987,13 +7994,24 @@ input[type=text], input[type=tel], input[type=email] {
   max-width: 400px;
 }
 
-#themeOverride .product_action .quickorder-button {
+#themeOverride .product_one-click__wrap [data-quickorder-pb] {
   background-color: #eff3f6;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: 700;
-  padding: 0.6rem 2rem;
+  padding: 0 2rem;
   margin: 0;
+  line-height: 32px;
+  height: 32px;
+}
+
+#themeOverride .product_page .product_one-click__wrap [data-quickorder-pb] {
+  line-height: 37px;
+  height: 37px;
+}
+
+#themeOverride .product_one-click__wrap [data-quickorder-pb]:hover {
+  background-color: #fff;
 }
 
 #themeOverride .product_action > .quickorder-button {

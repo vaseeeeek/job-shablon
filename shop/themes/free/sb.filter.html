@@ -153,14 +153,13 @@
                                         {/foreach}
                                     </div>
                                 {else}
-                                    {$showBtnShowFullFilters = false}
                                     {if count($filter.values) >= $theme_settings.show_filter_search}
                                         <div class="filter__search">
                                             <input placeholder="[`I'm looking for ...`]" type="text">
                                         </div>
                                     {/if}
                                     {foreach $filter.values as $value_id => $value}
-                                        <label class="filter-el_opts-el label-flex filter-opt_el{if $value@iteration > $theme_settings.hide_filters} js-filter-opt_hidden hide{$showBtnShowFullFilters = true}{/if}">
+                                        <label class="filter-el_opts-el label-flex filter-opt_el">
                                             <span class="js-style-check style-check{if in_array($value_id, (array)$wa->get($filter.code, array()))} checked{/if} fi-rr-check">
                                                 <input class="js-style-check-input" type="checkbox" name="{$filter.code}[]" {if in_array($value_id, (array)$wa->get($filter.code, array()))}checked{/if} value="{$value_id}">
                                             </span>
@@ -177,10 +176,6 @@
                                         </label>
                                         {$index = $index+1}
                                     {/foreach}
-                                    {if $showBtnShowFullFilters}
-                                        <div class="filter-el_btn-show">Показать все</div>
-                                    {/if}
-                                    
                                 {/if}
                             {/if}
                         {/if}
@@ -207,12 +202,14 @@
 {/strip}
 
 <script>
-    $('.filter-el_btn-show').on('click', function () {
-        $(this).siblings('.js-filter-opt_hidden').toggleClass('hide');
-        if ($(this).text() == 'Показать все') {
-            $(this).text('Скрыть');
-        } else if ($(this).text() == 'Скрыть') {
-            $(this).text('Показать все');
-        }
-    })
+    function appendSearch() {
+        $('.filter__search').each(function(){
+            const searchWrap = $(this).closest('.filter-el');
+            console.log(searchWrap);
+            searchWrap.prepend($(this));
+        })
+    }
+    if ($('.filter__search').length > 0) {
+        appendSearch();
+    }
 </script>

@@ -4171,7 +4171,7 @@ textarea {
 .Nav__horizontal--list-2.full-width {
   position: relative;
 
-  &>.container{
+  & > .container {
     width: 100%;
   }
 }
@@ -5545,11 +5545,9 @@ span.i-cityselect__city:before {
 
 /* конец стилей для инфошек */
 
+
 /* начало стилей header.banner */
 
-.product_one-click__wrap [data-quickorder-pb] {
-  line-height: 1.1;
-}
 
 .Header__Banner {
   background-size: 400% 400%;

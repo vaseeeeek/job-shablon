@@ -367,11 +367,11 @@
                                 {/if}
                             </div>
                         {/if}
-
+                        {if $theme_settings.display_buy_one_click}<div class="button-one-click__wrap">{/if}
                         {$addedText = "[`Added`]"}
                         <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}" data-added-text="{$addedText}">
-                        {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
-                    </span>
+                            {if $wa->shop->cart->total() > 0}[`Add to cart`]{else}[`Buy now`]{/if}
+                        </span>
                         {if $theme_settings.display_buy_one_click && $pd_available}
                             <div class="product_one-click__wrap">
                                 {if class_exists('shopBuy1clickViewHelper')}
@@ -382,6 +382,7 @@
                                 {/if}
                             </div>
                         {/if}
+                        {if $theme_settings.display_buy_one_click}</div>{/if}
                     </div>
 
                     <!-- plugin hook: 'frontend_product.cart' -->
