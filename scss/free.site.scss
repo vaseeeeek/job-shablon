@@ -2602,7 +2602,6 @@ img.mfp-img {
   top: 0;
   min-height: 100%;
   background: #fff;
-  border-left: 1px solid #ebebeb;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 
@@ -4158,9 +4157,23 @@ textarea {
 }
 
 .Nav__Primary-outer--full-width {
+  position: relative;
+
+  .Nav__Primary {
+    position: initial;
+  }
+
+  .category-menu {
+    position: relative;
+    border-right: 1px solid #ebebeb;
+  }
+
   .nav-cat_wrap {
     width: 100%;
     left: 0;
+  }
+  .Nav__horizontal--list {
+    padding: 0;
   }
 }
 

@@ -521,7 +521,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -1304,12 +1304,11 @@
       <name locale="en_US">Tag header</name>
       <name locale="ru_RU">Заголовок тегов</name>
     </setting>
-<!--    <setting var="hide_filters" control_type="text">-->
-<!--      <value><![CDATA[]]></value>-->
-<!--      <name locale="en_US">Hide filters if the number of filters is greater than specified</name>-->
-<!--      <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>-->
-<!--    </setting>-->
-
+    <!--    <setting var="hide_filters" control_type="text">-->
+    <!--      <value><![CDATA[]]></value>-->
+    <!--      <name locale="en_US">Hide filters if the number of filters is greater than specified</name>-->
+    <!--      <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>-->
+    <!--    </setting>-->
     <setting var="show_filter_search" control_type="text">
       <value>2</value>
       <name locale="ru_RU">Поиск значений фильтров</name>
