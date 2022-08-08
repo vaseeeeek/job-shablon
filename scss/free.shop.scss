@@ -7318,7 +7318,7 @@ i.wa-icon.arrow-left {
   align-items: center;
 }
 
-.style-check, .jq-checkbox, .jq-radio, .radio-styler {
+.style-check, .jq-checkbox, .radio-styler {
   width: 10px;
   height: 10px;
   padding: 3px;
@@ -7327,7 +7327,26 @@ i.wa-icon.arrow-left {
   display: inline-flex;
   border-radius: 4px;
 }
-
+.jq-radio {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border: 2px solid rgb(242, 243, 245);
+  position: relative;
+  display: inline-flex;
+  border-radius: 4px;
+  top: -1px;
+}
+.jq-radio.checked:before {
+    content: "\e946";
+    color: #fff;
+    position: absolute;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
 .wa-order-cart-wrapper .wa-products .wa-product .wa-details-section .wa-services .wa-service .wa-label .wa-field {
   position: static !important;
   margin-right: rem(5px);

@@ -2353,7 +2353,12 @@ img.mfp-img {
   white-space: normal;
   z-index: 20
 }
-
+.checkout-option__header label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
 @media (max-width: 768px) {
   .product-msg-added-wrap {
     display: none !important;
@@ -3715,7 +3720,9 @@ textarea {
   border: none;
   text-align: center;
 }
-
+.checkout-options li {
+  border: 1px solid transparent;
+}
 .checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields {
   border: 1px solid #ebebeb;
 }

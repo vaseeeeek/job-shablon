@@ -7,11 +7,13 @@
                     {if $m.id == $shipping.id} selected{/if}
                     {if $m.external || !empty($m.error)} disabled{/if}">
             <h3>
-                <label>
-                    {if !empty($m.logo)}<img src="{$m.logo}" class="method-logo">{/if}
-                    <input type="radio" name="shipping_id" value="{$m.id}" {if $m.external || !empty($m.error)}disabled{/if} {if $m.id == $shipping.id}checked{/if}>
-                    <span class="checkout-option_title">{$m.name|escape}</span>
-                </label>
+                <div class="checkout-option__header">
+                    <label>
+                        {if !empty($m.logo)}<img src="{$m.logo}" class="method-logo">{/if}
+                        <input type="radio" name="shipping_id" value="{$m.id}" {if $m.external || !empty($m.error)}disabled{/if} {if $m.id == $shipping.id}checked{/if}>
+                        <span class="checkout-option_title">{$m.name|escape}</span>
+                    </label>
+                </div>
 
                 {if empty($m.error) && !empty($m.rates)}
                     {if count($m.rates) > 1}
