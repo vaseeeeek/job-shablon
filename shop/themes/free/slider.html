@@ -110,7 +110,9 @@
                                         <span class="nowrap">{shop_currency_html($product.min_price)}</span> ... <span class="nowrap">{shop_currency_html($product.max_price)}</span>
                                     {else}
                                         <span class="product__price price nowrap">{shop_currency_html($product.price)}</span>
-                                        <span class="old-price nowrap">{shop_currency_html($product.price)}</span>
+                                        {if $product.compare_price}
+                                            <span class="old-price nowrap">{shop_currency_html($product.compare_price)}</span>
+                                        {/if}
                                     {/if}
                                 </span>
                                 {if !$_price_range && $product.compare_price > 0 && $product.price < $product.compare_price && !empty($product.price)}

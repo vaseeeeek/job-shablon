@@ -34,7 +34,7 @@
                         {/if}
                     </div>
 
-                    {if count($filter.values) >= $theme_settings.show_filter_search && $filter.type == "varchar"}
+                    {if $filter.values && count($filter.values) >= $theme_settings.show_filter_search && $filter.type == "varchar"}
                         <div class="filter__search">
                             <input placeholder="[`I'm looking for ...`]" type="text">
                         </div>

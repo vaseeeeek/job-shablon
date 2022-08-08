@@ -64,12 +64,12 @@
 			}
 		})
 		$('.-showFullBtn').on('click', function () {
-			if ($('.-showFullBtn').text().trim() == 'Показать все') {
+			if ($(this).text().trim() == 'Показать все') {
 				$(this).parent('.brand-plugin-catalog-brand-categories__item').addClass('show');
-				$('.-showFullBtn').text('Скрыть')
+				$(this).text('Скрыть')
 			} else {
 				$(this).parent('.brand-plugin-catalog-brand-categories__item').removeClass('show');
-				$('.-showFullBtn').text('Показать все')
+				$(this).text('Показать все')
 			}
 		})
 	}
