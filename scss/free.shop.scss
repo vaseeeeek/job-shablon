@@ -2626,6 +2626,12 @@ ul.menu-v.brands li a {
       //background: linear-gradient(180deg, #00c6fb, #005bea);
     }
   }
+
+  &.close {
+    .filter__search {
+      display: none;
+    }
+  }
 }
 
 .filter-el:last-child {

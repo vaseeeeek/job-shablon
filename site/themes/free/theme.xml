@@ -948,6 +948,11 @@
       <name locale="en_US">Active filters</name>
       <name locale="ru_RU">Активные фильтры над списком товаров</name>
     </setting>
+    <setting var="max_show_filter" control_type="text">
+      <value>5</value>
+      <name locale="ru_RU">Кол-во раскрытых характеристик</name>
+      <name locale="en_US">Number of disclosed characteristics</name>
+    </setting>
     <setting var="view_filter_color_text" control_type="checkbox">
       <value/>
       <name locale="en_US">Print the color as text</name>

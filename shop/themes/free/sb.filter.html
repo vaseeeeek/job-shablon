@@ -20,7 +20,11 @@
             {$indexFilter = 0}
             {foreach $filters as $filterId => $filter}
                 {if $filterId == 'price'}{$filter.code = 'price'}{/if}
-                <div data-code="{$filter.code}" class="js-filter-el filter-el">
+                {$is_close = false}
+                {if $theme_settings.max_show_filter && $indexFilter >= $theme_settings.max_show_filter && !count((array)$wa->get($filter.code, array()))}
+                    {$is_close = true}
+                {/if}
+                <div data-code="{$filter.code}" class="js-filter-el filter-el{if $is_close} close{/if}">
                     <div class="filter-el_title js-filter-title">
                         {if $filterId == 'price'}
                             {$c = $wa->shop->currency(true)}
