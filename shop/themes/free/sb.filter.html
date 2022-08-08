@@ -201,16 +201,3 @@
         </form>
     </div>
 {/strip}
-
-<script>
-    function appendSearch() {
-        $('.filter__search').each(function(){
-            const searchWrap = $(this).closest('.filter-el');
-            console.log(searchWrap);
-            searchWrap.prepend($(this));
-        })
-    }
-    if ($('.filter__search').length > 0) {
-        // appendSearch();
-    }
-</script>

@@ -492,7 +492,11 @@ $html-font-size: 14px;
     font-size: rem(14px)
   }
 }
-
+@media (max-width: 640px) {
+  .main-slider_item-content {
+    padding-top: 0;
+  }
+}
 @media (max-width: 500px) {
 
   .product-custom_content {
@@ -2563,14 +2567,18 @@ table.data-order {
   }
 
   .homepage-brands-head__inner {
-    width: 100%;
-    margin: 0
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      margin-bottom: 5px;
+    }
   }
 
   .all_brands {
-    position: static;
-    width: auto;
-    float: right;
+    position: initial;
+    text-align: center;
   }
 }
 
@@ -7335,7 +7343,6 @@ i.wa-icon.arrow-left {
   position: relative;
   display: inline-flex;
   border-radius: 4px;
-  top: -1px;
 }
 .jq-radio.checked:before {
     content: "\e946";

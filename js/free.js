@@ -2447,7 +2447,7 @@ var filterSearch = {
 
         $('.filter__search input').on('input', function() {
             const desiredText = $(this).val().toLowerCase();
-            const parent = $(this).closest('.filter-el_opts');
+            const parent = $(this).closest('.filter-el');
 
             _this.findTitle(desiredText, parent);
         })

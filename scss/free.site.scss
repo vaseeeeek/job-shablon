@@ -3723,8 +3723,9 @@ textarea {
 .checkout-options li {
   border: 1px solid transparent;
 }
-.checkout-options li.selected, .comment-form, .box-hlighted, .add-review-form-fields {
-  border: 1px solid #ebebeb;
+.checkout-options li, .comment-form, .box-hlighted, .add-review-form-fields {
+  //border: 1px solid #ebebeb;
+box-shadow: 0 9px 16px 0 rgb(34 34 34 / 6%), 0 1px 7px 0 rgb(34 34 34 / 6%);
 }
 
 .style-check {
