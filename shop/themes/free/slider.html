@@ -58,14 +58,30 @@
                             {/if}
                         </a>
                         <div class="main-slider_item-content">
-                            <h3 class="main-slider_item-title">
-                                <a title="{$product.name}{if $product.summary} &ndash; {strip_tags($product.summary)|escape}{/if}" href="{$product.frontend_url}">{$product.name}</a>
-
+                            <div class="main-slider_item__header">
+                                <h3 class="main-slider_item-title">
+                                    <a title="{$product.name}{if $product.summary} &ndash; {strip_tags($product.summary)|escape}{/if}" href="{$product.frontend_url}">{$product.name}</a>
+                                </h3>
                                 {$badge_html = $wa->shop->badgeHtml($product.badge)}
                                 {if $badge_html}
                                     {$badge_html}
                                 {/if}
-                            </h3>
+
+                                {if $theme_settings.product_discount_percentage == 1}
+                                    {$compare_price = $product.compare_price}
+                                    {$price = $product.price}
+                                    {if $compare_price > $price}
+                                        {$discount = (($compare_price-$price)/$compare_price)*100}
+                                        {$discount = ceil($discount)}
+                                    {/if}
+
+                                    {$productDiscount = isset($discount) && $price > 0}
+
+                                    <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}" data-compare="{$compare_price}">
+                                        <span data-minimal="3" class="">{if $productDiscount}– {$discount}%{/if}</span>
+                                    </div>
+                                {/if}
+                            </div>
                             <div class="main-slider_item-desc">
                                 {$_badge_percent = ($theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0)}
                                 {if $_badge_percent}
@@ -90,20 +106,6 @@
                             </div>
                             <div class="main-slider_item-prs">
                                 <span class="main-slider_item-pr">
-                                    {if $theme_settings.product_discount_percentage == 1}
-                                        {$compare_price = $product.compare_price}
-                                        {$price = $product.price}
-                                        {if $compare_price > $price}
-                                            {$discount = (($compare_price-$price)/$compare_price)*100}
-                                            {$discount = ceil($discount)}
-                                        {/if}
-
-                                        {$productDiscount = isset($discount) && $price > 0}
-
-                                        <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}" data-compare="{$compare_price}">
-                                            <span data-minimal="3" class="">{if $productDiscount}Скидка {$discount}%{/if}</span>
-                                        </div>
-                                    {/if}
                                     {if empty($product.price) && !empty($theme_settings.text_zero_price)}
                                         <span class="main-slider_item-price-zero">{$theme_settings.text_zero_price}</span>
                                     {elseif $_price_range && ($product.max_price && $product.min_price && $product.max_price > $product.min_price)}
