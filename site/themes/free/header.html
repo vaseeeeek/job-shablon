@@ -1,7 +1,7 @@
 
 <div class="header--left">
     {$is_logo = $theme_settings.logo}
-    <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}{if $wa->currentUrl() === $wa->getUrl('shop/frontend')}{else}href="{$wa->getUrl('shop/frontend')}"{/if}{/if}>
+    <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}href="{$wa->getUrl('shop/frontend')}"{/if}>
         {if $theme_settings.path_svg_logo}
             <img src="{$theme_settings.path_svg_logo}" alt="{$wa->accountName()}" id="logo">
         {elseif $is_logo}

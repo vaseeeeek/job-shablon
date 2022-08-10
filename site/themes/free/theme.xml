@@ -83,7 +83,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value/>
+      <value>#2d2d2d</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -94,7 +94,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value/>
+      <value>#2d2d2d</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -106,12 +106,12 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value/>
+      <value>#2d2d2d</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
     <setting var="footer_color_scheme" control_type="color">
-      <value>#f2f2f2</value>
+      <value>#eeeeee</value>
       <name locale="ru_RU">Цвет низа сайта (футер)</name>
       <name locale="en_US"/>
     </setting>
@@ -143,7 +143,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>opensans</value>
+      <value>roboto</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
@@ -348,7 +348,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="header_hover_phone_block" control_type="text">
-      <value>+7 (495) 999-99-99</value>
+      <value/>
       <name locale="ru_RU">html код блока при наведении на телефон</name>
       <name locale="en_US">html code of the block when hovering over the phone</name>
     </setting>
@@ -388,7 +388,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
@@ -492,7 +492,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
@@ -521,7 +521,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -573,7 +573,7 @@
       <name locale="ru_RU">Слайдер</name>
     </setting>
     <setting var="homepage_type_slider_mode" control_type="select">
-      <value>products</value>
+      <value>promos</value>
       <name locale="ru_RU">Слайдер</name>
       <name locale="en_US">Slider</name>
       <description locale="ru_RU">ID для опции "Товары из списка" задавать в настройке ниже.
@@ -624,7 +624,7 @@
       <name locale="ru_RU">Заголовок списка товаров</name>
     </setting>
     <setting var="promo_product_list_id" control_type="text">
-      <value>bestsellers</value>
+      <value/>
       <name locale="en_US">Product List Id</name>
       <name locale="ru_RU">Id списка товаров</name>
     </setting>
@@ -708,7 +708,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value>brands_pro</value>
+      <value/>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -746,7 +746,7 @@
       </options>
     </setting>
     <setting var="home_brands_ids" control_type="text">
-      <value>442,629,605,298,162,200,575,590,533</value>
+      <value/>
       <name locale="en_US"/>
       <name locale="ru_RU">ID брендов на главной</name>
     </setting>
@@ -771,7 +771,7 @@
       <name locale="ru_RU">Новости на главной</name>
     </setting>
     <setting var="home_lastposts" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Display the latest news on the main page</name>
       <name locale="ru_RU">Вывести последние новости на главной</name>
     </setting>
@@ -949,7 +949,7 @@
       <name locale="ru_RU">Активные фильтры над списком товаров</name>
     </setting>
     <setting var="max_show_filter" control_type="text">
-      <value>5</value>
+      <value>1</value>
       <name locale="ru_RU">Кол-во раскрытых характеристик</name>
       <name locale="en_US">Number of disclosed characteristics</name>
     </setting>
@@ -1200,7 +1200,7 @@
       <name locale="ru_RU">Артикул в "плитке"</name>
     </setting>
     <setting var="show_number_item_add_in_grid" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Qty field in the "line by grid"</name>
       <name locale="ru_RU">Поле кол-во в виде "плитка"</name>
     </setting>
@@ -1225,7 +1225,7 @@
       <name locale="ru_RU">Поле кол-во в "таблице"</name>
     </setting>
     <setting var="show_number_item_add_in_list" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Qty field in the "line by line"</name>
       <name locale="ru_RU">Поле кол-во "построчно"</name>
     </setting>
@@ -1310,7 +1310,7 @@
     <!--      <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>-->
     <!--    </setting>-->
     <setting var="show_filter_search" control_type="text">
-      <value>2</value>
+      <value>15</value>
       <name locale="ru_RU">Поиск значений фильтров</name>
       <name locale="en_US">Searching for filter values</name>
       <description locale="ru_RU">Укажите от скольки значений фильтров показывать поиск</description>
@@ -1337,7 +1337,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_two</value>
+      <value>product_columns_three</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1386,7 +1386,7 @@
       <name locale="en_US">Outputting the quantity</name>
     </setting>
     <setting var="product_image_size_zoom" control_type="text">
-      <value>1500</value>
+      <value>970</value>
       <name locale="ru_RU">Размер изображения в zoom</name>
       <name locale="en_US">Image size in zoom</name>
       <description locale="ru_RU">Размер не должен привышать максимальный размер эскиза, в настройках магазина.
@@ -1397,12 +1397,12 @@
             </description>
     </setting>
     <setting var="display_buy_one_click" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Вывод кнопки "Купить в 1 клик" справа от кнопки "купить"</name>
       <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>full</value>
+      <value>first</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
       <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых
@@ -1431,7 +1431,7 @@
       </options>
     </setting>
     <setting var="count_output_features_right_block" control_type="text">
-      <value/>
+      <value>6</value>
       <name locale="ru_RU">Кол-во характеристик</name>
       <name locale="en_US">Number of characteristics</name>
       <description locale="ru_RU">Если выбрано "Первых N штук"
@@ -1445,7 +1445,7 @@
       <name locale="en_US">Codes of the output characteristics</name>
     </setting>
     <setting var="product_page_show_brand_right" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Бренд картинкой</name>
       <name locale="en_US">Brand by picture</name>
       <description locale="ru_RU">С плагином "Бренды с картинками и описаниями"
@@ -1478,21 +1478,21 @@
             </description>
     </setting>
     <setting var="product_tab_name1" control_type="text">
-      <value>Имя 1</value>
+      <value/>
       <name locale="ru_RU">Наименование дополнительной вкладки №1</name>
       <name locale="en_US">Name of the additional tab</name>
       <description locale="ru_RU">Для вывода создайте блок в сайте "product_tab1"
       </description>
     </setting>
     <setting var="product_tab_name2" control_type="text">
-      <value>Имя 2222</value>
+      <value/>
       <name locale="ru_RU">Наименование дополнительной вкладки №2</name>
       <name locale="en_US">Name of the additional tab</name>
       <description locale="ru_RU">Для вывода создайте блок в сайте "product_tab2"
       </description>
     </setting>
     <setting var="product_tab_name3" control_type="text">
-      <value>Имя -3</value>
+      <value/>
       <name locale="ru_RU">Наименование дополнительной вкладки №3</name>
       <name locale="en_US">Name of the additional tab</name>
       <description locale="ru_RU">Для вывода создайте блок в сайте "product_tab3"
@@ -1606,7 +1606,7 @@
       </options>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
       <name locale="en_US">The sku parameter in the browser line</name>
     </setting>
@@ -1616,7 +1616,7 @@
       <name locale="en_US">Stock availability</name>
     </setting>
     <setting var="product_show_stock_count" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Кол-во на складе</name>
       <name locale="en_US">Quantity in stock</name>
     </setting>
@@ -1631,12 +1631,12 @@
       <name locale="ru_RU">Кол-во похожих товаров(upselling)</name>
     </setting>
     <setting var="product_show_seofilter_link" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывод коллекции ссылок характеристик</name>
       <name locale="en_US">Show a collection of references of characteristics</name>
     </setting>
     <setting var="product_show_category_list" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывод списка категорий</name>
       <name locale="en_US">Category list show</name>
     </setting>
@@ -1729,7 +1729,7 @@
       <name locale="ru_RU">Загрузка js,css</name>
     </setting>
     <setting var="load_file_custom" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Load file custom styles</name>
       <name locale="ru_RU">Загружать файл free.custom.css</name>
       <description locale="en_US">Custom styles from the file. But we recommend using the id custom_styles block

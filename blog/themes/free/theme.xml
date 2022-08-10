@@ -88,7 +88,7 @@
       <name locale="ru_RU">Настройки «Блога»</name>
     </setting>
     <setting var="blog_breadcrumb_title" control_type="text">
-      <value><![CDATA[Free Блог]]></value>
+      <value><![CDATA[Новости]]></value>
       <name locale="en_US">Блог name</name>
       <name locale="ru_RU">Название блога</name>
     </setting>

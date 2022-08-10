@@ -2004,6 +2004,7 @@ img.mfp-img {
 
 .header_currency__selected {
   font-weight: 700;
+  margin-left:5px;
 }
 
 .header_currency:last-child {
@@ -2468,7 +2469,7 @@ img.mfp-img {
 
 .nav-cat_wrap {
   position: absolute;
-  z-index: 100;
+  z-index: 110;
   top: 100%;
   left: 10px;
   display: none
@@ -4250,7 +4251,7 @@ box-shadow: 0 9px 16px 0 rgb(34 34 34 / 6%), 0 1px 7px 0 rgb(34 34 34 / 6%);
     &:hover > .Nav__horizontal--list-2 {
       top: calc(100% + 1px);
       opacity: 1;
-      z-index: 11;
+      z-index: 110;
     }
 
     .Nav__horizontal--item-2 {

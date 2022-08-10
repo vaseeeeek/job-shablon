@@ -18,9 +18,13 @@
         {$exist_hide_tags = false}
         {$index = 0}
         {foreach $tagrepository as $key => $tag}
+            {if !$tag.name}
+                {break}
+            {/if}
             {if (int)$theme_settings.max_tags_sidebar > 0 && $index >= (int)$theme_settings.max_tags_sidebar}
                 {$exist_hide_tags = true}
             {/if}
+
             <a class="maincolor {if $exist_hide_tags}js-tag hide{/if}" href="{$wa_app_url}tag/{$tag.uri_name}/">{$tag.name|escape}</a>
             {$index = $index+1}
         {/foreach}

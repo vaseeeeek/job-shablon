@@ -1220,7 +1220,11 @@ span.grid-gallery__el.js-grid-gallery-item {
   top: 1.2rem;
   z-index: 10;
 }
-
+.Product-grid .badge.product-card_discounts {
+  top: initial;
+  bottom: 1rem;
+  left: 1rem;
+}
 .product-day .Product-grid.hover {
   box-shadow: none;
   border-left: none
@@ -2617,7 +2621,7 @@ ul.menu-v.brands li a {
 }
 
 .filter-el.hasSearch {
-  padding: 0rem 0 0.8rem 0;
+  //padding: 0rem 0 0.8rem 0;
 
   .filter-el_opts {
     overflow: auto;
@@ -6751,7 +6755,7 @@ button.owl-dot {
 }
 
 .slider-outer--photos .owl-dot > span {
-  border: 1px solid #fff;
+  //border: 1px solid #fff;
   background: none
 }
 
@@ -8096,6 +8100,7 @@ input[type=text], input[type=tel], input[type=email] {
   margin: 0;
   line-height: 32px;
   height: 32px;
+  letter-spacing: 1px;
 }
 
 #themeOverride .product_page .product_one-click__wrap [data-quickorder-pb] {
