@@ -56,7 +56,17 @@
         {$font_name = "'Yanone Kaffeesatz', arial, sans-serif"}
     {/if}
     <style>
-
+        @font-face {
+            font-family: 'free-font';
+            src:  url('{$wa_theme_url}fonts/free/fonts/free-font.eot?j1nht9');
+            src:  url('{$wa_theme_url}fonts/free/fonts/free-font.eot?j1nht9#iefix') format('embedded-opentype'),
+            url('{$wa_theme_url}fonts/free/fonts/free-font.ttf?j1nht9') format('truetype'),
+            url('{$wa_theme_url}fonts/free/fonts/free-font.woff?j1nht9') format('woff'),
+            url('{$wa_theme_url}fonts/free/fonts/free-font.svg?j1nht9#free-font') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
 
         body {
             font-family: {$font_name};
