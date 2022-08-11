@@ -1290,7 +1290,8 @@ input.error, textarea.error {
 }
 
 .errormsg {
-  display: block
+  display: block;
+  color: red;
 }
 
 .row {
@@ -5283,7 +5284,7 @@ ul.pages {
   text-align: center;
   font-weight: 400;
   padding: 10px;
-  max-width: 145px;
+  max-width: initial;
   margin-top: 12px;
 }
 

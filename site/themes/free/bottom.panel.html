@@ -294,7 +294,7 @@
                             {$url = $wa->getUrl('shop/frontend/compare')}
                         {/if}
                         <a class="js-preview-compare product-custom" href="{$url}">
-                            <div class="js-products-link" href="{$url}">
+                            <div class="js-products-link">
                                 <div class="product-custom_icon maincolor">
                                     <i class="fi-rr-compare icon"></i>
                                     <span class="js-products-count product-custom_short-count bg-sdСolor">{count($in_comparison)}</span>
@@ -318,7 +318,7 @@
                         {$cartUrl = $wa->getUrl('shop/frontend/cart')}
                     {/if}
                     <a class="juniq-header-preview-cart preview-cart product-custom" data-url="{$cartUrl}" href="{$cartUrl}">
-                        <div href="{$cartUrl}">
+                        <div>
                             {$cart_count = $wa->shop->cart->count()}
                             <div class="product-custom_icon maincolor">
                                 <i class="fi-rr-shopping-cart icon"></i>
@@ -357,7 +357,7 @@
                 {/if}
                 {if $btn == 'profile' && $wa->isAuthEnabled()}
                     <a class="product-custom" href="{$wa->myUrl()}">
-                        <div class="product-custom_icon maincolor" href="{$wa->myUrl()}">
+                        <div class="product-custom_icon maincolor">
                             <i class="fi-rr-user"></i>
                             <span class="product-custom_icon__name">
                                 [`Profile`]
