@@ -492,11 +492,13 @@ $html-font-size: 14px;
     font-size: rem(14px)
   }
 }
+
 @media (max-width: 640px) {
   .main-slider_item-content {
     padding-top: 0;
   }
 }
+
 @media (max-width: 500px) {
 
   .product-custom_content {
@@ -595,7 +597,7 @@ $html-font-size: 14px;
   margin-bottom: 2.5rem;
 }
 
-.homepage-news-outer {
+.homepage-news-outer, .homepage-reviews-outer {
   background-color: #f7f7f7;
   padding: 2.5rem 0;
 }
@@ -1220,11 +1222,13 @@ span.grid-gallery__el.js-grid-gallery-item {
   top: 1.2rem;
   z-index: 10;
 }
+
 .Product-grid .badge.product-card_discounts {
   top: initial;
   bottom: 1rem;
   left: 1rem;
 }
+
 .product-day .Product-grid.hover {
   box-shadow: none;
   border-left: none
@@ -3665,6 +3669,7 @@ img.pswp__img {
 .modal-content--dialog-options {
   .product_add2cart .addtocart {
     margin: 0 rem(10px) rem(10px) 0;
+    border: 1px solid transparent;
   }
 
   .product_add-services {
@@ -4314,6 +4319,87 @@ img.pswp__img {
 .service-price {
   font-weight: 700
 }
+
+/* Стили отзывов на главной */
+.homepage-reviews .container {
+  position: relative;
+
+}
+.reviews__list {
+  padding: 10px;
+  overflow: hidden;
+}
+.reviews__item {
+  width: 400px;
+  box-shadow: 0px 4px 8px rgb(0 0 0 / 20%);
+  //margin: 0.4rem 1rem;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: rem(20px);
+  height: 100%;
+}
+@media (max-width: 500px) {
+  .reviews__item {
+    width: initial;
+  }
+}
+.review__header {
+  display: flex;
+}
+
+.review__header__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.review__info {
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 350px) {
+  .review__info {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+}
+.review__header__left {
+  width: 85px;
+  padding-right: 10px;
+}
+
+.review__header__right {
+  width: calc(100% - 85px);
+}
+
+.review__product__image {
+  font-size: 0;
+}
+.review__value {
+  display: flex;
+  //flex-direction: column;
+  align-items: center;
+  //justify-content: space-between;
+}
+.review__user-name {
+  font-weight: 600;
+}
+.review__date {
+  font-size: rem(12px);
+}
+.review__value__num span {
+  font-size: 30px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.review__product__title {
+  height: 36px;
+  overflow: hidden;
+}
+/* /стили отзывов на главной */
 
 .reviews-list {
   margin: 0;
@@ -5556,166 +5642,6 @@ img.pswp__img {
   padding: 0.2rem;
 }
 
-.homepage-reviews {
-  margin: rem(30px) rem(10px) rem(50px)
-}
-
-.homepage-reviews-carousel {
-  position: relative;
-  white-space: nowrap;
-  padding: 0 rem(20px)
-}
-
-.homepage-reviews-carousel .owl-carousel {
-  overflow: hidden;
-  display: flex;
-  flex-wrap: nowrap
-}
-
-.homepage-reviews-carousel .owl-carousel.owl-loaded {
-  overflow: visible
-}
-
-.homepage-reviews_title {
-  font-size: rem(24px);
-  margin: 0 0 rem(30px)
-}
-
-.homepage-reviews_el {
-  vertical-align: top;
-  flex: 0 0 auto;
-  width: calc(100% / 3 - 13.33px);
-  display: inline-block;
-  box-sizing: border-box;
-  font-size: rem(14px);
-  background: #fff;
-  border: 1px solid #ebebeb;
-  padding: rem(20px) rem(15px);
-  margin: 0 rem(20px) 0 0;
-  white-space: normal
-}
-
-@media (max-width: 1200px) {
-  .homepage-reviews_el {
-    width: calc(100% / 2 - 10px)
-  }
-}
-
-@media (max-width: 900px) {
-  .homepage-reviews_el {
-    width: 100%;
-    margin: 0
-  }
-}
-
-.owl-item .homepage-reviews_el {
-  width: 100%;
-  margin: 0
-}
-
-.homepage-reviews_el-image {
-  float: left;
-  width: 70px;
-  text-align: center
-}
-
-.homepage-reviews_el-image img {
-  max-width: 100%
-}
-
-.homepage-reviews_el-title {
-  min-height: 32px;
-  margin: 0 0 rem(5px)
-}
-
-.homepage-reviews_el-title .rating {
-  margin: 0 rem(10px) 0 0;
-  white-space: normal
-}
-
-.homepage-reviews_el-theme {
-  font-weight: 700
-}
-
-.homepage-reviews_el-image ~ .homepage-reviews_el-right {
-  margin: 0 0 0 rem(80px)
-}
-
-.homepage-reviews .owl-dots {
-  margin-top: rem(30px)
-}
-
-.homepage-reviews .owl-next, .homepage-reviews .owl-prev {
-  width: 30px;
-  border-right: none;
-  border-left: none;
-  height: 20px
-}
-
-.homepage-reviews .owl-stage {
-  border-right: none;
-  border-left: none;
-  display: flex
-}
-
-.homepage-reviews .owl-prev {
-  left: -20px;
-  text-align: left
-}
-
-.homepage-reviews .owl-next {
-  right: -20px;
-  text-align: right
-}
-
-.homepage-reviews .owl-next:after, .homepage-reviews .owl-prev:after {
-  font-size: rem(20px)
-}
-
-.homepage-reviews .owl-next:after {
-  right: 10px
-}
-
-.homepage-reviews .owl-prev:after {
-  left: 10px
-}
-
-.homepage-reviews .owl-item {
-  display: flex
-}
-
-@media (max-width: 500px) {
-  .homepage-reviews_el-image {
-    width: 60px;
-    margin: 0 rem(10px) rem(10px) 0
-  }
-
-  .homepage-reviews_el-right {
-    min-height: 150px
-  }
-
-  .homepage-reviews_el-image ~ .homepage-reviews_el-right {
-    margin-left: 0
-  }
-
-  .homepage-reviews_el-title {
-    margin: 0 0 rem(10px);
-    min-height: 0
-  }
-
-  .homepage-reviews_el-text {
-    min-height: 0
-  }
-
-  .homepage-reviews {
-    margin-bottom: rem(30px)
-  }
-
-  .homepage-reviews_el-title .rating {
-    display: block
-  }
-}
-
 .affiliate-discount-available {
   margin: 0 rem(5px) 0 0
 }
@@ -6549,7 +6475,7 @@ img.pswp__img {
 }
 
 @media (max-width: 1025px) {
-  .product-page_main--three-columns .product-page_main-right, .product-page_main--three-columns .product-page_main-right.-productMiniGallery{
+  .product-page_main--three-columns .product-page_main-right, .product-page_main--three-columns .product-page_main-right.-productMiniGallery {
     width: 100%;
   }
 }
@@ -7339,6 +7265,7 @@ i.wa-icon.arrow-left {
   display: inline-flex;
   border-radius: 4px;
 }
+
 .jq-radio {
   width: 20px;
   height: 20px;
@@ -7348,16 +7275,18 @@ i.wa-icon.arrow-left {
   display: inline-flex;
   border-radius: 4px;
 }
+
 .jq-radio.checked:before {
-    content: "\e946";
-    color: #fff;
-    position: absolute;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+  content: "\e946";
+  color: #fff;
+  position: absolute;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .wa-order-cart-wrapper .wa-products .wa-product .wa-details-section .wa-services .wa-service .wa-label .wa-field {
   position: static !important;
   margin-right: rem(5px);

@@ -175,8 +175,13 @@
                     </div>
                     <div class="Product-grid_description">
                         <div class="Product-grid_name">
-                            <a title="{$p.name}" href="{$p.frontend_url}">{$p.name}
-                                {if isset($p.video_url) && !empty($p.video_url)}<span class="Product-grid_video" ><img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt=""></span>{/if}
+                            <a title="{$p.name}" href="{$p.frontend_url}">
+                                {$p.name}
+                                {if isset($p.video_url) && !empty($p.video_url)}
+                                    <span class="Product-grid_video">
+                                        <img src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                                    </span>
+                                {/if}
                             </a>
                         </div>
 

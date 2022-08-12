@@ -148,7 +148,7 @@
         {if $theme_settings.border_radius}
             .Nav-search input.Nav-inp-search,
             .quickorder-form [data-quickorder-pfb],
-            .Cart__Qty, .b-comments-section, .image-preview.selected.image-preview--video, .option-color_outer._only-text, .review-write__btn, .nav-cat-btn, .admin-edit-links__el, .product_add2cart .addtocart, .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section .wa-input, .wa-button, .image-preview.selected,
+            .Cart__Qty, .b-comments-section, .option-color_outer._only-text, .review-write__btn, .nav-cat-btn, .admin-edit-links__el, .product_add2cart .addtocart, .wa-order-cart-wrapper .wa-cart-details .wa-coupon-section .wa-input, .wa-button,
             .wa-submit-button, .addtocart--mini, .filter-el--btns input[type="submit"], .Product-grid_cart .button, .main-slider_item-btn, .product-added-msg, .My__Button--Pin, .sidear-mobile form#filter-body.show .filter__submit input[type=submit], .stock__popap-box,
             .filter_warehouse--box .filter-el_opts, .pagination li.selected, .pages .shop a, .button, .button-link, button, input[type=button], input[type=submit]{
                 border-radius: {$theme_settings.border_radius}px;
@@ -156,6 +156,11 @@
 
             .product_options .select-v-inline a{
                 border-radius: {$theme_settings.border_radius * 2}px;
+            }
+
+            .image-preview.selected,
+            .image-preview.selected.image-preview--video {
+                border-radius: 4px;
             }
         {/if}
         {if $theme_settings.border_radius}

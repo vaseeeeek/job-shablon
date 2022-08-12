@@ -78,24 +78,25 @@
         {/literal}
         {*{$wa->block("shop.home.after.product.slider")}*}
     {/if}
-        {if $block == 'brands'}
-            <div class="brands">
-            {*{$wa->block("shop.home.before.brands")}*}
-                <div class="container">
 
-                    {if $theme_settings.use_plugin_brands == 'brands_pro'}
-                        {include file="home.brands-pro.block.html"}
-                    {else if $theme_settings.use_plugin_brands == 'brands'}
-                        {include file="home.brands.block.html"}
-                    {/if}
+    {if $block == 'brands'}
+        <div class="brands">
+        {*{$wa->block("shop.home.before.brands")}*}
+            <div class="container">
 
-                    <!-- plugin hook: 'frontend_homepage' -->
-                    {* @event frontend_homepage.%plugin_id% *}
-                    {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
-                </div>
-                {*{$wa->block("shop.home.after.brands")}*}
+                {if $theme_settings.use_plugin_brands == 'brands_pro'}
+                    {include file="home.brands-pro.block.html"}
+                {else if $theme_settings.use_plugin_brands == 'brands'}
+                    {include file="home.brands.block.html"}
+                {/if}
+
+                <!-- plugin hook: 'frontend_homepage' -->
+                {* @event frontend_homepage.%plugin_id% *}
+                {foreach $frontend_homepage as $_}<div class="content content-box">{$_}</div>{/foreach}
             </div>
-        {/if}
+            {*{$wa->block("shop.home.after.brands")}*}
+        </div>
+    {/if}
 
     {if $block == 'text'}
         {*{$wa->block("shop.home.before.text")}*}
@@ -115,7 +116,6 @@
         {/if}
         {*{$wa->block("shop.home.after.text")}*}
     {/if}
-
 
     {if $block == 'news'}
         {*{$wa->block("shop.home.before.news")}*}
@@ -179,5 +179,114 @@
         {/if}
         {*{$wa->block("shop.home.after.news")}*}
     {/if}
+
+    {if $block == 'reviews'}
+        {$reviews = $wa->shop->reviews()}
+        {if $reviews}
+            <div class="homepage-reviews-outer">
+                <div class="homepage-reviews">
+                    <div class="homepage-reviews_head">
+                        <div class="homepage-reviews_title title">[`Reviews`]</div>
+                    </div>
+                    <div class="container">
+                        {$p = $wa->shop->product($review.product_id)}
+                        <div class="reviews__list">
+                            {foreach $reviews as $review}
+                                {$p = $wa->shop->product($review.product_id)}
+                                <div class="reviews__item">
+                                    <div class="review__header">
+                                        <div class="review__header__left">
+                                            <a href="{$wa->shop->productUrl($p)}" class="review__product__image">
+                                                {$wa->shop->imgHtml($p.images|@array_shift, '75')}
+                                            </a>
+                                        </div>
+                                        <div class="review__header__right">
+                                            <a href="{$wa->shop->productUrl($p)}" class="review__product__title">
+                                                {$p.name}
+                                            </a>
+                                            <div class="review__value">
+                                                <div class="review__value__num">
+                                                    <span>
+                                                        {$p.rating}
+                                                    </span>
+                                                </div>
+                                                <div class="review__value__star">
+                                                    {if $p.rating > 0 && $theme_settings.product_ratings}
+                                                        <span class="rating nowrap">
+                                                            {$wa->shop->ratingHtml($p.rating, 10)}
+                                                        </span>
+                                                    {elseif $p.rating == 0 && $theme_settings.product_ratings}
+                                                        <a class="rating -zero" href="{$p.frontend_url}?reviews=scroll">
+                                                            <div class="">
+                                                                <i class="icon10 star"></i>
+                                                            </div>
+                                                            <div class="">
+                                                                <i class="icon10 star"></i>
+                                                            </div>
+                                                            <div class="">
+                                                                <i class="icon10 star"></i>
+                                                            </div>
+                                                            <div class="">
+                                                                <i class="icon10 star"></i>
+                                                            </div>
+                                                            <div class="">
+                                                                <i class="icon10 star"></i>
+                                                            </div>
+                                                        </a>
+                                                    {/if}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review__bottom">
+                                        <div class="review__info">
+                                            <div class="review__user-name">{$review.author.name}</div>
+                                            <div class="review__date">{$review.datetime}</div>
+                                        </div>
+                                        <div class="review__text">{$review.text|truncate:90:"..."}</div>
+        {*                                <div class="review__link">*}
+        {*                                    <a href=""></a>*}
+        {*                                </div>*}
+                                    </div>
+                                </div>
+                            {/foreach}
+                        </div>
+                        <div class="home-products__direction js-carousel-direction">
+                            <div data-index="prev" class="js-slider-init-action owl-prev disabled"></div>
+                            <div data-index="next" class="js-slider-init-action owl-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {/if}
+    {/if}
+    <script>
+        $(document).ready(function(){
+            const sliderBox = $('.reviews__list');
+            const wrapActions = sliderBox.siblings(".js-carousel-direction");
+
+            sliderBox.owlCarousel({
+                nav: true,
+                autoWidth: true,
+                navText: ['', ''],
+                navElement: "div",
+                navContainer: wrapActions,
+                margin: 10,
+                dots: false,
+                onInitialize() {
+                    wrapActions.html("");
+                },
+                responsive: {
+                    0: {
+                        autoWidth: false,
+                        items: 1
+                    },
+                    500: {
+                        autoWidth: true
+                    },
+                }
+            });
+        });
+    </script>
 {/foreach}
 {/strip}
