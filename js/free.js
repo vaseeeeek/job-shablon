@@ -2590,7 +2590,7 @@ function Product(form, options) {
             self.add2cart.find(".price").empty();
         }
         self.cartButtonVisibility(true);
-
+        self.updateArrivedBtn();
     });
     this.formWrap.find("select.js-feature-sku:first, input.js-feature-sku:first").change();
 
@@ -2621,6 +2621,16 @@ Product.prototype.cartButtonVisibility = function (visible) {
         this.add2cart.find('.price').show();
         this.add2cart.find('.js-qty').show();
         this.add2cart.find('span.added2cart').hide();
+    }
+}
+
+Product.prototype.updateArrivedBtn = function () {
+    if ($('.plugin_arrived-button').length > 0) {
+        if ($('.product_add-services--box').find('.js-submit-form').hasClass('disabled')) {
+            $('.plugin_arrived-button').fadeOut();
+        } else {
+            $('.plugin_arrived-button').fadeIn();
+        }
     }
 }
 
@@ -2669,13 +2679,6 @@ Product.prototype.updateURLSku = function (sku_id) {
         }
 
         return result;
-    }
-    if ($('.plugin_arrived-button').length > 0) {
-        if ($('.product_add-services--box').find('.js-submit-form').hasClass('disabled')) {
-            $('.plugin_arrived-button').fadeOut();
-        } else {
-            $('.plugin_arrived-button').fadeIn();
-        }
     }
 };
 
