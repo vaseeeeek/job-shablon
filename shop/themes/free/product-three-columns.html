@@ -280,6 +280,25 @@
                         });
                     });
                 </script>
+                <script>
+                    $(document).ready(function() {
+                        $('.skus').on('click', function (e) {
+                            if ($(e.target).hasClass('js-toggle-styler-input')) {
+                                setTimeout(function(){
+                                    $(".product_action-desc").load(location.href + "" + " .product_action-desc");
+                                }, 1);
+                            }
+                        })
+                    });
+                    {literal}
+                    $('.Product__features-item').each(function(){
+                        const featuresIndex = $(this).data('index');
+                        if ($(this).hasClass('divider') && $(`.Product__features-item[data-index='${featuresIndex - 1}']`).hasClass('divider')){
+                            $(`.Product__features-item[data-index='${featuresIndex - 1}']`).hide();
+                        }
+                    })
+                    {/literal}
+                </script>
             </div>
         </div>
         <div class="product-cart__right">
