@@ -2475,6 +2475,7 @@ function Product(form, options) {
     this.add2cart = this.formWrap.find(".js-add2cart");
     this.button = this.add2cart.find(".js-submit-form");
     this.skFastButton = this.formWrap.find(".js-sk-oneclick-open");
+    this.wrapFastButton = this.formWrap.find(".product_one-click__wrap");
     this.discount = this.formWrap.closest('.js-product-page').find(".js-product-discount");
     this.savedWrap = this.formWrap.closest('.js-product-page').find(".js-product-discounts");
     this.isSkuUrl = this.formWrap.data("sku-url");
@@ -2620,9 +2621,6 @@ Product.prototype.cartButtonVisibility = function (visible) {
         this.add2cart.find('.js-qty').show();
         this.add2cart.find('span.added2cart').hide();
     }
-
-    this.updateArrivedBtn();
-    this.removeDivider();
 }
 
 Product.prototype.updateArrivedBtn = function () {
@@ -2631,6 +2629,15 @@ Product.prototype.updateArrivedBtn = function () {
             $('.plugin_arrived-button').fadeIn();
         } else {
             $('.plugin_arrived-button').fadeOut();
+        }
+    }
+}
+Product.prototype.updateFastOrderBtn = function () {
+    if ($('.quickorder-button').length > 0) {
+        if ($('.product_add-services--box').find('.js-submit-form').hasClass('disabled')) {
+            this.wrapFastButton.fadeOut();
+        } else {
+            this.wrapFastButton.fadeIn();
         }
     }
 }
@@ -2817,7 +2824,7 @@ Product.prototype.updatePrice = function (price, compare_price) {
 
 
     // if (!$('.product__header .product-card_discounts').data('compare')){
-        self.updateDiscount(price, compare_price);
+    self.updateDiscount(price, compare_price);
     // }
     self.updateSaved(price, compare_price);
 
@@ -2830,6 +2837,10 @@ Product.prototype.updatePrice = function (price, compare_price) {
             self.skFastButton.removeClass('disabled');
         }
     }
+
+    this.updateArrivedBtn();
+    this.updateFastOrderBtn();
+    this.removeDivider();
 }
 
 Product.prototype.showAllSkus = function () {

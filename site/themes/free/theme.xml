@@ -1338,7 +1338,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_two</value>
+      <value>product_columns_three</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1578,7 +1578,7 @@
       <name locale="ru_RU">Цвет текстом около кружка у артикула</name>
     </setting>
     <setting var="product_show_multi_sku" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Код артикула, если кол-во артикулов больше 1</name>
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
@@ -1588,7 +1588,7 @@
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
     <setting var="product_selection_articles" control_type="select">
-      <value>horizontal_checkboxes</value>
+      <value>dd_list</value>
       <name locale="ru_RU">Выбор артикулов</name>
       <name locale="en_US">Selection of articles</name>
       <options>
@@ -1607,7 +1607,7 @@
       </options>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
       <name locale="en_US">The sku parameter in the browser line</name>
     </setting>
