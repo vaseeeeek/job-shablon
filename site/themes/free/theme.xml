@@ -1607,12 +1607,12 @@
       </options>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
       <name locale="en_US">The sku parameter in the browser line</name>
     </setting>
     <setting var="product_show_stock" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Наличие на складе</name>
       <name locale="en_US">Stock availability</name>
     </setting>
