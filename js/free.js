@@ -2627,9 +2627,9 @@ Product.prototype.cartButtonVisibility = function (visible) {
 Product.prototype.updateArrivedBtn = function () {
     if ($('.plugin_arrived-button').length > 0) {
         if ($('.product_add-services--box').find('.js-submit-form').hasClass('disabled')) {
-            $('.plugin_arrived-button').fadeOut();
-        } else {
             $('.plugin_arrived-button').fadeIn();
+        } else {
+            $('.plugin_arrived-button').fadeOut();
         }
     }
 }
