@@ -136,7 +136,7 @@
                     $(`.Product__features[data-features-id=${id}]`).css('display', 'table');
                 }
                 $('.js-product-skus').find('li').on('click', function (e) {
-                    if (target.hasClass('js-toggle-styler-input')) {
+                    if ($(e.target).hasClass('js-toggle-styler-input')) {
                         updateFeature($(e.target));
                     }
                 })

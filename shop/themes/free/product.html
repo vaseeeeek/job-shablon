@@ -223,8 +223,8 @@
                                         {if !$product.sku_type}
                                             {foreach $product.skus as $sku}
                                                 <table class="Product__features" data-features-id="{$sku.id}" {if !$_is_dialog && count($product.skus) > 1 && !$sku@first} style="display:none"{/if}>
-                                                    {if !empty($product.features)}
-                                                        {$product_features_items = $product.features}
+                                                    {if !empty($sku.features)}
+                                                        {$product_features_items = $sku.features}
                                                     {/if}
                                                     {if class_exists('shopSeofilterViewHelper')}
                                                         {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}

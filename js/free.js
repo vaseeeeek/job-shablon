@@ -2600,8 +2600,6 @@ function Product(form, options) {
     if (!this.formWrap.find(".skus option:selected").length) {
         this.formWrap.find(".skus option:enabled:first").attr('selected', 'selected');
     }
-    self.updateArrivedBtn();
-    self.removeDivider();
     self.showAllSkus();
 }
 
@@ -2622,6 +2620,9 @@ Product.prototype.cartButtonVisibility = function (visible) {
         this.add2cart.find('.js-qty').show();
         this.add2cart.find('span.added2cart').hide();
     }
+
+    this.updateArrivedBtn();
+    this.removeDivider();
 }
 
 Product.prototype.updateArrivedBtn = function () {

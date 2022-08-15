@@ -3719,7 +3719,7 @@ textarea {
   white-space: nowrap;
   display: inline-block;
   text-decoration: none;
-  border: none;
+  border: 1px solid transparent;
   text-align: center;
 }
 .checkout-options li {
