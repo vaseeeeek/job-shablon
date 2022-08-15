@@ -2590,7 +2590,6 @@ function Product(form, options) {
             self.add2cart.find(".price").empty();
         }
         self.cartButtonVisibility(true);
-        self.updateArrivedBtn();
     });
     this.formWrap.find("select.js-feature-sku:first, input.js-feature-sku:first").change();
 
@@ -2601,7 +2600,8 @@ function Product(form, options) {
     if (!this.formWrap.find(".skus option:selected").length) {
         this.formWrap.find(".skus option:enabled:first").attr('selected', 'selected');
     }
-
+    self.updateArrivedBtn();
+    self.removeDivider();
     self.showAllSkus();
 }
 
@@ -2875,6 +2875,15 @@ Product.prototype.updateSaved = function (price, compare_price) {
         }
     }
 };
+
+Product.prototype.removeDivider = function () {
+    $('.Product__features-item').each(function(){
+        const featuresIndex = $(this).data('index');
+        if ($(this).hasClass('divider') && $(`.Product__features-item[data-index='${featuresIndex - 1}']`).hasClass('divider')){
+            $(`.Product__features-item[data-index='${featuresIndex - 1}']`).hide();
+        }
+    })
+}
 
 $(function () {
     main.init();
