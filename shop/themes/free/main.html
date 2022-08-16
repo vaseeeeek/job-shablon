@@ -30,7 +30,7 @@
         {foreach $frontend_header as $_}{$_}{/foreach}
     {/if}
 
-    {if $action == 'page' || $action == 'tag'}
+    {if ($action == 'page' || $action == 'tag') && !$wa->globals('isSearchPage')}
         {if $action == 'page'}
             <h1 class="info-page__title">{$page.name}</h1>
         {/if}

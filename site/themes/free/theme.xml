@@ -71,7 +71,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/mvideo.png</value>
+      <value>img/themesettings/yandex.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -84,7 +84,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#2d2d2d</value>
+      <value/>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -95,7 +95,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#2d2d2d</value>
+      <value/>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -107,12 +107,12 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#2d2d2d</value>
+      <value/>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
     <setting var="footer_color_scheme" control_type="color">
-      <value>#eeeeee</value>
+      <value/>
       <name locale="ru_RU">Цвет низа сайта (футер)</name>
       <name locale="en_US"/>
     </setting>
@@ -407,6 +407,11 @@
       <description locale="en_US">By default - burger,cart,compare,favorite,filter,phone,profile
             </description>
     </setting>
+    <setting var="use_search_pro" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Использовать плагин Search Pro</name>
+      <name locale="en_US">Use plugin Search Pro</name>
+    </setting>
     <setting var="paragraph_main_categories" control_type="group_divider">
       <value/>
       <name locale="en_US">Product categories ("Catalog" button)</name>
@@ -522,7 +527,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -1311,7 +1316,7 @@
     <!--      <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>-->
     <!--    </setting>-->
     <setting var="show_filter_search" control_type="text">
-      <value>15</value>
+      <value>2</value>
       <name locale="ru_RU">Поиск значений фильтров</name>
       <name locale="en_US">Searching for filter values</name>
       <description locale="ru_RU">Укажите от скольки значений фильтров показывать поиск</description>
