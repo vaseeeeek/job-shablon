@@ -368,6 +368,11 @@
       <name locale="ru_RU">Почта</name>
       <name locale="en_US"/>
     </setting>
+    <setting var="header_show_email" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Display email in the checker</name>
+      <name locale="ru_RU">Выводить email в шаке</name>
+    </setting>
     <setting var="header_company_adress" control_type="text">
       <value>Москва, щелковское шоссе 100</value>
       <name locale="ru_RU">Адрес</name>
@@ -408,7 +413,7 @@
             </description>
     </setting>
     <setting var="use_search_pro" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Использовать плагин Search Pro</name>
       <name locale="en_US">Use plugin Search Pro</name>
     </setting>
@@ -1729,6 +1734,11 @@
       <name locale="ru_RU">Вывести второй блок сайта (footer_col2)</name>
       <name locale="en_US">Output the second block of the site (footer_col2)</name>
     </setting>
+    <setting var="footer_show_email" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывести email в футере</name>
+      <name locale="en_US">Show email</name>
+    </setting>
     <setting var="paragraph_load_js_css" control_type="group_divider">
       <value/>
       <name locale="en_US">Loading js,css</name>
@@ -1812,6 +1822,11 @@
       <value/>
       <name locale="ru_RU">Текст вместо надписи "Под заказ"</name>
       <name locale="en_US">Text instead of "To order"</name>
+    </setting>
+    <setting var="plugin_breadcrumbs" control_type="checkbox">
+      <value/>
+      <name locale="ru_RU">Включить плагин хлебные крошки</name>
+      <name locale="en_US">plugin breadcrumbs</name>
     </setting>
   </settings>
   <locales>

@@ -28,7 +28,8 @@
         {if $wa->blog}
             {$rss=$wa->blog->rssUrl()}
             {if $rss}
-                <link rel="alternate" type="application/rss+xml" title="{$wa->accountName()}" href="{$rss}">{/if}
+                <link rel="alternate" type="application/rss+xml" title="{$wa->accountName()}" href="{$rss}">
+            {/if}
         {/if}
 
         {if !empty($wa->globals('preload_image'))}
@@ -279,7 +280,7 @@
                     {if $theme_settings.header_company_adress}
                         <li>{$theme_settings.header_company_adress}</li>
                     {/if}
-                    {if $theme_settings.header_company_email}
+                    {if $theme_settings.header_company_email && $theme_settings.footer_show_email}
                         <li><a href="mailto:{$theme_settings.header_company_email}" class="Nav-contact-phone">{$theme_settings.header_company_email}</a></li>
                     {/if}
                     <li>

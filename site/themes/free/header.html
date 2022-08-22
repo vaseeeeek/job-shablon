@@ -47,8 +47,9 @@
         <a href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">
             {$theme_settings.header_company_phone}
         </a>
-
-        <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
+        {if $theme_settings.header_show_email && $theme_settings.header_company_email}
+            <p class="Nav-contact-email">{$theme_settings.header_company_email}</p>
+        {/if}
         {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
             <p class="Nav-contact-callback js-callback-open">[`Feedback`]</p>
         {/if}

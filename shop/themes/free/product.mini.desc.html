@@ -84,12 +84,19 @@
                     {/if}
                 {/if}
 
+                {*featurestips*}
+                {if empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
+                    {$featurestips = shopFeaturestipsPlugin::ReturnFeatureTipArray($product)}
+                {/if}
+                {*!featurestips*}
+
                 {if count($short_list_features) > 0}
                     <table data-type="{$theme_settings.product_page_right_block_features}" class="Product__features"  data-features-id="{$sku.id}"{if !$_is_dialog && count($product.skus) > 1 && !$sku@first} style="display:none"{/if}>
                         {if class_exists('shopSeofilterViewHelper')}
                             {$short_list_features = shopSeofilterViewHelper::wrapFeatureValues($short_list_features)}
                         {/if}
                         {foreach $short_list_features as $f_code => $f_value}
+
                             {if !isset($features_list[$f_code]) && isset($features_list["`$f_code`.0"])}
                                 {$features_list[$f_code] = $features_list["`$f_code`.0"]}
                                 {$features_list[$f_code].name = $features_list[$f_code].name|replace:'.0':''}
@@ -110,6 +117,9 @@
                                             {else}
                                                 {$f_value}
                                             {/if}
+                                        {/if}
+                                        {if !empty($featurestips)}
+                                            {shopFeaturestipsPlugin::ShowFeatureTip($featurestips, $f_code)}
                                         {/if}
                                     </td>
                                 </tr>

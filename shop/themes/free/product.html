@@ -233,6 +233,12 @@
                                                         {/if}
                                                     {/if}
 
+                                                    {*featurestips*}
+                                                    {if empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
+                                                        {$featurestips = shopFeaturestipsPlugin::ReturnFeatureTipArray($product)}
+                                                    {/if}
+                                                    {*!featurestips*}
+
                                                     {foreach $product_features_items as $f_code => $f_value}
                                                     {if !empty($features_items[$f_code])}
                                                         <tr class="Product__features-item{if $features_items[$f_code].type == 'divider'} divider{/if}" data-index="{$f_value@iteration}">
@@ -260,6 +266,9 @@
                                                                         {if  $f_value|strpos:"a href" !== false && class_exists('shopSeofilterViewHelper')  && $theme_settings.product_show_seofilter_link}
                                                                             {$seoLinksArr[] = $f_value}
                                                                         {/if}
+                                                                    {/if}
+                                                                    {if !empty($featurestips)}
+                                                                        {shopFeaturestipsPlugin::ShowFeatureTip($featurestips, $f_code)}
                                                                     {/if}
                                                                 {/if}
                                                             </td>

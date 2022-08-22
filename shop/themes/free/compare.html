@@ -51,7 +51,7 @@
                         </a>
                         <a class="Compare__Link--Image"
                            href="{$wa->getUrl('/frontend/product/', ['product_url' => $p.url])}">
-                            {$wa->shop->productImgHtml($p, '96x96', ['itemprop' => 'image', 'id' => 'product-image', 'default' => "`$wa_theme_url`img/dummy96.png", 'title' => $p.name|cat:' ':strip_tags($p.summary)])}
+                            {$wa->shop->productImgHtml($p, '300x0', ['itemprop' => 'image', 'id' => 'product-image', 'default' => "`$wa_theme_url`img/dummy96.png", 'title' => $p.name|cat:' ':strip_tags($p.summary)])}
                         </a>
                         <div class="Compare__Box--Name name-wrapper">
                             <a class="Compare__Link--Name name-link"

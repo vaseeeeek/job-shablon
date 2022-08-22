@@ -1516,7 +1516,7 @@ iframe {
   display: none
 }
 
-.star-rating-empty.icon10, .star-half.icon10, .star-hover.icon10, .star.icon10, .star-empty, .star {
+.star-rating-empty.icon10, .star-half, .star-hover.icon10, .star.icon10, .star-empty, .star {
   font-size: 1.1rem;
   text-indent: 0;
   display: inline-flex;
@@ -2814,10 +2814,11 @@ img.mfp-img {
   top: -8px;
   right: -9px;
   font-size: 0.86rem;
-  width: 20px;
   height: 20px;
   line-height: 20px;
+  padding: 0 7px;
 }
+
 
 .header__cart-count {
   display: block;
@@ -2972,8 +2973,10 @@ img.mfp-img {
 .copyright {
   font-size: rem(12px)
 }
-
-.breadcrumbs {
+.breadcrumbs-plugin__item__brothers__menu {
+  top: 100%;
+}
+.breadcrumbs:not(.breadcrumbs-plugin) {
   list-style: none;
   margin: 0 0 rem(14px);
   padding: 0;
@@ -5626,7 +5629,12 @@ span.i-cityselect__city:before {
 .wrap_d292 {
   z-index: initial;
 }
-
+.wa-order-form-wrapper .wa-step-confirm-section .wa-section-body .wa-comment-section:not(.is-opened) > .wa-hidden {
+  display: block!important;
+}
+.wa-comment-section svg {
+  display:none!important;
+}
 body > jdiv > jdiv > jdiv:first-child {
   bottom: 110px !important;
 }

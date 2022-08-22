@@ -33,8 +33,8 @@
                                 {$_show_clear = true}
                                 <span class="filters-checked__item js-filter-checked-item">
                                     <span class="filters-checked__title">{$filter.name}: {if $filter_value === '1'}[`Yes`]{else}[`No`]{/if}</span>
+                                    <i class="filters-checked__remove js-filter-checked-remove fi-rr-cross" data-code="{$filter.code}"></i>
                                 </span>
-                                <i class="filters-checked__remove js-filter-checked-remove fi-rr-cross" data-code="{$filter.code}"></i>
                             {/if}
                         {/if}
                     {elseif isset($filter.min) && isset($getParams[$filter.code]) }
