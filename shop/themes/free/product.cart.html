@@ -226,7 +226,7 @@
                                 <div class="service-{$s.id} service__item">
                                     <label>
                                         <span class="js-style-check style-check{if !$pd_available} disabled{/if} fi-rr-check">
-                                            <input class="js-style-check-input" data-price="{shop_currency($s.price, $s.currency, null, 0)}" {if !$pd_available}disabled="disabled"{/if} type="checkbox" autocomplete="off" name="services[]" value="{$s.id}" disabled="disabled">
+                                            <input class="js-style-check-input" data-price="{shop_currency($s.price, $s.currency, null, 0)}" {if !$pd_available}disabled="disabled"{/if} type="checkbox" autocomplete="off" name="services[]" value="{$s.id}" checked>
                                         </span>
                                         {$s.name|escape} {if $s.price && !isset($s.variants)}+<span class="service-price">{shop_currency_html($s.price, $s.currency)}</span>{/if}
                                     </label>

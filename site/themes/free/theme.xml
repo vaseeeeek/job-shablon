@@ -1240,6 +1240,11 @@
       <name locale="en_US">Qty field in the "line by line"</name>
       <name locale="ru_RU">Поле кол-во "построчно"</name>
     </setting>
+    <setting var="use_plugin_arrived" control_type="checkbox">
+      <value>1</value>
+      <name locale="en_US">Use plugin arrived</name>
+      <name locale="ru_RU">Уведомление о поступлении</name>
+    </setting>
     <setting var="preview_stock" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Наличие на складе</name>
@@ -1593,7 +1598,7 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
-      <value/>
+      <value></value>
       <name locale="ru_RU">Выбор параметров - выпадающий список</name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>

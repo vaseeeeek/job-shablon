@@ -3322,6 +3322,7 @@ input.filter-range_el:focus {
     width: 100%;
     align-items: center;
     padding: 1rem 0rem 2.5rem 0rem;
+    justify-content: space-between;
   }
   .Products-list_actions {
     //width: 100%;
@@ -8097,13 +8098,30 @@ input[type=text], input[type=tel], input[type=email] {
 }
 
 .plugin_arrived-button a {
+  border-bottom-width: 0px!important;
   text-decoration: none;
-  letter-spacing: 1px;
   display: inline-block;
   font-weight: 400;
-  margin: 1.1rem 0.7rem 0.7rem 0;
   padding: 0.7rem 0.9rem;
   border-bottom: 0;
   border-radius: 4px;
   color: #fff;
+}
+.product_add-services--box {
+  .plugin_arrived-button a {
+    letter-spacing: 1px;
+    margin: 1.1rem 0.7rem 0.7rem 0;
+  }
+}
+.Product-grid_bottom {
+  .plugin_arrived-button a {
+    padding: 0.5rem 0.8rem;
+  }
+}
+@media (max-width:420px) {
+  .Product-grid_bottom {
+    .plugin_arrived-button a {
+      padding: 0.4rem 0.8rem;
+    }
+  }
 }

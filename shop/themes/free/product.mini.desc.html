@@ -85,7 +85,7 @@
                 {/if}
 
                 {*featurestips*}
-                {if empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
+                {if !$_is_dialog and empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
                     {$featurestips = shopFeaturestipsPlugin::ReturnFeatureTipArray($product)}
                 {/if}
                 {*!featurestips*}

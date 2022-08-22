@@ -253,9 +253,13 @@
                 <div class="Product__Item-cart">
                     <div class="Product-grid_bottom">
                         <div class="Product-grid_cart">
-                            <div class="button disabled Product-stock-out nowrap addtocart">
-                                [`Add to cart`]
-                            </div>
+                            {if $theme_settings.use_plugin_arrived}
+                                {shopArrivedPlugin::getListFormHtml($p)}
+                            {else}
+                                <div class="button disabled Product-stock-out nowrap">
+                                    [`Add to cart`]
+                                </div>
+                            {/if}
                         </div>
                     </div>
                 </div>

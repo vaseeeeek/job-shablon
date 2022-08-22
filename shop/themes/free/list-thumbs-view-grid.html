@@ -317,9 +317,13 @@
                                 <span class="button js-submit-form addtocart" data-added-text="{$addedText}">[`Add to cart`]</span>
                             {/if}
                         {else}
-                            <div class="button disabled Product-stock-out nowrap">
-                                [`Add to cart`]
-                            </div>
+                            {if $theme_settings.use_plugin_arrived}
+                                {shopArrivedPlugin::getListFormHtml($p)}
+                            {else}
+                                <div class="button disabled Product-stock-out nowrap">
+                                    [`Add to cart`]
+                                </div>
+                            {/if}
                         {/if}
                     </div>
                     <div class="Product-grid_action">
