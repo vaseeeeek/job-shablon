@@ -2005,7 +2005,7 @@ img.mfp-img {
 
 .header_currency__selected {
   font-weight: 700;
-  margin-left:5px;
+  margin-left: 5px;
 }
 
 .header_currency:last-child {
@@ -2225,6 +2225,9 @@ img.mfp-img {
 .nav-caret.open:before {
   content: "";
 }
+.cat-menu__item.active {
+  background-color: #f3f4f7!important;
+}
 
 @media (max-width: 700px) {
   .header-top_nav {
@@ -2355,12 +2358,14 @@ img.mfp-img {
   white-space: normal;
   z-index: 20
 }
+
 .checkout-option__header label {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
   flex-wrap: wrap;
 }
+
 @media (max-width: 768px) {
   .product-msg-added-wrap {
     display: none !important;
@@ -2691,7 +2696,7 @@ img.mfp-img {
 
 .subcat-opened__el-name {
   font-weight: 700;
-  margin: 0 0 rem(5px)
+  margin: 0 0 rem(5px);
 }
 
 .sub-category-opened__subs {
@@ -2973,9 +2978,11 @@ img.mfp-img {
 .copyright {
   font-size: rem(12px)
 }
+
 .breadcrumbs-plugin__item__brothers__menu {
   top: 100%;
 }
+
 .breadcrumbs:not(.breadcrumbs-plugin) {
   list-style: none;
   margin: 0 0 rem(14px);
@@ -3725,12 +3732,14 @@ textarea {
   border: 1px solid transparent;
   text-align: center;
 }
+
 .checkout-options li {
   border: 1px solid transparent;
 }
+
 .checkout-options li, .comment-form, .box-hlighted, .add-review-form-fields {
   //border: 1px solid #ebebeb;
-box-shadow: 0 9px 16px 0 rgb(34 34 34 / 6%), 0 1px 7px 0 rgb(34 34 34 / 6%);
+  box-shadow: 0 9px 16px 0 rgb(34 34 34 / 6%), 0 1px 7px 0 rgb(34 34 34 / 6%);
 }
 
 .style-check {
@@ -4185,6 +4194,7 @@ box-shadow: 0 9px 16px 0 rgb(34 34 34 / 6%), 0 1px 7px 0 rgb(34 34 34 / 6%);
     width: 100%;
     left: 0;
   }
+
   .Nav__horizontal--list {
     padding: 0;
   }
@@ -5629,12 +5639,15 @@ span.i-cityselect__city:before {
 .wrap_d292 {
   z-index: initial;
 }
+
 .wa-order-form-wrapper .wa-step-confirm-section .wa-section-body .wa-comment-section:not(.is-opened) > .wa-hidden {
-  display: block!important;
+  display: block !important;
 }
+
 .wa-comment-section svg {
-  display:none!important;
+  display: none !important;
 }
+
 body > jdiv > jdiv > jdiv:first-child {
   bottom: 110px !important;
 }

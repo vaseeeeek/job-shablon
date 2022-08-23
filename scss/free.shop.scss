@@ -1322,12 +1322,16 @@ span.rating__total {
   }
 }
 
-.Product-grid_video {
+.Product__video-icon {
   display: inline-flex;
   width: 16px;
   position: relative;
   top: 3px;
   margin-left: 3px;;
+}
+
+.Product-table .Product__video-icon {
+  top: 0;
 }
 
 .Product-list_features {
@@ -3407,7 +3411,7 @@ input.filter-range_el:focus {
 
 .Product-table-rate {
   display: inline-block;
-  margin: 0 rem(10px) 0 0
+  width: 100%;
 }
 
 .review-rate {
@@ -3444,6 +3448,7 @@ input.filter-range_el:focus {
 
 .Product-table-name {
   display: inline-flex;
+  width: 100%;
 }
 
 .Product-table-name a {
@@ -3486,6 +3491,11 @@ input.filter-range_el:focus {
 .Product-table-cart .Cart__Qty {
   margin: 0 rem(10px) 0 0;
   vertical-align: top
+}
+
+
+.product-tpl-stock {
+  margin-left: auto;
 }
 
 @media (max-width: 700px) {
