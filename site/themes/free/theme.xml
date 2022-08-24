@@ -71,7 +71,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/yandex.png</value>
+      <value>img/themesettings/ozon.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -112,7 +112,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="footer_color_scheme" control_type="color">
-      <value/>
+      <value>#f2f2f2</value>
       <name locale="ru_RU">Цвет низа сайта (футер)</name>
       <name locale="en_US"/>
     </setting>
@@ -508,7 +508,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>cat</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -1598,7 +1598,7 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Выбор параметров - выпадающий список</name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>

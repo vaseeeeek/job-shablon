@@ -1572,6 +1572,9 @@ iframe {
   position: relative;
   transition: 0.5s all ease;
   box-shadow: 0 20px 24px rgb(0 0 0 / 10%);
+  .category-menu {
+    border-right: 1px solid #ebebeb;
+  }
 }
 
 .dd-wrap:after {
@@ -4187,7 +4190,6 @@ textarea {
 
   .category-menu {
     position: relative;
-    border-right: 1px solid #ebebeb;
   }
 
   .nav-cat_wrap {
