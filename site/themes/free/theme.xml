@@ -2127,5 +2127,9 @@
       <msgid>I'm looking for ...</msgid>
       <msgstr locale="ru_RU">Я ищу ...</msgstr>
     </locale>
+    <locale>
+      <msgid>Use</msgid>
+      <msgstr locale="ru_RU">Применить</msgstr>
+    </locale>
   </locales>
 </theme>

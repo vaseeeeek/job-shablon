@@ -3892,6 +3892,7 @@ textarea {
     line-height: 1.3;
     font-size: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
   }
 
   .MobileMenu_nav-m {
@@ -3966,7 +3967,7 @@ textarea {
   }
 
   .fi-rr-angle-small-right {
-    height: 21px;
+    height: 100%;
     text-align: center;
     font-size: 1.7rem;
     color: rgba(0, 0, 0, 0.87);
@@ -3975,7 +3976,9 @@ textarea {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    padding: 0.6rem 13px 0.6rem 0.8rem;
+    padding: 0 13px 0 0;
+    box-sizing: border-box;
+    align-items: center;
   }
 
   .MobileMenu_nav-header {
