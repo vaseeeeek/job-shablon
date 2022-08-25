@@ -3737,12 +3737,14 @@ textarea {
 }
 
 .checkout-options li {
-  border: 1px solid transparent;
+  border: 1px solid #e6e6e6;
 }
-
+.checkout-options .selected {
+  background-color: #f2f2f2;
+}
 .checkout-options li, .comment-form, .box-hlighted, .add-review-form-fields {
-  //border: 1px solid #ebebeb;
-  box-shadow: 0 9px 16px 0 rgb(34 34 34 / 6%), 0 1px 7px 0 rgb(34 34 34 / 6%);
+  box-shadow: none;
+  border: 1px solid #e6e6e6;
 }
 
 .style-check {
@@ -3928,6 +3930,12 @@ textarea {
     a {
       padding: 0.5rem 0rem 0.5rem 1.8rem;
       display: flex;
+    }
+
+    & > ul > li {
+      a {
+        padding-left: 2.8rem;
+      }
     }
   }
 
@@ -5641,6 +5649,19 @@ span.i-cityselect__city:before {
 }
 
 /* Конец стилей для корзины */
+#themeOverride .wa-required:before {
+  border-bottom: initial;
+  left: -8px;
+  top: 1px;
+  right: initial;
+  content: "*";
+  position: absolute;
+  color: red;
+  font-size: 1.3rem;
+  display: block;
+  border-radius: 50%;
+  z-index: 1;
+}
 .wrap_d292 {
   z-index: initial;
 }

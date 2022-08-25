@@ -93,7 +93,7 @@
             }
 
             .dotted-img__list li.dotted-img__item {
-                border: 1px solid{$textColor};
+                border: 1px solid {$textColor};
             }
 
         {/if}
@@ -134,13 +134,16 @@
         .filters .ui-widget-content .ui-state-default,
         .cat-sort .checked-list:hover, .My__Input--Pin,
         .product_options .select-v-inline a.selected {
-            border: 1px solid{$scColor};
+            border: 1px solid {$scColor};
         }
         .product_options .select-v-inline a.selected {
             box-shadow: inset 0 0 0 1px{$scColor};
         }
 
-        .productfilters-feature-value-link, .checked-list__items li:hover:not(:last-child), .select-options li:hover:not(:last-child) {
+        .step-item,
+        .productfilters-feature-value-link,
+        .checked-list__items li:hover:not(:last-child),
+        .select-options li:hover:not(:last-child) {
             border-bottom: 1px solid {$scColor} !important;
         }
 
@@ -158,12 +161,12 @@
         .option-color_outer._only-text.checked,
         .image-preview.selected.image-preview--video,
         .cart-coupon-add-button_active {
-            border: 2px solid{$scColor};
+            border: 2px solid {$scColor};
         }
 
         @media (min-width: 1026px) {
             .style-check:hover {
-                border: 2px solid{$scColor};
+                border: 2px solid {$scColor};
             }
         }
 
@@ -172,12 +175,12 @@
         .product_add2cart .addtocart.button.added,
         .main-slider_item-cart .main-slider_item-btn.added,
         .Product-grid_bottom .button.added, .Product-table-buy .button.added, .slider-outer--products .owl-dot > span, .head_info-massage .head_info-massage__closeку:hover, input[type=text]:hover, input[type=search]:hover, input[type=email]:hover, input[type=password]:hover, input[type=number]:hover, textarea:hover, select:hover:not([disabled]), .Single__Label--Flat.-Alternative:hover .Single__Input--Checkbox:checked + .Single__Name--Flat:hover, .jq-selectbox:hover, .option-color_outer.checked .filter-option-color {
-            border: 1px solid{$scColor};
+            border: 1px solid {$scColor};
         }
 
         .style-check.checked {
             background: {$scColor};
-            border: 2px solid{$scColor};
+            border: 2px solid {$scColor};
         }
 
         .Nav__Primary-outer--dd .Nav__horizontal--link:hover:before {
@@ -263,12 +266,6 @@
             border: 5px solid transparent;
         }
 
-        .step-item.is-completed,
-        .step-item.is-completed:hover {
-            color: #FFF;
-            background: {$maincolor};
-        }
-
         .radio-styler.checked,
         .jq-radio.checked {
             border-color: {$scColor};
@@ -297,14 +294,24 @@
             background: {$scColor};
         }
 
+        .step-item:first-child,
         .timeline ul li:before {
-            border-left: 1px solid{$scColor};
+            border-left: 1px solid {$scColor};
         }
 
+        .step-item:last-child {
+            border-right: 1px solid {$scColor};
+        }
+
+        .step-item,
         .timeline ul li:after {
-            border-top: 1px solid{$scColor};
+            border-top: 1px solid {$scColor};
         }
 
+        .step-item:before {
+            border-left: 21px solid {$scColor};  
+        }
+        
         {if $footerBG}
             .footer {
                 background: {$footerBG};

@@ -2195,8 +2195,8 @@ input.error, textarea.error {
 }
 
 .checkout-options li {
-  margin: 0 0 rem(20px);
-  padding: rem(10px)
+  margin: 0 0 1.429rem;
+  padding: 0.9rem 1.2rem;
 }
 
 .checkout-options input {
@@ -2298,7 +2298,7 @@ input.error, textarea.error {
 .checkout-header {
   font-size: 0;
   text-align: justify;
-  border: 1px solid #e6e6e6;
+  border: 1px solid transparent;
   border-radius: 4px;
   margin-bottom: 1.3rem;
 }
@@ -2315,19 +2315,55 @@ input.error, textarea.error {
 }
 
 .step-item {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 25%;
-  text-decoration: none;
-  padding: 1rem 0;
+  background-color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 0;
+  font-size: 15px;
+  line-height: 16px;
+  padding: 12px;
+  position: relative;
+  text-align: center;
   box-sizing: border-box;
-  border-right: 1px solid #e6e6e6;
-  word-wrap: break-word;
+
+  &:after, &:before {
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 0;
+    left: 100%;
+    position: absolute;
+    top: 50%;
+    width: 0;
+    z-index: 2;
+  }
+  &:after {
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #fff;
+    border-top: 20px solid transparent;
+    margin-top: -20px;
+  }
+
+  &:before {
+    border-bottom: 21px solid transparent;
+    border-top: 21px solid transparent;
+    margin-top: -21px;
+  }
+  &:first-child {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+  }
 }
 
 .step-item:last-child {
-  border-right: none
+  border-right: 1px solid #fc0; /**основной цвет **/
+  &:after {
+    display:none;
+  }
+  &:before {
+    display:none;
+  }
 }
 
 .step-item_title {
@@ -2335,7 +2371,11 @@ input.error, textarea.error {
 }
 
 .step-item.upcoming {
-  cursor: default
+  cursor: default;
+  background-color: #f3f4f7;
+  &:after {
+    border-left: 20px solid #f3f4f7;
+  }
 }
 
 .step-item.current {
@@ -2359,10 +2399,10 @@ input.error, textarea.error {
 }
 
 .checkout ul li {
-  margin-bottom: rem(5px);
+  margin-bottom: 1.3rem;
   display: inline-block;
   width: 100%;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .wa-auth-adapters ul li {
@@ -2406,11 +2446,11 @@ input.error, textarea.error {
   margin: 1rem 0 1.4rem 0;
   font-size: 1rem;
   font-style: normal;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   position: relative;
   background: #f2f3f5;
   color: #001a34;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .checkout blockquote img {
@@ -2420,8 +2460,8 @@ input.error, textarea.error {
 }
 
 .checkout blockquote p {
-  margin-bottom: rem(10px);
-  margin-left: rem(70px)
+  margin-bottom: 0rem;
+  margin-left: 5rem;
 }
 
 table.data-order {
@@ -8138,5 +8178,18 @@ input[type=text], input[type=tel], input[type=email] {
     .plugin_arrived-button a {
       padding: 0.4rem 0.8rem;
     }
+  }
+}
+
+@media (max-width:768px) {
+  #themeOverride .featurestips_wrapper {
+    position: initial;
+  }
+  #themeOverride .featurestips_wrapper .featurestips_view {
+    left: 10px;
+    margin-left: 0;
+  }
+  #themeOverride .featurestips_wrapper .tip_view_in {
+    width: calc(100% - 20px);
   }
 }

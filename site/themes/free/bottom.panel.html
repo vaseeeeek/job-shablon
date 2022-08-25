@@ -155,7 +155,24 @@
                                                     {foreach $link.childs as $child}
                                                         {if !isset($child.top_menu_hide)}
                                                             <li>
-                                                                <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if} href="{$child.url}">{$child.name}</a></li>
+                                                                <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if} href="{$child.url}">
+                                                                    {$child.name}
+                                                                </a>
+                                                                {if isset($child.childs) && $child.childs && count($child.childs)}
+                                                                    <ul class="top-border-color">
+                                                                        {foreach $child.childs as $childLvl3}
+                                                                            {if !isset($childLvl3.top_menu_hide)}
+                                                                                <li>
+                                                                                    <a{if isset($childLvl3.target)} target="{$childLvl3.target}"{/if} {if strlen($childLvl3.url)>1 && $wa->currentUrl() == $childLvl3.url} class="selected"{/if} href="{$childLvl3.url}">
+                                                                                        {$childLvl3.name}
+                                                                                    </a>
+
+                                                                                </li>
+                                                                            {/if}
+                                                                        {/foreach}
+                                                                    </ul>
+                                                                {/if}
+                                                            </li>
                                                         {/if}
                                                     {/foreach}
                                                 </ul>

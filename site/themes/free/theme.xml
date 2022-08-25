@@ -1338,7 +1338,7 @@
       <name locale="ru_RU">Страница товара</name>
     </setting>
     <setting var="product_horizontal_gallery" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Горизонтальная миниатюры</name>
       <name locale="en_US">Horizontal miniature</name>
     </setting>
@@ -1819,7 +1819,7 @@
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
     </setting>
     <setting var="viewed_items_header" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
       <name locale="en_US">The "viewed items" link in the header</name>
     </setting>
