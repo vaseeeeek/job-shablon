@@ -8181,6 +8181,11 @@ input[type=text], input[type=tel], input[type=email] {
   }
 }
 
+.featurestips_wrapper .featurestips_icon IMG {
+  width: 14px !important;
+  height: 14px !important;
+}
+
 @media (max-width:768px) {
   #themeOverride .featurestips_wrapper {
     position: initial;
