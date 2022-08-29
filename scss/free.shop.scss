@@ -3679,7 +3679,7 @@ input.filter-range_el:focus {
 .product_gallery-images-main.owl-carousel .owl-item {
   //line-height: 350px;
   background: #fff;
-  padding: 0 2px;
+  //padding: 0 2px;
 }
 
 .product_gallery-images-main-el-outer {
@@ -8179,11 +8179,6 @@ input[type=text], input[type=tel], input[type=email] {
       padding: 0.4rem 0.8rem;
     }
   }
-}
-
-.featurestips_wrapper .featurestips_icon IMG {
-  width: 14px !important;
-  height: 14px !important;
 }
 
 @media (max-width:768px) {
