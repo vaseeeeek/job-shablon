@@ -96,7 +96,7 @@
             <div class="product-custom--lk product-custom">
                 <a class="js-products-link product-custom--link" href="{$wa->myUrl()}">
                     <div class="product-custom_icon maincolor">
-                        <i class="fi-rr-user-old-two icon"></i>
+                        <i class="fi-rr-user icon"></i>
                     </div>
                     {if $wa->user()->isAuth()}
                         <span>{$wa->user('firstname')|default:'[`My account`]'}</span>
@@ -116,7 +116,7 @@
                 <a class="js-products-link product-custom--link"
                    href="{$wa->getUrl('shop/frontend/search')}?list=favorites">
                     <div class="product-custom_icon maincolor">
-                        <i class="fi-rr-heart-old2 icon"></i>
+                        <i class="fi-rr-heart icon"></i>
                         <span class="js-products-count product-custom_short-count bg-sdСolor">{$count_favorites}</span>
                     </div>
                     <span>[`Favorites`]</span>
@@ -158,7 +158,7 @@
             <div class="header__cart juniq-header-preview-cart js-cart-header product-custom" data-url="{$cartPopupUrl}">
                 <a class="product-custom--link" href="{$cartUrl}">
                     <div class="product-custom_icon">
-                        <i class="icon fi-rr-shoping-cart-1 sdСolor"></i>
+                        <i class="icon fi-rr-shopping-cart sdСolor"></i>
                         <span class="js-cart-preview-count header__cart-count bg-maincolor">{$wa->shop->cart->count()}</span>
                     </div>
                     <span>[`Cart`]</span>

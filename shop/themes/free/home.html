@@ -1,5 +1,6 @@
 {strip}
 {$homeBlocks = explode(',', $theme_settings.home_blocks_list)}
+{$wa->block("shop.home.before.content")}
 {foreach $homeBlocks as $block}
     {if $block == 'slider'}
         {*{$wa->block("shop.home.before.sliders")}*}

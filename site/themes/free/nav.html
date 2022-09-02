@@ -25,7 +25,19 @@
                             {/if}
                             {foreach $catListHorizontalNav as $id => $cat}
                                 <li class="Nav__horizontal--item">
+                                    {if $theme_settings.get_menu_from == 'app-menu' && $theme_settings.id_image_app_menu}
+                                        {$cat.params.menuIcon = $cat[$theme_settings.id_image_app_menu]}
+                                    {else}
+                                        {if isset($Wmimages[$cat.id].icon)}
+                                            {$cat.params.menuIcon = $Wmimages[$cat.id].icon}
+                                        {/if}
+                                    {/if}
                                     <a class="Nav__horizontal--link" href="{$cat.url}">
+                                        {if $cat.params.menuIcon}
+                                            <span class="cat-menu__item--icon">
+                                                <img src="{$cat.params.menuIcon}" alt="">
+                                            </span>
+                                        {/if}
                                         {$cat.name}
                                         {if $cat.childs && $theme_settings.drop_down_horizontal_menu}
                                             <i class="fi-rr-angle-down"></i>

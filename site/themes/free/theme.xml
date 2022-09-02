@@ -570,7 +570,7 @@
       <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="home_blocks_list" control_type="text">
-      <value>slider,category,product-slider,news,brands,reviews,text</value>
+      <value><![CDATA[]]></value>
       <name locale="en_US">Home blocks</name>
       <name locale="ru_RU">Блоки на главной</name>
       <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
