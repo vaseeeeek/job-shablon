@@ -4237,6 +4237,17 @@ img.pswp__img {
   padding-left: 5%;
   max-width: 130px;
 
+  i.color {
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 50%;
+    display: inline-block;
+    height: 1rem;
+    margin-right: 0.5rem;
+    position: relative;
+    top: 0.2rem;
+    width: 1rem;
+  }
+
   .productfilters-feature-value-link {
     text-decoration: underline;
   }

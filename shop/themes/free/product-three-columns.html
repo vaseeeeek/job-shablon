@@ -310,6 +310,11 @@
                                     {/if}
                                 </div>
                             {/foreach}
+                            <script>
+                                if ($('.js-style-check-input').last().is(':checked')) {
+                                    $('.js-style-check-input').last().trigger('click');
+                                }
+                            </script>
                         </div>
                     {/if}
 

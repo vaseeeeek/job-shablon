@@ -5651,14 +5651,14 @@ span.i-cityselect__city:before {
 /* Конец стилей для корзины */
 #themeOverride .wa-required:before {
   border-bottom: initial;
-  left: -8px;
-  top: 1px;
-  right: initial;
+  //left: -8px;
+  //top: 1px;
+  //right: initial;
   content: "*";
-  position: absolute;
+  //position: absolute;
   color: red;
   font-size: 1.3rem;
-  display: block;
+  //display: block;
   border-radius: 50%;
   z-index: 1;
 }
