@@ -187,7 +187,7 @@
             <div class="footer-box_col">
                 {if $theme_settings.logo_footer || $theme_settings.path_svg_logo_footer}
                     <div class="footer_logo">
-                        <a href="{$wa_url}">
+                        <a  {if $wa->shop}href="{$wa->getUrl('shop/frontend')}"{/if}>
                             <img src="{if $theme_settings.path_svg_logo_footer}{$theme_settings.path_svg_logo_footer}{else}{$wa_theme_url}{$theme_settings.logo_footer}{/if}"
                                  {if $wa->shop}alt="{$wa->shop->settings('name')}"{/if}/>
                         </a>

@@ -719,7 +719,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value/>
+      <value>brands_pro</value>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -965,7 +965,7 @@
       <name locale="en_US">Number of disclosed characteristics</name>
     </setting>
     <setting var="view_filter_color_text" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Print the color as text</name>
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
@@ -1543,7 +1543,7 @@
           <name locale="en_US">Normal tabs</name>
         </option>
         <option value="acc_tabs">
-          <name locale="ru_RU">Вкладки аккардион</name>
+          <name locale="ru_RU">Вкладки аккардеон</name>
           <name locale="en_US">Normal tabs</name>
         </option>
         <option value="anchor_tabs">
@@ -1562,7 +1562,7 @@
           <name locale="en_US">Without tabs</name>
         </option>
         <option value="acc_tabs">
-          <name locale="ru_RU">Вкладки аккардион</name>
+          <name locale="ru_RU">Вкладки аккардеон</name>
           <name locale="en_US">Normal tabs</name>
         </option>
       </options>
