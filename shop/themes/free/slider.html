@@ -2,7 +2,7 @@
 {if $theme_settings.homepage_type_slider_mode == 'promos'}
     {if count($mPromoCards) > 0}
         <div class="slider-outer js-slider-outer slider-outer--photos slider-outer--home{if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
-            <div class="js-home-slider owl-carousel home-slider-photos" data-pause="0" data-type="">
+            <div class="js-home-slider owl-carousel home-slider-photos" data-pause="2" data-type="">
                 {foreach $mPromoCards as $item}
                     {if !empty($item@first) && !empty($item.image)}
                         {$wa->globals('preload_image', $item.image)}
@@ -43,7 +43,7 @@
     {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
     {if count($homeProductsPromo) > 0}
         <div class="js-preview-cart slider-outer slider-outer--products js-slider-outer{if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
-            <article class="js-home-slider owl-carousel main-slider" {*data-pause="3"*} data-type="product">
+            <article class="js-home-slider owl-carousel main-slider" data-pause="2" data-type="product">
                 {foreach $homeProductsPromo as $product}
                     <div  class="main-slider_item ">
                         <a data-position="fixed" class="main-slider_item-img " href="{$product.frontend_url}">

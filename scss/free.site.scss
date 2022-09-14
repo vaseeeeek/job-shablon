@@ -16,11 +16,12 @@ html {
   font-size: 14px;
   height: -webkit-fill-available;
 }
-
 div {
   box-sizing: border-box;
 }
-
+* {
+  //-webkit-appearance: none;
+}
 body {
   margin: 0;
   background-color: #ffffff;

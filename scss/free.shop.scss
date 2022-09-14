@@ -2529,10 +2529,11 @@ table.data-order {
   height: 100px;
   min-width: calc(100% / 8);
   line-height: 100px;
-  display: inline-block;
+  display: inline-flex;
   text-align: center;
   box-sizing: border-box;
-  vertical-align: top
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1200px) {
@@ -2628,7 +2629,7 @@ table.data-order {
 
 @media (max-width: 800px) {
   .homepage-brands_el img {
-    max-width: calc(100% - 30px) !important
+    //max-width: calc(100% - 30px) !important
   }
 
   .homepage-brands-head {
