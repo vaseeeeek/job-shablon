@@ -84,7 +84,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value/>
+      <value>#005bff</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -95,7 +95,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value/>
+      <value>#005bff</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -605,6 +605,11 @@
           <name locale="en_US">None</name>
         </option>
       </options>
+    </setting>
+    <setting var="homepage_banner_autoscroll" control_type="checkbox">
+      <value/>
+      <name locale="en_US">Slider autoscroll</name>
+      <name locale="ru_RU">Авто скролл слайдера</name>
     </setting>
     <setting var="id_promo_list_slider" control_type="text">
       <value>bestsellers</value>
