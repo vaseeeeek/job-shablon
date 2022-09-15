@@ -31,7 +31,7 @@
                             <span class="filter-el_title__text">[`Price`]&nbsp;</span>
                             <span class="filter-el__unit">{$c.sign}</span>
                         {else}
-                            <span class="filter-el_title__text">{$filter.name|escape}</span>
+                            <span class="filter-el_title__text fiwex-feat" data-feat_id="{$filter.id}">{$filter.name|escape}</span>
 
                             <i class="fi-rr-angle-small-down"></i>
                             {if !empty($filter.unit)}, <span class="filter-el__unit">{$filter.unit.title}</span>{/if}
@@ -170,9 +170,13 @@
                                             {/if}
 
                                             {if $filter_url}
-                                                <a class="filter-link" href="{$filter_url}">{$value|strip_tags|trim}</a>
+                                                <a class="filter-link" href="{$filter_url}">
+                                                    {$value|strip_tags|trim}
+                                                </a>
                                             {else}
-                                                {$value|strip_tags|trim}
+                                                <span class="fiwex-feat-val" data-feat_val_id="{$value_id}" data-fiwex-parent_id="{$filter.id}">
+                                                    {$value|strip_tags|trim}
+                                                </span>
                                             {/if}
                                         </label>
                                         {$index = $index+1}

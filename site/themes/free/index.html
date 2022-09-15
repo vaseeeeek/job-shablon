@@ -384,8 +384,8 @@
     {if $wa->shop && $theme_settings.request_call && class_exists('shopCallbPlugin')}
         {shopCallbPlugin::display()}
     {/if}
-    {$wa->block("footer_settings")}
 
+    {$wa->block("{$wa->globals("customPrefix")}footer_settings")}
 
     {$wa->css()}
 
