@@ -297,11 +297,13 @@ $html-font-size: 14px;
   .home-slider-photos__body {
     font-size: 20px;
   }
+
   .home-slider-photos__countdown {
     margin-top: 10px;
     font-size: 20px;
     display: flex;
   }
+
   .home-slider-photos__countdown > div {
     background: #fff;
     display: flex;
@@ -312,10 +314,11 @@ $html-font-size: 14px;
     margin-right: 5px;
     border-radius: 9px;
   }
+
   .home-slider-photos__countdown__title {
     font-size: 14px;
     background: #5e6c63;
-    color: #fff!important;
+    color: #fff !important;
     padding: 3px 5px;
     border-radius: 4px;
   }
@@ -323,6 +326,10 @@ $html-font-size: 14px;
 
 @media (max-width: 1025px) {
   .home-slider-photos__text {
+    .home-slider-photos__countdown {
+      display: none;
+    }
+    
     .home-slider-photos__title {
       font-size: 40px;
     }
@@ -332,6 +339,7 @@ $html-font-size: 14px;
     }
   }
 }
+
 @media (max-width: 640px) {
   .home-slider-photos__text {
     padding: 0 0 5px 5px;

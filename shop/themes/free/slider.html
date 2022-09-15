@@ -1,6 +1,7 @@
 {strip}
 {if $theme_settings.homepage_type_slider_mode == 'promos'}
     {if count($mPromoCards) > 0}
+
         <div class="slider-outer js-slider-outer slider-outer--photos slider-outer--home{if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
             <div class="js-home-slider owl-carousel home-slider-photos" {if $theme_settings.homepage_banner_autoscroll}data-pause="2" {/if}data-type="">
                 {foreach $mPromoCards as $item}
@@ -18,7 +19,22 @@
                                         <div class="home-slider-photos__body">{$item.body}</div>
                                     {/if}
                                     <div class="home-slider-photos__countdown" id="home-slider-photos__countdown--{$item.id}" data-date="{$item.countdown_datetime}">
-
+                                        <div class="home-slider-photos__countdown__days">
+                                            <div class="home-slider-photos__countdown__value">-</div>
+                                            <div class="home-slider-photos__countdown__title">Дней</div>
+                                        </div>
+                                        <div class="home-slider-photos__countdown__hours">
+                                            <div class="home-slider-photos__countdown__value">-</div>
+                                            <div class="home-slider-photos__countdown__title">Часов</div>
+                                        </div>
+                                        <div class="home-slider-photos__countdown__minutes">
+                                            <div class="home-slider-photos__countdown__value">-</div>
+                                            <div class="home-slider-photos__countdown__title">Минут</div>
+                                        </div>
+                                        <div class="home-slider-photos__countdown__seconds">
+                                            <div class="home-slider-photos__countdown__value">-</div>
+                                            <div class="home-slider-photos__countdown__title">Секунд</div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -48,6 +64,10 @@
                                                     <div class="home-slider-photos__countdown__minutes">
                                                         <div class="home-slider-photos__countdown__value">${minutes}</div>
                                                         <div class="home-slider-photos__countdown__title">Минут</div>
+                                                    </div>
+                                                    <div class="home-slider-photos__countdown__seconds">
+                                                        <div class="home-slider-photos__countdown__value">${seconds}</div>
+                                                        <div class="home-slider-photos__countdown__title">Секунд</div>
                                                     </div>
                                                 `;
                                         {/literal}
