@@ -24,7 +24,7 @@
                                 {/foreach}
                             {/if}
                             {foreach $catListHorizontalNav as $id => $cat}
-                                <li class="Nav__horizontal--item">
+                                <li class="Nav__horizontal--item{if $theme_settings.drop_down_horizontal_menu_absolute} Nav__horizontal--item--relative{/if}">
                                     {if $theme_settings.get_menu_from == 'app-menu' && $theme_settings.id_image_app_menu}
                                         {$cat.params.menuIcon = $cat[$theme_settings.id_image_app_menu]}
                                     {else}
@@ -45,22 +45,25 @@
                                     </a>
                                     {if $cat.childs && $theme_settings.drop_down_horizontal_menu}
                                         <div class="Nav__horizontal--list-2">
-                                            {if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu}<div class="container">{/if}
+                                            {if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu && !$theme_settings.drop_down_horizontal_menu_absolute}<div class="container">{/if}
                                                 {foreach $cat.childs as $id => $cat2}
-                                                    <div class="Nav__horizontal--item-2">
+                                                    <div class="Nav__horizontal--item-2{if $cat2.childs && $theme_settings.drop_down_horizontal_menu_absolute} -hasChilds js-cat-subs-dropdown{/if}">
                                                         <a class="Nav__horizontal--link-2" href="{$cat2.url}">
                                                             {$cat2.name}
                                                         </a>
+                                                        {if $cat2.childs && $theme_settings.drop_down_horizontal_menu_absolute}
+                                                            <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
+                                                        {/if}
                                                         {if $cat2.childs}
-                                                            <div class="Nav__horizontal--list-3">
+                                                            <div class="Nav__horizontal--list-3 js-subcategory-menu">
                                                                 {foreach $cat2.childs as $id => $cat3}
-                                                                    <div class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration}hide{/if}">
+                                                                    <div class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration && !$theme_settings.drop_down_horizontal_menu_absolute}hide{/if}">
                                                                         <a class="Nav__horizontal--link-3" href="{$cat3.url}">
                                                                             {$cat3.name}
                                                                         </a>
                                                                     </div>
                                                                 {/foreach}
-                                                                {if $theme_settings.number_output_categories_third_level < count($cat2.childs)}
+                                                                {if $theme_settings.number_output_categories_third_level < count($cat2.childs) && !$theme_settings.drop_down_horizontal_menu_absolute}
                                                                     <div class="Nav__horizontal--item-more js-open-other-cat-child">
                                                                         [`Else`] <i class="fi-rr-angle-small-down"></i>
                                                                     </div>
@@ -69,7 +72,7 @@
                                                         {/if}
                                                     </div>
                                                 {/foreach}
-                                            {if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu}<div class="container">{/if}
+                                            {if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu && !$theme_settings.drop_down_horizontal_menu_absolute}</div>{/if}
                                         </div>
                                     {/if}
                                 </li>
@@ -84,7 +87,6 @@
         </div>
     {/if}
 {/if}
-{/strip}
 {literal}
     <script>
         $(document).ready(function () {
@@ -102,11 +104,15 @@
                         $(this).removeClass('show');
                         $(this).addClass('hide');
                     });
-                    {literal}
-                        $(this).html(`${textElse} <i class="fi-rr-angle-small-down"></i>`)
-                    {/literal}
+                    $(this).html(`${textElse} <i class="fi-rr-angle-small-down"></i>`)
                 }
             })
         });
     </script>
+    <script>
+        $('.Nav__horizontal--item--relative').each(function() {
+
+        })
+    </script>
 {/literal}
+{/strip}

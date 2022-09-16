@@ -849,7 +849,8 @@ var categoriesMainMenu = {
 
         var item = $(".js-cat-subs-disclosed"),
             topCatMenu = $('#nav-cat'),
-            hoverTime = topCatMenu.data("delay");
+            hoverTime = true;
+            //hoverTime = topCatMenu.data("delay");
 
         item.hover(function () {
             var $this = $(this),
@@ -907,7 +908,8 @@ var categoriesMainMenu = {
         var _this = this;
 
         var item = $(".js-cat-subs-dropdown"),
-            hoverTime = $('#nav-cat').data("delay");
+            hoverTime = true;
+            // hoverTime = $('#nav-cat').data("delay");
 
         item.hover(function () {
             var $this = $(this),
@@ -1051,7 +1053,8 @@ var categoriesMainMenu = {
     outerBg: function () {
         var menuWrap = $('#nav-cat.desktop-show'),
             bg = $('#nav-cat.desktop-show ~ .js-bg');
-        hoverTime = $('#nav-cat').data("delay");
+        hoverTime = true;
+        // hoverTime = $('#nav-cat').data("delay");
 
         if (hoverTime) {
             menuWrap.hover(function () {
