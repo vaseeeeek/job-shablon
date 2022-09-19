@@ -196,6 +196,7 @@
                                 <meta itemprop="price" content="{$sku.price}">
                                 <meta itemprop="priceCurrency" content="{$product.currency}">
                                 <meta itemprop="url" content="{$wa->domainUrl()}/product/{$product.url}">
+                                <span class="count-product" data-count="{$sku.count}" style="display: none"></span>
                                 {if !$sku.available}
                                     <link itemprop="availability" href="http://schema.org/Discontinued" />
                                     <p><em class="bold error">{$text_product_not_available_one_sku}</em></p>
