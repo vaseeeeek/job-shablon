@@ -287,8 +287,12 @@ $html-font-size: 14px;
   left: 0;
   bottom: 0;
   text-align: left;
-  padding: 0 0 20px 20px;
+  padding: 20px 0 20px 60px;
   font-weight: 600;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .home-slider-photos__title {
     font-size: 60px;

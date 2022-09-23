@@ -547,7 +547,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -983,6 +983,15 @@
       <value>1</value>
       <name locale="en_US">List of categories</name>
       <name locale="ru_RU">Список категорий</name>
+    </setting>
+    <setting var="product_on_page" control_type="text">
+      <value><![CDATA[]]></value>
+      <name locale="ru_RU">Количество товаров на странице пагинации</name>
+      <name locale="en_US">Number of products on the pagination page</name>
+      <description locale="ru_RU">Укажите через запятую 3 варианта количества товаров на странице категории (24,48,64)
+      </description>
+      <description locale="en_US">Specify 3 options for the number of items on the category page, separated by commas (24,48,64)
+      </description>
     </setting>
     <setting var="paragraph_product_preview" control_type="group_divider">
       <value/>

@@ -2490,7 +2490,7 @@ var filterSearch = {
     }
 }
 
-function Product(form, options) {
+function Product(form, options, skus) {
     this.formWrap = $(form);
     this.add2cart = this.formWrap.find(".js-add2cart");
     this.button = this.add2cart.find(".js-submit-form");
@@ -2629,7 +2629,7 @@ function Product(form, options) {
     self.updateArrivedBtn();
     this.updateQtyBox();
     this.updateBuyActionWrap();
-    self.checkQtyProduct();
+    self.checkQtyProduct(skus);
 }
 
 Product.prototype.serviceVariantHtml = function (id, name, price) {
@@ -2651,9 +2651,19 @@ Product.prototype.cartButtonVisibility = function (visible) {
     }
 }
 
-Product.prototype.checkQtyProduct = function() {
-    const countProduct = $('.count-product').data('count');
+Product.prototype.checkQtyProduct = function(skus) {
+    return skus;
+    let getCount = function() {
+        var count = Object.keys(skus).length;
+        if (count == 1) {
+            return Object.entries(skus)[0][1];
+        } else {
+
+        }
+    }
+
     $('.js-qty input').on('change', function(){
+        const countProduct = getCount();
         valueQty = $(this).val();
         if (valueQty > countProduct) {
             $('.js-submit-form').addClass('blocked');

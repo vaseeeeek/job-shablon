@@ -246,6 +246,12 @@
         </div>
     </div>
 
+    {if $theme_settings.product_on_page}
+        {$productOnPage = ","|explode:$theme_settings.product_on_page}
+    {else}
+        {$productOnPage = [24,48,64]}
+    {/if}
+
     <div class="df-block products-pagination">
         {if $theme_settings.pagination != 'lazyloading'  && empty($_not_paginate) && !$wa->isMobile()}
             <div class="cat-onpage">
@@ -255,9 +261,9 @@
                     {if $current_per_page}
                         <option value="hide">{$current_per_page}</option>
                     {else}
-                        <option value="hide">24</option>
+                        <option value="hide">{$productOnPage[0]}</option>
                     {/if}
-                    {foreach [24,48,64] as $count}
+                    {foreach $productOnPage as $count}
                         <option{if $current_per_page == $count} selected{/if} value="{$count}">{$count}</option>
                     {/foreach}
                 </select>
