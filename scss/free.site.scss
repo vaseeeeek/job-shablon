@@ -182,6 +182,7 @@ canvas {
   display: inline-block
 }
 
+
 [hidden], template {
   display: none
 }
@@ -2740,7 +2741,7 @@ img.mfp-img {
 
 .Nav-search {
   display: table-cell;
-  width: 100%;
+  flex: 1 1;
   vertical-align: middle;
   padding: 10px 10px 0 10px;
   margin-top: -10px;
@@ -4394,12 +4395,26 @@ textarea {
   .Nav-contact-info {
     margin-right: rem(35px);
     position: relative;
+    display: flex;
+    align-items: center;
 
+    svg#Social_Icons {
+      width: 15px;
+      height: 15px;
+    }
     p {
       margin-bottom: 2px;
     }
   }
 
+  .Nav-contact-info--left {
+    margin-right: 10px;
+  }
+
+  .Nav-contact-info--right {
+    display: flex;
+    flex-direction: column;
+  }
   a.Nav-contact-phone {
     white-space: nowrap;
     text-align: center;
@@ -4654,7 +4669,10 @@ textarea {
   display: flex
 }
 
-
+.header-social_item{
+  font-size: rem(16px);
+  margin-right: 5px;
+}
 .fixed-panel .product-added-msg:after {
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;

@@ -283,6 +283,11 @@
                     {if $theme_settings.header_company_email && $theme_settings.footer_show_email}
                         <li><a href="mailto:{$theme_settings.header_company_email}" class="Nav-contact-phone">{$theme_settings.header_company_email}</a></li>
                     {/if}
+                    {if $theme_settings.telegram}
+                        <li>
+                            Группа в <a class="link-half" href="{$theme_settings.telegram}">телеграм</a>
+                        </li>
+                    {/if}
                     <li>
                         <div class="footer-social">
                             {if !empty($theme_settings.facebook)}

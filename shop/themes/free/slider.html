@@ -10,7 +10,14 @@
                     {/if}
                     <div class="home-slider-photos_el">
                         <a class="home-slider-photos_el-content" href="{$item.link|escape}" {if !empty($style_slide)} style="{$style_slide}"{/if}>
-                            {if $item.title || $item.body}
+
+
+                            {if $item@first}
+                                <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" />
+                            {else}
+                                <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
+                            {/if}
+                            {if $item.title || $item.body || $item.countdown_datetime}
                                 <div class="home-slider-photos__text" style="color: {if $item.color}{$item.color}{else}{$theme_settings.second_color}{/if}">
                                     {if $item.title}
                                         <div class="home-slider-photos__title">{$item.title}</div>
@@ -18,25 +25,26 @@
                                     {if $item.body}
                                         <div class="home-slider-photos__body">{$item.body}</div>
                                     {/if}
-                                    <div class="home-slider-photos__countdown" id="home-slider-photos__countdown--{$item.id}" data-date="{$item.countdown_datetime}">
-                                        <div class="home-slider-photos__countdown__days">
-                                            <div class="home-slider-photos__countdown__value">-</div>
-                                            <div class="home-slider-photos__countdown__title">Дней</div>
+                                    {if $item.countdown_datetime}
+                                        <div class="home-slider-photos__countdown" id="home-slider-photos__countdown--{$item.id}" data-date="{$item.countdown_datetime}">
+                                            <div class="home-slider-photos__countdown__days">
+                                                <div class="home-slider-photos__countdown__value">-</div>
+                                                <div class="home-slider-photos__countdown__title">Дней</div>
+                                            </div>
+                                            <div class="home-slider-photos__countdown__hours">
+                                                <div class="home-slider-photos__countdown__value">-</div>
+                                                <div class="home-slider-photos__countdown__title">Часов</div>
+                                            </div>
+                                            <div class="home-slider-photos__countdown__minutes">
+                                                <div class="home-slider-photos__countdown__value">-</div>
+                                                <div class="home-slider-photos__countdown__title">Минут</div>
+                                            </div>
+                                            <div class="home-slider-photos__countdown__seconds">
+                                                <div class="home-slider-photos__countdown__value">-</div>
+                                                <div class="home-slider-photos__countdown__title">Секунд</div>
+                                            </div>
                                         </div>
-                                        <div class="home-slider-photos__countdown__hours">
-                                            <div class="home-slider-photos__countdown__value">-</div>
-                                            <div class="home-slider-photos__countdown__title">Часов</div>
-                                        </div>
-                                        <div class="home-slider-photos__countdown__minutes">
-                                            <div class="home-slider-photos__countdown__value">-</div>
-                                            <div class="home-slider-photos__countdown__title">Минут</div>
-                                        </div>
-                                        <div class="home-slider-photos__countdown__seconds">
-                                            <div class="home-slider-photos__countdown__value">-</div>
-                                            <div class="home-slider-photos__countdown__title">Секунд</div>
-                                        </div>
-                                    </div>
-
+                                    {/if}
                                 </div>
 
                                 <script>
@@ -75,16 +83,10 @@
                                             clearInterval(x);
                                             document.getElementById("demo").innerHTML = "EXPIRED";
                                         }
-                                        }, 40000);
+                                        }, 1000);
                                     })
 
                                 </script>
-                            {/if}
-
-                            {if $item@first}
-                                <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" />
-                            {else}
-                                <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
                             {/if}
                         </a>
                     </div>
