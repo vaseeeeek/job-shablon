@@ -47,46 +47,48 @@
                                     {/if}
                                 </div>
 
-                                <script>
-                                    $(document).on('ready', function () {
-                                        const timer = document.getElementById("home-slider-photos__countdown--{$item.id}");
-                                        const dateSeychas = $(timer).data('date');
-                                        const countDownDate = new Date(dateSeychas).getTime();
-                                        const x = setInterval(function() {
-                                        var now = new Date().getTime();
-                                        var distance = countDownDate - now;
-                                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                                        {literal}
-                                        timer.innerHTML = `
-                                                    <div class="home-slider-photos__countdown__days">
-                                                        <div class="home-slider-photos__countdown__value">${days}</div>
-                                                        <div class="home-slider-photos__countdown__title">Дней</div>
-                                                    </div>
-                                                    <div class="home-slider-photos__countdown__hours">
-                                                        <div class="home-slider-photos__countdown__value">${hours}</div>
-                                                        <div class="home-slider-photos__countdown__title">Часов</div>
-                                                    </div>
-                                                    <div class="home-slider-photos__countdown__minutes">
-                                                        <div class="home-slider-photos__countdown__value">${minutes}</div>
-                                                        <div class="home-slider-photos__countdown__title">Минут</div>
-                                                    </div>
-                                                    <div class="home-slider-photos__countdown__seconds">
-                                                        <div class="home-slider-photos__countdown__value">${seconds}</div>
-                                                        <div class="home-slider-photos__countdown__title">Секунд</div>
-                                                    </div>
-                                                `;
-                                        {/literal}
-                                        if (distance < 0) {
-                                            clearInterval(x);
-                                            document.getElementById("demo").innerHTML = "EXPIRED";
-                                        }
-                                        }, 1000);
-                                    })
+                                {if $item.countdown_datetime}
+                                    <script>
+                                        $(document).on('ready', function () {
+                                            const timer = document.getElementById("home-slider-photos__countdown--{$item.id}");
+                                            const dateSeychas = $(timer).data('date');
+                                            const countDownDate = new Date(dateSeychas).getTime();
+                                            const x = setInterval(function() {
+                                            var now = new Date().getTime();
+                                            var distance = countDownDate - now;
+                                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                                            {literal}
+                                            timer.innerHTML = `
+                                                        <div class="home-slider-photos__countdown__days">
+                                                            <div class="home-slider-photos__countdown__value">${days}</div>
+                                                            <div class="home-slider-photos__countdown__title">Дней</div>
+                                                        </div>
+                                                        <div class="home-slider-photos__countdown__hours">
+                                                            <div class="home-slider-photos__countdown__value">${hours}</div>
+                                                            <div class="home-slider-photos__countdown__title">Часов</div>
+                                                        </div>
+                                                        <div class="home-slider-photos__countdown__minutes">
+                                                            <div class="home-slider-photos__countdown__value">${minutes}</div>
+                                                            <div class="home-slider-photos__countdown__title">Минут</div>
+                                                        </div>
+                                                        <div class="home-slider-photos__countdown__seconds">
+                                                            <div class="home-slider-photos__countdown__value">${seconds}</div>
+                                                            <div class="home-slider-photos__countdown__title">Секунд</div>
+                                                        </div>
+                                                    `;
+                                            {/literal}
+                                            if (distance < 0) {
+                                                clearInterval(x);
+                                                document.getElementById("demo").innerHTML = "EXPIRED";
+                                            }
+                                            }, 1000);
+                                        })
 
-                                </script>
+                                    </script>
+                                {/if}
                             {/if}
                         </a>
                     </div>
