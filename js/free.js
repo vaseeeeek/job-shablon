@@ -2490,6 +2490,7 @@ var filterSearch = {
         $('.filter__search').closest('.js-filter-el').addClass('hasSearch');
     }
 }
+
 var navDdPosition = {
     init: function () {
         var _this = this;

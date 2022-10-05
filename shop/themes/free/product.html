@@ -36,11 +36,29 @@
                     <div class="df-block product-top-actions">
                         {if $theme_settings.product_ratings && $theme_settings.show_rating_product_page}
                             {if $product.rating > 0}
-                                <span class="product_rating rating nowrap" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" title="{sprintf('[`Average user rating: %s / 5`]', $product.rating)}">
-                                    {$wa->shop->ratingHtml($product.rating, 16)}
+{*                                <span class="product_rating rating nowrap" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" title="{sprintf('[`Average user rating: %s / 5`]', $product.rating)}">*}
+{*                                    {$wa->shop->ratingHtml($product.rating, 16)}*}
+                                {*                                    <span itemprop="ratingValue" style="display: none;">{$product.rating}</span>*}
+                                {*                                    <span itemprop="reviewCount" style="display: none;">{$reviews_total_count}</span>*}
+{*                                </span>*}
+                                <div class="product_rating rating nowrap" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" title="{sprintf('[`Average user rating: %s / 5`]', $product.rating)}">
+                                    <div class="rating -color" style="width: {$product.rating * 100 / 5}%">
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                    </div>
+                                    <div class="rating -zero">
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                        <i class="icon16 star"></i>
+                                    </div>
                                     <span itemprop="ratingValue" style="display: none;">{$product.rating}</span>
                                     <span itemprop="reviewCount" style="display: none;">{$reviews_total_count}</span>
-                                </span>
+                                </div>
                                 <span class="product_rating__total-text">{_w('%d review','%d reviews',$reviews_total_count)}</span>
                             {else}
                                 <div class="rating -zero">

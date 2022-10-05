@@ -262,9 +262,22 @@
                         </div>
                     {/if}
                     {if $p.rating > 0 && $theme_settings.product_ratings}
-                        <span class="rating nowrap">
-                            {$wa->shop->ratingHtml($p.rating, 10)}
-                        </span>
+                        <div class="product_rating rating nowrap"">
+                            <div class="rating -color" style="width: {$product.rating * 100 / 5}%">
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                            </div>
+                            <div class="rating -zero">
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                                <i class="icon16 star"></i>
+                            </div>
+                        </div>
                         <span class="rating__total">{$p.rating_count}</span>
                     {elseif $p.rating == 0 && $theme_settings.product_ratings}
                         <a class="rating -zero" href="{$p.frontend_url}?reviews=scroll">
