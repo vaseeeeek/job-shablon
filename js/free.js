@@ -2615,9 +2615,10 @@ function Product(form, options, skus) {
             key += $(this).data('feature-id') + ':' + $(this).val() + ';';
         });
         var sku = self.features[key];
-
+        console.log(skus);
+        console.log(self.sku);
+        console.log(skus[self.features[key]]);
         if (sku) {
-
             if (sku.image_id) {
                 itemGallery.changeBigImg($("#product-image-" + sku.image_id));
             }

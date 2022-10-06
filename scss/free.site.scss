@@ -5817,6 +5817,12 @@ body > jdiv > jdiv > jdiv[class^="mobileContainer_"] {
   bottom: 0 !important;
 }
 
+
+#themeOverride .checkout-step-content .jq-checkbox {
+  width: 20px;
+  height: 20px;
+}
+
 /* конец стилей для header.banner */
 .-Close {
   display: none !important;

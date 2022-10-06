@@ -144,10 +144,12 @@
                     {/if}
 
                     <script>
-                        $('.js-style-check-input').each(function(){
-                            if ($(this).is(':checked')) {
-                                $(this).trigger('click');
-                            }
+                        $(document).on('ready', function () {
+                            $('.js-style-check-input').each(function(){
+                                if ($(this).is(':checked')) {
+                                    $(this).trigger('click')
+                                }
+                            });
                         })
                     </script>
                 </div>
