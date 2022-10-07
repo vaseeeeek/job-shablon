@@ -111,7 +111,7 @@
 {else if $theme_settings.homepage_type_slider_mode == 'products'}
 
     {$_price_range = $theme_settings.price_range_in_product_list}
-    {$homeProductsPromo = $wa->shop->productSet( $theme_settings.id_promo_list_slider )}
+    {$homeProductsPromo = $wa->shop->productSet( $theme_settings.promo_product_list_id)}
 
     {$homeProductsPromo_features = []}
     {$id_features = []}

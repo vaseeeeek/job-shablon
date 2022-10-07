@@ -16,8 +16,15 @@
     const skusObj = new Object();
 </script>
 {foreach $product.skus as $sku}
+    {if $sku.count === 0}
+        {$count = 0}
+    {elseif is_null($sku.count)}
+        {$count = 'mnogo'}
+    {else}
+        {$count = $sku.count}
+    {/if}
     <script>
-        skusObj['{$sku.id}'] = '{$sku.count}';
+        skusObj['{$sku.id}'] = '{$count}';
     </script>
 {/foreach}
 <div class="product-page_main-right {if $productGalleryOn}-productMiniGallery{/if}">

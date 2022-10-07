@@ -2386,20 +2386,6 @@ var main = {
             }
         });
     },
-    // menuDelay: function(){
-    //     $('.Nav__horizontal--item').on('mouseenter',function(){
-    //         const thisItem = $(this);
-    //         setTimeout(function() {
-    //             console.log('123');
-    //             thisItem.find('.Nav__horizontal--list-2').css('display','flex');
-    //             console.log($(this));
-    //         }, 500);
-    //     })
-    //     $('.Nav__horizontal--item').on('mouseleave',function(){
-    //         const thisItem = $(this);
-    //         thisItem.find('.Nav__horizontal--list-2').css('display','none');
-    //     })
-    // },
     inputCount: function () {
         $('body').on("keyup", ".js-number", function () {
             var reg_number = /[^0-9]/g;
@@ -2571,6 +2557,7 @@ function Product(form, options, skus) {
             var sku = $(this);
         }
 
+
         if (sku.data('image-id')) {
             $("#product-image-" + sku.data('image-id')).click();
         }
@@ -2583,6 +2570,7 @@ function Product(form, options, skus) {
         }
 
         var sku_id = sku.attr('value');
+        self.checkQtyProduct(sku_id, skus);
         self.updateSkuServices(sku_id);
         self.cartButtonVisibility(true);
         self.updatePrice();
@@ -2615,9 +2603,7 @@ function Product(form, options, skus) {
             key += $(this).data('feature-id') + ':' + $(this).val() + ';';
         });
         var sku = self.features[key];
-        console.log(skus);
-        console.log(self.sku);
-        console.log(skus[self.features[key]]);
+        self.checkQtyProduct(sku.id, skus);
         if (sku) {
             if (sku.image_id) {
                 itemGallery.changeBigImg($("#product-image-" + sku.image_id));
@@ -2647,6 +2633,7 @@ function Product(form, options, skus) {
         }
         self.cartButtonVisibility(true);
     });
+
     this.formWrap.find("select.js-feature-sku:first, input.js-feature-sku:first").change();
 
     if (!this.formWrap.find(".skus input:radio:checked").length) {
@@ -2662,7 +2649,7 @@ function Product(form, options, skus) {
     self.updateArrivedBtn();
     this.updateQtyBox();
     this.updateBuyActionWrap();
-    self.checkQtyProduct(skus);
+    this.showMaxCountErrorModal();
 }
 
 Product.prototype.serviceVariantHtml = function (id, name, price) {
@@ -2684,24 +2671,44 @@ Product.prototype.cartButtonVisibility = function (visible) {
     }
 }
 
-Product.prototype.checkQtyProduct = function (skus) {
-    return skus;
-    let getCount = function () {
-        var count = Object.keys(skus).length;
-        if (count == 1) {
-            return Object.entries(skus)[0][1];
-        } else {
-
+Product.prototype.checkQtyProduct = function (id, skus) {
+    const maxCount = getMaxCount();
+    const _this = this;
+    checkedBlocked();
+    $('.js-qty input').on('change', function () {
+        checkedBlocked();
+    })
+    function checkedBlocked() {
+        $('.js-submit-form').removeAttr('data-max-count');
+        $('.js-submit-form').removeClass('blocked');
+        valueQty = $('.js-qty input').val();
+        if (valueQty > maxCount) {
+            $('.js-submit-form').attr('data-max-count', maxCount);
+            $('.js-submit-form').addClass('blocked');
         }
     }
-
-    $('.js-qty input').on('change', function () {
-        const countProduct = getCount();
-        valueQty = $(this).val();
-        if (valueQty > countProduct) {
-            $('.js-submit-form').addClass('blocked');
+    function getMaxCount() {
+        if (skus[`${id}`] == 'mnogo') {
+            return Number.MAX_SAFE_INTEGER;
         } else {
-            $('.js-submit-form').removeClass('blocked');
+            return parseInt(skus[`${id}`]);
+        }
+    }
+}
+
+Product.prototype.showMaxCountErrorModal = function () {
+    $('.product_add-services .addtocart').on('click', function(e){
+        if ($(this).hasClass('blocked')) {
+            e.stopPropagation();
+            const modal = $(`<div class="modal__wrap"><div class="modal"><div class="modal__text">Максисмально допустимое кол-во товара к покупке: ${$('.addtocart.blocked').data('max-count')}</div><div class="modal__closed">✕</div></div></div>`)
+            $('body').append(modal);
+
+            $(document).on('click', function (e) {
+                console.log($(e.target));
+                if ($(e.target).hasClass('modal__wrap') || $(e.target).hasClass('modal__closed')) {
+                    $('body>.modal__wrap').remove();
+                }
+            })
         }
     })
 }
