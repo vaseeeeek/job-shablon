@@ -4276,7 +4276,7 @@ textarea {
     box-sizing: border-box;
 
     .Nav__horizontal--list-2 {
-      display: flex;
+      display: none;
       position: absolute;
       bottom: auto;
       left: 0;
@@ -4432,6 +4432,16 @@ textarea {
   flex-direction: column;
   padding: 0.7rem 0 0.7rem 0;
   margin: 0 0 1.5rem 0;
+  transition: top 0.5s ease-out;
+
+  &.sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: #fff;
+    padding-top: 2rem;
+    padding-bottom: 0;
+  }
 
   .Nav-contact-info {
     margin-right: rem(35px);

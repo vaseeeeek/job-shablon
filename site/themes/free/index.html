@@ -79,7 +79,7 @@
         {include file="`$parent_theme_path`/fonts.html"}
     </head>
 
-    <body id="themeOverride">
+    <body id="themeOverride"{if $wa->isMobile()} class="mobile"{/if}>
 
     {if $wa->block("site.header.banner")  && !$wa->cookie('closeAttention')}
         <div class="Header__Banner">
