@@ -114,6 +114,12 @@
             </div>
         </div>
     </div>
+    {literal}
+        <script>
+            const neededHeight = $('.product-page_main--three-columns .product-page_main-left').width() * 0.6666;
+            $('.product_gallery-images-main-el-outer').css('max-height', `${neededHeight}px`);
+        </script>
+    {/literal}
 </div>
 {/strip}
 {if $wa->isMobile()}

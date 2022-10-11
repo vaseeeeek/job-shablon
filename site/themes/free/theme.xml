@@ -580,7 +580,7 @@
       <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="home_blocks_list" control_type="text">
-      <value><![CDATA[slider,category,text,news,product-slider,brands]]></value>
+      <value>slider,category,text,news,product-slider,brands</value>
       <name locale="en_US">Home blocks</name>
       <name locale="ru_RU">Блоки на главной</name>
       <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
@@ -1622,12 +1622,12 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выбор параметров - выпадающий список</name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
     <setting var="product_selection_articles" control_type="select">
-      <value>horizontal_checkboxes</value>
+      <value>dd_list</value>
       <name locale="ru_RU">Выбор артикулов</name>
       <name locale="en_US">Selection of articles</name>
       <options>
