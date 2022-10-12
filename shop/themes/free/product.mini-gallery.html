@@ -1,4 +1,3 @@
-
 {strip}
 {$video = $product->video}
 {$_popupOn = true}
@@ -120,14 +119,14 @@
         {literal}
             <script>
                 function editSizeImage(){
-                    const form = $('.product-page_main--three-columns .product-page_main-left').data('form');
-                    const size = $('.product-page_main--three-columns .product-page_main-left').data('size');
+                    const form = $('.product-page_main-left').data('form');
+                    const size = $('.product-page_main-left').data('size');
                     let neededHeight = new String();
                     if (form == 'horizontal') {
-                        neededHeight = $('.product-page_main--three-columns .product-page_main-left .js-product_gallery-images').width() / size;
+                        neededHeight = $('.product-page_main-left .js-product_gallery-images').width() / size;
                     }
                     if (form == 'vertical') {
-                        neededHeight = $('.product-page_main--three-columns .product-page_main-left .js-product_gallery-images').width() * size;
+                        neededHeight = $('.product-page_main-left .js-product_gallery-images').width() * size;
                     }
                     $('.product_gallery-images-main-el-outer').css('max-height', `${neededHeight}px`);
                 }

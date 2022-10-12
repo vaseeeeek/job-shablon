@@ -444,9 +444,24 @@
             {/if}
         {/foreach}
     {/if}
-
+    <script>
+        const skusObj = new Object();
+    </script>
+    {foreach $product.skus as $sku}
+        {if $sku.count === 0}
+            {$count = 0}
+        {elseif is_null($sku.count)}
+            {$count = 'mnogo'}
+        {else}
+            {$count = $sku.count}
+        {/if}
+        <script>
+            skusObj['{$sku.id}'] = '{$count}';
+        </script>
+    {/foreach}
     <script>
         $(function () {
+
             new Product('#cart-form{if $_is_dialog}-dialog{/if}', {
                 currency: {json_encode($currency_info)}
                 {if count($product.skus) > 1 or $product.sku_type}
@@ -461,7 +476,7 @@
                 , short_features_count: "{$theme_settings.count_output_features_right_block}"
                 , short_features_codes: "{$theme_settings.product_page_right_block_features}"
                 {/if}
-            });
+            }, skusObj);
         });
     </script>
 </form>
