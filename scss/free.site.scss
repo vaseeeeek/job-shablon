@@ -224,7 +224,8 @@ canvas {
   clear: both;
   visibility: hidden;
   line-height: 0;
-  height: 0
+  height: 0;
+  width: 0;
 }
 
 .owl-carousel .owl-item, .owl-carousel .owcontainer {

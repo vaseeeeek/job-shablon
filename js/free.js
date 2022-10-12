@@ -2521,6 +2521,7 @@ var stickyHeader = {
         $(window).scroll(function () {
             const sticky = $('body > header.header').hasClass('sticky');
             if (window.pageYOffset > headerHeight && !sticky) {
+                $('.header-top--links').css('padding-bottom',`${headerHeight}px`);
                 $('body > header.header').addClass('sticky');
                 $('body > header.header').attr('style',`top: -${headerHeight}px`)
                 setTimeout(() => {
@@ -2530,6 +2531,7 @@ var stickyHeader = {
             if (window.pageYOffset < headerHeight && sticky) {
                 $('body > header.header').removeClass('sticky');
                 $('body > header.header').removeAttr('style');
+                $('.header-top--links').removeAttr('style');
             }
         });
     }

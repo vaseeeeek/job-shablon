@@ -215,6 +215,7 @@ $html-font-size: 14px;
     opacity: 0.8;
   }
 }
+
 .product_page .product_add2cart .addtocart {
   height: 37px;
   line-height: 37px;
@@ -245,19 +246,21 @@ $html-font-size: 14px;
 
 .modal__wrap {
   z-index: 10000;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
   width: 100%;
   height: 100%;
+
   .modal {
     background: #fff;
     padding: 2rem;
     border-radius: 10px;
     position: relative;
   }
+
   .modal__closed {
     position: absolute;
     right: 10px;
@@ -359,7 +362,7 @@ $html-font-size: 14px;
     .home-slider-photos__countdown {
       display: none;
     }
-    
+
     .home-slider-photos__title {
       font-size: 40px;
     }
@@ -3791,6 +3794,12 @@ input.filter-range_el:focus {
   //padding: 0 2px;
 }
 
+.product_gallery-images-main--align-center.owl-carousel .owl-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .product_gallery-images-main-el-outer {
   display: inline-flex;
   justify-content: center;
@@ -3809,6 +3818,7 @@ input.filter-range_el:focus {
   outline: 0;
   text-decoration: none;
   font-size: 0;
+
   img {
     max-height: 100%;
   }
@@ -8318,6 +8328,7 @@ input[type=text], input[type=tel], input[type=email] {
   background: #fff;
   box-shadow: 0 0 1.429rem rgb(0 0 0 / 10%);
 }
+
 /* /Стили для плагинов*/
 
 @media (max-width: 420px) {

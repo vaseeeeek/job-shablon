@@ -1362,7 +1362,7 @@
       <name locale="ru_RU">Страница товара</name>
     </setting>
     <setting var="product_horizontal_gallery" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Горизонтальная миниатюры</name>
       <name locale="en_US">Horizontal miniature</name>
     </setting>
@@ -1377,7 +1377,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_three</value>
+      <value>product_columns_two</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1435,6 +1435,37 @@
       <description locale="en_US">The size should not exceed the maximum size of the thumbnail in the store
                 settings. (shop-&gt;settings-&gt;images)
             </description>
+    </setting>
+    <setting var="product_image_proportions" control_type="select">
+      <value>vertical 1.5</value>
+      <name locale="en_US">Image proportions</name>
+      <name locale="ru_RU">Пропорции изображения</name>
+      <options>
+        <option value="auto">
+          <name locale="ru_RU">Авто</name>
+          <name locale="en_US">Auto</name>
+        </option>
+        <option value="vertical 1">
+          <name locale="en_US">Square</name>
+          <name locale="ru_RU">Квадрат</name>
+        </option>
+        <option value="horizontal 1.3333">
+          <name locale="ru_RU">Горизональная 1:1.33333</name>
+          <name locale="en_US">horizontal 1.3333</name>
+        </option>
+        <option value="horizontal 1.5">
+          <name locale="ru_RU">Горизональная 1:1.5</name>
+          <name locale="en_US">horizontal 1.5</name>
+        </option>
+        <option value="vertical 1.3333">
+          <name locale="ru_RU">Вертикальная 1:33333</name>
+          <name locale="en_US">Vertical 1.33333</name>
+        </option>
+        <option value="vertical 1.5">
+          <name locale="ru_RU">Вертикальная 1:1.5</name>
+          <name locale="en_US">Vertical 1.5</name>
+        </option>
+      </options>
     </setting>
     <setting var="display_buy_one_click" control_type="checkbox">
       <value>1</value>
