@@ -58,7 +58,7 @@
                 {if $_is_dialog && !$sku@first}
                     {break}
                 {/if}
-                {if !$product.sku_type && !empty($sku.features)}
+                {if !empty($sku.features)}
                     {$product_features_list = $sku.features}
                 {/if}
                 {if !empty($product_features_list) && !empty($theme_settings.product_page_right_block_features)}
@@ -135,25 +135,5 @@
                 </div>
             {/if}
         </div>
-    {/if}
-
-    {if !$_is_dialog && !$product.sku_type}
-        {literal}
-            <script>
-                function updateFeature(target) {
-                    const id = target.attr('value');
-                    $('.Product__features').css('display', 'none');
-                    $(`.Product__features[data-features-id=${id}]`).css('display', 'table');
-                }
-                $('.js-product-skus').find('li').on('click', function (e) {
-                    if ($(e.target).hasClass('js-toggle-styler-input')) {
-                        updateFeature($(e.target));
-                    }
-                })
-                $('.md').on('click', function (e) {
-                    updateFeature($(e.target));
-                })
-            </script>
-        {/literal}
     {/if}
 {/strip}

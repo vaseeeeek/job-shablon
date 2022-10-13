@@ -1658,7 +1658,7 @@
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
     <setting var="product_selection_articles" control_type="select">
-      <value>dd_list</value>
+      <value>vertical_checkboxes</value>
       <name locale="ru_RU">Выбор артикулов</name>
       <name locale="en_US">Selection of articles</name>
       <options>

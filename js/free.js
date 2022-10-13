@@ -2577,7 +2577,9 @@ function Product(form, options, skus) {
         this[k] = options[k];
     }
     var self = this;
+
     // add to cart block: services
+
     this.formWrap.find(".services input[type=checkbox]").change(function () {
         var obj = $('select[name="service-option[' + $(this).val() + ']"]');
         if (obj.length) {
@@ -2704,6 +2706,7 @@ function Product(form, options, skus) {
     this.updateQtyBox();
     this.updateBuyActionWrap();
     this.showMaxCountErrorModal();
+    this.updateFeatures(options);
 }
 
 Product.prototype.serviceVariantHtml = function (id, name, price) {
@@ -2758,13 +2761,77 @@ Product.prototype.showMaxCountErrorModal = function () {
             $('body').append(modal);
 
             $(document).on('click', function (e) {
-                console.log($(e.target));
                 if ($(e.target).hasClass('modal__wrap') || $(e.target).hasClass('modal__closed')) {
                     $('body>.modal__wrap').remove();
                 }
             })
         }
     })
+}
+
+Product.prototype.updateFeatures = function (options) {
+    if ($('.js-product-skus').length == 0) {
+        const key = getKey();
+        const id = options.features[key].id;
+        showFeatures(id);
+    } else {
+        const id = getKey();
+        showFeatures(id);
+    }
+
+    $('.js-feature-sku').on('change', function () {
+        const key = getKey();
+        const id = options.features[key].id;
+        showFeatures(id);
+    })
+    $('.js-product-skus').on('change', function () {
+        const id = $(this).find('option:selected').attr('value');
+        showFeatures(id);
+    })
+    $('.js-product-skus li').on('click', function(e) {
+        // console.log($(e.target));
+        if ($(e.target).hasClass('js-toggle-styler-input')) {
+            const id = $(this).find('input').attr('value');
+            showFeatures(id);
+        }
+    })
+    $('.js-product-skus input').on('change', function(e) {
+        console.log($(e.target));
+    })
+    function showFeatures(id) {
+        $('.Product__features').css('display','none');
+        $(`.Product__features[data-features-id="${id}"]`).css('display','table');
+    }
+    function getKey() {
+        let key = "";
+        if ($('.product-page .pd_option_select').length > 0) {
+            let iteration = 0;
+            $('.pd_option_select').each(function(){
+                iteration++;
+                const id = $(this).find('.js-feature-sku').data('feature-id');
+                const value = $(this).find('option:selected').attr('value');
+                key += `${id}:${value};`;
+            })
+        }
+        if ($('.product-page .select-v-inline').length > 0) {
+            let iteration = 0;
+            $('.select-v-inline').each(function(){
+                iteration++;
+                const id = $(this).find('.js-feature-sku').data('feature-id');
+                const value = $(this).find('.selected').attr('data-value');
+                key += `${id}:${value};`;
+            })
+        }
+        if ($('.js-product-skus').length > 0) {
+            if ($('.js-product-skus').hasClass('md')) {
+                key = $('.js-product-skus').find('option[selected="selected"]').attr('value');
+            } else {
+                $()
+                key = $('.js-product-skus').find('.checked').find('input').attr('value');
+            }
+        }
+        return key;
+    }
 }
 
 Product.prototype.updateFastOrderBtn = function () {
