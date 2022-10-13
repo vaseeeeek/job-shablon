@@ -4442,6 +4442,9 @@ textarea {
     background: #fff;
     padding-top: 2rem;
     padding-bottom: 0;
+    & > .container {
+      padding-bottom: 10px;
+    }
   }
 
   .Nav-contact-info {
