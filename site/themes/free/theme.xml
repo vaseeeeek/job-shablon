@@ -493,7 +493,7 @@
       </description>
     </setting>
     <setting var="get_menu_from" control_type="select">
-      <value>app-menu</value>
+      <value>catalog</value>
       <name locale="ru_RU">Категории брать из</name>
       <name locale="en_US">Categories to take from</name>
       <options>
@@ -513,7 +513,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>app</value>
+      <value>cat</value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -1473,7 +1473,7 @@
       <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
     <setting var="product_page_right_block_features" control_type="select">
-      <value>first</value>
+      <value>short</value>
       <name locale="en_US">Characteristics on the right</name>
       <name locale="ru_RU">Характеристики справа</name>
       <description locale="ru_RU">Если конкретные характеристики, то заполнить настройку "Коды выводимых
@@ -1511,7 +1511,7 @@
             </description>
     </setting>
     <setting var="product_codes_output_characteristics" control_type="text">
-      <value>brand</value>
+      <value>brand,litrazh,color</value>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of the output characteristics</name>
     </setting>
@@ -1653,12 +1653,12 @@
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
     <setting var="product_selecting_parameters_dd" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выбор параметров - выпадающий список</name>
       <name locale="en_US">Selecting parameters - drop-down list</name>
     </setting>
     <setting var="product_selection_articles" control_type="select">
-      <value>vertical_checkboxes</value>
+      <value>horizontal_checkboxes</value>
       <name locale="ru_RU">Выбор артикулов</name>
       <name locale="en_US">Selection of articles</name>
       <options>

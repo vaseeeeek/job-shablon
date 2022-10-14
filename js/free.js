@@ -2784,19 +2784,15 @@ Product.prototype.updateFeatures = function (options) {
         const id = options.features[key].id;
         showFeatures(id);
     })
-    $('.js-product-skus').on('change', function () {
+    $('select.js-product-skus').on('change', function () {
         const id = $(this).find('option:selected').attr('value');
         showFeatures(id);
     })
     $('.js-product-skus li').on('click', function(e) {
-        // console.log($(e.target));
         if ($(e.target).hasClass('js-toggle-styler-input')) {
             const id = $(this).find('input').attr('value');
             showFeatures(id);
         }
-    })
-    $('.js-product-skus input').on('change', function(e) {
-        console.log($(e.target));
     })
     function showFeatures(id) {
         $('.Product__features').css('display','none');
