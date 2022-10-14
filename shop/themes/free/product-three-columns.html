@@ -12,21 +12,6 @@
 {$_is_dialog_select_options = $_is_dialog && $wa->get('select-options')}
 {$image_preview = $wa->shop->productImgUrl($product, '60')}
 
-<script>
-    const skusObj = new Object();
-</script>
-{foreach $product.skus as $sku}
-    {if $sku.count === 0}
-        {$count = 0}
-    {elseif is_null($sku.count)}
-        {$count = 'mnogo'}
-    {else}
-        {$count = $sku.count}
-    {/if}
-    <script>
-        skusObj['{$sku.id}'] = '{$count}';
-    </script>
-{/foreach}
 <div class="product-page_main-right {if $productGalleryOn}-productMiniGallery{/if}">
     {if $_is_dialog}
         <div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>
@@ -282,27 +267,59 @@
                         {/if}
                     {/foreach}
                 {/if}
-
-                <script>
-                    $(function () {
-
-                        new Product('#cart-form{if $_is_dialog}-dialog{/if}', {
-                            currency: {json_encode($currency_info)}
-                            {if count($product.skus) > 1 or $product.sku_type}
-                            , services: {json_encode($sku_services)}
-                            {/if}
-                            {if $product.sku_type}
-                            , features: {json_encode($sku_features_selectable)}
-                            {/if}
-                            {if !empty($sku_features) && count($skus_features) > 1}
-                            , sku_features: {json_encode($sku_features)}
-                            , skus_features: {json_encode($skus_features)}
-                            , short_features_count: "{$theme_settings.count_output_features_right_block}"
-                            , short_features_codes: "{$theme_settings.product_page_right_block_features}"
-                            {/if}
-                        }, skusObj);
-                    });
-                </script>
+                {if $_is_dialog}
+                    <script>
+                        $(function () {
+                            new Product('#cart-form{if $_is_dialog}-dialog{/if}', {
+                                currency: {json_encode($currency_info)}
+                                {if count($product.skus) > 1 or $product.sku_type}
+                                , services: {json_encode($sku_services)}
+                                {/if}
+                                {if $product.sku_type}
+                                , features: {json_encode($sku_features_selectable)}
+                                {/if}
+                                {if !empty($sku_features) && count($skus_features) > 1}
+                                , sku_features: {json_encode($sku_features)}
+                                , skus_features: {json_encode($skus_features)}
+                                , short_features_count: "{$theme_settings.count_output_features_right_block}"
+                                , short_features_codes: "{$theme_settings.product_page_right_block_features}"
+                                {/if}
+                            });
+                        });
+                    </script>
+                {else}
+                    {$skusObj = []}
+                    {foreach $product.skus as $sku}
+                        {if $sku.count === 0}
+                            {$count = 0}
+                        {elseif is_null($sku.count)}
+                            {$count = 'mnogo'}
+                        {else}
+                            {$count = $sku.count}
+                        {/if}
+                        {$skusObj[] = [$sku.id => $count]}
+                    {/foreach}
+                    {wa_dumpc(json_encode($skusObj))}
+                    <script>
+                        $(function () {
+                            new Product('#cart-form{if $_is_dialog}-dialog{/if}', {
+                                currency: {json_encode($currency_info)}
+                                {if count($product.skus) > 1 or $product.sku_type}
+                                , services: {json_encode($sku_services)}
+                                {/if}
+                                {if $product.sku_type}
+                                , features: {json_encode($sku_features_selectable)}
+                                {/if}
+                                {if !empty($sku_features) && count($skus_features) > 1}
+                                , sku_features: {json_encode($sku_features)}
+                                , skus_features: {json_encode($skus_features)}
+                                , short_features_count: "{$theme_settings.count_output_features_right_block}"
+                                , short_features_codes: "{$theme_settings.product_page_right_block_features}"
+                                {/if}
+                            }, {json_encode($skusObj)});
+                        });
+                    </script>
+                {/if}
             </div>
         </div>
         <div class="product-cart__right">

@@ -2562,7 +2562,7 @@ const isMobileVersion = function() {
     }
 }
 
-function Product(form, options, skus) {
+function Product(form, options, skus = false) {
     this.formWrap = $(form);
     this.add2cart = this.formWrap.find(".js-add2cart");
     this.button = this.add2cart.find(".js-submit-form");
@@ -2706,7 +2706,9 @@ function Product(form, options, skus) {
     this.updateQtyBox();
     this.updateBuyActionWrap();
     this.showMaxCountErrorModal();
-    this.updateFeatures(options);
+    if (Object.keys(skus).length > 1 ) {
+        this.updateFeatures(options);
+    }
 }
 
 Product.prototype.serviceVariantHtml = function (id, name, price) {
@@ -2729,13 +2731,14 @@ Product.prototype.cartButtonVisibility = function (visible) {
 }
 
 Product.prototype.checkQtyProduct = function (id, skus) {
-    const maxCount = getMaxCount();
+    let maxCount = getMaxCount();
     const _this = this;
     checkedBlocked();
     $('.js-qty input').on('change', function () {
         checkedBlocked();
     })
     function checkedBlocked() {
+        maxCount = getMaxCount();
         $('.js-submit-form').removeAttr('data-max-count');
         $('.js-submit-form').removeClass('blocked');
         valueQty = $('.js-qty input').val();
