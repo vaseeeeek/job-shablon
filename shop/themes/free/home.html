@@ -11,14 +11,20 @@
         {/if}
         <div class="promo{if $showProductPromoList} slider-promo--box{/if}">
             <div class="container">
-                {if $showProductPromoList}<div class="slider-promo--box">{/if}
+                {if $showProductPromoList}
+                    <div class="slider-promo--box">
+                {elseif $theme_settings.promo_cards_show}
+                    <div class="slider-promocards--box{if $theme_settings.display_promo_cards == 'vertical'} slider-promocards--vertical{else} slider-promocards--horizontal{/if}">
+                {/if}
                     {include file="slider.html"}
                     {if $showProductPromoList}
                         <div class="promo-product {if !$theme_settings.horizontal_menu} slider-outer--home--pb{/if}">
                             {include file='home.products.view-carousel.html' products_list_id=$theme_settings.promo_product_list_id list_title=$theme_settings.promo_product_title}
                         </div>
+                    {elseif $theme_settings.promo_cards_show}
+                        {include file='promo.cards.html'}
                     {/if}
-                {if $showProductPromoList}</div>{/if}
+                {if $showProductPromoList || $theme_settings.promo_cards_show}</div>{/if}
             </div>
         </div>
 

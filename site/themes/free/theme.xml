@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.1.0" edition="3">
+<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.1.0" edition="5">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
@@ -251,32 +251,22 @@
       <name locale="ru_RU">WhatsApp</name>
     </setting>
     <setting var="policy" control_type="text">
-      <value>/privacy/</value>
+      <value/>
       <name locale="en_US">policy</name>
       <name locale="ru_RU">Политика персональных данных</name>
+    </setting>
+    <setting var="yedinitsa_izmereniya" control_type="text">
+      <value>yedinitsa_izmereniya</value>
+      <name locale="en_US">Characteristics of the unit of measurement</name>
+      <name locale="ru_RU">Характеристика еденицы измерениях</name>
     </setting>
     <setting var="paragraph_header" control_type="group_divider">
       <value/>
       <name locale="en_US">Header</name>
       <name locale="ru_RU">Шапка</name>
     </setting>
-    <!--    <setting var="type_header" control_type="select">-->
-    <!--      <value>header_one</value>-->
-    <!--      <name locale="ru_RU">Вид шапки сайта</name>-->
-    <!--      <name locale="en_US">Site header view</name>-->
-    <!--      <options>-->
-    <!--        <option value="header_one">-->
-    <!--          <name locale="ru_RU">Вид 1</name>-->
-    <!--          <name locale="en_US">View 1</name>-->
-    <!--        </option>-->
-    <!--        <option value="header_two">-->
-    <!--          <name locale="ru_RU">Вид 2</name>-->
-    <!--          <name locale="en_US">View 2</name>-->
-    <!--        </option>-->
-    <!--      </options>-->
-    <!--    </setting>-->
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1658423713</value>
+      <value>img/logo.png?v1666087274</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -471,7 +461,7 @@
       </options>
     </setting>
     <setting var="position_drop_down_categories" control_type="select">
-      <value>all</value>
+      <value>parent</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -654,6 +644,63 @@
       <name locale="en_US">Product List Id</name>
       <name locale="ru_RU">Id списка товаров</name>
     </setting>
+    <setting var="paragraph_mainpage_promo_cards" control_type="paragraph">
+      <value/>
+      <name locale="en_US">Promo cards</name>
+      <name locale="ru_RU">Промо карточки</name>
+    </setting>
+    <setting var="promo_cards_show" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выводить промо карточки</name>
+      <name locale="en_US">Display promo cards</name>
+    </setting>
+    <setting var="display_promo_cards" control_type="select">
+      <value>horizontal</value>
+      <name locale="ru_RU">
+        Вид промо карточек
+      </name>
+      <options>
+        <option value="horizontal">
+          <name locale="ru_RU">Справа от баннера</name>
+        </option>
+        <option value="vertical">
+          <name locale="ru_RU">Под баннером</name>
+        </option>
+      </options>
+    </setting>
+    <setting var="promo_card_one" control_type="image">
+      <value>img/promoone.jpg?v1666087231</value>
+      <filename>img/promoone.*</filename>
+      <name locale="ru_RU">Изображение промо-карточки 1</name>
+      <name locale="en_US">Image of promo card 1</name>
+    </setting>
+    <setting var="promo_card_one_text" control_type="text">
+      <value>Текст промо-карточки 1</value>
+      <name locale="en_US">Text promo card 1</name>
+      <name locale="ru_RU">Текст промо-карточки 1</name>
+    </setting>
+    <setting var="promo_card_two" control_type="image">
+      <value>img/promotwo.jpg?v1666087231</value>
+      <filename>img/promotwo.*</filename>
+      <name locale="ru_RU">Изображение промо-карточки 2</name>
+      <name locale="en_US">Image of promo card 2</name>
+    </setting>
+    <setting var="promo_card_two_text" control_type="text">
+      <value>Текст промо-карточки 2</value>
+      <name locale="en_US">Text promo card 2</name>
+      <name locale="ru_RU">Текст промо-карточки 2</name>
+    </setting>
+    <setting var="promo_card_three" control_type="image">
+      <value>img/promothree.jpg?v1666087231</value>
+      <filename>img/promothree.*</filename>
+      <name locale="ru_RU">Изображение промо-карточки 3</name>
+      <name locale="en_US">Image of promo card 3</name>
+    </setting>
+    <setting var="promo_card_three_text" control_type="text">
+      <value>Текст промо-карточки 3</value>
+      <name locale="en_US">Text promo card 3</name>
+      <name locale="ru_RU">Текст промо-карточки 3</name>
+    </setting>
     <setting var="paragraph_mainpage_categories" control_type="paragraph">
       <value/>
       <name locale="en_US">Categories</name>
@@ -797,7 +844,7 @@
       <name locale="ru_RU">Новости на главной</name>
     </setting>
     <setting var="home_lastposts" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Display the latest news on the main page</name>
       <name locale="ru_RU">Вывести последние новости на главной</name>
     </setting>
@@ -1265,7 +1312,7 @@
       <name locale="ru_RU">Поле кол-во "построчно"</name>
     </setting>
     <setting var="use_plugin_arrived" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="en_US">Use plugin arrived</name>
       <name locale="ru_RU">Уведомление о поступлении</name>
     </setting>
@@ -1377,7 +1424,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_three</value>
+      <value>product_columns_two</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1677,7 +1724,7 @@
       </options>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
       <name locale="en_US">The sku parameter in the browser line</name>
     </setting>
@@ -1710,6 +1757,11 @@
       <value/>
       <name locale="ru_RU">Вывод списка категорий</name>
       <name locale="en_US">Category list show</name>
+    </setting>
+    <setting var="product_total_price" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывод итоговой цены (цена * количество)</name>
+      <name locale="en_US">Show total price</name>
     </setting>
     <setting var="paragraph_footer" control_type="group_divider">
       <value/>

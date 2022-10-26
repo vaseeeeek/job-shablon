@@ -79,7 +79,7 @@
         }
 
         {if $textColor}
-            body, body .link, body a, body .price, body .rating.-zero icon10.star:hover, .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right, .header p.Nav-contact-callback, .carousel-vertical .bx-prev, .style-check.checked:before, .jq-checkbox.checked:before,
+            .product-total .product-total__text, body, body .link, body a, body .price, body .rating.-zero icon10.star:hover, .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right, .header p.Nav-contact-callback, .carousel-vertical .bx-prev, .style-check.checked:before, .jq-checkbox.checked:before,
             body .star-rating-empty.star, body .star-rating-empty.star-hover,
             body .rating.-zero .icon10.star:hover, body select, body input, .header .product-custom_icon .icon, body .cat-views__el.selected, .Title__Main, .Orders__Link, .Compare__Item--Switch.selected .Compare__Button, .Product-stock_item-critical, .Product-stock_item-out {
                 color: {$textColor};
@@ -215,12 +215,12 @@
         .Compare__Item--Switch .Compare__Button, .Orders__Link--Single:hover, .filters-checked__item, .Product-grid_action .product-action.active, .cat-content .product-action.active, .df-block.product-top-actions .product-action.active, .circle-progress__rate {
             color: {$scColor};
         }
+        .product__yedinitsa-izmereniya,
         .Product-grid_action .product-action.active .fi-rr-heart,
-        .cat-content .product-action.active {
+        .cat-content .product-action.active, .product-total {
             color: #f91155;
         }
-        .Product-grid_action .product-action.active .fi-rr-heart:before,
-        .cat-content .product-action.active .fi-rr-heart:before {
+        .Product-grid_action .product-action.active .fi-rr-heart:before{
             content: "\e93b";
         }
         .filter-el .filter-el_opts::-webkit-scrollbar-thumb {

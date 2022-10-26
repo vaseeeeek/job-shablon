@@ -297,9 +297,8 @@
                         {else}
                             {$count = $sku.count}
                         {/if}
-                        {$skusObj[] = [$sku.id => $count]}
+                        {$skusObj[$sku.id] = $count}
                     {/foreach}
-                    {wa_dumpc(json_encode($skusObj))}
                     <script>
                         $(function () {
                             new Product('#cart-form{if $_is_dialog}-dialog{/if}', {
@@ -366,6 +365,12 @@
                             {if $product.compare_price > 0 && $product.price > 0}
                                 <span class="js-compare-at-price product__old-price old-price nowrap">
                                     {shop_currency_html($product.compare_price)}
+                                </span>
+                            {/if}
+
+                            {if $theme_settings.yedinitsa_izmereniya && $product.features['yedinitsa_izmereniya']}
+                                <span class="product__yedinitsa-izmereniya">
+                                    за {$product.features['yedinitsa_izmereniya']}
                                 </span>
                             {/if}
 
@@ -474,7 +479,12 @@
                                 {/if}
                             </div>
                         {/if}
-
+                        {if $theme_settings.product_total_price}
+                            <div class="product-total">
+                                <span class="product-total__text">Итого: </span>
+                                {shop_currency_html($product.price)}
+                            </div>
+                        {/if}
                         {if $theme_settings.display_buy_one_click}<div class="button-one-click__wrap">{/if}
                             {$addedText = "[`Added`]"}
                             <span class="button js-submit-form addtocart addtocart--large{if !$pd_available} disabled{/if}" data-added-text="{$addedText}">

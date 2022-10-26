@@ -81,4 +81,48 @@
     {foreach $frontend_checkout as $_}{$_}{/foreach}
 
 </div>
+
+<script>
+    $(function(){
+        function checkTermsAgreement() {
+            return $('div[data-step-id="confirmation"] label input').is(':checked');
+        }
+        function btnBlocked() {
+            if (!checkTermsAgreement()){
+                $('.checkout-submit-btn').removeClass('blocked');
+                $('.checkout-submit-btn').find('.button').remove();
+                $('.checkout-submit-btn').addClass('blocked');
+                $('.checkout-submit-btn').append($('<div class="button">Оформить заказ</>'));
+                modalToggle();
+            } else {
+                $('.checkout-submit-btn').removeClass('blocked');
+                $('.checkout-submit-btn').find('.button').remove();
+            }
+        }
+
+        function modalToggle() {
+            $('.checkout-submit-btn').find('.button').on('click', function(e){
+                e.stopPropagation();
+                const modal = $(`<div class="modal__wrap"><div class="modal"><div class="modal__text">Для оформления заказа Вы должны принять условия предоставления услуг</div><div class="modal__closed">✕</div></div></div>`);
+                $('body').append(modal);
+
+                $(document).on('click', function (e) {
+                    if ($(e.target).hasClass('modal__wrap') || $(e.target).hasClass('modal__closed')) {
+                        $('body>.modal__wrap').remove();
+                    }
+                })
+            })
+        }
+
+        btnBlocked();
+
+        $('div[data-step-id="confirmation"] label').on('click', function(){
+            setTimeout(()=>{
+                btnBlocked();
+            }, 100)
+
+        })
+    })
+
+</script>
 {/strip}

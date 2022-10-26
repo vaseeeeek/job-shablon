@@ -114,7 +114,7 @@ svg:not(:root) {
 }
 
 button, input, optgroup, select, textarea {
-  font-family: sans-serif;
+  /*font-family: sans-serif;*/
   margin: 0
 }
 
@@ -1506,6 +1506,9 @@ iframe {
   font-size: 1.2rem;
   text-decoration: line-through;
   color: #8e8e8e;
+  margin-right: 0.5rem;
+  line-height: 1;
+  margin-bottom: 1px;
 }
 
 .comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover, .star-empty {
@@ -3121,6 +3124,7 @@ img.mfp-img {
   margin-bottom: 1.714rem;
   width: 100%;
   flex: 1 0 auto;
+  padding-top: 1rem;
 
   &.bg-gray {
     margin: 0;
@@ -4318,6 +4322,7 @@ textarea {
           display: flex;
           align-items: center;
 
+
           &:hover {
             background-color: #f3f4f7;
           }
@@ -4405,6 +4410,9 @@ textarea {
       box-sizing: border-box;
       padding-right: rem(10px);
       margin-bottom: rem(10px);
+      &.pos-rel {
+        position: relative;
+      }
 
       .Nav__horizontal--link-2 {
         font-weight: 700;
@@ -4439,6 +4447,11 @@ textarea {
   margin: 0 0 1.5rem 0;
   transition: top 0.5s ease-out;
 
+  &--none-mb-pb {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
   &.sticky {
     position: fixed;
     width: 100%;
@@ -4446,9 +4459,18 @@ textarea {
     background: #fff;
     padding-top: 2rem;
     padding-bottom: 0;
+
     & > .container {
       padding-bottom: 10px;
     }
+  }
+
+  & > .container {
+    padding-bottom: 10px;
+  }
+
+  & > .container--none-pb {
+    padding-bottom: 0px;
   }
 
   .Nav-contact-info {

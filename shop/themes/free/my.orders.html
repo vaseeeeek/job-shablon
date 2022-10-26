@@ -7,6 +7,9 @@
 
 <div class="Orders__List">
     {foreach $orders as $item}
+        {if $item.state->id == 'new'}
+            {$countNewOrder = $countNewOrder + 1}
+        {/if}
         <div class="Orders__Item">
             <div class="Orders__Info">
                 <div class="Orders__Status">
@@ -50,5 +53,5 @@
         [`You have no order history yet.`]
     {/foreach}
 </div>
-
+<span data-new-orders-count="{$countNewOrder}" style="display: none">Новых заказов: {$countNewOrder}</span>
 {$wa->globals('isMyAccount', true)}

@@ -690,7 +690,7 @@ var cart = {
                         _this.animationMoveToCart($this);
                     }
                 } else {
-                    messages.notifyDanger(response.errors);
+                    //messages.notifyDanger(response.errors);
                 }
             }, 'json');
         });
@@ -2709,6 +2709,33 @@ function Product(form, options, skus = false) {
     if (Object.keys(skus).length > 1 ) {
         this.updateFeatures(options);
     }
+    if ($('.product-total').length > 0) {
+        this.updateTotalPrice();
+    }
+}
+
+Product.prototype.updateTotalPrice = function() {
+    $(function(){
+        $('.js-feature-sku').on('change', function () {
+            getTotal();
+        })
+        $('select.js-product-skus').on('change', function () {
+            getTotal();
+        })
+        $('.js-product-skus li').on('click', function(e) {
+            getTotal();
+        })
+        $('[name="quantity"]').on('change',function(){
+            getTotal();
+        })
+        function getTotal(){
+            const price = $('.product__price.price').data('price') * $('[name="quantity"]').val();
+            const currency = $('.product__price.price').find('span').clone();
+            $('.product-total').text(` ${price.toLocaleString()} `);
+            $('.product-total').prepend($('<span class="product-total__text">Итого:</span>'));
+            $('.product-total').append(currency);
+        }
+    })
 }
 
 Product.prototype.serviceVariantHtml = function (id, name, price) {
@@ -2825,7 +2852,6 @@ Product.prototype.updateFeatures = function (options) {
             if ($('.js-product-skus').hasClass('md')) {
                 key = $('.js-product-skus').find('option[selected="selected"]').attr('value');
             } else {
-                $()
                 key = $('.js-product-skus').find('.checked').find('input').attr('value');
             }
         }
@@ -2990,12 +3016,14 @@ Product.prototype.updatePrice = function (price, compare_price) {
             var price = parseFloat(input_checked.data('price'));
             var compare_price = parseFloat(input_checked.data('compare-price'));
         } else {
-            if ($('.product__header .product-card_discounts').data('compare') && $('.services label').hasClass('checked')) {
+            if ($('.product__header .product-card_discounts').data('compare')) {
                 var compare_price = parseFloat($('.product__header .product-card_discounts').data('compare'));
             }
             var price = parseFloat(this.add2cart.find(".price").data('price'));
         }
     }
+
+
     if (compare_price && price) {
         if (!this.add2cart.find(".js-compare-at-price").length) {
             this.add2cart.find(".price").after('<span class="js-compare-at-price product__old-price old-price nowrap"></span>');

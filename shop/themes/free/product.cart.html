@@ -264,6 +264,12 @@
                                 </span>
                             {/if}
 
+                            {if $theme_settings.yedinitsa_izmereniya && $product.features['yedinitsa_izmereniya']}
+                                <span class="product__yedinitsa-izmereniya">
+                                    за {$product.features['yedinitsa_izmereniya']}
+                                </span>
+                            {/if}
+
                             {if $theme_settings.product_show_multi_sku && $theme_settings.product_item_name_display == 'purchase_block'}
                                 <div class="pd-code__box">
                                     {foreach $product.skus as $sku}
@@ -366,6 +372,12 @@
                                         {$theme_settings.bonus_accrual_text}
                                     </div>
                                 {/if}
+                            </div>
+                        {/if}
+                        {if $theme_settings.product_total_price}
+                            <div class="product-total">
+                                <span class="product-total__text">Итого: </span>
+                                {shop_currency_html($product.price)}
                             </div>
                         {/if}
                         {if $theme_settings.display_buy_one_click}<div class="button-one-click__wrap">{/if}

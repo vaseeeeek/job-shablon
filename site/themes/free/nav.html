@@ -47,7 +47,7 @@
                                         <div class="Nav__horizontal--list-2">
                                             {if $fullWidthDdMenu && $theme_settings.drop_down_horizontal_menu && !$theme_settings.drop_down_horizontal_menu_absolute}<div class="container">{/if}
                                                 {foreach $cat.childs as $id => $cat2}
-                                                    <div class="Nav__horizontal--item-2{if $cat2.childs && $theme_settings.drop_down_horizontal_menu_absolute} -hasChilds js-cat-subs-dropdown{/if}">
+                                                    <div class="Nav__horizontal--item-2{if $cat2.childs && $theme_settings.drop_down_horizontal_menu_absolute} -hasChilds js-cat-subs-dropdown{/if}{if $theme_settings.position_drop_down_categories == "parent"} pos-rel{/if}">
                                                         <a class="Nav__horizontal--link-2" href="{$cat2.url}">
                                                             {$cat2.name}
                                                         </a>
