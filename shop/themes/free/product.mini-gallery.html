@@ -1,52 +1,64 @@
 {strip}
-{$video = $product->video}
-{$_popupOn = true}
-{$_popupOnThumbs = true}
-{$_zoomOn = $theme_settings.zoom_gallery__product && !$wa->isMobile()}
-{if !$wa->isMobile()}
-    {$class_popup="js-image-popup-swipebox"}
-{else}
-    {$class_popup="js-popup-photoswipe"}
-    <link rel="stylesheet" href="/wa-data/public/site/themes/free/photoswipe/photoswipe.css">
-{/if}
+    {$video = $product->video}
+    {$_popupOn = true}
+    {$_popupOnThumbs = true}
+    {$_zoomOn = $theme_settings.zoom_gallery__product && !$wa->isMobile()}
+    {if !$wa->isMobile()}
+        {$class_popup="js-image-popup-swipebox"}
+    {else}
+        {$class_popup="js-popup-photoswipe"}
+        <link rel="stylesheet" href="/wa-data/public/site/themes/free/photoswipe/photoswipe.css">
+    {/if}
 
-{if count($product.images) > 1 || (count($product.images) === 1 && $video)}
-    {$productGalleryOn = true}
-{/if}
+    {if count($product.images) > 1 || (count($product.images) === 1 && $video)}
+        {$productGalleryOn = true}
+    {/if}
 
-{$proportions = explode(' ', $theme_settings.product_image_proportions)}
+    {$proportions = explode(' ', $theme_settings.product_image_proportions)}
 
-<div class="product-page_main-left{if $productGalleryOn} -productMiniGallery{/if}{if $theme_settings.product_horizontal_gallery} -horizontalMiniature{/if}" {if !$wa->isMobile() && $theme_settings.product_image_proportions != 'auto'}data-form="{$proportions[0]}" data-size="{$proportions[1]}"{/if}>
-    {if $productGalleryOn}
-        {$_carouselOn = count($product.images) > 6 && !$wa->isMobile()}
-        {$productThreeColums = true}
-        <div id="product-gallery" class="previews_gallery{if $_carouselOn && !$theme_settings.product_horizontal_gallery} carousel-vertical{/if}">
-            <div class="image-preview-list{if $_carouselOn && !$theme_settings.product_horizontal_gallery} js-previews-gallery{/if}" {if $_carouselOn && !$theme_settings.product_horizontal_gallery}data-min-items="6"{/if}>
-                {$position = 0}
-                {foreach $product.images as $image}
-                    <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
-                        <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, $theme_settings.product_image_size_zoom)}">
-                            {if !$wa->isMobile()}
-                                {$wa->shop->imgHtml($image, '50')}
-                            {else}
-                                {$wa->shop->imgHtml($image, '96')}
-                            {/if}
-                        </a>
-                    </div>
-                    {$position = $position + 1}
-                {/foreach}
-                {if $video && $wa->isMobile()}
-                    <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
-                        {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
+    <div class="product-page_main-left{if $productGalleryOn} -productMiniGallery{/if}{if $theme_settings.product_horizontal_gallery} -horizontalMiniature{/if}" {if !$wa->isMobile() && $theme_settings.product_image_proportions != 'auto'}data-form="{$proportions[0]}" data-size="{$proportions[1]}"{/if}>
+        {if $productGalleryOn}
+            {$_carouselOn = count($product.images) > 6 && !$wa->isMobile()}
+            {$productThreeColums = true}
+            <div id="product-gallery" class="previews_gallery{if $_carouselOn && !$theme_settings.product_horizontal_gallery} carousel-vertical{/if}">
+                <div class="image-preview-list{if $_carouselOn && !$theme_settings.product_horizontal_gallery} js-previews-gallery{/if}" {if $_carouselOn && !$theme_settings.product_horizontal_gallery}data-min-items="6"{/if}>
+                    {$position = 0}
+                    {foreach $product.images as $image}
+                        <div data-id="{$image.id}" data-position="{$position}" class="js-id-preview-gallery image-preview{if $image.id == $product.image_id} selected{/if}">
+                            <a id="product-image-{$image.id}" href="{$wa->shop->imgUrl($image, $theme_settings.product_image_size_zoom)}">
+                                {if !$wa->isMobile()}
+                                    {$wa->shop->imgHtml($image, '50')}
+                                {else}
+                                    {$wa->shop->imgHtml($image, '96')}
+                                {/if}
+                            </a>
+                        </div>
+                        {$position = $position + 1}
+                    {/foreach}
+                    {if $video && $wa->isMobile()}
+                        <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                            {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
 
-                        <a href="{$video.url}">
-                            <img class="prewiev" src="https://img.youtube.com/vi/{$videoId}/0.jpg" alt="">
-                            <img class="video-icon" src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
-                        </a>
-                    </div>
-                    {$position = $position + 1}
-                {/if}
-                {if $video && !$wa->isMobile() && $theme_settings.product_horizontal_gallery}
+                            <a href="{$video.url}">
+                                <img class="prewiev" src="https://img.youtube.com/vi/{$videoId}/0.jpg" alt="">
+                                <img class="video-icon" src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                            </a>
+                        </div>
+                        {$position = $position + 1}
+                    {/if}
+                    {if $video && !$wa->isMobile() && $theme_settings.product_horizontal_gallery}
+                        <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
+                            {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
+
+                            <a href="{$video.url}">
+                                <img class="prewiev" src="https://img.youtube.com/vi/{$videoId}/0.jpg" alt="">
+                                <img class="video-icon" src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
+                            </a>
+                        </div>
+                        {$position = $position + 1}
+                    {/if}
+                </div>
+                {if $video && !$wa->isMobile() && !$theme_settings.product_horizontal_gallery}
                     <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
                         {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
 
@@ -58,31 +70,19 @@
                     {$position = $position + 1}
                 {/if}
             </div>
-            {if $video && !$wa->isMobile() && !$theme_settings.product_horizontal_gallery}
-                <div data-id="video" data-video="true" data-position="{$position}" class="js-id-preview-gallery image-preview image-preview--video{if count($product.images) == 0} selected{/if}">
-                    {$videoId = $video.url|replace:'//www.youtube.com/embed/':''}
+        {/if}
 
-                    <a href="{$video.url}">
-                        <img class="prewiev" src="https://img.youtube.com/vi/{$videoId}/0.jpg" alt="">
-                        <img class="video-icon" src="{$wa_active_theme_url}/img/svg/youtube.svg" alt="">
-                    </a>
-                </div>
-                {$position = $position + 1}
-            {/if}
-        </div>
-    {/if}
-
-    {if isset($product.autobadge) && !empty($product.autobadge)}{$product.autobadge}{/if}
-    <div class="product_gallery-images js-product_gallery-images"{if !empty($_popupOnThumbs)} data-thumbs="true"{/if} data-zoom="{$_zoomOn}"  data-popup="{$_popupOn}">
-        <!-- main image -->
-        <div data-position="fixed" class="js-preview-cart" id="product-core-image">
-            <div class="js-product_gallery-images-main product_gallery-images-main owl-carousel{if $theme_settings.product_image_proportions != 'auto'} product_gallery-images-main--align-center{/if}">
-                {if $product.images || $video}
-                    {$position = 0}
-                    {if $product.images}
-                        {foreach $product.images as $image}
-                            {if $wa->isMobile()}{$img_props = getimagesize($wa->server('DOCUMENT_ROOT')|cat:$wa->shop->imgUrl($image, '650x0'))}{/if}
-                            <span class="product_gallery-images-main-el-outer">
+        {if isset($product.autobadge) && !empty($product.autobadge)}{$product.autobadge}{/if}
+        <div class="product_gallery-images js-product_gallery-images"{if !empty($_popupOnThumbs)} data-thumbs="true"{/if} data-zoom="{$_zoomOn}"  data-popup="{$_popupOn}">
+            <!-- main image -->
+            <div data-position="fixed" class="js-preview-cart" id="product-core-image">
+                <div class="js-product_gallery-images-main product_gallery-images-main owl-carousel{if $theme_settings.product_image_proportions != 'auto'} product_gallery-images-main--align-center{/if}">
+                    {if $product.images || $video}
+                        {$position = 0}
+                        {if $product.images}
+                            {foreach $product.images as $image}
+                                {if $wa->isMobile()}{$img_props = getimagesize($wa->server('DOCUMENT_ROOT')|cat:$wa->shop->imgUrl($image, '650x0'))}{/if}
+                                <span class="product_gallery-images-main-el-outer">
                                 <a data-id="{$image.id}" {if $image@iteration == 1} itemprop="image"{/if} class="product_gallery-images-main-el js-product_gallery-images-main-el{if $_popupOn} {$class_popup}{/if}{if !$_popupOn} cursor-default{/if}" href="{$wa->shop->imgUrl($image, $theme_settings.product_image_size_zoom)}" data-position="{$position}" {if $wa->isMobile()}data-pswp-width="{$img_props[0]}" data-pswp-height="{$img_props[1]}"{/if}>
                                     {if $image@first}
                                         {$image_description = $image.description}
@@ -93,29 +93,29 @@
                                 </a>
                             </span>
 
+                                {$position = $position + 1}
+                                {if $image@first}
+                                    {$first_image = $wa->shop->imgUrl($image, '650x0')}
+                                    {$wa->globals('preload_image', $first_image)}
+                                {/if}
+                            {/foreach}
+                        {/if}
+                        {if $video}
+                            <div data-id="video" data-video-url="{$video.url}" data-video-width="{$video.width}" data-video-height="{$video.height}" class="product_gallery-images-main-el js-product_gallery-images-main-el" data-position="{$position}">
+                                {if $position == 0}
+                                    <iframe src="{$video.url}" width="{$video.width}" height="{$video.height}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                {/if}
+                            </div>
                             {$position = $position + 1}
-                            {if $image@first}
-                                {$first_image = $wa->shop->imgUrl($image, '650x0')}
-                                {$wa->globals('preload_image', $first_image)}
-                            {/if}
-                        {/foreach}
+                        {/if}
+                    {else}
+                        {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
+                        <img src="{$dummy96}" alt="{$product.name|escape}"/>
                     {/if}
-                    {if $video}
-                        <div data-id="video" data-video-url="{$video.url}" data-video-width="{$video.width}" data-video-height="{$video.height}" class="product_gallery-images-main-el js-product_gallery-images-main-el" data-position="{$position}">
-                            {if $position == 0}
-                                <iframe src="{$video.url}" width="{$video.width}" height="{$video.height}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                            {/if}
-                        </div>
-                        {$position = $position + 1}
-                    {/if}
-                {else}
-                    {$dummy96 = "{$wa_theme_url}img/dummy96.png"}
-                    <img src="{$dummy96}" alt="{$product.name|escape}"/>
-                {/if}
+                </div>
             </div>
         </div>
-    </div>
-    {if !$wa->isMobile()  && $theme_settings.product_image_proportions != 'auto'}
+        {if !$wa->isMobile()  && $theme_settings.product_image_proportions != 'auto'}
         {literal}
             <script>
                 function editSizeImage(){
@@ -133,8 +133,8 @@
                 editSizeImage();
             </script>
         {/literal}
-    {/if}
-</div>
+        {/if}
+    </div>
 {/strip}
 {if $wa->isMobile()}
     <script type="module">

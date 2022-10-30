@@ -95,7 +95,7 @@
                 {$count_viewed = count(","|explode:$viewed_product_list)}
             {/if}
             <div class="product-custom">
-                <a class="product-custom--link" href="/search/?list=viewed">
+                <a class="product-custom--link" href="{$wa->getUrl('shop/frontend')}/search/?list=viewed">
                     <div class="product-custom_icon maincolor">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

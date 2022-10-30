@@ -4410,6 +4410,7 @@ textarea {
       box-sizing: border-box;
       padding-right: rem(10px);
       margin-bottom: rem(10px);
+
       &.pos-rel {
         position: relative;
       }
@@ -5763,6 +5764,30 @@ span.i-cityselect__city:before {
   }
   #themeOverride .homepage-text h3, #page h3, .product_page.tab-content_el h3, .product_description h3, .Brands__Description h3, .category-desc h3, .product-tab_title h3 {
     font-size: 1.2rem;
+  }
+}
+
+#page {
+  .page-child__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1rem 0;
+  }
+
+  .page-child__list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .page-child__link {
+      display: flex;
+      border-bottom: 0;
+      background: #f2f2f2;
+      color: #333;
+      border-radius: 25px;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      padding: 8px 11px;
+    }
   }
 }
 

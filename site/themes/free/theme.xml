@@ -2238,5 +2238,9 @@
       <msgid>Use</msgid>
       <msgstr locale="ru_RU">Применить</msgstr>
     </locale>
+    <locale>
+      <msgid>Subsections</msgid>
+      <msgstr locale="ru_RU">Подразделы</msgstr>
+    </locale>
   </locales>
 </theme>
