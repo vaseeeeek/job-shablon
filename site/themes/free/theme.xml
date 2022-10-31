@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.1.0" edition="5">
+<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.1.0" edition="14">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
@@ -84,7 +84,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#005bff</value>
+      <value>#00b412</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -95,7 +95,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#005bff</value>
+      <value>#00b412</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -107,7 +107,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value/>
+      <value>#000000</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -144,7 +144,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>roboto</value>
+      <value>opensans</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
@@ -266,7 +266,7 @@
       <name locale="ru_RU">Шапка</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1666087274</value>
+      <value>img/logo.png?v1667141990</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -277,12 +277,12 @@
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
     <setting var="width_logo" control_type="text">
-      <value>160</value>
+      <value>170</value>
       <name locale="en_US">Width of logo, px</name>
       <name locale="ru_RU">Ширина логотипа, px</name>
     </setting>
     <setting var="logo_width_mobile" control_type="text">
-      <value>160</value>
+      <value>170</value>
       <name locale="en_US">Logo width on mobile, px</name>
       <name locale="ru_RU">Ширина логотипа на мобильных, px</name>
     </setting>
@@ -354,7 +354,7 @@
       <name locale="en_US">Second phone</name>
     </setting>
     <setting var="header_show_phone_two" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Display the second number in the header</name>
       <name locale="ru_RU">Выводить второй номер в шапке</name>
     </setting>
@@ -364,7 +364,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="header_show_email" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Display email in the checker</name>
       <name locale="ru_RU">Выводить email в шаке</name>
     </setting>
@@ -389,7 +389,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
@@ -503,7 +503,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>cat</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -527,12 +527,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu_absolute" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывод горизонтального меню относительно наведения</name>
       <name locale="en_US"/>
     </setting>
@@ -570,7 +570,7 @@
       <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="home_blocks_list" control_type="text">
-      <value>slider,category,text,news,product-slider,brands</value>
+      <value>slider,category,product-slider,brands,news,text</value>
       <name locale="en_US">Home blocks</name>
       <name locale="ru_RU">Блоки на главной</name>
       <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
@@ -669,24 +669,24 @@
       </options>
     </setting>
     <setting var="promo_card_one" control_type="image">
-      <value>img/promoone.jpg?v1666087231</value>
+      <value>img/promoone.jpg?v1667131373</value>
       <filename>img/promoone.*</filename>
       <name locale="ru_RU">Изображение промо-карточки 1</name>
       <name locale="en_US">Image of promo card 1</name>
     </setting>
     <setting var="promo_card_one_text" control_type="text">
-      <value>Текст промо-карточки 1</value>
+      <value>Более 200 готовых блюд</value>
       <name locale="en_US">Text promo card 1</name>
       <name locale="ru_RU">Текст промо-карточки 1</name>
     </setting>
     <setting var="promo_card_two" control_type="image">
-      <value>img/promotwo.jpg?v1666087231</value>
+      <value>img/promotwo.jpg?v1667133260</value>
       <filename>img/promotwo.*</filename>
       <name locale="ru_RU">Изображение промо-карточки 2</name>
       <name locale="en_US">Image of promo card 2</name>
     </setting>
     <setting var="promo_card_two_text" control_type="text">
-      <value>Текст промо-карточки 2</value>
+      <value>100% свежевыжатые соки</value>
       <name locale="en_US">Text promo card 2</name>
       <name locale="ru_RU">Текст промо-карточки 2</name>
     </setting>
@@ -712,7 +712,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="home_categories_title" control_type="text">
-      <value>Категории</value>
+      <value><![CDATA[Основные категории]]></value>
       <name locale="ru_RU">Заголовок</name>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
@@ -721,7 +721,7 @@
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
     <setting var="category_row_home" control_type="select">
-      <value>seven</value>
+      <value>eight</value>
       <name locale="ru_RU">
                 Количество категорий в строке на главной
             </name>
@@ -868,7 +868,7 @@
       <name locale="en_US">Show crumbs in categories</name>
     </setting>
     <setting var="compare" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Comparison</name>
       <name locale="ru_RU">Сравнение</name>
     </setting>
@@ -1312,7 +1312,7 @@
       <name locale="ru_RU">Поле кол-во "построчно"</name>
     </setting>
     <setting var="use_plugin_arrived" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="en_US">Use plugin arrived</name>
       <name locale="ru_RU">Уведомление о поступлении</name>
     </setting>
@@ -1424,7 +1424,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_two</value>
+      <value>product_columns_three</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -1926,7 +1926,7 @@
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
     </setting>
     <setting var="viewed_items_header" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
       <name locale="en_US">The "viewed items" link in the header</name>
     </setting>
