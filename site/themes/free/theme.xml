@@ -679,6 +679,11 @@
       <name locale="en_US">Text promo card 1</name>
       <name locale="ru_RU">Текст промо-карточки 1</name>
     </setting>
+    <setting var="promo_card_href_one" control_type="text">
+      <value>/123/</value>
+      <name locale="en_US">Href promo card 1</name>
+      <name locale="ru_RU">Ссылка промо-карточки 1</name>
+    </setting>
     <setting var="promo_card_two" control_type="image">
       <value>img/promotwo.jpg?v1667133260</value>
       <filename>img/promotwo.*</filename>
@@ -690,6 +695,11 @@
       <name locale="en_US">Text promo card 2</name>
       <name locale="ru_RU">Текст промо-карточки 2</name>
     </setting>
+    <setting var="promo_card_href_two" control_type="text">
+      <value>/222/</value>
+      <name locale="en_US">Href promo card 2</name>
+      <name locale="ru_RU">Ссылка промо-карточки 2</name>
+    </setting>
     <setting var="promo_card_three" control_type="image">
       <value>img/promothree.jpg?v1666087231</value>
       <filename>img/promothree.*</filename>
@@ -700,6 +710,11 @@
       <value>Текст промо-карточки 3</value>
       <name locale="en_US">Text promo card 3</name>
       <name locale="ru_RU">Текст промо-карточки 3</name>
+    </setting>
+    <setting var="promo_card_href_three" control_type="text">
+      <value>/333/</value>
+      <name locale="en_US">Href promo card 3</name>
+      <name locale="ru_RU">Ссылка промо-карточки 3</name>
     </setting>
     <setting var="paragraph_mainpage_categories" control_type="paragraph">
       <value/>
