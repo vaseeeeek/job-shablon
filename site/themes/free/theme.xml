@@ -650,7 +650,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>
@@ -1424,7 +1424,7 @@
       <name locale="ru_RU">Страница товара</name>
     </setting>
     <setting var="product_horizontal_gallery" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Горизонтальная миниатюры</name>
       <name locale="en_US">Horizontal miniature</name>
     </setting>

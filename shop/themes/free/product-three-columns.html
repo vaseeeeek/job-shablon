@@ -69,7 +69,7 @@
                                                 <div class="pd_option_select-title">
                                                     {$f.name}:
                                                 </div>
-                                                <select data-feature-id="{$f.id}" class="js-feature-sku feature-sku md" name="features[{$f.id}]">
+                                                <select data-feature-id="{$f.id}" class="js-feature-sku feature-sku md sku-feature" name="features[{$f.id}]">
                                                     {foreach $f.values as $v_id => $v}
                                                         <option value="{$v_id}"
                                                                 {if $v_id == ifset($skuCode_feat_def[$f.id])}selected{/if}>{$v}</option>

@@ -225,7 +225,10 @@ var reviews = {
         })
     }, clearFilterItem: function (e) {
         e = $(".js-filters").find(".js-filter-el[data-code='" + e + "']");
-        e.find('input[type="checkbox"], input[type="radio"]').prop("checked", !1).trigger("refresh"), e.find('input[type="text"]').val(""), $(".js-filters .js-slider-range").remove(), this.rangeFilter($(".js-filters .js-filter-range"))
+        e.find('input[type="checkbox"], input[type="radio"]').prop("checked", !1).trigger("refresh"),
+        e.find('input[type="text"]').val(""),
+        $(".js-filters .js-slider-range").remove(),
+        this.rangeFilter($(".js-filters .js-filter-range"))
     }, subcatFilterAdd: function (e) {
         var i, t = $(".js-cat_sub"), a = t.data("save-filters"), s = t.data("save-filters-aliases"), r = e,
             t = t.find(".js-cat-link");

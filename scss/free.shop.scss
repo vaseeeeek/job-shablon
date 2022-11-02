@@ -723,8 +723,10 @@ $html-font-size: 14px;
     width: auto;
   }
 }
-.promo {
-  margin-top: 1.5rem;
+@media (min-width: 1025px){
+  .promo {
+    margin-top: 1.5rem;
+  }
 }
 .promo, .homepage-categories, .homepage-text-outer, .homepage-news-outer, .home-products, .brands {
   margin-bottom: 2.5rem;
@@ -7078,13 +7080,13 @@ img.pswp__img {
 }
 
 .carousel-vertical .bx-prev:after {
-  content: "\e92c";
+  content: "\e917";
   line-height: 30px;
   font-size: 1.2rem;
 }
 
 .carousel-vertical .bx-next:after {
-  content: "\e92f";
+  content: "\e910";
   line-height: 30px;
   font-size: 1.2rem;
 }

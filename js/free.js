@@ -2659,7 +2659,9 @@ function Product(form, options, skus = false) {
             key += $(this).data('feature-id') + ':' + $(this).val() + ';';
         });
         var sku = self.features[key];
-        self.checkQtyProduct(sku.id, skus);
+        if (sku) {
+            self.checkQtyProduct(sku.id, skus);
+        }
         if (sku) {
             if (sku.image_id) {
                 itemGallery.changeBigImg($("#product-image-" + sku.image_id));
