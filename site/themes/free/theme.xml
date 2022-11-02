@@ -461,7 +461,7 @@
       </options>
     </setting>
     <setting var="position_drop_down_categories" control_type="select">
-      <value>parent</value>
+      <value>all</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -476,7 +476,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий
@@ -650,7 +650,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>
@@ -712,7 +712,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="home_categories_title" control_type="text">
-      <value><![CDATA[Основные категории]]></value>
+      <value>Основные категории</value>
       <name locale="ru_RU">Заголовок</name>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">

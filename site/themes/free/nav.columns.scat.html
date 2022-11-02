@@ -35,7 +35,14 @@
                                 <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                             {/if}
                             <div class="subcat-opened__el-name">
-                                <a  href="{$catChild_2.url}">{$catChild_2.name}</a>
+                                <a  href="{$catChild_2.url}">
+                                    {$catChild_2.name}
+                                    {if $catChild_2.params.productQuantity}
+                                        <span class="menu-product-count">
+                                            ({$catChild_2.params.productQuantity})
+                                        </span>
+                                    {/if}
+                                </a>
                             </div>
 
                             {if $_subcat_lvl2}
@@ -43,7 +50,14 @@
                                     {foreach $catChild_2.childs as $catChild_3}
                                         {if !isset($catChild_3.params.menu_hide)}
                                             <div class="sub-category-opened__sub">
-                                                <a href="{$catChild_3.url}">{$catChild_3.name}</a>
+                                                <a href="{$catChild_3.url}">
+                                                    {$catChild_3.name}
+                                                    {if $catChild_3.params.productQuantity}
+                                                        <span class="menu-product-count">
+                                                            ({$catChild_3.params.productQuantity})
+                                                        </span>
+                                                    {/if}
+                                                </a>
                                             </div>
                                         {/if}
                                     {/foreach}

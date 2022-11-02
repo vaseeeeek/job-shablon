@@ -73,7 +73,6 @@
                         {$_subcat = 1}
                     {/if}
                     <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
-
                         {if $cat.id == 'else'}
                             <div class="cat-menu__item-link">
                                 <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
@@ -96,7 +95,14 @@
                                         </span>
                                     {/if}
                                     {$cat.name}
+                                    {if $cat.params.productQuantity}
+                                        <span class="menu-product-count">
+                                            ({$cat.params.productQuantity})
+                                        </span>
+                                    {/if}
                                 </div>
+
+
                             </a>
                         {/if}
                         {if $_subcat}

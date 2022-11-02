@@ -3,7 +3,14 @@
         {$filters = []}
     {/if}
 
-    <h1 class="category-name">{$category.name|escape}</h1>
+    <h1 class="category-name">
+        {$category.name|escape}
+        {if $category.params.productQuantity}
+            <span class="cartegory-product-count">
+                {$category.params.productQuantity} товаров
+            </span>
+        {/if}
+    </h1>
     <div class="category">
         {if !$wa->isMobile()}
             <div class="out_sidebars -mr">
