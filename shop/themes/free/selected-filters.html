@@ -102,4 +102,15 @@
 {/if}
 {/strip}
 
-
+{literal}
+    <script>
+        $('.js-filter-checked-remove').on('click',function(){
+            const code = $(this).data('code');
+            if ($(`.js-filter-el[data-code="${code}"]`).find('.option-color_outer').length) {
+                $(`.js-filter-el[data-code="${code}"]`).find('.option-color_outer').removeClass('checked');
+            } else {
+                $(`.js-filter-el[data-code="${code}"]`).find('.checked').removeClass('checked');
+            }
+        })
+    </script>
+{/literal}
