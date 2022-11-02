@@ -50,6 +50,11 @@
                                                     <div class="Nav__horizontal--item-2{if $cat2.childs && $theme_settings.drop_down_horizontal_menu_absolute} -hasChilds js-cat-subs-dropdown{/if}{if $theme_settings.position_drop_down_categories == "parent"} pos-rel{/if}">
                                                         <a class="Nav__horizontal--link-2" href="{$cat2.url}">
                                                             {$cat2.name}
+                                                            {if $cat2.params.productQuantity}
+                                                                <span class="menu-product-count">
+                                                                    ({$cat2.params.productQuantity})
+                                                                </span>
+                                                            {/if}
                                                         </a>
                                                         {if $cat2.childs && $theme_settings.drop_down_horizontal_menu_absolute}
                                                             <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
@@ -60,6 +65,11 @@
                                                                     <div class="Nav__horizontal--item-3 {if $theme_settings.number_output_categories_third_level < $cat3@iteration && !$theme_settings.drop_down_horizontal_menu_absolute}hide{/if}">
                                                                         <a class="Nav__horizontal--link-3" href="{$cat3.url}">
                                                                             {$cat3.name}
+                                                                            {if $cat3.params.productQuantity}
+                                                                                <span class="menu-product-count">
+                                                                                    ({$cat3.params.productQuantity})
+                                                                                </span>
+                                                                            {/if}
                                                                         </a>
                                                                     </div>
                                                                 {/foreach}
