@@ -17,6 +17,8 @@
             {if $wa->shop}
                 {if $theme_settings.hide_cat_burger}
                     {$hideCatList = true}
+                {else}
+                    {$hideCatList = false}
                 {/if}
                 {if $hideCatList}
                     <div class="MobileMenu_nav__catalog-title js-show-cat -hide">Перейти в каталог →</div>

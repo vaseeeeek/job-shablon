@@ -461,7 +461,7 @@
       </options>
     </setting>
     <setting var="position_drop_down_categories" control_type="select">
-      <value>parent</value>
+      <value>all</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -527,7 +527,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -542,7 +542,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>

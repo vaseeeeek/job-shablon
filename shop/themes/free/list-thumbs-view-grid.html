@@ -45,7 +45,7 @@
 
     {$showProduct = true}
 
-    {if $swipeImage}
+    {if !empty($swipeImage)}
         <script>
             imgObjProducts[{$p.id}] = [];
             {foreach $images as $image}
@@ -121,15 +121,15 @@
                     {/if}
 
                     {$_badge_percent = $theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0}
-                    {if $_badge_percent && $compare_price > $price}
+                    {if $_badge_percent && $product.compare_price > $product.price}
                         {if $theme_settings.product_discount_percentage == 1}
-                            {$compare_price = $product.compare_price}
-                            {$price = $product.price}
-                            {$discount = (($compare_price-$price)/$compare_price)*100}
+                            {$product.compare_price = $product.compare_price}
+                            {$product.price = $product.price}
+                            {$discount = (($product.compare_price-$product.price)/$product.compare_price)*100}
                             {$discount = ceil($discount)}
 
-                            {$productDiscount = isset($discount) && $price > 0}
-                            <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}"{if $product.sku_count < 2} data-compare="{$compare_price}"{/if}>
+                            {$productDiscount = isset($discount) && $product.price > 0}
+                            <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}"{if $product.sku_count < 2} data-compare="{$product.compare_price}"{/if}>
                                 <span data-minimal="3" class="js-product-discount ">{if $productDiscount}-{$discount}%{/if}</span>
                             </div>
                         {/if}

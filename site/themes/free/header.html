@@ -3,7 +3,7 @@
     <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}href="{$wa->getUrl('shop/frontend')}"{/if}>
         {if $theme_settings.path_svg_logo}
             <img src="{$theme_settings.path_svg_logo}" alt="{$wa->accountName()}" id="logo">
-        {elseif $is_logo}
+        {elseif !empty($is_logo)}
             <img src="{$wa_theme_url|cat:$theme_settings.logo}" alt="{$wa->accountName()}" id="logo"/>
         {/if}
     </a>

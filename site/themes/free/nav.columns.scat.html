@@ -8,12 +8,8 @@
 {else}
     {$total_childs_col = ceil(count($cat.childs) / $totalColumns)}
 {/if}
-{if $fullWidthMenu}
-    {$total_childs_col = 1}
-    {$totalColumns = count($cat.childs)}
-{/if}
 <div class="menu-subcategory cols-{if $isBrand}4{else}{ceil(count($cat.childs) / $total_childs_col)}{/if} menu-subcategory--disclosed js-subcategory-menu">
-    <div class="sub-category_cols {if $fullWidthMenu}sub-category_cols--full-width{/if}">
+    <div class="sub-category_cols">
         <div class="{if $type_align_subcat == 'column'}sub-category_col{/if}">
             {$index = 1}
             {foreach $cat.childs as $keyCatChild => $catChild_2}

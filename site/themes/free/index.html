@@ -174,11 +174,11 @@
         {/if}
         {if $theme_settings.path_svg_logo}
             {$organizationLogo = $theme_settings.path_svg_logo}
-        {elseif $is_logo}
+        {elseif !empty($is_logo)}
             {$organizationLogo = $wa_theme_url|cat:$theme_settings.logo}
         {/if}
         <span itemprop="logo" itemscope="" itemtype="http://schema.org/ImageObject" style="display: none">
-            {if $organizationLogo}
+            {if !empty($organizationLogo)}
                 <meta itemprop="logo" content="{$organizationLogo}">
                 <meta itemprop="contentUrl" content="{$organizationLogo}"/>
             {/if}

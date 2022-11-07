@@ -89,7 +89,7 @@
                                     {/if}
                                 {/if}
                                 <div class="cat-menu__item-title">
-                                    {if $cat.params.menuIcon}
+                                    {if !empty($cat.params.menuIcon)}
                                         <span class="cat-menu__item--icon">
                                             <img src="{$cat.params.menuIcon}" alt="">
                                         </span>
