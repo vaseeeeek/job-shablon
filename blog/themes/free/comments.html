@@ -47,16 +47,16 @@
         {include file="./comment.form.html" inline}
     </div>
 
-    <script>
-        ( function($) {
-            new window.waTheme.init.blog.CommentForm({
-                $wrapper: $("#js-comments-section"),
-                require_auth: {if $require_authorization}true{else}false{/if},
-                auth_source: "{$current_auth_source}",
-                authorized: {if !empty($current_user_id)}true{else}false{/if}
-            });
-        })(jQuery);
-    </script>
+{*    <script>*}
+{*        ( function($) {*}
+{*            new window.waTheme.init.blog.CommentForm({*}
+{*                $wrapper: $("#js-comments-section"),*}
+{*                require_auth: {if $require_authorization}true{else}false{/if},*}
+{*                auth_source: "{$current_auth_source}",*}
+{*                authorized: {if !empty($current_user_id)}true{else}false{/if}*}
+{*            });*}
+{*        })(jQuery);*}
+{*    </script>*}
 
 </section>
 

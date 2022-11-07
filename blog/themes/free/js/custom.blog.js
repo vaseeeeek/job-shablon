@@ -452,8 +452,8 @@
 
     })(jQuery);
 
-    waTheme.init.blog.CommentForm = CommentForm;
-    waTheme.init.blog.LazyLoading = LazyLoading;
-    waTheme.init.blog.Post = Post;
+    // waTheme.init.blog.CommentForm = CommentForm;
+    // waTheme.init.blog.LazyLoading = LazyLoading;
+    // waTheme.init.blog.Post = Post;
 
 })(jQuery, window.waTheme);

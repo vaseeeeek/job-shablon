@@ -634,7 +634,7 @@ ul.menu-v.categories li.selected a {
 
 .b-sidebar-plugin .tags > a {
   opacity: 1 !important;
-  padding: 3px 5px;
+  padding: rem(5px) rem(10px);
   margin: 0 0.8rem 0.8rem 0;
 }
 

@@ -109,16 +109,16 @@
         {/if}
     </div>
 
-    <script>
-        ( function($) {
-            new window.waTheme.init.blog.Post({
-                $wrapper: $("#b-post-{$post.id}"),
-                search_query: {if !empty($is_search_post)}{$blog_query|escape|json_encode}{else}false{/if},
-                use_retina: {if blogPhotosBridge::is2xEnabled()}true{else}false{/if},
-                is_review: true
-            });
-        })(jQuery);
-    </script>
+{*    <script>*}
+{*        ( function($) {*}
+{*            new window.waTheme.init.blog.Post({*}
+{*                $wrapper: $("#b-post-{$post.id}"),*}
+{*                search_query: {if !empty($is_search_post)}{$blog_query|escape|json_encode}{else}false{/if},*}
+{*                use_retina: {if blogPhotosBridge::is2xEnabled()}true{else}false{/if},*}
+{*                is_review: true*}
+{*            });*}
+{*        })(jQuery);*}
+{*    </script>*}
 
 </article>
 

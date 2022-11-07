@@ -542,7 +542,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="horizontal_menu_between" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Растянуть горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>

@@ -95,7 +95,7 @@
                                         </span>
                                     {/if}
                                     {$cat.name}
-                                    {if $cat.params.productQuantity}
+                                    {if !empty($cat.params.productQuantity)}
                                         <span class="menu-product-count">
                                             ({$cat.params.productQuantity})
                                         </span>

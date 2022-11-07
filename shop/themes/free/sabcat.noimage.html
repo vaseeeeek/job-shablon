@@ -6,7 +6,7 @@
                 <a href="{$sc.url}" class="js-cat-link">
                     {$sc.name|escape}
 
-                    {if $sc.params.productQuantity}
+                    {if !empty($sc.params.productQuantity)}
                         <span class="sc-product-count">
                             ({$sc.params.productQuantity})
                         </span>

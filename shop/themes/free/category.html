@@ -5,7 +5,7 @@
 
     <h1 class="category-name">
         {$category.name|escape}
-        {if $category.params.productQuantity}
+        {if !empty($category.params.productQuantity)}
             <span class="cartegory-product-count">
                 {$category.params.productQuantity} товаров
             </span>
