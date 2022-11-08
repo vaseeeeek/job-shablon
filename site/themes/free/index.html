@@ -286,11 +286,6 @@
                     {if $theme_settings.header_company_email && $theme_settings.footer_show_email}
                         <li><a href="mailto:{$theme_settings.header_company_email}" class="Nav-contact-phone">{$theme_settings.header_company_email}</a></li>
                     {/if}
-                    {if $theme_settings.telegram}
-                        <li>
-                            Группа в <a class="link-half" href="{$theme_settings.telegram}">телеграм</a>
-                        </li>
-                    {/if}
                     <li>
                         <div class="footer-social">
                             {if !empty($theme_settings.facebook)}
@@ -330,8 +325,8 @@
                                     </svg>
                                 </a>
                             {/if}
-                            {if $theme_settings.telegram}
-                                <a  target="_blank" class="footer-social_item" href="{$theme_settings.telegram}">
+                            {if $theme_settings.telegram_group}
+                                <a  target="_blank" class="footer-social_item" href="{$theme_settings.telegram_group}">
                                     {literal}
                                         <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                              viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve" width="26px" height="26px">

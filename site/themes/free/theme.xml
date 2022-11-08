@@ -1811,6 +1811,12 @@
       <name locale="en_US">Twitter</name>
       <name locale="ru_RU">Twitter</name>
     </setting>
+    <setting var="telegram_group" control_type="text">
+      <value locale="en_US">https://twitter.com/webasyst</value>
+      <value locale="ru_RU">https://twitter.com/webasyst_ru</value>
+      <name locale="en_US">Telegram group</name>
+      <name locale="ru_RU">Telegram группа</name>
+    </setting>
     <setting var="vk" control_type="text">
       <value locale="en_US"/>
       <value locale="ru_RU">https://vk.com/webasyst_ru</value>
