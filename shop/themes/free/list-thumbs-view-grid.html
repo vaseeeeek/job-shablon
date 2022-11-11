@@ -168,13 +168,12 @@
                                             {$pricesArr[] = $sku.price}
                                         {/if}
                                     {/foreach}
-                                    {$minPrice == min($pricesArr)}
-                                    {$maxPrice == max($pricesArr)}
+                                    {$minPrice = min($pricesArr)}
+                                    {$maxPrice = max($pricesArr)}
                                 {else}
-                                    {$minPrice == $p.min_price}
-                                    {$maxPrice == $p.max_price}
+                                    {$minPrice = $p.min_price}
+                                    {$maxPrice = $p.max_price}
                                 {/if}
-                                {wa_dumpc($minPrice)}
                                 <span class="nowrap">{shop_currency_html($minPrice)}</span>
                                 <span class="small-price__dots">...</span>
                                 <span class="nowrap">{shop_currency_html($maxPrice)}</span>
