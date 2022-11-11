@@ -3188,7 +3188,7 @@ $(function () {
     ddFooterCol.init();
     filterSearch.init();
     navDdPosition.init();
-    stickyHeader.init();
+    // stickyHeader.init();
     hideDdItemTwo.init();
     new productGridGallery();
 });

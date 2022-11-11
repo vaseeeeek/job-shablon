@@ -157,15 +157,28 @@
                     <div class="Product-grid_prices{if $p.compare_price} -hasComparePrice{/if}">
                         {if empty($p.price) && !empty($theme_settings.text_zero_price)}
                             <span class="Product-grid_zero-price">{$theme_settings.text_zero_price}</span>
-                        {elseif
-                        $_price_range
-                        && ($p.max_price
-                        && $p.min_price
-                        && $p.max_price > $p.min_price)
-                        && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
-                            <span class="small-price"><span class="nowrap">{shop_currency_html($p.min_price)}</span>
-                            <span class="small-price__dots">...</span>
-                            <span class="nowrap">{shop_currency_html($p.max_price)}</span></span>
+                        {elseif $_price_range && ($p.max_price && $p.min_price  && $p.max_price > $p.min_price) && !(class_exists('shopSaleskuPlugin') &&  method_exists('shopSaleskuPlugin','isAction') && shopSaleskuPlugin::isAction())}
+                            <span class="small-price">
+                                {$pricesArr = []}
+                                {$minPrice = 0}
+                                {$maxPrice = 0}
+                                {if count($p.skus) > 1}
+                                    {foreach $p.skus as $sku}
+                                        {if $sku.count !== 0}
+                                            {$pricesArr[] = $sku.price}
+                                        {/if}
+                                    {/foreach}
+                                    {$minPrice == min($pricesArr)}
+                                    {$maxPrice == max($pricesArr)}
+                                {else}
+                                    {$minPrice == $p.min_price}
+                                    {$maxPrice == $p.max_price}
+                                {/if}
+                                {wa_dumpc($minPrice)}
+                                <span class="nowrap">{shop_currency_html($minPrice)}</span>
+                                <span class="small-price__dots">...</span>
+                                <span class="nowrap">{shop_currency_html($maxPrice)}</span>
+                            </span>
                         {else}
                             <div class="nowrap price">{shop_currency_html($p.price)}</div>
                             {if $p.compare_price > 0}
@@ -184,9 +197,6 @@
                                 {/if}
                             </a>
                         </div>
-
-
-
                         {if $theme_settings.show_summary_grid}
                             <div class="product_short-desc">{$p.summary}</div>
                         {/if}

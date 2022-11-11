@@ -177,7 +177,7 @@
                                                         </span>
 
                                                         {if $sku.sku}
-                                                            <span itemprop="sku" class="hint sku-int">{$sku.sku|escape}</span>
+                                                            <span itemprop="sku" class="hint sku-int">{$sku.name|escape}</span>
                                                         {/if}
                                                         <span class="price nowrap">{shop_currency_html($sku.price, $product.currency)}</span>
                                                         {if (!($sku.count === null) && $sku.count <= 0)}
