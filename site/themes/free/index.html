@@ -98,7 +98,7 @@
         {include file="header.links.html"}
     {/if}
 
-    <header class="header{if in_array('slider',explode(',', $theme_settings.home_blocks_list))} header--none-mb-pb{/if}">
+    <header class="header{if in_array('slider',explode(',', $theme_settings.home_blocks_list))} header--none-mb-pb{/if}{if $theme_settings.sticky_header} stickyOn{/if}">
         <div class="container {if $theme_settings.horizontal_menu}container--none-pb{/if}">
             {include file="header.html"}
         </div>

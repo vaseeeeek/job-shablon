@@ -226,7 +226,9 @@
                             {/if}
                         {/if}
 
-                        {if !$_is_dialog_select_options}{include file="product.mini.desc.html"}{/if}
+                        {if !$_is_dialog_select_options && !$wa->isMobile()}
+                            {include file="product.mini.desc.html"}
+                        {/if}
                     </div>
 
                     {if $_is_dialog && !$_is_dialog_select_options}
@@ -536,6 +538,10 @@
                 <!-- plugin hook: 'frontend_product.block' -->
                 {* @event frontend_product.%plugin_id%.block *}
                 {foreach $frontend_product as $_}{$_.block}{/foreach}
+            {/if}
+
+            {if !$_is_dialog_select_options && $wa->isMobile()}
+                {include file="product.mini.desc.html"}
             {/if}
         </div>
     </form>

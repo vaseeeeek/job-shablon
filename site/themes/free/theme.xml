@@ -537,7 +537,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="number_output_categories_third_level" control_type="text">
-      <value>5</value>
+      <value>88</value>
       <name locale="ru_RU">Количество выводимых категорий третьего уровня</name>
       <name locale="en_US"/>
     </setting>
@@ -562,6 +562,12 @@
       <value>field_0</value>
       <name locale="ru_RU">
         Id поля добавление картинки в приложении "Управление меню"
+      </name>
+    </setting>
+    <setting var="sticky_header" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">
+        Прилипающая шапка
       </name>
     </setting>
     <setting var="paragraph_mainpage" control_type="group_divider">

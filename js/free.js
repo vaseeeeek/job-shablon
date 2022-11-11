@@ -2512,14 +2512,17 @@ var stickyHeader = {
     init: function(){
         var _this = this;
 
-        if (!isMobileVersion()) {
+        if (!isMobileVersion() && $('.stickyOn').length > 0) {
             _this.onScroll();
         }
     },
     onScroll(){
+        var _this = this;
         const headerHeight = $('body > header.header').height() + $('body > .header-top--links').height();
+
         $(window).scroll(function () {
             const sticky = $('body > header.header').hasClass('sticky');
+
             if (window.pageYOffset > headerHeight && !sticky) {
                 $('.header-top--links').css('padding-bottom',`${headerHeight}px`);
                 $('body > header.header').addClass('sticky');
@@ -2534,6 +2537,34 @@ var stickyHeader = {
                 $('.header-top--links').removeAttr('style');
             }
         });
+        _this.setMaxHeight();
+    },
+    setMaxHeight() {
+        const btnCatalog = $('[data-id="nav-cat"].js-btnDrop-down');
+        const horizontalLink = $('.Nav__horizontal--link');
+
+        if (btnCatalog.length) {
+            btnCatalog.on('click', function () {
+                const headerHeight = $('body > header.header').height();
+                const windowHeight = window.innerHeight;
+                const widthContainer = $('header>.container').width();
+                const widthNav = $('header .category-menu').width();
+
+                const menuHeight = windowHeight - headerHeight - 50;
+                const menuSubcategory = widthContainer - widthNav + 20;
+
+                $('#nav-cat').find('.menu-subcategory').attr('style',`max-height:${menuHeight}px;width:${menuSubcategory}px;overflow:auto;`);
+            })
+        }
+        if (horizontalLink.length) {
+            const headerHeight = $('body > header.header').height();
+            const windowHeight = window.innerHeight;
+            const menuHeight = windowHeight - headerHeight - 80;
+
+            horizontalLink.hover(function(){
+                $(this).siblings('.Nav__horizontal--list-2').find('.container').attr('style',`max-height: ${menuHeight}px;overflow:auto`);
+            })
+        }
     }
 }
 
@@ -3188,7 +3219,7 @@ $(function () {
     ddFooterCol.init();
     filterSearch.init();
     navDdPosition.init();
-    // stickyHeader.init();
+    stickyHeader.init();
     hideDdItemTwo.init();
     new productGridGallery();
 });

@@ -4221,7 +4221,7 @@ textarea {
 
 .Nav__Primary-outer--dd {
   margin-top: 0.7rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0 0;
   border-bottom: 1px solid #f2f2f2;
 
   .Nav__horizontal--link {
@@ -4245,6 +4245,10 @@ textarea {
 
 .Nav__Primary-outer--full-width {
   position: relative;
+
+  .Nav__horizontal--list-2 .container {
+    padding: 0;
+  }
 
   .Nav__Primary {
     position: initial;
@@ -4306,6 +4310,8 @@ textarea {
   }
 
   &--item {
+    padding-bottom: 0.5rem;
+
     &--relative {
       position: relative;
 
