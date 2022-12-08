@@ -53,6 +53,7 @@
                     'stock' => '[`In stock`]']}
 
                     {$default_sort = false}
+
                     {if isset($category.sort_products) && !empty($category.sort_products)}
                         {$sort_active = $wa->get('sort', $category.sort_products)}
                         {$default_sort = " "|explode:$category.sort_products}
@@ -64,19 +65,23 @@
                     <div class="cat-sort">
                         <div class="checked-list js-selecList cat-sort_select">
                             <div class="js-checked-toggle checked-list_toggle">
-                                {if !$sort_active || !isset($sort_fields[$sort_active])}
-                                    <a href="{$wa->currentUrl(0, 1)}">[`New & Popular`]</a>
-                                {else}
-                                    {foreach $sort_fields as $sort => $name}
-                                        {if $sort_active == $sort}
-                                            {if class_exists('shopSeofilterViewHelper')}
-                                                {shopSeofilterViewHelper::sortUrl($sort, $name, $sort_active)}
-                                            {else}
-                                                {$wa->shop->sortUrl($sort, $name, $sort_active)}
-                                            {/if}
+                                {foreach $sort_fields as $sort => $name}
+
+                                    {if $sort_active == $sort}
+                                        {if class_exists('shopSeofilterViewHelper')}
+                                            {shopSeofilterViewHelper::sortUrl($sort, $name, $sort_active)}
+                                        {else}
+                                            {$wa->shop->sortUrl($sort, $name, $sort_active)}
                                         {/if}
-                                    {/foreach}
-                                {/if}
+                                    {/if}
+                                    {if $name@last && $sort_active != $sort}
+                                        {if !empty($category) && !isset($sort_fields[$default_sort[0]])}
+                                            [`New & Popular`]
+                                        {else}
+                                            {$sort_fields[$default_sort[0]]}
+                                        {/if}
+                                    {/if}
+                                {/foreach}
                                 <div class="jq-checked__arrow-trigger">
                                     <i class=" icon fi-rr-caret-down"></i>
                                 </div>

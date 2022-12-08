@@ -321,7 +321,6 @@
                                             <div class="coupon-form" id="use-coupon-code">
                                                 <p>[`Coupon code`]</p>
                                                 <input type="text" name="coupon_code" value="{$coupon_code|escape}">
-
                                                 <span class="cart-coupon-add-button button js-submit-form sdColor{if $coupon_discount} cart-coupon-add-button_active{/if}"> [`Применить`]</span>
                                                 {if $coupon_code && empty($coupon_discount) && empty($coupon_free_shipping)}
                                                     <div class="errormsg">[`Invalid coupon code`]</div>

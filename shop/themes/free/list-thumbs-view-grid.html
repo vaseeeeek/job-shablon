@@ -162,7 +162,7 @@
                                 {$pricesArr = []}
                                 {$minPrice = 0}
                                 {$maxPrice = 0}
-                                {if count($p.skus) > 1}
+                                {if !empty($p.skus) && count($p.skus) > 1}
                                     {foreach $p.skus as $sku}
                                         {if $sku.count !== 0}
                                             {$pricesArr[] = $sku.price}

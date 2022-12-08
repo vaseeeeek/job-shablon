@@ -723,11 +723,11 @@ $html-font-size: 14px;
     width: auto;
   }
 }
-@media (min-width: 1025px){
-  .promo {
-    margin-top: 1.5rem;
-  }
+
+.promo {
+  margin-top: 1.5rem;
 }
+
 .promo, .homepage-categories, .homepage-text-outer, .homepage-news-outer, .home-products, .brands {
   margin-bottom: 2.5rem;
 }
@@ -3414,7 +3414,7 @@ input.filter-range_el:focus {
   line-height: 1;
 
   &:after {
-    content: "";
+    content: "\e912";
     font-family: free-font;
     position: relative;
     top: 4px;
@@ -4622,10 +4622,6 @@ img.pswp__img {
     position: relative;
     top: 0.2rem;
     width: 1rem;
-  }
-
-  .productfilters-feature-value-link {
-    //text-decoration: underline;
   }
 
   span {
@@ -6974,7 +6970,6 @@ img.pswp__img {
 
 .owl-next, .owl-prev {
   position: absolute;
-  top: 0;
   left: 10px;
   font-size: rem(40px);
   bottom: 0;
@@ -6982,7 +6977,7 @@ img.pswp__img {
   user-select: none;
   background: none;
   cursor: pointer;
-  top: calc(50% - 20px);
+  top: calc(50% - 40px);
   z-index: 2;
 }
 

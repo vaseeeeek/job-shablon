@@ -46,3 +46,16 @@
 
 </div>
 {/strip}
+
+<script>
+    $(document).on('ready',function () {
+        const urlOrdersPage = "{$wa->domainUrl()}{$wa->getUrl('/frontend/myOrders')}?checkoutsuccess=true";
+
+        $.ajax({
+            url: urlOrdersPage,
+            success: function (data) {
+                $.cookie('freeOrderCount', data.replace(/\s+/g, ''), { expires: 365 * 10, path: '/' });
+            }
+        })
+    })
+</script>

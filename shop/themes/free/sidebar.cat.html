@@ -40,7 +40,16 @@
                         {/foreach}
                     {/if}
                     <li class="sidebar-subcategories_el{if $category_selected == $subcat.id} selected{/if}"{if $category_selected == $subcat.id} data-is-open="1"{/if}>
-                        <a href="{$subcat.url}">{$subcat.name}</a>
+                        <a class="subcategories_el__link" href="{$subcat.url}">
+                            {if !empty($subcat.params.subcaticon)}
+                                <span class="subcategories_el__image">
+                                    <img src="{$subcat.params.subcaticon}" alt="{$subcat.name}">
+                                </span>
+                            {/if}
+                            <span class="subcategories_el__name">
+                                {$subcat.name}
+                            </span>
+                        </a>
                         {if $_has_childs}{getSubcategories subcategories=$subcat.childs parent=$subcat}{/if}
                     </li>
                 {/if}

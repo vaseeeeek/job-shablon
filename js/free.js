@@ -2585,6 +2585,34 @@ var hideDdItemTwo = {
     }
 }
 
+var showContantBox = {
+    init: function () {
+        _this = this;
+        if (isMobileVersion()) {
+            _this.onBtn();
+        }
+    },
+    onBtn(){
+        $('.js-show-contact-box').on('click', () => {
+            $('#js-contacts-box').toggleClass('contacts--show');
+        })
+    }
+}
+
+var haederBurger = {
+    init: function () {
+        _this = this;
+        if (isMobileVersion()) {
+            _this.showMobileMenu();
+        }
+    },
+    showMobileMenu(){
+        $('#header-burger').on('click', () => {
+            $('.fixed-panel .MobileMenu-btn').click();
+        })
+    }
+}
+
 const isMobileVersion = function() {
     if ($('body').hasClass('mobile')) {
         return true;
@@ -3221,6 +3249,8 @@ $(function () {
     navDdPosition.init();
     stickyHeader.init();
     hideDdItemTwo.init();
+    showContantBox.init();
+    haederBurger.init();
     new productGridGallery();
 });
 
