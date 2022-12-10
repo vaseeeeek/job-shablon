@@ -323,16 +323,26 @@ $html-font-size: 14px;
 
 .home-slider-photos__text {
   position: absolute;
-  left: 0;
   bottom: 0;
-  width: 55%;
-  text-align: left;
-  padding: 20px 0 20px 60px;
   font-weight: 600;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &--left{
+    left: 0;
+    width: 55%;
+    text-align: left;
+    padding: 20px 0 20px 60px;
+  }
+
+  &--right{
+    right: 0;
+    width: 55%;
+    text-align: right;
+    padding: 20px 60px 20px 0;
+  }
 
   .home-slider-photos__title {
     font-size: 2.9rem;
