@@ -11,12 +11,12 @@
             {$_images['main'] = $post['img_main']}
         {/if}
         {if count($_images) and isset($_images['main'])}
-            <a href="{$post.link}"><img class="b-post__main-image" src="{$_images['main']}" alt="{$post.title}"></a>
+            <a href="{$post.link}"><img class="b-post__main-image" src="{$_images['priview']}" alt="{$post.title}"></a>
 
         {/if}
         <header class="b-post-header">
             <h2 class="b-post-title">
-                <a href="{$post.link}" itemprop="url">{$post.title|truncate:45:'...'}</a>
+                <a href="{$post.link}" itemprop="url">{$post.title}</a>
                 {* @event prepare_posts_frontend.%plugin_id%.post_title *}
                 {if !empty($post.plugins.post_title)}
                     {foreach $post.plugins.post_title as $plugin => $output}{$output}{/foreach}

@@ -5332,19 +5332,51 @@ ul.pages {
 }
 
 #themeOverride .wa-value input[type=email], #themeOverride .wa-value input[type=password], #themeOverride .wa-value input[type=text] {
-  border: 1px solid #e6e6e6;
-  border-radius: 0.2rem;
+  -webkit-box-shadow: none;
   box-shadow: none;
   display: block;
   font-family: inherit;
   margin: 0;
-  max-width: 100%;
-  outline: 0;
-  padding: 0.5rem 1rem;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
   width: 100%;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  max-width: 100%;
+  line-height: 1.2;
+  padding: 0.7rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  outline: 0;
+  height: unset;
+  //line-height: 1.2 !important;
+  //padding: 0.7rem 0.7rem !important;
+  //font-size: 1rem !important;
+  //border: 1px solid #ededed !important;
+  //border-radius: 4px !important;
+  //outline: 0;
+  //height: unset !important;
+}
+
+#themeOverride .s-section-header {
+  padding: 0.7rem 0px;
+}
+#themeOverride .s-header {
+  margin: 0;
+}
+#themeOverride .wa-field-wrapper .wa-label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.menu-product-count {
+  margin-left: 0.9rem;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  color: #7a7a7a;
 }
 
 #themeOverride .wa-value .field > span {
@@ -5461,6 +5493,8 @@ ul.pages {
   font-size: 1.2rem;
   line-height: inherit;
   padding: 0.6rem 2rem;
+  width: 100%;
+  border: 0;
 }
 
 #themeOverride .wa-login-form-wrapper .wa-login-form-fields .wa-value, #themeOverride .wa-login-form-wrapper .wa-signup-form-fields .wa-value, #themeOverride .wa-signup-form-wrapper .wa-login-form-fields .wa-value, #themeOverride .wa-signup-form-wrapper .wa-signup-form-fields .wa-value {

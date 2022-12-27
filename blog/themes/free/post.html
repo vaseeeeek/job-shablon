@@ -34,9 +34,10 @@
                     <span class="b-name" itemprop="author">{$post.user.name}</span>
                 </span>
             {/if}
-
-            <span class="b-date">{$post.datetime|wa_datetime:"humandate"}</span>
-            <span class="b-time">{$post.datetime|wa_datetime:"time"}</span>
+            <div class="post-data">
+                <span class="b-date">{$post.datetime|wa_datetime:"humandate"}</span>
+                <span class="b-time">{$post.datetime|wa_datetime:"time"}</span>
+            </div>
             <meta itemprop="datePublished" content="{$post.datetime|date_format:'Y-m-d\TH:i'}">
             <meta itemprop="headline" content="{$post.title}">
 

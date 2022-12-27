@@ -4,6 +4,7 @@
 
         <div class="slider-outer js-slider-outer slider-outer--photos slider-outer--home">
             <div class="js-home-slider owl-carousel home-slider-photos" {if $theme_settings.homepage_banner_autoscroll}data-pause="3" {/if}data-type="">
+                {$positionTextArr = explode(',', $theme_settings.homepage_slider_text_position)}
                 {foreach $mPromoCards as $item}
                     {if !empty($item@first) && !empty($item.image)}
                         {$wa->globals('preload_image', $item.image)}
@@ -18,7 +19,7 @@
                                 <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
                             {/if}
                             {if $item.title || $item.body || $item.countdown_datetime}
-                                <div class="home-slider-photos__text home-slider-photos__text--{$theme_settings.homepage_slider_text_position}" style="color: {if $item.color}{$item.color}{else}{$theme_settings.second_color}{/if}">
+                                <div class="home-slider-photos__text home-slider-photos__text--{$positionTextArr[$item@iteration - 1]}" style="color: {if $item.color}{$item.color}{else}{$theme_settings.second_color}{/if}">
                                     {if $item.title}
                                         <div class="home-slider-photos__title">{$item.title}</div>
                                     {/if}
