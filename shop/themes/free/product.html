@@ -523,7 +523,7 @@
         {if $theme_settings.total_crossselling}
             {$crossselling = $product->crossSelling((int) $theme_settings.total_crossselling)}
         {/if}
-        {if $theme_settings.total_crossselling}
+        {if $theme_settings.product_upselling_count}
             {$upselling = $product->upSelling((int) $theme_settings.product_upselling_count)}
         {/if}
 

@@ -106,8 +106,9 @@
             {if $viewed_product_list && $viewed_product_list != 'null'}
                 {$count_viewed = count(","|explode:$viewed_product_list)}
             {/if}
+
             <div class="product-custom">
-                <a class="product-custom--link" href="{$wa->getUrl('shop/frontend')}/search/?list=viewed">
+                <a class="product-custom--link" href="{$wa->getUrl('shop/frontend')}search/?list=viewed">
                     <div class="product-custom_icon maincolor">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -163,12 +164,16 @@
                 </div>
                 <div id="js-contacts-box" class="contacts--box {if $theme_settings.btn_show_contacts} contacts--absolute{/if}">
                     <div class="contacts__left">
+                        {if $theme_settings.header_company_phone|trim|escape|replace:' ':''}
                         <a href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">
                             <span class="contacts__phone__num">{$theme_settings.header_company_phone}</span>
                         </a>
+                        {/if}
+                        {if $theme_settings.header_company_phone_two|trim|escape|replace:' ':''}
                         <a href="tel:{$theme_settings.header_company_phone_two|trim|escape|replace:' ':''}" class="Nav-contact-phone">
                             <span class="contacts__phone__num">{$theme_settings.header_company_phone_two}</span>
                         </a>
+                        {/if}
                     </div>
                     <div class="contacts__right">
                         <div class="contacts__right--row">

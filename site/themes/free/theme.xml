@@ -523,7 +523,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value></value>
+      <value>cat</value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -547,7 +547,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
@@ -934,7 +934,7 @@
       <name locale="ru_RU">Сравнение</name>
     </setting>
     <setting var="favorites" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Favourites</name>
       <name locale="ru_RU">Избранное</name>
     </setting>
@@ -1716,7 +1716,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_mobile" control_type="select">
-      <value>none_tabs</value>
+      <value>acc_tabs</value>
       <name locale="ru_RU">Вид вкладок на мобильных</name>
       <name locale="en_US">View of tabs on mobile</name>
       <options>
@@ -1993,7 +1993,7 @@
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
     </setting>
     <setting var="viewed_items_header" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
       <name locale="en_US">The "viewed items" link in the header</name>
     </setting>

@@ -65,23 +65,25 @@
                     <div class="cat-sort">
                         <div class="checked-list js-selecList cat-sort_select">
                             <div class="js-checked-toggle checked-list_toggle">
+                                {$hasActive = false}
                                 {foreach $sort_fields as $sort => $name}
 
                                     {if $sort_active == $sort}
+                                        {$hasActive = true}
                                         {if class_exists('shopSeofilterViewHelper')}
                                             {shopSeofilterViewHelper::sortUrl($sort, $name, $sort_active)}
                                         {else}
                                             {$wa->shop->sortUrl($sort, $name, $sort_active)}
                                         {/if}
                                     {/if}
-                                    {if $name@last && $sort_active != $sort}
-                                        {if !empty($category) && !isset($sort_fields[$default_sort[0]])}
-                                            [`New & Popular`]
-                                        {else}
-                                            {$sort_fields[$default_sort[0]]}
-                                        {/if}
-                                    {/if}
                                 {/foreach}
+                                {if $name@last && !$hasActive}
+                                    {if !empty($category) && !isset($sort_fields[$default_sort[0]])}
+                                        [`New & Popular`]
+                                    {else}
+                                        {$sort_fields[$default_sort[0]]}
+                                    {/if}
+                                {/if}
                                 <div class="jq-checked__arrow-trigger">
                                     <i class=" icon fi-rr-caret-down"></i>
                                 </div>
