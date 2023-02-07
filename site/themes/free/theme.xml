@@ -696,7 +696,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>
@@ -2009,6 +2009,10 @@
     </setting>
   </settings>
   <locales>
+    <locale>
+      <msgid>Please enter a 4-digit PIN that you received with your order receipt by email.</msgid>
+      <msgstr locale="ru_RU">Пожалуйста, введите 4-значный PIN-код, который вы получили вместе с квитанцией о заказе по электронной почте.</msgstr>
+    </locale>
     <locale>
       <msgid>Currency</msgid>
       <msgstr locale="ru_RU">Валюта</msgstr>

@@ -172,7 +172,7 @@
                                                         <span class="js-toggle-styler style-check{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if} {if $theme_settings.product_selection_articles != 'horizontal_checkboxes'}fi-rr-check{/if}">
                                                             <input class="js-toggle-styler-input" name="sku_id" type="radio" value="{$sku.id}"{if !$sku_available}data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}" data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
                                                             {if $theme_settings.product_selection_articles == 'horizontal_checkboxes'}
-                                                                <span class="name nowrap hint">{if $sku.name}{$sku.name}{else}{$sku.sku}{/if}</span>
+                                                                <span class="name hint">{if $sku.name}{$sku.name}{else}{$sku.sku}{/if}</span>
                                                             {/if}
                                                         </span>
 
