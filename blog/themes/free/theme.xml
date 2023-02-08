@@ -56,9 +56,9 @@
       <description locale="en_US">Blog’s header content</description>
       <description locale="ru_RU">Шапка страниц «Блога»</description>
     </file>
-    <file path="main.html">
+    <file path="main.html" custom="0" modified="1">
       <description locale="en_US">Blog’s main content layout and navigation</description>
-      <description locale="ru_RU">Основной макет содержимого и навигации в приложении «Блог»</description>
+      <description locale="ru_RU"></description>
     </file>
     <file path="my.nav.html">
         </file>
@@ -88,7 +88,7 @@
       <name locale="ru_RU">Настройки «Блога»</name>
     </setting>
     <setting var="blog_breadcrumb_title" control_type="text">
-      <value><![CDATA[Новости]]></value>
+      <value>Новости</value>
       <name locale="en_US">Блог name</name>
       <name locale="ru_RU">Название блога</name>
     </setting>
