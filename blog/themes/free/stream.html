@@ -16,44 +16,37 @@
     {$wa->globals("globalHeader", $_title)}
 {/if}
 
-{$blogsIdArray = []}
-{foreach $posts as $post}
-    {if !in_array($post['blog_id'], $blogsIdArray)}
-        {$blogsIdArray[] = $post['blog_id']}
-    {/if}
-{/foreach}
-
-<script>
-    console.log({json_encode($blogsIdArray)})
-</script>
 
 {foreach $posts as $post}
     {$_name = $post.blog_name}
     {break}
 {/foreach}
 
-{$blog = $wa->blog->blog($blogId)}
+
 {if !empty($theme_settings.blog_breadcrumb_title)}
     {$_name = $theme_settings.blog_breadcrumb_title}
 {/if}
 
 <div class="title-filter-btn--box">
     <h1>{$_name}</h1>
-    <a class="blog-filter-btn" href="#">
+    <div class="blog-filter-btn">
         <div class="nav-cat-btn__action__wrap icon">
             <div class="nav-cat-btn__action nav-cat-btn__action--top"></div>
             <div class="nav-cat-btn__action nav-cat-btn__action--middle"></div>
             <div class="nav-cat-btn__action nav-cat-btn__action--bottom"></div>
         </div>
         <div class="blog__menu-text">ЕЩЕ БОЛЬШЕ СТАТЕЙ</div>
-    </a>
+    </div>
 </div>
 
 <script>
     $(document).on('ready',function(){
         $('.blog-filter-btn').on('click', function () {
             $('.out_sidebars').addClass('out_sidebars--show');
-        })
+        });
+        $('.sb-close-btn').on('click', function () {
+            $('.out_sidebars').removeClass('out_sidebars--show');
+        });
     })
 </script>
 

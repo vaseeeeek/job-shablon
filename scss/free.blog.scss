@@ -713,7 +713,7 @@ ul.menu-v.categories li.selected a {
       justify-content: space-between;
       margin-bottom: 10px;
     }
-    a.blog-filter-btn {
+    .blog-filter-btn {
       display: inline-flex;
       line-height: 1;
       align-items: center;
@@ -747,6 +747,27 @@ ul.menu-v.categories li.selected a {
       justify-content: center;
       align-items: center;
       margin-left: auto;
+    }
+  }
+}
+.blogs {
+  .blogs__list {
+    display: flex;
+    flex-direction: column;
+  }
+  .blogs__item {
+    font-size: 1.1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0px 1px 2px rgb(0 0 0 / 15%);
+    transform: scale(1,1);
+    line-height: 1.1;
+    transition: all 0.3s ease;
+    &:not(las-child) {
+      margin-bottom: 0.5rem;
     }
   }
 }
