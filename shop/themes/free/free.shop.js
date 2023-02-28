@@ -45,10 +45,6 @@ var reviews = {
             },
             onInitialized: function (e) {
                 reviews.reviewsBox.addClass("carousel-init")
-            },
-            onLoadedLazy: function (e) {
-                e = $(e.currentTarget);
-                e.length && $.Retina && e.find(".owl-item.active .owl-lazy").retina()
             }
         }), e && ("prev" == e ? i.trigger("prev.owl.carousel") : "next" == e && i.trigger("next.owl.carousel"))
     }
