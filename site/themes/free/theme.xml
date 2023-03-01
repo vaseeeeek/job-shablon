@@ -432,6 +432,16 @@
       <name locale="ru_RU">Показать заказы в шапке</name>
       <name locale="en_US">Show burger header</name>
     </setting>
+    <setting var="show_search_burger" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывести поиск в бургере</name>
+      <name locale="en_US">Show the search in the burger</name>
+    </setting>
+    <setting var="show_icon_search_mobile" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Вывести поиск иконкой в шапке на мобильном</name>
+      <name locale="en_US">Display the search icon in the header on mobile</name>
+    </setting>
     <setting var="paragraph_main_categories" control_type="group_divider">
       <value/>
       <name locale="en_US">Product categories ("Catalog" button)</name>
@@ -696,7 +706,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>

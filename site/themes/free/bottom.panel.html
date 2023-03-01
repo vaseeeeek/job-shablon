@@ -15,6 +15,20 @@
                 <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
             </div>
             {if $wa->shop}
+
+                {if $wa->isMobile() && $wa->shop && $theme_settings.show_search_burger}
+                    <div class="Nav-search juniq-header-search">
+                        <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
+                              class="Nav-search_form">
+                            <div class="inp-search">
+                                <input class="Nav-inp-search js-ajax-search" autocomplete="off" type="text" name="query" value="{$wa->get('query')|escape}" placeholder="[`Search in catalog`]"/>
+                                <i class="fi-rr-search js-submit-form"></i>
+                            </div>
+
+                            <div class="inp-search--wrap"></div>
+                        </form>
+                    </div>
+                {/if}
                 {if $theme_settings.hide_cat_burger}
                     {$hideCatList = true}
                 {else}

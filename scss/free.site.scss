@@ -4102,6 +4102,12 @@ textarea {
     display: flex;
     flex-direction: column;
   }
+
+  .Nav-search {
+    width: calc(100% - 60px);
+    padding-left: 10px;
+    display: block;
+  }
 }
 
 @media (min-width: 1026px) {
@@ -4785,6 +4791,53 @@ textarea {
 @media (max-width: 1025px) {
   .Nav__Primary-outer {
     display: none;
+  }
+}
+
+.search-modal-btn {
+  .fi-rr-search {
+    font-size: 18px;
+    line-height: 1.2;
+    margin-right: 20px
+  }
+  .search-modal--box {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .search-modal--hide {
+    left: -100%;
+  }
+  .search-modal__btn-find {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  .search-modal__content {
+    padding: 10px 10px 0 10px;
+    display: flex;
+  }
+  .ajax-search-result {
+    width: 100vw;
+    height: calc(100vh - 180px);
+    overflow: auto;
+  }
+  .search-modal__close {
+    color: #000;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-left: 20px;
+    font-size: 20px;
+    padding-right: 10px;
   }
 }
 
