@@ -13,14 +13,14 @@
     </h1>
     <div class="category">
         {if !$wa->isMobile()}
-            <div class="out_sidebars -mr">
+            <div class="theiaStickySidebar out_sidebars -mr">
                 {include file='sidebar.html' filter=$filters}
             </div>
         {/if}
         {if $wa->isMobile()}
             {include file="sb-mobile.html"}
         {/if}
-        <div class="content  with-sidebar">
+        <div class="theiaStickySidebar content  with-sidebar">
             <div class="cat-content">
 
                 <!-- plugin hook: 'frontend_category' -->
@@ -80,7 +80,17 @@
                 {/if}
             </div>
         </div>
-
-
     </div>
 {/strip}
+{if !$theme_settings.modal_sb}
+    <script type="text/javascript" src="{$wa_theme_url}ResizeSensor.min.js"></script>
+    <script type="text/javascript" src="{$wa_theme_url}theia-sticky-sidebar.min.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery('.category>.content, .category>.out_sidebars').theiaStickySidebar({
+                // Settings
+                additionalMarginTop: 30
+            });
+        });
+    </script>
+{/if}

@@ -2095,9 +2095,8 @@ img.mfp-img {
   }
 
   &-box.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    display: flex;
+    grid-gap: 20px;
   }
 
   .footer_logo a {
@@ -2122,7 +2121,10 @@ img.mfp-img {
     display: block;
     width: 280px;
   }
-
+  &.footer-type-2 .copyright-text {
+    width: 100%;
+    text-align: center;
+  }
   &_payment {
     &_list {
       display: flex;
@@ -2151,12 +2153,41 @@ img.mfp-img {
   li {
     margin-bottom: rem(8px);
   }
-}
 
+  &-box_col {
+    flex: 1;
+  }
+  .site-reviews_image {
+    font-size: 0;
+    margin-right: 20px;
+  }
+  .site-reviews_link {
+    display: flex;
+    align-items: center;
+  }
+  .site-reviews_star .rating {
+    display: flex;
+  }
+}
+.footer-box_col .footer-col__row:nth-child(2){
+  margin-top: 40px;
+}
+.footer-feedback-btn {
+  border: 1px solid #999;
+  border-radius: 2px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    scale: 1.01;
+  }
+}
 @media (max-width: 1025px) {
   .footer {
     &-box.container {
       margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 }
@@ -3140,7 +3171,7 @@ img.mfp-img {
 }
 
 @media (min-width: 1025px) {
-  .left-sidebar {
+  .left-sidebar, .category .out_sidebars {
     width: 250px;
   }
 }

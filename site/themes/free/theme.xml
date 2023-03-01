@@ -1474,6 +1474,10 @@
       <description locale="ru_RU">Укажите от скольки значений фильтров показывать поиск</description>
       <description locale="en_US">Specify from how many filter values to show search</description>
     </setting>
+    <setting var="modal_sb" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Выплывающий сайдбар</name>
+    </setting>
     <setting var="paragraph_product" control_type="group_divider">
       <value/>
       <name locale="en_US">Product page</name>
@@ -1913,6 +1917,25 @@
       <name locale="en_US">Copyright</name>
       <name locale="ru_RU">Копирайт</name>
     </setting>
+    <setting var="footer_type" control_type="select">
+      <value>2</value>
+      <name locale="ru_RU">Варианты вывода подвала сайта</name>
+      <name locale="en_US">Website footer output options</name>
+      <options>
+        <option value="1">
+          <name locale="ru_RU">1</name>
+          <name locale="en_US">1</name>
+        </option>
+        <option value="2">
+          <name locale="ru_RU">2</name>
+          <name locale="en_US">2</name>
+        </option>
+        <option value="3">
+          <name locale="ru_RU">3</name>
+          <name locale="en_US">3</name>
+        </option>
+      </options>
+    </setting>
     <setting var="footer_block_1" control_type="checkbox">
       <value>1</value>
       <name locale="ru_RU">Вывести первый блок сайта (footer_col1)</name>
@@ -1922,6 +1945,15 @@
       <value>1</value>
       <name locale="ru_RU">Вывести второй блок сайта (footer_col2)</name>
       <name locale="en_US">Output the second block of the site (footer_col2)</name>
+    </setting>
+    <setting var="yandex_link" control_type="text">
+      <value>123</value>
+      <name locale="ru_RU">Ссылка на яндекс отзывы</name>
+    </setting>
+    <setting var="footer_text_after_logo" control_type="text">
+      <value>Текст под логотипом в футере</value>
+      <name locale="ru_RU">Текст под логотипов в футере</name>
+      <name locale="en_US">Text under the logo in the footer</name>
     </setting>
     <setting var="footer_show_email" control_type="checkbox">
       <value>1</value>
@@ -2322,6 +2354,14 @@
     <locale>
       <msgid>Subsections</msgid>
       <msgstr locale="ru_RU">Подразделы</msgstr>
+    </locale>
+    <locale>
+      <msgid>We're on social media</msgid>
+      <msgstr locale="ru_RU">Мы в социальных сетях</msgstr>
+    </locale>
+    <locale>
+      <msgid>Read reviews</msgid>
+      <msgstr locale="ru_RU">Читайте отзывы</msgstr>
     </locale>
   </locales>
 </theme>
