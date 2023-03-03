@@ -136,7 +136,8 @@
         .seo-filter-links .productfilters-feature-value-link,
         .filters .ui-widget-content .ui-state-default,
         .cat-sort .checked-list:hover, .My__Input--Pin,
-        .product_options .select-v-inline a.selected {
+        .product_options .select-v-inline a.selected,
+        .filters-bar__item{
             border: 1px solid {$scColor};
         }
         .product_options .select-v-inline a.selected {
@@ -313,7 +314,8 @@
         }
 
         .search-modal__btn-find,
-        .timeline > li > a {
+        .timeline > li > a,
+        .filters-bar__item--full{
             background: {$scColor};
         }
 
@@ -342,6 +344,7 @@
         {/if}
 
         {if $btnTextColor}
+            .filters-bar__item--full,
             .search-modal__btn-find,
             .plugin_arrived-button a,
             .pages li.is-selected span, .h-staff, .b-comments-section .b-list-section .b-comment-wrapper .b-comment .b-credentials .b-staff,

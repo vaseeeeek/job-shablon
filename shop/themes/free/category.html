@@ -13,15 +13,40 @@
     </h1>
     <div class="category">
         {if !$wa->isMobile()}
-            <div class="theiaStickySidebar out_sidebars -mr">
+            <div class="{if !$theme_settings.modal_sb}theiaStickySidebar {/if}out_sidebars -mr{if $theme_settings.modal_sb} out_sidebars--fixed out_sidebars--hidden{/if}">
                 {include file='sidebar.html' filter=$filters}
             </div>
         {/if}
         {if $wa->isMobile()}
             {include file="sb-mobile.html"}
         {/if}
-        <div class="theiaStickySidebar content  with-sidebar">
+        <div class="{if !$theme_settings.modal_sb}theiaStickySidebar {/if}content  with-sidebar">
             <div class="cat-content">
+                {if $theme_settings.modal_sb && !$wa->isMobile()}
+                    <div class="filters-bar">
+                        <div class="filters-bar__list">
+                            {foreach $filters as $filterId => $filter}
+                                {if $filter@iteration > 3}
+                                    {break}
+                                {/if}
+                                {if $filter@first}
+                                    <div class="filters-bar__item filters-bar__item--full">
+                                        <i class="fi-rr-filter"></i>Все фильтры
+                                    </div>
+                                {/if}
+                                {if $filterId == 'price'}
+                                    <div class="filters-bar__item" data-code="price">
+                                        <div class="filters-bar__btn">Цена</div>
+                                    </div>
+                                {else}
+                                    <div class="filters-bar__item" data-code="{$filter.code}">
+                                        <div class="filters-bar__btn">{$filter.name}</div>
+                                    </div>
+                                {/if}
+                            {/foreach}
+                        </div>
+                    </div>
+                {/if}
 
                 <!-- plugin hook: 'frontend_category' -->
                 {* @event frontend_category.%plugin_id% *}
@@ -93,4 +118,28 @@
             });
         });
     </script>
+{else}
+    {literal}
+        <script>
+            $(document).on('ready',function(){
+                $(document).mouseup(function (e) {
+                    var container = $(".out_sidebars--fixed");
+                    if (container.has(e.target).length === 0){
+                        container.addClass('out_sidebars--hidden');
+                    }
+                });
+                $('.filters-bar__item').on('click',function(){
+                    if (!$(this).hasClass('filters-bar__item--full')){
+                        const code = $(this).data('code');
+                        $('#filter-body>.js-filter-el').each(function(){
+                            $('.js-filter-el').addClass('close');
+                        })
+                        $(`#filter-body>.js-filter-el[data-code="${code}"]`).removeClass('close');
+                    }
+                    $('.out_sidebars--fixed').removeClass('out_sidebars--hidden');
+                })
+            })
+
+        </script>
+    {/literal}
 {/if}

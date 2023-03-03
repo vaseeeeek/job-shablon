@@ -1372,10 +1372,8 @@ var formFunc = {
             let form;
             if ($this.closest('.search-modal--box').length) {
                 form = $this.closest('.search-modal--box').find("form");
-                console.log(1111);
             } else {
                 form = $this.closest("form");
-                console.log(2222);
             }
 
             if (!$this.hasClass('disabled')) {

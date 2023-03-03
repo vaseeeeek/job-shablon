@@ -39,7 +39,7 @@
     {if $theme_settings.selected_filter}{include file="selected-filters.html"}{/if}
 
     {if !empty($sorting) || ($isViewSwitch &&  $views_count > 1)}
-        <div class="cat-panel">
+        <div class="cat-panel{if $theme_settings.modal_sb && !$wa->isMobile()} cat-panel-ml{/if}">
             <div class="df-block">
 
                 {if !empty($sorting)}

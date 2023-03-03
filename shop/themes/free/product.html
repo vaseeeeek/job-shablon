@@ -4,7 +4,7 @@
 {$_show_description = strpos($product_alias_str, 'description') !== false && $product.description}
 {$_show_features =  strpos($product_alias_str, 'features') !== false && $product.features}
 
-    <div id="page-content" class="{if $sb_left} with-sidebar{/if}">
+    <div id="page-content" class="{if $sb_left} with-sidebar{/if}" data-product-id="{$product.id}">
         <article class="js-product-page product_page" itemscope itemtype="http://schema.org/Product">
             <div class="content">
                 <div class="product__header">

@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+</script>
+
+<script>
+    $(document).on('ready', function(){
+        const metrikaId = '92675167';
+        const idTarget = {
+            'addToCart': {
+                'id':'285803588',
+                'name':'addtocart'
+            }
+        }
+
+        $('.product_add-services .addtocart').on('click', function () {
+            const productId = $('#page-content').data('product-id');
+            const productName = $('h1.product_name').text().trim();
+            const productPrice = $('.product_prices').find('.product__price').data('price');
+            const productCategory = $('.breadcrumbs li span').last().text().trim();
+            const productQty = $('.product_add-services .Cart__Qty input').val();
+
+            dataLayer.push({
+                "ecommerce": {
+                    "currencyCode": "RUB",
+                    "add": {
+                        "actionField": {
+                            "goal_id" : idTarget.addToCart.id
+                        },
+                        "products": [
+                            {
+                                "id": productId,
+                                "name": productName,
+                                "price": productPrice,
+                                "category": productCategory,
+                                "quantity": productQty
+                            }
+                        ]
+                    }
+                }
+            });
+        })
+    })
+</script>
