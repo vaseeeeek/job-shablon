@@ -3,14 +3,16 @@
         {$filters = []}
     {/if}
 
-    <h1 class="category-name">
-        {$category.name|escape}
+    <div class="category-heder">
+        <h1 class="category-name">
+            {$category.name|escape}
+        </h1>
         {if !empty($category.params.productQuantity)}
             <span class="cartegory-product-count">
                 {$category.params.productQuantity} товаров
             </span>
         {/if}
-    </h1>
+    </div>
     <div class="category">
         {if !$wa->isMobile()}
             <div class="{if !$theme_settings.modal_sb}theiaStickySidebar {/if}out_sidebars -mr{if $theme_settings.modal_sb} out_sidebars--fixed out_sidebars--hidden{/if}">
