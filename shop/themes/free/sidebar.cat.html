@@ -48,6 +48,11 @@
                             {/if}
                             <span class="subcategories_el__name">
                                 {$subcat.name}
+                                {if !empty($subcat.params.productQuantity)}
+                                    <span class="menu-product-count menu-product-count--sb-menu">
+                                        ({$subcat.params.productQuantity})
+                                    </span>
+                                {/if}
                             </span>
                         </a>
                         {if $_has_childs}{getSubcategories subcategories=$subcat.childs parent=$subcat}{/if}
@@ -88,6 +93,11 @@
                         <a class="sidebar-cats_link{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}" href="{$category.url}">
                             <div class="sidebar-cats_title">
                                 {$category.name}
+                                {if !empty($category.params.productQuantity)}
+                                    <span class="menu-product-count menu-product-count--sb-menu">
+                                        ({$category.params.productQuantity})
+                                    </span>
+                                {/if}
                             </div>
                         </a>
                         {if $_has_childs}{getSubcategories subcategories=$category.childs parent=$category}{/if}

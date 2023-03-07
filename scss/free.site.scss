@@ -4792,6 +4792,21 @@ textarea {
       display: block;
       font-size: rem(25px);
     }
+    &.--with-burger{
+      .container {
+        flex-wrap: nowrap;
+      }
+      .header--left {
+        width: 78px;
+        margin-right: 0;
+      }
+      .header--right {
+        flex: 0 1 78px
+      }
+      .header_logo {
+        margin-right: 0;
+      }
+    }
   }
 }
 
@@ -4799,7 +4814,9 @@ textarea {
   .header {
     .Nav-product-custom > div:not(:last-child) {
       display: none;
-
+    }
+    .Nav-product-custom > div.-show {
+      display: inline-block;
     }
   }
 }

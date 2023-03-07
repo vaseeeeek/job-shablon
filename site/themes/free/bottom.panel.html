@@ -88,6 +88,11 @@
                                 <a class="cat-menu__item-link" href="{$cat.url}">
                                     <div class="cat-menu__item-title">
                                         {$cat.name}
+                                        {if !empty($cat.params.productQuantity)}
+                                            <span class="menu-product-count menu-product-count--phone-menu">
+                                                ({$cat.params.productQuantity})
+                                            </span>
+                                        {/if}
                                     </div>
                                 </a>
                             {/if}
@@ -120,13 +125,22 @@
                                                     <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                                                 {/if}
 
-                                                <a href="{$catChild_2.url}">{$catChild_2.name}</a>
+                                                <a href="{$catChild_2.url}">
+                                                    {$catChild_2.name}
+                                                    {if !empty($catChild_2.params.productQuantity)}
+                                                        <span class="menu-product-count menu-product-count--phone-menu">
+                                                            ({$catChild_2.params.productQuantity})
+                                                        </span>
+                                                    {/if}
+                                                </a>
                                                 {if $_subcat_lvl2}
                                                     <div class="menu-subcategory js-subcategory-menu">
 
                                                         <div class="MobileMenu_nav-header">
                                                             <div class="btn-back js-btn-close-submenu"><i class="fi-rr-angle-small-left"></i></div>
-                                                            <div class="cat-title">{$catChild_2.name}</div>
+                                                            <div class="cat-title">
+                                                                {$catChild_2.name}
+                                                            </div>
                                                             <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
                                                         </div>
 
@@ -136,7 +150,14 @@
                                                         {foreach $catChild_2.childs as $catChild_3}
                                                             {if !isset($catChild_3.params.menu_hide)}
                                                                 <div class="subcat-menu__item">
-                                                                    <a href="{$catChild_3.url}">{$catChild_3.name}</a>
+                                                                    <a href="{$catChild_3.url}">
+                                                                        {$catChild_3.name}
+                                                                        {if !empty($catChild_3.params.productQuantity)}
+                                                                            <span class="menu-product-count menu-product-count--phone-menu">
+                                                                                ({$catChild_3.params.productQuantity})
+                                                                            </span>
+                                                                        {/if}
+                                                                    </a>
                                                                 </div>
                                                             {/if}
                                                         {/foreach}

@@ -3306,14 +3306,24 @@ input.filter-range_el:focus {
     margin-right: 5px;
   }
 }
+@media (max-width: 1025px){
+  .category-heder {
+    margin-bottom: 10px;
+  }
+}
+.category-name {
+  margin-bottom: 10px;
+}
 @media (min-width: 1026px){
   .category-name {
+    margin-bottom: 0px;
     display: inline-flex;
   }
   .cartegory-product-count {
     margin-left: 10px;
   }
 }
+
 .category-desc {
   margin: 0 0 1rem;
 }
