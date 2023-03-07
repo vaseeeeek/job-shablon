@@ -4616,6 +4616,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
 
     & > .Nav-search {
       display: none;
@@ -4801,7 +4802,7 @@ textarea {
         margin-right: 0;
       }
       .header--right {
-        flex: 0 1 78px
+        flex: 0 1 78px;
       }
       .header_logo {
         margin-right: 0;
