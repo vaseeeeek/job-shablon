@@ -1,32 +1,95 @@
+{*id метрики*}
+{$metrikaId = '92675167'}
+{*Отправка электронной коммерции*}
+{$ecomerc = true}
+
+{*id цели добавления в корзину*}
+{$idAddToCart = '285803588'}
+{*наименование цели добавления в корзину*}
+{$nameAddToCart = 'addtocart'}
+
+{*id цели оформления заказа*}
+{$idPurchase = '285803588'}
+{*наименование цели оформления заказа*}
+{$namePurchase = 'purchase'}
+
+{*id цели удаления товара из корзины*}
+{$idDeleteProduct = '286721465'}
+{*наименование цели удаления товара из корзины*}
+{$nameDeleteProduct = 'deleteProduct'}
+
+{*id цели обращения в виджет чата на сайте*}
+{$nameDeleteProduct = 'chatik'}
+{*идентификатор блока обращения в виджет чата на сайте*}
+{$classDeleteProduct = '.chatik-block'}
+
+{*id цели добавления в избранное*}
+{$nameFavoriteAdd = 'addFavor'}
+{*идентификатор добавления в избранное*}
+{$classFavoriteAdd = '.js-favorites-add'}
+
+{*id цели добавления в избранное*}
+{$nameCompareAdd = 'addCompare'}
+{*идентификатор добавления в избранное*}
+{$classCompareAdd = '.js-compare-add'}
+
+{*id цели добавления в избранное*}
+{$nameUseFilter = 'useFilter'}
+{*идентификатор добавления в избранное*}
+{$classUseFilter = '#filter-body'}
+
 <script type="text/javascript">
     window.dataLayer = window.dataLayer || [];
 </script>
 
 <script>
-    $(document).on('ready', function(){
-        const metrikaId = '92675167';
+    $(document).on('ready', function () {
+        const ecomerc = {if $ecomerc}true{else}false{/if};
+        const metrikaId = {$metrikaId};
         const idTarget = {
             // Добавление в корзину
             'addToCart': {
-                'id':'285803588',
-                'name':'addtocart'
+                'id':'{$idAddToCart}',
+                'name':'{$nameAddToCart}'
+            },
+            // Оформление заказа
+            'purchase': {
+                'id': '{$idPurchase}',
+                'name': '{$namePurchase}'
+            },
+            // Удаление товара из корзины
+            'deleteProduct': {
+                'id': '{$idDeleteProduct}',
+                'name': '{$nameDeleteProduct}'
+            },
+            'clickChat': {
+                'name': '{$nameDeleteProduct}',
+                'class': '{$classDeleteProduct}'
+            },
+            'favoriteAdd': {
+                'name': '{$nameFavoriteAdd}',
+                'class': '{$classFavoriteAdd}'
+            },
+            'compareAdd': {
+                'name': '{$nameCompareAdd}',
+                'class': '{$classCompareAdd}'
+            },
+            'useFilter': {
+                'name': '{$nameUseFilter}',
+                'class': '{$classUseFilter}'
             }
         }
-
-        $('.product_add-services .addtocart').on('click', function () {
-            const productId = $('#page-content').data('product-id');
-            const productName = $('h1.product_name').text().trim();
-            const productPrice = $('.product_prices').find('.product__price').data('price');
-            const productCategory = $('.breadcrumbs li span').last().text().trim();
-            const productQty = $('.product_add-services .Cart__Qty input').val();
-
+        const productId = $('#page-content').data('product-id');
+        const productName = $('h1.product_name').text().trim();
+        const productPrice = $('.product_prices').find('.product__price').data('price');
+        const productCategory = $('.breadcrumbs li span').last().text().trim();
+        const productQty = $('.product_add-services .Cart__Qty input').val();
+        {literal}
+        if (ecomerc) {
             dataLayer.push({
                 "ecommerce": {
                     "currencyCode": "RUB",
-                    "add": {
-                        "actionField": {
-                            "goal_id" : idTarget.addToCart.id
-                        },
+                    "detail": {
                         "products": [
                             {
                                 "id": productId,
@@ -39,6 +102,110 @@
                     }
                 }
             });
+        }
+
+        $('.product_add-services .addtocart').on('click', function () {
+            if (ecomerc) {
+                dataLayer.push({
+                    "ecommerce": {
+                        "currencyCode": "RUB",
+                        "add": {
+                            "actionField": {
+                                "id": productId,
+                                "goal_id": idTarget.addToCart.id
+                            },
+                            "products": [
+                                {
+                                    "id": productId,
+                                    "name": productName,
+                                    "price": productPrice,
+                                    "category": productCategory,
+                                    "quantity": productQty
+                                }
+                            ]
+                        }
+                    }
+                });
+            } else {
+                ym(metrikaId,'reachGoal',idTarget.addToCart.name)
+            }
         })
+
+        $('.js-delete-product').on('click', function () {
+            const parent = $(this).closest('.wa-product');
+            const id = parent.data('product-id');
+            const name = parent.find('.wa-name').text().trim();
+            const qty = parent.find('.wa-input').val();
+
+            if (ecomerc) {
+                dataLayer.push({
+                "ecommerce": {
+                    "currencyCode": "RUB",
+                    "remove": {
+                        "products": [
+                            {
+                                "id": id,
+                                "name": name,
+                                "quantity": qty
+                            }
+                        ]
+                    }
+                }
+            });
+            } else {
+                ym(metrikaId,'reachGoal',idTarget.deleteProduct.name)
+            }
+        });
+
+        $('.js-submit-order-button').on('click', function () {
+            productsArray = [];
+            $('.wa-product').each(function () {
+                const productObj = {
+                    "id": $(this).data('product-id'),
+                    "name": $(this).find('.wa-name').text().trim(),
+                    "price": parseInt($(this).find('.wa-price-total').text().trim()),
+                    "quantity": parseInt($(this).find('.wa-input').val())
+                }
+            })
+
+            if (ecomerc) {
+                dataLayer.push({
+                    "ecommerce": {
+                        "currencyCode": "RUB",
+                        "purchase": {
+                            "actionField": {
+                                "id": "orderid",
+                                "goal_id": idTarget.purchase.id
+                            },
+                            "products": productsArray.push(productObj)
+                        }
+                    }
+                });
+            } else {
+                ym(metrikaId,'reachGoal',idTarget.purchase.name)
+            }
+        });
+
+        if (idTarget.clickChat.class && idTarget.clickChat.name) {
+            $(`${idTarget.clickChat.class}`).on('click',function(){
+                ym(metrikaId,'reachGoal',idTarget.clickChat.name)
+            })
+        }
+        if (idTarget.favoriteAdd.class && idTarget.favoriteAdd.name) {
+            $(`${idTarget.favoriteAdd.class}`).on('click',function(){
+                ym(metrikaId,'reachGoal',idTarget.favoriteAdd.name)
+            })
+        }
+        if (idTarget.compareAdd.class && idTarget.compareAdd.name) {
+            $(`${idTarget.compareAdd.class}`).on('click',function(){
+                ym(metrikaId,'reachGoal',idTarget.compareAdd.name)
+            })
+        }
+        if (idTarget.useFilter.class && idTarget.useFilter.name) {
+            $(`${idTarget.useFilter.class}`).on('change',function(){
+                ym(metrikaId,'reachGoal',idTarget.useFilter.name)
+            })
+        }
+        {/literal}
     })
 </script>

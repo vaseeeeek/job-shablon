@@ -944,7 +944,7 @@
       <name locale="en_US">Show crumbs in categories</name>
     </setting>
     <setting var="compare" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Comparison</name>
       <name locale="ru_RU">Сравнение</name>
     </setting>
@@ -1480,7 +1480,7 @@
       <description locale="en_US">Specify from how many filter values to show search</description>
     </setting>
     <setting var="modal_sb" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Выплывающий сайдбар</name>
     </setting>
     <setting var="paragraph_product" control_type="group_divider">
