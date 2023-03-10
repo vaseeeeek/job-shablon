@@ -25,22 +25,29 @@
 
 {*id цели добавления в избранное*}
 {$nameFavoriteAdd = 'addFavor'}
-{*идентификатор добавления в избранное*}
-{$classFavoriteAdd = '.js-favorites-add'}
 
 {*id цели добавления в избранное*}
 {$nameCompareAdd = 'addCompare'}
-{*идентификатор добавления в избранное*}
-{$classCompareAdd = '.js-compare-add'}
 
-{*id цели добавления в избранное*}
+{*id цели использования фильтра*}
 {$nameUseFilter = 'useFilter'}
-{*идентификатор добавления в избранное*}
-{$classUseFilter = '#filter-body'}
+
+{*id цели нажатия кнопок слайдера*}
+{$nameClickSwipeSlider = 'clickSwipeSlider'}
+
+{*id цели нажатия зума фото товара*}
+{$namePhotoZoom = 'photoZoom'}
+
+{*id цели нажатия кнопок слайдера*}
+{$nameTabProductInfo = 'tabProductInfo'}
+
+{*id цели нажатия на соц сети*}
+{$nameClickSocial = 'clickSocial'}
 
 <script type="text/javascript">
     window.dataLayer = window.dataLayer || [];
 </script>
+
 
 <script>
     $(document).on('ready', function () {
@@ -63,20 +70,28 @@
                 'name': '{$nameDeleteProduct}'
             },
             'clickChat': {
-                'name': '{$nameDeleteProduct}',
-                'class': '{$classDeleteProduct}'
+                'name': '{$nameDeleteProduct}'
             },
             'favoriteAdd': {
-                'name': '{$nameFavoriteAdd}',
-                'class': '{$classFavoriteAdd}'
+                'name': '{$nameFavoriteAdd}'
             },
             'compareAdd': {
-                'name': '{$nameCompareAdd}',
-                'class': '{$classCompareAdd}'
+                'name': '{$nameCompareAdd}'
             },
             'useFilter': {
-                'name': '{$nameUseFilter}',
-                'class': '{$classUseFilter}'
+                'name': '{$nameUseFilter}'
+            },
+            'clickSwipeSlider': {
+                'name': '{$nameClickSwipeSlider}'
+            },
+            'photoZoom': {
+                'name': '{$namePhotoZoom}'
+            }
+            'tabProductInfo': {
+                'name': '{$nameTabProductInfo}'
+            }
+            'clickSocial': {
+                'name': '{$nameClickSocial}'
             }
         }
         const productId = $('#page-content').data('product-id');
@@ -186,24 +201,44 @@
             }
         });
 
-        if (idTarget.clickChat.class && idTarget.clickChat.name) {
+        if (idTarget.clickChat.name) {
             $(`${idTarget.clickChat.class}`).on('click',function(){
                 ym(metrikaId,'reachGoal',idTarget.clickChat.name)
             })
         }
-        if (idTarget.favoriteAdd.class && idTarget.favoriteAdd.name) {
-            $(`${idTarget.favoriteAdd.class}`).on('click',function(){
+        if (idTarget.favoriteAdd.name) {
+            $('.js-favorites-add').on('click',function(){
                 ym(metrikaId,'reachGoal',idTarget.favoriteAdd.name)
             })
         }
-        if (idTarget.compareAdd.class && idTarget.compareAdd.name) {
-            $(`${idTarget.compareAdd.class}`).on('click',function(){
+        if (idTarget.compareAdd.name) {
+            $('.js-compare-add').on('click',function(){
                 ym(metrikaId,'reachGoal',idTarget.compareAdd.name)
             })
         }
-        if (idTarget.useFilter.class && idTarget.useFilter.name) {
-            $(`${idTarget.useFilter.class}`).on('change',function(){
+        if (idTarget.useFilter.name) {
+            $('#filter-body').on('change',function(){
                 ym(metrikaId,'reachGoal',idTarget.useFilter.name)
+            })
+        }
+        if (idTarget.clickSwipeSlider.name) {
+            $('.js-slider-init-action').on('change',function(){
+                ym(metrikaId,'reachGoal',idTarget.clickSwipeSlider.name)
+            })
+        }
+        if (idTarget.photoZoom.name) {
+            $('.js-product_gallery-images-main-el').on('change',function(){
+                ym(metrikaId,'reachGoal',idTarget.photoZoom.name)
+            })
+        }
+        if (idTarget.tabProductInfo.name) {
+            $('.js-tab').on('change',function(){
+                ym(metrikaId,'reachGoal',idTarget.tabProductInfo.name)
+            })
+        }
+        if (idTarget.clickSocial.name) {
+            $('.footer-social_item').on('change',function(){
+                ym(metrikaId,'reachGoal',idTarget.clickSocial.name)
             })
         }
         {/literal}

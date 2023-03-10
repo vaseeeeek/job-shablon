@@ -51,7 +51,7 @@
         </script>
     {/if}
 
-    {if $wa->isMobile() && !$theme_settings.show_burger_header}
+    {if ($wa->isMobile() && !$theme_settings.show_burger_header) || !$wa->isMobile()}
         {$is_logo = $theme_settings.logo}
         <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}href="{$wa->getUrl('shop/frontend')}"{/if}>
             {if $theme_settings.path_svg_logo}
@@ -75,7 +75,7 @@
     {/if}
 </div>
 
-{if ($wa->isMobile() && $theme_settings.show_burger_header) || !$wa->isMobile()}
+{if $wa->isMobile() && $theme_settings.show_burger_header}
     {$is_logo = $theme_settings.logo}
     <a class="header_logo maincolor{if !$is_logo} header_logo--text{/if}" {if $wa->shop}href="{$wa->getUrl('shop/frontend')}"{/if}>
         {if $theme_settings.path_svg_logo}
