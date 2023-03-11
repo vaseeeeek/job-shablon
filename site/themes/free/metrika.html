@@ -44,6 +44,11 @@
 {*id цели нажатия на соц сети*}
 {$nameClickSocial = 'clickSocial'}
 
+{*id цели наведения на блок*}
+{$nameHoverBlock = 'hoverBlock'}
+{*селектор цели наведения на блок*}
+{$selectorHoverBlock = 'a.header_logo'}
+
 <script type="text/javascript">
     window.dataLayer = window.dataLayer || [];
 </script>
@@ -86,12 +91,16 @@
             },
             'photoZoom': {
                 'name': '{$namePhotoZoom}'
-            }
+            },
             'tabProductInfo': {
                 'name': '{$nameTabProductInfo}'
-            }
+            },
             'clickSocial': {
                 'name': '{$nameClickSocial}'
+            },
+            'hoverBlock': {
+                'name': '{$nameHoverBlock}',
+                'selector': '{$selectorHoverBlock}'
             }
         }
         const productId = $('#page-content').data('product-id');
@@ -99,25 +108,27 @@
         const productPrice = $('.product_prices').find('.product__price').data('price');
         const productCategory = $('.breadcrumbs li span').last().text().trim();
         const productQty = $('.product_add-services .Cart__Qty input').val();
-        {literal}
-        if (ecomerc) {
-            dataLayer.push({
-                "ecommerce": {
-                    "currencyCode": "RUB",
-                    "detail": {
-                        "products": [
-                            {
-                                "id": productId,
-                                "name": productName,
-                                "price": productPrice,
-                                "category": productCategory,
-                                "quantity": productQty
-                            }
-                        ]
+        {if $wa->get('action') == 'product'}
+            if (ecomerc) {
+                dataLayer.push({
+                    "ecommerce": {
+                        "currencyCode": "RUB",
+                        "detail": {
+                            "products": [
+                                {
+                                    "id": productId,
+                                    "name": productName,
+                                    "price": productPrice,
+                                    "category": productCategory,
+                                    "quantity": productQty
+                                }
+                            ]
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
+        {/if}
+        {literal}
 
         $('.product_add-services .addtocart').on('click', function () {
             if (ecomerc) {
@@ -208,6 +219,7 @@
         }
         if (idTarget.favoriteAdd.name) {
             $('.js-favorites-add').on('click',function(){
+                console.log(1);
                 ym(metrikaId,'reachGoal',idTarget.favoriteAdd.name)
             })
         }
@@ -239,6 +251,11 @@
         if (idTarget.clickSocial.name) {
             $('.footer-social_item').on('change',function(){
                 ym(metrikaId,'reachGoal',idTarget.clickSocial.name)
+            })
+        }
+        if (idTarget.hoverBlock.name && idTarget.hoverBlock.selector) {
+            $(idTarget.hoverBlock.selector).on('mouseenter',function(){
+                ym(metrikaId,'reachGoal',idTarget.hoverBlock.name)
             })
         }
         {/literal}
