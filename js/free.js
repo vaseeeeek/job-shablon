@@ -2626,6 +2626,32 @@ const isMobileVersion = function() {
     }
 }
 
+const fixedAdd2Cart = {
+    init(){
+        if ($('.js-fixed-add2cart-panel').length) {
+            _this = this;
+            _this.fixedOn();
+        }
+    },
+    fixedOn(){
+        const blockPos = $('.js-fixed-add2cart-panel').offset().top
+        $( window ).scroll(function() {
+            const scrollPos = $(window).scrollTop();
+
+            if (scrollPos > blockPos) {
+                if (!$('.js-fixed-add2cart-panel').hasClass('fixed-add2cart-panel')) {
+                    $('.js-fixed-add2cart-panel').addClass('fixed-add2cart-panel');
+
+                }
+            } else {
+                if ($('.js-fixed-add2cart-panel').hasClass('fixed-add2cart-panel')) {
+                    $('.js-fixed-add2cart-panel').removeClass('fixed-add2cart-panel');
+                }
+            }
+        });
+    }
+}
+
 function Product(form, options, skus = false) {
     this.formWrap = $(form);
     this.add2cart = this.formWrap.find(".js-add2cart");
@@ -3256,6 +3282,7 @@ $(function () {
     hideDdItemTwo.init();
     showContantBox.init();
     haederBurger.init();
+    fixedAdd2Cart.init();
     new productGridGallery();
 });
 

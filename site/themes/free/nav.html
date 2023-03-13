@@ -75,7 +75,8 @@
                                                                 {/foreach}
                                                                 {if $theme_settings.number_output_categories_third_level < count($cat2.childs) && !$theme_settings.drop_down_horizontal_menu_absolute}
                                                                     <div class="Nav__horizontal--item-more js-open-other-cat-child">
-                                                                        [`Else`] <i class="fi-rr-angle-small-down"></i>
+                                                                        <div class="item-more-else">[`Else`] <i class="fi-rr-angle-small-down"></i></div>
+                                                                        <div class="item-more-hide" style="display: none">Свернуть <i class="fi-rr-angle-small-up"></i></div>
                                                                     </div>
                                                                 {/if}
                                                             </div>
@@ -108,21 +109,18 @@
                         $(this).removeClass('hide');
                         $(this).addClass('show');
                     });
-                    $(this).html('Свернуть <i class="fi-rr-angle-small-up"></i>')
+                    $(this).find('.item-more-else').fadeOut(0);
+                    $(this).find('.item-more-hide').fadeIn(0);
                 } else {
                     $(this).siblings('.show').each(function () {
                         $(this).removeClass('show');
                         $(this).addClass('hide');
                     });
-                    $(this).html(`${textElse} <i class="fi-rr-angle-small-down"></i>`)
+                    $(this).find('.item-more-else').fadeIn(0);
+                    $(this).find('.item-more-hide').fadeOut(0);
                 }
             })
         });
-    </script>
-    <script>
-        $('.Nav__horizontal--item--relative').each(function() {
-
-        })
     </script>
 {/literal}
 {/strip}

@@ -107,7 +107,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#000000</value>
+      <value>#2d2d2d</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -251,7 +251,7 @@
       <name locale="ru_RU">WhatsApp</name>
     </setting>
     <setting var="policy" control_type="text">
-      <value></value>
+      <value/>
       <name locale="en_US">policy</name>
       <name locale="ru_RU">Политика персональных данных</name>
     </setting>
@@ -481,7 +481,7 @@
             </description>
     </setting>
     <setting var="break_categories_columns" control_type="select">
-      <value>columns</value>
+      <value>one_column</value>
       <name locale="ru_RU">Разбивать категории на колонки</name>
       <name locale="en_US">Break categories into columns</name>
       <options>
@@ -496,7 +496,7 @@
       </options>
     </setting>
     <setting var="position_drop_down_categories" control_type="select">
-      <value>all</value>
+      <value>parent</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -511,7 +511,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий
@@ -572,7 +572,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="number_output_categories_third_level" control_type="text">
-      <value>88</value>
+      <value>5</value>
       <name locale="ru_RU">Количество выводимых категорий третьего уровня</name>
       <name locale="en_US"/>
     </setting>
@@ -611,7 +611,7 @@
       <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="home_blocks_list" control_type="text">
-      <value>slider,category,product-slider,brands,news,text</value>
+      <value>slider,category,product-slider,brands,news,reviews,text</value>
       <name locale="en_US">Home blocks</name>
       <name locale="ru_RU">Блоки на главной</name>
       <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
@@ -711,7 +711,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>
@@ -1107,7 +1107,7 @@
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
     <setting var="sb_list_categories" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">List of categories</name>
       <name locale="ru_RU">Список категорий</name>
     </setting>
@@ -1261,7 +1261,7 @@
       </options>
     </setting>
     <setting var="show_summary_grid" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Output a short description as a list - tile</name>
       <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
     </setting>
@@ -1466,11 +1466,6 @@
       <name locale="en_US">Tag header</name>
       <name locale="ru_RU">Заголовок тегов</name>
     </setting>
-    <!--    <setting var="hide_filters" control_type="text">-->
-    <!--      <value><![CDATA[]]></value>-->
-    <!--      <name locale="en_US">Hide filters if the number of filters is greater than specified</name>-->
-    <!--      <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>-->
-    <!--    </setting>-->
     <setting var="show_filter_search" control_type="text">
       <value>2</value>
       <name locale="ru_RU">Поиск значений фильтров</name>
@@ -1842,6 +1837,11 @@
       <name locale="ru_RU">Вывод итоговой цены (цена * количество)</name>
       <name locale="en_US">Show total price</name>
     </setting>
+    <setting var="product_fixed_add2cart_panel" control_type="checkbox">
+      <value>1</value>
+      <name locale="ru_RU">Фиксированная кнопка купить</name>
+      <name locale="en_US">Fixed button buy</name>
+    </setting>
     <setting var="paragraph_footer" control_type="group_divider">
       <value/>
       <name locale="en_US">Footer</name>
@@ -1947,16 +1947,16 @@
       <name locale="en_US">Output the second block of the site (footer_col2)</name>
     </setting>
     <setting var="yandex_link" control_type="text">
-      <value>123</value>
+      <value/>
       <name locale="ru_RU">Ссылка на яндекс отзывы</name>
     </setting>
     <setting var="footer_text_after_logo" control_type="text">
-      <value>Текст под логотипом в футере</value>
+      <value/>
       <name locale="ru_RU">Текст под логотипов в футере</name>
       <name locale="en_US">Text under the logo in the footer</name>
     </setting>
     <setting var="footer_show_email" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывести email в футере</name>
       <name locale="en_US">Show email</name>
     </setting>

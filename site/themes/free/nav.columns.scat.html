@@ -59,7 +59,10 @@
                                     {/foreach}
                                     {if $theme_settings.number_output_categories_third_level < count($catChild_2.childs)}
                                         <div class="sub-category-opened__sub-more js-open-other-cat-child">
-                                            [`Else`] <i class="fi-rr-angle-small-down"></i>
+                                            <div class="Nav__horizontal--item-more js-open-other-cat-child">
+                                                <div class="item-more-else">[`Else`] <i class="fi-rr-angle-small-down"></i></div>
+                                                <div class="item-more-hide" style="display: none">Свернуть <i class="fi-rr-angle-small-up"></i></div>
+                                            </div>
                                         </div>
                                     {/if}
                                 </div>

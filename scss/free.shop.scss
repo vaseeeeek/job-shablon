@@ -225,7 +225,50 @@ $html-font-size: 14px;
     opacity: 0.8;
   }
 }
+.fixed-add2cart-panel {
+  box-shadow: 0 -2px 2px rgb(0 0 0 / 12%);
+  position: fixed;
+  z-index: 2;
+  background: #fff;
+  bottom: 70px;
+  width: 100vw;
+  padding: 10px;
+  left: 0;
+  display: flex;
 
+  .complex-bottom-text {
+    display: none;
+  }
+
+  .df-block {
+    display: none;
+  }
+
+  .Cart__Qty {
+    display: none;
+  }
+
+  .button-one-click__wrap .product_one-click__wrap {
+    display: none;
+  }
+  .product_prices .product__price {
+    font-size: 20px;
+  }
+
+  .addtocart {
+    margin: 0!important;
+  }
+  .button-one-click__wrap {
+    margin-top: 0;
+  }
+  .old-price {
+    font-size: 14px;
+    margin-right: auto;
+  }
+  .product_prices {
+    margin-right: auto;
+  }
+}
 .product_page .product_add2cart .addtocart {
   height: 37px;
   line-height: 37px;
@@ -3447,7 +3490,7 @@ input.filter-range_el:focus {
   line-height: 1;
 
   &:after {
-    content: "\e916";
+    content: "\e913";
     font-family: free-font;
     position: relative;
     top: 4px;
@@ -3457,7 +3500,7 @@ input.filter-range_el:focus {
   }
 
   &.active:after {
-    content: "\e915";
+    content: "\e916";
   }
 }
 
