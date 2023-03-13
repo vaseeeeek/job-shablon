@@ -2666,7 +2666,12 @@ img.mfp-img {
   cursor: pointer;
   width: calc(100% - 30px);
 }
-
+.Nav__Primary .subcat-menu__item.has-subs {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
 .Nav__Primary-outer .subcat-menu__item a {
   padding: rem(10px) 0 rem(10px) rem(10px);
 }

@@ -496,7 +496,7 @@
       </options>
     </setting>
     <setting var="position_drop_down_categories" control_type="select">
-      <value>parent</value>
+      <value>all</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -1918,7 +1918,7 @@
       <name locale="ru_RU">Копирайт</name>
     </setting>
     <setting var="footer_type" control_type="select">
-      <value>2</value>
+      <value>1</value>
       <name locale="ru_RU">Варианты вывода подвала сайта</name>
       <name locale="en_US">Website footer output options</name>
       <options>
@@ -1929,10 +1929,6 @@
         <option value="2">
           <name locale="ru_RU">2</name>
           <name locale="en_US">2</name>
-        </option>
-        <option value="3">
-          <name locale="ru_RU">3</name>
-          <name locale="en_US">3</name>
         </option>
       </options>
     </setting>
