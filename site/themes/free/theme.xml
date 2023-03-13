@@ -71,7 +71,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/ozon.png</value>
+      <value>img/themesettings/citilink.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -84,7 +84,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#00b412</value>
+      <value>#2d2d2d</value>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -95,7 +95,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#00b412</value>
+      <value>#2d2d2d</value>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -107,12 +107,12 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#000000</value>
+      <value>#2d2d2d</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
     <setting var="footer_color_scheme" control_type="color">
-      <value>#f2f2f2</value>
+      <value>#eeeeee</value>
       <name locale="ru_RU">Цвет низа сайта (футер)</name>
       <name locale="en_US"/>
     </setting>
@@ -144,7 +144,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>opensans</value>
+      <value>roboto</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
@@ -251,7 +251,7 @@
       <name locale="ru_RU">WhatsApp</name>
     </setting>
     <setting var="policy" control_type="text">
-      <value/>
+      <value>/privacy/</value>
       <name locale="en_US">policy</name>
       <name locale="ru_RU">Политика персональных данных</name>
     </setting>
@@ -266,7 +266,7 @@
       <name locale="ru_RU">Шапка</name>
     </setting>
     <setting var="logo" control_type="image">
-      <value>img/logo.png?v1667141990</value>
+      <value>img/logo.png?v1658423713</value>
       <filename>img/logo.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -277,12 +277,12 @@
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
     <setting var="width_logo" control_type="text">
-      <value>170</value>
+      <value>160</value>
       <name locale="en_US">Width of logo, px</name>
       <name locale="ru_RU">Ширина логотипа, px</name>
     </setting>
     <setting var="logo_width_mobile" control_type="text">
-      <value>170</value>
+      <value>160</value>
       <name locale="en_US">Logo width on mobile, px</name>
       <name locale="ru_RU">Ширина логотипа на мобильных, px</name>
     </setting>
@@ -354,7 +354,7 @@
       <name locale="en_US">Second phone</name>
     </setting>
     <setting var="header_show_phone_two" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Display the second number in the header</name>
       <name locale="ru_RU">Выводить второй номер в шапке</name>
     </setting>
@@ -364,7 +364,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="header_show_email" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Display email in the checker</name>
       <name locale="ru_RU">Выводить email в шаке</name>
     </setting>
@@ -389,7 +389,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="request_call" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Request a call</name>
       <name locale="ru_RU">Заказать звонок</name>
     </setting>
@@ -399,7 +399,7 @@
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
     <setting var="fixed_panel_array" control_type="text">
-      <value>burger,cart,compare,favorite,filter,profile,order</value>
+      <value>burger,cart,compare,favorite,filter,profile</value>
       <name locale="ru_RU">Нижнее меню на мобильных</name>
       <name locale="en_US"/>
       <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
@@ -533,7 +533,7 @@
       </options>
     </setting>
     <setting var="id_app_menu_cat" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="en_US">ID from applications Menu</name>
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
@@ -557,7 +557,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu_app_id" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
       <name locale="en_US"/>
     </setting>
@@ -567,12 +567,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu_absolute" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Вывод горизонтального меню относительно наведения</name>
       <name locale="en_US"/>
     </setting>
     <setting var="number_output_categories_third_level" control_type="text">
-      <value>88</value>
+      <value>5</value>
       <name locale="ru_RU">Количество выводимых категорий третьего уровня</name>
       <name locale="en_US"/>
     </setting>
@@ -611,7 +611,7 @@
       <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="home_blocks_list" control_type="text">
-      <value>slider,category,product-slider,brands,news,text</value>
+      <value>slider,category,product-slider,news,brands,text</value>
       <name locale="en_US">Home blocks</name>
       <name locale="ru_RU">Блоки на главной</name>
       <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
@@ -788,7 +788,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="home_categories_title" control_type="text">
-      <value>Основные категории</value>
+      <value>Категории</value>
       <name locale="ru_RU">Заголовок</name>
     </setting>
     <setting var="total_max_maxcat_homepage" control_type="text">
@@ -797,7 +797,7 @@
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
     <setting var="category_row_home" control_type="select">
-      <value>eight</value>
+      <value>seven</value>
       <name locale="ru_RU">
                 Количество категорий в строке на главной
             </name>
@@ -837,7 +837,7 @@
       <name locale="ru_RU">Заголовок новинок</name>
     </setting>
     <setting var="home_product_list_2" control_type="text">
-      <value>new</value>
+      <value>novinki</value>
       <name locale="en_US">ID of the novelty list</name>
       <name locale="ru_RU">ID списка новинки</name>
     </setting>
@@ -857,7 +857,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value>brands_pro</value>
+      <value/>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -920,7 +920,7 @@
       <name locale="ru_RU">Новости на главной</name>
     </setting>
     <setting var="home_lastposts" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Display the latest news on the main page</name>
       <name locale="ru_RU">Вывести последние новости на главной</name>
     </setting>
@@ -1062,8 +1062,7 @@
       <name locale="ru_RU">Рейтинг товара</name>
     </setting>
     <setting var="text_zero_price" control_type="text">
-      <value locale="ru_RU">По запросу</value>
-      <value locale="en_US">By request</value>
+      <value>По запросу</value>
       <name locale="ru_RU">Текст при нулевой цене</name>
       <name locale="en_US">Text at zero price</name>
     </setting>
@@ -1262,7 +1261,7 @@
       </options>
     </setting>
     <setting var="show_summary_grid" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Output a short description as a list - tile</name>
       <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
     </setting>
@@ -1473,7 +1472,7 @@
     <!--      <name locale="ru_RU">Скрывать фильтры если количество больше заданного</name>-->
     <!--    </setting>-->
     <setting var="show_filter_search" control_type="text">
-      <value>2</value>
+      <value>15</value>
       <name locale="ru_RU">Поиск значений фильтров</name>
       <name locale="en_US">Searching for filter values</name>
       <description locale="ru_RU">Укажите от скольки значений фильтров показывать поиск</description>
@@ -1548,12 +1547,12 @@
       </options>
     </setting>
     <setting var="product_page_show_qty" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывод количества</name>
       <name locale="en_US">Outputting the quantity</name>
     </setting>
     <setting var="product_image_size_zoom" control_type="text">
-      <value>970</value>
+      <value>1600</value>
       <name locale="ru_RU">Размер изображения в zoom</name>
       <name locale="en_US">Image size in zoom</name>
       <description locale="ru_RU">Размер не должен привышать максимальный размер эскиза, в настройках магазина.
@@ -1595,7 +1594,7 @@
       </options>
     </setting>
     <setting var="display_buy_one_click" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывод кнопки "Купить в 1 клик" справа от кнопки "купить"</name>
       <name locale="en_US">Display the "Buy 1 Click" button to the right of the "Buy" button</name>
     </setting>
@@ -1638,7 +1637,7 @@
             </description>
     </setting>
     <setting var="product_codes_output_characteristics" control_type="text">
-      <value>brand,litrazh,color</value>
+      <value>brand</value>
       <name locale="ru_RU">Коды выводимых характеристик</name>
       <name locale="en_US">Codes of the output characteristics</name>
     </setting>
@@ -1735,7 +1734,7 @@
       </options>
     </setting>
     <setting var="type_view_main_content_product_mobile" control_type="select">
-      <value>acc_tabs</value>
+      <value>none_tabs</value>
       <name locale="ru_RU">Вид вкладок на мобильных</name>
       <name locale="en_US">View of tabs on mobile</name>
       <options>
@@ -1770,12 +1769,12 @@
       <name locale="en_US">Tags under reviews</name>
     </setting>
     <setting var="view_product_select_color_text" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">The color of the text in the article</name>
       <name locale="ru_RU">Цвет текстом около кружка у артикула</name>
     </setting>
     <setting var="product_show_multi_sku" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Код артикула, если кол-во артикулов больше 1</name>
       <name locale="en_US">Article code, if the number of articles is more than 1</name>
     </setting>
@@ -1804,12 +1803,12 @@
       </options>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
       <name locale="en_US">The sku parameter in the browser line</name>
     </setting>
     <setting var="product_show_stock" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Наличие на складе</name>
       <name locale="en_US">Stock availability</name>
     </setting>
@@ -1865,14 +1864,12 @@
       <name locale="ru_RU">Путь до svg логотипа</name>
     </setting>
     <setting var="facebook" control_type="text">
-      <value locale="en_US">https://www.facebook.com/Webasyst</value>
-      <value locale="ru_RU">https://www.facebook.com/Webasyst.RU</value>
+      <value>https://www.facebook.com/Webasyst.RU</value>
       <name locale="en_US">Facebook</name>
       <name locale="ru_RU">Facebook</name>
     </setting>
     <setting var="twitter" control_type="text">
-      <value locale="en_US">https://twitter.com/webasyst</value>
-      <value locale="ru_RU">https://twitter.com/webasyst_ru</value>
+      <value>https://twitter.com/webasyst_ru</value>
       <name locale="en_US">Twitter</name>
       <name locale="ru_RU">Twitter</name>
     </setting>
@@ -1883,8 +1880,7 @@
       <name locale="ru_RU">Telegram группа</name>
     </setting>
     <setting var="vk" control_type="text">
-      <value locale="en_US"/>
-      <value locale="ru_RU">https://vk.com/webasyst_ru</value>
+      <value>https://vk.com/webasyst_ru</value>
       <name locale="en_US">VK</name>
       <name locale="ru_RU">VK</name>
     </setting>
@@ -1918,12 +1914,12 @@
             </description>
     </setting>
     <setting var="copyright" control_type="text">
-      <value>2022 © Free - бесплатный шаблон для Shop-Script. бесплатный шаблон для Shop-Script.бесплатный шаблон для Shop-Script.</value>
+      <value>2022 © Free - бесплатный шаблон для Shop-Script.</value>
       <name locale="en_US">Copyright</name>
       <name locale="ru_RU">Копирайт</name>
     </setting>
     <setting var="footer_type" control_type="select">
-      <value>2</value>
+      <value>1</value>
       <name locale="ru_RU">Варианты вывода подвала сайта</name>
       <name locale="en_US">Website footer output options</name>
       <options>
@@ -1942,21 +1938,21 @@
       </options>
     </setting>
     <setting var="footer_block_1" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывести первый блок сайта (footer_col1)</name>
       <name locale="en_US">Output the first block of the site (footer_col1)</name>
     </setting>
     <setting var="footer_block_2" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывести второй блок сайта (footer_col2)</name>
       <name locale="en_US">Output the second block of the site (footer_col2)</name>
     </setting>
     <setting var="yandex_link" control_type="text">
-      <value>123</value>
+      <value/>
       <name locale="ru_RU">Ссылка на яндекс отзывы</name>
     </setting>
     <setting var="footer_text_after_logo" control_type="text">
-      <value>Текст под логотипом в футере</value>
+      <value/>
       <name locale="ru_RU">Текст под логотипов в футере</name>
       <name locale="en_US">Text under the logo in the footer</name>
     </setting>
@@ -2040,7 +2036,7 @@
       <name locale="ru_RU">Вывод фильтра по складам справа от сортировки (плагин fstock)</name>
     </setting>
     <setting var="viewed_items_header" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Ссылка "просмотренны товары" в шапке</name>
       <name locale="en_US">The "viewed items" link in the header</name>
     </setting>
