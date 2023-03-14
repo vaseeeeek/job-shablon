@@ -2307,6 +2307,18 @@ img.mfp-img {
 
 .cat-menu__item.active {
   background-color: #f3f4f7 !important;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    background-color: #f3f4f7 !important;
+    content: "";
+    right: 100%;
+    top: 0;
+    display: block;
+    height: 100%;
+    width: 1000px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -2627,6 +2639,7 @@ img.mfp-img {
   //padding: 10px 0 10px 10px;
   display: flex;
   align-items: center;
+  transition: none!important;
 }
 
 .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right {
@@ -4319,6 +4332,7 @@ textarea {
   .nav-cat_wrap {
     width: 100%;
     left: 0;
+    overflow: hidden;
   }
 
   .Nav__horizontal--list {
@@ -4736,7 +4750,7 @@ textarea {
   }
 
   * {
-    transition: .5s;
+    //transition: .5s;
   }
 }
 

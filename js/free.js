@@ -1584,14 +1584,9 @@ var ddBox = {
 
             if ($('header').hasClass('sticky')) {
                 const headerHeight = $('.header-top--links').height() + $('header').height() + 1;
-                console.log($('.header-top--links').height());
-                console.log($('header').height());
                 $('#nav-cat > .js-bg').attr('style', `background-image: linear-gradient(transparent ${headerHeight}px, #000 ${headerHeight}px)`);
             } else {
-                console.log($('.header-top--links').height());
-                console.log($('header').height());
                 const headerHeight = $('.header-top--links').height() + $('header').height() + 10;
-                console.log(headerHeight);
                 $('#nav-cat > .js-bg').attr('style', `background-image: linear-gradient(transparent ${headerHeight}px, #000 ${headerHeight}px)`);
             }
 
