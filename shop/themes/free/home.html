@@ -199,19 +199,26 @@
                                     <div class="review__header">
                                         <div class="review__header__left">
                                             <a href="{$wa->shop->productUrl($p)}" class="review__product__image">
-                                                {$wa->shop->imgHtml($p.images|@array_shift, '75')}
+                                                {$wa->shop->imgHtml($p.images|@array_shift, '150')}
                                             </a>
                                         </div>
                                         <div class="review__header__right">
                                             <a href="{$wa->shop->productUrl($p)}" class="review__product__title">
                                                 {$p.name}
                                             </a>
+                                        </div>
+                                    </div>
+                                    {contactsHelper::getAccessTabTitle($contact)}
+                                    <div class="review__bottom">
+                                        <div class="review__text">{$review.text}</div>
+                                        <div class="review__info">
+                                            <div class="review__user-name">{$review.author.name}</div>
                                             <div class="review__value">
-                                                <div class="review__value__num">
-                                                    <span>
-                                                        {$p.rating}
-                                                    </span>
-                                                </div>
+{*                                                <div class="review__value__num">*}
+{*                                                    <span>*}
+{*                                                        {$p.rating}*}
+{*                                                    </span>*}
+{*                                                </div>*}
                                                 <div class="review__value__star">
                                                     {if $p.rating > 0 && $theme_settings.product_ratings}
                                                         <span class="rating nowrap">
@@ -238,14 +245,8 @@
                                                     {/if}
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="review__bottom">
-                                        <div class="review__info">
-                                            <div class="review__user-name">{$review.author.name}</div>
                                             <div class="review__date">{$review.datetime}</div>
                                         </div>
-                                        <div class="review__text">{$review.text}</div>
         {*                                <div class="review__link">*}
         {*                                    <a href=""></a>*}
         {*                                </div>*}
