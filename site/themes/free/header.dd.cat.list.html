@@ -24,7 +24,7 @@
 {if $theme_settings.cat_before_more}
     {$max_count_categories = $theme_settings.cat_before_more}
 {/if}
-
+{$firstCatOpen = false}
 {$else_categories = []}
 {if !empty($max_count_categories) && !$wa->isMobile()}
     {$index = 0}
@@ -72,7 +72,7 @@
                     {if $cat.id == 'else'}
                         {$_subcat = 1}
                     {/if}
-                    <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
+                    <div class="{if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{if !$firstCatOpen} active{/if}{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
                         {if $cat.id == 'else'}
                             <div class="cat-menu__item-link">
                                 <span class="cat-menu__item-title cat-menu__item-title--else maincolor">
@@ -101,8 +101,6 @@
                                         </span>
                                     {/if}
                                 </div>
-
-
                             </a>
                         {/if}
                         {if $_subcat}
@@ -117,7 +115,10 @@
                             {if $theme_settings.show_brands_menu && $cat.id == 'brands'}
                                 {include file="nav.columns.scat.html" isBrand=true}
                             {else}
-                                {include file=$subcatFile isBrand=false}
+                                {include file=$subcatFile isBrand=false openCat=!$firstCatOpen && $_subcat}
+                                {if !$firstCatOpen && $_subcat}
+                                    {$firstCatOpen = true}
+                                {/if}
                             {/if}
                         {/if}
                     </div>

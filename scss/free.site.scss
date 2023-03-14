@@ -1562,12 +1562,12 @@ iframe {
 }
 
 .star-half:before {
-  content: "\e900"
+  content: "\e901"
 }
 
 .star-half:after {
   color: #ffb300;
-  content: "\e900";
+  content: "\e901";
   position: absolute;
   left: 0;
   top: 0px;
@@ -1614,7 +1614,7 @@ iframe {
   left: 70px
 }
 
-.mfp-bg {
+.mfp-bg:not(.cat-nav-bg) {
   z-index: 1042;
   overflow: hidden;
   background: #0b0b0b;
