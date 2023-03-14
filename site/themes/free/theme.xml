@@ -481,7 +481,7 @@
             </description>
     </setting>
     <setting var="break_categories_columns" control_type="select">
-      <value>one_column</value>
+      <value>columns</value>
       <name locale="ru_RU">Разбивать категории на колонки</name>
       <name locale="en_US">Break categories into columns</name>
       <options>
