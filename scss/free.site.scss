@@ -2307,18 +2307,7 @@ img.mfp-img {
 
 .cat-menu__item.active {
   background-color: #f3f4f7 !important;
-  position: relative;
-
-  &:after {
-    position: absolute;
-    background-color: #f3f4f7 !important;
-    content: "";
-    right: 100%;
-    top: 0;
-    display: block;
-    height: 100%;
-    width: 1000px;
-  }
+  border-radius: 5px;
 }
 
 @media (max-width: 700px) {
@@ -2632,7 +2621,8 @@ img.mfp-img {
 .category-menu {
   width: 258px;
   background: #fff;
-  border-top: none
+  border-top: none;
+  padding-right: 10px;
 }
 
 .cat-menu__item {
