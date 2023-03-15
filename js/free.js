@@ -1581,16 +1581,19 @@ var ddBox = {
                 });
                 _this.open($this, wrap);
             }
-
+            console.log($('.js-cat-subs-disclosed.has-subs.cat-menu__item').first());
+            $('.js-cat-subs-disclosed.has-subs.cat-menu__item').first().trigger('mouseenter');
             if ($('header').hasClass('sticky')) {
-                const headerHeight = $('.header-top--links').height() + $('header').height() + 1;
+                const headerHeight = getPositionDDmenu();
                 $('#nav-cat > .js-bg').attr('style', `background-image: linear-gradient(transparent ${headerHeight}px, #000 ${headerHeight}px)`);
             } else {
-                const headerHeight = $('.header-top--links').height() + $('header').height() + 10;
+                const headerHeight = getPositionDDmenu();
                 $('#nav-cat > .js-bg').attr('style', `background-image: linear-gradient(transparent ${headerHeight}px, #000 ${headerHeight}px)`);
             }
-
-
+            function getPositionDDmenu() {
+                const coords = $('.Nav__Primary-outer')[0].getBoundingClientRect()
+                return coords.top;
+            }
         });
     },
     open: function (btn, btnWrap) {
