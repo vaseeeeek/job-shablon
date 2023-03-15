@@ -191,7 +191,7 @@
 
         {if $wa->shop && $wa->isAuthEnabled() && $theme_settings.header_show_orders}
             <div class="product-custom--lk product-custom">
-                <a class="js-products-link product-custom--link" href="">
+                <a class="js-products-link product-custom--link" href="{$wa->getUrl('shop/frontend')}my/orders/">
                     <div class="product-custom_icon maincolor">
                         <svg class="order-box-icon" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" height="25px" width="25px">
                             <rect fill="none" height="256" width="256"/>

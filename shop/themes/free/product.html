@@ -243,71 +243,70 @@
                                         <div class="product-tab_title"><h2>{$name_tab_features}</h2></div>
                                     {/if}
 
-                                        {if !empty($sku_features)}
-                                            {$features_items = $sku_features}
-                                        {else}
-                                            {$features_items = $features}
-                                        {/if}
+                                    {if !empty($sku_features)}
+                                        {$features_items = $sku_features}
+                                    {else}
+                                        {$features_items = $features}
+                                    {/if}
 
-                                            {foreach $product.skus as $sku}
-                                                <table class="Product__features" data-features-id="{$sku.id}" {if !$_is_dialog && count($product.skus) > 1 && !$sku@first} style="display:none"{/if}>
-                                                    {if !empty($sku.features)}
-                                                        {$product_features_items = $sku.features}
-                                                    {else}
-                                                        {$product_features_items = $product.features}
-                                                    {/if}
-                                                    {if class_exists('shopSeofilterViewHelper')}
-                                                        {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}
-                                                        {if $theme_settings.product_show_seofilter_link}
-                                                            {$seoLinksArr = []}
+                                    {foreach $product.skus as $sku}
+                                        <table class="Product__features" data-features-id="{$sku.id}" {if !$_is_dialog && count($product.skus) > 1 && !$sku@first} style="display:none"{/if}>
+                                            {if !empty($sku.features)}
+                                                {$product_features_items = $sku.features}
+                                            {else}
+                                                {$product_features_items = $product.features}
+                                            {/if}
+                                            {if class_exists('shopSeofilterViewHelper')}
+                                                {$product_features_items = shopSeofilterViewHelper::wrapFeatureValues($product_features_items)}
+                                                {if $theme_settings.product_show_seofilter_link}
+                                                    {$seoLinksArr = []}
+                                                {/if}
+                                            {/if}
+
+                                            {*featurestips*}
+                                            {if empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
+                                                {$featurestips = shopFeaturestipsPlugin::ReturnFeatureTipArray($product)}
+                                            {/if}
+                                            {*!featurestips*}
+
+                                            {foreach $product_features_items as $f_code => $f_value}
+                                                {if !empty($features_items[$f_code])}
+                                                    <tr class="Product__features-item{if $features_items[$f_code].type == 'divider'} divider{/if}" data-index="{$f_value@iteration}">
+                                                        <td class="Product__features-title">
+                                                            <span>{$features_items[$f_code].name|escape}</span>
+                                                        </td>
+                                                        {$_good_param = ($f_code|in_array:["weight", "model", "width", "height", "depth", "color", "manufacturer"])}
+                                                        {$itemProp = ""}
+                                                        {if $_good_param}
+                                                            {$itemProp = $f_code}
                                                         {/if}
-                                                    {/if}
-
-                                                    {*featurestips*}
-                                                    {if empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
-                                                        {$featurestips = shopFeaturestipsPlugin::ReturnFeatureTipArray($product)}
-                                                    {/if}
-                                                    {*!featurestips*}
-
-                                                    {foreach $product_features_items as $f_code => $f_value}
-                                                    {if !empty($features_items[$f_code])}
-                                                        <tr class="Product__features-item{if $features_items[$f_code].type == 'divider'} divider{/if}" data-index="{$f_value@iteration}">
-                                                            <td class="Product__features-title">
-                                                                <span>{$features_items[$f_code].name|escape}</span>
-                                                            </td>
-                                                            {$_good_param = ($f_code|in_array:["weight", "model", "width", "height", "depth", "color", "manufacturer"])}
-                                                            {$itemProp = ""}
-                                                            {if $_good_param}
-                                                                {$itemProp = $f_code}
-                                                            {/if}
-                                                            {if $theme_settings.brand_id && $theme_settings.brand_id == $f_code}
-                                                                {$itemProp = "brand"}
-                                                            {/if}
-                                                            <td class="Product__features-value"{if $itemProp} itemprop="{$itemProp}"{/if}>
-                                                                {if $features_items[$f_code].type != 'divider'}
-                                                                    {if is_array($f_value)}
-                                                                        {if $features_items[$f_code].type == 'color'}
-                                                                            {implode('<br /> ', $f_value)}
-                                                                        {else}
-                                                                            {implode(', ', $f_value)}
-                                                                        {/if}
+                                                        {if $theme_settings.brand_id && $theme_settings.brand_id == $f_code}
+                                                            {$itemProp = "brand"}
+                                                        {/if}
+                                                        <td class="Product__features-value"{if $itemProp} itemprop="{$itemProp}"{/if}>
+                                                            {if $features_items[$f_code].type != 'divider'}
+                                                                {if is_array($f_value)}
+                                                                    {if $features_items[$f_code].type == 'color'}
+                                                                        {implode('<br /> ', $f_value)}
                                                                     {else}
-                                                                        {$f_value}
-                                                                        {if  $f_value|strpos:"a href" !== false && class_exists('shopSeofilterViewHelper')  && $theme_settings.product_show_seofilter_link}
-                                                                            {$seoLinksArr[] = $f_value}
-                                                                        {/if}
+                                                                        {implode(', ', $f_value)}
                                                                     {/if}
-                                                                    {if !empty($featurestips)}
-                                                                        {shopFeaturestipsPlugin::ShowFeatureTip($featurestips, $f_code)}
+                                                                {else}
+                                                                    {$f_value}
+                                                                    {if  $f_value|strpos:"a href" !== false && class_exists('shopSeofilterViewHelper')  && $theme_settings.product_show_seofilter_link}
+                                                                        {$seoLinksArr[] = $f_value}
                                                                     {/if}
                                                                 {/if}
-                                                            </td>
-                                                        </tr>
-                                                    {/if}
-                                                {/foreach}
-                                                </table>
+                                                                {if !empty($featurestips)}
+                                                                    {shopFeaturestipsPlugin::ShowFeatureTip($featurestips, $f_code)}
+                                                                {/if}
+                                                            {/if}
+                                                        </td>
+                                                    </tr>
+                                                {/if}
                                             {/foreach}
-
+                                        </table>
+                                    {/foreach}
                                 </div>
                             {else if $item_alias_content == 'reviews'}
                                 {if $_tabs_acc}
