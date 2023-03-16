@@ -2573,7 +2573,7 @@ var stickyHeader = {
                 const menuHeight = windowHeight - headerHeight - 50;
                 const menuSubcategory = widthContainer - widthNav + 20;
 
-                $('#nav-cat').find('.menu-subcategory').attr('style',`max-height:${menuHeight}px;overflow:auto;`);
+                $('#nav-cat').find('.container').first().attr('style',`max-height:${menuHeight}px;overflow:auto;`);
             })
         }
         if (horizontalLink.length) {
