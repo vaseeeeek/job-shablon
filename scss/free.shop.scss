@@ -9012,3 +9012,21 @@ input[type=text], input[type=tel], input[type=email] {
   outline: 0;
   height: unset !important;
 }
+.cat-badge {
+  display: inline-flex;
+  color: #fff;
+  padding: 3px 5px;
+  margin: 0 3px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-style: italic;
+}
+.cat-badge--discount{
+  background:#f91155;
+}
+.cat-badge--new{
+  background:#2b9e46;
+}
+.cat-badge--hot{
+  background:#f6512e;
+}

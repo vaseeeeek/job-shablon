@@ -7,10 +7,25 @@
         <h1 class="category-name">
             {$category.name|escape}
         </h1>
-        {if !empty($category.params.productQuantity)}
+        {if !empty($category.params.productquantity)}
             <span class="cartegory-product-count">
-                {$category.params.productQuantity} товаров
+                {$category.params.productquantity} товаров
             </span>
+        {/if}
+        {if !empty($category.params.cic_category_has_discount_items)}
+            <div class="cat-badge cat-badge--discount cat-badge--cat-title">
+                %
+            </div>
+        {/if}
+        {if !empty($category.params.cic_category_has_new_items)}
+            <div class="cat-badge cat-badge--new cat-badge--cat-title">
+                new
+            </div>
+        {/if}
+        {if !empty($category.params.cic_category_hot)}
+            <div class="cat-badge cat-badge--hot cat-badge--cat-title">
+                hot
+            </div>
         {/if}
     </div>
     <div class="category">

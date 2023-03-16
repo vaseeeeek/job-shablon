@@ -33,10 +33,25 @@
                             <div class="subcat-opened__el-name">
                                 <a  href="{$catChild_2.url}">
                                     {$catChild_2.name}
-                                    {if !empty($catChild_2.params.productQuantity)}
+                                    {if !empty($catChild_2.params.productquantity)}
                                         <span class="menu-product-count">
-                                            {$catChild_2.params.productQuantity}
+                                            {$catChild_2.params.productquantity}
                                         </span>
+                                    {/if}
+                                    {if !empty($catChild_2.params.cic_category_has_discount_items)}
+                                        <div class="cat-badge cat-badge--discount">
+                                            %
+                                        </div>
+                                    {/if}
+                                    {if !empty($catChild_2.params.cic_category_has_new_items)}
+                                        <div class="cat-badge cat-badge--new">
+                                            new
+                                        </div>
+                                    {/if}
+                                    {if !empty($catChild_2.params.cic_category_hot)}
+                                        <div class="cat-badge cat-badge--hot">
+                                            hot
+                                        </div>
                                     {/if}
                                 </a>
                             </div>
@@ -48,10 +63,25 @@
                                             <div class="sub-category-opened__sub {if $theme_settings.number_output_categories_third_level < $catChild_3@iteration}hide{/if}">
                                                 <a href="{$catChild_3.url}">
                                                     {$catChild_3.name}
-                                                    {if !empty($catChild_3.params.productQuantity)}
+                                                    {if !empty($catChild_3.params.productquantity)}
                                                         <span class="menu-product-count">
-                                                            {$catChild_3.params.productQuantity}
+                                                            {$catChild_3.params.productquantity}
                                                         </span>
+                                                    {/if}
+                                                    {if !empty($catChild_3.params.cic_category_has_discount_items)}
+                                                        <div class="cat-badge cat-badge--discount">
+                                                            %
+                                                        </div>
+                                                    {/if}
+                                                    {if !empty($catChild_3.params.cic_category_has_new_items)}
+                                                        <div class="cat-badge cat-badge--new">
+                                                            new
+                                                        </div>
+                                                    {/if}
+                                                    {if !empty($catChild_3.params.cic_category_hot)}
+                                                        <div class="cat-badge cat-badge--hot">
+                                                            hot
+                                                        </div>
                                                     {/if}
                                                 </a>
                                             </div>

@@ -95,10 +95,25 @@
                                         </span>
                                     {/if}
                                     {$cat.name}
-                                    {if !empty($cat.params.productQuantity)}
+                                    {if !empty($cat.params.productquantity)}
                                         <span class="menu-product-count">
-                                            {$cat.params.productQuantity}
+                                            {$cat.params.productquantity}
                                         </span>
+                                    {/if}
+                                    {if !empty($cat.params.cic_category_has_discount_items)}
+                                        <div class="cat-badge cat-badge--discount">
+                                            %
+                                        </div>
+                                    {/if}
+                                    {if !empty($cat.params.cic_category_has_new_items)}
+                                        <div class="cat-badge cat-badge--new">
+                                            new
+                                        </div>
+                                    {/if}
+                                    {if !empty($cat.params.cic_category_hot)}
+                                        <div class="cat-badge cat-badge--hot">
+                                            hot
+                                        </div>
                                     {/if}
                                 </div>
                             </a>
