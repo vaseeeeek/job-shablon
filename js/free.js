@@ -1580,11 +1580,11 @@ var ddBox = {
             }
         }
     },
-    getPositionDDmenu: function () {
-        const coords = $('.Nav__Primary-outer')[0].getBoundingClientRect()
-        return coords.top;
-    }
 };
+
+var calculateMaxHeightBox = {
+    init: ;
+}
 
 var itemGallery = {
     previewsWrapSlider: null,
