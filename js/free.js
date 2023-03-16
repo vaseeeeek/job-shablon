@@ -1581,7 +1581,6 @@ var ddBox = {
                 });
                 _this.open($this, wrap);
             }
-            console.log($('.js-cat-subs-disclosed.has-subs.cat-menu__item').first());
             $('.js-cat-subs-disclosed.has-subs.cat-menu__item').first().trigger('mouseenter');
             if ($('header').hasClass('sticky')) {
                 const headerHeight = getPositionDDmenu();
