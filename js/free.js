@@ -2557,7 +2557,7 @@ var stickyHeader = {
                 $('.header-top--links').removeAttr('style');
             }
         });
-        //_this.setMaxHeight();
+        _this.setMaxHeight();
     },
     setMaxHeight() {
         const btnCatalog = $('[data-id="nav-cat"].js-btnDrop-down');
@@ -2573,7 +2573,7 @@ var stickyHeader = {
                 const menuHeight = windowHeight - headerHeight - 50;
                 const menuSubcategory = widthContainer - widthNav + 20;
 
-                $('#nav-cat').find('.menu-subcategory').attr('style',`max-height:${menuHeight}px;overflow-y:scroll;`);
+                $('#nav-cat').find('.menu-subcategory').attr('style',`max-height:${menuHeight}px;overflow:auto;`);
             })
         }
         if (horizontalLink.length) {

@@ -107,7 +107,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#2d2d2d</value>
+      <value>#000000</value>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -472,7 +472,7 @@
       </options>
     </setting>
     <setting var="cat_before_more" control_type="text">
-      <value/>
+      <value>10</value>
       <name locale="ru_RU">Кол-во категорий до кнопки "Ещё"</name>
       <name locale="en_US">Number of categories before the "More" button</name>
       <description locale="ru_RU">Оставьте пустым, чтобы вывести все.
@@ -557,7 +557,7 @@
       </options>
     </setting>
     <setting var="horizontal_menu_app_id" control_type="text">
-      <value>83</value>
+      <value/>
       <name locale="ru_RU">id меню из "Управление меню" для горизонтального меню</name>
       <name locale="en_US"/>
     </setting>
@@ -572,7 +572,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="number_output_categories_third_level" control_type="text">
-      <value>7</value>
+      <value>88</value>
       <name locale="ru_RU">Количество выводимых категорий третьего уровня</name>
       <name locale="en_US"/>
     </setting>
@@ -611,7 +611,7 @@
       <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="home_blocks_list" control_type="text">
-      <value>slider,category,product-slider,brands,news,reviews,text</value>
+      <value>slider,category,product-slider,brands,news,text</value>
       <name locale="en_US">Home blocks</name>
       <name locale="ru_RU">Блоки на главной</name>
       <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
@@ -711,7 +711,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>
@@ -944,7 +944,7 @@
       <name locale="en_US">Show crumbs in categories</name>
     </setting>
     <setting var="compare" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Comparison</name>
       <name locale="ru_RU">Сравнение</name>
     </setting>
@@ -1107,7 +1107,7 @@
       <name locale="ru_RU">Вывести цвет текстом</name>
     </setting>
     <setting var="sb_list_categories" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">List of categories</name>
       <name locale="ru_RU">Список категорий</name>
     </setting>
@@ -1261,7 +1261,7 @@
       </options>
     </setting>
     <setting var="show_summary_grid" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Output a short description as a list - tile</name>
       <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
     </setting>
@@ -1474,7 +1474,7 @@
       <description locale="en_US">Specify from how many filter values to show search</description>
     </setting>
     <setting var="modal_sb" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выплывающий сайдбар</name>
     </setting>
     <setting var="paragraph_product" control_type="group_divider">
@@ -1918,7 +1918,7 @@
       <name locale="ru_RU">Копирайт</name>
     </setting>
     <setting var="footer_type" control_type="select">
-      <value>1</value>
+      <value>2</value>
       <name locale="ru_RU">Варианты вывода подвала сайта</name>
       <name locale="en_US">Website footer output options</name>
       <options>
@@ -1943,16 +1943,16 @@
       <name locale="en_US">Output the second block of the site (footer_col2)</name>
     </setting>
     <setting var="yandex_link" control_type="text">
-      <value/>
+      <value>123</value>
       <name locale="ru_RU">Ссылка на яндекс отзывы</name>
     </setting>
     <setting var="footer_text_after_logo" control_type="text">
-      <value/>
+      <value>Текст под логотипом в футере</value>
       <name locale="ru_RU">Текст под логотипов в футере</name>
       <name locale="en_US">Text under the logo in the footer</name>
     </setting>
     <setting var="footer_show_email" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Вывести email в футере</name>
       <name locale="en_US">Show email</name>
     </setting>
