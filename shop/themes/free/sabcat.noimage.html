@@ -5,28 +5,28 @@
             <li class="category-subcat_item">
                 <a href="{$sc.url}" class="js-cat-link">
                     {$sc.name|escape}
+                </a>
 
-                    {if !empty($sc.params.productquantity)}
-                        <span class="sc-product-count">
+                {if !empty($sc.params.productquantity)}
+                    <span class="sc-product-count">
                             {$sc.params.productquantity}
                         </span>
-                    {/if}
-                    {if !empty($sc.params.cic_category_has_discount_items)}
-                        <span class="cat-badge cat-badge--discount cat-badge--sc">
+                {/if}
+                {if !empty($sc.params.cic_category_has_discount_items)}
+                    <span class="cat-badge cat-badge--discount cat-badge--sc">
                             %
                         </span>
-                    {/if}
-                    {if !empty($category.params.cic_category_has_new_items)}
-                        <span class="cat-badge cat-badge--new cat-badge--sc">
+                {/if}
+                {if !empty($category.params.cic_category_has_new_items)}
+                    <span class="cat-badge cat-badge--new cat-badge--sc">
                             new
                         </span>
-                    {/if}
-                    {if !empty($category.params.cic_category_hot)}
-                        <div class="cat-badge cat-badge--hot cat-badge--sc">
-                            hot
-                        </div>
-                    {/if}
-                </a>
+                {/if}
+                {if !empty($category.params.cic_category_hot)}
+                    <div class="cat-badge cat-badge--hot cat-badge--sc">
+                        hot
+                    </div>
+                {/if}
             </li>
         {/foreach}
     </ul>

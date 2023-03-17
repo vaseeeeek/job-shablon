@@ -144,7 +144,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>opensans</value>
+      <value>roboto</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
