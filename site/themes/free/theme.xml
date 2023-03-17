@@ -144,7 +144,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>roboto</value>
+      <value>opensans</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
@@ -282,7 +282,7 @@
       <name locale="ru_RU">Ширина логотипа, px</name>
     </setting>
     <setting var="logo_width_mobile" control_type="text">
-      <value>170</value>
+      <value>120</value>
       <name locale="en_US">Logo width on mobile, px</name>
       <name locale="ru_RU">Ширина логотипа на мобильных, px</name>
     </setting>
@@ -428,7 +428,7 @@
       <name locale="en_US">Show burger header</name>
     </setting>
     <setting var="header_show_orders" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Показать заказы в шапке</name>
       <name locale="en_US">Show burger header</name>
     </setting>
@@ -611,7 +611,7 @@
       <name locale="ru_RU">Главная</name>
     </setting>
     <setting var="home_blocks_list" control_type="text">
-      <value>slider,category,product-slider,brands,news,text</value>
+      <value>slider,category,product-slider,brands,news,reviews,text</value>
       <name locale="en_US">Home blocks</name>
       <name locale="ru_RU">Блоки на главной</name>
       <description locale="ru_RU">Укажите выводимые блоки, на главной странице, через запяту, в нужной очерендости. (Пример с выводом всех блоков - slider,category,text,news,product-slider,brands)
@@ -711,7 +711,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>
@@ -847,7 +847,7 @@
       <name locale="ru_RU">Заголовок распродажи</name>
     </setting>
     <setting var="home_product_list_3" control_type="text">
-      <value>sale</value>
+      <value/>
       <name locale="en_US">ID of the sale list</name>
       <name locale="ru_RU">ID списка распродажи</name>
     </setting>
@@ -1261,7 +1261,7 @@
       </options>
     </setting>
     <setting var="show_summary_grid" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Output a short description as a list - tile</name>
       <name locale="ru_RU">Вывод краткого описание в виде списка - плитка</name>
     </setting>
@@ -1474,7 +1474,7 @@
       <description locale="en_US">Specify from how many filter values to show search</description>
     </setting>
     <setting var="modal_sb" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выплывающий сайдбар</name>
     </setting>
     <setting var="paragraph_product" control_type="group_divider">

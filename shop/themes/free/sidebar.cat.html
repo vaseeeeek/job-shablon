@@ -48,28 +48,30 @@
                             {/if}
                             <span class="subcategories_el__name">
                                 {$subcat.name}
-                                {if !empty($subcat.params.productquantity)}
-                                    <span class="menu-product-count menu-product-count--sb-menu">
-                                        {$subcat.params.productquantity}
-                                    </span>
-                                {/if}
-                                {if !empty($subcat.params.cic_category_has_discount_items)}
-                                    <div class="cat-badge cat-badge--discount cat-badge--sb-menu">
-                                        %
-                                    </div>
-                                {/if}
-                                {if !empty($subcat.params.cic_category_has_new_items)}
-                                    <div class="cat-badge cat-badge--new cat-badge--sb-menu">
-                                        new
-                                    </div>
-                                {/if}
-                                {if !empty($subcat.params.cic_category_hot)}
-                                    <div class="cat-badge cat-badge--hot cat-badge--sb-menu">
-                                        hot
-                                    </div>
-                                {/if}
                             </span>
                         </a>
+                        <div class="menu-badge-wrap">
+                            {if !empty($subcat.params.productquantity)}
+                                <span class="menu-product-count menu-product-count--sb-menu">
+                                        {$subcat.params.productquantity}
+                                    </span>
+                            {/if}
+                            {if !empty($subcat.params.cic_category_has_discount_items)}
+                                <div class="cat-badge cat-badge--discount cat-badge--sb-menu">
+                                    %
+                                </div>
+                            {/if}
+                            {if !empty($subcat.params.cic_category_has_new_items)}
+                                <div class="cat-badge cat-badge--new cat-badge--sb-menu">
+                                    new
+                                </div>
+                            {/if}
+                            {if !empty($subcat.params.cic_category_hot)}
+                                <div class="cat-badge cat-badge--hot cat-badge--sb-menu">
+                                    hot
+                                </div>
+                            {/if}
+                        </div>
                         {if $_has_childs}{getSubcategories subcategories=$subcat.childs parent=$subcat}{/if}
                     </li>
                 {/if}
@@ -130,6 +132,7 @@
                                 {/if}
                             </div>
                         </a>
+
                         {if $_has_childs}{getSubcategories subcategories=$category.childs parent=$category}{/if}
                     </li>
                 {/if}

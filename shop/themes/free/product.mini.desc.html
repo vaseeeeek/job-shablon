@@ -129,7 +129,7 @@
                 {/if}
             {/foreach}
 
-            {if count($product_features_list) > count($short_list_features) &&  !$wa->get('cart') && $_show_features}
+            {if count($product_features_list) > count($short_list_features) &&  !$wa->get('cart') && $_show_features  && !empty($theme_settings.product_page_right_block_features)}
                 <div class="product_link-full js-motion-to-tab" data-tab-content="product-options">
                     <a href="#">[`Detailed specifications`]</a>
                 </div>
