@@ -47,6 +47,10 @@
     </file>
     <file path="footer.html" custom="0">
     </file>
+    <file path="footer-1.html" custom="0">
+    </file>
+    <file path="footer-2.html" custom="0">
+    </file>
     <file path="sidebar.html" custom="0">
     </file>
     <file path="page.html" custom="0">
@@ -62,6 +66,8 @@
     <file path="my.nav.html">
     </file>
     <file path="error.html" custom="0">
+    </file>
+    <file path="metrika.html" custom="0">
     </file>
   </files>
   <settings>
@@ -481,7 +487,7 @@
             </description>
     </setting>
     <setting var="break_categories_columns" control_type="select">
-      <value>columns</value>
+      <value>one_column</value>
       <name locale="ru_RU">Разбивать категории на колонки</name>
       <name locale="en_US">Break categories into columns</name>
       <options>
@@ -511,7 +517,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий

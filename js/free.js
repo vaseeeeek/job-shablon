@@ -1610,7 +1610,7 @@ var ddBox = {
         }
     },
     getPositionDDmenu: function () {
-        const coords = $('.Nav__Primary-outer')[0].getBoundingClientRect();
+        const coords = $('#nav-cat')[0].getBoundingClientRect();
         return coords.top;
     }
 };
