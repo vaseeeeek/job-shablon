@@ -870,6 +870,11 @@ var categoriesMainMenu = {
                 catMenuPos = topCatMenu.css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap');
 
+            $this.siblings().removeClass('active');
+            $this.siblings().each(function(){
+                $(this).find('.js-subcategory-menu').first().stop(true).delay(delayCount).fadeOut(0);
+            });
+
             if (subMenuPos) {
                 if (submenu.length > 0) {
                     submenu.stop(true).delay(delayCount).fadeIn(1);
@@ -895,15 +900,15 @@ var categoriesMainMenu = {
             })
 
         }
-        , function () {
-            var $this = $(this),
-                submenu = $this.find('.js-subcategory-menu').first(),
-                subMenuPos = submenu.css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-category-menu-wrap');
-
-            $this.removeClass('active');
-            submenu.stop(true).delay(delayCount).fadeOut(0);
-        }
+        // , function () {
+        //     var $this = $(this),
+        //         submenu = $this.find('.js-subcategory-menu').first(),
+        //         subMenuPos = submenu.css("position") == 'absolute',
+        //         catMenuWrap = $this.closest('.js-category-menu-wrap');
+        //
+        //     $this.removeClass('active');
+        //     submenu.stop(true).delay(delayCount).fadeOut(0);
+        // }
         );
     },
     dd: function () {
