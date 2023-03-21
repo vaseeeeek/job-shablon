@@ -1924,7 +1924,7 @@
       <name locale="ru_RU">Копирайт</name>
     </setting>
     <setting var="footer_type" control_type="select">
-      <value>2</value>
+      <value>3</value>
       <name locale="ru_RU">Варианты вывода подвала сайта</name>
       <name locale="en_US">Website footer output options</name>
       <options>
@@ -1936,7 +1936,31 @@
           <name locale="ru_RU">2</name>
           <name locale="en_US">2</name>
         </option>
+        <option value="3">
+          <name locale="ru_RU">3</name>
+          <name locale="en_US">3</name>
+        </option>
       </options>
+    </setting>
+    <setting var="link_avito" control_type="text">
+      <value>avito</value>
+      <name locale="ru_RU">Ссылка на avito</name>
+      <name locale="en_US">Link avito</name>
+    </setting>
+    <setting var="link_yandex_market" control_type="text">
+      <value>yandex market</value>
+      <name locale="ru_RU">Ссылка на yandex market</name>
+      <name locale="en_US">Link yandex market</name>
+    </setting>
+    <setting var="link_ozon" control_type="text">
+      <value>ozon</value>
+      <name locale="ru_RU">Ссылка на ozon</name>
+      <name locale="en_US">Link ozon</name>
+    </setting>
+    <setting var="link_wb" control_type="text">
+      <value>wb</value>
+      <name locale="ru_RU">Ссылка на wb</name>
+      <name locale="en_US">Link wb</name>
     </setting>
     <setting var="footer_block_1" control_type="checkbox">
       <value>1</value>
@@ -2062,6 +2086,10 @@
       <msgstr locale="ru_RU">Валюта</msgstr>
     </locale>
     <locale>
+      <msgid>We are on other services</msgid>
+      <msgstr locale="ru_RU">Мы на других сервисах</msgstr>
+    </locale>
+    <locale>
       <msgid>Language</msgid>
       <msgstr locale="ru_RU">Язык</msgstr>
     </locale>
@@ -2116,6 +2144,10 @@
     <locale>
       <msgid>Quick view</msgid>
       <msgstr locale="ru_RU">Быстрый просмотр</msgstr>
+    </locale>
+    <locale>
+      <msgid>We work with</msgid>
+      <msgstr locale="ru_RU">Мы работаем с</msgstr>
     </locale>
     <locale>
       <msgid>Compare</msgid>
