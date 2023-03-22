@@ -50,9 +50,9 @@
                                 {$subcat.name}
                             </span>
                         </a>
-                        {if !empty($subcat.params.productquantity)}
+                        {if !empty($subcat.params.cic_category_items)}
                             <span class="menu-product-count menu-product-count--sb-menu">
-                                        {$subcat.params.productquantity}
+                                        {$subcat.params.cic_category_items}
                                     </span>
                         {/if}
                         {if !empty($subcat.params.cic_category_has_discount_items)}
@@ -110,9 +110,9 @@
                                 {$category.name}
                             </div>
                         </a>
-                        {if !empty($category.params.productquantity)}
+                        {if !empty($category.params.cic_category_items)}
                             <span class="menu-product-count menu-product-count--sb-menu">
-                                {$category.params.productquantity}
+                                {$category.params.cic_category_items}
                             </span>
                             {if !empty($category.params.cic_category_has_discount_items)}
                                 <div class="cat-badge cat-badge--discount cat-badge--sb-menu">

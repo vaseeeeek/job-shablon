@@ -7,9 +7,9 @@
         <h1 class="category-name">
             {$category.name|escape}
         </h1>
-        {if !empty($category.params.productquantity)}
+        {if !empty($category.params.cic_category_items)}
             <span class="cartegory-product-count">
-                {$category.params.productquantity} товаров
+                {$category.params.cic_category_items} товаров
             </span>
         {/if}
         {if !empty($category.params.cic_category_has_discount_items)}
