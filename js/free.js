@@ -1561,12 +1561,14 @@ var ddBox = {
 
         var ddSelectBtn = '.js-btnDrop-down',
             ddSelectWrap = '.js-dd-wrap',
-            ddSelectOuter = '.js-dd-outer';
+            ddSelectOuter = '.js-dd-outer',
+            container = $('header>.container');
 
         $(document).click(function (event) {
             if ((!$(event.target).closest(ddSelectWrap).length && !$(event.target).closest(ddSelectOuter).length) || $(event.target).hasClass('js-bg')) {
                 $(ddSelectWrap).each(function () {
                     $(this).removeClass('show');
+                    container.removeClass('container--z-index');
                     $(ddSelectBtn).removeClass('show');
                 });
             }
@@ -1577,10 +1579,12 @@ var ddBox = {
                 wrap = $('#' + $(this).data("id"));
 
             if (wrap.is(':visible')) {
+                container.removeClass('container--z-index');
                 $this.removeClass('show');
                 wrap.removeClass('show');
             } else {
                 $this.addClass('show');
+                container.addClass('container--z-index');
                 $(ddSelectWrap).each(function () {
                     $(this).removeClass('show');
                 });

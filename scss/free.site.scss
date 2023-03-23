@@ -2516,9 +2516,10 @@ img.mfp-img {
   white-space: nowrap;
   vertical-align: middle;
   position: relative;
+}
+.container--z-index {
   z-index: 121;
 }
-
 .nav-cat * {
   white-space: normal
 }
