@@ -357,7 +357,7 @@
                         </div>
                     </div>
                 {/if}
-                {if $btn == 'order'}
+                {if $btn == 'order' && $wa->isAuthEnabled() && $wa->user()->isAuth()}
                     <div class="product-custom js-nav-button" data-id="header_menu-nav-mobile">
                         <a class="product-custom_icon maincolor" href="{$wa->myUrl()}">
                             <i>

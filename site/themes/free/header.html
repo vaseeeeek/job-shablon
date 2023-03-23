@@ -189,7 +189,7 @@
             </div>
         {/if}
 
-        {if $wa->shop && $wa->isAuthEnabled() && $theme_settings.header_show_orders}
+        {if $wa->shop && $wa->isAuthEnabled() && $wa->user()->isAuth() && $theme_settings.header_show_orders}
             <div class="product-custom--lk product-custom">
                 <a class="js-products-link product-custom--link" href="{$wa->getUrl('shop/frontend')}my/orders/">
                     <div class="product-custom_icon maincolor">
