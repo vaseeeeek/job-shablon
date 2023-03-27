@@ -379,6 +379,11 @@
       <name locale="ru_RU">Адрес</name>
       <name locale="en_US"/>
     </setting>
+    <setting var="five_icon_link_header" control_type="text">
+      <value/>
+      <name locale="ru_RU">Ссылка на пятую кнопку</name>
+      <name locale="en_US"/>
+    </setting>
     <setting var="five_icon_img_header" control_type="text">
       <value/>
       <name locale="ru_RU">Html код изображения для пятой кнопки в шапке</name>

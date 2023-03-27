@@ -176,15 +176,13 @@
                 </a>
             </div>
         {/if}
-        {if $theme_settings.five_icon_img_header || $theme_settings.five_icon_text_header}
+        {if $theme_settings.five_icon_img_header && $theme_settings.five_icon_text_header && $theme_settings.five_icon_link_header}
             <div class="product-custom">
-                <a class="product-custom--link" href="/my">
+                <a class="product-custom--link" href="{$theme_settings.five_icon_link_header}">
                     <div class="product-custom_icon maincolor">
                         {$theme_settings.five_icon_img_header}
                     </div>
-                    {if $theme_settings.five_icon_text_header}
-                        <span>{$theme_settings.five_icon_text_header}</span>
-                    {/if}
+                    <span>{$theme_settings.five_icon_text_header}</span>
                 </a>
             </div>
         {/if}
