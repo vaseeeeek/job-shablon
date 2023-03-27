@@ -97,27 +97,29 @@
                                         {$imageHtml}
                                     </a>
                                 </span>
-                                {literal}
-                                    <script>
-                                        $(document).on('ready', function(){
-                                            const className = '.js-product_gallery-images-main';
-                                            let data = $('.product_gallery-images-main-el-outer a').first().data('pswp-width');
 
-                                            if (!data) {
-                                                let interval = setInterval(()=>{
-                                                    data = $(document).find(className).find('.product_gallery-images-main-el-outer a').first().data('pswp-width');
+                                {if $wa->isMobile()}
+                                    {literal}
+                                        <script>
+                                            $(document).on('ready', function(){
+                                                const className = '.js-product_gallery-images-main';
+                                                let data = $('.product_gallery-images-main-el-outer a').first().data('pswp-width');
 
-                                                    if (data) {
-                                                        clearInterval(interval);
-                                                    } else {
-                                                        $(className).load(`${window.location.href} ${className}`);
-                                                    }
-                                                }, 100)
-                                            }
-                                        });
-                                    </script>
-                                {/literal}
+                                                if (!data) {
+                                                    let interval = setInterval(()=>{
+                                                        data = $(document).find(className).find('.product_gallery-images-main-el-outer a').first().data('pswp-width');
 
+                                                        if (data) {
+                                                            clearInterval(interval);
+                                                        } else {
+                                                            $(className).load(`${window.location.href} ${className}`);
+                                                        }
+                                                    }, 100)
+                                                }
+                                            });
+                                        </script>
+                                    {/literal}
+                                {/if}
                                 {$position = $position + 1}
                                 {if $image@first}
                                     {$first_image = $wa->shop->imgUrl($image, '650x0')}
