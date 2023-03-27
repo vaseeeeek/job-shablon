@@ -18,11 +18,11 @@
                                     {$cat.params.image = shopCategoryImagesPlugin::getCategoryImageUrl($cat.id)}
                                 {/if}
                             {/if}
-                            <img class="js-cat-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else} {$wa_theme_url}img/dummy96.png{/if}" alt="{$cat.name}"/>
+                            <img class="js-cat-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else} {$wa_theme_url}img/dummy96.png{/if}" alt="{$cat.name}">
 {*                            {if $_lazy}*}
-{*                                <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($cat.params.image)}{$cat.params.image}{else} {$wa_theme_url}img/dummy96.png{/if}" alt="{$cat.name}"/>*}
+{*                                <img class="js-cat-item-image" src="{$wa_theme_url}img/lazy-image.png" data-src="{if isset($cat.params.image)}{$cat.params.image}{else} {$wa_theme_url}img/dummy96.png{/if}" alt="{$cat.name}">*}
 {*                            {else}*}
-{*                                <img class="js-cat-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else} {$wa_theme_url}img/dummy96.png{/if}" alt="{$cat.name}"/>*}
+{*                                <img class="js-cat-item-image" src="{if isset($cat.params.image)}{$cat.params.image}{else} {$wa_theme_url}img/dummy96.png{/if}" alt="{$cat.name}">*}
 {*                            {/if}*}
                         </div>
                         <div class="cat-tile_name sdColor">

@@ -125,9 +125,9 @@
     </div>
 {/strip}
 {if !$theme_settings.modal_sb}
-    <script type="text/javascript" src="{$wa_theme_url}ResizeSensor.min.js"></script>
-    <script type="text/javascript" src="{$wa_theme_url}theia-sticky-sidebar.min.js"></script>
-    <script type="text/javascript">
+    <script src="{$wa_theme_url}ResizeSensor.min.js"></script>
+    <script src="{$wa_theme_url}theia-sticky-sidebar.min.js"></script>
+    <script>
         jQuery(document).ready(function() {
             jQuery('.category>.content, .category>.out_sidebars').theiaStickySidebar({
                 // Settings

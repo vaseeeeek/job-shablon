@@ -9,7 +9,7 @@
     <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
         <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
             <a itemprop="item" href="{$wa_url}"><span itemprop="name">[`Home`]</span></a>  &rarr;
-            <meta itemprop="position" content="{$position}" />
+            <meta itemprop="position" content="{$position}">
         </li>
         {if (isset($breadcrumbs) && $breadcrumbs)}
             {foreach $breadcrumbs as $breadcrumb}
@@ -17,7 +17,7 @@
                 <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                     <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a>
                     <span class="rarr">{if !$breadcrumb@last}&rarr;{/if}</span>
-                    <meta itemprop="position" content="{$position}" />
+                    <meta itemprop="position" content="{$position}">
                 </li>
             {/foreach}
         {/if}

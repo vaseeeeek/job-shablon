@@ -43,7 +43,7 @@
                                             <div id="login-form"{if !$wa->post('wa_auth_login')} style="display:none"{/if}>
                                                 {include file="`$wa_parent_theme_path`/login.html" without_form=true}
                                             </div>
-                                            <script type="text/javascript">
+                                            <script>
                                                 $(function () {
                                                     $("#login-form input").attr('disabled', 'disabled');
                                                     $("input[name='user_type']").change(function () {

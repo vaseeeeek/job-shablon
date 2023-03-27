@@ -532,8 +532,8 @@
 
                 {if $upselling}
                     {$compare_ids = array_merge(array($product.id), array_keys($upselling))}
-                    {$onClick = "javascript:window.location='{$wa->getUrl('/frontend/compare', ['id' => implode(',', $compare_ids)])}';"}
-                    {$product_list_title = "Похожие товары <a class='product_cross-compare sdColor link-half' onClick=`$onClick`>[`Compare all`]</a>"}
+                    {$linkCompare = "{$wa->getUrl('/frontend/compare', ['id' => implode(',', $compare_ids)])}"}
+                    {$product_list_title = "Похожие товары <a href='{$linkCompare}' class='product_cross-compare sdColor link-half'>[`Compare all`]</a>"}
                     {include file="product.list.view-carousel.html" products=$upselling product_list_title=$product_list_title}
                 {/if}
             </div>

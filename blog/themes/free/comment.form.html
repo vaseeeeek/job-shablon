@@ -55,7 +55,7 @@
                     {foreach $auth_adapters as $adapter}
                         {if $current_auth_source == $adapter->getId()}
                             <div class="b-auth-user">
-                                <img src="{$adapter->getIcon()}" class="userpic" />
+                                <img src="{$adapter->getIcon()}" class="userpic" >
                                 {if !empty($current_auth)}
                                     <strong>{$current_auth.name}</strong>
                                 {/if}

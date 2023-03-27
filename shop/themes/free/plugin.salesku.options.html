@@ -80,9 +80,9 @@
                 <meta itemprop="priceCurrency" content="{$wa->shop->currency()}">
                 <span class="Single__Price--Flat -Alternative price tiny nowrap">({shop_currency_html($sku.price, $product.currency)})</span>
                 {if (!($sku.count === null) && $sku.count <= 0)}
-                  <link itemprop="availability" href="https://schema.org/OutOfStock"/>
+                  <link itemprop="availability" href="https://schema.org/OutOfStock">
                 {else}
-                  <link itemprop="availability" href="https://schema.org/InStock"/>
+                  <link itemprop="availability" href="https://schema.org/InStock">
                 {/if}
               </label>
             </div>

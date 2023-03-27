@@ -44,7 +44,7 @@
                 <div class="wa-field">
                     <div class="wa-name">[`Topic title`]</div>
                     <div class="wa-value">
-                        <input type="text" class="h-topic-title {if !empty($errors.title)}error{/if}" placeholder="[`Your topic title`]" name="data[title]" value="{ifset($data.title)|escape}" />
+                        <input type="text" class="h-topic-title {if !empty($errors.title)}error{/if}" placeholder="[`Your topic title`]" name="data[title]" value="{ifset($data.title)|escape}" >
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@
                     <div class="wa-name">[`Tags`]</div>
                     <div class="wa-value">
                         <div class="h-topic-tags">
-                            <input type="text" name="data[tags]" value="{join(',',ifset($data.tags, []))|escape}" id="ti-topic-form" />
+                            <input type="text" name="data[tags]" value="{join(',',ifset($data.tags, []))|escape}" id="ti-topic-form" >
                             {if !empty($errors.tags)}<em class="errormsg">{$errors.tags}</em>{/if}
                         </div>
                     </div>

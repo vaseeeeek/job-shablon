@@ -114,9 +114,9 @@
                                             <meta itemprop="price" content="{$sku.price}">
                                             <meta itemprop="priceCurrency" content="{$product.currency}">
                                             {if (!($sku.count === null) && $sku.count <= 0)}
-                                                <link itemprop="availability" href="http://schema.org/OutOfStock"/>
+                                                <link itemprop="availability" href="http://schema.org/OutOfStock">
                                             {else}
-                                                <link itemprop="availability" href="http://schema.org/InStock"/>
+                                                <link itemprop="availability" href="http://schema.org/InStock">
                                             {/if}
                                         </div>
                                     {/foreach}
@@ -131,21 +131,6 @@
                                     {$pd_available = false}
                                     {if $theme_settings.product_selection_articles == 'dd_list'}
                                         <div>
-                                            {*{foreach $product.skus as $sku}
-                                                {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
-                                                {if $sku_available}
-                                                    <meta itemprop="price" content="{$sku.price}"/>
-                                                    <meta itemprop="priceCurrency" content="{$product.currency}"/>
-                                                    <meta itemprop="name" content="{$sku.name|escape}"/>
-                                                    {if $sku.sku}
-                                                        <meta itemprop="sku" content="{$sku.sku|escape}">{/if}
-                                                    {if (!($sku.count === null) && $sku.count <= 0)}
-                                                        <link itemprop="availability" href="http://schema.org/OutOfStock"/>
-                                                    {else}
-                                                        <link itemprop="availability" href="http://schema.org/InStock"/>
-                                                    {/if}
-                                                {/if}
-                                            {/foreach}*}
                                             <select class="js-product-skus md" name="sku_id">
                                                 {foreach $product.skus as $sku}
                                                     {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
@@ -181,9 +166,9 @@
                                                         {/if}
                                                         <span class="price nowrap">{shop_currency_html($sku.price, $product.currency)}</span>
                                                         {if (!($sku.count === null) && $sku.count <= 0)}
-                                                            <link itemprop="availability" href="http://schema.org/OutOfStock"/>
+                                                            <link itemprop="availability" href="http://schema.org/OutOfStock">
                                                         {else}
-                                                            <link itemprop="availability" href="http://schema.org/InStock"/>
+                                                            <link itemprop="availability" href="http://schema.org/InStock">
                                                         {/if}
                                                     </label>
                                                 </li>
@@ -203,12 +188,12 @@
                                 <meta itemprop="priceCurrency" content="{$product.currency}">
                                 <meta itemprop="url" content="{$wa->domainUrl()}/product/{$product.url}">
                                 {if !$sku.available}
-                                    <link itemprop="availability" href="http://schema.org/Discontinued" />
+                                    <link itemprop="availability" href="http://schema.org/Discontinued" >
                                     <p><em class="bold error">{$text_product_not_available_one_sku}</em></p>
                                 {elseif !$wa->shop->settings('ignore_stock_count') && !($sku.count === null || $sku.count > 0)}
-                                    <link itemprop="availability" href="http://schema.org/OutOfStock" />
+                                    <link itemprop="availability" href="http://schema.org/OutOfStock" >
                                 {else}
-                                    <link itemprop="availability" href="http://schema.org/InStock" />
+                                    <link itemprop="availability" href="http://schema.org/InStock" >
                                 {/if}
                                 <input name="sku_id" type="hidden" value="{$product.sku_id}">
                                 {$pd_available = $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}

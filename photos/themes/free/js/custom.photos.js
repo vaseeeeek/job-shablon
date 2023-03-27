@@ -208,7 +208,7 @@
 
                     var photo_url = $photo.find("img").attr("src");
 
-                    var $image = $("<img />");
+                    var $image = $("<img >");
                     $image.on("load", function() {
                         $photo
                             .removeClass(load_class)

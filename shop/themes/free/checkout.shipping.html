@@ -81,7 +81,7 @@
         </li>
     {/foreach}
 </ul>
-<script type="text/javascript">
+<script>
     $(function () {
         {if $external_methods}
             $.get("{$wa->getUrl('/frontend/shipping')}", { shipping_id: [{implode(',', $external_methods)}]}, function (response) {

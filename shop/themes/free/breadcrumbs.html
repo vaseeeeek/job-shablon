@@ -66,7 +66,7 @@
                         <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                             <a itemprop="item" href="{$wa_url}"><span itemprop="name">[`Home`]</span></a>
                             {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
-                            <meta itemprop="position" content="{$position}" />
+                            <meta itemprop="position" content="{$position}">
                         </li>
                     {/if}
                     {if (isset($breadcrumbs) && $breadcrumbs)}
@@ -76,7 +76,7 @@
                                 {$position = $position + 1}
                                 <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
                                     <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last}<span class="rarr">&rarr;</span>{/if}
-                                    <meta itemprop="position" content="{$position}" />
+                                    <meta itemprop="position" content="{$position}">
                                 </li>
                             {/if}
                         {/foreach}

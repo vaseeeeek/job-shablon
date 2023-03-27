@@ -14,9 +14,9 @@
 
 
                             {if $item@first}
-                                <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" />
+                                <img alt="{if !empty($item.title)}{$item.title}{/if}" src="{$item.image}" >
                             {else}
-                                <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" />
+                                <img class="owl-lazy" alt="{if !empty($item.title)}{$item.title}{/if}" data-src="{$item.image}" src="{$wa_theme_url}img/lazy-image.png" >
                             {/if}
                             {if $item.title || $item.body || $item.countdown_datetime}
                                 <div class="home-slider-photos__text home-slider-photos__text--{$positionTextArr[$item@iteration - 1]}" style="color: {if $item.color}{$item.color}{else}{$theme_settings.second_color}{/if}">

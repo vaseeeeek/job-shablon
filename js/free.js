@@ -744,7 +744,7 @@ var cart = {
         popup.find(".js-popup-addcart-price").html(price);
         popup.find(".js-popup-addcart-count").html("(x" + quantity + ")");
         if (image) {
-            popup.find(".js-popup-addcart-image").html("<img src='" + image + "' />");
+            popup.find(".js-popup-addcart-image").html("<img src='" + image + "' >");
         } else {
             popup.find(".js-popup-addcart-image").html("");
         }
@@ -1918,7 +1918,7 @@ var itemGallery = {
                             if (element.icon) {
                                 imgArrsThumbsHtml += '<a class="' + addClass + ' swipebox-thumbs_el--icon" data-index="' + index + '" href="' + element.href + '">' + element.icon + '</a>';
                             } else {
-                                imgArrsThumbsHtml += '<a class="' + addClass + '" data-index="' + index + '" href="' + element.href + '"><img src="' + element.src + '" /></a>';
+                                imgArrsThumbsHtml += '<a class="' + addClass + '" data-index="' + index + '" href="' + element.href + '"><img src="' + element.src + '" ></a>';
                             }
                         });
 
@@ -3349,7 +3349,7 @@ void 0 === jQuery.migrateMute && (jQuery.migrateMute = !0),
         t.migrateWarnings = [], !t.migrateMute && e.console && e.console.log && e.console.log("JQMIGRATE: Logging is active"), t.migrateTrace === i && (t.migrateTrace = !0), t.migrateReset = function () {
             o = {}, t.migrateWarnings.length = 0
         }, "BackCompat" === document.compatMode && n("jQuery is not compatible with Quirks Mode");
-        var a = t("<input/>", {
+        var a = t("<input>", {
                 size: 1
             }).attr("size") && t.attrFn,
             r = t.attr,
@@ -6544,7 +6544,7 @@ void 0 === jQuery.migrateMute && (jQuery.migrateMute = !0),
                 this.$ele = t(String.format(this.settings.template, this.settings.type, e.title, e.message, e.url, e.target)), this.$ele.attr("data-notify-position", this.settings.placement.from + "-" + this.settings.placement.align), this.settings.allow_dismiss || this.$ele.find('[data-notify="dismiss"]').css("display", "none"), (this.settings.delay <= 0 && !this.settings.showProgressbar || !this.settings.showProgressbar) && this.$ele.find('[data-notify="progressbar"]').remove()
             },
             setIcon: function () {
-                "class" == this.settings.icon_type.toLowerCase() ? this.$ele.find('[data-notify="icon"]').addClass(this.settings.content.icon) : this.$ele.find('[data-notify="icon"]').is("img") ? this.$ele.find('[data-notify="icon"]').attr("src", this.settings.content.icon) : this.$ele.find('[data-notify="icon"]').append('<img src="' + this.settings.content.icon + '" alt="Notify Icon" />')
+                "class" == this.settings.icon_type.toLowerCase() ? this.$ele.find('[data-notify="icon"]').addClass(this.settings.content.icon) : this.$ele.find('[data-notify="icon"]').is("img") ? this.$ele.find('[data-notify="icon"]').attr("src", this.settings.content.icon) : this.$ele.find('[data-notify="icon"]').append('<img src="' + this.settings.content.icon + '" alt="Notify Icon" >')
             },
             styleURL: function () {
                 this.$ele.find('[data-notify="url"]').css({
@@ -7444,7 +7444,7 @@ void 0 === jQuery.migrateMute && (jQuery.migrateMute = !0),
                 _preloadItem: function (i) {
                     if (i = R(i), !e.items[i].preloaded) {
                         var n = e.items[i];
-                        n.parsed || (n = e.parseEl(i)), x("LazyLoad", n), "image" === n.type && (n.img = t('<img class="mfp-img" />').on("load.mfploader", function () {
+                        n.parsed || (n = e.parseEl(i)), x("LazyLoad", n), "image" === n.type && (n.img = t('<img class="mfp-img" >').on("load.mfploader", function () {
                             n.hasSize = !0
                         }).on("error.mfploader", function () {
                             n.hasSize = !0, n.loadError = !0, x("LazyLoadError", n)
