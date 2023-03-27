@@ -32,7 +32,7 @@
                 <div class="brand_product">
                     <a class="brand_product-img"  href="{$_brand.url}">
                         {if $_brand.image}
-                            <img alt="{$_brand.name|escape}" src="{$wa_url}wa-data/public/shop/brands/{$_brand.id}/{$_brand.id}.200{$_brand.image}">
+                            <img alt="{$_brand.name|escape}" src="{$wa_url}wa-data/public/shop/brands/{$_brand.id}/{$_brand.id}{$_brand.image}">
                         {else}
                             <span>[`Brand`]: {$_brand.name|escape}</span>
                         {/if}
