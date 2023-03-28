@@ -1507,8 +1507,10 @@ iframe {
   text-decoration: line-through;
   color: #8e8e8e;
   margin-right: 0.5rem;
-  line-height: 1;
   margin-bottom: 1px;
+}
+.Product-grid .old-price {
+  font-size: 1rem;
 }
 
 .comments ul ul:before, .filter-option-color .jq-checkbox.checked:before, .filter-option-color .jq-radio.checked:before, .free-icon-after:after, .owl-next:after, .owl-prev:after, .reviews-list .reviews-list .review:before, .star, .star-rating-empty, .star-half, .star-hover, .star-empty {

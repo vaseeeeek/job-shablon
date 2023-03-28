@@ -1696,7 +1696,7 @@ span.grid-gallery__el.js-grid-gallery-item {
 .Product-grid .badge.product-card_discounts {
   position: initial;
   background: center center/cover no-repeat;
-  width: 50px;
+  min-width: 50px;
   height: 22px;
   display: flex;
   justify-content: center;
@@ -1870,7 +1870,7 @@ span.rating__total {
   line-height: 26px;
 
   .price {
-    margin-right: 0.8rem;
+    margin-right: 0.6rem;
   }
 }
 
