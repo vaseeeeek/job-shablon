@@ -12,13 +12,12 @@
         <meta itemprop="contentUrl" content="{$organizationLogo}">
     {/if}
 </span>
-<meta itemprop="url" content="{$wa->domainUrl()}">
 
 <div class="footer-box container">
     <div class="footer-box_col">
         {if $theme_settings.logo_footer || $theme_settings.path_svg_logo_footer}
             <div class="footer_logo">
-                <a  {if $wa->shop}href="{$wa->getUrl('shop/frontend')}"{/if}>
+                <a{if $wa->shop} itemprop="url" href="{$wa->getUrl('shop/frontend')}"{/if}>
                     <img src="{if $theme_settings.path_svg_logo_footer}{$theme_settings.path_svg_logo_footer}{else}{$wa_theme_url}{$theme_settings.logo_footer}{/if}"
                          {if $wa->shop}alt="{$wa->shop->settings('name')}"{/if}/>
                 </a>
@@ -37,6 +36,7 @@
 
             {if $theme_settings.header_company_adress}
                 <li>{$theme_settings.header_company_adress}</li>
+                <meta itemprop="address" content="{$theme_settings.header_company_adress}">
             {/if}
             {if $theme_settings.header_company_email && $theme_settings.footer_show_email}
                 <li><a href="mailto:{$theme_settings.header_company_email}" class="Nav-contact-phone">{$theme_settings.header_company_email}</a></li>

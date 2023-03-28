@@ -1166,6 +1166,7 @@ var mobileMenuBtn = {
             if (menu.hasClass('show')) {
                 menu.removeClass('show');
                 $this.removeClass('show');
+                phoneSubCatHideBtn.trigger('click');
             } else {
                 menu.addClass('show');
                 $this.addClass('show');
