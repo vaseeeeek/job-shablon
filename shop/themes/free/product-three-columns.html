@@ -316,10 +316,7 @@
                             {foreach $services as $s}
                                 <div class="service-{$s.id} service__item">
                                     <label>
-{*                                        <span class="js-style-check style-check{if !$pd_available} disabled{/if} fi-rr-check">*}
-{*                                            <input class="js-style-check-input" data-price="{shop_currency($s.price, $s.currency, null, 0)}" {if !$pd_available}disabled="disabled"{/if} type="checkbox" name="services[]" value="{$s.id}" checked>*}
-{*                                        </span>*}
-                                        <input class="js-style-check-input" data-price="{shop_currency($s.price, $s.currency, null, 0)}" {if !$pd_available}disabled="disabled"{/if} type="checkbox" name="services[]" value="{$s.id}" checked>
+                                        <input class="js-style-check-input" data-price="{shop_currency($s.price, $s.currency, null, 0)}" {if !$pd_available}disabled="disabled"{/if} type="checkbox" name="services[]" value="{$s.id}">
                                         {$s.name|escape} {if $s.price && !isset($s.variants)}+<span class="service-price">{shop_currency_html($s.price, $s.currency)}</span>{/if}
                                     </label>
 
@@ -338,7 +335,6 @@
                             {/foreach}
                         </div>
                     {/if}
-
                     <div class="js-add2cart product_add2cart{if $wa->isMobile() && $theme_settings.product_fixed_add2cart_panel} js-fixed-add2cart-panel{/if}">
                         <div class="product_prices{if $product.compare_price} -hasComparePrice{/if}">
                             {$text_zero_price = $theme_settings.text_zero_price}
@@ -370,6 +366,22 @@
                                         </span>
                                     {/foreach}
                                 </div>
+                            {/if}
+                            {$_badge_percent = $theme_settings.product_discount_percentage == 1}
+                            {if $_badge_percent}
+                                {if $theme_settings.product_discount_percentage == 1}
+                                    {$compare_price = $product.compare_price}
+                                    {$price = $product.price}
+                                    {if $compare_price > $price}
+                                        {$discount = (($compare_price-$price)/$compare_price)*100}
+                                        {$discount = ceil($discount)}
+                                    {/if}
+
+                                    {$productDiscount = isset($discount) && $price > 0}
+                                    <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}" data-compare="{$compare_price}">
+                                        <span data-minimal="3" class="js-product-discount ">{if $productDiscount}-{$discount}%{/if}</span>
+                                    </div>
+                                {/if}
                             {/if}
                         </div>
                         {$wa->block("product_after_price")}

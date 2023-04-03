@@ -104,16 +104,17 @@
                 {/if}
                 {if !isset($category.params.menu_hide)}
                     <li class="sidebar-cats_el">
-                        {if $_has_childs}<i class="sidebar-cats_el-open fi-rr-angle-small-down sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
-                        <a class="sidebar-cats_link{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}" href="{$category.url}">
-                            <div class="sidebar-cats_title">
-                                {$category.name}
-                            </div>
-                        </a>
-                        {if !empty($category.params.cic_category_items)}
-                            <span class="menu-product-count menu-product-count--sb-menu">
+                        <div class="sidebar-cats__link-badge--box">
+                            <a class="sidebar-cats_link{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}" href="{$category.url}">
+                                <span class="sidebar-cats_title">
+                                    {$category.name}
+                                </span>
+                            </a>
+                            {if !empty($category.params.cic_category_items)}
+                                <span class="menu-product-count menu-product-count--sb-menu">
                                 {$category.params.cic_category_items}
                             </span>
+                            {/if}
                             {if !empty($category.params.cic_category_has_discount_items)}
                                 <div class="cat-badge cat-badge--discount cat-badge--sb-menu">
                                     %
@@ -129,8 +130,8 @@
                                     hot
                                 </div>
                             {/if}
-                        {/if}
-
+                        </div>
+                        {if $_has_childs}<i class="sidebar-cats_el-open fi-rr-angle-small-down sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}
                         {if $_has_childs}{getSubcategories subcategories=$category.childs parent=$category}{/if}
                     </li>
                 {/if}

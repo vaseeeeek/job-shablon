@@ -10,22 +10,6 @@
                 <div class="product__header">
                     <div class="product__title-badge__wrap df-block">
                         <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
-                        {$_badge_percent = $theme_settings.product_discount_percentage == 1}
-                        {if $_badge_percent}
-                            {if $theme_settings.product_discount_percentage == 1}
-                                {$compare_price = $product.compare_price}
-                                {$price = $product.price}
-                                {if $compare_price > $price}
-                                    {$discount = (($compare_price-$price)/$compare_price)*100}
-                                    {$discount = ceil($discount)}
-                                {/if}
-
-                                {$productDiscount = isset($discount) && $price > 0}
-                                <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}" data-compare="{$compare_price}">
-                                    <span data-minimal="3" class="js-product-discount ">{if $productDiscount}-{$discount}%{/if}</span>
-                                </div>
-                            {/if}
-                        {/if}
                         {$wa->shop->badgeHtml($product.badge)}
                     </div>
                     {if $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'title' && $product.summary}
@@ -139,13 +123,13 @@
                     {/if}
 
                     <script>
-                        $(document).on('ready', function () {
+                        setTimeout(()=>{
                             $('.js-style-check-input').each(function(){
                                 if ($(this).is(':checked')) {
-                                    $(this).trigger('click')
+                                    /*$(this).trigger('click')*/
                                 }
                             });
-                        })
+                        }, 20)
                     </script>
                 </div>
             </div>

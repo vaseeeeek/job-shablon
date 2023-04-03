@@ -1,3 +1,34 @@
+var editLinkBoxCategory = {
+    init() {
+        _this = this;
+        // Массив элементов для редактирования 0 - Элемент, 1 - обрабатывать элементы только без класса has-subs
+        const elements = [
+            [$('#header_menu-nav-mobile .subcat-menu__item'), true],
+            [$('#header_menu-nav-mobile .cat-menu__item'), true],
+            [$('.nav-cat_wrap .cat-menu__item'), false],
+            [$('.sidebar-cats__link-badge--box'), false]
+        ];
+        $(document).on('ready', function(){
+            for (const element of elements) {
+                const item = element[0];
+                const needCheckSubs = element[1];
+                _this.editLink(item, needCheckSubs);
+            }
+        })
+    },
+    editLink(item, needCheckSubs) {
+        item.on('click', function(e){
+            if ((
+                    (needCheckSubs && !$(this).hasClass('has-subs')) || !needCheckSubs
+                ) &&
+                $(e.target).prop('tagName') != 'A') {
+                const href = $(this).find('a').attr('href');
+                window.location.assign(href)
+            }
+        })
+    }
+}
+
 var fixOrder = {
     init: function () {
         var _this = this;
@@ -2790,7 +2821,7 @@ function Product(form, options, skus = false) {
     if (!this.formWrap.find(".skus option:selected").length) {
         this.formWrap.find(".skus option:enabled:first").attr('selected', 'selected');
     }
-
+    //self.resetServices();
     self.showAllSkus();
     self.removeDivider();
     self.updateArrivedBtn();
@@ -2803,6 +2834,14 @@ function Product(form, options, skus = false) {
     if ($('.product-total').length > 0) {
         this.updateTotalPrice();
     }
+}
+
+Product.prototype.resetServices = function () {
+    $('.js-style-check-input').each(function(){
+        if ($(this).is(':checked')) {
+            //$(this).trigger('click')
+        }
+    });
 }
 
 Product.prototype.updateTotalPrice = function() {
@@ -3101,6 +3140,7 @@ Product.prototype.updateSkuServices = function (sku_id) {
 };
 
 Product.prototype.updatePrice = function (price, compare_price) {
+    console.log(`${price} - ${compare_price}`)
     var input_checked = this.formWrap.find(".skus input:radio:checked, .skus option:selected");
     if (price === undefined) {
         if (input_checked.length) {
@@ -3283,6 +3323,7 @@ $(function () {
     haederBurger.init();
     fixedAdd2Cart.init();
     new productGridGallery();
+    editLinkBoxCategory.init();
 });
 
 $.fn.elementRealWidth = function () {

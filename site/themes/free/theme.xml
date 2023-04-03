@@ -444,7 +444,7 @@
       <name locale="en_US">Show burger header</name>
     </setting>
     <setting var="show_search_burger" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Вывести поиск в бургере</name>
       <name locale="en_US">Show the search in the burger</name>
     </setting>
@@ -454,7 +454,7 @@
       <name locale="en_US">Display the search icon in the header on mobile</name>
     </setting>
     <setting var="show_icon_search_mobile" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Вывести поиск иконкой в шапке на мобильном</name>
       <name locale="en_US">Display the favorits icon in the header on mobile</name>
     </setting>
@@ -1809,7 +1809,7 @@
       </options>
     </setting>
     <setting var="product_url_sku_parameter" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Параметр sku в строке браузера</name>
       <name locale="en_US">The sku parameter in the browser line</name>
     </setting>

@@ -828,7 +828,8 @@ $html-font-size: 14px;
   //background-color: #f7f7f7;
   padding: 2.5rem 0;
 }
-.homepage-news-outer{
+
+.homepage-news-outer {
   background-color: #f7f7f7;
   padding: 2.5rem 0;
 }
@@ -1703,9 +1704,10 @@ span.grid-gallery__el.js-grid-gallery-item {
   align-items: center;
   border-radius: 0;
   padding-left: 10px;
+
   span {
     background: initial;
-    color: #989898!important;
+    color: #989898 !important;
     padding: 0;
     border-radius: 0;
     font-weight: 300;
@@ -2133,9 +2135,19 @@ span.rating__total {
   border-bottom: none
 }
 
+.sidebar-cats_el {
+  position: relative;
+}
+
+.sidebar-cats__link-badge--box {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .sidebar-cats_link {
   text-decoration: none;
-  display: block;
+  display: inline-flex;
   margin: 0 1rem 0 0;
   font-size: 1rem;
 
@@ -2150,9 +2162,10 @@ span.rating__total {
 
 .sidebar-cats_el-open {
   cursor: pointer;
-  float: right;
   height: 16px;
-  margin: 0.7rem 0 0;
+  position: absolute;
+  right: 0px;
+  top: 8px;
 }
 
 .sidebar-cats_el-open.selected {
@@ -2166,7 +2179,7 @@ span.rating__total {
 }
 
 .sidebar-cats ul ul {
-  padding: rem(15px) 0 0
+  padding: 0.3rem 0 0;
 }
 
 .sidebar-subcategories_el > a, ul.menu-v > li a {
@@ -3432,14 +3445,16 @@ input.filter-range_el:focus {
 }
 
 .category-name {
-  margin-bottom: 10px;
+  display: inline;
+}
+
+.cartegory-product-count {
+  color: #8e8e8e;
+  font-size: 1rem;
+  margin-left: 1rem;
 }
 
 @media (min-width: 1026px) {
-  .category-name {
-    margin-bottom: 0px;
-    display: inline-flex;
-  }
   .cartegory-product-count {
     margin-left: 10px;
   }
@@ -4998,9 +5013,11 @@ img.pswp__img {
 .review__product__image {
   font-size: 0;
 }
+
 .review__bottom {
   position: relative;
 }
+
 .review__value {
   display: flex;
   //flex-direction: column;
@@ -5033,15 +5050,18 @@ img.pswp__img {
     left: 0;
   }
 }
+
 @media (max-width: 480px) {
   .review__text {
     font-size: 14px;
     height: 85px;
   }
 }
+
 .review__user-name {
   font-weight: 600;
   white-space: normal;
+
   i {
     font-size: 20px;
     margin-right: 10px;
@@ -9025,6 +9045,7 @@ input[type=text], input[type=tel], input[type=email] {
   outline: 0;
   height: unset !important;
 }
+
 .cat-badge {
   display: inline-flex;
   color: #fff;
@@ -9034,12 +9055,15 @@ input[type=text], input[type=tel], input[type=email] {
   font-size: 13px;
   font-style: italic;
 }
-.cat-badge--discount{
-  background:#f91155;
+
+.cat-badge--discount {
+  background: #f91155;
 }
-.cat-badge--new{
-  background:#2b9e46;
+
+.cat-badge--new {
+  background: #2b9e46;
 }
-.cat-badge--hot{
-  background:#f6512e;
+
+.cat-badge--hot {
+  background: #f6512e;
 }

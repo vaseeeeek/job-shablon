@@ -1509,6 +1509,7 @@ iframe {
   margin-right: 0.5rem;
   margin-bottom: 1px;
 }
+
 .Product-grid .old-price {
   font-size: 1rem;
 }
@@ -2142,7 +2143,7 @@ img.mfp-img {
     }
   }
 
-  &.footer-type-3 .footer_payment{
+  &.footer-type-3 .footer_payment {
     &_svg {
       svg {
         height: 65px;
@@ -2519,9 +2520,11 @@ img.mfp-img {
   vertical-align: middle;
   position: relative;
 }
+
 .container--z-index {
   z-index: 121;
 }
+
 .nav-cat * {
   white-space: normal
 }
@@ -2668,10 +2671,11 @@ img.mfp-img {
 }
 
 .Nav__Primary-outer .cat-menu__item .fi-rr-angle-small-right {
-  font-size: rem(15px);
+  font-size: 1.2rem;
   cursor: pointer;
   width: 30px;
   height: 15px;
+  color: #8e8e8e!important;
   text-align: center;
   line-height: 15px;
 }
@@ -2684,6 +2688,10 @@ img.mfp-img {
   img {
     width: 20px;
   }
+}
+
+header .cat-menu__item-title {
+  padding: 0.6rem 0 0.6rem 1.071rem;
 }
 
 .cat-menu__item-title {
@@ -2742,7 +2750,7 @@ img.mfp-img {
 }
 
 .nav-cat_wrap .cat-menu__item .cat-menu__item-link {
-  padding: 0.6rem 0 0.6rem 1.071rem;
+  //padding: 0.6rem 0 0.6rem 1.071rem;
 }
 
 .subcat-opened__el .fi-rr-angle-small-right {
@@ -4995,10 +5003,6 @@ textarea {
   position: absolute
 }
 
-.category-name {
-  margin-bottom: 2rem;
-}
-
 .product-custom_icon .icon {
   display: inline-flex;
   font-size: 22px;
@@ -5072,7 +5076,7 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .product_name, .category-name {
+  .product_name, .category-heder {
     font-size: 1.6rem;
     line-height: 1.1;
     margin-bottom: 1.3rem;
@@ -5566,12 +5570,18 @@ ul.pages {
 }
 
 .menu-product-count {
-  margin-left: 0.9rem;
-  font-size: 0.9rem;
-  margin-top: 0.2rem;
-  color: #7a7a7a;
+  margin-left: 0.3rem;
+  font-size: 0.8rem;
+  position:relative;
+  top: -0.4rem;
+  color: #8e8e8e;
 }
-
+.sc-product-count {
+  margin-left: 0.4rem;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  color: #8e8e8e;
+}
 #themeOverride .wa-value .field > span {
   color: #bfbfbf;
   display: block;
@@ -6206,10 +6216,12 @@ body > jdiv > jdiv > jdiv[class^="mobileContainer_"] {
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
 }
-.marketplace__item a{
+
+.marketplace__item a {
   display: flex;
 }
-.marketplace__item img{
+
+.marketplace__item img {
   width: 100%;
   height: 60px;
 }
