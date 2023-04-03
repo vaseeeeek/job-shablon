@@ -2675,7 +2675,7 @@ img.mfp-img {
   cursor: pointer;
   width: 30px;
   height: 15px;
-  color: #8e8e8e!important;
+  color: #8e8e8e !important;
   text-align: center;
   line-height: 15px;
 }
@@ -2733,7 +2733,8 @@ header .cat-menu__item-title {
 }
 
 .subcat-menu__item__full-products {
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
 .subcat-menu__item .menu-subcategory {
@@ -4011,14 +4012,24 @@ textarea {
 .MobileMenu {
   .category-menu {
     padding-bottom: 0;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .cat-menu__item.active {
+    background-color: #fff !important;
+    border-radius: 0px;
   }
 
   .MobileMenu_nav__other {
+    padding-top: 1rem;
     padding-bottom: 10px;
+    background-color: #f4f4f5;
 
     .menu-element > a {
-      padding: 0.5rem 0rem 0.5rem 0.8rem;
+      padding: 0.3rem 0rem 0.3rem 0.8rem;
       display: flex;
+      color: #4d4d4d;
     }
   }
 
@@ -4037,18 +4048,21 @@ textarea {
   }
 
   .MobileMenu_nav__catalog-title {
-    padding: 1rem 0.5rem;
+    padding: 0.6rem 0.5rem;
     font-size: 1.2rem;
     font-weight: 700;
+    text-align: center;
     background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .MobileMenu_nav__info__title {
-    padding: 0.6rem 0.5rem;
-    font-size: 1.1rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
     font-weight: 700;
-    background: #f5f5f5;
-    margin: 0 0 0rem 0;
+    text-align: center;
+    background: #f4f4f5;
+    display: none;
   }
 
   .menu-element, .subcat-menu__item {
@@ -4056,6 +4070,10 @@ textarea {
     font-size: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
+
+    &:last-child{
+      border-bottom: 0;
+    }
   }
 
   .MobileMenu_nav-m {
@@ -4083,14 +4101,14 @@ textarea {
     &:not(:last-child) {
       display: block;
       position: relative;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      line-height: 1.3;
+      border-bottom: 0 !important;
       font-size: 1rem;
     }
 
     a {
-      padding: 0.5rem 0rem 0.5rem 1.8rem;
+      padding: 0.3rem 0rem 0.3rem 1.8rem;
       display: flex;
+      color: #4d4d4d;
     }
 
     & > ul > li {
@@ -4100,7 +4118,16 @@ textarea {
     }
   }
 
-  .MobileMenu_nav-m .cat-menu__item .cat-menu__item-link,
+  .MobileMenu_nav-m .cat-menu__item .cat-menu__item-link {
+    border-bottom: none;
+    display: block;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0.65rem 0rem 0.65rem 0rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .MobileMenu_nav-m .menu-subcategory .subcat-menu__item {
     border-bottom: none;
     display: block;
@@ -4113,6 +4140,7 @@ textarea {
 
   .MobileMenu_nav-m .menu-subcategory .subcat-menu__item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 0rem 0.6rem 0rem;
   }
 
   .cat-menu__item.open .menu-subcategory {
@@ -4130,9 +4158,10 @@ textarea {
     left: -100%;
     top: 0;
     width: 100%;
+    padding: 0 12px;
     height: calc(100% - 60px);
     z-index: 100;
-    transition: 0.20s;
+    transition: 0.2s;
     overflow: auto;
   }
 
@@ -4144,14 +4173,14 @@ textarea {
     top: 0;
     height: 100%;
     text-align: center;
-    font-size: 1.7rem;
-    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.4rem;
+    color: #8e8e8e;
     position: absolute;
     right: 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    padding: 0 13px 0 0;
+    padding: 0 0px 0 0;
     box-sizing: border-box;
     align-items: center;
   }
@@ -4160,9 +4189,10 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: rem(28px);
-    padding: rem(4px) rem(10px) 0 rem(10px);
+    font-size: 1.8rem;
+    padding: 0.2rem 0rem 0 0rem;
     line-height: 1.3;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
     &--absolute {
       position: absolute;
@@ -4176,7 +4206,11 @@ textarea {
     }
 
     .cat-title {
-      font-size: rem(22px);
+      padding: 0.7rem 0.5rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      background: #fff;
     }
 
     .menu-close {
@@ -4217,6 +4251,11 @@ textarea {
     width: calc(100% - 60px);
     padding-left: 10px;
     display: block;
+  }
+
+  .menu-close {
+    line-height: 1.3;
+    color: #8e8e8e;
   }
 }
 
@@ -5572,16 +5611,18 @@ ul.pages {
 .menu-product-count {
   margin-left: 0.3rem;
   font-size: 0.8rem;
-  position:relative;
+  position: relative;
   top: -0.4rem;
   color: #8e8e8e;
 }
+
 .sc-product-count {
   margin-left: 0.4rem;
   font-size: 1rem;
   margin-top: 0.2rem;
   color: #8e8e8e;
 }
+
 #themeOverride .wa-value .field > span {
   color: #bfbfbf;
   display: block;
