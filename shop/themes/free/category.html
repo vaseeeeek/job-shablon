@@ -68,9 +68,8 @@
                 <!-- plugin hook: 'frontend_category' -->
                 {* @event frontend_category.%plugin_id% *}
                 {foreach $frontend_category as $_}{$_}{/foreach}
-
                 <!-- description -->
-                {if !$theme_settings.cat_desc_bottom && $category.description}
+                {if !$theme_settings.cat_desc_bottom && $category.description && $wa->get('page', null, int) < 2}
                     {strip}
                         <div class="category-desc-outer">
                             {$maxHeight = 55}
@@ -105,7 +104,7 @@
                     <img alt="Loading..." src="{$wa_parent_theme_url}img/loading16.gif">
                 </div>
 
-                {if $theme_settings.cat_desc_bottom && $category.description}
+                {if $theme_settings.cat_desc_bottom && $category.description && $wa->get('page', null, int) < 2}
                     <div class="content-box">
                         {strip}
                             <div class="category-desc-outer">
