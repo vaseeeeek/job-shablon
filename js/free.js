@@ -3140,7 +3140,7 @@ Product.prototype.updateSkuServices = function (sku_id) {
 };
 
 Product.prototype.updatePrice = function (price, compare_price) {
-    console.log(`${price} - ${compare_price}`)
+    // console.log(`${price} - ${compare_price}`)
     var input_checked = this.formWrap.find(".skus input:radio:checked, .skus option:selected");
     if (price === undefined) {
         if (input_checked.length) {
@@ -3247,6 +3247,7 @@ Product.prototype.updateDiscount = function (price, compare_price) {
             minimal = parseInt(this.discount.data('minimal'));
 
         this.discount.addClass('-Close');
+        this.discount.closest('.product-card_discounts').addClass('-Close');
         if (compare_price > price && price > 0) {
             discount = ((compare_price - price) / compare_price) * 100;
             if (typeRound == "ceil") {
@@ -3258,6 +3259,7 @@ Product.prototype.updateDiscount = function (price, compare_price) {
             }
             if (discount >= minimal) {
                 this.discount.html('-' + discount + '%').removeClass('-Close');
+                this.discount.closest('.product-card_discounts').removeClass('-Close');
             }
         }
     }

@@ -50,25 +50,28 @@
                                 {$subcat.name}
                             </span>
                         </a>
-                        {if !empty($subcat.params.cic_category_items)}
-                            <span class="menu-product-count menu-product-count--sb-menu">
-                                        {$subcat.params.cic_category_items}
-                                    </span>
-                        {/if}
-                        {if !empty($subcat.params.cic_category_has_discount_items)}
-                            <div class="cat-badge cat-badge--discount cat-badge--sb-menu">
-                                %
-                            </div>
-                        {/if}
-                        {if !empty($subcat.params.cic_category_has_new_items)}
-                            <div class="cat-badge cat-badge--new cat-badge--sb-menu">
-                                new
-                            </div>
-                        {/if}
-                        {if !empty($subcat.params.cic_category_hot)}
-                            <div class="cat-badge cat-badge--hot cat-badge--sb-menu">
-                                hot
-                            </div>
+
+                        {if $theme_settings.plugin_cic == 'sb' || $theme_settings.plugin_cic == 'menu_sb'}
+                            {if !empty($subcat.params.cic_category_items)}
+                                <span class="menu-product-count menu-product-count--sb-menu">
+                                    {$subcat.params.cic_category_items}
+                                </span>
+                            {/if}
+                            {if !empty($subcat.params.cic_category_has_discount_items)}
+                                <div class="cat-badge cat-badge--discount cat-badge--sb-menu">
+                                    %
+                                </div>
+                            {/if}
+                            {if !empty($subcat.params.cic_category_has_new_items)}
+                                <div class="cat-badge cat-badge--new cat-badge--sb-menu">
+                                    new
+                                </div>
+                            {/if}
+                            {if !empty($subcat.params.cic_category_hot)}
+                                <div class="cat-badge cat-badge--hot cat-badge--sb-menu">
+                                    hot
+                                </div>
+                            {/if}
                         {/if}
                         {if $_has_childs}{getSubcategories subcategories=$subcat.childs parent=$subcat}{/if}
                     </li>
@@ -110,25 +113,27 @@
                                     {$category.name}
                                 </span>
                             </a>
-                            {if !empty($category.params.cic_category_items)}
-                                <span class="menu-product-count menu-product-count--sb-menu">
-                                {$category.params.cic_category_items}
-                            </span>
-                            {/if}
-                            {if !empty($category.params.cic_category_has_discount_items)}
-                                <div class="cat-badge cat-badge--discount cat-badge--sb-menu">
-                                    %
-                                </div>
-                            {/if}
-                            {if !empty($category.params.cic_category_has_new_items)}
-                                <div class="cat-badge cat-badge--new cat-badge--sb-menu">
-                                    new
-                                </div>
-                            {/if}
-                            {if !empty($category.params.cic_category_hot)}
-                                <div class="cat-badge cat-badge--hot cat-badge--sb-menu">
-                                    hot
-                                </div>
+                            {if $theme_settings.plugin_cic == 'sb' || $theme_settings.plugin_cic == 'menu_sb'}
+                                {if !empty($category.params.cic_category_items)}
+                                    <span class="menu-product-count menu-product-count--sb-menu">
+                                    {$category.params.cic_category_items}
+                                </span>
+                                {/if}
+                                {if !empty($category.params.cic_category_has_discount_items)}
+                                    <div class="cat-badge cat-badge--discount cat-badge--sb-menu">
+                                        %
+                                    </div>
+                                {/if}
+                                {if !empty($category.params.cic_category_has_new_items)}
+                                    <div class="cat-badge cat-badge--new cat-badge--sb-menu">
+                                        new
+                                    </div>
+                                {/if}
+                                {if !empty($category.params.cic_category_hot)}
+                                    <div class="cat-badge cat-badge--hot cat-badge--sb-menu">
+                                        hot
+                                    </div>
+                                {/if}
                             {/if}
                         </div>
                         {if $_has_childs}<i class="sidebar-cats_el-open fi-rr-angle-small-down sdColor js-subcat-open{if $category_selected == $category.id  || isset($category.params.sidebar_open)} selected{/if}"></i>{/if}

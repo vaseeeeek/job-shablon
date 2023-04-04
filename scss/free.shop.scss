@@ -438,6 +438,7 @@ $html-font-size: 14px;
 .partners__list {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .partners__list .owl-item {
@@ -481,14 +482,16 @@ $html-font-size: 14px;
 
 @media (max-width: 640px) {
   .home-slider-photos__text {
-    padding: 0 0 5px 5px;
+    padding: 0 0 5px 20px;
 
     .home-slider-photos__title {
-      font-size: 25px;
+      font-size: 20px;
+      margin-bottom: 0;
     }
 
     .home-slider-photos__body {
       font-size: 13px;
+      display: none;
     }
   }
 }
@@ -1695,6 +1698,25 @@ span.grid-gallery__el.js-grid-gallery-item {
 }
 
 .Product-grid .badge.product-card_discounts {
+  position: initial;
+  background: center center/cover no-repeat;
+  min-width: 50px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  padding-left: 10px;
+
+  span {
+    background: initial;
+    color: #989898 !important;
+    padding: 0;
+    border-radius: 0;
+    font-weight: 300;
+  }
+}
+.product-actions .badge.product-card_discounts {
   position: initial;
   background: center center/cover no-repeat;
   min-width: 50px;
@@ -5180,7 +5202,7 @@ img.pswp__img {
   display: block
 }
 
-.product_add-services {
+.product-actions {
   min-width: 340px;
   max-width: 100%;
   padding: 1.5rem 1.4rem 1.5rem 1.4rem;
@@ -5199,7 +5221,7 @@ img.pswp__img {
 }
 
 @media (max-width: 640px) {
-  .product_add-services {
+  .product-actions {
     min-width: initial;
     max-width: 100%;
   }
@@ -5210,7 +5232,7 @@ img.pswp__img {
 }
 
 @media print {
-  .product_add-services {
+  .product-actions {
     padding: 0
   }
 }
@@ -7190,6 +7212,7 @@ img.pswp__img {
 .product-page_main--three-columns {
   .product-cart--box {
     display: flex;
+    gap: 2rem;
   }
 
   .product-cart__left {
@@ -7198,7 +7221,6 @@ img.pswp__img {
 
   .product-cart__right {
     width: 50%;
-    padding-left: 2rem;
   }
 
   .product-page_main-left {
@@ -7290,7 +7312,7 @@ img.pswp__img {
 @media (max-width: 640px) {
   .product-page_main--three-columns {
     .product-cart__right {
-      padding-left: 0;
+      //padding-left: 0;
     }
   }
 }

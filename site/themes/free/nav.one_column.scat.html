@@ -27,25 +27,27 @@
                     <a href="{$catChild_2.url}">
                         {$catChild_2.name}
                     </a>
-                    {if !empty($catChild_2.params.cic_category_items)}
-                        <span class="menu-product-count">
-                            {$catChild_2.params.cic_category_items}
-                        </span>
-                    {/if}
-                    {if !empty($catChild_2.params.cic_category_has_discount_items)}
-                        <div class="cat-badge cat-badge--discount">
-                            %
-                        </div>
-                    {/if}
-                    {if !empty($catChild_2.params.cic_category_has_new_items)}
-                        <div class="cat-badge cat-badge--new">
-                            new
-                        </div>
-                    {/if}
-                    {if !empty($catChild_2.params.cic_category_hot)}
-                        <div class="cat-badge cat-badge--hot">
-                            hot
-                        </div>
+                    {if $theme_settings.plugin_cic == 'menu' || $theme_settings.plugin_cic == 'menu_sb'}
+                        {if !empty($catChild_2.params.cic_category_items)}
+                            <span class="menu-product-count">
+                                {$catChild_2.params.cic_category_items}
+                            </span>
+                        {/if}
+                        {if !empty($catChild_2.params.cic_category_has_discount_items)}
+                            <div class="cat-badge cat-badge--discount">
+                                %
+                            </div>
+                        {/if}
+                        {if !empty($catChild_2.params.cic_category_has_new_items)}
+                            <div class="cat-badge cat-badge--new">
+                                new
+                            </div>
+                        {/if}
+                        {if !empty($catChild_2.params.cic_category_hot)}
+                            <div class="cat-badge cat-badge--hot">
+                                hot
+                            </div>
+                        {/if}
                     {/if}
                 </div>
 
