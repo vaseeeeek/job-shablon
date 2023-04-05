@@ -58,7 +58,7 @@
                     {if $theme_settings.break_categories_columns}
                         {$view_subcat = $theme_settings.break_categories_columns}
                     {/if}
-                    {if !isset($view_subcat) || ($view_subcat != "columns")}
+                    {if (!isset($view_subcat) || ($view_subcat != "columns")) && !$cat.params['columns']}
                         {$view_subcat = "one_column"}
                     {/if}
 
