@@ -99,7 +99,16 @@
     {/if}
 
     <header class="header{if in_array('slider',explode(',', $theme_settings.home_blocks_list))} header--none-mb-pb{/if}{if $theme_settings.sticky_header} stickyOn{/if}{if $wa->isMobile() && $theme_settings.show_burger_header} --with-burger{/if}">
-        <div class="container {if $theme_settings.horizontal_menu}container--none-pb{/if}">
+        {if $wa->isMobile()}
+            {$headerColumns}
+            {if $theme_settings.show_burger_header}
+                {$headerColumns = 3}
+            {else}
+                {$headerColumns = 2}
+            {/if}
+        {/if}
+
+        <div class="container{if $theme_settings.horizontal_menu} container--none-pb{/if}{if $headerColumns} container--{$headerColumns}cols{/if}">
             {include file="header.html"}
         </div>
         {include file="nav.html"}

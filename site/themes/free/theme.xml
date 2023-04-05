@@ -247,12 +247,12 @@
       <name locale="ru_RU">Общие настройки</name>
     </setting>
     <setting var="telegram" control_type="text">
-      <value>#</value>
+      <value>https://t.me/bigsmokekrsk</value>
       <name locale="en_US">Telegram</name>
       <name locale="ru_RU">Telegram</name>
     </setting>
     <setting var="whatsapp" control_type="text">
-      <value>#</value>
+      <value>https://api.whatsapp.com/send?phone=79676134545</value>
       <name locale="en_US">WhatsApp</name>
       <name locale="ru_RU">WhatsApp</name>
     </setting>
@@ -424,7 +424,7 @@
       <name locale="en_US">Use plugin Search Pro</name>
     </setting>
     <setting var="show_contact_box" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выводить блок контактов в мобильной версии</name>
       <name locale="en_US">Display the contact block in the mobile version</name>
     </setting>
@@ -444,7 +444,7 @@
       <name locale="en_US">Show burger header</name>
     </setting>
     <setting var="show_search_burger" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывести поиск в бургере</name>
       <name locale="en_US">Show the search in the burger</name>
     </setting>
@@ -1890,7 +1890,7 @@
       <name locale="ru_RU">Telegram группа</name>
     </setting>
     <setting var="vk" control_type="text">
-      <value>https://vk.com/webasyst_ru</value>
+      <value>https://vk.com/bigsmokekrasnoyarsk</value>
       <name locale="en_US">VK</name>
       <name locale="ru_RU">VK</name>
     </setting>
@@ -1929,7 +1929,7 @@
       <name locale="ru_RU">Копирайт</name>
     </setting>
     <setting var="footer_type" control_type="select">
-      <value>3</value>
+      <value>1</value>
       <name locale="ru_RU">Варианты вывода подвала сайта</name>
       <name locale="en_US">Website footer output options</name>
       <options>
