@@ -10,13 +10,13 @@
         {elseif $theme_settings.links_information_pages != 'none'}
             {$_links = $wa->apps()}
         {/if}
-        <nav id="header_menu-nav-mobile" class="MobileMenu_nav-m">
+        {$showSearchMobileMenu = $wa->isMobile() && $wa->shop && $theme_settings.show_search_burger}
+        <nav id="header_menu-nav-mobile" class="MobileMenu_nav-m{if $showSearchMobileMenu} MobileMenu_nav-m--pt{/if}">
             <div class="MobileMenu_nav-header--absolute">
                 <div class="menu-close"><i class="fi-rr-cross-small"></i></div>
             </div>
             {if $wa->shop}
-
-                {if $wa->isMobile() && $wa->shop && $theme_settings.show_search_burger}
+                {if $showSearchMobileMenu}
                     <div class="Nav-search juniq-header-search">
                         <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
                               class="Nav-search_form">
@@ -247,20 +247,6 @@
                                                                 <a{if isset($child.target)} target="{$child.target}"{/if} {if strlen($child.url)>1 && $wa->currentUrl() == $child.url} class="selected"{/if} href="{$child.url}">
                                                                     {$child.name}
                                                                 </a>
-                                                                {if isset($child.childs) && $child.childs && count($child.childs)}
-                                                                    <ul class="top-border-color">
-                                                                        {foreach $child.childs as $childLvl3}
-                                                                            {if !isset($childLvl3.top_menu_hide)}
-                                                                                <li>
-                                                                                    <a{if isset($childLvl3.target)} target="{$childLvl3.target}"{/if} {if strlen($childLvl3.url)>1 && $wa->currentUrl() == $childLvl3.url} class="selected"{/if} href="{$childLvl3.url}">
-                                                                                        {$childLvl3.name}
-                                                                                    </a>
-
-                                                                                </li>
-                                                                            {/if}
-                                                                        {/foreach}
-                                                                    </ul>
-                                                                {/if}
                                                             </li>
                                                         {/if}
                                                     {/foreach}

@@ -868,7 +868,7 @@
       <name locale="ru_RU">Бренды</name>
     </setting>
     <setting var="use_plugin_brands" control_type="select">
-      <value>brands_pro</value>
+      <value/>
       <name locale="en_US">Plugin of Brands</name>
       <name locale="ru_RU">Плагин брендов</name>
       <options>
@@ -887,7 +887,7 @@
       </options>
     </setting>
     <setting var="brands_mainpage" control_type="select">
-      <value>all</value>
+      <value/>
       <name locale="en_US">Brands on homepage</name>
       <name locale="ru_RU">Бренды на главной</name>
       <options>
@@ -2081,7 +2081,7 @@
       <name locale="en_US">plugin breadcrumbs</name>
     </setting>
     <setting var="plugin_cic" control_type="select">
-      <value>menu_sb</value>
+      <value>menu</value>
       <options>
         <option value="menu">
           <name locale="ru_RU">В меню</name>

@@ -4090,6 +4090,9 @@ textarea {
     overflow: auto;
     display: flex;
     flex-direction: column;
+    &--pt{
+      padding-top: rem(11px);
+    }
   }
 
   .MobileMenu_nav-m.show {
@@ -4125,7 +4128,7 @@ textarea {
     display: block;
     text-decoration: none;
     display: inline-flex;
-    padding: 0.65rem 0rem 0.65rem 0rem;
+    padding: 0.65rem rem(18px) 0.65rem 0rem;
     width: 100%;
     box-sizing: border-box;
   }
@@ -4909,7 +4912,7 @@ textarea {
 
     &.--with-burger {
       .container {
-        flex-wrap: nowrap;
+        //flex-wrap: nowrap;
       }
 
       .header--left {
@@ -6267,7 +6270,6 @@ body > jdiv > jdiv > jdiv[class^="mobileContainer_"] {
 
 .marketplace__item img {
   width: 100%;
-  height: 60px;
 }
 
 .marketplace__item--wb {
