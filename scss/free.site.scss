@@ -4089,7 +4089,6 @@ textarea {
     width: 100%;
     height: calc(100% - 70px);
     z-index: 100;
-    overflow: auto;
     display: flex;
     flex-direction: column;
     &--pt{
@@ -4099,6 +4098,7 @@ textarea {
 
   .MobileMenu_nav-m.show {
     left: 0;
+    overflow: auto;
   }
 
   .MobileMenu_nav-m ul > li {
