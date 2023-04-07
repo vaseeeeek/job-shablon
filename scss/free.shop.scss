@@ -8284,12 +8284,14 @@ input[type=text], input[type=tel], input[type=email] {
       width: 100%;
       height: calc(100% - 73px);
       z-index: 111;
-      overflow: auto;
       padding: 1rem 1rem 5.5rem 1rem;
       box-sizing: border-box;
 
       &.show {
         left: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
 
         .filter__submit {
           position: fixed;

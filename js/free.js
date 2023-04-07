@@ -1,3 +1,6 @@
+// При клике на "div" из elements
+// делается переход по ссылке атрибута href
+// элемента тега "a" внутри этого блока
 var editLinkBoxCategory = {
     init() {
         _this = this;
@@ -8,7 +11,7 @@ var editLinkBoxCategory = {
             [$('.nav-cat_wrap .cat-menu__item'), false],
             [$('.sidebar-cats__link-badge--box'), false]
         ];
-        $(document).on('ready', function(){
+        $(document).on('ready', function () {
             for (const element of elements) {
                 const item = element[0];
                 const needCheckSubs = element[1];
@@ -17,7 +20,7 @@ var editLinkBoxCategory = {
         })
     },
     editLink(item, needCheckSubs) {
-        item.on('click', function(e){
+        item.on('click', function (e) {
             if ((
                     (needCheckSubs && !$(this).hasClass('has-subs')) || !needCheckSubs
                 ) &&
@@ -847,7 +850,7 @@ var cart = {
     }
 };
 
-var calculateMenuHeight = function() {
+var calculateMenuHeight = function () {
     // let oneColumnWrap = $('.dd-wrap').find('.js-category-menu-wrap');
     // let subcategoryMenu = submenu.height();
     // let maxHeightUnderMenu = window.innerHeight - $('.Nav__Primary-outer')[0].getBoundingClientRect().top;
@@ -895,51 +898,51 @@ var categoriesMainMenu = {
             ddBox = topCatMenu.find('.dd-wrap');
 
         item.hover(function () {
-            var $this = $(this),
-                submenu = $this.find('.js-subcategory-menu').first(),
-                subMenuPos = submenu.css("position") == 'absolute',
-                catMenuPos = topCatMenu.css("position") == 'absolute',
-                catMenuWrap = $this.closest('.js-category-menu-wrap');
+                var $this = $(this),
+                    submenu = $this.find('.js-subcategory-menu').first(),
+                    subMenuPos = submenu.css("position") == 'absolute',
+                    catMenuPos = topCatMenu.css("position") == 'absolute',
+                    catMenuWrap = $this.closest('.js-category-menu-wrap');
 
-            $this.siblings().removeClass('active');
-            $this.siblings().each(function(){
-                $(this).find('.js-subcategory-menu').first().stop(true).delay(delayCount).fadeOut(0);
-            });
-
-            if (subMenuPos) {
-                if (submenu.length > 0) {
-                    submenu.stop(true).delay(delayCount).fadeIn(1);
-                }
-            }
-
-
-            submenu.stop(true).delay(delayCount).fadeIn(0, function(){
-                let oneColumnWrap = 0;
-
-                $('#nav-cat .js-category-menu-wrap > .cat-menu__item').each(function(){
-                    oneColumnWrap += $(this).height();
+                $this.siblings().removeClass('active');
+                $this.siblings().each(function () {
+                    $(this).find('.js-subcategory-menu').first().stop(true).delay(delayCount).fadeOut(0);
                 });
-                let subcategoryMenu = submenu.find('.sub-category_cols').height() + 30;
-                let maxHeightUnderMenu = window.innerHeight - $('.Nav__Primary-outer')[0].getBoundingClientRect().top;
 
-                heightArray = [oneColumnWrap,subcategoryMenu];
-                let neededHeight = (maxHeightUnderMenu > Math.max.apply(null, heightArray))?Math.max.apply(null, heightArray):maxHeightUnderMenu;
+                if (subMenuPos) {
+                    if (submenu.length > 0) {
+                        submenu.stop(true).delay(delayCount).fadeIn(1);
+                    }
+                }
 
-                //назначение высоты обертке
-                ddBox.delay(delayCount).removeAttr('style');
-                ddBox.delay(delayCount + 20).attr('style',`height:${neededHeight}px;`);
-            })
 
-        }
-        // , function () {
-        //     var $this = $(this),
-        //         submenu = $this.find('.js-subcategory-menu').first(),
-        //         subMenuPos = submenu.css("position") == 'absolute',
-        //         catMenuWrap = $this.closest('.js-category-menu-wrap');
-        //
-        //     $this.removeClass('active');
-        //     submenu.stop(true).delay(delayCount).fadeOut(0);
-        // }
+                submenu.stop(true).delay(delayCount).fadeIn(0, function () {
+                    let oneColumnWrap = 0;
+
+                    $('#nav-cat .js-category-menu-wrap > .cat-menu__item').each(function () {
+                        oneColumnWrap += $(this).height();
+                    });
+                    let subcategoryMenu = submenu.find('.sub-category_cols').height() + 30;
+                    let maxHeightUnderMenu = window.innerHeight - $('.Nav__Primary-outer')[0].getBoundingClientRect().top;
+
+                    heightArray = [oneColumnWrap, subcategoryMenu];
+                    let neededHeight = (maxHeightUnderMenu > Math.max.apply(null, heightArray)) ? Math.max.apply(null, heightArray) : maxHeightUnderMenu;
+
+                    //назначение высоты обертке
+                    ddBox.delay(delayCount).removeAttr('style');
+                    ddBox.delay(delayCount + 20).attr('style', `height:${neededHeight}px;`);
+                })
+
+            }
+            // , function () {
+            //     var $this = $(this),
+            //         submenu = $this.find('.js-subcategory-menu').first(),
+            //         subMenuPos = submenu.css("position") == 'absolute',
+            //         catMenuWrap = $this.closest('.js-category-menu-wrap');
+            //
+            //     $this.removeClass('active');
+            //     submenu.stop(true).delay(delayCount).fadeOut(0);
+            // }
         );
     },
     dd: function () {
@@ -957,9 +960,9 @@ var categoriesMainMenu = {
 
             if (subMenuPos) {
                 if (submenu.length) {
-                    catMenuMarginRight += 258;
+                    catMenuMarginRight += 278;
                     //if (hoverTime) {
-                        submenu.stop(true).delay(150).fadeIn(1);
+                    submenu.stop(true).delay(150).fadeIn(1);
                     //} else {
                     //    submenu.show();
                     //}
@@ -979,9 +982,9 @@ var categoriesMainMenu = {
 
             if (subMenuPos) {
                 //if (hoverTime) {
-                    submenu.stop(true).delay(150).fadeOut(1, function () {
-                        catMenuWrap.removeAttr('style');
-                    });
+                submenu.stop(true).delay(150).fadeOut(1, function () {
+                    catMenuWrap.removeAttr('style');
+                });
                 //} else {
                 //    submenu.hide();
                 //    catMenuWrap.removeAttr('style');
@@ -1000,14 +1003,14 @@ var categoriesMainMenu = {
 
             if (subMenuPos) {
                 //if (hoverTime) {
-                    submenu.stop(true).delay(150).fadeIn(1, function () {
-                        if (!itemSub.hasClass("pos-rel")) {
-                            catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
-                            if (catMenuPos) {
-                                _this.calcHeight(catMenuWrap, submenu);
-                            }
+                submenu.stop(true).delay(150).fadeIn(1, function () {
+                    if (!itemSub.hasClass("pos-rel")) {
+                        catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
+                        if (catMenuPos) {
+                            _this.calcHeight(catMenuWrap, submenu);
                         }
-                    });
+                    }
+                });
                 //} else {
                 //    submenu.show();
                 //    if (!itemSub.hasClass("pos-rel")) {
@@ -1023,17 +1026,17 @@ var categoriesMainMenu = {
                 submenu = $this.find('.js-subcategory-menu').first(),
                 subMenuPos = submenu.css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap'),
-                catMenuMarginRight = 258,
+                catMenuMarginRight = 278,
                 parent = $this.closest('.js-cat-subs-dropdown');
 
 
             if (subMenuPos) {
                 //if (hoverTime) {
-                    submenu.stop(true).delay(150).fadeOut(1, function () {
-                        if (!itemSub.hasClass("pos-rel")) {
-                            catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
-                        }
-                    });
+                submenu.stop(true).delay(150).fadeOut(1, function () {
+                    if (!itemSub.hasClass("pos-rel")) {
+                        catMenuWrap.css('margin-right', catMenuMarginRight + 'px');
+                    }
+                });
                 //} else {
                 //    submenu.hide();
                 //    if (!itemSub.hasClass("pos-rel")) {
@@ -2572,14 +2575,14 @@ var navDdPosition = {
 }
 
 var stickyHeader = {
-    init: function(){
+    init: function () {
         var _this = this;
 
         if (!isMobileVersion() && $('.stickyOn').length > 0) {
             _this.onScroll();
         }
     },
-    onScroll(){
+    onScroll() {
         var _this = this;
         const headerHeight = $('body > header.header').height() + $('body > .header-top--links').height();
 
@@ -2587,11 +2590,11 @@ var stickyHeader = {
             const sticky = $('body > header.header').hasClass('sticky');
 
             if (window.pageYOffset > headerHeight && !sticky) {
-                $('.header-top--links').css('padding-bottom',`${headerHeight}px`);
+                $('.header-top--links').css('padding-bottom', `${headerHeight}px`);
                 $('body > header.header').addClass('sticky');
-                $('body > header.header').attr('style',`top: -${headerHeight}px`)
+                $('body > header.header').attr('style', `top: -${headerHeight}px`)
                 setTimeout(() => {
-                    $('body > header.header').attr('style',`top: 0px`);
+                    $('body > header.header').attr('style', `top: 0px`);
                 }, 300)
             }
             if (window.pageYOffset < headerHeight && sticky) {
@@ -2611,11 +2614,11 @@ var hideDdItemTwo = {
         }
     },
     toggleHide: function () {
-        $('.Nav__horizontal--item').on('mouseenter',function(){
-            $('.Nav__horizontal--list-2').attr('style','display:flex')
+        $('.Nav__horizontal--item').on('mouseenter', function () {
+            $('.Nav__horizontal--list-2').attr('style', 'display:flex')
         })
-        $('.Nav__horizontal--item').on('mouseleave',function(){
-            $('.Nav__horizontal--list-2').attr('style','display:none')
+        $('.Nav__horizontal--item').on('mouseleave', function () {
+            $('.Nav__horizontal--list-2').attr('style', 'display:none')
         })
     }
 }
@@ -2627,7 +2630,7 @@ var showContantBox = {
             _this.onBtn();
         }
     },
-    onBtn(){
+    onBtn() {
         $('.js-show-contact-box').on('click', () => {
             $('#js-contacts-box').toggleClass('contacts--show');
         })
@@ -2641,14 +2644,14 @@ var haederBurger = {
             _this.showMobileMenu();
         }
     },
-    showMobileMenu(){
+    showMobileMenu() {
         $('#header-burger').on('click', () => {
             $('.fixed-panel .MobileMenu-btn').click();
         })
     }
 }
 
-const isMobileVersion = function() {
+const isMobileVersion = function () {
     if ($('body').hasClass('mobile')) {
         return true;
     } else {
@@ -2657,15 +2660,15 @@ const isMobileVersion = function() {
 }
 
 const fixedAdd2Cart = {
-    init(){
+    init() {
         if ($('.js-fixed-add2cart-panel').length) {
             _this = this;
             _this.fixedOn();
         }
     },
-    fixedOn(){
+    fixedOn() {
         const blockPos = $('.js-fixed-add2cart-panel').offset().top
-        $( window ).scroll(function() {
+        $(window).scroll(function () {
             const scrollPos = $(window).scrollTop();
 
             if (scrollPos > blockPos) {
@@ -2828,7 +2831,7 @@ function Product(form, options, skus = false) {
     this.updateQtyBox();
     this.updateBuyActionWrap();
     this.showMaxCountErrorModal();
-    if (Object.keys(skus).length > 1 ) {
+    if (Object.keys(skus).length > 1) {
         this.updateFeatures(options);
     }
     if ($('.product-total').length > 0) {
@@ -2837,28 +2840,29 @@ function Product(form, options, skus = false) {
 }
 
 Product.prototype.resetServices = function () {
-    $('.js-style-check-input').each(function(){
+    $('.js-style-check-input').each(function () {
         if ($(this).is(':checked')) {
             //$(this).trigger('click')
         }
     });
 }
 
-Product.prototype.updateTotalPrice = function() {
-    $(function(){
+Product.prototype.updateTotalPrice = function () {
+    $(function () {
         $('.js-feature-sku').on('change', function () {
             getTotal();
         })
         $('select.js-product-skus').on('change', function () {
             getTotal();
         })
-        $('.js-product-skus li').on('click', function(e) {
+        $('.js-product-skus li').on('click', function (e) {
             getTotal();
         })
-        $('[name="quantity"]').on('change',function(){
+        $('[name="quantity"]').on('change', function () {
             getTotal();
         })
-        function getTotal(){
+
+        function getTotal() {
             const price = $('.product__price.price').data('price') * $('[name="quantity"]').val();
             const currency = $('.product__price.price').find('span').clone();
             $('.product-total').text(` ${price.toLocaleString()} `);
@@ -2894,6 +2898,7 @@ Product.prototype.checkQtyProduct = function (id, skus) {
     $('.js-qty input').on('change', function () {
         checkedBlocked();
     })
+
     function checkedBlocked() {
         maxCount = getMaxCount();
         $('.js-submit-form').removeAttr('data-max-count');
@@ -2904,6 +2909,7 @@ Product.prototype.checkQtyProduct = function (id, skus) {
             $('.js-submit-form').addClass('blocked');
         }
     }
+
     function getMaxCount() {
         if (skus[`${id}`] == 'mnogo') {
             return Number.MAX_SAFE_INTEGER;
@@ -2914,7 +2920,7 @@ Product.prototype.checkQtyProduct = function (id, skus) {
 }
 
 Product.prototype.showMaxCountErrorModal = function () {
-    $('.product_add-services .addtocart').on('click', function(e){
+    $('.product_add-services .addtocart').on('click', function (e) {
         if ($(this).hasClass('blocked')) {
             e.stopPropagation();
             const modal = $(`<div class="modal__wrap"><div class="modal"><div class="modal__text">Максисмально допустимое кол-во товара к покупке: ${$('.addtocart.blocked').data('max-count')}</div><div class="modal__closed">✕</div></div></div>`)
@@ -2948,21 +2954,23 @@ Product.prototype.updateFeatures = function (options) {
         const id = $(this).find('option:selected').attr('value');
         showFeatures(id);
     })
-    $('.js-product-skus li').on('click', function(e) {
+    $('.js-product-skus li').on('click', function (e) {
         if ($(e.target).hasClass('js-toggle-styler-input')) {
             const id = $(this).find('input').attr('value');
             showFeatures(id);
         }
     })
+
     function showFeatures(id) {
-        $('.Product__features').css('display','none');
-        $(`.Product__features[data-features-id="${id}"]`).css('display','table');
+        $('.Product__features').css('display', 'none');
+        $(`.Product__features[data-features-id="${id}"]`).css('display', 'table');
     }
+
     function getKey() {
         let key = "";
         if ($('.product-page .pd_option_select').length > 0) {
             let iteration = 0;
-            $('.pd_option_select').each(function(){
+            $('.pd_option_select').each(function () {
                 iteration++;
                 const id = $(this).find('.js-feature-sku').data('feature-id');
                 const value = $(this).find('option:selected').attr('value');
@@ -2971,7 +2979,7 @@ Product.prototype.updateFeatures = function (options) {
         }
         if ($('.product-page .select-v-inline').length > 0) {
             let iteration = 0;
-            $('.select-v-inline').each(function(){
+            $('.select-v-inline').each(function () {
                 iteration++;
                 const id = $(this).find('.js-feature-sku').data('feature-id');
                 const value = $(this).find('.selected').attr('data-value');

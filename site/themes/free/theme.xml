@@ -848,7 +848,7 @@
       <name locale="ru_RU">Заголовок новинок</name>
     </setting>
     <setting var="home_product_list_2" control_type="text">
-      <value>new</value>
+      <value><![CDATA[new]]></value>
       <name locale="en_US">ID of the novelty list</name>
       <name locale="ru_RU">ID списка новинки</name>
     </setting>
