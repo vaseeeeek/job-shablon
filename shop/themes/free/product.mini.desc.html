@@ -104,7 +104,9 @@
                             {if !empty($features_list[$f_code])}
                                 <tr class="Product__features-item {if $features_list[$f_code].type == 'divider'} divider{/if}" data-index="{$f_value@iteration}">
                                     <td class="Product__features-title">
-                                        <span>{$features_list[$f_code].name|escape}</span>
+                                        <span class="fiwex-feat" data-feat_id="{$features_list[$f_code].id}">
+                                            {$features_list[$f_code].name|escape}
+                                        </span>
                                     </td>
                                     <td class="Product__features-value">
                                         {if $features_list[$f_code].type != 'divider'}
@@ -112,7 +114,12 @@
                                                 {if $features_list[$f_code].type == 'color'}
                                                     {implode('<br /> ', $f_value)}
                                                 {else}
-                                                    {implode(', ', $f_value)}
+                                                    {foreach $f_value as $fiwex_k => $fiwex_v name="fiwex_feature_values"}
+                                                        <span class="fiwex-feat-val" data-product_id="{$product.id}" data-fiwex-parent_id="{$features[$f_code].id}">
+                                                            {$fiwex_v}
+                                                        </span>
+                                                        {if $smarty.foreach.fiwex_feature_values.last}{else}, {/if}
+                                                    {/foreach}
                                                 {/if}
                                             {else}
                                                 {$f_value}

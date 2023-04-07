@@ -2963,7 +2963,7 @@ header .cat-menu__item-title {
 
 .inp-search {
   position: relative;
-  z-index: 20;
+  z-index: 10;
 }
 
 .product-custom_short-count, .header__cart-count {
@@ -2978,7 +2978,27 @@ header .cat-menu__item-title {
   padding: 0 7px;
 }
 
+.sku__item {
+  position: relative;
 
+}
+
+.sku__image {
+  font-size: 0;
+  position: absolute;
+  font-size: 0;
+  width: 96px;
+  background: #fff;
+  padding: 5px;
+  top: -110px;
+  left: -36px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+  display: none;
+}
+
+.sku__item:hover .sku__image {
+  display: block;
+}
 .header__cart-count {
   display: block;
 }
@@ -6278,6 +6298,33 @@ body > jdiv > jdiv > jdiv[class^="mobileContainer_"] {
   background: #cb11ab;
   padding: 0 10px;
   border-radius: 5px;
+}
+
+.advancedservices_plugin_icon {
+  font-size: 12px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 18px;
+}
+.featurestips_wrapper .featurestips_icon IMG {
+  width: 14px;
+  height: 14px;
+  opacity: 0.5;
+}
+.featurestips_wrapper {
+  margin: 2px 0 0 6px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  font-weight: normal;
+  line-height: 1.3;
+}
+.featurestips_wrapper .featurestips_view {
+  display: inline-block;
+  position: absolute;
+  visibility: hidden;
+  margin-left: -38px;
 }
 
 /* конец стилей для header.banner */

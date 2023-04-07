@@ -4615,8 +4615,18 @@ img.pswp__img {
 .product_options .select-v-inline {
   margin-bottom: rem(15px);
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+}
+.product_options .select-v-inline.color {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 32px);
+
+  .select-v-inline_title {
+    grid-column: 1/-1;
+  }
 }
 
 .product_options .select-v-inline a {
@@ -4677,7 +4687,8 @@ img.pswp__img {
 .select-v-inline_title {
   display: inline-block;
   color: #000;
-  margin: 0 rem(10px) 0 0
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .product_short-desc {
@@ -4858,7 +4869,6 @@ img.pswp__img {
   background: #fff;
   display: inline-block;
   position: relative;
-  padding: 0 rem(5px) 0 0
 }
 
 .brand_product {
@@ -5933,9 +5943,27 @@ img.pswp__img {
 
 .option-color_outer {
   display: inline-block;
-  margin: 0 0 rem(8px);
   text-align: center;
   vertical-align: top;
+  position: relative;
+
+  .option-color_text {
+    position: absolute;
+    text-align: center;
+    background: #fff;
+    z-index: 1;
+    border-radius: 5px;
+    padding: 3px 5px;
+    box-sizing: border-box;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    top: -30px;
+    left: -50%;
+    display: none;
+  }
+
+  &:hover  .option-color_text {
+    display: block;
+  }
 }
 
 .option-color_outer.hide {
@@ -5943,7 +5971,7 @@ img.pswp__img {
 }
 
 .option-color_outer--card {
-  width: 65px;
+  //width: 65px;
 
   &._without-text {
     width: initial;

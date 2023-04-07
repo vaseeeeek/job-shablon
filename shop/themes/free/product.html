@@ -1,5 +1,6 @@
 {strip}
 
+{$ignoreStock = $wa->shop->settings('ignore_stock_count')}
 {$product_alias_str = $theme_settings.product_page_main_description_desktop}
 {$_show_description = strpos($product_alias_str, 'description') !== false && $product.description}
 {$_show_features =  strpos($product_alias_str, 'features') !== false && $product.features}
@@ -501,14 +502,14 @@
             <div class="content product_cross-products">
                 {if $crossselling}
                     {$product_list_title = 'C этим товаром покупают'}
-                    {include file="product.list.view-carousel.html" products=$crossselling product_list_title=$product_list_title}
+                    {include file="product.list.view-carousel.html" ignoreStock=$ignoreStock products=$crossselling product_list_title=$product_list_title}
                 {/if}
 
                 {if $upselling}
                     {$compare_ids = array_merge(array($product.id), array_keys($upselling))}
                     {$linkCompare = "{$wa->getUrl('/frontend/compare', ['id' => implode(',', $compare_ids)])}"}
                     {$product_list_title = "Похожие товары <a href='{$linkCompare}' class='product_cross-compare sdColor link-half'>[`Compare all`]</a>"}
-                    {include file="product.list.view-carousel.html" products=$upselling product_list_title=$product_list_title}
+                    {include file="product.list.view-carousel.html" ignoreStock=$ignoreStock products=$upselling product_list_title=$product_list_title}
                 {/if}
             </div>
 
@@ -532,7 +533,7 @@
                 {/if}
             {/foreach}
         {/foreach}
-        {include file="product.list.view-carousel.html" products=$products_result product_list_title="[`Viewed products`]"}
+        {include file="product.list.view-carousel.html" ignoreStock=$ignoreStock products=$products_result product_list_title="[`Viewed products`]"}
     </div>
 {*    {$wa->block("shop.product.after.sliders")}*}
 {literal}
