@@ -2398,7 +2398,9 @@ span.rating__total {
     margin-bottom: 8px;
   }
 }
-
+ul.skus.horizontal_articles label{
+  display: flex;
+}
 ul.skus.horizontal_articles {
   display: flex;
   flex-wrap: wrap;

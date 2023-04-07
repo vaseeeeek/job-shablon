@@ -157,16 +157,20 @@
                                                         <meta itemprop="price" content="{$sku.price}">
                                                         <meta itemprop="priceCurrency" content="{$product.currency}">
                                                         <meta itemprop="url" content="{$wa->domainUrl()}/product/{$product.url}">
-                                                        <span class="sku__item js-toggle-styler style-check{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if} {if $theme_settings.product_selection_articles != 'horizontal_checkboxes'}fi-rr-check{/if}">
+                                                        {$skuImgSrc}
+                                                        {if !empty($sku['image_id'])}
+                                                            {$skyUmgId = $sku['image_id']}
+                                                            {$skuImgSrc = $product.images[$skyUmgId]['url_crop']}
+                                                        {/if}
+                                                        <span class="sku__item js-toggle-styler style-check{if $sku.id == $product.sku_id} checked{/if}{if !$sku_available} disabled{/if} {if $theme_settings.product_selection_articles != 'horizontal_checkboxes'}fi-rr-check{/if}"
+                                                                    {if !empty($skuImgSrc)} style="padding: 0;font-size: 0"{/if}>
                                                             <input class="js-toggle-styler-input" name="sku_id" type="radio" value="{$sku.id}"{if !$sku_available}data-disabled="1"{/if}{if $sku.id == $product.sku_id} checked="checked"{/if} data-compare-price="{shop_currency($sku.compare_price, $product.currency, null, 0)}" data-price="{shop_currency($sku.price, $product.currency, null, 0)}"{if $sku.image_id} data-image-id="{$sku.image_id}"{/if}>
                                                             {if $theme_settings.product_selection_articles == 'horizontal_checkboxes'}
-                                                                <span class="name hint">{if $sku.name}{$sku.name}{else}{$sku.sku}{/if}</span>
+                                                                <span class="name hint"{if !empty($skuImgSrc)} style="background: url('{$skuImgSrc}') center center/cover no-repeat;width: 40px;height: 40px;"{/if}>{if $sku.name}{$sku.name}{else}{$sku.sku}{/if}</span>
                                                             {/if}
-                                                            {if !empty($sku['image_id'])}
-                                                                {$imgId = $sku['image_id']}
-                                                                {$src = $product.images[$imgId]['url_crop']}
+                                                            {if !empty($skuImgSrc)}
                                                                 <span class="sku__image">
-                                                                    <img src="{$src}" alt="{$sku.name}">
+                                                                    <img src="{$skuImgSrc}" alt="{$sku.name}">
                                                                 </span>
                                                             {/if}
                                                         </span>
