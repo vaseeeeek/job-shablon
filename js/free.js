@@ -8,6 +8,8 @@ var editLinkBoxCategory = {
         const elements = [
             [$('#header_menu-nav-mobile .subcat-menu__item'), true],
             [$('#header_menu-nav-mobile .cat-menu__item'), true],
+            [$('.Nav__horizontal--item-2'), false],
+            [$('.Nav__horizontal--item-3'), false],
             [$('.nav-cat_wrap .cat-menu__item'), false],
             [$('.sidebar-cats__link-badge--box'), false]
         ];
@@ -21,12 +23,11 @@ var editLinkBoxCategory = {
     },
     editLink(item, needCheckSubs) {
         item.on('click', function (e) {
-            if ((
-                    (needCheckSubs && !$(this).hasClass('has-subs')) || !needCheckSubs
-                ) &&
+            if (((needCheckSubs && !$(this).hasClass('has-subs')) || !needCheckSubs) &&
+                item[0] == e.target &&
                 $(e.target).prop('tagName') != 'A') {
                 const href = $(this).find('a').attr('href');
-                window.location.assign(href)
+                window.location.assign(href);
             }
         })
     }
@@ -1201,9 +1202,11 @@ var mobileMenuBtn = {
                 menu.removeClass('show');
                 $this.removeClass('show');
                 phoneSubCatHideBtn.trigger('click');
+                $('body').removeClass('disable-body-scrolling');
             } else {
                 menu.addClass('show');
                 $this.addClass('show');
+                $('body').addClass('disable-body-scrolling');
             }
         });
         phoneSubCatHideBtn.on("click", function () {
@@ -1213,6 +1216,7 @@ var mobileMenuBtn = {
                 subCat = $('.MobileMenu_nav-m .js-subcategory-menu');
             if (menu.hasClass('show')) {
                 menu.removeClass('show');
+                $('body').removeClass('disable-body-scrolling');
             }
             subCat.css('left', '-100%');
             if (catSubsDD.hasClass('open')) {
@@ -2499,9 +2503,11 @@ var ddFooterCol = {
         titleBox.on('click', function () {
             const col = $(this).closest('.js-footer-col');
             const menu = col.find('.footer-col__list');
+            $('.js-footer-col').addClass('-list-hide');
+            $('.js-footer-col').find('.frotate180').removeClass('rotate180')
 
             col.toggleClass('-list-hide');
-            col.find('i').toggleClass('rotate180');
+            col.find('i.fi-rr-angle-small-down').toggleClass('rotate180');
         })
     }
 };
@@ -3333,7 +3339,7 @@ $(function () {
     haederBurger.init();
     fixedAdd2Cart.init();
     new productGridGallery();
-    editLinkBoxCategory.init();
+    // editLinkBoxCategory.init();
 });
 
 $.fn.elementRealWidth = function () {

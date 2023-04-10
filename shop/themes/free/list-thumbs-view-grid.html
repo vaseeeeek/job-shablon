@@ -180,7 +180,7 @@
                             </span>
                         {else}
                             <div class="nowrap price">{shop_currency_html($p.price)}</div>
-                            {if $p.compare_price > 0}
+                            {if $p.compare_price > 0 && !$wa->isMobile()}
                                 <div class="nowrap old-price">{shop_currency_html($p.compare_price)}</div>
 
                                 {$_badge_percent = $theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0}

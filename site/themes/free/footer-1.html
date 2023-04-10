@@ -92,19 +92,19 @@
         {include file="`$wa_active_theme_path`/footer.html" inline}
     </div>
     {if $theme_settings.footer_block_1}
-        <div class="footer-box_col {if $wa->isMobile()}js-footer-col{/if}">
+        <div class="footer-box_col {if $wa->isMobile()}js-footer-col -list-hide{/if}">
             {$wa->block("footer_col1")}
         </div>
     {/if}
     {if $theme_settings.footer_block_2}
-        <div class="footer-box_col {if $wa->isMobile()}js-footer-col{/if}" >
+        <div class="footer-box_col {if $wa->isMobile()}js-footer-col -list-hide{/if}" >
             {$wa->block("footer_col2")}
         </div>
     {/if}
-    <div class="footer-box_col">
+    <div class="footer-box_col {if $wa->isMobile()}js-footer-col -list-hide{/if}">
         <div class="footer-col-title">[`Contacts`]</div>
 
-        <ul class="footer_menu ul-block">
+        <ul class="footer_menu ul-block footer-col__list">
             <li><a itemprop="telephone" href="tel:{$theme_settings.header_company_phone|trim|escape|replace:' ':''}" class="Nav-contact-phone">{$theme_settings.header_company_phone}</a></li>
 
             {if $theme_settings.header_company_adress}

@@ -227,9 +227,8 @@ $html-font-size: 14px;
 }
 
 .fixed-add2cart-panel {
-  box-shadow: 0 -2px 2px rgb(0 0 0 / 12%);
   position: fixed;
-  z-index: 2;
+  z-index: 111;
   background: #fff;
   bottom: 70px;
   width: 100vw;
@@ -4562,11 +4561,11 @@ img.pswp__img {
 }
 
 @media (max-width: 500px) {
-  .Cart__Qty_act {
+  .category .Cart__Qty_act {
     width: 20px
   }
 
-  .Cart__Qty input {
+  .category .Cart__Qty input {
     width: 35px
   }
 }
@@ -6352,7 +6351,7 @@ img.pswp__img {
 
 @media (max-width: 640px) {
   .cart-el_services select, .services select {
-    margin: 1rem 0 0 0;
+    //margin: 1rem 0 0 0;
   }
 }
 
@@ -8325,7 +8324,7 @@ input[type=text], input[type=tel], input[type=email] {
 
         .filter__submit {
           position: fixed;
-          bottom: 0;
+          bottom: 70px;
           left: 0;
           width: 100%;
           padding: 16px;
@@ -8443,7 +8442,9 @@ input[type=text], input[type=tel], input[type=email] {
     flex: 1;
   }
 }
-
+.tag-page {
+  flex-direction: column;
+}
 .filters-bar + .subcategory-box {
   margin-left: 0;
 }

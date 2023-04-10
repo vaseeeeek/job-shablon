@@ -127,6 +127,7 @@ button, select {
 }
 
 .rotate180 {
+  display: inline-flex;
   transform: rotate(-180deg);
 }
 
@@ -168,6 +169,11 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   font: inherit
+}
+
+.disable-body-scrolling {
+  height: 100vh;
+  overflow: hidden;
 }
 
 details, menu {
@@ -2106,7 +2112,7 @@ img.mfp-img {
     text-decoration: none
   }
 
-  .footer-box_col.-list-hide {
+  .-list-hide {
     .footer-col__list {
       display: none;
     }
@@ -2123,11 +2129,18 @@ img.mfp-img {
   &.footer-type-3 .copyright-text {
     display: block;
     text-align: center;
+    border-top: 1px solid #c4c4c4;
+    padding-top: 1.2rem;
+    margin-top: 1.8rem;
+    color: #989898;
   }
 
   &.footer-type-2 .copyright-text {
     width: 100%;
     text-align: center;
+    padding-top: 1.2rem;
+    margin-top: 1.8rem;
+    color: #989898;
   }
 
   &_payment {
@@ -2187,8 +2200,14 @@ img.mfp-img {
 }
 
 .footer-box_col .footer-col__row:nth-child(2) {
-  margin-top: 40px;
+  margin-top: 20px;
 }
+@media (max-width: 1025px) {
+  .footer-box_col .footer-col__row:nth-child(2) {
+    margin-top: 10px;
+  }
+}
+
 
 .footer-feedback-btn {
   border: 1px solid #999;
@@ -2204,9 +2223,11 @@ img.mfp-img {
 
 @media (max-width: 1025px) {
   .footer {
+    padding: 2.5rem 0 5.5rem 0;
     &-box.container {
-      margin-bottom: 20px;
+      //padding-bottom: 40px;
       display: grid;
+      grid-gap: 10px;
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
@@ -2219,7 +2240,7 @@ img.mfp-img {
     }
 
     &-box_col {
-      margin-bottom: rem(15px);
+      //margin-bottom: rem(15px);
     }
   }
 }
@@ -2687,10 +2708,10 @@ header .cat-menu__item-title {
 }
 
 .cat-menu__item-title {
-  display: flex;
-  line-height: 1;
+  //display: flex;
+  //line-height: 1;
   align-items: center;
-  min-height: 20px;
+  //min-height: 20px;
 }
 
 .cat-menu__item.pos-rel {
@@ -2757,7 +2778,6 @@ header .cat-menu__item-title {
   position: absolute;
   left: 278px;
   top: 0;
-  min-height: 100%;
   background: #fff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -4035,7 +4055,7 @@ textarea {
 
   .MobileMenu_nav__other {
     padding-top: 1rem;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     background-color: #f4f4f5;
     flex: 1;
 
@@ -4097,8 +4117,8 @@ textarea {
     left: -100%;
     top: 0;
     width: 100%;
-    height: calc(100% - 70px);
-    z-index: 100;
+    height: calc(100vh - 70px);
+    z-index: 112;
     display: flex;
     flex-direction: column;
     &--pt{
@@ -4149,7 +4169,6 @@ textarea {
 
   .MobileMenu_nav-m .menu-subcategory .subcat-menu__item {
     border-bottom: none;
-    display: block;
     text-decoration: none;
     display: inline-flex;
     padding: 0.6rem 0rem 0.6rem 0.8rem;
@@ -4177,7 +4196,7 @@ textarea {
     left: -100%;
     top: 0;
     width: 100%;
-    height: calc(100% - 60px);
+    height: calc(100vh - 70px);
     z-index: 100;
     transition: 0.2s;
     padding: 0 12px;
@@ -4213,6 +4232,7 @@ textarea {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     width: calc(100% + 24px);
     margin-left: -12px;
+    margin-right: -12px;
 
     &--absolute {
       position: absolute;
@@ -4268,7 +4288,7 @@ textarea {
   }
 
   .Nav-search {
-    width: calc(100% - 60px);
+    width: calc(100vh - 70px);
     padding-left: 10px;
     display: block;
   }
@@ -4506,20 +4526,15 @@ textarea {
         .Nav__horizontal--item-2 {
           width: 100%;
           margin-bottom: 0;
-          padding: 0;
-          display: flex;
-          align-items: center;
-
-
+          padding: 10px 0 10px 10px;
           &:hover {
             background-color: #f3f4f7;
           }
 
           .Nav__horizontal--link-2 {
-            padding: 10px 0 10px 10px;
             font-weight: 400;
-            display: flex;
-            width: calc(100% - 30px);
+            display: inline;
+            //width: calc(100% - 30px);
           }
 
           .fi-rr-angle-small-right {
@@ -4530,6 +4545,8 @@ textarea {
             text-align: center;
             line-height: 15px;
             margin-left: auto;
+            position: absolute;
+            right: 0;
           }
 
           .Nav__horizontal--list-3 {
@@ -4553,15 +4570,15 @@ textarea {
 
         .Nav__horizontal--item-3 {
           padding: 0;
+          padding: 10px 0 10px 10px;
 
           &:hover {
             background-color: #f3f4f7;
           }
 
           .Nav__horizontal--link-3 {
-            padding: 10px 0 10px 10px;
             font-weight: 400;
-            display: flex;
+            display: inline;
           }
         }
       }
@@ -4872,9 +4889,8 @@ textarea {
     }
   }
 }
-
 @media (max-width: 1025px) {
-  .header {
+  body.mobile .header {
     padding-top: 20px;
     position: relative;
 
@@ -5088,7 +5104,7 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   left: 0;
-  z-index: 110;
+  z-index: 112;
   box-shadow: 0 -2px 2px rgb(0 0 0 / 12%);
   min-width: 300px;
   text-align: center;

@@ -97,29 +97,6 @@
                                         {$imageHtml}
                                     </a>
                                 </span>
-
-                                {if $wa->isMobile()}
-                                    {literal}
-                                        <script>
-                                            $(document).on('ready', function(){
-                                                const className = '.js-product_gallery-images-main';
-                                                let data = $('.product_gallery-images-main-el-outer a').first().data('pswp-width');
-
-                                                if (!data) {
-                                                    let interval = setInterval(()=>{
-                                                        data = $(document).find(className).find('.product_gallery-images-main-el-outer a').first().data('pswp-width');
-
-                                                        if (data) {
-                                                            clearInterval(interval);
-                                                        } else {
-                                                            $(className).load(`${window.location.href} ${className}`);
-                                                        }
-                                                    }, 100)
-                                                }
-                                            });
-                                        </script>
-                                    {/literal}
-                                {/if}
                                 {$position = $position + 1}
                                 {if $image@first}
                                     {$first_image = $wa->shop->imgUrl($image, '650x0')}
@@ -140,6 +117,29 @@
                         <img src="{$dummy96}" alt="{$product.name|escape}">
                     {/if}
                 </div>
+
+                {if $wa->isMobile()}
+                {literal}
+                    <script>
+                        $(document).on('ready', function(){
+                            const className = '.js-product_gallery-images-main';
+                            let data = $('.product_gallery-images-main-el-outer a').first().data('pswp-width');
+
+                            if (!data) {
+                                let interval = setInterval(()=>{
+                                    data = $(document).find(className).find('.product_gallery-images-main-el-outer a').first().data('pswp-width');
+
+                                    if (data) {
+                                        clearInterval(interval);
+                                    } else {
+                                        $(className).load(`${window.location.href} ${className}`);
+                                    }
+                                }, 100)
+                            }
+                        });
+                    </script>
+                {/literal}
+                {/if}
             </div>
         </div>
         {if !$wa->isMobile()  && $theme_settings.product_image_proportions != 'auto'}

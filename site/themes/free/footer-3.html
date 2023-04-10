@@ -126,11 +126,11 @@
         </div>
     {/if}
 
-    <div class="footer-box_col">
+    <div class="footer-box_col {if $wa->isMobile()}js-footer-col -list-hide{/if}">
         <div class="footer-col__row">
             <div class="footer-col-title">[`We are on other services`]</div>
 
-            <ul class="footer_menu ul-block marketplace__list">
+            <ul class="footer_menu ul-block marketplace__list  footer-col__list">
                 {if $theme_settings.link_avito}
                     <li class="marketplace__item marketplace__item--avito">
                         <a href="{$theme_settings.link_avito}">
@@ -162,10 +162,10 @@
             </ul>
         </div>
     </div>
-    <div class="footer-box_col">
+    <div class="footer-box_col {if $wa->isMobile()}js-footer-col -list-hide{/if}">
         {if !empty($theme_settings.footer_payment_methods)}
             <div class="footer-col-title">[`We work with`]</div>
-            <div class="footer_payment">
+            <div class="footer_payment footer-col__list">
                 <div class="footer_payment_list">
                     {$payments = ","|explode:$theme_settings.footer_payment_methods}
                     {foreach $payments as $payment}
