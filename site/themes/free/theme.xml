@@ -507,7 +507,7 @@
       </options>
     </setting>
     <setting var="position_drop_down_categories" control_type="select">
-      <value>parent</value>
+      <value>all</value>
       <name locale="ru_RU">Позиция выпадающего списка категорий</name>
       <name locale="en_US">The position of the drop-down list of categories</name>
       <options>
@@ -522,7 +522,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий
@@ -549,7 +549,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>cat</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -611,7 +611,7 @@
       </name>
     </setting>
     <setting var="sticky_header" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">
         Прилипающая шапка
       </name>
@@ -2081,7 +2081,7 @@
       <name locale="en_US">plugin breadcrumbs</name>
     </setting>
     <setting var="plugin_cic" control_type="select">
-      <value>menu</value>
+      <value>menu_sb</value>
       <options>
         <option value="menu">
           <name locale="ru_RU">В меню</name>
