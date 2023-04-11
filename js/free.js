@@ -2503,11 +2503,18 @@ var ddFooterCol = {
         titleBox.on('click', function () {
             const col = $(this).closest('.js-footer-col');
             const menu = col.find('.footer-col__list');
-            $('.js-footer-col').addClass('-list-hide');
-            $('.js-footer-col').find('.frotate180').removeClass('rotate180')
+            const thisOpened = !$(this).closest('.js-footer-col').hasClass('-list-hide');
+            if (thisOpened) {
+                // console.log($(this).closest('.js-footer-col').find('.rotate180'));
+                $(this).closest('.js-footer-col').find('.rotate180').removeClass('rotate180');
+                $(this).closest('.js-footer-col').addClass('-list-hide');
+            } else {
+                $('.js-footer-col').addClass('-list-hide');
+                $('.js-footer-col').find('.rotate180').removeClass('rotate180')
 
-            col.toggleClass('-list-hide');
-            col.find('i.fi-rr-angle-small-down').toggleClass('rotate180');
+                col.toggleClass('-list-hide');
+                col.find('i.fi-rr-angle-small-down').toggleClass('rotate180');
+            }
         })
     }
 };
