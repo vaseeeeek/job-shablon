@@ -4561,6 +4561,7 @@ textarea {
           width: 100%;
           margin-bottom: 0;
           padding: 10px 0 10px 10px;
+          cursor: pointer;
 
           &:hover {
             background-color: #f3f4f7;
@@ -4606,6 +4607,7 @@ textarea {
         .Nav__horizontal--item-3 {
           padding: 0;
           padding: 10px 0 10px 10px;
+          cursor: pointer;
 
           &:hover {
             background-color: #f3f4f7;
@@ -4679,6 +4681,17 @@ textarea {
 
   &--list:not(.-Beetwen) &--item:not(:last-child) {
     margin-right: 1.9rem;
+  }
+
+  &--list--transparent {
+    .Nav__horizontal--list-2 .Nav__horizontal--list-3 {
+      background: transparent!important;
+      box-shadow: none!important;
+      min-height: 100%;
+      .Nav__horizontal--item-3 {
+        background: #fff;
+      }
+    }
   }
 }
 
