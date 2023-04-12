@@ -1255,7 +1255,7 @@ input.error, textarea.error {
   border: 1px solid #F91155
 }
 
-.wa-forgotpassword-form-wrapper input[type=email], .wa-forgotpassword-form-wrapper input[type=password], .wa-forgotpassword-form-wrapper input[type=text] {
+.wa-forgotpassword-form-wrapper input[type=email], .wa-forgotpassword-form-wrapper input[type=password] {
   padding: 0 rem(10px) !important
 }
 
@@ -3754,7 +3754,7 @@ ul.pages-list li a {
 .currency_list {
   position: absolute;
   width: auto;
-  z-index: 32;
+  z-index: 122;
   top: 100%;
   margin: 0;
   right: -16px;

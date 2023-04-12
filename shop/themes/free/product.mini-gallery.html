@@ -174,3 +174,36 @@
         lightbox.init();
     </script>
 {/if}
+
+<script>
+    $(document).on('ready', function(){
+        const skuImages = {json_encode($product.images)};
+        const skuFeaturesSelectable = {json_encode($sku_features_selectable)};
+        function editSrcSkuImage() {
+            {literal}
+                const rows = $('.select-v-inline');
+                rows.each(function(){
+                    const row = $(this);
+                    const skuBtns = row.children('a');
+                    const featuresId = row.find('input').data('feature-id');
+
+                    skuBtns.each(function(){
+                        const skuBtn = $(this);
+                        const featValueId = skuBtn.data('value');
+                        const skuFeaturesId = `${featuresId}:${featValueId};`;
+                        skuBtn.find('.sku-image').remove();
+                        console.log(skuFeaturesSelectable[skuFeaturesId]);
+                        if (skuFeaturesSelectable[skuFeaturesId].image_id) {
+                            const image_id = skuFeaturesSelectable[skuFeaturesId].image_id;
+                            const src = skuImages[image_id]['url_crop'];
+                            const img = skuBtn.find('.js-sku-image').find('img');
+                            skuBtn.append(`<div class="js-sku-image sku-image"><img src="${src}" alt=""></div>`);
+                        }
+                        skuBtn.find('.sku-image');
+                    })
+                })
+            {/literal}
+        }
+        editSrcSkuImage();
+    })
+</script>

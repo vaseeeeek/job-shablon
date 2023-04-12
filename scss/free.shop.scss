@@ -2439,7 +2439,24 @@ ul.skus.horizontal_articles {
 .skus select {
   width: auto
 }
+.sku-image {
+  position: absolute;
+  width: 96px;
+  height: 96px;
 
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  /* z-index: 3148; */
+  font-size: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  display: none;
+  background: #fff;
+  top: -100px;
+  left: calc(50% - 48px);
+}
+.select-v-inline a:hover .sku-image {
+  display: block;
+}
 span.rating {
   white-space: nowrap
 }

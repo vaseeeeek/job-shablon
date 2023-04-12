@@ -180,21 +180,22 @@
                             </span>
                         {else}
                             <div class="nowrap price">{shop_currency_html($p.price)}</div>
-                            {if $p.compare_price > 0 && !$wa->isMobile()}
+                            {if $p.compare_price}
                                 <div class="nowrap old-price">{shop_currency_html($p.compare_price)}</div>
+                                {if !$wa->isMobile() && !$isSlider}
+                                    {$_badge_percent = $theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0}
+                                    {if $_badge_percent && $product.compare_price > $product.price}
+                                        {if $theme_settings.product_discount_percentage == 1}
+                                            {$product.compare_price = $product.compare_price}
+                                            {$product.price = $product.price}
+                                            {$discount = (($product.compare_price-$product.price)/$product.compare_price)*100}
+                                            {$discount = ceil($discount)}
 
-                                {$_badge_percent = $theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0}
-                                {if $_badge_percent && $product.compare_price > $product.price}
-                                    {if $theme_settings.product_discount_percentage == 1}
-                                        {$product.compare_price = $product.compare_price}
-                                        {$product.price = $product.price}
-                                        {$discount = (($product.compare_price-$product.price)/$product.compare_price)*100}
-                                        {$discount = ceil($discount)}
-
-                                        {$productDiscount = isset($discount) && $product.price > 0}
-                                        <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}"{if $product.sku_count < 2} data-compare="{$product.compare_price}"{/if} style="background-image:url('{$wa_theme_url}img/svg/badge-sale.svg')">
-                                            <span data-minimal="3" class="js-product-discount ">{if $productDiscount}{$discount}%{/if}</span>
-                                        </div>
+                                            {$productDiscount = isset($discount) && $product.price > 0}
+                                            <div class="badge product-card_discounts {if !$productDiscount} -Close{/if}"{if $product.sku_count < 2} data-compare="{$product.compare_price}"{/if} style="background-image:url('{$wa_theme_url}img/svg/badge-sale.svg')">
+                                                <span data-minimal="3" class="js-product-discount ">{if $productDiscount}{$discount}%{/if}</span>
+                                            </div>
+                                        {/if}
                                     {/if}
                                 {/if}
 

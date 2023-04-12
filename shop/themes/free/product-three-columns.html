@@ -89,7 +89,9 @@
                                                             <span class="option-color_text">{$v|strip_tags|trim}</span>
                                                         </div>
                                                     {else}
-                                                        <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if}>{$v}</a>
+                                                        <a data-value="{$v_id}" href="#"{if $v_id == ifset($skuCode_feat_def[$f.id])} class="selected"{/if}>
+                                                            {$v}
+                                                        </a>
                                                     {/if}
                                                 {/foreach}
                                                 <input type="hidden" data-feature-id="{$f.id}" class="js-feature-sku feature-sku" name="features[{$f.id}]" value="{ifset($skuCode_feat_def[$f.id])}">
