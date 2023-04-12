@@ -27,7 +27,7 @@ var editLinkBoxCategory = {
                 item[0] == e.target &&
                 $(e.target).prop('tagName') != 'A') {
                 const href = $(this).find('a').attr('href');
-                // window.location.assign(href);
+                window.location.assign(href);
             }
         })
     }
@@ -3346,7 +3346,7 @@ $(function () {
     haederBurger.init();
     fixedAdd2Cart.init();
     new productGridGallery();
-    // editLinkBoxCategory.init();
+    editLinkBoxCategory.init();
 });
 
 $.fn.elementRealWidth = function () {

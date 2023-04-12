@@ -503,19 +503,3 @@
         {/if}
     </div>
 {/strip}
-
-
-<script>
-    $('#header_menu-nav-mobile .subcat-menu__item, #header_menu-nav-mobile .cat-menu__item').on('click', function (e) {
-        if (!$(this).hasClass('has-subs') && $(e.target).prop('tagName') != 'A') {
-            const href = $(this).find('a').attr('href');
-            window.location.assign(href)
-        }
-    })
-    $('.nav-cat_wrap .cat-menu__item').on('click', function (e) {
-        if ($(e.target).prop('tagName') != 'A') {
-            const href = $(this).find('a').attr('href');
-            window.location.assign(href)
-        }
-    })
-</script>
