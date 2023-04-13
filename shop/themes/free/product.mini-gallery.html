@@ -174,36 +174,54 @@
         lightbox.init();
     </script>
 {/if}
+{if $product.sku_type}
+    <script>
+        $(document).on('ready', function(){
+            const skuImages = {json_encode($product.images)};
+            const skuFeaturesSelectable = {json_encode($sku_features_selectable)};
 
-<script>
-    $(document).on('ready', function(){
-        const skuImages = {json_encode($product.images)};
-        const skuFeaturesSelectable = {json_encode($sku_features_selectable)};
-        function editSrcSkuImage() {
-            {literal}
-                const rows = $('.select-v-inline');
-                rows.each(function(){
-                    const row = $(this);
-                    const skuBtns = row.children('a');
-                    const featuresId = row.find('input').data('feature-id');
+            function editSrcSkuImage() {
+                {literal}
+                    const rows = $('.select-v-inline');
+                    rows.each(function(){
+                        const row = $(this);
+                        const skuBtns = row.find('a');
+                        const featuresId = row.find('input').data('feature-id');
 
-                    skuBtns.each(function(){
-                        const skuBtn = $(this);
-                        const featValueId = skuBtn.data('value');
-                        const skuFeaturesId = `${featuresId}:${featValueId};`;
-                        skuBtn.find('.sku-image').remove();
-                        console.log(skuFeaturesSelectable[skuFeaturesId]);
-                        if (skuFeaturesSelectable[skuFeaturesId].image_id) {
-                            const image_id = skuFeaturesSelectable[skuFeaturesId].image_id;
-                            const src = skuImages[image_id]['url_crop'];
-                            const img = skuBtn.find('.js-sku-image').find('img');
-                            skuBtn.append(`<div class="js-sku-image sku-image"><img src="${src}" alt=""></div>`);
-                        }
-                        skuBtn.find('.sku-image');
+                        row.addClass('--edit');
+                        skuBtns.each(function(){
+                            const skuBtn = $(this);
+                            const featValueId = skuBtn.data('value');
+                            const skuFeaturesId = `${featuresId}:${featValueId};`;
+                            let skuFeaturesIdFull = '';
+
+                            skuBtn.find('.sku-image').remove();
+                            skuBtn.siblings('.option-color_text').removeAttr('style');
+                            rows.each(function(){
+                                if ($(this).hasClass('--edit')) {
+                                    skuFeaturesIdFull += skuFeaturesId;
+                                } else {
+                                    skuFeaturesIdFull += `${$(this).find('input').data('feature-id')}:${$(this).find('.selected').data('value')};`;
+                                }
+                            });
+
+                            if (skuFeaturesSelectable[skuFeaturesIdFull].image_id) {
+                                const image_id = skuFeaturesSelectable[skuFeaturesIdFull].image_id;
+                                const src = skuImages[image_id]['url_crop'];
+
+                                skuBtn.append(`<div class="js-sku-image sku-image" style="background: url('${src}') center center/cover no-repeat"></div>`);
+                                skuBtn.siblings('.option-color_text').attr('style', 'display:none!important');
+                            }
+                        })
+                        row.removeClass('--edit');
                     })
-                })
-            {/literal}
-        }
-        editSrcSkuImage();
-    })
-</script>
+                {/literal}
+            }
+
+            editSrcSkuImage();
+            $('.select-v-inline a').on('click', function(){
+                editSrcSkuImage();
+            });
+        })
+    </script>
+{/if}

@@ -851,17 +851,6 @@ var cart = {
     }
 };
 
-var calculateMenuHeight = function () {
-    // let oneColumnWrap = $('.dd-wrap').find('.js-category-menu-wrap');
-    // let subcategoryMenu = submenu.height();
-    // let maxHeightUnderMenu = window.innerHeight - $('.Nav__Primary-outer')[0].getBoundingClientRect().top;
-    //
-    // heightArray = [oneColumnWrap,subcategoryMenu];
-    // let neededHeight = (maxHeightUnderMenu > Math.max.apply(null, heightArray))?Math.max.apply(null, heightArray):maxHeightUnderMenu;
-    // //назначение высоты на наведенную колонку
-    // oneColumnWrap.attr('style',`max-height:${neededHeight}px;overflow-y:auto;overflow-x:unset;`);
-}
-
 var categoriesMainMenu = {
     init: function () {
         var _this = this;
@@ -922,28 +911,25 @@ var categoriesMainMenu = {
 
                     $('#nav-cat .js-category-menu-wrap > .cat-menu__item').each(function () {
                         oneColumnWrap += $(this).height();
+                        oneColumnWrap += parseFloat($('#nav-cat .js-category-menu-wrap').css('padding-bottom'));
                     });
-                    let subcategoryMenu = submenu.find('.sub-category_cols').height() + 30;
-                    let maxHeightUnderMenu = window.innerHeight - $('.Nav__Primary-outer')[0].getBoundingClientRect().top;
+                    const subCatsPaddingTop = parseFloat(submenu.find('.sub-category_cols').css('padding-top'));
+                    const subCatsPaddingBottom = parseFloat(submenu.find('.sub-category_cols').css('padding-bottom'));
+                    const subCatsHeight = parseFloat(submenu.find('.sub-category_cols').height());
+                    let subcategoryMenu =  subCatsHeight + subCatsPaddingTop + subCatsPaddingBottom;
+                    console.log(`${subCatsHeight} + ${subCatsPaddingTop} + ${subCatsPaddingBottom} = ${subcategoryMenu}`)
+                    let maxHeightUnderMenu = Math.round (window.innerHeight - $('.Nav__Primary-outer')[0].getBoundingClientRect().top);
 
                     heightArray = [oneColumnWrap, subcategoryMenu];
-                    let neededHeight = (maxHeightUnderMenu > Math.max.apply(null, heightArray)) ? Math.max.apply(null, heightArray) : maxHeightUnderMenu;
+                    let neededHeight = (maxHeightUnderMenu > Math.max.apply(null, heightArray)) ? Math.max.apply(null, heightArray) + 0.41 :  maxHeightUnderMenu;
 
                     //назначение высоты обертке
                     ddBox.delay(delayCount).removeAttr('style');
                     ddBox.delay(delayCount + 20).attr('style', `height:${neededHeight}px;`);
+                    submenu.find('.sub-category_cols').delay(delayCount + 20).attr('style', `height:${neededHeight}px;`);
                 })
 
             }
-            // , function () {
-            //     var $this = $(this),
-            //         submenu = $this.find('.js-subcategory-menu').first(),
-            //         subMenuPos = submenu.css("position") == 'absolute',
-            //         catMenuWrap = $this.closest('.js-category-menu-wrap');
-            //
-            //     $this.removeClass('active');
-            //     submenu.stop(true).delay(delayCount).fadeOut(0);
-            // }
         );
     },
     dd: function () {
@@ -1648,12 +1634,13 @@ var ddBox = {
         }
         if (btn.hasClass('nav-cat-btn')) {
             $('.js-cat-subs-disclosed.has-subs.cat-menu__item').first().trigger('mouseenter');
-            if ($('header').hasClass('sticky')) {
-                const headerHeight = _this.getPositionDDmenu();
-                $('#nav-cat > .js-bg').attr('style', `background-image: linear-gradient(transparent ${headerHeight}px, #000 ${headerHeight}px)`);
-            } else {
-                const headerHeight = _this.getPositionDDmenu();
-                $('#nav-cat > .js-bg').attr('style', `background-image: linear-gradient(transparent ${headerHeight}px, #000 ${headerHeight}px)`);
+            setBG();
+            $(window).scroll(function() {
+                setBG();
+            });
+            function setBG(){
+                let height = _this.getPositionDDmenu();
+                $('#nav-cat > .js-bg').attr('style', `background-image: linear-gradient(transparent ${height}px, #000 ${height}px)`);
             }
         }
     },

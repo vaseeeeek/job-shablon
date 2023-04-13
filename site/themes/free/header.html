@@ -11,7 +11,6 @@
         </div>
     {/if}
 
-
     {if $wa->isMobile() && $theme_settings.show_icon_search_mobile}
         <div id="search-modal-btn" class="search-modal-btn">
             <i class="fi-rr-search"></i>
@@ -340,16 +339,20 @@
 
 {if $wa->isMobile() && $wa->shop && !$theme_settings.show_search_burger && !$theme_settings.show_icon_search_mobile}
     <div class="Nav-search juniq-header-search">
-        <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
-              class="js-Nav-search Nav-search_form">
-            <div class="inp-search">
-                <input class="Nav-inp-search js-ajax-search" autocomplete="off" type="text" name="query" value="{$wa->get('query')|escape}" placeholder="[`Search in catalog`]">
+        {if $theme_settings.use_search_pro}
+            {shopSearchproPluginViewHelper::field()}
+        {else}
+            <form method="get" action="{$wa->getUrl('shop/frontend/search')}"
+                  class="js-Nav-search Nav-search_form">
+                <div class="inp-search">
+                    <input class="Nav-inp-search js-ajax-search" autocomplete="off" type="text" name="query" value="{$wa->get('query')|escape}" placeholder="[`Search in catalog`]">
 
-                <div class="ajax-search-result js-ajax-search-result"></div>
-                <i class="fi-rr-search js-submit-form"></i>
-            </div>
+                    <div class="ajax-search-result js-ajax-search-result"></div>
+                    <i class="fi-rr-search js-submit-form"></i>
+                </div>
 
-            <div class="inp-search--wrap"></div>
-        </form>
+                <div class="inp-search--wrap"></div>
+            </form>
+        {/if}
     </div>
 {/if}
