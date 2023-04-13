@@ -11,7 +11,7 @@
     <file path="index.html" custom="0" modified="1">
       <description locale="ru_RU"/>
     </file>
-    <file path="free.site.css" custom="0">
+    <file path="site.css" custom="0">
     </file>
     <file path="free.js" custom="0">
     </file>
@@ -522,7 +522,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий

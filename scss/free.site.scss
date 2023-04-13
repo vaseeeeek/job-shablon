@@ -2275,10 +2275,12 @@ img.mfp-img {
       grid-template-columns: 1fr;
       grid-gap: 0;
     }
+
     .footer-col-title {
       margin: 0;
       padding: 18px 0;
       display: flex;
+
       i.fi-rr-angle-small-down {
         margin-left: auto;
         font-size: 20px;
@@ -2632,7 +2634,7 @@ img.mfp-img {
   position: absolute;
   z-index: 110;
   top: 100%;
-  left: 10px;
+  //left: 10px;
   display: none;
 }
 
@@ -2679,12 +2681,13 @@ img.mfp-img {
   height: 2px;
   margin: 0 1px;
   transition: transform .3s, background-color .3s;
-
   &:not(:first-child) {
-    margin-top: 5px;
+    margin-top: 3px;
   }
 }
-
+.MobileMenu-btn .nav-cat-btn__action:not(:first-child) {
+  margin-top: 5px;
+}
 .nav-cat-btn.show .nav-cat-btn__action--top, .MobileMenu-btn.show .nav-cat-btn__action--top {
   transform: translateY(5px) translateZ(0) rotate(45deg);
 }
@@ -2705,6 +2708,10 @@ img.mfp-img {
   border-top: none;
   padding-right: 10px;
   padding-bottom: 10px;
+}
+
+.Nav__Primary-outer:not(.Nav__Primary-outer--full-width) .category-menu {
+  padding-left: 10px;
 }
 
 .cat-menu__item {
@@ -4002,7 +4009,7 @@ textarea {
   margin: 0 auto;
   max-width: 1440px;
   min-width: 300px;
-  padding: 0 2rem;
+  //padding: 0 2rem;
 }
 
 @media (max-width: 1100px) {
@@ -4345,7 +4352,7 @@ textarea {
     display: flex;
     font-size: 0.95rem;
     line-height: 1.6;
-    padding: 0.2rem 2rem;
+    padding: 0.2rem 0;
   }
 
   .header-top_menu {
@@ -4491,7 +4498,7 @@ textarea {
 
   .category-menu {
     position: relative;
-    padding-left: 2rem;
+    //padding-left: 2rem;
   }
 
   .nav-cat_wrap {
@@ -4685,9 +4692,10 @@ textarea {
 
   &--list--transparent {
     .Nav__horizontal--list-2 .Nav__horizontal--list-3 {
-      background: transparent!important;
-      box-shadow: none!important;
+      background: transparent !important;
+      box-shadow: none !important;
       min-height: 100%;
+
       .Nav__horizontal--item-3 {
         background: #fff;
       }

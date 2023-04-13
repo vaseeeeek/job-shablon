@@ -6,7 +6,7 @@
   <files>
     <file path="index.html" parent="1">
     </file>
-    <file path="free.shop.css">
+    <file path="shop.css">
     </file>
     <file path="brand_plugin_brands_page.css" custom="0">
       <description locale="ru_RU"/>

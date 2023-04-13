@@ -11,6 +11,7 @@ var editLinkBoxCategory = {
             [$('.Nav__horizontal--item-2'), false],
             [$('.Nav__horizontal--item-3'), false],
             [$('.nav-cat_wrap .cat-menu__item'), false],
+            [$('.nav-cat_wrap .cat-menu__item-title'), false],
             [$('.sidebar-cats__link-badge--box'), false]
         ];
         $(document).on('ready', function () {
@@ -917,7 +918,6 @@ var categoriesMainMenu = {
                     const subCatsPaddingBottom = parseFloat(submenu.find('.sub-category_cols').css('padding-bottom'));
                     const subCatsHeight = parseFloat(submenu.find('.sub-category_cols').height());
                     let subcategoryMenu =  subCatsHeight + subCatsPaddingTop + subCatsPaddingBottom;
-                    console.log(`${subCatsHeight} + ${subCatsPaddingTop} + ${subCatsPaddingBottom} = ${subcategoryMenu}`)
                     let maxHeightUnderMenu = Math.round (window.innerHeight - $('.Nav__Primary-outer')[0].getBoundingClientRect().top);
 
                     heightArray = [oneColumnWrap, subcategoryMenu];
