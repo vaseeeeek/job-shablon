@@ -2081,7 +2081,7 @@
       <name locale="en_US">plugin breadcrumbs</name>
     </setting>
     <setting var="plugin_cic" control_type="select">
-      <value>menu_sb</value>
+      <value>menu</value>
       <options>
         <option value="menu">
           <name locale="ru_RU">В меню</name>
