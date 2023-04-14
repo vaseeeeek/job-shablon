@@ -25,7 +25,7 @@ var editLinkBoxCategory = {
     editLink(item, needCheckSubs) {
         item.on('click', function (e) {
             if (((needCheckSubs && !$(this).hasClass('has-subs')) || !needCheckSubs) &&
-                item[0] == e.target &&
+                $(this)[0] == e.target &&
                 $(e.target).prop('tagName') != 'A') {
                 const href = $(this).find('a').attr('href');
                 window.location.assign(href);
@@ -2492,7 +2492,6 @@ var ddFooterCol = {
             const menu = col.find('.footer-col__list');
             const thisOpened = !$(this).closest('.js-footer-col').hasClass('-list-hide');
             if (thisOpened) {
-                // console.log($(this).closest('.js-footer-col').find('.rotate180'));
                 $(this).closest('.js-footer-col').find('.rotate180').removeClass('rotate180');
                 $(this).closest('.js-footer-col').addClass('-list-hide');
             } else {
@@ -3148,7 +3147,6 @@ Product.prototype.updateSkuServices = function (sku_id) {
 };
 
 Product.prototype.updatePrice = function (price, compare_price) {
-    // console.log(`${price} - ${compare_price}`)
     var input_checked = this.formWrap.find(".skus input:radio:checked, .skus option:selected");
     if (price === undefined) {
         if (input_checked.length) {

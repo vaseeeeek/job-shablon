@@ -62,7 +62,7 @@
                                 <div class="sub-category-opened__subs js-subcategory-menu">
                                     {foreach $catChild_2.childs as $catChild_3}
                                         {if !isset($catChild_3.params.menu_hide)}
-                                            <div class="sub-category-opened__sub {if $theme_settings.number_output_categories_third_level < $catChild_3@iteration}hide{/if}">
+                                            <div class="sub-category-opened__sub sub-category-opened__sub--lvl3 {if $theme_settings.number_output_categories_third_level < $catChild_3@iteration}hide{/if}">
                                                 <a href="{$catChild_3.url}">
                                                     {$catChild_3.name}
                                                 </a>

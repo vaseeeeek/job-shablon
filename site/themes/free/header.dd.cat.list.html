@@ -88,7 +88,7 @@
                                         {$cat.params.menuIcon = $Wmimages[$cat.id].icon}
                                     {/if}
                                 {/if}
-                                <div class="cat-menu__item-title">
+                                <div class="cat-menu__item-title{if !empty($cat.params.menuIcon)} cat-menu__item-title--has-image{/if}">
                                     {if !empty($cat.params.menuIcon)}
                                         <span class="cat-menu__item--icon">
                                             <img src="{$cat.params.menuIcon}" alt="">

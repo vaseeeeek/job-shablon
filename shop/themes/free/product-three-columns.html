@@ -148,9 +148,6 @@
                                     {else}
                                         <ul class="skus js-product-skus{if $theme_settings.product_selection_articles == 'horizontal_checkboxes'} horizontal_articles{/if}">
                                             {$skus_index = 0}
-                                            <script>
-                                                console.log({json_encode($product.skus)})
-                                            </script>
                                             {foreach $product.skus as $sku}
                                                 {$sku_available =  $product.status && $sku.available && ($wa->shop->settings('ignore_stock_count') || $sku.count === null || $sku.count > 0)}
                                                 {*                                    {if $sku_available}*}
