@@ -9,7 +9,7 @@
         {$class_popup="js-popup-photoswipe"}
         <link rel="stylesheet" href="/wa-data/public/site/themes/free/photoswipe/photoswipe.css">
     {/if}
-
+    {$productGalleryOn = false}
     {if count($product.images) > 1 || (count($product.images) === 1 && $video)}
         {$productGalleryOn = true}
     {/if}

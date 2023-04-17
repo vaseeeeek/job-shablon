@@ -14,7 +14,7 @@
     {if isset($brand)}{$nameCurrentPage = $brand.name}{/if}
 {/if}
 {$position = 1}
-{if $product}
+{if !empty($product)}
     {if count($product.categories) > 1 && $theme_settings.product_show_all_cat}
         {$showCatList = true}
     {else}
@@ -47,7 +47,7 @@
         {/if}
         <ul class="breadcrumbs breadcrumbs--double">
             {$nameCrumbsArray[] = $c.name|escape}
-            {if $c.id != $product.category_id}
+            {if !empty($product) && $c.id != $product.category_id}
                 <li>
                     <a href="{$wa->getUrl('/frontend/category', ['category_url' => $c.full_url])}"><span>{$c.name|escape}</span></a> {if !$c@last}<span class="rarr">&rarr;</span>{/if}
                 </li>
@@ -87,7 +87,7 @@
                     {/if}
                 </ul>
 
-                {if $product && $theme_settings.product_show_all_cat}
+                {if !empty($product) && $theme_settings.product_show_all_cat}
                     {otherCrumbs categories=$product.categories nameCrumbsArray=$nameCrumbsArray}
                 {/if}
             {/if}

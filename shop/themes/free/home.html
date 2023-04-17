@@ -184,26 +184,26 @@
 
     {if $block == 'reviews'}
         {$reviews = $wa->shop->reviews()}
-        {if $reviews}
+        {if !empty($reviews)}
             <div class="homepage-reviews-outer">
                 <div class="homepage-reviews">
                     <div class="homepage-reviews_head">
                         <div class="homepage-reviews_title title">[`Reviews`]</div>
                     </div>
                     <div class="container">
-                        {$p = $wa->shop->product($review.product_id)}
                         <div class="reviews__list">
                             {foreach $reviews as $review}
                                 {$p = $wa->shop->product($review.product_id)}
+                                {$productUrl = $wa->shop->productUrl($p)}
                                 <div class="reviews__item">
                                     <div class="review__header">
                                         <div class="review__header__left">
-                                            <a href="{$wa->shop->productUrl($p)}" class="review__product__image">
-                                                {$wa->shop->imgHtml($p.images|@array_shift, '150x0')}
+                                            <a href="{$productUrl}" class="review__product__image">
+                                                {$wa->shop->getProductImgHtml($p, '150x0')}
                                             </a>
                                         </div>
                                         <div class="review__header__right">
-                                            <a href="{$wa->shop->productUrl($p)}" class="review__product__title">
+                                            <a href="{$productUrl}" class="review__product__title">
                                                 {$p.name}
                                             </a>
                                         </div>
@@ -212,11 +212,6 @@
                                         <div class="review__text">
                                             {$review.text|truncate:80:"..."}
                                             <div class="review__value">
-                                                {*                                                <div class="review__value__num">*}
-                                                {*                                                    <span>*}
-                                                {*                                                        {$p.rating}*}
-                                                {*                                                    </span>*}
-                                                {*                                                </div>*}
                                                 <div class="review__value__star">
                                                     {if $p.rating > 0 && $theme_settings.product_ratings}
                                                         <span class="rating nowrap">
@@ -250,9 +245,6 @@
                                             </div>
                                             <div class="review__date">{$review.datetime}</div>
                                         </div>
-        {*                                <div class="review__link">*}
-        {*                                    <a href=""></a>*}
-        {*                                </div>*}
                                     </div>
                                 </div>
                             {/foreach}

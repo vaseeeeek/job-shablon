@@ -54,7 +54,7 @@
         </script>
     {/if}
 
-    {if $theme_settings.slider_hide_products_without_residue && !$available && $isSlider}
+    {if !empty($isSlider) && $theme_settings.slider_hide_products_without_residue && !$available}
         {$showProduct = false}
     {/if}
 
@@ -182,7 +182,7 @@
                             <div class="nowrap price">{shop_currency_html($p.price)}</div>
                             {if $p.compare_price}
                                 <div class="nowrap old-price">{shop_currency_html($p.compare_price)}</div>
-                                {if !$wa->isMobile() && !$isSlider}
+                                {if !$wa->isMobile() && empty($isSlider)}
                                     {$_badge_percent = $theme_settings.product_discount_percentage == 1 && $product.compare_price > $product.price  &&  $product.price != 0}
                                     {if $_badge_percent && $product.compare_price > $product.price}
                                         {if $theme_settings.product_discount_percentage == 1}
@@ -355,7 +355,7 @@
                             {else}
                                 <span class="button js-submit-form addtocart" data-added-text="{$addedText}">[`Add to cart`]</span>
                             {/if}
-                        {else}456
+                        {else}
                             {if $theme_settings.use_plugin_arrived}
                                 {shopArrivedPlugin::getListFormHtml($p)}
                             {else}

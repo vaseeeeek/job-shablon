@@ -56,7 +56,7 @@
                 {$short_list_features = []}
 
                 {foreach $product.skus as $sku}
-                {if $_is_dialog && !$sku@first}
+                {if !empty($_is_dialog) && !$sku@first}
                     {break}
                 {/if}
                 {if !empty($sku.features)}
@@ -86,13 +86,13 @@
                 {/if}
 
                 {*featurestips*}
-                {if !$_is_dialog and empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
+                {if empty($_is_dialog) and empty($featurestips) and class_exists('shopFeaturestipsPlugin')}
                     {$featurestips = shopFeaturestipsPlugin::ReturnFeatureTipArray($product)}
                 {/if}
                 {*!featurestips*}
 
                 {if count($short_list_features) > 0}
-                    <table data-type="{$theme_settings.product_page_right_block_features}" class="Product__features"  data-features-id="{$sku.id}"{if !$_is_dialog && count($product.skus) > 1 && !$sku@first} style="display:none"{/if}>
+                    <table data-type="{$theme_settings.product_page_right_block_features}" class="Product__features"  data-features-id="{$sku.id}"{if empty($_is_dialog) && count($product.skus) > 1 && !$sku@first} style="display:none"{/if}>
                         {if class_exists('shopSeofilterViewHelper')}
                             {$short_list_features = shopSeofilterViewHelper::wrapFeatureValues($short_list_features)}
                         {/if}

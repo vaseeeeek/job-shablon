@@ -51,7 +51,7 @@
                 {/foreach}
             </div>
         {/if}
-        {if $reply_allowed}
+        {if !empty($reply_allowed)}
             <div class="actions">
                 <a href="{if isset($reply_link)}{$reply_link}{else}#{/if}" class="comment__btn review-reply">[`reply`]</a>
             </div>

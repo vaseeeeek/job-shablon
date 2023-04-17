@@ -9,42 +9,42 @@
 
 {$_is_dialog = $wa->get('cart')}
 
-{$_is_dialog_select_options = $_is_dialog && $wa->get('select-options')}
+{$_is_dialog_select_options = !empty($_is_dialog) && $wa->get('select-options')}
 {$image_preview = $wa->shop->productImgUrl($product, '60')}
 
 <div class="product-page_main-right {if $productGalleryOn}-productMiniGallery{/if}">
-    {if $_is_dialog}
-        <div class='js-modal-content modal-content modal-content--dialog{if $_is_dialog_select_options} modal-content--dialog-options{/if}'>
+    {if !empty($_is_dialog)}
+        <div class='js-modal-content modal-content modal-content--dialog{if !empty($_is_dialog_select_options)} modal-content--dialog-options{/if}'>
     {/if}
-    <form id="cart-form{if $_is_dialog}-dialog{/if}" class="product-cart--box js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}"
+    <form id="cart-form{if !empty($_is_dialog)}-dialog{/if}" class="product-cart--box js-add-to-cart add2cart {if $_is_dialog}product_action-dialog js-product js-product-page{/if}"
           method="post" action="{$wa->getUrl('/frontendCart/add')}"
-          data-sku-url="{!$_is_dialog && !empty($theme_settings.product_url_sku_parameter)}"
+          data-sku-url="{empty($_is_dialog) && !empty($theme_settings.product_url_sku_parameter)}"
         >
 
         <div class="product-cart__left">
             <div class="cart ">
-                {if $_is_dialog && !$_is_dialog_select_options}
+                {if !empty($_is_dialog) && empty($_is_dialog_select_options)}
                 {$product.features = $product->features}
                 {$products = [$product.id => $product->data]}
                 {$features =  $wa->shop->features($products)}
                 {include file="product.mini-gallery.html" inline}
                 <div class="product_action-dialog-right">
                     <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
-                    {else if $_is_dialog_select_options}
+                    {else if !empty($_is_dialog_select_options)}
                     <h1 class="product_name" itemprop="name">{$product.name|escape}</h1>
                     {/if}
 
-                    {if $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'title' && $product.summary && $_is_dialog}
+                    {if $theme_settings.product_page_show_short_description && $theme_settings.product_page_position_summary == 'title' && $product.summary && !empty($_is_dialog)}
                         <div class="product_short-desc">
                             {$product.summary|truncate:512}
                         </div>
                     {/if}
                     <div class="product_action" id="product-cart" data-id="{$product.id}">
-                        {if $_is_dialog || $_is_dialog_select_options}
+                        {if !empty($_is_dialog) || !empty($_is_dialog_select_options)}
                             {function getDiscountCard price=null compare_price=null}
                             {/function}
                             {$_badge_percent = ($theme_settings.product_discount_percentage == 1)}
-                            {if $compare_price > $price}
+                            {if !empty($compare_price) && $compare_price > $price}
                                 {$discount = (($compare_price-$price)/$compare_price)*100}
                                 {$discount = ceil($discount)}
                             {/if}
@@ -224,16 +224,16 @@
                             {/if}
                         {/if}
 
-                        {if !$_is_dialog_select_options && !$wa->isMobile()}
+                        {if empty($_is_dialog_select_options) && !$wa->isMobile()}
                             {include file="product.mini.desc.html"}
                         {/if}
                     </div>
 
-                    {if $_is_dialog && !$_is_dialog_select_options}
+                    {if !empty($_is_dialog) && empty($_is_dialog_select_options)}
 
                 </div>
                 {/if}
-                {if $_is_dialog && !$_is_dialog_select_options}
+                {if !empty($_is_dialog) && empty($_is_dialog_select_options)}
                     <a class="product_action-dialog-link" href="{$wa->shop->productUrl($product)}">[`Product page`]  &rarr;</a>
                 {/if}
                 {if $wa->get('cart')}
@@ -267,10 +267,10 @@
                         {/if}
                     {/foreach}
                 {/if}
-                {if $_is_dialog}
+                {if !empty($_is_dialog)}
                     <script>
                         $(function () {
-                            new Product('#cart-form{if $_is_dialog}-dialog{/if}', {
+                            new Product('#cart-form{if !empty($_is_dialog)}-dialog{/if}', {
                                 currency: {json_encode($currency_info)}
                                 {if count($product.skus) > 1 or $product.sku_type}
                                 , services: {json_encode($sku_services)}
@@ -301,7 +301,7 @@
                     {/foreach}
                     <script>
                         $(function () {
-                            new Product('#cart-form{if $_is_dialog}-dialog{/if}', {
+                            new Product('#cart-form{if !empty($_is_dialog)}-dialog{/if}', {
                                 currency: {json_encode($currency_info)}
                                 {if count($product.skus) > 1 or $product.sku_type}
                                 , services: {json_encode($sku_services)}
@@ -371,7 +371,7 @@
                             </span>
                         {/if}
 
-                        {if $theme_settings.yedinitsa_izmereniya && $product.features['yedinitsa_izmereniya']}
+                        {if $theme_settings.yedinitsa_izmereniya && !empty($product.features['yedinitsa_izmereniya'])}
                             <span class="product__yedinitsa-izmereniya">
                                 за {$product.features['yedinitsa_izmereniya']}
                             </span>
@@ -391,7 +391,7 @@
                             {if $theme_settings.product_discount_percentage == 1}
                                 {$compare_price = $product.compare_price}
                                 {$price = $product.price}
-                                {if $compare_price > $price}
+                                {if !empty($compare_price) && $compare_price > $price}
                                     {$discount = (($compare_price-$price)/$compare_price)*100}
                                     {$discount = ceil($discount)}
                                 {/if}
@@ -523,46 +523,44 @@
                     {if $theme_settings.display_buy_one_click}</div>{/if}
                 </div>
 
-                <!-- plugin hook: 'frontend_product.cart' -->
-                {* @event frontend_product.%plugin_id%.cart *}
-
-                {foreach $frontend_product as $_}
-                    {if $_.cart}
-                        <div class="cart_plugin">
-                            {if strpos($_.cart, 'plugin_arrived-button')}
-                                {$_.cart|replace:'class="plugin_arrived-button custom is-product-page"':'class="plugin_arrived-button custom is-product-page" style="display:none"'}
-                            {else}
-                                {$_.cart}
-                            {/if}
-                        </div>
-                    {/if}
-                {/foreach}
 
                 <!-- plugin hook: 'frontend_product.block_aux' -->
                 {* @event frontend_product.%plugin_id%.block_aux *}
                 {if !empty($frontend_product)}
                     <div class="cart_aux">
-                        {foreach $frontend_product as $_}{$_.block_aux}{/foreach}
+                        {foreach $frontend_product as $_}
+                            {if !empty($_.block_aux)}
+                                {$_.block_aux}
+                            {/if}
+                        {/foreach}
                     </div>
                 {/if}
 
                 <!-- plugin hook: 'frontend_product.menu' -->
                 {* @event frontend_product.%plugin_id%.menu *}
-                {foreach $frontend_product as $_}{$_.menu}{/foreach}
+                {foreach $frontend_product as $_}
+                    {if !empty($_.menu)}
+                        {$_.menu}
+                    {/if}
+                {/foreach}
 
                 {if $theme_settings.plugin_hook_block_in_product == 'right_block'}
                     <!-- plugin hook: 'frontend_product.block' -->
                     {* @event frontend_product.%plugin_id%.block *}
-                    {foreach $frontend_product as $_}{$_.block}{/foreach}
+                    {foreach $frontend_product as $_}
+                        {if !empty($_.menu)}
+                            {$_.block}
+                        {/if}
+                    {/foreach}
                 {/if}
 
-                {if !$_is_dialog_select_options && $wa->isMobile()}
+                {if empty($_is_dialog_select_options) && $wa->isMobile()}
                     {include file="product.mini.desc.html"}
                 {/if}
             </div>
         </div>
     </form>
-    {if $_is_dialog}</div>{/if}
+    {if !empty($_is_dialog)}</div>{/if}
 
     <script>
         $(document).ready(function () {

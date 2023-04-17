@@ -20,7 +20,8 @@
     'href' => $theme_settings.promo_card_href_three
     ]}
 {/if}
-<div class="promo-cards promo-cards--{$promoCards|@array_keys|@array_pop}">
+{$promoCardsKeys = $promoCards|@array_keys}
+<div class="promo-cards promo-cards--{$promoCardsKeys[count($promoCardsKeys)-1]}">
     <div class="promo-cards__list">
         {foreach $promoCards as $key => $value}
             {if $theme_settings.display_promo_cards == 'horizontal' && $value@iteration == 3}

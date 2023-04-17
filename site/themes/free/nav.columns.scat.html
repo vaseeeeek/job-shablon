@@ -107,7 +107,7 @@
             {/foreach}
         </div>
 
-        {if $cat.params.cat_menu_banner}
+        {if !empty($cat.params.cat_menu_banner)}
             <div class="sub-category_col">
                 <img src="{$cat.params.cat_menu_banner}" alt="">
             </div>
