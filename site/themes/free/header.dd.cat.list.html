@@ -95,7 +95,7 @@
                                         </span>
                                     {/if}
                                     <a href="{$cat.url}">{$cat.name}</a>
-                                    {if $theme_settings.plugin_cic == 'menu' || $theme_settings.plugin_cic == 'menu_sb'}
+                                    {if $theme_settings.plugin_cic != 'none' && ($theme_settings.plugin_cic == 'menu' || $theme_settings.plugin_cic == 'menu_sb')}
                                         {if !empty($cat.params.cic_category_items)}
                                             <span class="menu-product-count">
                                                 {$cat.params.cic_category_items}

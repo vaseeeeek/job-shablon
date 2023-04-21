@@ -34,7 +34,7 @@
                                 <a  href="{$catChild_2.url}">
                                     {$catChild_2.name}
                                 </a>
-                                {if $theme_settings.plugin_cic == 'menu' || $theme_settings.plugin_cic == 'menu_sb'}
+                                {if $theme_settings.plugin_cic != 'none' && ($theme_settings.plugin_cic == 'menu' || $theme_settings.plugin_cic == 'menu_sb')}
                                     {if !empty($catChild_2.params.cic_category_items)}
                                         <span class="menu-product-count">
                                             {$catChild_2.params.cic_category_items}

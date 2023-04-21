@@ -51,25 +51,27 @@
                                                         <a class="Nav__horizontal--link-2" href="{$cat2.url}">
                                                             {$cat2.name}
                                                         </a>
-                                                        {if !empty($cat2.params.cic_category_items)}
-                                                            <span class="menu-product-count">
-                                                                    {$cat2.params.cic_category_items}
-                                                                </span>
-                                                        {/if}
-                                                        {if !empty($cat2.params.cic_category_has_discount_items)}
-                                                            <div class="cat-badge cat-badge--discount">
-                                                                %
-                                                            </div>
-                                                        {/if}
-                                                        {if !empty($cat2.params.cic_category_has_new_items)}
-                                                            <div class="cat-badge cat-badge--new">
-                                                                new
-                                                            </div>
-                                                        {/if}
-                                                        {if !empty($cat2.params.cic_category_hot)}
-                                                            <div class="cat-badge cat-badge--hot">
-                                                                hot
-                                                            </div>
+                                                        {if $theme_settings.plugin_cic != 'none'}
+                                                            {if !empty($cat2.params.cic_category_items)}
+                                                                <span class="menu-product-count">
+                                                                        {$cat2.params.cic_category_items}
+                                                                    </span>
+                                                            {/if}
+                                                            {if !empty($cat2.params.cic_category_has_discount_items)}
+                                                                <div class="cat-badge cat-badge--discount">
+                                                                    %
+                                                                </div>
+                                                            {/if}
+                                                            {if !empty($cat2.params.cic_category_has_new_items)}
+                                                                <div class="cat-badge cat-badge--new">
+                                                                    new
+                                                                </div>
+                                                            {/if}
+                                                            {if !empty($cat2.params.cic_category_hot)}
+                                                                <div class="cat-badge cat-badge--hot">
+                                                                    hot
+                                                                </div>
+                                                            {/if}
                                                         {/if}
                                                         {if $cat2.childs && $theme_settings.drop_down_horizontal_menu_absolute}
                                                             <i class="js-cat-item-caret fi-rr-angle-small-right"></i>

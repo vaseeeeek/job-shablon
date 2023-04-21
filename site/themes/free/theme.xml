@@ -77,7 +77,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/ozon.png</value>
+      <value>img/themesettings/yandex.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -90,7 +90,7 @@
       </options>
     </setting>
     <setting var="main_color" control_type="color">
-      <value>#00b412</value>
+      <value/>
       <name locale="ru_RU">Основной цвет</name>
       <name locale="en_US">Main color</name>
       <description locale="ru_RU">Можно использовать градиенты - linear-gradient( 45deg , #390DFF, #0C1FE8,
@@ -101,7 +101,7 @@
             </description>
     </setting>
     <setting var="second_color" control_type="color">
-      <value>#00b412</value>
+      <value/>
       <name locale="ru_RU">Доп. цвет</name>
       <name locale="en_US">Additional color</name>
       <description locale="ru_RU">Можно установить таким же как основной, если он не градиент.</description>
@@ -113,7 +113,7 @@
       <name locale="en_US">Background color</name>
     </setting>
     <setting var="text_color_scheme" control_type="color">
-      <value>#000000</value>
+      <value/>
       <name locale="ru_RU">Цвет шрифта</name>
       <name locale="en_US"/>
     </setting>
@@ -150,7 +150,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>roboto</value>
+      <value>montserrat</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
@@ -1509,7 +1509,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_two</value>
+      <value>product_columns_three</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -2094,6 +2094,10 @@
         <option value="menu_sb">
           <name locale="ru_RU">Меню + Сайдбар</name>
           <name locale="en_US">Menu + Sidebar</name>
+        </option>
+        <option value="none">
+          <name locale="ru_RU">Не выводить</name>
+          <name locale="en_US">Don't output</name>
         </option>
       </options>
       <name locale="ru_RU">Места вывода параметров плагина cic</name>

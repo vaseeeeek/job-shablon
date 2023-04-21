@@ -7,25 +7,27 @@
         <h1 class="category-name">
             {$category.name|escape}
         </h1>
-        {if !empty($category.params.cic_category_items)}
-            <span class="cartegory-product-count">
-                {$category.params.cic_category_items} товаров
-            </span>
-        {/if}
-        {if !empty($category.params.cic_category_has_discount_items)}
-            <div class="cat-badge cat-badge--discount cat-badge--cat-title">
-                %
-            </div>
-        {/if}
-        {if !empty($category.params.cic_category_has_new_items)}
-            <div class="cat-badge cat-badge--new cat-badge--cat-title">
-                new
-            </div>
-        {/if}
-        {if !empty($category.params.cic_category_hot)}
-            <div class="cat-badge cat-badge--hot cat-badge--cat-title">
-                hot
-            </div>
+        {if $theme_settings.plugin_cic != 'none'}
+            {if !empty($category.params.cic_category_items)}
+                <span class="cartegory-product-count">
+                    {$category.params.cic_category_items} товаров
+                </span>
+            {/if}
+            {if !empty($category.params.cic_category_has_discount_items)}
+                <div class="cat-badge cat-badge--discount cat-badge--cat-title">
+                    %
+                </div>
+            {/if}
+            {if !empty($category.params.cic_category_has_new_items)}
+                <div class="cat-badge cat-badge--new cat-badge--cat-title">
+                    new
+                </div>
+            {/if}
+            {if !empty($category.params.cic_category_hot)}
+                <div class="cat-badge cat-badge--hot cat-badge--cat-title">
+                    hot
+                </div>
+            {/if}
         {/if}
     </div>
     <div class="category">

@@ -51,7 +51,7 @@
                             </span>
                         </a>
 
-                        {if $theme_settings.plugin_cic == 'sb' || $theme_settings.plugin_cic == 'menu_sb'}
+                        {if $theme_settings.plugin_cic != 'none' && ($theme_settings.plugin_cic == 'sb' || $theme_settings.plugin_cic == 'menu_sb')}
                             {if !empty($subcat.params.cic_category_items)}
                                 <span class="menu-product-count menu-product-count--sb-menu">
                                     {$subcat.params.cic_category_items}
