@@ -275,13 +275,15 @@ $html-font-size: 14px;
 }
 
 .product_page .product_add2cart .addtocart {
+  height: 39px;
+  line-height: 39px;
+  position: relative;
+  border: none;
+}
+.product_page .product_add2cart .addtocart.added {
   height: 37px;
   line-height: 37px;
-  border: 1px solid transparent;
-  position: relative;
-
 }
-
 @media (max-width: 912px) {
   .product_add2cart .addtocart {
     margin: 0 rem(10px) rem(10px) 0;
@@ -7974,10 +7976,31 @@ button.owl-dot {
   flex-wrap: wrap;
 
   .button {
-    padding: rem(6px) rem(10px);
+    padding: 0;
+    height: 34px;
+    line-height: 34px;
+    width: 100px;
+  }
+  .button.added {
+    height: 32px;
+    line-height: 32px;
+    width: 98px;
   }
 }
-
+@media (max-width: 640px) {
+  .Product-grid_bottom {
+    .button {
+      height: 30px;
+      line-height: 30px;
+      width: 90px;
+    }
+    .button.added {
+      height: 28px;
+      line-height: 28px;
+      width: 88px;
+    }
+  }
+}
 .button.disabled {
   background: #d5d5d5 !important;
   color: #000;
@@ -8175,7 +8198,7 @@ span.grid-gallery__el.js-grid-gallery-item {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  border: 1px solid transparent;
+  border: none;
 
   &.added {
     background: transparent;
@@ -8187,25 +8210,33 @@ span.grid-gallery__el.js-grid-gallery-item {
 }
 
 .Product-grid_bottom .button {
-  padding: 0.5rem 0.8rem;
+
+}
+.Product-grid_bottom .button.added {
+
 }
 
 
 @media (max-width: 640px) {
   .Product-grid_bottom .button {
-    padding: 0.5rem 0.8rem;
+
+  }
+}
+@media (max-width: 640px) {
+  .Product-grid_bottom .button {
+
   }
 }
 
 @media (max-width: 485px) {
   .Product-grid_bottom .button {
-    padding: 0.4rem 0.8rem;
+
   }
 }
 
 @media(max-width: 353px) {
   .Product-grid_bottom .button {
-    padding: rem(3px) rem(10px);
+
   }
 }
 

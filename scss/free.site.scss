@@ -2047,6 +2047,9 @@ img.mfp-img {
 
 .header_currency__selected {
   font-weight: 700;
+}
+
+.header_currency > .header_currency__selected {
   margin-left: 5px;
 }
 
@@ -3785,7 +3788,7 @@ ul.pages-list li a {
   z-index: 122;
   top: 100%;
   margin: 0;
-  right: -16px;
+  right: 0px;
   display: none;
 }
 
@@ -3978,13 +3981,15 @@ textarea {
 
 .button, .button-link, button, input[type=button], input[type=submit] {
   font-size: 1.2rem;
-  padding: 0.6rem 2rem;
+  line-height: 35px;
+  height: 35px;
+  padding: 0 15px;
   outline: none;
   cursor: pointer;
   white-space: nowrap;
   display: inline-block;
   text-decoration: none;
-  border: 1px solid transparent;
+  border: none;
   text-align: center;
 }
 
