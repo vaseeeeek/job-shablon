@@ -74,6 +74,24 @@
                         {/if}
 
                         <div class="menu-element {if $_subcat}js-cat-subs-{if $view_subcat == "one_column"}dropdown{else}disclosed{/if} has-subs{/if} cat-menu__item{if $theme_settings.position_drop_down_categories == "parent"} pos-rel {/if}">
+                            {if $theme_settings.get_menu_from == 'app-menu' && $theme_settings.id_image_app_menu}
+                                {$cat.params.menuIcon = $cat[$theme_settings.id_image_app_menu]}
+                            {else}
+                                {if class_exists('shopWmimageincatPlugin') && $theme_settings.get_menu_from != 'app-menu'}
+                                    {$Wmimages = shopWmimageincatPlugin::getCategoryImageObj()}
+                                {/if}
+                                {if isset($Wmimages[$cat.id].icon)}
+                                    {$cat.params.menuIcon = $Wmimages[$cat.id].icon}
+                                {/if}
+                            {/if}
+
+
+                            {if !empty($cat.params.menuIcon)}
+                                <span class="cat-menu__item--icon">
+                                    <img src="{$cat.params.menuIcon}" alt="">
+                                </span>
+                            {/if}
+
                             {if $_subcat}
                                 <i class="js-cat-item-caret fi-rr-angle-small-right"></i>
                             {/if}

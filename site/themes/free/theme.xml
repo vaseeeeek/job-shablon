@@ -1368,7 +1368,7 @@
       <name locale="ru_RU">Артикул в "плитке"</name>
     </setting>
     <setting var="show_number_item_add_in_grid" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="en_US">Qty field in the "line by grid"</name>
       <name locale="ru_RU">Поле кол-во в виде "плитка"</name>
     </setting>
