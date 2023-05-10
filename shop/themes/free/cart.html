@@ -268,8 +268,7 @@
                                                             {if isset($s.variants)}
                                                                 <select name="service-option[{$item.id}][{$service_id}]" {if empty($s.id)}disabled{/if}>
                                                                     {foreach $s.variants as $variant_id => $v}
-                                                                        <option {if $s.variant_id == $variant_id}selected{/if}
-                                                                                value="{$variant_id}">{$v.name|escape}
+                                                                        <option {if $s.variant_id == $variant_id}selected{/if} value="{$variant_id}">{$v.name|escape}
                                                                             (+{shop_currency($v.price, $s.currency)})
                                                                         </option>
                                                                     {/foreach}
