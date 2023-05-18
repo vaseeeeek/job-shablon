@@ -197,7 +197,7 @@
         {$products_images = $wa->shop->images($products_ids, $size_image)}
     {/if}
     <div class="products-{$CategoryViewProducts}-outer">
-        {$product_preview_images_lazy = true}
+        {$product_preview_images_lazy = false}
         <div {if $product_preview_images_lazy}data-image-lazy="1"{/if} class="js-preview-products products-{$CategoryViewProducts} {if !empty($ulclass)} {$ulclass}{/if}"{if isset($attr)} {$attr}{/if}>
             {$features = []}
             {$_features_product_list = !empty($theme_settings.product_show_list_features) && $CategoryViewProducts == 'list'}

@@ -434,7 +434,7 @@
       <name locale="en_US">Display contact block by call button</name>
     </setting>
     <setting var="show_burger_header" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Показать бургер в шапкe</name>
       <name locale="en_US">Show burger header</name>
     </setting>
@@ -808,7 +808,7 @@
       <name locale="en_US">Number of categories of level 2</name>
     </setting>
     <setting var="category_row_home" control_type="select">
-      <value>eight</value>
+      <value>six</value>
       <name locale="ru_RU">
                 Количество категорий в строке на главной
             </name>

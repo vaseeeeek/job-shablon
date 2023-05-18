@@ -376,16 +376,6 @@
                                 за {$product.features['yedinitsa_izmereniya']}
                             </span>
                         {/if}
-
-                        {if $theme_settings.product_show_multi_sku && $theme_settings.product_item_name_display == 'purchase_block'}
-                            <div class="pd-code__box">
-                                {foreach $product.skus as $sku}
-                                    <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
-                                        {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$sku.sku|escape}</span>{/if}
-                                    </span>
-                                {/foreach}
-                            </div>
-                        {/if}
                         {$_badge_percent = $theme_settings.product_discount_percentage == 1}
                         {if $_badge_percent}
                             {if $theme_settings.product_discount_percentage == 1}
@@ -401,6 +391,16 @@
                                     <span data-minimal="3" class="js-product-discount ">{if $productDiscount}-{$discount}%{/if}</span>
                                 </div>
                             {/if}
+                        {/if}
+
+                        {if $theme_settings.product_show_multi_sku && $theme_settings.product_item_name_display == 'purchase_block'}
+                            <div class="pd-code__box">
+                                {foreach $product.skus as $sku}
+                                    <span class="js-pd-code pd-code sku-{$sku.id}-pd-code" {if $sku.id != $product.sku_id}style="display:none"{/if}>
+                                        {if isset($sku.sku) && !empty($sku.sku)}<span class="hint">[`Vendor code`]:</span> <span itemprop="sku">{$sku.sku|escape}</span>{/if}
+                                    </span>
+                                {/foreach}
+                            </div>
                         {/if}
                     </div>
                     {$wa->block("product_after_price")}
