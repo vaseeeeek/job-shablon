@@ -206,3 +206,27 @@
         </form>
     </div>
 {/strip}
+{if class_exists('shopColorfeaturesproPlugin')}
+    {$colorfeaturespro = shopColorfeaturesproPlugin::getAllColors()}
+    <script>
+        $(document).on('ready', function(){
+            const colorfeaturespro = {json_encode($colorfeaturespro)}
+
+            // Получаем все элементы с классом option-color_text
+            const optionColorTextElements = document.querySelectorAll('.option-color_text');
+
+            // Итерируемся по каждому элементу и проверяем, есть ли совпадение с текстом из массива colorfeaturespro
+            optionColorTextElements.forEach((element) => {
+                colorfeaturespro.forEach((color) => {
+                    if (element.textContent.trim() === color.name) {
+                        // Если совпадение найдено, заменяем значение style у родительского элемента с классом filter-option-color
+                        const filterOptionColorElement = $(element).siblings('.filter-option-color')[0];
+                        if (filterOptionColorElement) {
+                            filterOptionColorElement.style = color.style;
+                        }
+                    }
+                });
+            });
+        })
+    </script>
+{/if}

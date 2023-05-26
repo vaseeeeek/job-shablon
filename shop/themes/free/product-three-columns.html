@@ -360,6 +360,7 @@
                         <span{if !empty($text_zero_price)} data-zero-text="{$text_zero_price}"{/if} data-price="{shop_currency($product.price, null, null, 0)}" class="product__price price nowrap">
                             {if !empty($text_zero_price) && $product.price == 0}
                                 <span class="product_nul-price">{$text_zero_price}</span>
+                                <input type="button" value="Запрос цены" class="price-req-button">
                             {else}
                                 {shop_currency_html($product.price)}
                             {/if}

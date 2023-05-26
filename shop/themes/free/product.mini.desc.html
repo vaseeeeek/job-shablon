@@ -146,3 +146,29 @@
         </div>
     {/if}
 {/strip}
+
+{if class_exists('shopColorfeaturesproPlugin')}
+    {$colorfeaturespro = shopColorfeaturesproPlugin::getAllColors()}
+    <script>
+        const colorfeaturespro = {json_encode($colorfeaturespro)}
+
+        // Находим элементы с классом Product__features-value
+        const productFeaturesValues = document.querySelectorAll('.Product__features-value');
+
+        // Проходимся по каждому элементу
+        productFeaturesValues.forEach((valueElement) => {
+            // Получаем текст между тегами span
+            const valueText = valueElement.textContent;
+
+            // Ищем соответствующий объект в массиве colorfeaturespro
+            const matchingColor = colorfeaturespro.find((color) => color.name === valueText);
+
+            // Если нашли соответствующий объект, заменяем значение style у тега i
+            if (matchingColor) {
+                const iconElement = valueElement.querySelector('i');
+                iconElement.style = matchingColor.style;
+            }
+        });
+
+    </script>
+{/if}
