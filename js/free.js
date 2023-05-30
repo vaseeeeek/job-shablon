@@ -947,7 +947,7 @@ var categoriesMainMenu = {
 
             if (subMenuPos) {
                 if (submenu.length) {
-                    catMenuMarginRight += 278;
+                    catMenuMarginRight += 293;
                     //if (hoverTime) {
                     submenu.stop(true).delay(150).fadeIn(1);
                     //} else {
@@ -1013,7 +1013,7 @@ var categoriesMainMenu = {
                 submenu = $this.find('.js-subcategory-menu').first(),
                 subMenuPos = submenu.css("position") == 'absolute',
                 catMenuWrap = $this.closest('.js-category-menu-wrap'),
-                catMenuMarginRight = 278,
+                catMenuMarginRight = 293,
                 parent = $this.closest('.js-cat-subs-dropdown');
 
 
@@ -3212,7 +3212,7 @@ Product.prototype.updatePrice = function (price, compare_price) {
 
 Product.prototype.updateArrivedBtn = function () {
     if ($('.plugin_arrived-button').length > 0) {
-        if ($('.product_add-services--box').find('.js-submit-form').hasClass('disabled')) {
+        if ($('.product-actions').find('.js-submit-form').hasClass('disabled')) {
             $('.plugin_arrived-button').fadeIn();
         } else {
             $('.plugin_arrived-button').fadeOut();

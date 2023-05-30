@@ -1775,10 +1775,10 @@ iframe {
 }
 
 .dd-wrap {
-  background: #fff;
+  // background: #fff;
   position: relative;
   transition: 0.5s all ease;
-  box-shadow: 0 20px 24px rgb(0 0 0 / 10%);
+  // box-shadow: 0 20px 24px rgb(0 0 0 / 10%);
 
   .category-menu {
     border-right: 1px solid #ebebeb;
@@ -2302,6 +2302,9 @@ img.mfp-img {
   }
 
   .-list-hide {
+    .footer_menu {
+      display: none;
+    }
     .footer-col__list {
       display: none;
     }
@@ -2903,7 +2906,7 @@ img.mfp-img {
 }
 
 .category-menu {
-  width: 278px;
+  width: 293px;
   background: #fff;
   border-top: none;
   padding-right: 10px;
@@ -2952,7 +2955,7 @@ header .cat-menu__item-title {
   padding: 0.6rem 0 0.6rem 1.071rem;
   &.cat-menu__item-title--has-image {
     position: relative;
-    padding-left: 40px;
+    padding-left: 42px;
 
     .cat-menu__item--icon {
       position: absolute;
@@ -3028,17 +3031,17 @@ header .cat-menu__item-title {
 
 .menu-subcategory {
   vertical-align: top;
-  width: 278px;
+  width: 293px;
   box-sizing: border-box;
   position: absolute;
-  left: 278px;
+  left: 293px;
   top: 0;
   background: #fff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 
   &.menu-subcategory--disclosed {
-    width: calc(1440px - 278px);
+    width: calc(1440px - 293px);
   }
 }
 
@@ -3064,7 +3067,7 @@ header .cat-menu__item-title {
 }
 
 .menu-subcategory .menu-subcategory {
-  left: 278px;
+  left: 293px;
 }
 
 .menu-subcategory--disclosed {
@@ -3091,7 +3094,7 @@ header .cat-menu__item-title {
     vertical-align: top;
     box-sizing: border-box;
     font-size: rem(14px);
-    width: 278px;
+    width: 293px;
   }
 }
 
@@ -4836,7 +4839,7 @@ input[type="submit"] {
 
       .Nav__horizontal--list-2 {
         flex-direction: column;
-        width: 278px;
+        width: 293px;
         padding: 0;
         border-right: 1px solid #ebebeb;
 
@@ -4872,7 +4875,7 @@ input[type="submit"] {
             display: none;
             margin-top: 0;
             position: absolute;
-            width: 278px;
+            width: 293px;
             top: 0;
             padding: 0;
 
@@ -4968,9 +4971,9 @@ input[type="submit"] {
 
   &--list--transparent {
     .Nav__horizontal--list-2 .Nav__horizontal--list-3 {
-      background: transparent !important;
-      box-shadow: none !important;
-      min-height: 100%;
+      // background: transparent !important;
+      // box-shadow: none !important;
+      // min-height: 100%;
 
       .Nav__horizontal--item-3 {
         background: #fff;
