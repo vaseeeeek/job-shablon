@@ -235,7 +235,7 @@
                         {/if}
                     </div>
                 </div>
-                <div class="js-add2cart product_add2cart{if $wa->isMobile() && $theme_settings.product_fixed_add2cart_panel} js-fixed-add2cart-panel{/if}">
+                <div class="js-add2cart product_add2cart">
                     <div class="product_prices{if $product.compare_price} -hasComparePrice{/if}">
                         {$text_zero_price = $theme_settings.text_zero_price}
                         <span{if !empty($text_zero_price)} data-zero-text="{$text_zero_price}"{/if} data-price="{shop_currency($product.price, null, null, 0)}" class="product__price price nowrap">
@@ -401,7 +401,8 @@
                                 {/if}
                             </div>
                         {/if}
-                        {if $theme_settings.display_buy_one_click}</div>{/if}
+                        {shopArrivedPlugin::getListFormHtml($product)}
+                    {if $theme_settings.display_buy_one_click}</div>{/if}
                 </div>
 
                 <!-- plugin hook: 'frontend_product.cart' -->

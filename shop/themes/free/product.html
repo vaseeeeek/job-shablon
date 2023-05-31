@@ -582,6 +582,11 @@
     })(jQuery);
 </script>
 
+{if $wa->isMobile() && $theme_settings.product_fixed_add2cart_panel}
+    <div class="js-fixed-add2cart-panel">
+        <span class="button" data-added-text="В корзине">[`Add to cart`]</span>
+    </div>
+{/if}
 
 {/strip}
 
