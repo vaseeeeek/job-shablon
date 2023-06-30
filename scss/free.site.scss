@@ -197,8 +197,8 @@ textarea {
 }
 
 .disable-body-scrolling {
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh!important;
+  overflow: hidden!important;
 }
 
 details,
