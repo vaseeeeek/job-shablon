@@ -109,7 +109,9 @@
 
         {if !empty($cat.params.cat_menu_banner)}
             <div class="sub-category_col">
-                <img src="{$cat.params.cat_menu_banner}" alt="">
+                {if !empty($cat.params.cat_menu_banner_url)}<a href="{$cat.params.cat_menu_banner_url}" class="sub-category__banner">{/if}
+                    <img src="{$cat.params.cat_menu_banner}" alt="">
+                {if !empty($cat.params.cat_menu_banner_url)}</a>{/if}
             </div>
         {/if}
     </div>

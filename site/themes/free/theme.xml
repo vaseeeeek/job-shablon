@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE theme PUBLIC "wa-app-theme" "http://www.webasyst.com/wa-content/xml/wa-app-theme.dtd">
-<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.1.1" edition="14">
+<theme id="free" system="0" vendor="953700" author="ardoz" app="site" version="1.1.1" edition="17">
   <name locale="en_US">Free</name>
   <name locale="ru_RU">Free</name>
   <description locale="en_US">The Free family of themes for Webasyst applications.
@@ -8,7 +8,7 @@
   <description locale="ru_RU">Семейство тем Free для приложений Webasyst.
     </description>
   <files>
-    <file path="index.html" custom="0" modified="1">
+    <file path="index.html" custom="0" modified="0">
       <description locale="ru_RU"/>
     </file>
     <file path="site.css" custom="0">
@@ -77,7 +77,7 @@
       <name locale="ru_RU">Цвета и шрифт</name>
     </setting>
     <setting var="color_scheme" control_type="image_select">
-      <value>img/themesettings/yandex.png</value>
+      <value>img/themesettings/ozon.png</value>
       <name locale="ru_RU">Цветовая схема</name>
       <name locale="en_US">Сolor scheme</name>
       <options>
@@ -150,7 +150,7 @@
       <name locale="en_US"/>
     </setting>
     <setting var="font" control_type="select">
-      <value>montserrat</value>
+      <value>opensans</value>
       <name locale="ru_RU">Шрифт</name>
       <description locale="ru_RU">Кроме двух первых, шрифты из google fonts по-убыванию популярности.
             </description>
@@ -247,12 +247,12 @@
       <name locale="ru_RU">Общие настройки</name>
     </setting>
     <setting var="telegram" control_type="text">
-      <value>https://t.me/bigsmokekrsk</value>
+      <value/>
       <name locale="en_US">Telegram</name>
       <name locale="ru_RU">Telegram</name>
     </setting>
     <setting var="whatsapp" control_type="text">
-      <value>https://api.whatsapp.com/send?phone=79676134545</value>
+      <value/>
       <name locale="en_US">WhatsApp</name>
       <name locale="ru_RU">WhatsApp</name>
     </setting>
@@ -355,7 +355,7 @@
       <name locale="en_US">html code of the block when hovering over the phone</name>
     </setting>
     <setting var="header_company_phone_two" control_type="text">
-      <value>+7 (495) 333-33-33</value>
+      <value/>
       <name locale="ru_RU">Второй телефон</name>
       <name locale="en_US">Second phone</name>
     </setting>
@@ -410,7 +410,7 @@
       <name locale="en_US">Plugin "Auto-detection and city selection"</name>
     </setting>
     <setting var="fixed_panel_array" control_type="text">
-      <value>burger,cart,compare,favorite,filter,profile,order</value>
+      <value>burger,cart,compare,favorite,filter,profile</value>
       <name locale="ru_RU">Нижнее меню на мобильных</name>
       <name locale="en_US"/>
       <description locale="ru_RU">По-умолчанию - burger,cart,compare,favorite,filter,phone,profile
@@ -434,7 +434,7 @@
       <name locale="en_US">Display contact block by call button</name>
     </setting>
     <setting var="show_burger_header" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Показать бургер в шапкe</name>
       <name locale="en_US">Show burger header</name>
     </setting>
@@ -522,7 +522,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий
@@ -549,7 +549,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value>app</value>
+      <value></value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -573,12 +573,12 @@
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu" control_type="checkbox">
-      <value></value>
+      <value/>
       <name locale="ru_RU">Выпадающее горизонтальное меню</name>
       <name locale="en_US"/>
     </setting>
     <setting var="drop_down_horizontal_menu_absolute" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Вывод горизонтального меню относительно наведения</name>
       <name locale="en_US"/>
     </setting>
@@ -659,25 +659,10 @@
       </options>
     </setting>
     <setting var="homepage_slider_text_position" control_type="text">
-      <value>left,right</value>
+      <value>left,left,left,left,left</value>
       <name locale="ru_RU">Позиция текста слайдер</name>
       <name locale="en_US">Text slider position</name>
     </setting>
-    <!--    <setting var="homepage_slider_text_position" control_type="select">-->
-    <!--      <value>left</value>-->
-    <!--      <name locale="ru_RU">Позиция текста слайдер</name>-->
-    <!--      <name locale="en_US">Text slider position</name>-->
-    <!--      <options>-->
-    <!--        <option value="left">-->
-    <!--          <name locale="ru_RU">Слева</name>-->
-    <!--          <name locale="en_US">Left</name>-->
-    <!--        </option>-->
-    <!--        <option value="right">-->
-    <!--          <name locale="ru_RU">Справа</name>-->
-    <!--          <name locale="en_US">Right</name>-->
-    <!--        </option>-->
-    <!--      </options>-->
-    <!--    </setting>-->
     <setting var="homepage_banner_autoscroll" control_type="checkbox">
       <value/>
       <name locale="en_US">Slider autoscroll</name>
@@ -722,7 +707,7 @@
       <name locale="ru_RU">Промо карточки</name>
     </setting>
     <setting var="promo_cards_show" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Выводить промо карточки</name>
       <name locale="en_US">Display promo cards</name>
     </setting>
@@ -1241,7 +1226,7 @@
       </options>
     </setting>
     <setting var="category_image_size_manual" control_type="text">
-      <value/>
+      <value><![CDATA[75]]></value>
       <name locale="ru_RU">
                 Контейнер фото (произвольный)
             </name>
@@ -1368,12 +1353,12 @@
       <name locale="ru_RU">Артикул в "плитке"</name>
     </setting>
     <setting var="show_number_item_add_in_grid" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Qty field in the "line by grid"</name>
       <name locale="ru_RU">Поле кол-во в виде "плитка"</name>
     </setting>
     <setting var="grid_sku_article_column" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Moving the "article" line under "availability"</name>
       <name locale="ru_RU">Перенос строки "артикула" под "наличие" в виде - плитка</name>
     </setting>
@@ -1468,7 +1453,7 @@
       <name locale="ru_RU">Кол-во показываемых тегов</name>
     </setting>
     <setting var="other_page_leftsb" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="en_US">Sidebar on other pages</name>
       <name locale="ru_RU">Сайдбар на других страницах</name>
     </setting>
@@ -1569,7 +1554,7 @@
             </description>
     </setting>
     <setting var="product_image_proportions" control_type="select">
-      <value>auto</value>
+      <value>vertical 1</value>
       <name locale="en_US">Image proportions</name>
       <name locale="ru_RU">Пропорции изображения</name>
       <options>
@@ -1849,7 +1834,7 @@
       <name locale="en_US">Show total price</name>
     </setting>
     <setting var="product_fixed_add2cart_panel" control_type="checkbox">
-      <value>1</value>
+      <value/>
       <name locale="ru_RU">Фиксированная кнопка купить</name>
       <name locale="en_US">Fixed button buy</name>
     </setting>
@@ -1864,7 +1849,7 @@
       <name locale="ru_RU">Ссылки на webasyst</name>
     </setting>
     <setting var="logo_footer" control_type="image">
-      <value>img/logo_footer.png?v1658423713</value>
+      <value>img/logo_footer.png?v1687167616</value>
       <filename>img/logo_footer.*</filename>
       <name locale="en_US">Logo</name>
       <name locale="ru_RU">Логотип</name>
@@ -1890,12 +1875,12 @@
       <name locale="ru_RU">Telegram группа</name>
     </setting>
     <setting var="vk" control_type="text">
-      <value>https://vk.com/bigsmokekrasnoyarsk</value>
+      <value/>
       <name locale="en_US">VK</name>
       <name locale="ru_RU">VK</name>
     </setting>
     <setting var="odnoklassniki" control_type="text">
-      <value>google.com</value>
+      <value>#</value>
       <name locale="en_US">OK</name>
       <name locale="ru_RU">OK</name>
     </setting>
@@ -1924,12 +1909,12 @@
             </description>
     </setting>
     <setting var="copyright" control_type="text">
-      <value>2022 © Free - бесплатный шаблон для Shop-Script. бесплатный шаблон для Shop-Script.бесплатный шаблон для Shop-Script.</value>
+      <value>2022 © Free - бесплатный шаблон для Shop-Script.</value>
       <name locale="en_US">Copyright</name>
       <name locale="ru_RU">Копирайт</name>
     </setting>
     <setting var="footer_type" control_type="select">
-      <value>2</value>
+      <value>1</value>
       <name locale="ru_RU">Варианты вывода подвала сайта</name>
       <name locale="en_US">Website footer output options</name>
       <options>
@@ -2081,7 +2066,9 @@
       <name locale="en_US">plugin breadcrumbs</name>
     </setting>
     <setting var="plugin_cic" control_type="select">
-      <value>menu_sb</value>
+      <value>menu</value>
+      <name locale="ru_RU">Места вывода параметров плагина cic</name>
+      <name locale="en_US">Places to display cic plugin parameters</name>
       <options>
         <option value="menu">
           <name locale="ru_RU">В меню</name>
@@ -2100,8 +2087,6 @@
           <name locale="en_US">Don't output</name>
         </option>
       </options>
-      <name locale="ru_RU">Места вывода параметров плагина cic</name>
-      <name locale="en_US">Places to display cic plugin parameters</name>
     </setting>
   </settings>
   <locales>

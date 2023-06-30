@@ -56,7 +56,7 @@
       <description locale="en_US">Blog’s header content</description>
       <description locale="ru_RU">Шапка страниц «Блога»</description>
     </file>
-    <file path="main.html" custom="0" modified="1">
+    <file path="main.html" custom="0" modified="0">
       <description locale="en_US">Blog’s main content layout and navigation</description>
       <description locale="ru_RU"></description>
     </file>

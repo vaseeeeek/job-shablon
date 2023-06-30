@@ -4515,10 +4515,14 @@ input[type="submit"] {
     left: -100%;
     top: 0;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: 100vh;
     z-index: 100;
     transition: 0.2s;
-    padding: 0 12px;
+    padding: 0 12px 70px 12px;
+  }
+  
+  .menu-element.active .menu-subcategory,
+  .menu-element.active .-hideList {
     overflow: auto;
   }
 
@@ -5228,7 +5232,7 @@ input[type="submit"] {
 
 @media (max-width: 1025px) {
   body.mobile .header {
-    padding-top: 20px;
+    padding-top: 10px;
     position: relative;
 
     .container {
@@ -6786,6 +6790,7 @@ body > jdiv > jdiv > jdiv[class^="mobileContainer_"] {
 #themeOverride .checkout-step-content .jq-checkbox {
   width: 20px;
   height: 20px;
+  top: 4px;
 }
 
 .marketplace__list {

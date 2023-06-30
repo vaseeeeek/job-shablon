@@ -2847,10 +2847,6 @@ input.error, textarea.error {
   justify-content: flex-end;
 }
 
-.checkout-submit-btn .button {
-  line-height: initial;
-}
-
 .checkout-submit-btn.blocked input[type=submit] {
   display: none !important;
 }

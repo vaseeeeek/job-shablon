@@ -401,7 +401,9 @@
                                 {/if}
                             </div>
                         {/if}
-                        {shopArrivedPlugin::getListFormHtml($product)}
+                        {if class_exists('shopArrivedPlugin')}
+                            {shopArrivedPlugin::getListFormHtml($product)}
+                        {/if}
                     {if $theme_settings.display_buy_one_click}</div>{/if}
                 </div>
 

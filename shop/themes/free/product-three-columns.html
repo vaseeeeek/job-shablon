@@ -156,7 +156,7 @@
                                                         <meta itemprop="price" content="{$sku.price}">
                                                         <meta itemprop="priceCurrency" content="{$product.currency}">
                                                         <meta itemprop="url" content="{$wa->domainUrl()}/product/{$product.url}">
-                                                        {$skuImgSrc}
+                                                        {$skuImgSrc = ''}
                                                         {if !empty($sku['image_id'])}
                                                             {$skyUmgId = $sku['image_id']}
                                                             {$skuImgSrc = $product.images[$skyUmgId]['url_crop']}
@@ -521,7 +521,9 @@
                                 {/if}
                             </div>
                         {/if}
-                        {shopArrivedPlugin::getListFormHtml($product)}
+                        {if class_exists('shopArrivedPlugin')}
+                            {shopArrivedPlugin::getListFormHtml($product)}
+                        {/if}
                     {if $theme_settings.display_buy_one_click}</div>{/if}
                 </div>
 
