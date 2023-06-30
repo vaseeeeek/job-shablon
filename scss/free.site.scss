@@ -4523,7 +4523,9 @@ input[type="submit"] {
   
   .menu-element.active .menu-subcategory,
   .menu-element.active .-hideList {
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .-hideList.open {
