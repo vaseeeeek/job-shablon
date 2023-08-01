@@ -6104,6 +6104,7 @@ void 0 === jQuery.migrateMute && (jQuery.migrateMute = !0),
                     s = this.options,
                     o = !(!navigator.userAgent.match(/(iPad|iPhone|iPod)/i) || navigator.userAgent.match(/(Windows\sPhone)/i)),
                     a = !(!navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/(Windows\sPhone)/i));
+
                 if (n.is(":checkbox")) {
                     var r = function () {
                         var i = new e,
@@ -6141,7 +6142,7 @@ void 0 === jQuery.migrateMute && (jQuery.migrateMute = !0),
                         })
                     };
                     r(), n.on("refresh", function () {
-                        n.closest("label").add('label[for="' + n.attr("id") + '"]').off(".styler"), n.off(".styler").parent().before(n).remove(), r()
+                       n.closest("label").add('label[for="' + n.attr("id") + '"]').off(".styler"), n.off(".styler").parent().before(n).remove(), r()
                     })
                 } else if (n.is(":radio")) {
                     var l = function () {

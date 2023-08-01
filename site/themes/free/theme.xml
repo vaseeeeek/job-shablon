@@ -522,7 +522,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value>1</value>
+      <value></value>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий
@@ -549,7 +549,7 @@
       <name locale="ru_RU">ID из приложения Управление меню</name>
     </setting>
     <setting var="horizontal_menu" control_type="select">
-      <value></value>
+      <value>cat</value>
       <name locale="ru_RU">Вывод горизонтального меню</name>
       <name locale="en_US"/>
       <options>
@@ -599,7 +599,7 @@
       </name>
     </setting>
     <setting var="show_brands_menu" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">
         Вывести бренды в меню
       </name>
@@ -1226,7 +1226,7 @@
       </options>
     </setting>
     <setting var="category_image_size_manual" control_type="text">
-      <value><![CDATA[75]]></value>
+      <value>75</value>
       <name locale="ru_RU">
                 Контейнер фото (произвольный)
             </name>

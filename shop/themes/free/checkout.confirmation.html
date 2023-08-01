@@ -71,7 +71,19 @@
         {if waRequest::method() == 'post' && !$wa->post('terms')}
             <p class="error">[`You must read and agree to the Terms of service to place an order.`]</p>
         {/if}
-        <label><input type="checkbox" name="terms" value="1"> {sprintf('[`I have read and agree to the <a href="%s" target="_blank">Terms of service</a>`]', $wa->getUrl('/frontend/checkout', ['step' => 'confirmation'])|cat:'?terms=1')}</label>
+        <label>
+            <input type="checkbox" name="terms" value="1"> {sprintf('[`I have read and agree to the <a href="%s" target="_blank">Terms of service</a>`]', $wa->getUrl('/frontend/checkout', ['step' => 'confirmation'])|cat:'?terms=1')}
+        </label>
+        {* <br> *}
+        {* <label class="cart-agree">
+            <span class="js-style-check style-check fi-rr-check">
+                <input class="js-style-check-input" checked type="checkbox" name="soglasie" value="soglasie">
+                
+            </span>
+            <span>
+                {sprintf('[`I have read and agree to the <a href="%s" target="_blank">Terms of service</a>`]', $wa->getUrl('/frontend/checkout', ['step' => 'confirmation'])|cat:'?terms=1')}
+            </span>
+        </label> *}
         {/if}
 
     {/if}
