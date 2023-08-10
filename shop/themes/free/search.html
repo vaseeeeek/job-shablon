@@ -12,7 +12,7 @@
     {$class_product_list = "js-cat-list cat--list"}
     {$_not_paginate = 0}
 	{$_is_sorting=true}
-    {if $_is_search_pro}{$_is_sorting=false}{/if}
+    {if !empty($_is_search_pro)}{$_is_sorting=false}{/if}
     {if $wa->get('list') == 'favorites' || $wa->get('list') == 'viewed'}
         {$_not_paginate = 1}
 		{$_is_sorting=false}
@@ -50,7 +50,7 @@
         {$h1 = "[`Search by request`]"}
     {/if}
 
-    {if !$_is_search_pro || count($frontend_search) > 0}
+    {if !empty($_is_search_pro) || count($frontend_search) > 0}
         <div class="content-box{if $wa->get('list')} search-title-list{/if}">
             <h1>{$h1}</h1>
             {if $wa->get('list') && $products}
@@ -89,5 +89,5 @@
 {/if}
 
 {$wa->globals('isSearchPage', true)}
-{if $_is_search_pro}{$wa->globals('_is_search_proPage', true)}{/if}
+{if !empty($_is_search_pro)}{$wa->globals('_is_search_proPage', true)}{/if}
 {/strip}
