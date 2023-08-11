@@ -2929,7 +2929,7 @@ Product.prototype.updateTotalPrice = function () {
         })
 
         function getTotal() {
-            const price = $('.product__price.price').data('price') * $('[name="quantity"]').val();
+            const price = $('.product__price.price').attr('data-price') * $('[name="quantity"]').val();
             const currency = $('.product__price.price').find('span').clone();
             $('.product-total').text(` ${price.toLocaleString()} `);
             $('.product-total').prepend($('<span class="product-total__text">Итого:</span>'));
@@ -3252,6 +3252,7 @@ Product.prototype.updatePrice = function (price, compare_price) {
     if (price == 0 && textZeroPrice) {
         $priceWrap.html('<span class="product_nul-price">' + textZeroPrice + '</span>');
     } else {
+        console.log(priceFormat);
         $priceWrap.html(priceFormat);
     }
 
