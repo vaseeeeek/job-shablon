@@ -16,10 +16,9 @@
         {if $wa->menu && !empty($theme_settings.id_app_header_top_menu) && (int)$theme_settings.id_app_header_top_menu > 0}{$_links = $wa->menu->get($theme_settings.id_app_header_top_menu)}{/if}
     {elseif $theme_settings.links_information_pages == 'id-page'}
         {$arrIdPages = ","|explode:$theme_settings.header_id_pages}
-    {elseif $theme_settings.links_information_pages != 'none'}
+    {elseif $theme_settings.links_information_pages == 'waapps'}
         {$_links = $wa->apps()}
     {/if}
-
     {if count($_links) > 0}
         <nav id="header_menu-nav" class="header-top_nav">
             <ul class="js-resp-nav-top">

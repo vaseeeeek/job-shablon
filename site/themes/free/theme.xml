@@ -308,7 +308,7 @@
       <name locale="ru_RU">Выбор валюты</name>
     </setting>
     <setting var="links_information_pages" control_type="select">
-      <value>shop-pages</value>
+      <value>waapps</value>
       <name locale="ru_RU">Ссылки на инф. страницы</name>
       <name locale="en_US">Links to information pages</name>
       <description locale="ru_RU">Из какого приложения брать ссылки на инф. страницы.
@@ -327,6 +327,10 @@
         <option value="app-menu">
           <name locale="ru_RU">Из приложения меню</name>
           <name locale="en_US">From app menu</name>
+        </option>
+        <option value="waapps">
+          <name locale="ru_RU">Меню wa-&gt;apps</name>
+          <name locale="en_US">Menu wa-&gt;apps</name>
         </option>
         <option value="none">
           <name locale="ru_RU">Не показывать</name>
@@ -444,7 +448,7 @@
       <name locale="en_US">Show burger header</name>
     </setting>
     <setting var="show_search_burger" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Вывести поиск в бургере</name>
       <name locale="en_US">Show the search in the burger</name>
     </setting>
@@ -522,7 +526,7 @@
       </options>
     </setting>
     <setting var="dd_menu_full_width" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Меню на всю ширину</name>
       <name locale="en_US"/>
       <description locale="ru_RU">Работает при выборе "Разбивать категории на колонки" и "Позиция выпадающего списка категорий" - Блок в полную высоту категорий
@@ -611,7 +615,7 @@
       </name>
     </setting>
     <setting var="sticky_header" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">
         Прилипающая шапка
       </name>
@@ -1834,7 +1838,7 @@
       <name locale="en_US">Show total price</name>
     </setting>
     <setting var="product_fixed_add2cart_panel" control_type="checkbox">
-      <value/>
+      <value>1</value>
       <name locale="ru_RU">Фиксированная кнопка купить</name>
       <name locale="en_US">Fixed button buy</name>
     </setting>

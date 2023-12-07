@@ -360,7 +360,7 @@
                         <span{if !empty($text_zero_price)} data-zero-text="{$text_zero_price}"{/if} data-price="{shop_currency($product.price, null, null, 0)}" class="product__price price nowrap">
                             {if !empty($text_zero_price) && $product.price == 0}
                                 <span class="product_nul-price">{$text_zero_price}</span>
-                                <input type="button" value="Запрос цены" class="price-req-button">
+                                {* <input type="button" value="Запрос цены" class="price-req-button"> *}
                             {else}
                                 {shop_currency_html($product.price)}
                             {/if}
@@ -448,8 +448,7 @@
                                     {/if}
                                 {/function}
                                 {foreach $product.skus as $sku}
-                                    <div {if $sku.id != $product.sku_id}style="display:none"{/if}
-                                         class="sku-{$sku.id}-stock">
+                                    <div {if $sku.id != $product.sku_id}style="display:none"{/if} class="sku-{$sku.id}-stock">
                                         {if $sku.stock}
                                             <div class="stock__list">
                                                 {foreach $stocks as $stock_id => $stock}
@@ -526,8 +525,6 @@
                         {/if}
                     {if $theme_settings.display_buy_one_click}</div>{/if}
                 </div>
-
-
                 <!-- plugin hook: 'frontend_product.block_aux' -->
                 {* @event frontend_product.%plugin_id%.block_aux *}
                 {if !empty($frontend_product)}
@@ -545,6 +542,12 @@
                 {foreach $frontend_product as $_}
                     {if !empty($_.menu)}
                         {$_.menu}
+                    {/if}
+                {/foreach}
+
+                {foreach $frontend_product as $_}
+                    {if $_.cart}
+                        <div class="cart_plugin">{$_.cart}</div>
                     {/if}
                 {/foreach}
 

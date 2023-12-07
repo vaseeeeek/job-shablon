@@ -109,7 +109,14 @@
                         {/if}
                     </div>
                 </div>
-
+                {$albumId = shopProductalbumPlugin::getAlboms($product.id)}
+                
+                <button id="open-status-modal" data-product-id="{$product.id}">Выбрать статус</button>
+                <div id="status-modal" style="display:none;">
+                    <ul id="status-list">
+                        <!-- Здесь будут статусы -->
+                    </ul>
+                </div>
                 <div class="product-page_main js-product{if $theme_settings.product_number_columns == 'product_columns_three'} product-page_main--three-columns{/if}">
                     {$video = $product->video}
                     {$productGalleryOn = false}
@@ -660,3 +667,44 @@
         });
     </script>
 {/if}
+
+{literal}
+    <script>
+        $(document).ready(function() {
+            var currentURL = window.location.href; // Получаем текущий URL-адрес
+            var relativeURL = '/statusify/'; // Относительный URL, который вас интересует
+            var fullURL = new URL(relativeURL, currentURL).href; // Строим полный URL
+            
+            // Открытие модального окна
+            $('#open-status-modal').click(function() {
+                var product_id = $(this).data('product-id');
+                
+                // Получаем статусы с сервера
+                $.get(fullURL, { product_id: product_id })
+                    .done(function(response) {
+                        var statusList = $('#status-list');
+                        statusList.empty();
+                        const responseArray = JSON.parse(response); 
+                        for(let i = 0; i < responseArray.length; i++) {
+                            const status = responseArray[i];
+                            statusList.append('<li><button class="select-status" data-status-name="' + status.status_name + '">' + status.status_name + '</button></li>');
+                        }
+                        
+                        $('#status-modal').show();
+                    });
+            });
+        
+            // Выбор статуса
+            $(document).on('click', '.select-status', function() {
+                var status_name = $(this).data('status-name');
+                var product_id = $('#open-status-modal').data('product-id');
+                
+                // Сохраняем выбранный статус на сервере
+                $.post(fullURL, { product_id: product_id, status_name: status_name })
+                    .done(function(response) {
+                        $('#status-modal').hide();
+                    });
+            });
+        });
+    </script>
+{/literal}
