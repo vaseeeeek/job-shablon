@@ -2897,11 +2897,15 @@ function Product(form, options, skus = false) {
     this.updateQtyBox();
     this.updateBuyActionWrap();
     this.showMaxCountErrorModal();
+    this.setTriggerUpdatePrice();
     if (Object.keys(skus).length > 1) {
         this.updateFeatures(options);
     }
     if ($('.product-total').length > 0) {
         this.updateTotalPrice();
+    }
+    if ($('.product_bonus').length > 0) {
+        this.updateBonusTotal();
     }
 }
 
@@ -2913,28 +2917,35 @@ Product.prototype.resetServices = function () {
     });
 }
 
-Product.prototype.updateTotalPrice = function () {
-    $(function () {
-        $('.js-feature-sku').on('change', function () {
-            getTotal();
-        })
-        $('select.js-product-skus').on('change', function () {
-            getTotal();
-        })
-        $('.js-product-skus li').on('click', function (e) {
-            getTotal();
-        })
-        $('[name="quantity"]').on('change', function () {
-            getTotal();
-        })
+Product.prototype.setTriggerUpdatePrice = function () {
+    $('.js-feature-sku, select.js-product-skus, [name="quantity"]').on('change', function(){
+        $(document).trigger('priceUpdated');
+    })
+    $('.js-product-skus li').on('click', function(){
+        $(document).trigger('priceUpdated');
+    });
+}
 
-        function getTotal() {
-            const price = $('.product__price.price').attr('data-price') * $('[name="quantity"]').val();
+Product.prototype.updateTotalPrice = function () {
+    $(document).on('priceUpdated', function(){
+        setTimeout(function(){
+            const price = parseInt($('.product__price.price').text()) * $('[name="quantity"]').val();
             const currency = $('.product__price.price').find('span').clone();
             $('.product-total').text(` ${price.toLocaleString()} `);
             $('.product-total').prepend($('<span class="product-total__text">Итого:</span>'));
             $('.product-total').append(currency);
-        }
+        }, 1)
+    })
+}
+Product.prototype.updateBonusTotal = function () {
+    $(document).on('priceUpdated', function(){
+        setTimeout(function(){
+            const price = parseInt($('.product__price.price').text()) * $('[name="quantity"]').val();
+            const cfStr = $('.product_bonus').data('cf').toString().replace(',', '.');
+            const cf = parseFloat(cfStr);
+            const totalBonus = price * cf;
+            $('.product_bonus .product_bonus__num').text(totalBonus);
+        }, 1);
     })
 }
 
@@ -3252,7 +3263,6 @@ Product.prototype.updatePrice = function (price, compare_price) {
     if (price == 0 && textZeroPrice) {
         $priceWrap.html('<span class="product_nul-price">' + textZeroPrice + '</span>');
     } else {
-        console.log(priceFormat);
         $priceWrap.html(priceFormat);
     }
 

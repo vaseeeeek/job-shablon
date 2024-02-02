@@ -109,14 +109,16 @@
                         {/if}
                     </div>
                 </div>
-                {$albumId = shopProductalbumPlugin::getAlboms($product.id)}
-                
-                <button id="open-status-modal" data-product-id="{$product.id}">Выбрать статус</button>
-                <div id="status-modal" style="display:none;">
-                    <ul id="status-list">
-                        <!-- Здесь будут статусы -->
-                    </ul>
-                </div>
+                {if class_exists('shopProductalbumPlugin')}
+                    {$albumId = shopProductalbumPlugin::getAlboms($product.id)}
+                    
+                    <button id="open-status-modal" data-product-id="{$product.id}">Выбрать статус</button>
+                    <div id="status-modal" style="display:none;">
+                        <ul id="status-list">
+                            <!-- Здесь будут статусы -->
+                        </ul>
+                    </div>
+                {/if}
                 <div class="product-page_main js-product{if $theme_settings.product_number_columns == 'product_columns_three'} product-page_main--three-columns{/if}">
                     {$video = $product->video}
                     {$productGalleryOn = false}

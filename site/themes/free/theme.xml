@@ -1498,7 +1498,7 @@
       <name locale="en_US">Show all categories in crumbs</name>
     </setting>
     <setting var="product_number_columns" control_type="select">
-      <value>product_columns_three</value>
+      <value>product_columns_two</value>
       <name locale="ru_RU">Количество колонок на странице товара</name>
       <name locale="en_US">The number of columns on the product page</name>
       <options>
@@ -2034,7 +2034,7 @@
       <name locale="en_US">the id of the page, for the popap block above the "To order" text</name>
     </setting>
     <setting var="bonus_accrual_coefficient" control_type="text">
-      <value/>
+      <value>0.3</value>
       <name locale="ru_RU">Коэффициент начисления бонусов</name>
       <name locale="en_US">Bonus accrual coefficient</name>
       <description locale="ru_RU">При указании коэфицента, информация о начислении бонусов выводится в карточке
@@ -2045,7 +2045,7 @@
             </description>
     </setting>
     <setting var="bonus_accrual_text" control_type="text">
-      <value/>
+      <value>Текст описания бонусной программы</value>
       <name locale="ru_RU">Текст описания бонусной программы</name>
       <name locale="en_US">Bonus program description text</name>
     </setting>
