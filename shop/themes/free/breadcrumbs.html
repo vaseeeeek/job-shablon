@@ -56,43 +56,44 @@
         </ul>
     {/foreach}
 {/function}
-    {if $theme_settings.plugin_breadcrumbs}
-        {shopBreadcrumbsViewHelper::getBreadcrumbs()}
-    {else}
-        <div class="breadcrumbs--box">
-            {if $wa->currentUrl(false, true) != $wa_app_url}
-                <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-                    {if $theme_settings.home_crumbs}
-                        <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                            <a itemprop="item" href="{$wa_url}"><span itemprop="name">[`Home`]</span></a>
-                            {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
-                            <meta itemprop="position" content="{$position}">
-                        </li>
-                    {/if}
-                    {if (isset($breadcrumbs) && $breadcrumbs)}
-                        {foreach $breadcrumbs as $breadcrumb}
-                            {$nameCrumbsArray[] = $breadcrumb.name|escape}
-                            {if $breadcrumb}
-                                {$position = $position + 1}
-                                <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
-                                    <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last}<span class="rarr">&rarr;</span>{/if}
-                                    <meta itemprop="position" content="{$position}">
-                                </li>
-                            {/if}
-                        {/foreach}
-                    {/if}
-                    {if !empty($nameCurrentPage)}
-                        {if (isset($breadcrumbs) && !empty($breadcrumbs))} <span class="rarr">&rarr;</span> {/if}
-                        <li>{$nameCurrentPage|escape}</li>
-                    {/if}
-                </ul>
 
-                {if !empty($product) && $theme_settings.product_show_all_cat}
-                    {otherCrumbs categories=$product.categories nameCrumbsArray=$nameCrumbsArray}
+{if $theme_settings.plugin_breadcrumbs}
+    {shopBreadcrumbsViewHelper::getBreadcrumbs()}
+{else}
+    <div class="breadcrumbs--box">
+        {if $wa->currentUrl(false, true) != $wa_app_url}
+            <ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+                {if $theme_settings.home_crumbs}
+                    <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                        <a itemprop="item" href="{$wa_url}"><span itemprop="name">[`Home`]</span></a>
+                        {if (isset($breadcrumbs) && !empty($breadcrumbs)) || !empty($nameCurrentPage)} <span class="rarr">&rarr;</span> {/if}
+                        <meta itemprop="position" content="{$position}">
+                    </li>
                 {/if}
+                {if (isset($breadcrumbs) && $breadcrumbs)}
+                    {foreach $breadcrumbs as $breadcrumb}
+                        {$nameCrumbsArray[] = $breadcrumb.name|escape}
+                        {if $breadcrumb}
+                            {$position = $position + 1}
+                            <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+                                <a itemprop="item" href="{$breadcrumb.url}"><span itemprop="name">{$breadcrumb.name|escape}</span></a> {if !$breadcrumb@last}<span class="rarr">&rarr;</span>{/if}
+                                <meta itemprop="position" content="{$position}">
+                            </li>
+                        {/if}
+                    {/foreach}
+                {/if}
+                {if !empty($nameCurrentPage)}
+                    {if (isset($breadcrumbs) && !empty($breadcrumbs))} <span class="rarr">&rarr;</span> {/if}
+                    <li>{$nameCurrentPage|escape}</li>
+                {/if}
+            </ul>
+
+            {if !empty($product) && $theme_settings.product_show_all_cat}
+                {otherCrumbs categories=$product.categories nameCrumbsArray=$nameCrumbsArray}
             {/if}
-        </div>
-    {/if}
+        {/if}
+    </div>
+{/if}
 {/strip}
 
 <script>
